@@ -30,7 +30,7 @@ class RedirectIfAuthenticated
                     return redirect('/user');
                     break;
                 case 'perwakilan':
-                    return redirect('/perwakilan/dashboard');
+                    return redirect('/dashboard');
                     break; 
 
                 default:
