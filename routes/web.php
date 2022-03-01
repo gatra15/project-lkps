@@ -15,11 +15,6 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('auth.login',[
-        "title" => "Home"
-    ]);
-})->middleware('auth');
 
 Auth::routes();
 Route::group(['middleware' => 'auth:web'], function() {
@@ -37,7 +32,7 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('/user', [AdminController::class, 'index']);
         Route::get('/prodi', [AdminController::class, 'prodi']);
     });
-    
+
     Route::group(['middleware' => ['role:perwakilan']], function () {
         Route::get('/dashboard', [HomeController::class, 'index']);
 
