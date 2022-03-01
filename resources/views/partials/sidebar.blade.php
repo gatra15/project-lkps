@@ -11,27 +11,17 @@
           </li>       
         </ul>
 
-        @guest
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                {{ Auth::user()->roles->name[0]?? "" }}
-            </a>
-
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            </div>
-          </li>     
+        
+        <ul class="navbar-nav text-right  ml-auto flex-nowrap">
+          <li class="nav-item">
+            <form action="/logout" method="post"> 
+                @csrf
+                <button type="submit" class="form-control btn btn-secondary rounded submit px-3">Logout</button>
+            </form>
+            
+          </li>       
         </ul>
-        @endguest
+
       </nav>
 
       <!-- /.navbar -->
