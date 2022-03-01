@@ -46,7 +46,7 @@ class LoginController extends Controller
             return '/user';
             break;
           case 'perwakilan':
-            return '/'.$role.'/dashboard';
+            return '/dashboard';
             break; 
       
           default:

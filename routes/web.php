@@ -16,18 +16,12 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/user', [AdminController::class, 'index']);
     Route::get('/prodi', [AdminController::class, 'prodi']);
 });
 Route::group(['middleware' => ['role:perwakilan']], function () {
-    Route::get('/perwakilan/dashboard', [HomeController::class, 'index']);
+    Route::get('/dashboard', [HomeController::class, 'index']);
 });
