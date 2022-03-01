@@ -32,7 +32,32 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('/user', [AdminController::class, 'index']);
         Route::get('/prodi', [AdminController::class, 'prodi']);
     });
+    
     Route::group(['middleware' => ['role:perwakilan']], function () {
         Route::get('/dashboard', [HomeController::class, 'index']);
+
+        Route::get('/identitas-pengusul', [IdentitasPengusulController::class, 'index']);
+
+        Route::get('/tata-pamong-tata-kelola-kerjasama', [TataPamongController::class, 'index']);
+
+        Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+
+        Route::get('/sdm', [SdmController::class, 'index']);
+
+        Route::get('/profil-dosen', [ProfilDosenController::class, 'index']);
+
+        Route::get('/kinerja-dosen', [KinerjaDosenController::class, 'index']);
+
+        Route::get('/keuangan-sarana-prasarana', [KeuanganSaranaPrasaranaController::class, 'index']);
+
+        Route::get('/pendidikan', [PendidikanController::class, 'index']);
+
+        Route::get('/penelitian', [PenelitianController::class, 'index']);
+
+        Route::get('/pkm', [PengabdianController::class, 'index']);
+
+        Route::get('/luaran-capaian-tridharma', [LuaranController::class, 'index']);
+
+        Route::get('/matrik', [MatriksController::class, 'index']);
     });
 });
