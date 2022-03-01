@@ -17,11 +17,22 @@ use App\Http\Controllers\HomeController;
 */
 
 Auth::routes();
+Route::group(['middleware' => 'auth:web'], function() {
+    Route::get('/', function() {
+        if(Auth::user()->roles->pluck('name')[0] == 'admin') {
+            return redirect('/user');
+        } else if(Auth::user()->roles->pluck('name')[0] == 'auditor') {
+            return redirect('/audit');
+        } else {
+            return redirect('/dashboard');
+        }
+    });
 
-Route::group(['middleware' => ['role:admin']], function () {
-    Route::get('/user', [AdminController::class, 'index']);
-    Route::get('/prodi', [AdminController::class, 'prodi']);
-});
-Route::group(['middleware' => ['role:perwakilan']], function () {
-    Route::get('/dashboard', [HomeController::class, 'index']);
+    Route::group(['middleware' => ['role:admin']], function () {
+        Route::get('/user', [AdminController::class, 'index']);
+        Route::get('/prodi', [AdminController::class, 'prodi']);
+    });
+    Route::group(['middleware' => ['role:perwakilan']], function () {
+        Route::get('/dashboard', [HomeController::class, 'index']);
+    });
 });
