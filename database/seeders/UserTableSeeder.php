@@ -98,5 +98,12 @@ class UserTableSeeder extends Seeder
             'password' => Hash::make('audit123'),
         ]);
         $user->assignRole($auditor);
+
+        $user = User::create([
+            'name' => 'Pasyah Vegananda',
+            'email' => 'pasyah@admin.web.id',
+            'password' => Hash::make('pasyah069'),
+        ]);
+        $user->assignRole($admin);
     }
 }
