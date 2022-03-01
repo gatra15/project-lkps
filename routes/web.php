@@ -1,9 +1,21 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SdmController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LuaranController;
+use App\Http\Controllers\SimulasiController;
+use App\Http\Controllers\PendidikanController;
+use App\Http\Controllers\PenelitianController;
+use App\Http\Controllers\PengabdianController;
+use App\Http\Controllers\TataPamongController;
+use App\Http\Controllers\ProfilDosenController;
+use App\Http\Controllers\KinerjaDosenController;
+use App\Http\Controllers\TabMahasiswaController;
+use App\Http\Controllers\IdentitasPengusulController;
+use App\Http\Controllers\KeuanganSaranaPrasaranaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,7 +52,7 @@ Route::group(['middleware' => 'auth:web'], function() {
 
         Route::get('/tata-pamong-tata-kelola-kerjasama', [TataPamongController::class, 'index']);
 
-        Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+        Route::get('/mahasiswa', [TabMahasiswaController::class, 'index']);
 
         Route::get('/sdm', [SdmController::class, 'index']);
 
@@ -58,6 +70,6 @@ Route::group(['middleware' => 'auth:web'], function() {
 
         Route::get('/luaran-capaian-tridharma', [LuaranController::class, 'index']);
 
-        Route::get('/matrik', [MatriksController::class, 'index']);
+        Route::get('/simulasi', [SimulasiController::class, 'index']);
     });
 });

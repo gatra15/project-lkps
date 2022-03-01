@@ -1,4 +1,4 @@
-@extends('partials/sidebar')
+@extends('partials.sidebar')
 @extends('layouts.main')
 
 @section('content')
@@ -47,6 +47,9 @@ table.table-bordered > tbody > tr > td{
                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Deskripsi
                     </a>
+                    <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Tambah Data
+                    </a>
                 </p>
                 <div class="collapse" id="collapseExample">
                     <div class="card card-body">
@@ -60,9 +63,35 @@ table.table-bordered > tbody > tr > td{
                         TS = Tahun akademik penuh terakhir saat pengajuan usulan akreditasi.
                     </div> 
                 </div>
+                <input type="button" class="btn btn-primary" onclick="GeneratePdf();" value="Download">
+                <button class="btn btn-primary" id="printButton">
+                    Print
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        ...
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Tambah</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                
 {{-- CONTENT --}}
-    
-    <table class="table text-center table-bordered">
+<div id="printElement">
+    <table id='form-print' class="table text-center table-bordered">
         <thead class="thead-dark">
             <tr>
                 <th class="align-middle" scope="col" rowspan="2">Tahun Akademik</th>
@@ -83,13 +112,25 @@ table.table-bordered > tbody > tr > td{
         </thead>
 
         <tbody class="text-dark">
-
-            <tr>
-            <td>sadasdsd</td>
-            </tr>
+            @foreach ($mahasiswa as $mhs)
+                <tr>
+                    @for ($i=4; $i<=1; $i--);
+                    <td>TS-{{ $i }}</td>
+                    @endfor
+                   <td>{{ $mhs->daya_tampung }}</td> 
+                   <td>{{ $mhs->c_pendaftar }}</td> 
+                   <td>{{ $mhs->c_lulus_seleksi }}</td> 
+                   <td>{{ $mhs->mahasiswa_reguler }}</td> 
+                   <td>{{ $mhs->mahasiswa_transfer }}</td> 
+                   <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
+                   <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+                </tr>
+            @endforeach
+            
 
         </tbody>
     </table> 
+</div>
 
     {{-- AKHIR CONTENT --}}
             
@@ -99,6 +140,9 @@ table.table-bordered > tbody > tr > td{
                 <p class="d-flex justify-content-between">
                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Deskripsi
+                    </a>
+                    <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal2">
+                        Tambah Data
                     </a>
                 </p>
                 <div class="collapse" id="collapseExample">
@@ -112,6 +156,25 @@ table.table-bordered > tbody > tr > td{
                         Keterangan: <br>
                         TS = Tahun akademik penuh terakhir saat pengajuan usulan akreditasi.
                     </div> 
+                </div>
+                <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="modal2">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Mahasiswa</p>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary">Tambah</button>
+                        </div>
+                    </div>
+                    </div>
                 </div>
     
     {{-- CONTENT --}}
@@ -144,5 +207,10 @@ table.table-bordered > tbody > tr > td{
           </div>
     </div>
 </div>
+<script>
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+    })
+</script>
 
 @endsection

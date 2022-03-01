@@ -28,6 +28,14 @@
   <!-- summernote -->
   <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" rel="stylesheet">
+
+  <style>
+		.heading{
+		  text-align: center;
+		  color: #2F8D46;
+		}
+	</style>
 </head>
 
 <!-- jQuery -->
@@ -64,5 +72,36 @@
 <script src="{{ asset('dist/js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+<!-- Html2Pdf -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.1/html2pdf.bundle.min.js" integrity="sha512vDKWohFHe2vkVWXHp3tKvIxxXg0pJxeid5eo+UjdjME3DBFBn2F8yWOE0XmiFcFbXxrEOR1JriWEno5Ckpn15A==" crossorigin="anonymous"></script>
+
+<script>		
+  // Function to GeneratePdf
+  function GeneratePdf() {
+    var element = document.getElementById('form-print');
+    html2pdf(element);
+  }  
+</script>
+<script>		
+  // Function to GeneratePdf
+  function print() {
+	printJS({
+    printable: 'printElement',
+    type: 'html',
+    targetStyles: ['*']
+ })
+}
+
+document.getElementById('printButton').addEventListener ("click", print)
+</script>
+
+<script src=
+"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+  integrity=
+"sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+  crossorigin="anonymous">
+</script>
+
+<script src="{{ asset('js/print.js') }}"></script>
 </body>
 </html>

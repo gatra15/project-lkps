@@ -19,6 +19,7 @@ class CreateMahasiswasTable extends Migration
             $table->string('daya_tampung');
             $table->string('c_pendaftar');
             $table->string('c_lulus_seleksi');
+            $table->string('mahasiswa_reguler');
             $table->string('mahasiswa_transfer');
             $table->string('mahasiswa_aktif_reguler');
             $table->string('mahasiswa_aktif_transfer');

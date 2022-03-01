@@ -152,7 +152,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/matrik" class="nav-link {{ ($title === "Matrik") ? 'active' : '' }}">
+                <a href="/simulasi" class="nav-link {{ ($title === "Simulasi") ? 'active' : '' }}">
                     <i class="nav-icon fas fa-stream"></i>
                   <p>
                     Simulasi Penilaian
