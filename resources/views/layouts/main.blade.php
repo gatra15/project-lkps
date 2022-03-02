@@ -49,6 +49,13 @@
   thead{
     background-color: #d8d8d8;
   }
+  
+  #action {
+    margin: -5px -5px -5px -30px;
+  }
+  #action li{
+    list-style:none;
+  }
 	</style>
 
 </head>

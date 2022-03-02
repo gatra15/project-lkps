@@ -50,14 +50,10 @@
                         TS = Tahun akademik penuh terakhir saat pengajuan usulan akreditasi.
                     </div> 
                 </div>
-                <input type="button" class="btn btn-primary" onclick="GeneratePdf();" value="Download">
-                <button class="btn btn-primary" id="printButton">
-                    Print
-                </button>
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
@@ -65,13 +61,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                         </div>
-                        <div class="modal-body">
-                        ...
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Tambah</button>
-                        </div>
+                        @include('partials.form')
                     </div>
                     </div>
                 </div>
@@ -86,6 +76,7 @@
                 <th scope="col" colspan="2">Jumlah Calon Mahasiswa</th>
                 <th scope="col" colspan="2">Jumlah Mahasiswa Baru</th>
                 <th scope="col" colspan="2">Jumlah Mahasiswa Aktif</th>  
+                <th class="align-middle" scope="col" rowspan="2">Action</th>  
             </tr>
             <tr>
                 <th scope="col">Pendaftar</th>
@@ -99,11 +90,10 @@
         </thead>
 
         <tbody class="text-dark">
-            @foreach ($mahasiswa as $mhs)
+            <?php $i=4; ?>
+            @foreach ($mahasiswa as $index => $mhs)
                 <tr>
-                    @for ($i=4; $i<=1; $i--);
-                    <td>TS-{{ $i }}</td>
-                    @endfor
+                   <td>TS-{{ $i }}</td>
                    <td>{{ $mhs->daya_tampung }}</td> 
                    <td>{{ $mhs->c_pendaftar }}</td> 
                    <td>{{ $mhs->c_lulus_seleksi }}</td> 
@@ -111,6 +101,12 @@
                    <td>{{ $mhs->mahasiswa_transfer }}</td> 
                    <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
                    <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+                   <td>
+                    <ul class="action-list d-flex justify-content-center" id="action">
+                        <li><a href="#" class="btn btn-primary m-1"><i class="fas fa-edit"></i></a></li>
+                        <li><a href="#" class="btn btn-danger m-1"><i class="fas fa-trash"></i></a></li>
+                    </ul></td>
+                 <?php $i-- ?>
                 </tr>
             @endforeach
             
@@ -144,21 +140,17 @@
                         TS = Tahun akademik penuh terakhir saat pengajuan usulan akreditasi.
                     </div> 
                 </div>
-                <input type="button" class="btn btn-primary" onclick="GeneratePdf();" value="Download">
-                <button class="btn btn-primary" id="printButton">
-                    Print
-                </button>
                 <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2" aria-hidden="true">
                     <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="modal2">Modal title</h5>
+                        <h5 class="modal-title" id="modal2">Tambah Mahasiswa</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         </div>
                         <div class="modal-body">
-                            <p>Mahasiswa</p>
+                            <p>FOrm</p>
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

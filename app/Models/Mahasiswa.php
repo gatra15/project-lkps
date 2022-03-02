@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Mahasiswa extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+
+    protected $nullable = ['tahun_akademik'];
 }
