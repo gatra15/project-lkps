@@ -54,59 +54,60 @@
                             </p>
                         </div> 
                     </div>
-{{-- CONTENT --}}
-    
-<div id="printElement container-fluid">
-    <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
-        <thead>
-            <tr>
+                    {{-- CONTENT --}}
+                        
+                    <div id="printElement container-fluid">
+                        <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
+                            <thead>
+                                <tr>
 
-                <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
-                <th class="align-middle" scope="col" rowspan="2">NIDN/ NIDK</th>
-                <th th scope="col" colspan="2" >Pendidikan Pasca Sarjana</th>
-                <th class="align-middle" scope="col" rowspan="2">Bidang Keahlian</th>
-                <th class="align-middle" scope="col" rowspan="2" >Kesesuaian dengan Kompetensi Inti PS</th>  
-                <th class="align-middle" scope="col" rowspan="2" >Jabatan Akademik</th>  
-                <th class="align-middle" scope="col" rowspan="2" >Sertifikat Pendidik Profesional</th>  
-                <th class="align-middle" scope="col" rowspan="2" >Sertifikat Kompetensi /Profesi/ Industri</th>  
-                <th class="align-middle" scope="col" rowspan="2" >Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>  
-                <th class="align-middle" scope="col" rowspan="2" >Kesesuaian Bidang Keahlian dengan Mata Kuliah yang Diampu</th>  
-                <th class="align-middle" scope="col" rowspan="2" >Mata Kuliah yang Diampu pada PS Lain</th>  
-            </tr>
-            <tr>
-                <th scope="col">Magister /Magister Terapan/ Spesialis</th>
-                <th scope="col">Doktor /Doktor Terapan/ Spesialis</th>       
-            </tr>
-    
-        </thead>
+                                    <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
+                                    <th class="align-middle" scope="col" rowspan="2">NIDN/ NIDK</th>
+                                    <th th scope="col" colspan="2" >Pendidikan Pasca Sarjana</th>
+                                    <th class="align-middle" scope="col" rowspan="2">Bidang Keahlian</th>
+                                    <th class="align-middle" scope="col" rowspan="2" >Kesesuaian dengan Kompetensi Inti PS</th>  
+                                    <th class="align-middle" scope="col" rowspan="2" >Jabatan Akademik</th>  
+                                    <th class="align-middle" scope="col" rowspan="2" >Sertifikat Pendidik Profesional</th>  
+                                    <th class="align-middle" scope="col" rowspan="2" >Sertifikat Kompetensi /Profesi/ Industri</th>  
+                                    <th class="align-middle" scope="col" rowspan="2" >Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>  
+                                    <th class="align-middle" scope="col" rowspan="2" >Kesesuaian Bidang Keahlian dengan Mata Kuliah yang Diampu</th>  
+                                    <th class="align-middle" scope="col" rowspan="2" >Mata Kuliah yang Diampu pada PS Lain</th>  
+                                </tr>
+                                <tr>
+                                    <th scope="col">Magister /Magister Terapan/ Spesialis</th>
+                                    <th scope="col">Doktor /Doktor Terapan/ Spesialis</th>       
+                                </tr>
+                        
+                            </thead>
 
-        <tbody class="text-dark">
-            <tr>
-                <td>Eko</td>
-                <td>Eko</td>
-                <td>Eko</td>
-                <td>Eko</td>
-                <td>Eko</td>
-            </tr>
-            {{-- @foreach ($mahasiswa_asing as $mhs)
-                <tr>
-                    @for ($i = 0; $i < $count; $i++)
-                    <td>{{ $i }}</td>
-                    @endfor
-                   <td>{{ $mhs->daya_tampung }}</td> 
-                   <td>{{ $mhs->c_pendaftar }}</td> 
-                   <td>{{ $mhs->c_lulus_seleksi }}</td> 
-                   <td>{{ $mhs->mahasiswa_reguler }}</td> 
-                   <td>{{ $mhs->mahasiswa_transfer }}</td> 
-                   <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-                   <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-                </tr>
-            @endforeach --}}
-    </table> 
-</div>
+                            <tbody class="text-dark">
+                                <tr>
+                                    <td>Eko</td>
+                                    <td>Eko</td>
+                                    <td>Eko</td>
+                                    <td>Eko</td>
+                                    <td>Eko</td>
+                                </tr>
+                                {{-- @foreach ($mahasiswa_asing as $mhs)
+                                    <tr>
+                                        @for ($i = 0; $i < $count; $i++)
+                                        <td>{{ $i }}</td>
+                                        @endfor
+                                    <td>{{ $mhs->daya_tampung }}</td> 
+                                    <td>{{ $mhs->c_pendaftar }}</td> 
+                                    <td>{{ $mhs->c_lulus_seleksi }}</td> 
+                                    <td>{{ $mhs->mahasiswa_reguler }}</td> 
+                                    <td>{{ $mhs->mahasiswa_transfer }}</td> 
+                                    <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
+                                    <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+                                    </tr>
+                                @endforeach --}}
+                        </table> 
+                    </div>
 
-{{-- AKHIR CONTENT --}}
                 </div>
+{{-- AKHIR TAB --}}
+{{-- New TAB --}}
                 <div class="tab-pane fade" id="dosbing-ta" role="tabpanel" aria-labelledby="dosbingTA-tab">
                     <p class="d-flex justify-content-between">
                         <a class="btn btn-primary" data-toggle="collapse" href="#des2" role="button" aria-expanded="false" aria-controls="des2">
@@ -125,60 +126,60 @@
                     </div>
 {{-- CONTENT --}}
     
-<div id="printElement container-fluid">
-    <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
-        <thead>
-            <tr>
+                    <div id="printElement container-fluid">
+                        <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
+                            <thead>
+                                <tr>
 
-                <th class="align-middle" scope="col" rowspan="3">No</th>
-                <th class="align-middle" scope="col" rowspan="3">Nama Dosen</th>
-                <th scope="col" colspan="8" >Jumlah Mahasiswa Yang Dibimbing</th>
-                <th class="align-middle" scope="col" rowspan="3">Rata-rata Jumlah Bimbingan di Semua Program/Semester  </th>  
-            </tr>
-            <tr>
-                <th scope="col" colspan="4">pada PS yang Diakreditasi</th>
-                <th scope="col" colspan="4">pada PS Lain di PT</th>       
-            </tr>
-            <tr>
-                <th scope="col" >TS-2</th>
-                <th scope="col" >TS-1</th>
-                <th scope="col" >TS</th>
-                <th scope="col" >Rata - rata</th>    
-                <th scope="col" >TS-2</th>
-                <th scope="col" >TS-1</th>
-                <th scope="col" >TS</th>
-                <th scope="col" >Rata - rata</th>    
-            </tr>
-    
-        </thead>
+                                    <th class="align-middle" scope="col" rowspan="3">No</th>
+                                    <th class="align-middle" scope="col" rowspan="3">Nama Dosen</th>
+                                    <th scope="col" colspan="8" >Jumlah Mahasiswa Yang Dibimbing</th>
+                                    <th class="align-middle" scope="col" rowspan="3">Rata-rata Jumlah Bimbingan di Semua Program/Semester  </th>  
+                                </tr>
+                                <tr>
+                                    <th scope="col" colspan="4">pada PS yang Diakreditasi</th>
+                                    <th scope="col" colspan="4">pada PS Lain di PT</th>       
+                                </tr>
+                                <tr>
+                                    <th scope="col" >TS-2</th>
+                                    <th scope="col" >TS-1</th>
+                                    <th scope="col" >TS</th>
+                                    <th scope="col" >Rata - rata</th>    
+                                    <th scope="col" >TS-2</th>
+                                    <th scope="col" >TS-1</th>
+                                    <th scope="col" >TS</th>
+                                    <th scope="col" >Rata - rata</th>    
+                                </tr>
+                        
+                            </thead>
 
-        <tbody class="text-dark">
-            <tr>
-                <td>Eko</td>
-                <td>Eko</td>
-                <td>Eko</td>
-                <td>Eko</td>
-                <td>Eko</td>
-            </tr>
-            {{-- @foreach ($mahasiswa_asing as $mhs)
-                <tr>
-                    @for ($i = 0; $i < $count; $i++)
-                    <td>{{ $i }}</td>
-                    @endfor
-                   <td>{{ $mhs->daya_tampung }}</td> 
-                   <td>{{ $mhs->c_pendaftar }}</td> 
-                   <td>{{ $mhs->c_lulus_seleksi }}</td> 
-                   <td>{{ $mhs->mahasiswa_reguler }}</td> 
-                   <td>{{ $mhs->mahasiswa_transfer }}</td> 
-                   <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-                   <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-                </tr>
-            @endforeach --}}
-    </table> 
-</div>
+                            <tbody class="text-dark">
+                                <tr>
+                                    <td>Eko</td>
+                                    <td>Eko</td>
+                                    <td>Eko</td>
+                                    <td>Eko</td>
+                                    <td>Eko</td>
+                                </tr>
+                                {{-- @foreach ($mahasiswa_asing as $mhs)
+                                    <tr>
+                                        @for ($i = 0; $i < $count; $i++)
+                                        <td>{{ $i }}</td>
+                                        @endfor
+                                    <td>{{ $mhs->daya_tampung }}</td> 
+                                    <td>{{ $mhs->c_pendaftar }}</td> 
+                                    <td>{{ $mhs->c_lulus_seleksi }}</td> 
+                                    <td>{{ $mhs->mahasiswa_reguler }}</td> 
+                                    <td>{{ $mhs->mahasiswa_transfer }}</td> 
+                                    <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
+                                    <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+                                    </tr>
+                                @endforeach --}}
+                        </table> 
+                    </div>
 
-{{-- AKHIR CONTENT --}}
                 </div>
+{{-- AKHIR TAB --}}
                 <div class="tab-pane fade" id="ewmp" role="tabpanel" aria-labelledby="ewmp-tab">
                     <p class="d-flex justify-content-between">
                         <a class="btn btn-primary" data-toggle="collapse" href="#des3" role="button" aria-expanded="false" aria-controls="des3">
