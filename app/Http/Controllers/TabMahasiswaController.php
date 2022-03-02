@@ -12,11 +12,13 @@ class TabMahasiswaController extends Controller
     {
         $mahasiswa = Mahasiswa::all();
         $mahasiswa_asing = MahasiswaAsing::all();
+        $count = MahasiswaAsing::count();
         
         return view('tab.mahasiswa', [
             'title' => 'Mahasiswa',
             'mahasiswa' => $mahasiswa,
             'mahasiswa_asing' => $mahasiswa_asing,
+            'count' => $count,
         ]);
     }
 }

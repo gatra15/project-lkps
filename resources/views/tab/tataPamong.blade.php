@@ -53,10 +53,9 @@
 
     {{-- CONTENT --}}
     
-    <table class="table">
-        <thead>
-
-            <tr>
+    <div>
+        <table id='form-print' class="table text-center table-bordered">
+            <thead>
                 <th scope="col">No</th>
                 <th scope="col">Lembaga Mitra</th>
                 <th scope="col">Judul Kegiatan Kerjasama</th>

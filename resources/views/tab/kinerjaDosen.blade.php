@@ -59,28 +59,49 @@
                     </div>
 {{-- CONTENT --}}
     
-<table class="table">
-    <thead>
+<div id="printElement container-fluid">
+    <table id='form-print' class="table text-center table-bordered table-condensed">
+        <thead>
+            <tr>
 
-        <tr>
-            <th scope="col">No</th>
-            <th scope="col">Lembaga Mitra</th>
-            <th scope="col">Judul Kegiatan Kerjasama</th>
-            <th scope="col">Manfaat bagi PS yang Diakretasi</th>
-            <th scope="col">Waktu dan Durasi</th>
-            <th scope="col">Bukti Kerjasama</th>
-        </tr>
+                <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
+                <th class="align-middle" scope="col" rowspan="2">Bidang Keahlian</th>
+                <th class="align-middle" scope="col" rowspan="2" >Rekognisi dan Bukti Pendukung</th>
+                <th scope="col" colspan="3">Tingkat</th>
+                <th class="align-middle" scope="col" rowspan="2" >Tahun</th>                    
+            </tr>
+            <tr>
+                <th scope="col">Wilayah</th>
+                <th scope="col">Nasional</th>
+                <th scope="col">Internasional</th>
+            </tr>
+    
+        </thead>
 
-    </thead>
-
-    <tbody>
-        {{-- @foreach ($kerjasama as $kerja)
-        <tr>
-
-        </tr>
-        @endforeach --}}
-    </tbody>
-</table> 
+        <tbody class="text-dark">
+            <tr>
+                <td>Eko</td>
+                <td>Eko</td>
+                <td>Eko</td>
+                <td>Eko</td>
+                <td>Eko</td>
+            </tr>
+            {{-- @foreach ($mahasiswa_asing as $mhs)
+                <tr>
+                    @for ($i = 0; $i < $count; $i++)
+                    <td>{{ $i }}</td>
+                    @endfor
+                   <td>{{ $mhs->daya_tampung }}</td> 
+                   <td>{{ $mhs->c_pendaftar }}</td> 
+                   <td>{{ $mhs->c_lulus_seleksi }}</td> 
+                   <td>{{ $mhs->mahasiswa_reguler }}</td> 
+                   <td>{{ $mhs->mahasiswa_transfer }}</td> 
+                   <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
+                   <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+                </tr>
+            @endforeach --}}
+    </table> 
+</div>
 
 {{-- AKHIR CONTENT --}}
                 </div>
@@ -102,28 +123,47 @@
                     </div>
 {{-- CONTENT --}}
     
-<table class="table">
-    <thead>
+<div id="printElement container-fluid">
+    <table id='form-print' class="table text-center table-bordered table-condensed">
+        <thead>
+            <tr>
 
-        <tr>
-            <th scope="col">No</th>
-            <th scope="col">Lembaga Mitra</th>
-            <th scope="col">Judul Kegiatan Kerjasama</th>
-            <th scope="col">Manfaat bagi PS yang Diakretasi</th>
-            <th scope="col">Waktu dan Durasi</th>
-            <th scope="col">Bukti Kerjasama</th>
-        </tr>
+                <th class="align-middle" scope="col" rowspan="2">Sumber Pembiayaan</th>
+                <th scope="col" colspan="3">Jumlah Judul</th>
+                <th class="align-middle" scope="col" rowspan="2" >Jumlah</th>                    
+            </tr>
+            <tr>
+                <th scope="col">TS-2</th>
+                <th scope="col">TS-1</th>
+                <th scope="col">TS</th>
+            </tr>
+    
+        </thead>
 
-    </thead>
-
-    <tbody>
-        {{-- @foreach ($kerjasama as $kerja)
-        <tr>
-
-        </tr>
-        @endforeach --}}
-    </tbody>
-</table> 
+        <tbody class="text-dark">
+            <tr>
+                <td>Eko</td>
+                <td>Eko</td>
+                <td>Eko</td>
+                <td>Eko</td>
+                <td>Eko</td>
+            </tr>
+            {{-- @foreach ($mahasiswa_asing as $mhs)
+                <tr>
+                    @for ($i = 0; $i < $count; $i++)
+                    <td>{{ $i }}</td>
+                    @endfor
+                   <td>{{ $mhs->daya_tampung }}</td> 
+                   <td>{{ $mhs->c_pendaftar }}</td> 
+                   <td>{{ $mhs->c_lulus_seleksi }}</td> 
+                   <td>{{ $mhs->mahasiswa_reguler }}</td> 
+                   <td>{{ $mhs->mahasiswa_transfer }}</td> 
+                   <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
+                   <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+                </tr>
+            @endforeach --}}
+    </table> 
+</div>
 
 {{-- AKHIR CONTENT --}}
                 </div>
@@ -145,30 +185,50 @@
                     </div>
 {{-- CONTENT --}}
     
-<table class="table">
-    <thead>
+<div id="printElement container-fluid">
+    <table id='form-print' class="table text-center table-bordered table-condensed">
+        <thead>
+            <tr>
 
-        <tr>
-            <th scope="col">No</th>
-            <th scope="col">Lembaga Mitra</th>
-            <th scope="col">Judul Kegiatan Kerjasama</th>
-            <th scope="col">Manfaat bagi PS yang Diakretasi</th>
-            <th scope="col">Waktu dan Durasi</th>
-            <th scope="col">Bukti Kerjasama</th>
-        </tr>
+                <th class="align-middle" scope="col" rowspan="2">Sumber Pembiayaan</th>
+                <th scope="col" colspan="3">Jumlah Judul</th>
+                <th class="align-middle" scope="col" rowspan="2" >Jumlah</th>                    
+            </tr>
+            <tr>
+                <th scope="col">TS-2</th>
+                <th scope="col">TS-1</th>
+                <th scope="col">TS</th>
+            </tr>
+    
+        </thead>
 
-    </thead>
+        <tbody class="text-dark">
+            <tr>
+                <td>Eko</td>
+                <td>Eko</td>
+                <td>Eko</td>
+                <td>Eko</td>
+                <td>Eko</td>
+            </tr>
+            {{-- @foreach ($mahasiswa_asing as $mhs)
+                <tr>
+                    @for ($i = 0; $i < $count; $i++)
+                    <td>{{ $i }}</td>
+                    @endfor
+                   <td>{{ $mhs->daya_tampung }}</td> 
+                   <td>{{ $mhs->c_pendaftar }}</td> 
+                   <td>{{ $mhs->c_lulus_seleksi }}</td> 
+                   <td>{{ $mhs->mahasiswa_reguler }}</td> 
+                   <td>{{ $mhs->mahasiswa_transfer }}</td> 
+                   <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
+                   <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+                </tr>
+            @endforeach --}}
+    </table> 
+</div>
 
-    <tbody>
-        {{-- @foreach ($kerjasama as $kerja)
-        <tr>
 
-        </tr>
-        @endforeach --}}
-    </tbody>
-</table> 
 
-{{-- AKHIR CONTENT --}}
                 </div>
                 <div class="tab-pane fade" id="pagelaran" role="tabpanel" aria-labelledby="pagelaran-tab">
                     <p class="d-flex justify-content-between">
@@ -188,28 +248,47 @@
                     </div>
 {{-- CONTENT --}}
     
-<table class="table">
-    <thead>
+<div id="printElement container-fluid">
+    <table id='form-print' class="table text-center table-bordered table-condensed">
+        <thead>
+            <tr>
 
-        <tr>
-            <th scope="col">No</th>
-            <th scope="col">Lembaga Mitra</th>
-            <th scope="col">Judul Kegiatan Kerjasama</th>
-            <th scope="col">Manfaat bagi PS yang Diakretasi</th>
-            <th scope="col">Waktu dan Durasi</th>
-            <th scope="col">Bukti Kerjasama</th>
-        </tr>
+                <th class="align-middle" scope="col" rowspan="2">Jenis</th>
+                <th scope="col" colspan="3">Jumlah Judul</th>
+                <th class="align-middle" scope="col" rowspan="2" >Jumlah</th>                    
+            </tr>
+            <tr>
+                <th scope="col">TS-2</th>
+                <th scope="col">TS-1</th>
+                <th scope="col">TS</th>
+            </tr>
+    
+        </thead>
 
-    </thead>
-
-    <tbody>
-        {{-- @foreach ($kerjasama as $kerja)
-        <tr>
-
-        </tr>
-        @endforeach --}}
-    </tbody>
-</table> 
+        <tbody class="text-dark">
+            <tr>
+                <td>Eko</td>
+                <td>Eko</td>
+                <td>Eko</td>
+                <td>Eko</td>
+                <td>Eko</td>
+            </tr>
+            {{-- @foreach ($mahasiswa_asing as $mhs)
+                <tr>
+                    @for ($i = 0; $i < $count; $i++)
+                    <td>{{ $i }}</td>
+                    @endfor
+                   <td>{{ $mhs->daya_tampung }}</td> 
+                   <td>{{ $mhs->c_pendaftar }}</td> 
+                   <td>{{ $mhs->c_lulus_seleksi }}</td> 
+                   <td>{{ $mhs->mahasiswa_reguler }}</td> 
+                   <td>{{ $mhs->mahasiswa_transfer }}</td> 
+                   <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
+                   <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+                </tr>
+            @endforeach --}}
+    </table> 
+</div>
 
 {{-- AKHIR CONTENT --}}
                 </div>
@@ -231,28 +310,41 @@
                     </div>
 {{-- CONTENT --}}
     
-<table class="table">
-    <thead>
+<div id="printElement container-fluid">
+    <table id='form-print' class="table text-center table-bordered table-condensed">
+        <thead>
+            <tr>
 
-        <tr>
-            <th scope="col">No</th>
-            <th scope="col">Lembaga Mitra</th>
-            <th scope="col">Judul Kegiatan Kerjasama</th>
-            <th scope="col">Manfaat bagi PS yang Diakretasi</th>
-            <th scope="col">Waktu dan Durasi</th>
-            <th scope="col">Bukti Kerjasama</th>
-        </tr>
+                <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
+                <th class="align-middle" scope="col" rowspan="2">Judul Artikel yang Disitasi (Jurnal/Buku,Volume, Tahun, Nomor,Halaman)</th>
+                <th class="align-middle" scope="col" rowspan="2" >Jumlah</th>                    
+            </tr>
 
-    </thead>
+    
+        </thead>
 
-    <tbody>
-        {{-- @foreach ($kerjasama as $kerja)
-        <tr>
-
-        </tr>
-        @endforeach --}}
-    </tbody>
-</table> 
+        <tbody class="text-dark">
+            <tr>
+                <td>Eko</td>
+                <td>Eko</td>
+                <td>Eko</td>
+            </tr>
+            {{-- @foreach ($mahasiswa_asing as $mhs)
+                <tr>
+                    @for ($i = 0; $i < $count; $i++)
+                    <td>{{ $i }}</td>
+                    @endfor
+                   <td>{{ $mhs->daya_tampung }}</td> 
+                   <td>{{ $mhs->c_pendaftar }}</td> 
+                   <td>{{ $mhs->c_lulus_seleksi }}</td> 
+                   <td>{{ $mhs->mahasiswa_reguler }}</td> 
+                   <td>{{ $mhs->mahasiswa_transfer }}</td> 
+                   <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
+                   <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+                </tr>
+            @endforeach --}}
+    </table> 
+</div>
 
 {{-- AKHIR CONTENT --}}
                 </div>
@@ -274,28 +366,43 @@
                     </div>
 {{-- CONTENT --}}
     
-<table class="table">
-    <thead>
+<div id="printElement container-fluid">
+    <table id='form-print' class="table text-center table-bordered table-condensed">
+        <thead>
+            <tr>
 
-        <tr>
-            <th scope="col">No</th>
-            <th scope="col">Lembaga Mitra</th>
-            <th scope="col">Judul Kegiatan Kerjasama</th>
-            <th scope="col">Manfaat bagi PS yang Diakretasi</th>
-            <th scope="col">Waktu dan Durasi</th>
-            <th scope="col">Bukti Kerjasama</th>
-        </tr>
+                <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
+                <th class="align-middle" scope="col" rowspan="2">Nama Produk/Jasa</th>
+                <th class="align-middle" scope="col" rowspan="2">Deskripsi Produk/Jasa</th>                    
+                <th class="align-middle" scope="col" rowspan="2" >Bukti</th>                                
+            </tr>
 
-    </thead>
+    
+        </thead>
 
-    <tbody>
-        {{-- @foreach ($kerjasama as $kerja)
-        <tr>
-
-        </tr>
-        @endforeach --}}
-    </tbody>
-</table> 
+        <tbody class="text-dark">
+            <tr>
+                <td>Eko</td>
+                <td>Eko</td>
+                <td>Eko</td>
+                <td>Eko</td>
+            </tr>
+            {{-- @foreach ($mahasiswa_asing as $mhs)
+                <tr>
+                    @for ($i = 0; $i < $count; $i++)
+                    <td>{{ $i }}</td>
+                    @endfor
+                   <td>{{ $mhs->daya_tampung }}</td> 
+                   <td>{{ $mhs->c_pendaftar }}</td> 
+                   <td>{{ $mhs->c_lulus_seleksi }}</td> 
+                   <td>{{ $mhs->mahasiswa_reguler }}</td> 
+                   <td>{{ $mhs->mahasiswa_transfer }}</td> 
+                   <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
+                   <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+                </tr>
+            @endforeach --}}
+    </table> 
+</div>
 
 {{-- AKHIR CONTENT --}}
                 </div>
@@ -317,28 +424,41 @@
                     </div>
 {{-- CONTENT --}}
     
-<table class="table">
-    <thead>
+<div id="printElement container-fluid">
+    <table id='form-print' class="table text-center table-bordered table-condensed">
+        <thead>
+            <tr>
 
-        <tr>
-            <th scope="col">No</th>
-            <th scope="col">Lembaga Mitra</th>
-            <th scope="col">Judul Kegiatan Kerjasama</th>
-            <th scope="col">Manfaat bagi PS yang Diakretasi</th>
-            <th scope="col">Waktu dan Durasi</th>
-            <th scope="col">Bukti Kerjasama</th>
-        </tr>
+                <th class="align-middle" scope="col" rowspan="2">Judul Luaran Penelitian/PkM</th>
+                <th class="align-middle" scope="col" rowspan="2">Tahun</th>
+                <th class="align-middle" scope="col" rowspan="2">Keterangan</th>                                               
+            </tr>
 
-    </thead>
+    
+        </thead>
 
-    <tbody>
-        {{-- @foreach ($kerjasama as $kerja)
-        <tr>
-
-        </tr>
-        @endforeach --}}
-    </tbody>
-</table> 
+        <tbody class="text-dark">
+            <tr>
+                <td>Eko</td>
+                <td>Eko</td>
+                <td>Eko</td>
+            </tr>
+            {{-- @foreach ($mahasiswa_asing as $mhs)
+                <tr>
+                    @for ($i = 0; $i < $count; $i++)
+                    <td>{{ $i }}</td>
+                    @endfor
+                   <td>{{ $mhs->daya_tampung }}</td> 
+                   <td>{{ $mhs->c_pendaftar }}</td> 
+                   <td>{{ $mhs->c_lulus_seleksi }}</td> 
+                   <td>{{ $mhs->mahasiswa_reguler }}</td> 
+                   <td>{{ $mhs->mahasiswa_transfer }}</td> 
+                   <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
+                   <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+                </tr>
+            @endforeach --}}
+    </table> 
+</div>
 
 {{-- AKHIR CONTENT --}}
                 </div>
