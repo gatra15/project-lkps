@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Option;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,8 +24,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $select = Option::select('tahun_laporan')->get();
+        $where = Option::all()->where('tahun_laporan');
+
         return view('home',[
-            'title' => 'Home'
+            'title' => 'Home',
+            'select' => $select,
+            'where' => $where
+
         ]);
     }
+    
 }

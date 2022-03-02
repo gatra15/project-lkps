@@ -118,5 +118,10 @@ document.getElementById('printButton').addEventListener ("click", print)
 </script>
 
 <script src="{{ asset('js/print.js') }}"></script>
+<script>
+  $(".filter").on('change',function(){
+    let tahun = $("#thn_ajaran").val()
+  })
+</script>
 </body>
 </html>

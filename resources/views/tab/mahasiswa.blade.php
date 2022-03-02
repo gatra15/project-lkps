@@ -50,10 +50,10 @@
                         TS = Tahun akademik penuh terakhir saat pengajuan usulan akreditasi.
                     </div> 
                 </div>
-                <input type="button" class="btn btn-primary" onclick="GeneratePdf();" value="Download">
+                {{-- <input type="button" class="btn btn-primary" onclick="GeneratePdf();" value="Download">
                 <button class="btn btn-primary" id="printButton">
                     Print
-                </button>
+                </button> --}}
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -77,7 +77,7 @@
                 </div>
                 
 {{-- CONTENT --}}
-<div id="printElement">
+<div>
     <table id='form-print' class="table text-center table-bordered">
         <thead >
             <tr>
@@ -85,7 +85,7 @@
                 <th class="align-middle" scope="col" rowspan="2">Daya Tampung</th>
                 <th scope="col" colspan="2">Jumlah Calon Mahasiswa</th>
                 <th scope="col" colspan="2">Jumlah Mahasiswa Baru</th>
-                <th scope="col" colspan="2">Jumlah Mahasiswa Aktif</th>  
+                <th scope="col" colspan="2">Jumlah Mahasiswa Aktif</th>
             </tr>
             <tr>
                 <th scope="col">Pendaftar</th>
@@ -101,9 +101,9 @@
         <tbody class="text-dark">
             @foreach ($mahasiswa as $mhs)
                 <tr>
-                    @for ($i=4; $i<=1; $i--);
+                @for ($i=4; $i<=1; $i--);
                     <td>TS-{{ $i }}</td>
-                    @endfor
+                @endfor
                    <td>{{ $mhs->daya_tampung }}</td> 
                    <td>{{ $mhs->c_pendaftar }}</td> 
                    <td>{{ $mhs->c_lulus_seleksi }}</td> 

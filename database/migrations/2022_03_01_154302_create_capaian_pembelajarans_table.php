@@ -23,6 +23,8 @@ class CreateCapaianPembelajaransTable extends Migration
             $table->string('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by');
+            $table->foreign('option_id')->references('id')->on('options');
+            $table->foreign('option2_id')->references('id')->on('option2s');
             $table->timestamps();
         });
     }

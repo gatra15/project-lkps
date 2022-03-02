@@ -47,6 +47,7 @@ Route::group(['middleware' => 'auth:web'], function() {
 
     Route::group(['middleware' => ['role:perwakilan']], function () {
         Route::get('/dashboard', [HomeController::class, 'index']);
+        
 
         Route::get('/identitas-pengusul', [IdentitasPengusulController::class, 'index']);
 
