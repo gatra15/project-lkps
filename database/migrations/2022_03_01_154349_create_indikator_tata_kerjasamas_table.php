@@ -17,6 +17,7 @@ class CreateIndikatorTataKerjasamasTable extends Migration
             $table->id();
             $table->string('tridharma');
             $table->string('lembaga_mitra');
+            $table->string('tingkat');
             $table->string('judul_kegiatan');
             $table->string('manfaat');
             $table->string('waktu_durasi');

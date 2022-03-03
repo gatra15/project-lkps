@@ -14,6 +14,11 @@
     <div class="container-fluid">
         <div class="card">
             {{-- Card Header --}}
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <strong>{{ $message }}</strong>
+            </div>
+          @endif
             <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
@@ -79,6 +84,7 @@
                                             <th class="align-middle" scope="col" rowspan="2">Manfaat Bagi PS yang Diakreditasi</th>
                                             <th class="align-middle" scope="col" rowspan="2" >Waktu dan Durasi</th>  
                                             <th class="align-middle" scope="col" rowspan="2" >Bukti Kerjasama</th>  
+                                            <th class="align-middle" scope="col" rowspan="2" >Opsi</th>  
                                         </tr>
                                         <tr>
                                             <th scope="col">Internasional</th>
@@ -87,15 +93,27 @@
                                         </tr>
                                 
                                     </thead>
-        
+                                
+                                    
+                               
                                     <tbody class="text-dark">
+                                        @foreach ($kerjasama as $indikator)
                                         <tr>
-                                            <td>Eko</td>
-                                            <td>Eko</td>
-                                            <td>Eko</td>
-                                            <td>Eko</td>
-                                            <td>Eko</td>
+                                            <td>{{ $indikator->lembaga_mitra }}</td>
+                                            <td>{{ $indikator->tingkat == 'Internasional' ? 'V' : '' }}</td>
+                                            <td>{{ $indikator->tingkat == 'Nasional' ? 'V' : '' }}</td>
+                                            <td>{{ $indikator->tingkat == 'Lokal' ? 'V' : '' }}</td>
+
+                                            <td>{{ $indikator->judul_kegiatan }}</td>
+                                            <td>{{ $indikator->manfaat }}</td>
+                                            <td>{{ $indikator->waktu_durasi }}</td>
+                                            <td>{{ $indikator->bukti_kerjasama }}</td>
+                                            <td><ul class="action-list d-flex justify-content-center" id="action">
+                                                <li><a href="#" class="btn btn-primary m-1"><i class="fas fa-edit"></i></a></li>
+                                                <li><a href="#" class="btn btn-danger m-1"><i class="fas fa-trash"></i></a></li>
+                                            </ul></td>
                                         </tr>
+                                        @endforeach
                                         {{-- @foreach ($mahasiswa_asing as $mhs)
                                             <tr>
                                                 @for ($i = 0; $i < $count; $i++)

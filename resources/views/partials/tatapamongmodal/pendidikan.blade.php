@@ -1,4 +1,4 @@
-<form action="#" method="post">
+<form action="{{ url('/add') }}" method="POST">
     @csrf
     <div class="modal-body">
         
@@ -7,35 +7,39 @@
                
                 
                 {{-- coding modal insert --}}
+                <label for="lembaga"> Tridharma :</label>
+                <div class="input-group input-group-sm mb-3">
+                    <input type="text" name="tridharma" value="Pendidikan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                </div>
                 <label for="lembaga"> Lembaga Mitra :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="text" name="lembaga_mitra" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
                 <label for="lembaga"> Tingkat :</label>
                 <div class="input-group mb-3">
-                    <select class="custom-select" id="inputGroupSelect01">
+                    <select class="custom-select" name="tingkat" id="inputGroupSelect01">
                         <option selected>pilih...</option>
-                        <option value="1">Internasional</option>
-                        <option value="2">Nasional</option>
-                        <option value="3">Lokal</option>
+                        <option value="Internasional">Internasional</option>
+                        <option value="Nasional">Nasional</option>
+                        <option value="Lokal">Lokal</option>
                     </select>
                 </div>
                 <label for="lembaga"> Judul Kegiatan Bersama :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="text" name="judul_kegiatan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
                 <label for="lembaga"> Manfaat Bagi PS yang Diakreditasi :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="text" name="manfaat" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
                 <label for="lembaga"> Waktu dan Durasi :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="text" name="waktu_durasi" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
                 <label for="lembaga"> Bukti Kerjasama :</label>
                 <div class="input-group mb-3">
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile02">
+                    <input type="file" name="bukti_kerjasama" class="custom-file-input" id="inputGroupFile02">
                     <label class="custom-file-label" for="inputGroupFile02" aria-describedby="Upload">Pilih File</label>
                 </div>
                 </div>

@@ -23,27 +23,33 @@ class TataPamongController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate(request(), [
+        $this->validate($request, [
             'tridharma'         => 'required',
             'lembaga_mitra'     => 'required',
+            'tingkat'           => 'required',
             'judul_kegiatan'    => 'required',
             'manfaat'           => 'required',
             'waktu_durasi'      => 'required',
             'bukti_kerjasama'   => 'required',
-            'tahun_laporan'     => 'required',
-            'prodi'             => 'required',
         ]);
 
-        $indikator = new IndikatorTataKerjasama();
+        $indikator = new IndikatorTataKerjasama;
         $indikator->tridharma = $request->input('tridharma');
         $indikator->lembaga_mitra = $request->input('lembaga_mitra');
+        $indikator->tingkat = $request->input('tingkat');
         $indikator->judul_kegiatan = $request->input('judul_kegiatan');
         $indikator->manfaat = $request->input('manfaat');
         $indikator->waktu_durasi = $request->input('waktu_durasi');
         $indikator->bukti_kerjasama = $request->input('bukti_kerjasama');
-        $indikator->tahun_laporan = $request->input('tahun_laporan');
-        $indikator->prodi = Auth::user()->prodi;
-        $indikator->created_by = Auth::user()->name;
+
+        // if($request->file()) {
+        //     $fileName = time().'_'.$request->file->getClientOriginalName();
+        //     $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
+        //     $indikator->bukti_kerjasama = '/storage/' . $filePath;
+        // }
+        $indikator->tahun_laporan = '2021';
+        $indikator->prodi = 'Teknik Industri';
+        $indikator->created_by = 'Teknik Industri';
         $indikator->created_at = Carbon::now();
         $indikator->save();
 

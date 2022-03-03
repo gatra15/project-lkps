@@ -51,6 +51,7 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('/identitas-pengusul', [IdentitasPengusulController::class, 'index']);
 
         Route::get('/tata-pamong-tata-kelola-kerjasama', [TataPamongController::class, 'index']);
+        Route::post('/add', [TataPamongController::class, 'store']);
 
         Route::get('/mahasiswa', [TabMahasiswaController::class, 'index']);
         Route::post('/mahasiswa/add', [TabMahasiswaController::class, 'store']);
