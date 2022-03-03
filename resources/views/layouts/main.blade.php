@@ -123,6 +123,11 @@ document.getElementById('printButton').addEventListener ("click", print)
 "sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
   crossorigin="anonymous">
 </script>
+<script>
+  $('#myModal').on('shown.bs.modal', function () {
+      $('#myInput').trigger('focus')
+  })
+</script>
 
 <script src="{{ asset('js/print.js') }}"></script>
 </body>

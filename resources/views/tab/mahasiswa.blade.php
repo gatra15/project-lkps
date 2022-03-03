@@ -34,7 +34,7 @@
                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Deskripsi
                     </a>
-                    <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        <a type="button" class="btn btn-primary hidden" data-toggle="modal" data-target="#exampleModal">
                         Tambah Data
                     </a>
                 </p>
@@ -88,12 +88,18 @@
             </tr>
     
         </thead>
-
+        <?php $x='-';?>
         <tbody class="text-dark">
-            <?php $i=4; ?>
+            <?php $i=4;?>
             @foreach ($mahasiswa as $index => $mhs)
                 <tr>
-                   <td>TS-{{ $i }}</td>
+                   <td>TS
+                    @if ($i == 0)
+                        <?php $i="";?>
+                    @else
+                        <?php echo $x;?>
+                    @endif   
+                    {{ $i }}</td>
                    <td>{{ $mhs->daya_tampung }}</td> 
                    <td>{{ $mhs->c_pendaftar }}</td> 
                    <td>{{ $mhs->c_lulus_seleksi }}</td> 
@@ -106,7 +112,7 @@
                         <li><a href="#" class="btn btn-primary m-1"><i class="fas fa-edit"></i></a></li>
                         <li><a href="#" class="btn btn-danger m-1"><i class="fas fa-trash"></i></a></li>
                     </ul></td>
-                 <?php $i-- ?>
+                 <?php $i--; ?>
                 </tr>
             @endforeach
             
@@ -210,10 +216,6 @@
           </div>
     </div>
 </div>
-<script>
-    $('#myModal').on('shown.bs.modal', function () {
-        $('#myInput').trigger('focus')
-    })
-</script>
+
 
 @endsection
