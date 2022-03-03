@@ -38,7 +38,7 @@
                                 <a class="btn btn-primary" data-toggle="collapse" href="#des1" role="button" aria-expanded="false" aria-controls="des1">
                                     Deskripsi
                                 </a>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikan">
                                     Tambah data
                                 </button>
                             </p>
@@ -49,6 +49,21 @@
                                     </p>
                                 </div> 
                             </div>
+                            
+                <!-- Modal -->
+                <div class="modal fade" id="modalpendidikan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        @include('partials.tatapamongmodal.pendidikan')
+                    </div>
+                    </div>
+                </div>
                             {{-- CONTENT --}}
                                 
                             <div id="printElement container-fluid">
@@ -56,21 +71,17 @@
                                     <thead>
                                         <tr>
         
-                                            <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
-                                            <th class="align-middle" scope="col" rowspan="2">NIDN/ NIDK</th>
-                                            <th th scope="col" colspan="2" >Pendidikan Pasca Sarjana</th>
-                                            <th class="align-middle" scope="col" rowspan="2">Bidang Keahlian</th>
-                                            <th class="align-middle" scope="col" rowspan="2" >Kesesuaian dengan Kompetensi Inti PS</th>  
-                                            <th class="align-middle" scope="col" rowspan="2" >Jabatan Akademik</th>  
-                                            <th class="align-middle" scope="col" rowspan="2" >Sertifikat Pendidik Profesional</th>  
-                                            <th class="align-middle" scope="col" rowspan="2" >Sertifikat Kompetensi /Profesi/ Industri</th>  
-                                            <th class="align-middle" scope="col" rowspan="2" >Mata Kuliah yang Diampu pada PS yang Diakreditasi</th>  
-                                            <th class="align-middle" scope="col" rowspan="2" >Kesesuaian Bidang Keahlian dengan Mata Kuliah yang Diampu</th>  
-                                            <th class="align-middle" scope="col" rowspan="2" >Mata Kuliah yang Diampu pada PS Lain</th>  
+                                            <th class="align-middle" scope="col" rowspan="2">Lembaga Mitra</th>
+                                            <th scope="col" colspan="3">Tingkat</th>
+                                            <th class="align-middle" scope="col" rowspan="2" >Judul Kegiatan Kerjasama</th>
+                                            <th class="align-middle" scope="col" rowspan="2">Manfaat Bagi PS yang Diakreditasi</th>
+                                            <th class="align-middle" scope="col" rowspan="2" >Waktu dan Durasi</th>  
+                                            <th class="align-middle" scope="col" rowspan="2" >Bukti Kerjasama</th>  
                                         </tr>
                                         <tr>
-                                            <th scope="col">Magister /Magister Terapan/ Spesialis</th>
-                                            <th scope="col">Doktor /Doktor Terapan/ Spesialis</th>       
+                                            <th scope="col">Internasional</th>
+                                            <th scope="col">Nasional</th>       
+                                            <th scope="col">Lokal/Wilayahs</th>       
                                         </tr>
                                 
                                     </thead>
@@ -108,7 +119,7 @@
                                 <a class="btn btn-primary" data-toggle="collapse" href="#des2" role="button" aria-expanded="false" aria-controls="des2">
                                     Deskripsi
                                 </a>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalpenelitian">
                                     Tambah data
                                 </button>
                             </p>
@@ -119,10 +130,67 @@
                                     </p>
                                 </div> 
                             </div>
-                            {{-- CONTENT --}}
+                        <!-- Modal -->
+                <div class="modal fade" id="modalpenelitian" tabindex="-1" aria-labelledby="modalpenelitian" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="modalpenelitian">Tambah Data Penelitian</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        @include('partials.tatapamongmodal.penelitian')
+                    </div>
+                    </div>
+                </div>
+
+                            <div id="printElement container-fluid">
+                                <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
+                                    <thead>
+                                        <tr>
+        
+                                            <th class="align-middle" scope="col" rowspan="2">Lembaga Mitra</th>
+                                            <th scope="col" colspan="3">Tingkat</th>
+                                            <th class="align-middle" scope="col" rowspan="2" >Judul Kegiatan Kerjasama</th>
+                                            <th class="align-middle" scope="col" rowspan="2">Manfaat Bagi PS yang Diakreditasi</th>
+                                            <th class="align-middle" scope="col" rowspan="2" >Waktu dan Durasi</th>  
+                                            <th class="align-middle" scope="col" rowspan="2" >Bukti Kerjasama</th>  
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">Internasional</th>
+                                            <th scope="col">Nasional</th>       
+                                            <th scope="col">Lokal/Wilayahs</th>       
+                                        </tr>
                                 
-                            <p>Content 2</p>
+                                    </thead>
+        
+                                    <tbody class="text-dark">
+                                        <tr>
+                                            <td>Eko</td>
+                                            <td>Eko</td>
+                                            <td>Eko</td>
+                                            <td>Eko</td>
+                                            <td>Eko</td>
+                                        </tr>
+                                        {{-- @foreach ($mahasiswa_asing as $mhs)
+                                            <tr>
+                                                @for ($i = 0; $i < $count; $i++)
+                                                <td>{{ $i }}</td>
+                                                @endfor
+                                            <td>{{ $mhs->daya_tampung }}</td> 
+                                            <td>{{ $mhs->c_pendaftar }}</td> 
+                                            <td>{{ $mhs->c_lulus_seleksi }}</td> 
+                                            <td>{{ $mhs->mahasiswa_reguler }}</td> 
+                                            <td>{{ $mhs->mahasiswa_transfer }}</td> 
+                                            <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
+                                            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+                                            </tr>
+                                        @endforeach --}}
+                                </table> 
+                            </div>
                             {{-- End Content --}}
+
                         </div>
                         {{-- End Tab --}}
                         {{-- Tab --}}
@@ -131,7 +199,7 @@
                                 <a class="btn btn-primary" data-toggle="collapse" href="#des3" role="button" aria-expanded="false" aria-controls="des3">
                                     Deskripsi
                                 </a>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalpkm">
                                     Tambah data
                                 </button>
                             </p>
@@ -142,9 +210,66 @@
                                     </p>
                                 </div> 
                             </div>
-                            {{-- CONTENT --}}
+
+                <!-- Modal -->
+                <div class="modal fade" id="modalpkm" tabindex="-1" aria-labelledby="modalpenelitian" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="modalpkm">Tambah Data PKM</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        @include('partials.tatapamongmodal.pkm')
+                    </div>
+                    </div>
+                </div>
+                            <div id="printElement container-fluid">
+                                <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
+                                    <thead>
+                                        <tr>
+        
+                                            <th class="align-middle" scope="col" rowspan="2">Lembaga Mitra</th>
+                                            <th scope="col" colspan="3">Tingkat</th>
+                                            <th class="align-middle" scope="col" rowspan="2" >Judul Kegiatan Kerjasama</th>
+                                            <th class="align-middle" scope="col" rowspan="2">Manfaat Bagi PS yang Diakreditasi</th>
+                                            <th class="align-middle" scope="col" rowspan="2" >Waktu dan Durasi</th>  
+                                            <th class="align-middle" scope="col" rowspan="2" >Bukti Kerjasama</th>  
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">Internasional</th>
+                                            <th scope="col">Nasional</th>       
+                                            <th scope="col">Lokal/Wilayahs</th>       
+                                        </tr>
                                 
-                            <p>Content 3</p>
+                                    </thead>
+        
+                                    <tbody class="text-dark">
+                                        <tr>
+                                            <td>Eko</td>
+                                            <td>Eko</td>
+                                            <td>Eko</td>
+                                            <td>Eko</td>
+                                            <td>Eko</td>
+                                        </tr>
+                                        {{-- @foreach ($mahasiswa_asing as $mhs)
+                                            <tr>
+                                                @for ($i = 0; $i < $count; $i++)
+                                                <td>{{ $i }}</td>
+                                                @endfor
+                                            <td>{{ $mhs->daya_tampung }}</td> 
+                                            <td>{{ $mhs->c_pendaftar }}</td> 
+                                            <td>{{ $mhs->c_lulus_seleksi }}</td> 
+                                            <td>{{ $mhs->mahasiswa_reguler }}</td> 
+                                            <td>{{ $mhs->mahasiswa_transfer }}</td> 
+                                            <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
+                                            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+                                            </tr>
+                                        @endforeach --}}
+                                </table> 
+                            </div>
+
                             {{-- End Content --}}
                         </div>
                         {{-- End Tab --}}

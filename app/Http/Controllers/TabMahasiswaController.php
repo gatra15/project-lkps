@@ -13,6 +13,7 @@ class TabMahasiswaController extends Controller
         $mahasiswa = Mahasiswa::all();
         $mahasiswa_asing = MahasiswaAsing::all();
         $count = Mahasiswa::count();
+        $mahasiswa = Mahasiswa::paginate(5);
         
         return view('tab.mahasiswa', [
             'title' => 'Mahasiswa',
@@ -21,4 +22,9 @@ class TabMahasiswaController extends Controller
             'count' => $count,
         ]);
     }
+
+    // public function Limit(Request $request){
+
+        
+    // }
 }
