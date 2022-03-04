@@ -57,17 +57,32 @@
                                 </div> 
                             </div>
                             
-                <!-- Modal -->
+                <!-- Modal Tambah Data -->
                 <div class="modal fade" id="modalpendidikan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pendidikan</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                         </div>
                         @include('partials.tatapamongmodal.pendidikan')
+                    </div>
+                    </div>
+                </div>
+
+                <!-- Modal Edit Data -->
+                <div class="modal fade" id="modalpendidikanedit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pendidikan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        @include('partials.tatapamongmodal.pendidikanedit')
                     </div>
                     </div>
                 </div>
@@ -77,7 +92,7 @@
                                 <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
                                     <thead>
                                         <tr>
-        
+                                            <th scope="col" class="align-middle" rowspan="2">Tema</th>
                                             <th class="align-middle" scope="col" rowspan="2">Lembaga Mitra</th>
                                             <th scope="col" colspan="3">Tingkat</th>
                                             <th class="align-middle" scope="col" rowspan="2" >Judul Kegiatan Kerjasama</th>
@@ -97,8 +112,11 @@
                                     
                                
                                     <tbody class="text-dark">
+                                        
                                         @foreach ($kerjasama as $indikator)
+                                        @if ($indikator->tridharma == 'Pendidikan')
                                         <tr>
+                                            <td>Pendidikan</td>
                                             <td>{{ $indikator->lembaga_mitra }}</td>
                                             <td>{{ $indikator->tingkat == 'Internasional' ? 'V' : '' }}</td>
                                             <td>{{ $indikator->tingkat == 'Nasional' ? 'V' : '' }}</td>
@@ -108,26 +126,13 @@
                                             <td>{{ $indikator->manfaat }}</td>
                                             <td>{{ $indikator->waktu_durasi }}</td>
                                             <td>{{ $indikator->bukti_kerjasama }}</td>
-                                            <td><ul class="action-list d-flex justify-content-center" id="action">
-                                                <li><a href="#" class="btn btn-primary m-1"><i class="fas fa-edit"></i></a></li>
-                                                <li><a href="#" class="btn btn-danger m-1"><i class="fas fa-trash"></i></a></li>
+                                            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                                                <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit"><i class="fas fa-edit"></i></a></li>
+                                                <li><a type="button" class="btn btn-danger" action="#"><i class="fas fa-trash btn-del"></i></a></li>
                                             </ul></td>
                                         </tr>
+                                        @endif
                                         @endforeach
-                                        {{-- @foreach ($mahasiswa_asing as $mhs)
-                                            <tr>
-                                                @for ($i = 0; $i < $count; $i++)
-                                                <td>{{ $i }}</td>
-                                                @endfor
-                                            <td>{{ $mhs->daya_tampung }}</td> 
-                                            <td>{{ $mhs->c_pendaftar }}</td> 
-                                            <td>{{ $mhs->c_lulus_seleksi }}</td> 
-                                            <td>{{ $mhs->mahasiswa_reguler }}</td> 
-                                            <td>{{ $mhs->mahasiswa_transfer }}</td> 
-                                            <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-                                            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-                                            </tr>
-                                        @endforeach --}}
                                 </table> 
                             </div>
                             {{-- End Content --}}
@@ -140,9 +145,11 @@
                                     Deskripsi
                                 </a>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalpenelitian">
-                                    Tambah data
+                                    Tambah data 
                                 </button>
                             </p>
+                            <a href="{{ url('/download-excel') }}" class="btn btn-success">Excel</a>
+                            <a href="{{ url('/download-csv') }}" class="btn btn-success">CSV</a>
                             <div class="collapse" id="des2">
                                 <div class="card card-body">
                                     <p>
@@ -169,13 +176,15 @@
                                 <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
                                     <thead>
                                         <tr>
-        
+
+                                            <th scope="col" class="align-middle" rowspan="2">Tema</th>
                                             <th class="align-middle" scope="col" rowspan="2">Lembaga Mitra</th>
                                             <th scope="col" colspan="3">Tingkat</th>
                                             <th class="align-middle" scope="col" rowspan="2" >Judul Kegiatan Kerjasama</th>
                                             <th class="align-middle" scope="col" rowspan="2">Manfaat Bagi PS yang Diakreditasi</th>
                                             <th class="align-middle" scope="col" rowspan="2" >Waktu dan Durasi</th>  
-                                            <th class="align-middle" scope="col" rowspan="2" >Bukti Kerjasama</th>  
+                                            <th class="align-middle" scope="col" rowspan="2" >Bukti Kerjasama</th>
+                                            <th class="align-middle" scope="col" rowspan="2" >Action</th>   
                                         </tr>
                                         <tr>
                                             <th scope="col">Internasional</th>
@@ -187,11 +196,28 @@
         
                                     <tbody class="text-dark">
                                         <tr>
-                                            <td>Eko</td>
-                                            <td>Eko</td>
-                                            <td>Eko</td>
-                                            <td>Eko</td>
-                                            <td>Eko</td>
+                                            
+                                            
+                                            @foreach ($kerjasama as $indikator)
+                                            @if ($indikator->tridharma == 'Penelitian')
+                                            <tr>
+                                                <td>Penelitian</td>
+                                                <td>{{ $indikator->lembaga_mitra }}</td>
+                                                <td>{{ $indikator->tingkat == 'Internasional' ? 'V' : '' }}</td>
+                                                <td>{{ $indikator->tingkat == 'Nasional' ? 'V' : '' }}</td>
+                                                <td>{{ $indikator->tingkat == 'Lokal' ? 'V' : '' }}</td>
+    
+                                                <td>{{ $indikator->judul_kegiatan }}</td>
+                                                <td>{{ $indikator->manfaat }}</td>
+                                                <td>{{ $indikator->waktu_durasi }}</td>
+                                                <td>{{ $indikator->bukti_kerjasama }}</td>
+                                                <td><ul class="action-list d-flex justify-content-center" id="action">
+                                                    <li><a href="#" class="btn btn-primary m-1"><i class="fas fa-edit"></i></a></li>
+                                                    <li><a href="#" class="btn btn-danger m-1"><i class="fas fa-trash"></i></a></li>
+                                                </ul></td>
+                                            </tr>
+                                            @endif
+                                            @endforeach
                                         </tr>
                                         {{-- @foreach ($mahasiswa_asing as $mhs)
                                             <tr>
@@ -223,6 +249,8 @@
                                     Tambah data
                                 </button>
                             </p>
+                            <a href="{{ url('/download-excel') }}" class="btn btn-success">Excel</a>
+                            <a href="{{ url('/download-csv') }}" class="btn btn-success">CSV</a>
                             <div class="collapse" id="des3">
                                 <div class="card card-body">
                                     <p>
@@ -232,7 +260,7 @@
                             </div>
 
                 <!-- Modal -->
-                <div class="modal fade" id="modalpkm" tabindex="-1" aria-labelledby="modalpenelitian" aria-hidden="true">
+                <div class="modal fade" id="modalpkm" tabindex="-1" aria-labelledby="modalpkm" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -245,50 +273,70 @@
                     </div>
                     </div>
                 </div>
-                            <div id="printElement container-fluid">
-                                <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
-                                    <thead>
-                                        <tr>
-        
-                                            <th class="align-middle" scope="col" rowspan="2">Lembaga Mitra</th>
-                                            <th scope="col" colspan="3">Tingkat</th>
-                                            <th class="align-middle" scope="col" rowspan="2" >Judul Kegiatan Kerjasama</th>
-                                            <th class="align-middle" scope="col" rowspan="2">Manfaat Bagi PS yang Diakreditasi</th>
-                                            <th class="align-middle" scope="col" rowspan="2" >Waktu dan Durasi</th>  
-                                            <th class="align-middle" scope="col" rowspan="2" >Bukti Kerjasama</th>  
-                                        </tr>
-                                        <tr>
-                                            <th scope="col">Internasional</th>
-                                            <th scope="col">Nasional</th>       
-                                            <th scope="col">Lokal/Wilayahs</th>       
-                                        </tr>
+                
+                <div id="printElement container-fluid">
+                    <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="align-middle" rowspan="2">Tema</th>
+                                <th class="align-middle" scope="col" rowspan="2">Lembaga Mitra</th>
+                                <th scope="col" colspan="3">Tingkat</th>
+                                <th class="align-middle" scope="col" rowspan="2" >Judul Kegiatan Kerjasama</th>
+                                <th class="align-middle" scope="col" rowspan="2">Manfaat Bagi PS yang Diakreditasi</th>
+                                <th class="align-middle" scope="col" rowspan="2" >Waktu dan Durasi</th>  
+                                <th class="align-middle" scope="col" rowspan="2" >Bukti Kerjasama</th>
+                                <th class="align-middle" scope="col" rowspan="2" >Action</th>   
+                            </tr>
+                            <tr>
+                                <th scope="col">Internasional</th>
+                                <th scope="col">Nasional</th>       
+                                <th scope="col">Lokal/Wilayahs</th>       
+                            </tr>
+                    
+                        </thead>
+
+                        <tbody class="text-dark">
+                            <tr>
                                 
-                                    </thead>
-        
-                                    <tbody class="text-dark">
-                                        <tr>
-                                            <td>Eko</td>
-                                            <td>Eko</td>
-                                            <td>Eko</td>
-                                            <td>Eko</td>
-                                            <td>Eko</td>
-                                        </tr>
-                                        {{-- @foreach ($mahasiswa_asing as $mhs)
-                                            <tr>
-                                                @for ($i = 0; $i < $count; $i++)
-                                                <td>{{ $i }}</td>
-                                                @endfor
-                                            <td>{{ $mhs->daya_tampung }}</td> 
-                                            <td>{{ $mhs->c_pendaftar }}</td> 
-                                            <td>{{ $mhs->c_lulus_seleksi }}</td> 
-                                            <td>{{ $mhs->mahasiswa_reguler }}</td> 
-                                            <td>{{ $mhs->mahasiswa_transfer }}</td> 
-                                            <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-                                            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-                                            </tr>
-                                        @endforeach --}}
-                                </table> 
-                            </div>
+                                
+                                @foreach ($kerjasama as $indikator)
+                                @if ($indikator->tridharma == 'Pengabdian Kepada Masyarakat')
+                                <tr>
+                                    <td>Pengabdian Kepada Masyarakat</td>
+                                    <td>{{ $indikator->lembaga_mitra }}</td>
+                                    <td>{{ $indikator->tingkat == 'Internasional' ? 'V' : '' }}</td>
+                                    <td>{{ $indikator->tingkat == 'Nasional' ? 'V' : '' }}</td>
+                                    <td>{{ $indikator->tingkat == 'Lokal' ? 'V' : '' }}</td>
+
+                                    <td>{{ $indikator->judul_kegiatan }}</td>
+                                    <td>{{ $indikator->manfaat }}</td>
+                                    <td>{{ $indikator->waktu_durasi }}</td>
+                                    <td>{{ $indikator->bukti_kerjasama }}</td>
+                                    <td><ul class="action-list d-flex justify-content-center" id="action">
+                                        <li><a href="#" class="btn btn-primary m-1"><i class="fas fa-edit"></i></a></li>
+                                        <li><a href="#" class="btn btn-danger m-1"><i class="fas fa-trash"></i></a></li>
+                                    </ul></td>
+                                </tr>
+                                @endif
+                                @endforeach
+                            </tr>
+                            {{-- @foreach ($mahasiswa_asing as $mhs)
+                                <tr>
+                                    @for ($i = 0; $i < $count; $i++)
+                                    <td>{{ $i }}</td>
+                                    @endfor
+                                <td>{{ $mhs->daya_tampung }}</td> 
+                                <td>{{ $mhs->c_pendaftar }}</td> 
+                                <td>{{ $mhs->c_lulus_seleksi }}</td> 
+                                <td>{{ $mhs->mahasiswa_reguler }}</td> 
+                                <td>{{ $mhs->mahasiswa_transfer }}</td> 
+                                <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
+                                <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+                                </tr>
+                            @endforeach --}}
+                    </table> 
+                </div>
+                {{-- End Content --}}
 
                             {{-- End Content --}}
                         </div>

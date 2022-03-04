@@ -56,6 +56,11 @@
   #action li{
     list-style:none;
   }
+
+  i.btn-del{
+    color: white;
+  }
+
 	</style>
 
 </head>
