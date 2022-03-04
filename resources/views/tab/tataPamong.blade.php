@@ -72,20 +72,7 @@
                     </div>
                 </div>
 
-                <!-- Modal Edit Data -->
-                <div class="modal fade" id="modalpendidikanedit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pendidikan</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        @include('partials.tatapamongmodal.pendidikanedit')
-                    </div>
-                    </div>
-                </div>
+                
                             {{-- CONTENT --}}
                                 
                             <div id="printElement container-fluid">
@@ -127,15 +114,33 @@
                                             <td>{{ $indikator->waktu_durasi }}</td>
                                             <td>{{ $indikator->bukti_kerjasama }}</td>
                                             <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                                                <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit"><i class="fas fa-edit"></i></a></li>
-                                                <li><a type="button" class="btn btn-danger" action="#"><i class="fas fa-trash btn-del"></i></a></li>
+                                                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
+                                                <li>
+                                                    <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                                             </ul></td>
                                         </tr>
+                                        <!-- Modal Edit Data -->
+                                        <div class="modal fade" id="modalpendidikanedit-{{ $indikator->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pendidikan</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                </div>
+                                                @include('partials.tatapamongmodal.pendidikanedit')
+                                            </div>
+                                            </div>
+                                        </div>
+                                
+                                {{-- End Modal --}}
                                         @endif
                                         @endforeach
                                 </table> 
                             </div>
                             {{-- End Content --}}
+                            
                         </div>
                         {{-- End Tab --}}
                         {{-- Tab --}}

@@ -49,7 +49,7 @@ class TataPamongController extends Controller
         // }
         $indikator->tahun_laporan = '2021';
         $indikator->prodi = 'Teknik Industri';
-        $indikator->created_by = 'Teknik Industri';
+        $indikator->created_by = auth()->user()->name;
         $indikator->created_at = Carbon::now();
         $indikator->save();
 
@@ -62,8 +62,10 @@ class TataPamongController extends Controller
         return view('tab.tataPamong', ['indikator' => $indikator]);
     }
 
-    public function update(Request $req)
+    public function update(Request $req, $id)
     {
+        
+
         $this->validate(request(), [
             'tridharma'         => 'required',
             'lembaga_mitra'     => 'required',
@@ -71,29 +73,27 @@ class TataPamongController extends Controller
             'manfaat'           => 'required',
             'waktu_durasi'      => 'required',
             'bukti_kerjasama'   => 'required',
-            'tahun_laporan'     => 'required',
-            'prodi'             => 'required',
         ]);
 
-        $indikator = IndikatorTataKerjasama::find($req->id);
-        $indikator->tridharma = $$req->input('tridharma');
-        $indikator->lembaga_mitra = $$req->input('lembaga_mitra');
-        $indikator->judul_kegiatan = $$req->input('judul_kegiatan');
-        $indikator->manfaat = $$req->input('manfaat');
-        $indikator->waktu_durasi = $$req->input('waktu_durasi');
-        $indikator->bukti_kerjasama = $$req->input('bukti_kerjasama');
-        $indikator->tahun_laporan = $$req->input('tahun_laporan');
-        $indikator->prodi = Auth::user()->prodi;
-        $indikator->created_by = Auth::user()->name;
+        $indikator = IndikatorTataKerjasama::find($id);
+        $indikator->tridharma = $req->input('tridharma');
+        $indikator->lembaga_mitra = $req->input('lembaga_mitra');
+        $indikator->judul_kegiatan = $req->input('judul_kegiatan');
+        $indikator->manfaat = $req->input('manfaat');
+        $indikator->waktu_durasi = $req->input('waktu_durasi');
+        $indikator->bukti_kerjasama = $req->input('bukti_kerjasama');
+        $indikator->tahun_laporan = '2021';
+        $indikator->prodi = 'Teknik Industri';
+        $indikator->created_by = auth()->user()->name;
         $indikator->created_at = Carbon::now();
-        $indikator->update();
+        $indikator->save();
         return redirect('/tata-pamong-tata-kelola-kerjasama')->with('success', 'Indikator Tata Kerjasama has been updated!');
     }
 
     public function destroy($id)
     {
-        IndikatorTataKerjasama::where('id', $id)->delete();
-        return redirect('/modul/lab')->with('success', 'Indikator Tata Kerjasama has been deleted.');
+        IndikatorTataKerjasama::find($id)->delete();
+        return back()->with('success', 'Indikator Tata Kerjasama has been deleted.');
         
     }
 
