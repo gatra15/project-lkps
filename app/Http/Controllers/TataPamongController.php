@@ -94,7 +94,7 @@ class TataPamongController extends Controller
     public function destroy($id)
     {
         IndikatorTataKerjasama::find($id)->delete();
-        return back()->with('success', 'Indikator Tata Kerjasama has been deleted.');
+        return back()->with('error', 'Indikator Tata Kerjasama has been deleted.');
         
     }
 

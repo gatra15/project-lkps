@@ -19,6 +19,13 @@
                 <strong>{{ $message }}</strong>
             </div>
           @endif
+
+          @if ($message = Session::get('error'))
+          <div class="alert alert-danger">
+              <strong>{{ $message }}</strong>
+          </div>
+            @endif
+
             <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
@@ -57,7 +64,7 @@
                                 </div> 
                             </div>
                             
-                <!-- Modal Tambah Data -->
+                <!-- Modal Tambah Data Pendidikan -->
                 <div class="modal fade" id="modalpendidikan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -116,10 +123,11 @@
                                             <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                                                 <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
                                                 <li>
-                                                    <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                                                    <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                                             </ul></td>
                                         </tr>
-                                        <!-- Modal Edit Data -->
+
+                                        <!-- Modal Edit Data Pendidikan -->
                                         <div class="modal fade" id="modalpendidikanedit-{{ $indikator->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
@@ -133,7 +141,23 @@
                                             </div>
                                             </div>
                                         </div>
-                                
+
+
+                                         <!-- Modal Delete Data Pendidikan -->
+                                         <div class="modal fade" id="modalpendidikandelete-{{ $indikator->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Yakin?</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                </div>
+                                                @include('partials.tatapamongmodal.pendidikandelete')
+                                                
+                                            </div>
+                                            </div>
+                                        </div>
                                 {{-- End Modal --}}
                                         @endif
                                         @endforeach
@@ -142,6 +166,9 @@
                             {{-- End Content --}}
                             
                         </div>
+
+ 
+
                         {{-- End Tab --}}
                         {{-- Tab --}}
                         <div class="tab-pane fade show" id="penelitian" role="tabpanel" aria-labelledby="penelitian-tab">
@@ -162,7 +189,7 @@
                                     </p>
                                 </div> 
                             </div>
-                        <!-- Modal -->
+                        <!-- Modal Tambah Data Penelitian-->
                 <div class="modal fade" id="modalpenelitian" tabindex="-1" aria-labelledby="modalpenelitian" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -216,28 +243,47 @@
                                                 <td>{{ $indikator->manfaat }}</td>
                                                 <td>{{ $indikator->waktu_durasi }}</td>
                                                 <td>{{ $indikator->bukti_kerjasama }}</td>
-                                                <td><ul class="action-list d-flex justify-content-center" id="action">
-                                                    <li><a href="#" class="btn btn-primary m-1"><i class="fas fa-edit"></i></a></li>
-                                                    <li><a href="#" class="btn btn-danger m-1"><i class="fas fa-trash"></i></a></li>
+                                                <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                                                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpenelitianedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
+                                                    <li>
+                                                        <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                                                 </ul></td>
                                             </tr>
+    
+                                            <!-- Modal Edit Data Penelitian -->
+                                            <div class="modal fade" id="modalpenelitianedit-{{ $indikator->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">edit data {{ $indikator->tridharma }}</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    </div>
+                                                    @include('partials.tatapamongmodal.penelitianedit')
+                                                </div>
+                                                </div>
+                                            </div>
+    
+    
+                                             <!-- Modal Delete Data Penelitian -->
+                                             <div class="modal fade" id="modalpenelitiandelete-{{ $indikator->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Yakin?</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    </div>
+                                                    @include('partials.tatapamongmodal.penelitiandelete')
+                                                    
+                                                </div>
+                                                </div>
+                                            </div>
+
                                             @endif
                                             @endforeach
-                                        </tr>
-                                        {{-- @foreach ($mahasiswa_asing as $mhs)
-                                            <tr>
-                                                @for ($i = 0; $i < $count; $i++)
-                                                <td>{{ $i }}</td>
-                                                @endfor
-                                            <td>{{ $mhs->daya_tampung }}</td> 
-                                            <td>{{ $mhs->c_pendaftar }}</td> 
-                                            <td>{{ $mhs->c_lulus_seleksi }}</td> 
-                                            <td>{{ $mhs->mahasiswa_reguler }}</td> 
-                                            <td>{{ $mhs->mahasiswa_transfer }}</td> 
-                                            <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-                                            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-                                            </tr>
-                                        @endforeach --}}
                                 </table> 
                             </div>
                             {{-- End Content --}}
@@ -264,7 +310,7 @@
                                 </div> 
                             </div>
 
-                <!-- Modal -->
+                <!-- Modal Tambah Data Pkm -->
                 <div class="modal fade" id="modalpkm" tabindex="-1" aria-labelledby="modalpkm" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                     <div class="modal-content">
@@ -317,28 +363,48 @@
                                     <td>{{ $indikator->manfaat }}</td>
                                     <td>{{ $indikator->waktu_durasi }}</td>
                                     <td>{{ $indikator->bukti_kerjasama }}</td>
-                                    <td><ul class="action-list d-flex justify-content-center" id="action">
-                                        <li><a href="#" class="btn btn-primary m-1"><i class="fas fa-edit"></i></a></li>
-                                        <li><a href="#" class="btn btn-danger m-1"><i class="fas fa-trash"></i></a></li>
+                                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpkmedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
+                                        <li>
+                                            <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpkmdelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                                     </ul></td>
                                 </tr>
+
+                                <!-- Modal Edit Data Pkm -->
+                                <div class="modal fade" id="modalpkmedit-{{ $indikator->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">edit data {{ $indikator->tridharma }}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        @include('partials.tatapamongmodal.pkmedit')
+                                    </div>
+                                    </div>
+                                </div>
+
+
+                                 <!-- Modal Delete Data Pkm -->
+                                 <div class="modal fade" id="modalpkmdelete-{{ $indikator->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Yakin?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        @include('partials.tatapamongmodal.pkmdelete')
+                                        
+                                    </div>
+                                    </div>
+                                </div>
+
                                 @endif
                                 @endforeach
                             </tr>
-                            {{-- @foreach ($mahasiswa_asing as $mhs)
-                                <tr>
-                                    @for ($i = 0; $i < $count; $i++)
-                                    <td>{{ $i }}</td>
-                                    @endfor
-                                <td>{{ $mhs->daya_tampung }}</td> 
-                                <td>{{ $mhs->c_pendaftar }}</td> 
-                                <td>{{ $mhs->c_lulus_seleksi }}</td> 
-                                <td>{{ $mhs->mahasiswa_reguler }}</td> 
-                                <td>{{ $mhs->mahasiswa_transfer }}</td> 
-                                <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-                                <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-                                </tr>
-                            @endforeach --}}
                     </table> 
                 </div>
                 {{-- End Content --}}
