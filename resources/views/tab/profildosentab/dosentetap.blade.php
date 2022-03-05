@@ -1,0 +1,141 @@
+<div class="tab-pane fade show active" id="dosen-tetap" role="tabpanel" aria-labelledby="dosTetap-tab">
+  <p class="d-flex justify-content-between">
+      <a class="btn btn-primary" data-toggle="collapse" href="#des1" role="button" aria-expanded="false" aria-controls="des1">
+          Deskripsi
+      </a>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaldosentetap">
+          Tambah data
+      </button>
+  </p>
+  <div class="collapse" id="des1">
+      <div class="card card-body">
+          <p>
+          Keterangan:
+          NDT = Jumlah Dosen Tetap Perguruan Tinggi yang ditugaskan sebagai pengampu mata kuliah di Program Studi yang diakreditasi.<br>
+          NDTPS = Jumlah Dosen Tetap Perguruan Tinggi yang ditugaskan sebagai pengampu mata kuliah dengan bidang keahlian yang<br>
+          sesuai dengan kompetensi inti program studi yang diakreditasi.
+          1) Diisi dengan nama program studi pada pendidikan pasca sarjana (Magister/Magister Terapan dan/atau Doktor/Doktor Terapan)
+          yang pernah diikuti.<br>
+          2) Diisi dengan bidang keahlian sesuai pendidikan pasca sarjana yang relevan dengan mata kuliah yang diampu.<br>
+          3) Diisi dengan tanda centang V jika bidang keahlian sesuai dengan kompetensi inti program studi yang diakreditasi.<br>
+          4) Diisi dengan nomor Sertifikat Pendidik Profesional.<br>
+          5) Diisi dengan bidang sertifikasi dan lembaga penerbit sertifikat. Data ini diisi oleh pengusul dari program studi pada program
+          Diploma Tiga dan program Sarjana Terapan.<br>
+          6) Diisi dengan nama mata kuliah yang diampu pada program studi yang diakreditasi pada saat TS-2 s.d. TS.<br>
+          7) Diisi dengan tanda centang V jika bidang keahlian sesuai dengan mata kuliah yang diampu.<br>
+          8) Diisi dengan nama mata kuliah yang diampu pada program studi lain pada saat TS-2 s.d. TS.<br>
+          </p>
+      </div> 
+  </div>
+  
+
+  {{-- CONTENT --}}
+      
+  <div id="printElement container-fluid">
+      <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
+          <thead>
+              <tr>
+
+                  <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
+                  <th class="align-middle" scope="col" rowspan="2">NIDN/ NIDK</th>
+                  <th th scope="col" colspan="2" >Pendidikan Pasca Sarjana <sup>1)</sup></th>
+                  <th class="align-middle" scope="col" rowspan="2">Bidang Keahlian <sup>2)</sup></th>
+                  <th class="align-middle" scope="col" rowspan="2" >Kesesuaian dengan Kompetensi Inti PS <sup>3)</sup></th>  
+                  <th class="align-middle" scope="col" rowspan="2" >Jabatan Akademik</th>  
+                  <th class="align-middle" scope="col" rowspan="2" >Sertifikat Pendidik Profesional <sup>4)</sup></th>  
+                  <th class="align-middle" scope="col" rowspan="2" >Sertifikat Kompetensi /Profesi/ Industri <sup>5)</sup></th>  
+                  <th class="align-middle" scope="col" rowspan="2" >Mata Kuliah yang Diampu pada PS yang Diakreditasi <sup>6)</sup></th>  
+                  <th class="align-middle" scope="col" rowspan="2" >Kesesuaian Bidang Keahlian dengan Mata Kuliah yang Diampu <sup>7)</sup></th>  
+                  <th class="align-middle" scope="col" rowspan="2" >Mata Kuliah yang Diampu pada PS Lain <sup>8)</sup></th>  
+              </tr>
+              <tr>
+                  <th scope="col">Magister /Magister Terapan/ Spesialis</th>
+                  <th scope="col">Doktor /Doktor Terapan/ Spesialis</th>       
+              </tr>
+      
+          </thead>
+
+          <tbody class="text-dark">
+              <tr>
+                  <td>eko</td>
+              </tr>
+               {{-- Coding Tabel Disini --}}
+               {{-- <tr>
+              @foreach ($kerjasama as $indikator)
+              @if ($indikator->tridharma == 'Pengabdian Kepada Masyarakat')
+              <tr>
+                  <td>Pengabdian Kepada Masyarakat</td>
+                  <td>{{ $indikator->lembaga_mitra }}</td>
+                  <td>{{ $indikator->tingkat == 'Internasional' ? 'V' : '' }}</td>
+                  <td>{{ $indikator->tingkat == 'Nasional' ? 'V' : '' }}</td>
+                  <td>{{ $indikator->tingkat == 'Lokal' ? 'V' : '' }}</td>
+
+                  <td>{{ $indikator->judul_kegiatan }}</td>
+                  <td>{{ $indikator->manfaat }}</td>
+                  <td>{{ $indikator->waktu_durasi }}</td>
+                  <td>{{ $indikator->bukti_kerjasama }}</td>
+                  <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                      <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosentetapedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
+                      <li>
+                          <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modadosentetapdelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                  </ul></td>
+              </tr> --}}
+              <tr>
+                  <td><b>Jumlah</b></td>
+                  <td colspan="2"><b>NDT :  {{-- coding jumlah Dosen pengampu --}}</b></td>
+                  <td class="abu"></td>
+                  <td class="abu"></td>
+                  <td class="abu"></td>
+                  <td colspan="2"><b>NDTS : {{-- coding jumlah Dosen pengampu yang bidang keahliannya sesuai --}}</b></td>
+                  <td class="abu"></td>
+                  <td class="abu"></td>
+                  <td class="abu"></td>
+                  <td class="abu"></td>
+              </tr>
+
+<!-- Modal Edit Data Dosen Tetap -->
+<div class="modal fade" id="modaldosentetap" tabindex="-1" aria-labelledby="modaldosentetap" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+  <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title" id="modaldosentetap">Tambah Data Dosen Tetap</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      @include('partials.profildosenmodal.dosentetapedit')
+  </div>
+  </div>
+</div>
+<!-- Modal Delete Data Dosen Tetap -->
+<div class="modal fade" id="modaldosentetap" tabindex="-1" aria-labelledby="modaldosentetap" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+  <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title" id="modaldosentetap">Tambah Data Dosen Tetap</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      @include('partials.profildosenmodal.dosentetapdelete')
+  </div>
+  </div>
+</div>
+      </table> 
+</div>
+
+<!-- Modal Tambah Data Dosen Tetap -->
+<div class="modal fade" id="modaldosentetap" tabindex="-1" aria-labelledby="modaldosentetap" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+  <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title" id="modaldosentetap">Tambah Data Dosen Tetap</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      @include('partials.profildosenmodal.dosentetap')
+  </div>
+  </div>
+</div>
+</div>
