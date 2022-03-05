@@ -14,10 +14,16 @@ class TataPamongController extends Controller
     public function index()
     {
         $kerjasama = IndikatorTataKerjasama::all();
+        $jmlpendidikan = $kerjasama->where('tridharma', 'Pendidikan')->count();
+        $jmlpenelitian = $kerjasama->where('tridharma', 'Penelitian')->count();
+        $jmlpkm = $kerjasama->where('tridharma', 'Pengabdian Kepada Masyarakat')->count();
         
         return view('tab.tataPamong', [
             'title' => 'Tata Pamong',
-            'kerjasama' => $kerjasama
+            'kerjasama' => $kerjasama,
+            'jmlpendidikan' => $jmlpendidikan,
+            'jmlpenelitian' => $jmlpenelitian,
+            'jmlpkm' => $jmlpkm,
         ]);
     }
 

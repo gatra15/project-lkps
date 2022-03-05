@@ -15,14 +15,14 @@ class CreateSdmDosensTable extends Migration
     {
         Schema::create('sdm_dosens', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('nomor_id');
-            $table->string('pendidikan_magister');
-            $table->string('pendidikan_doktor');
+            $table->string('nama_dosen');
+            $table->string('nidn_nidk');
+            $table->string('pendidikan_pasca_sarjana_magister');
+            $table->string('pendidikan_pasca_sarjana_doktor');
             $table->string('bidang_keahlian');
             $table->string('kesesuaian_ps');
             $table->string('jabatan_akademik');
-            $table->string('sertifikat_pendidikan_profesi');
+            $table->string('sertifikat_pendidik_profesi');
             $table->string('sertifikat_kompetensi');
             $table->string('mata_kuliah_akreditasi_diampu');
             $table->string('kesesuaian_mata_kuliah_diampu');

@@ -61,6 +61,14 @@
     color: white;
   }
 
+ sup {
+   font-size: 10px;
+ }
+
+ td.abu{
+   background-color: #d8d8d8; 
+ }
+
 	</style>
 
 </head>

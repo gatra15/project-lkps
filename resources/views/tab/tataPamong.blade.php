@@ -127,6 +127,9 @@
                                             </ul></td>
                                         </tr>
 
+                                        
+
+
                                         <!-- Modal Edit Data Pendidikan -->
                                         <div class="modal fade" id="modalpendidikanedit-{{ $indikator->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
@@ -161,6 +164,11 @@
                                 {{-- End Modal --}}
                                         @endif
                                         @endforeach
+                                        
+                                        
+                                        <tr>
+                                            <td colspan="10" class="text-left"><b>Jumlah Pendidikan : {{ $jmlpendidikan }}</b> </td>
+                                        </tr>
                                 </table> 
                             </div>
                             {{-- End Content --}}
@@ -190,19 +198,19 @@
                                 </div> 
                             </div>
                         <!-- Modal Tambah Data Penelitian-->
-                <div class="modal fade" id="modalpenelitian" tabindex="-1" aria-labelledby="modalpenelitian" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="modalpenelitian">Tambah Data Penelitian</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <div class="modal fade" id="modalpenelitian" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Penelitian</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                @include('partials.tatapamongmodal.penelitian')
+                            </div>
+                            </div>
                         </div>
-                        @include('partials.tatapamongmodal.penelitian')
-                    </div>
-                    </div>
-                </div>
 
                             <div id="printElement container-fluid">
                                 <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
@@ -228,8 +236,6 @@
         
                                     <tbody class="text-dark">
                                         <tr>
-                                            
-                                            
                                             @foreach ($kerjasama as $indikator)
                                             @if ($indikator->tridharma == 'Penelitian')
                                             <tr>
@@ -284,6 +290,11 @@
 
                                             @endif
                                             @endforeach
+
+                                        
+                                        <tr>
+                                            <td colspan="10" class="text-left"><b>Jumlah Penelitian : {{ $jmlpenelitian }}</b></td>
+                                        </tr>
                                 </table> 
                             </div>
                             {{-- End Content --}}
@@ -311,11 +322,11 @@
                             </div>
 
                 <!-- Modal Tambah Data Pkm -->
-                <div class="modal fade" id="modalpkm" tabindex="-1" aria-labelledby="modalpkm" aria-hidden="true">
+                <div class="modal fade" id="exampleModalLabel" tabindex="-1" aria-labelledby="modalpkm" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 class="modal-title" id="modalpkm">Tambah Data PKM</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Data PKM</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -404,6 +415,9 @@
 
                                 @endif
                                 @endforeach
+                            </tr>
+                            <tr>
+                                <td colspan="10" class="text-left"><b>Jumlah PKM : {{ $jmlpkm }}</b></td>
                             </tr>
                     </table> 
                 </div>
