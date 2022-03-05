@@ -12,6 +12,11 @@
 <div class="content">
 <div class="container-fluid">
         <div class="card">
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <strong>{{ $message }}</strong>
+            </div>
+          @endif
 <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs" id="bologna-list" role="tablist">
         <li class="nav-item">
@@ -22,19 +27,20 @@
 <div class="card-body">
     <div class="tab-content mt-3">
         <div class="tab-pane active" id="description" role="tabpanel">
-            <form id="mainform" onsubmit="return ajaxPost(event, this)" method="post" action="http://lkps.logistikdonasi.com/admin/data-identitas/save">
+            <form id="mainform" method="post" action="/identitas-pengusul">
+                @csrf
                 <input type="hidden" name="id" class="form-control" value="">
                 <div class="modal-body">
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-4 col-form-label d-flex justify-content-between">Perguruan Tinggi <span>:</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" value="" name="pt">
+                            <input type="text" class="form-control" value="" name="perguruan_tinggi">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-4 col-form-label d-flex justify-content-between">Unit Pengelola Program Studi    <span>:</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" value="" name="unit_pps">
+                            <input type="text" class="form-control" value="" name="unit_pengelola">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -46,7 +52,7 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-4 col-form-label d-flex justify-content-between">Nama Program Studi   <span>:</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" value="" name="program_studi">
+                            <input type="text" class="form-control" value="" name="prodi">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -58,73 +64,73 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-4 col-form-label d-flex justify-content-between">Nomor Telepon    <span>:</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" value="" name="np_tlp">
+                            <input type="text" class="form-control" value="" name="no_telepon">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-4 col-form-label d-flex justify-content-between">E-Mail dan Website    <span>:</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" value="" name="email_web">
+                            <input type="text" class="form-control" value="" name="email_website">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-4 col-form-label d-flex justify-content-between">Nomor SK Pendirian PT 1)   <span>:</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" value="" name="no_sk_pendirian_pt">
+                            <input type="text" class="form-control" value="" name="no_sk1">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-4 col-form-label d-flex justify-content-between">Tanggal SK Pendirian PT   <span>:</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" value="" name="tggl_sk_pendirian">
+                            <input type="text" class="form-control" value="" name="tanggal_sk_pendirian">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-4 col-form-label d-flex justify-content-between"> Pejabat Penandatangan SK Pendirian PT   <span>:</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" value="" name="penandatangan_sk_pendiran">
+                            <input type="text" class="form-control" value="" name="pejabat_penandatanganan">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-4 col-form-label d-flex justify-content-between"> Nomor SK Pembukaan PS 2)   <span>:</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" value="" name="no_sk_pembukaan_ps">
+                            <input type="text" class="form-control" value="" name="no_sk2">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-4 col-form-label d-flex justify-content-between"> Tanggal SK Pembukaan PS  <span>:</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" value="" name="tgl_sk_pembukaan_ps">
+                            <input type="text" class="form-control" value="" name="tanggal_sk_pembukaan">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-4 col-form-label d-flex justify-content-between"> Pejabat Penandatangan SK Pembukaan PS  <span>:</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" value="" name="penandatanganan_sk_pembukaan_ps">
+                            <input type="text" class="form-control" value="" name="pejabat_pembukaan">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-4 col-form-label d-flex justify-content-between"> SK Pembukaan PS  <span>:</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" value="" name="sk_pembukaan_ps">
+                            <input type="text" class="form-control" value="" name="sk_pembukaan">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-4 col-form-label d-flex justify-content-between">Tahun Pertama Kali Menerima Mahasiswa  <span>:</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" value="" name="thn_pertama_terima_mhs">
+                            <input type="text" class="form-control" value="" name="tahun_pertama">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-4 col-form-label d-flex justify-content-between">Peringkat Terbaru Akreditasi PS  <span>:</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" value="" name="peringkat_terbaru_ps">
+                            <input type="text" class="form-control" value="" name="peningkatan_terbaru">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-4 col-form-label d-flex justify-content-between">Nomor SK BAN-PT  <span>:</span></label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" value="" name="no_sk_ban_pt">
+                            <input type="text" class="form-control" value="" name="nomor_sk_banpt">
                         </div>
                     </div>
                 </div>

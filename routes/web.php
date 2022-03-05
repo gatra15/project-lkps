@@ -49,6 +49,7 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('/dashboard', [HomeController::class, 'index']);
 
         Route::get('/identitas-pengusul', [IdentitasPengusulController::class, 'index']);
+        Route::post('/identitas-pengusul', [IdentitasPengusulController::class, 'store']);
 
         Route::get('/tata-pamong-tata-kelola-kerjasama', [TataPamongController::class, 'index']);
         Route::post('/tata-pamong-tata-kelola-kerjasama', [TataPamongController::class, 'store']);

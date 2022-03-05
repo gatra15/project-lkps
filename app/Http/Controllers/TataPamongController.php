@@ -79,6 +79,7 @@ class TataPamongController extends Controller
         $indikator->tridharma = $req->input('tridharma');
         $indikator->lembaga_mitra = $req->input('lembaga_mitra');
         $indikator->judul_kegiatan = $req->input('judul_kegiatan');
+        $indikator->tingkat = $req->input('tingkat');
         $indikator->manfaat = $req->input('manfaat');
         $indikator->waktu_durasi = $req->input('waktu_durasi');
         $indikator->bukti_kerjasama = $req->input('bukti_kerjasama');
