@@ -59,6 +59,7 @@ class UserTableSeeder extends Seeder
 
         $user = User::create([
             'name' => 'Galih Saputra',
+            'prodi' => 'Teknik Komputer',
             'email' => 'gatra@admin.web.id',
             'password' => Hash::make('gatra090'),
         ]);
@@ -66,6 +67,7 @@ class UserTableSeeder extends Seeder
 
         $user = User::create([
             'name' => 'Teknik Industri',
+            'prodi' => 'Teknik Industri',
             'email' => 'teknik.industri@undip.ac.id',
             'password' => Hash::make('industri123'),
         ]);
@@ -73,6 +75,7 @@ class UserTableSeeder extends Seeder
         
         $user = User::create([
             'name' => 'Dekanat Fakultas Teknik',
+            'prodi' => 'Fakultas Teknik',
             'email' => 'dekan.tekni@undip.ac.id',
             'password' => Hash::make('dekan123'),
         ]);
@@ -80,6 +83,7 @@ class UserTableSeeder extends Seeder
         
         $user = User::create([
             'name' => 'Wakil Dekanat Fakultas Teknik',
+            'prodi' => 'Fakultas Teknik',
             'email' => 'wadek.teknik@undip.ac.id',
             'password' => Hash::make('wadek123'),
         ]);
@@ -87,20 +91,23 @@ class UserTableSeeder extends Seeder
         
         $user = User::create([
             'name' => 'Tim Penjaminan Mutu Fakultas Teknik',
+            'prodi' => 'Fakultas Teknik',
             'email' => 'tim.teknik@undip.ac.id',
             'password' => Hash::make('mutu123'),
         ]);
         $user->assignRole($dekan);
 
         User::create([
-            'name' => 'Auditor',
-            'email' => 'auditor@undip.ac.id',
+            'name' => 'Asesor',
+            'prodi' => 'Universitas Diponegoro',
+            'email' => 'asesor@undip.ac.id',
             'password' => Hash::make('audit123'),
         ]);
         $user->assignRole($auditor);
 
         $user = User::create([
             'name' => 'Pasyah Vegananda',
+            'prodi' => 'Teknik Informatika Stekom',
             'email' => 'pasyah@admin.web.id',
             'password' => Hash::make('pasyah069'),
         ]);

@@ -1,4 +1,5 @@
-<form action="#" method="POST">
+<form action="/profil-dosen/{{ $sdm->id }}" method="POST">
+    @method('put')
     @csrf
     <div class="modal-body">
         
@@ -9,59 +10,59 @@
 
                 <label for="dosentetap"> Nama Dosen :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="nama_dosen" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="text" name="nama_dosen" value="{{ $sdm->nama_dosen }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
                 <label for="dosentetap"> NIDN / NIDK :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="nidn_nidk" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="nidn_nidk" value="{{ $sdm->nidn_nidk }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="dosentetap"> Pendidikan Magister / Magister Terapan / Spesialis :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="pendidikan_pasca_sarjana_magister" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="pendidikan_pasca_sarjana_magister" class="form-control" value="{{ $sdm->pendidikan_pasca_sarjana_magister }}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="dosentetap"> Pendidikan Doktor / Doktor Terapan / Spesialis :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="pendidikan_pasca_sarjana_doktor" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="pendidikan_pasca_sarjana_doktor" value="{{ $sdm->pendidikan_pasca_sarjana_doktor }}"class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="dosentetap"> Bidang Keahlian :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="bidang_keahlian" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="bidang_keahlian" value="{{ $sdm->bidang_keahlian }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="dosentetap"> Kesesuaian dengan Kompetensi Inti PS :</label>
                 <div class="input-group mb-3">
                     <select class="custom-select" name="kesesuaian_ps" id="inputGroupSelect01">
-                        <option selected>pilih...</option>
-                        <option value="1">Iya</option>
-                        <option value="0">Tidak</option>
+                        <option >pilih...</option>
+                        <option {{ $sdm->kesesuaian_ps == '1' ? 'selected' : '' }} value="1">Iya</option>
+                        <option {{ $sdm->kesesuaian_ps == '0' ? 'selected' : '' }} value="0">Tidak</option>
                     </select>
                 </div>
                 <label for="dosentetap"> Jabatan Akademik :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jabatan_akademik" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="jabatan_akademik" value="{{ $sdm->jabatan_akademik }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="dosentetap"> Sertifikat Pendidik Profesional :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="sertifikat_pendidik_profesi" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="sertifikat_pendidik_profesi" value="{{ $sdm->sertifikat_pendidik_profesi }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="dosentetap"> Sertifikat Kompetensi / Profesi / Industri :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="sertifikat_kompetensi" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="sertifikat_kompetensi" value="{{ $sdm->sertifikat_kompetensi }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="dosentetap"> Mata Kuliah yang Diampu pada PS yang Diakreditasi :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="mata_kuliah_akreditasi_diampu" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="mata_kuliah_akreditasi_diampu" value="{{ $sdm->mata_kuliah_akreditasi_diampu }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="dosentetap"> Kesesuaian Bidang Keahlian dengan Mata Kuliah yang Diampu :</label>
                 <div class="input-group mb-3">
                     <select class="custom-select" name="kesesuaian_mata_kuliah_diampu" id="inputGroupSelect01">
-                        <option selected>pilih...</option>
-                        <option value="1">Iya</option>
-                        <option value="0">Tidak</option>
+                        <option >pilih...</option>
+                        <option {{ $sdm->kesesuaian_mata_kuliah_diampu == '1' ? 'selected' : '' }} value="1">Iya</option>
+                        <option {{ $sdm->kesesuaian_mata_kuliah_diampu == '0' ? 'selected' : '' }} value="0">Tidak</option>
                     </select>
                 </div>
                 <label for="dosentetap"> Mata Kuliah yang Diampu pada PS Lain :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="mata_kuliah_diampu_ps_lain" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="mata_kuliah_diampu_ps_lain" value="{{ $sdm->mata_kuliah_diampu_ps_lain }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
 
                {{-- coding modal insert akhir --}}

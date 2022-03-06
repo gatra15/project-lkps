@@ -44,11 +44,7 @@
 
 <tbody class="text-dark">
 <tr>
-<td>Eko</td>
-<td>Eko</td>
-<td>Eko</td>
-<td>Eko</td>
-<td>Eko</td>
+
 </tr>
 {{-- @foreach ($mahasiswa_asing as $mhs)
 <tr>
