@@ -47,6 +47,7 @@
                   <th class="align-middle" scope="col" rowspan="2" >Mata Kuliah yang Diampu pada PS yang Diakreditasi <sup>6)</sup></th>  
                   <th class="align-middle" scope="col" rowspan="2" >Kesesuaian Bidang Keahlian dengan Mata Kuliah yang Diampu <sup>7)</sup></th>  
                   <th class="align-middle" scope="col" rowspan="2" >Mata Kuliah yang Diampu pada PS Lain <sup>8)</sup></th>  
+                  <th class="align-middle" scope="col" rowspan="2" >Opsi</th>  
               </tr>
               <tr>
                   <th scope="col">Magister /Magister Terapan/ Spesialis</th>
@@ -56,30 +57,29 @@
           </thead>
 
           <tbody class="text-dark">
-              <tr>
-                  <td>eko</td>
-              </tr>
                {{-- Coding Tabel Disini --}}
-               {{-- <tr>
-              @foreach ($kerjasama as $indikator)
-              @if ($indikator->tridharma == 'Pengabdian Kepada Masyarakat')
+               <tr>
+              @foreach ($dosen as $sdm)
               <tr>
-                  <td>Pengabdian Kepada Masyarakat</td>
-                  <td>{{ $indikator->lembaga_mitra }}</td>
-                  <td>{{ $indikator->tingkat == 'Internasional' ? 'V' : '' }}</td>
-                  <td>{{ $indikator->tingkat == 'Nasional' ? 'V' : '' }}</td>
-                  <td>{{ $indikator->tingkat == 'Lokal' ? 'V' : '' }}</td>
-
-                  <td>{{ $indikator->judul_kegiatan }}</td>
-                  <td>{{ $indikator->manfaat }}</td>
-                  <td>{{ $indikator->waktu_durasi }}</td>
-                  <td>{{ $indikator->bukti_kerjasama }}</td>
+                  <td>{{ $sdm->nama_dosen }}</td>
+                  <td>{{ $sdm->nidn_nidk }}</td>
+                  <td>{{ $sdm->pendidikan_pasca_sarjana_magister }}</td>
+                  <td>{{ $sdm->pendidikan_pasca_sarjana_doktor }}</td>
+                  <td>{{ $sdm->bidang_keahlian }}</td>
+                  <td>{{ $sdm->kesesuaian_ps }}</td>
+                  <td>{{ $sdm->jabatan_akademik }}</td>
+                  <td>{{ $sdm->sertifikat_pendidik_profesi }}</td>
+                  <td>{{ $sdm->sertifikat_kompetensi }}</td>
+                  <td>{{ $sdm->mata_kuliah_akreditasi_diampu }}</td>
+                  <td>{{ $sdm->kesesuaian_mata_kuliah_diampu }}</td>
+                  <td>{{ $sdm->mata_kuliah_diampu_ps_lain }}</td>
                   <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                      <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosentetapedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
+                      <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosentetapedit-{{ $sdm->id }}"><i class="fas fa-edit"></i></a></li>
                       <li>
-                          <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modadosentetapdelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                          <a type="button" class="btn btn-danger" href="/profil-dosen/{{ $sdm->id }}" data-toggle="modal" data-target="#modaldosentetapdelete-{{ $sdm->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                   </ul></td>
-              </tr> --}}
+              </tr>
+              @endforeach
               <tr>
                   <td><b>Jumlah</b></td>
                   <td colspan="2"><b>NDT :  {{-- coding jumlah Dosen pengampu --}}</b></td>
@@ -94,11 +94,11 @@
               </tr>
 
 <!-- Modal Edit Data Dosen Tetap -->
-<div class="modal fade" id="modaldosentetap" tabindex="-1" aria-labelledby="modaldosentetap" aria-hidden="true">
+<div class="modal fade" id="modaldosentetapedit-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentetapedit" aria-hidden="true">
   <div class="modal-dialog modal-lg">
   <div class="modal-content">
       <div class="modal-header">
-      <h5 class="modal-title" id="modaldosentetap">Tambah Data Dosen Tetap</h5>
+      <h5 class="modal-title" id="modaldosentetapedit">Edit Data Dosen Tetap</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
       </button>
@@ -108,11 +108,11 @@
   </div>
 </div>
 <!-- Modal Delete Data Dosen Tetap -->
-<div class="modal fade" id="modaldosentetap" tabindex="-1" aria-labelledby="modaldosentetap" aria-hidden="true">
+<div class="modal fade" id="modaldosentetapdelete-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentetapdelete" aria-hidden="true">
   <div class="modal-dialog modal-lg">
   <div class="modal-content">
       <div class="modal-header">
-      <h5 class="modal-title" id="modaldosentetap">Tambah Data Dosen Tetap</h5>
+      <h5 class="modal-title" id="modaldosentetapdelete">Yakin?</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
       </button>
@@ -125,7 +125,7 @@
 </div>
 
 <!-- Modal Tambah Data Dosen Tetap -->
-<div class="modal fade" id="modaldosentetap" tabindex="-1" aria-labelledby="modaldosentetap" aria-hidden="true">
+<div class="modal fade" id="modaldosentetapdelete-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentetap" aria-hidden="true">
   <div class="modal-dialog modal-lg">
   <div class="modal-content">
       <div class="modal-header">

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SdmDosenPembimbingTa;
+use App\Models\Tahun;
 use Illuminate\Http\Request;
 
-class SdmDosenPembimbingTaController extends Controller
+class TahunController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class SdmDosenPembimbingTaController extends Controller
      */
     public function index()
     {
-        $dosenta = SdmDosenPembimbingTa::all();
-        return view('tab.profildosentab.dosenpembimbingta', ['dosen' => $dosenta]);
+        //
     }
 
     /**
@@ -42,10 +41,10 @@ class SdmDosenPembimbingTaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\SdmDosenPembimbingTa  $sdmDosenPembimbingTa
+     * @param  \App\Models\Tahun  $tahun
      * @return \Illuminate\Http\Response
      */
-    public function show(SdmDosenPembimbingTa $sdmDosenPembimbingTa)
+    public function show(Tahun $tahun)
     {
         //
     }
@@ -53,10 +52,10 @@ class SdmDosenPembimbingTaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\SdmDosenPembimbingTa  $sdmDosenPembimbingTa
+     * @param  \App\Models\Tahun  $tahun
      * @return \Illuminate\Http\Response
      */
-    public function edit(SdmDosenPembimbingTa $sdmDosenPembimbingTa)
+    public function edit(Tahun $tahun)
     {
         //
     }
@@ -65,10 +64,10 @@ class SdmDosenPembimbingTaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SdmDosenPembimbingTa  $sdmDosenPembimbingTa
+     * @param  \App\Models\Tahun  $tahun
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SdmDosenPembimbingTa $sdmDosenPembimbingTa)
+    public function update(Request $request, Tahun $tahun)
     {
         //
     }
@@ -76,10 +75,10 @@ class SdmDosenPembimbingTaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\SdmDosenPembimbingTa  $sdmDosenPembimbingTa
+     * @param  \App\Models\Tahun  $tahun
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SdmDosenPembimbingTa $sdmDosenPembimbingTa)
+    public function destroy(Tahun $tahun)
     {
         //
     }

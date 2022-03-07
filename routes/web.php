@@ -16,6 +16,7 @@ use App\Http\Controllers\KinerjaDosenController;
 use App\Http\Controllers\TabMahasiswaController;
 use App\Http\Controllers\IdentitasPengusulController;
 use App\Http\Controllers\KeuanganSaranaPrasaranaController;
+use App\Http\Controllers\SdmEkuivalenWaktuMengajarPenuhDosenTetapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,14 +58,26 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('/tata-pamong-tata-kelola-kerjasama/{id}', [TataPamongController::class, 'destroy']);
 
         Route::get('/mahasiswa', [TabMahasiswaController::class, 'index']);
-        Route::post('/mahasiswa/add', [TabMahasiswaController::class, 'store']);
-        Route::get('/mahasiswa/edit/{id}', [TabMahasiswaController::class, 'edit']);
-        Route::post('/mahasiswa/edit', [TabMahasiswaController::class, 'update']);
-        Route::get('/mahasiswa/delete/{id}', [TabMahasiswaController::class, 'destroy']);
+        Route::post('/mahasiswa', [TabMahasiswaController::class, 'store']);
+        Route::put('/mahasiswa/{id}', [TabMahasiswaController::class, 'update']);
+        Route::get('/mahasiswa/{id}', [TabMahasiswaController::class, 'destroy']);
 
         Route::get('/sdm', [SdmController::class, 'index']);
 
         Route::get('/profil-dosen', [ProfilDosenController::class, 'index']);
+        Route::post('/profil-dosen', [ProfilDosenController::class, 'store']);
+        Route::put('/profil-dosen/{id}', [ProfilDosenController::class, 'update']);
+        Route::get('/profil-dosen/{id}', [ProfilDosenController::class, 'destroy']);
+
+        Route::get('/profil-dosen/pembimbing-ta', [SdmDosenPembimbingTaController::class, 'index']);
+        Route::post('/profil-dosen/pembimbing-ta', [SdmDosenPembimbingTaController::class, 'store']);
+        Route::put('/profil-dosen/pembimbing-ta/{id}', [SdmDosenPembimbingTaController::class, 'update']);
+        Route::get('/profil-dosen/pembimbing-ta/{id}', [SdmDosenPembimbingTaController::class, 'destroy']);
+
+        Route::get('/profil-dosen/ewmp', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'index']);
+        Route::post('/profil-dosen/ewmp', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'store']);
+        Route::put('/profil-dosen/ewmp/{id}', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'update']);
+        Route::get('/profil-dosen/ewmp/{id}', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'destroy']);
 
         Route::get('/kinerja-dosen', [KinerjaDosenController::class, 'index']);
 

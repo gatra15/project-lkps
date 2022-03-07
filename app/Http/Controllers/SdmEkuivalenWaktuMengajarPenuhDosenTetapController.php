@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SdmEkuivalenWaktuMengajarPenuhDosenTetap;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\SdmEkuivalenWaktuMengajarPenuhDosenTetap;
 
 class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
 {
@@ -14,7 +15,8 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
      */
     public function index()
     {
-        //
+        $ewmpdosen = SdmEkuivalenWaktuMengajarPenuhDosenTetap::all();
+        return view('tab.profildosentab.ewmp', ['ewmpdosen' => $ewmpdosen]);
     }
 
     /**
@@ -22,9 +24,39 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $req)
     {
-        //
+        $this->validate($req, [
+            'nama' => 'required',
+            'dtps' => 'required',
+            'ps_akreditasi' => 'required',
+            'ps_lain_dalam_pt' => 'required',
+            'ps_lain_luar_pt' => 'required',
+            'penelitian' => 'required',
+            'pkm' => 'required',
+            'penunjang' => 'required',
+            'sks' => 'required',
+            'average_per_sks' => 'required',
+        ]);
+
+        $dosen = new SdmEkuivalenWaktuMengajarPenuhDosenTetap;
+        $dosen->nama = $req->input('nama');
+        $dosen->dtps = $req->input('dtps');
+        $dosen->ps_akreditasi = $req->input('ps_akreditasi');
+        $dosen->ps_lain_dalam_pt = $req->input('ps_lain_dalam_pt');
+        $dosen->ps_lain_luar_pt = $req->input('ps_lain_luar_pt');
+        $dosen->penelitian = $req->input('penelitian');
+        $dosen->pkm = $req->input('pkm');
+        $dosen->penunjang = $req->input('penunjang');
+        $dosen->sks = $req->input('sks');
+        $dosen->average_per_sks = $req->input('average_per_sks');
+        $dosen->tahun_laporan = '2022';
+        $dosen->prodi = auth()->user()->prodi;
+        $dosen->created_by = auth()->user()->name;
+        $dosen->created_at = Carbon::now();
+        $dosen->save();
+
+        return redirect('/profil-dosen/ewmp')->with('success', 'New Dosen EWMP has been created.');
     }
 
     /**
