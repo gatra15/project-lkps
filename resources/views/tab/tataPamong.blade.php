@@ -3,6 +3,7 @@
 
 @section('content')
 <!-- JUDUL -->
+<body>
 <div class="content-header">
     <div class="container-fluid">
             <h1>TATA PAMONG, TATA KELOLA, DAN KERJASAMA</h1>
@@ -44,139 +45,11 @@
             <div class="card-body">
                 <div class="tab-content mt-3">
                     <div class="tab-content" id="myTabContent">
+
                         {{-- Tab --}}
-                        <div class="tab-pane fade show active" id="pendidikan" role="tabpanel" aria-labelledby="pendidikan-tab">
-                            <p class="d-flex justify-content-between">
-                                <a class="btn btn-primary" data-toggle="collapse" href="#des1" role="button" aria-expanded="false" aria-controls="des1">
-                                    Deskripsi
-                                </a>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikan">
-                                    Tambah data
-                                </button>
-                            </p>
-                            <a href="{{ url('/download-excel') }}" class="btn btn-success">Excel</a>
-                            <a href="{{ url('/download-csv') }}" class="btn btn-success">CSV</a>
-                            <div class="collapse" id="des1">
-                                <div class="card card-body">
-                                    <p>
-                                        Tuliskan data Dosen Tetap Perguruan Tinggi yang ditugaskan sebagai pengampu mata kuliah di Program Studi yang Diakreditasi (DTPS) pada saat TS dengan mengikuti format Tabel 3.a.1) berikut ini
-                                    </p>
-                                </div> 
-                            </div>
-                            
-                <!-- Modal Tambah Data Pendidikan -->
-                <div class="modal fade" id="modalpendidikan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pendidikan</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        @include('partials.tatapamongmodal.pendidikan')
-                    </div>
-                    </div>
-                </div>
-
-                
-                            {{-- CONTENT --}}
-                                
-                            <div id="printElement container-fluid">
-                                <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" class="align-middle" rowspan="2">Tema</th>
-                                            <th class="align-middle" scope="col" rowspan="2">Lembaga Mitra</th>
-                                            <th scope="col" colspan="3">Tingkat</th>
-                                            <th class="align-middle" scope="col" rowspan="2" >Judul Kegiatan Kerjasama</th>
-                                            <th class="align-middle" scope="col" rowspan="2">Manfaat Bagi PS yang Diakreditasi</th>
-                                            <th class="align-middle" scope="col" rowspan="2" >Waktu dan Durasi</th>  
-                                            <th class="align-middle" scope="col" rowspan="2" >Bukti Kerjasama</th>  
-                                            <th class="align-middle" scope="col" rowspan="2" >Opsi</th>  
-                                        </tr>
-                                        <tr>
-                                            <th scope="col">Internasional</th>
-                                            <th scope="col">Nasional</th>       
-                                            <th scope="col">Lokal/Wilayahs</th>       
-                                        </tr>
-                                
-                                    </thead>
-                                
-                                    
-                               
-                                    <tbody class="text-dark">
-                                        
-                                        @foreach ($kerjasama as $indikator)
-                                        @if ($indikator->tridharma == 'Pendidikan')
-                                        <tr>
-                                            <td>Pendidikan</td>
-                                            <td>{{ $indikator->lembaga_mitra }}</td>
-                                            <td>{{ $indikator->tingkat == 'Internasional' ? 'V' : '' }}</td>
-                                            <td>{{ $indikator->tingkat == 'Nasional' ? 'V' : '' }}</td>
-                                            <td>{{ $indikator->tingkat == 'Lokal' ? 'V' : '' }}</td>
-
-                                            <td>{{ $indikator->judul_kegiatan }}</td>
-                                            <td>{{ $indikator->manfaat }}</td>
-                                            <td>{{ $indikator->waktu_durasi }}</td>
-                                            <td>{{ $indikator->bukti_kerjasama }}</td>
-                                            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                                                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
-                                                <li>
-                                                    <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                                            </ul></td>
-                                        </tr>
-
-                                        
-
-
-                                        <!-- Modal Edit Data Pendidikan -->
-                                        <div class="modal fade" id="modalpendidikanedit-{{ $indikator->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pendidikan</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                </div>
-                                                @include('partials.tatapamongmodal.pendidikanedit')
-                                            </div>
-                                            </div>
-                                        </div>
-
-
-                                         <!-- Modal Delete Data Pendidikan -->
-                                         <div class="modal fade" id="modalpendidikandelete-{{ $indikator->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Yakin?</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                </div>
-                                                @include('partials.tatapamongmodal.pendidikandelete')
-                                                
-                                            </div>
-                                            </div>
-                                        </div>
-                                {{-- End Modal --}}
-                                        @endif
-                                        @endforeach
-                                        
-                                        
-                                        <tr>
-                                            <td colspan="10" class="text-left"><b>Jumlah Pendidikan : {{ $jmlpendidikan }}</b> </td>
-                                        </tr>
-                                </table> 
-                            </div>
-                            {{-- End Content --}}
-                            
-                        </div>
-
+                        
+                        @include('tab.tatapamongtab.pendidikan')
  
-
                         {{-- End Tab --}}
                         {{-- Tab --}}
                         <div class="tab-pane fade show" id="penelitian" role="tabpanel" aria-labelledby="penelitian-tab">
@@ -433,4 +306,5 @@
         </div>
     </div>
 </div>
+</body>
 @endsection

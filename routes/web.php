@@ -60,6 +60,7 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::post('/tata-pamong-tata-kelola-kerjasama', [TataPamongController::class, 'store']);
         Route::put('/tata-pamong-tata-kelola-kerjasama/{id}', [TataPamongController::class, 'update']);
         Route::get('/tata-pamong-tata-kelola-kerjasama/{id}', [TataPamongController::class, 'destroy']);
+        // Route::resource('/tata-pamong-tata-kelola-kerjasama',[TataPamongController::class, 'index']);
 
         Route::get('/mahasiswa', [TabMahasiswaController::class, 'index']);
         Route::post('/mahasiswa', [TabMahasiswaController::class, 'store']);
@@ -107,5 +108,6 @@ Route::group(['middleware' => 'auth:web'], function() {
     {
         Route::get('/download-excel', [TataPamongController::class, 'exportToExcel']);
         Route::get('/download-csv', [TataPamongController::class, 'exportToCSV']);
+        Route::get('/download-pdf', [TataPamongController::class, 'generate']);
     });
 });

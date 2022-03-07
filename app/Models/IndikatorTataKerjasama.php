@@ -12,6 +12,8 @@ class IndikatorTataKerjasama extends Model
 
     protected $table = 'indikator_tata_kerjasamas';
 
+    protected $guarded = ['id'];
+
     public static function getData()
     {
         $record = DB::table('indikator_tata_kerjasamas')->select('id', 'tridharma', 'lembaga_mitra', 'judul_kegiatan', 'manfaat', 'waktu_durasi', 'bukti_kerjasama', 'tahun_laporan', 'prodi', 'created_by', 'created_at', 'updated_at')->get()->toArray();

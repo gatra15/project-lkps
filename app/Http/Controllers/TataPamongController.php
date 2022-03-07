@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use Excel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -17,6 +18,8 @@ class TataPamongController extends Controller
         $jmlpendidikan = $kerjasama->where('tridharma', 'Pendidikan')->count();
         $jmlpenelitian = $kerjasama->where('tridharma', 'Penelitian')->count();
         $jmlpkm = $kerjasama->where('tridharma', 'Pengabdian Kepada Masyarakat')->count();
+
+        
         
         return view('tab.tataPamong', [
             'title' => 'Tata Pamong',
@@ -25,6 +28,24 @@ class TataPamongController extends Controller
             'jmlpenelitian' => $jmlpenelitian,
             'jmlpkm' => $jmlpkm,
         ]);
+    }
+
+    public function generate()
+    {
+        $kerjasama = IndikatorTataKerjasama::all();
+        $jmlpendidikan = $kerjasama->where('tridharma', 'Pendidikan')->count();
+        $jmlpenelitian = $kerjasama->where('tridharma', 'Penelitian')->count();
+        $jmlpkm = $kerjasama->where('tridharma', 'Pengabdian Kepada Masyarakat')->count();
+
+        $pdf = PDF::loadView('tab.tatapamongtab.pendidikantable',[
+            'title' => 'Tata Pamong',
+            'kerjasama' => $kerjasama,
+            'jmlpendidikan' => $jmlpendidikan,
+            'jmlpenelitian' => $jmlpenelitian,
+            'jmlpkm' => $jmlpkm,
+        ]);
+        return $pdf->download('pdfview.pdf');
+
     }
 
     public function store(Request $request)

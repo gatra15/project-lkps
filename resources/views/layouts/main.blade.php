@@ -73,6 +73,19 @@
    font-size : 15px;
    font-family: sans-serif;
  }
+ thead tr th {
+   : none;
+ }
+
+ .cell {
+  flex: 1;
+  background:#eee;
+  border: 1px solid #444;
+  padding: 15px;
+}
+.row .rowspan2 {
+  flex: 1 1 100%;
+}
 
 	</style>
 
@@ -115,25 +128,143 @@
 <!-- Html2Pdf -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.1/html2pdf.bundle.min.js" integrity="sha512vDKWohFHe2vkVWXHp3tKvIxxXg0pJxeid5eo+UjdjME3DBFBn2F8yWOE0XmiFcFbXxrEOR1JriWEno5Ckpn15A==" crossorigin="anonymous"></script>
 
-<script>		
-  // Function to GeneratePdf
-  function GeneratePdf() {
-    var element = document.getElementById('form-print');
-    html2pdf(element);
-  }  
-</script>
-<script>		
-  // Function to GeneratePdf
-  function print() {
-	printJS({
-    printable: 'printElement',
-    type: 'html',
-    targetStyles: ['*']
- })
-}
+<script>
+  (function () {
+      var
+       form = $('.form'),
+       cache_width = form.width(),
+       a4 = [595.28, 841.89]; // for a4 size paper width and height
 
-document.getElementById('printButton').addEventListener ("click", print)
+      $('#create_pdf').on('click', function () {
+          $('body').scrollTop(0);
+          createPDF();
+      });
+      //create pdf
+      function createPDF() {
+          getCanvas().then(function (canvas) {
+              var
+               img = canvas.toDataURL("image/png"),
+               doc = new jsPDF({
+                   unit: 'px',
+                   format: 'a4'
+               });
+              doc.addImage(img, 'JPEG', 20, 20);
+              doc.save('bhavdip-html-to-pdf.pdf');
+              form.width(cache_width);
+          });
+      }
+
+      // create canvas object
+      function getCanvas() {
+          form.width((a4[0] * 1.33333) - 80).css('max-width', 'none');
+          return html2canvas(form, {
+              imageTimeout: 2000,
+              removeContainer: true
+          });
+      }
+
+  }());
 </script>
+<script>
+  (function ($) {
+      $.fn.html2canvas = function (options) {
+          var date = new Date(),
+          $message = null,
+          timeoutTimer = false,
+          timer = date.getTime();
+          html2canvas.logging = options && options.logging;
+          html2canvas.Preload(this[0], $.extend({
+              complete: function (images) {
+                  var queue = html2canvas.Parse(this[0], images, options),
+                  $canvas = $(html2canvas.Renderer(queue, options)),
+                  finishTime = new Date();
+
+                  $canvas.css({ position: 'absolute', left: 0, top: 0 }).appendTo(document.body);
+                  $canvas.siblings().toggle();
+
+                  $(window).click(function () {
+                      if (!$canvas.is(':visible')) {
+                          $canvas.toggle().siblings().toggle();
+                          throwMessage("Canvas Render visible");
+                      } else {
+                          $canvas.siblings().toggle();
+                          $canvas.toggle();
+                          throwMessage("Canvas Render hidden");
+                      }
+                  });
+                  throwMessage('Screenshot created in ' + ((finishTime.getTime() - timer) / 1000) + " seconds<br />", 4000);
+              }
+          }, options));
+
+          function throwMessage(msg, duration) {
+              window.clearTimeout(timeoutTimer);
+              timeoutTimer = window.setTimeout(function () {
+                  $message.fadeOut(function () {
+                      $message.remove();
+                  });
+              }, duration || 2000);
+              if ($message)
+                  $message.remove();
+              $message = $('<div ></div>').html(msg).css({
+                  margin: 0,
+                  padding: 10,
+                  background: "#000",
+                  opacity: 0.7,
+                  position: "fixed",
+                  top: 10,
+                  right: 10,
+                  fontFamily: 'Tahoma',
+                  color: '#fff',
+                  fontSize: 12,
+                  borderRadius: 12,
+                  width: 'auto',
+                  height: 'auto',
+                  textAlign: 'center',
+                  textDecoration: 'none'
+              }).hide().fadeIn().appendTo('body');
+          }
+      };
+  })(jQuery);
+</script>
+
+<script>
+  (function () {
+      var
+       form = $('.form'),
+       cache_width = form.width(),
+       a4 = [595.28, 841.89]; // for a4 size paper width and height
+
+      $('#create_pdf').on('click', function () {
+          $('body').scrollTop(0);
+          createPDF();
+      });
+      //create pdf
+      function createPDF() {
+          getCanvas().then(function (canvas) {
+              var
+               img = canvas.toDataURL("image/png"),
+               doc = new jsPDF({
+                   unit: 'px',
+                   format: 'a4'
+               });
+              doc.addImage(img, 'JPEG', 20, 20);
+              doc.save('bhavdip-html-to-pdf.pdf');
+              form.width(cache_width);
+          });
+      }
+
+      // create canvas object
+      function getCanvas() {
+          form.width((a4[0] * 1.33333) - 80).css('max-width', 'none');
+          return html2canvas(form, {
+              imageTimeout: 2000,
+              removeContainer: true
+          });
+      }
+
+  }());
+</script>
+
 
 <script src=
 "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -174,6 +305,14 @@ document.getElementById('printButton').addEventListener ("click", print)
     });
 </script>
 
-<script src="{{ asset('js/print.js') }}"></script>
-</body>
+<!-- Html2Pdf -->
+<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.1/html2pdf.bundle.min.js"
+		integrity=
+"sha512vDKWohFHe2vkVWXHp3tKvIxxXg0pJxeid5eo+UjdjME3DBFBn2F8yWOE0XmiFcFbXxrEOR1JriWEno5Ckpn15A=="
+		crossorigin="anonymous">
+	</script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
 </html>

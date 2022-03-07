@@ -20,8 +20,6 @@
     </div> 
 </div>
   
-        
-      
       <!-- Modal Tambah Data Dosen Tetap -->
       <div class="modal fade" id="modaldosenewmp" tabindex="-1" aria-labelledby="modaldosenewmp" aria-hidden="true">
           <div class="modal-dialog modal-lg">
