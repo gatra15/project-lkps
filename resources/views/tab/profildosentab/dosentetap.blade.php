@@ -1,3 +1,13 @@
+<div class="tab-pane fade show active" id="dosen-tetap" role="tabpanel" aria-labelledby="dosTetap-tab">
+    <p class="d-flex justify-content-between">
+        <a class="btn btn-primary" data-toggle="collapse" href="#des1" role="button" aria-expanded="false" aria-controls="des1">
+            Deskripsi
+        </a>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaldosentetap">
+            Tambah data
+        </button>
+    </p>  
+
 <div class="collapse" id="des1">
     <div class="card card-body">
         <p>
@@ -128,3 +138,4 @@
               </tr>
         </table>
     </div>
+</div>

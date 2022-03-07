@@ -1,3 +1,13 @@
+<div class="tab-pane fade" id="dosen-industri" role="tabpanel" aria-labelledby="dosIndustri-tab">
+    <p class="d-flex justify-content-between">
+        <a class="btn btn-primary" data-toggle="collapse" href="#des5" role="button" aria-expanded="false" aria-controls="des5">
+            Deskripsi
+        </a>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Tambah data
+        </button>
+    </p>
+
 <div class="collapse" id="des5">
     <div class="card card-body">
         <p>
@@ -107,7 +117,8 @@
               </div>
   
                 {{-- @endforeach --}}
-          </table>
-      </div>
+        </table>
+    </div>
+</div> 
 
     

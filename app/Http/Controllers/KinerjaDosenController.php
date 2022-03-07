@@ -8,7 +8,7 @@ class KinerjaDosenController extends Controller
 {
     public function index()
     {
-        return view('tab.kinerjaDosen', [
+        return view('tab.kinerjadosentab.kinerjaDosen', [
             'title' => 'Kinerja Dosen'
         ]);
     }
