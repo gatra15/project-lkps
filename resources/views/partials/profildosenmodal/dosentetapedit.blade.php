@@ -67,10 +67,6 @@
 
                {{-- coding modal insert akhir --}}
 
-            {{-- script modal insert --}}
-            {{-- script modal insert akhir--}}
-               
-
             </div>
         </div>
     

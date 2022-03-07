@@ -69,6 +69,11 @@
    background-color: #d8d8d8; 
  }
 
+ th.align-middle , th {
+   font-size : 15px;
+   font-family: sans-serif;
+ }
+
 	</style>
 
 </head>
