@@ -1,13 +1,3 @@
-</div>
-<div class="tab-pane fade" id="dosen-ttetap" role="tabpanel" aria-labelledby="dosTTetap-tab">
-    <p class="d-flex justify-content-between">
-        <a class="btn btn-primary" data-toggle="collapse" href="#des4" role="button" aria-expanded="false" aria-controls="des4">
-            Deskripsi
-        </a>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-            Tambah data
-        </button>
-    </p>
     <div class="collapse" id="des4">
         <div class="card card-body">
             <p>

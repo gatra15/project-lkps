@@ -1,13 +1,4 @@
-<div class="tab-pane fade show active" id="dosen-tetap" role="tabpanel" aria-labelledby="dosTetap-tab">
-  <p class="d-flex justify-content-between">
-      <a class="btn btn-primary" data-toggle="collapse" href="#des1" role="button" aria-expanded="false" aria-controls="des1">
-          Deskripsi
-      </a>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaldosentetap">
-          Tambah data
-      </button>
-  </p>
-  <div class="collapse" id="des1">
+<div class="collapse" id="des1">
       <div class="card card-body">
           <p>
           Keterangan:
@@ -27,6 +18,23 @@
           </p>
       </div> 
   </div>
+
+      
+    
+    <!-- Modal Tambah Data Dosen Tetap -->
+    <div class="modal fade" id="modaldosentetap" tabindex="-1" aria-labelledby="modaldosentetap" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modaldosentetap">Tambah Data Dosen Tetap</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.profildosenmodal.dosentetap')
+        </div>
+        </div>
+        </div>
   
 
   {{-- CONTENT --}}
@@ -58,7 +66,6 @@
 
           <tbody class="text-dark">
                {{-- Coding Tabel Disini --}}
-               <tr>
               @foreach ($dosen as $sdm)
               <tr>
                   <td>{{ $sdm->nama_dosen }}</td>
@@ -79,6 +86,37 @@
                           <a type="button" class="btn btn-danger" href="/profil-dosen/{{ $sdm->id }}" data-toggle="modal" data-target="#modaldosentetapdelete-{{ $sdm->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                   </ul></td>
               </tr>
+            
+            <!-- Modal Edit Data Dosen Tetap -->
+            <div class="modal fade" id="modaldosentetapedit-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentetapedit" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modaldosentetapedit">Edit Data Dosen Tetap</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.profildosenmodal.dosentetapedit')
+            </div>
+            </div>
+            </div>
+    
+            <!-- Modal Delete Data Dosen Tetap -->
+            <div class="modal fade" id="modaldosentetapdelete-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentetapdelete" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modaldosentetapdelete">Yakin?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.profildosenmodal.dosentetapdelete')
+            </div>
+            </div>
+            </div>
+
               @endforeach
               <tr>
                   <td><b>Jumlah</b></td>
@@ -92,50 +130,5 @@
                   <td class="abu"></td>
                   <td class="abu"></td>
               </tr>
-
-<!-- Modal Edit Data Dosen Tetap -->
-<div class="modal fade" id="modaldosentetapedit-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentetapedit" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-  <div class="modal-content">
-      <div class="modal-header">
-      <h5 class="modal-title" id="modaldosentetapedit">Edit Data Dosen Tetap</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-      </button>
-      </div>
-      @include('partials.profildosenmodal.dosentetapedit')
-  </div>
-  </div>
-</div>
-<!-- Modal Delete Data Dosen Tetap -->
-<div class="modal fade" id="modaldosentetapdelete-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentetapdelete" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-  <div class="modal-content">
-      <div class="modal-header">
-      <h5 class="modal-title" id="modaldosentetapdelete">Yakin?</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-      </button>
-      </div>
-      @include('partials.profildosenmodal.dosentetapdelete')
-  </div>
-  </div>
-</div>
-      </table> 
-</div>
-
-<!-- Modal Tambah Data Dosen Tetap -->
-<div class="modal fade" id="modaldosentetapdelete-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentetap" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-  <div class="modal-content">
-      <div class="modal-header">
-      <h5 class="modal-title" id="modaldosentetap">Tambah Data Dosen Tetap</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-      </button>
-      </div>
-      @include('partials.profildosenmodal.dosentetap')
-  </div>
-  </div>
-</div>
-</div>
+        </table>
+    </div>
