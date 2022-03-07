@@ -40,9 +40,9 @@
             <li class="nav-item">
               <a class="nav-link" id="dosTTetap-tab" data-toggle="tab" href="#dosen-ttetap" role="tab" aria-controls="dosen-ttetap" aria-selected="false">Dosen Tidak Tetap</a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a class="nav-link" id="dosIndustri-tab" data-toggle="tab" href="#dosen-industri" role="tab" aria-controls="dosen-industri" aria-selected="false">Dosen Industri/Praktisi</a>
-            </li>
+            </li> --}}
         </ul>
     </div>
 
@@ -78,7 +78,7 @@
         {{-- AKHIR DOSEN PEMBIMBING TA --}}
         </div>
         {{-- AWAL EWMP --}}
-        <div class="tab-pane fade show active" id="ewmp" role="tabpanel" aria-labelledby="ewmp-tab">
+        <div class="tab-pane fade" id="ewmp" role="tabpanel" aria-labelledby="ewmp-tab">
             <p class="d-flex justify-content-between">
                 <a class="btn btn-primary" data-toggle="collapse" href="#des3" role="button" aria-expanded="false" aria-controls="des3">
                     Deskripsi
