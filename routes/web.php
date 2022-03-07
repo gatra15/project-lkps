@@ -78,10 +78,10 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::put('/profil-dosen/pembimbing-ta/{id}', [SdmDosenPembimbingTaController::class, 'update']);
         Route::get('/profil-dosen/pembimbing-ta/{id}', [SdmDosenPembimbingTaController::class, 'destroy']);
 
-        Route::get('/profil-dosen/ewmp', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'index']);
-        Route::post('/profil-dosen/ewmp', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'store']);
-        Route::put('/profil-dosen/ewmp/{id}', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'update']);
-        Route::get('/profil-dosen/ewmp/{id}', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'destroy']);
+        Route::get('/profil-dosen/dosen-ewmp', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'index']);
+        Route::post('/profil-dosen/dosen-ewmp', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'store']);
+        Route::put('/profil-dosen/dosen-ewmp/{id}', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'update']);
+        Route::get('/profil-dosen/dosen-ewmp/{id}', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'destroy']);
 
         Route::get('/profil-dosen/dosen-tidak-tetap', [SdmDosenTidakTetapController::class, 'index']);
         Route::post('/profil-dosen/dosen-tidak-tetap', [SdmDosenTidakTetapController::class, 'store']);

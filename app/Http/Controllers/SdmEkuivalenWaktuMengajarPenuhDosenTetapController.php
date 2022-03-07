@@ -15,8 +15,7 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
      */
     public function index()
     {
-        $ewmpdosen = SdmEkuivalenWaktuMengajarPenuhDosenTetap::all();
-        return view('tab.profildosentab.ewmp', ['ewmpdosen' => $ewmpdosen]);
+        //
     }
 
     /**
@@ -61,13 +60,14 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
         $dosen->penunjang = $req->input('penunjang');
         $dosen->sks = $req->input('sks');
         $dosen->average_per_sks = $req->input('average_per_sks');
+        $dosen->slug = 'dosen-ewmp';
         $dosen->tahun_laporan = '2022';
         $dosen->prodi = auth()->user()->prodi;
         $dosen->created_by = auth()->user()->name;
         $dosen->created_at = Carbon::now();
         $dosen->save();
 
-        return redirect('/profil-dosen/ewmp')->with('success', 'New SDM EWMP has been created.');
+        return back()->with('success', 'New SDM EWMP has been created.');
     }
 
     /**
@@ -125,13 +125,14 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
         $dosen->penunjang = $req->input('penunjang');
         $dosen->sks = $req->input('sks');
         $dosen->average_per_sks = $req->input('average_per_sks');
+        $dosen->slug = 'dosen-ewmp';
         $dosen->tahun_laporan = '2022';
         $dosen->prodi = auth()->user()->prodi;
         $dosen->created_by = auth()->user()->name;
-        $dosen->update_at = Carbon::now();
+        $dosen->updated_at = Carbon::now();
         $dosen->update();
 
-        return redirect('/profil-dosen/ewmp')->with('success', 'SDM EWMP has been updated.');
+        return back()->with('success', 'SDM EWMP has been updated.');
     }
 
     /**

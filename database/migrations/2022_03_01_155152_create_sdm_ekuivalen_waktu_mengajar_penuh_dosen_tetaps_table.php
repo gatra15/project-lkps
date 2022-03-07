@@ -25,6 +25,7 @@ class CreateSdmEkuivalenWaktuMengajarPenuhDosenTetapsTable extends Migration
             $table->string('penunjang');
             $table->string('sks');
             $table->string('average_per_sks');
+            $table->string('slug');
             $table->string('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by');

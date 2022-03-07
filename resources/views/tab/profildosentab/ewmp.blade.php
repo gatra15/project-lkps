@@ -14,11 +14,11 @@
         
       
       <!-- Modal Tambah Data Dosen Tetap -->
-      <div class="modal fade" id="modaldosenewmp" tabindex="-1" aria-labelledby="modaldosenewmp"" aria-hidden="true">
+      <div class="modal fade" id="modaldosenewmp" tabindex="-1" aria-labelledby="modaldosenewmp" aria-hidden="true">
           <div class="modal-dialog modal-lg">
           <div class="modal-content">
               <div class="modal-header">
-              <h5 class="modal-title" id="modaldosenewmp"">Tambah Data EWMP Dosen</h5>
+              <h5 class="modal-title" id="modaldosenewmp">Tambah Data EWMP Dosen</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
               </button>
@@ -60,31 +60,29 @@
   
             <tbody class="text-dark">
                  {{-- Coding Tabel Disini --}}
-                 {{-- <tr>
-                @foreach ($dosen as $sdm)
+                 <tr>
+                @foreach ($dosenewmp as $ewmp)
                 <tr>
-                    <td>{{ $sdm->nama_dosen }}</td>
-                    <td>{{ $sdm->nidn_nidk }}</td>
-                    <td>{{ $sdm->pendidikan_pasca_sarjana_magister }}</td>
-                    <td>{{ $sdm->pendidikan_pasca_sarjana_doktor }}</td>
-                    <td>{{ $sdm->bidang_keahlian }}</td>
-                    <td>{{ $sdm->kesesuaian_ps }}</td>
-                    <td>{{ $sdm->jabatan_akademik }}</td>
-                    <td>{{ $sdm->sertifikat_pendidik_profesi }}</td>
-                    <td>{{ $sdm->sertifikat_kompetensi }}</td>
-                    <td>{{ $sdm->mata_kuliah_akreditasi_diampu }}</td>
-                    <td>{{ $sdm->kesesuaian_mata_kuliah_diampu }}</td>
-                    <td>{{ $sdm->mata_kuliah_diampu_ps_lain }}</td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $ewmp->nama }}</td>
+                    <td>{{ $ewmp->dtps == '1' ? 'V' : '' }}</td>
+                    <td>{{ $ewmp->ps_akreditasi }}</td>
+                    <td>{{ $ewmp->ps_lain_dalam_pt }}</td>
+                    <td>{{ $ewmp->ps_lain_luar_pt }}</td>
+                    <td>{{ $ewmp->penelitian }}</td>
+                    <td>{{ $ewmp->pkm }}</td>
+                    <td>{{ $ewmp->penunjang }}</td>
+                    <td>{{ $ewmp->sks }}</td>
+                    <td>{{ $ewmp->average_per_sks }}</td>
                     <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenewmpedit-{{ $sdm->id }}"><i class="fas fa-edit"></i></a></li>
+                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenewmpedit-{{ $ewmp->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
-                            <a type="button" class="btn btn-danger" href="/profil-dosen/{{ $sdm->id }}" data-toggle="modal" data-target="#modaldosenewmpdelete-{{ $sdm->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                            <a type="button" class="btn btn-danger" href="/profil-dosen/dosen-ewmp/{{ $ewmp->id }}" data-toggle="modal" data-target="#modaldosenewmpdelete-{{ $ewmp->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                     </ul></td>
-                </tr> --}}
-                <tr> <td>eko</td> </tr>
+                </tr>
               
               <!-- Modal Edit Data EWMP -->
-              <div class="modal fade" id="modaldosenewmpedit{{-- $sdm->id --}}" tabindex="-1" aria-labelledby="modaldosenewmpeditt" aria-hidden="true">
+              <div class="modal fade" id="modaldosenewmpedit-{{ $ewmp->id }}" tabindex="-1" aria-labelledby="modaldosenewmpeditt" aria-hidden="true">
               <div class="modal-dialog modal-lg">
               <div class="modal-content">
                   <div class="modal-header">
@@ -99,7 +97,7 @@
               </div>
       
               <!-- Modal Delete Data Dosen EWMP -->
-              <div class="modal fade" id="modaldosenewmpdelete{{-- $sdm->id --}}" tabindex="-1" aria-labelledby="modaldosenewmpdelete" aria-hidden="true">
+              <div class="modal fade" id="modaldosenewmpdelete-{{ $ewmp->id }}" tabindex="-1" aria-labelledby="modaldosenewmpdelete" aria-hidden="true">
               <div class="modal-dialog modal-lg">
               <div class="modal-content">
                   <div class="modal-header">
@@ -113,7 +111,7 @@
               </div>
               </div>
   
-                {{-- @endforeach --}}
+                @endforeach
                 <tr>
                     <td rowspan="2" class="align-middle"><b>Jumlah</b></td>
                     <td colspan="8" class="text-right"><b> Rata Rata DT </b></td>

@@ -46,6 +46,7 @@
           <thead>
               <tr>
 
+                  <th class="align-middle" scope="col" rowspan="2">No</th>
                   <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
                   <th class="align-middle" scope="col" rowspan="2">NIDN/ NIDK</th>
                   <th th scope="col" colspan="2" >Pendidikan Pasca Sarjana <sup>1)</sup></th>
@@ -70,6 +71,7 @@
                {{-- Coding Tabel Disini --}}
               @foreach ($dosen as $sdm)
               <tr>
+                  <td>{{ $loop->iteration }}</td>
                   <td>{{ $sdm->nama_dosen }}</td>
                   <td>{{ $sdm->nidn_nidk }}</td>
                   <td>{{ $sdm->pendidikan_pasca_sarjana_magister }}</td>

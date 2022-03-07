@@ -61,6 +61,7 @@ class SdmDosenTidakTetapController extends Controller
         $dosen->mata_kuliah_diampu_ps_akreditasi = $req->input('mata_kuliah_diampu_ps_akreditasi');
         $dosen->kesesuaian_mata_kuliah_diampu = $req->input('kesesuaian_mata_kuliah_diampu');
         $dosen->mata_kuliah_diampu_ps_lain = $req->input('mata_kuliah_diampu_ps_lain');
+        $dosen->slug = 'dosen-tidak-tetap';
         $dosen->tahun_laporan = '2022';
         $dosen->prodi = auth()->user()->prodi;
         $dosen->created_by = auth()->user()->name;

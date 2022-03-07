@@ -1,8 +1,8 @@
-<form action="/profil-dosen/dosen-ewmp/{{ $sdm->id }}" method="get">
+<form action="/profil-dosen/dosen-ewmp/{{ $ewmp->id }}" method="get">
     <div class="modal-body">
         @csrf
         {{-- @method('get') --}}
-        <h5 class="text-center">Yakin Ingin Menghapus {{ $sdm->nama }} ? </h5>
+        <h5 class="text-center">Yakin Ingin Menghapus {{ $ewmp->nama }} ? </h5>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

@@ -1,4 +1,4 @@
-<form action="/profil-dosen/dosen-ewmp" method="POST">
+<form action="{{ url('/profil-dosen/dosen-ewmp') }}" method="post">
     @csrf
     <div class="modal-body">
         

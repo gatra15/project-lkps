@@ -25,6 +25,7 @@ class CreateSdmDosenTidakTetapsTable extends Migration
             $table->string('mata_kuliah_diampu_ps_akreditasi');
             $table->string('kesesuaian_mata_kuliah_diampu');
             $table->string('mata_kuliah_diampu_ps_lain');
+            $table->string('slug');
             $table->string('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by');

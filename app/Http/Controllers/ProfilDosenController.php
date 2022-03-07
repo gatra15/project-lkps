@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\SdmDosen;
+use App\Models\SdmDosenTidakTetap;
+use App\Models\SdmEkuivalenWaktuMengajarPenuhDosenTetap;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -11,9 +13,13 @@ class ProfilDosenController extends Controller
     public function index()
     {
         $dosen = SdmDosen::all();
+        $dosentidaktetap = SdmDosenTidakTetap::all();
+        $dosenewmp = SdmEkuivalenWaktuMengajarPenuhDosenTetap::all();
         return view('tab.profildosentab.profilDosen', [
             'title' => 'Profil Dosen',
             'dosen' => $dosen,
+            'dosentidaktetap' => $dosentidaktetap,
+            'dosenewmp' => $dosenewmp,
         ]);
     }
 
@@ -47,6 +53,7 @@ class ProfilDosenController extends Controller
         $dosen->mata_kuliah_akreditasi_diampu = $req->input('mata_kuliah_akreditasi_diampu');
         $dosen->kesesuaian_mata_kuliah_diampu = $req->input('kesesuaian_mata_kuliah_diampu');
         $dosen->mata_kuliah_diampu_ps_lain = $req->input('mata_kuliah_diampu_ps_lain');
+        $dosen->slug = 'dosen-tetap';
         $dosen->tahun_laporan = '2022';
         $dosen->prodi = auth()->user()->prodi;
         $dosen->created_by = auth()->user()->name;
