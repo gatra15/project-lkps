@@ -16,7 +16,11 @@ use App\Http\Controllers\KinerjaDosenController;
 use App\Http\Controllers\TabMahasiswaController;
 use App\Http\Controllers\IdentitasPengusulController;
 use App\Http\Controllers\KeuanganSaranaPrasaranaController;
+use App\Http\Controllers\SdmDosenIndustriPraktisiController;
+use App\Http\Controllers\SdmDosenTidakTetapController;
 use App\Http\Controllers\SdmEkuivalenWaktuMengajarPenuhDosenTetapController;
+use App\Models\SdmDosenIndustriPraktisi;
+use App\Models\SdmDosenTidakTetap;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +82,11 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::post('/profil-dosen/ewmp', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'store']);
         Route::put('/profil-dosen/ewmp/{id}', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'update']);
         Route::get('/profil-dosen/ewmp/{id}', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'destroy']);
+
+        Route::get('/profil-dosen/dosen-tidak-tetap', [SdmDosenTidakTetapController::class, 'index']);
+        Route::post('/profil-dosen/dosen-tidak-tetap', [SdmDosenTidakTetapController::class, 'store']);
+        Route::put('/profil-dosen/dosen-tidak-tetap/{id}', [SdmDosenTidakTetapController::class, 'update']);
+        Route::get('/profil-dosen/dosen-tidak-tetap/{id}', [SdmDosenTidakTetapController::class, 'destroy']);
 
         Route::get('/kinerja-dosen', [KinerjaDosenController::class, 'index']);
 
