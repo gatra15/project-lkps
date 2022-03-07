@@ -52,71 +52,24 @@
             <div class="tab-content" id="myTabContent">
 
     {{-- AWAL DOSEN TETAP --}}
-    <div class="tab-pane fade show active" id="dosen-tetap" role="tabpanel" aria-labelledby="dosTetap-tab">
-        <p class="d-flex justify-content-between">
-            <a class="btn btn-primary" data-toggle="collapse" href="#des1" role="button" aria-expanded="false" aria-controls="des1">
-                Deskripsi
-            </a>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaldosentetap">
-                Tambah data
-            </button>
-        </p>  
-            @include('tab.profildosentab.dosentetap')
-        </div>
+    @include('tab.profildosentab.dosentetap')
     {{-- AKHIR DOSEN TETAP --}}
-        <div class="tab-pane fade" id="dosbing-ta" role="tabpanel" aria-labelledby="dosbingTA-tab">
-            <p class="d-flex justify-content-between">
-                <a class="btn btn-primary" data-toggle="collapse" href="#des2" role="button" aria-expanded="false" aria-controls="des2">
-                    Deskripsi
-                </a>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    Tambah data
-                </button>
-            </p>
-        {{-- AWAL DOSEN PEMBIMBING TA --}}
-            @include('tab.profildosentab.dosenpembimbingta')
-        {{-- AKHIR DOSEN PEMBIMBING TA --}}
-        </div>
-        {{-- AWAL EWMP --}}
-        <div class="tab-pane fade" id="ewmp" role="tabpanel" aria-labelledby="ewmp-tab">
-            <p class="d-flex justify-content-between">
-                <a class="btn btn-primary" data-toggle="collapse" href="#des3" role="button" aria-expanded="false" aria-controls="des3">
-                    Deskripsi
-                </a>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenewmp">
-                    Tambah data
-                </button>
-            </p>
-        
-            @include('tab.profildosentab.ewmp')
-        {{-- AKHIR EWMP --}}
-        </div>
-        <div class="tab-pane fade" id="dosen-ttetap" role="tabpanel" aria-labelledby="dosTTetap-tab">
-            <p class="d-flex justify-content-between">
-                <a class="btn btn-primary" data-toggle="collapse" href="#des4" role="button" aria-expanded="false" aria-controls="des4">
-                    Deskripsi
-                </a>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    Tambah data
-                </button>
-            </p>
-        {{-- AWAL DOSEN TIDAK TETAP --}}
-            @include('tab.profildosentab.dosentidaktetap') 
-        {{-- AKHIR DOSEN TITAK TETAP --}}
-        </div>
-        <div class="tab-pane fade" id="dosen-industri" role="tabpanel" aria-labelledby="dosIndustri-tab">
-            <p class="d-flex justify-content-between">
-                <a class="btn btn-primary" data-toggle="collapse" href="#des5" role="button" aria-expanded="false" aria-controls="des5">
-                    Deskripsi
-                </a>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    Tambah data
-                </button>
-            </p>
-        {{-- AWAL INDUSTRI --}}
-            @include('tab.profildosentab.dosenindustri') 
-        {{-- AKHIR INDUSTRI --}}
-        </div>        
+
+    {{-- AWAL DOSEN PEMBIMBING TA --}}
+        @include('tab.profildosentab.dosenpembimbingta')
+    {{-- AKHIR DOSEN PEMBIMBING TA --}}
+
+    {{-- AWAL EWMP --}}
+        @include('tab.profildosentab.ewmp')
+    {{-- AKHIR EWMP --}}
+
+    {{-- AWAL DOSEN TIDAK TETAP --}}
+        @include('tab.profildosentab.dosentidaktetap') 
+    {{-- AKHIR DOSEN TITAK TETAP --}}
+
+    {{-- AWAL INDUSTRI --}}
+        @include('tab.profildosentab.dosenindustri') 
+    {{-- AKHIR INDUSTRI --}}     
 
     </div>
     </div>

@@ -2,15 +2,20 @@
 @extends('layouts.main')
 
 @section('content')
+
+{{-- TITLE --}}
 <div class="content-header">
     <div class="container-fluid">
             <h1>KINERJA DOSEN</h1>
     </div>
 </div>
-<!-- MENU ATAS  -->
+
+{{-- CARD HEAD --}}
 <div class="content">
     <div class="container-fluid">
-            <div class="card">
+        <div class="card">
+
+    {{-- TAB HEADER --}}
     <div class="card-header">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
@@ -37,7 +42,7 @@
         </ul>
     </div>
 
-    <!-- ISI BODY  -->
+    {{-- AWAL PENGAKUAN DTPS --}}
     <div class="card-body">
         <div class="tab-content mt-3">
             <div class="tab-content" id="myTabContent">
@@ -50,61 +55,12 @@
                             Tambah data
                         </button>
                     </p>
-                    <div class="collapse" id="des1">
-                        <div class="card card-body">
-                            <p>
-                                Pengakuan/Rekognisi DTPS
-                            </p>
-                        </div> 
-                    </div>
-{{-- CONTENT --}}
-    
-<div id="printElement container-fluid">
-    <table id='form-print' class="table text-center table-bordered table-condensed">
-        <thead>
-            <tr>
 
-                <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
-                <th class="align-middle" scope="col" rowspan="2">Bidang Keahlian</th>
-                <th class="align-middle" scope="col" rowspan="2" >Rekognisi dan Bukti Pendukung</th>
-                <th scope="col" colspan="3">Tingkat</th>
-                <th class="align-middle" scope="col" rowspan="2" >Tahun</th>                    
-            </tr>
-            <tr>
-                <th scope="col">Wilayah</th>
-                <th scope="col">Nasional</th>
-                <th scope="col">Internasional</th>
-            </tr>
-    
-        </thead>
+            @include('tab.kinerjadosentab.pengakuandtps')
+    </div>
+    {{-- AKHIR PENGAKUAN DTPS --}}
 
-        <tbody class="text-dark">
-            <tr>
-                <td>Eko</td>
-                <td>Eko</td>
-                <td>Eko</td>
-                <td>Eko</td>
-                <td>Eko</td>
-            </tr>
-            {{-- @foreach ($mahasiswa_asing as $mhs)
-                <tr>
-                    @for ($i = 0; $i < $count; $i++)
-                    <td>{{ $i }}</td>
-                    @endfor
-                   <td>{{ $mhs->daya_tampung }}</td> 
-                   <td>{{ $mhs->c_pendaftar }}</td> 
-                   <td>{{ $mhs->c_lulus_seleksi }}</td> 
-                   <td>{{ $mhs->mahasiswa_reguler }}</td> 
-                   <td>{{ $mhs->mahasiswa_transfer }}</td> 
-                   <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-                   <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-                </tr>
-            @endforeach --}}
-    </table> 
-</div>
-
-{{-- AKHIR CONTENT --}}
-                </div>
+    {{-- AWAL PENELITIAN DTPS --}}
                 <div class="tab-pane fade" id="penelitian" role="tabpanel" aria-labelledby="penelitian-tab">
                     <p class="d-flex justify-content-between">
                         <a class="btn btn-primary" data-toggle="collapse" href="#des2" role="button" aria-expanded="false" aria-controls="des2">
@@ -114,59 +70,26 @@
                             Tambah data
                         </button>
                     </p>
-                    <div class="collapse" id="des2">
-                        <div class="card card-body">
-                            <p>
-                                Penelitian DTPS
-                            </p>
-                        </div> 
-                    </div>
-{{-- CONTENT --}}
-    
-<div id="printElement container-fluid">
-    <table id='form-print' class="table text-center table-bordered table-condensed">
-        <thead>
-            <tr>
 
-                <th class="align-middle" scope="col" rowspan="2">Sumber Pembiayaan</th>
-                <th scope="col" colspan="3">Jumlah Judul</th>
-                <th class="align-middle" scope="col" rowspan="2" >Jumlah</th>                    
-            </tr>
-            <tr>
-                <th scope="col">TS-2</th>
-                <th scope="col">TS-1</th>
-                <th scope="col">TS</th>
-            </tr>
-    
-        </thead>
-
-        <tbody class="text-dark">
-            <tr>
-                <td>Eko</td>
-                <td>Eko</td>
-                <td>Eko</td>
-                <td>Eko</td>
-                <td>Eko</td>
-            </tr>
-            {{-- @foreach ($mahasiswa_asing as $mhs)
-                <tr>
-                    @for ($i = 0; $i < $count; $i++)
-                    <td>{{ $i }}</td>
-                    @endfor
-                   <td>{{ $mhs->daya_tampung }}</td> 
-                   <td>{{ $mhs->c_pendaftar }}</td> 
-                   <td>{{ $mhs->c_lulus_seleksi }}</td> 
-                   <td>{{ $mhs->mahasiswa_reguler }}</td> 
-                   <td>{{ $mhs->mahasiswa_transfer }}</td> 
-                   <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-                   <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-                </tr>
-            @endforeach --}}
-    </table> 
-</div>
-
-{{-- AKHIR CONTENT --}}
+                    @include('tab.kinerjadosentab.penelitiandtps')
                 </div>
+    {{-- AWAL PENELITIAN DTPS --}}
+
+    {{-- AWAL PKM --}}
+                <div class="tab-pane fade" id="penelitian" role="tabpanel" aria-labelledby="penelitian-tab">
+                    <p class="d-flex justify-content-between">
+                        <a class="btn btn-primary" data-toggle="collapse" href="#des2" role="button" aria-expanded="false" aria-controls="des2">
+                            Deskripsi
+                        </a>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                            Tambah data
+                        </button>
+                    </p>
+
+                    @include('tab.kinerjadosentab.penelitiandtps')
+                </div>
+    {{-- AKHIR PKM --}}
+                
                 <div class="tab-pane fade" id="pengabdian" role="tabpanel" aria-labelledby="pengabdian-tab">
                     <p class="d-flex justify-content-between">
                         <a class="btn btn-primary" data-toggle="collapse" href="#des3" role="button" aria-expanded="false" aria-controls="des3">

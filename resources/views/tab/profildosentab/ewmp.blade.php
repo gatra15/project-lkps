@@ -1,3 +1,12 @@
+<div class="tab-pane fade" id="ewmp" role="tabpanel" aria-labelledby="ewmp-tab">
+    <p class="d-flex justify-content-between">
+        <a class="btn btn-primary" data-toggle="collapse" href="#des3" role="button" aria-expanded="false" aria-controls="des3">
+            Deskripsi
+        </a>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenewmp">
+            Tambah data
+        </button>
+    </p>
 <div class="collapse" id="des3">
     <div class="card card-body">
         <p>
@@ -119,6 +128,6 @@
                 <tr>
                     <td colspan="8" class="text-right"><b> Rata Rata DTPS </b></td>
                 </tr> 
-          </table>
-      </div>
-  
+        </table>
+    </div>
+</div>
