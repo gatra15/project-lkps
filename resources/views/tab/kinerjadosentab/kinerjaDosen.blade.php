@@ -28,13 +28,10 @@
               <a class="nav-link" id="pengabdian-tab" data-toggle="tab" href="#pengabdian" role="tab" aria-controls="pengabdian" aria-selected="false">Pengabdian kepada Masyarakat (PkM) DTPS</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="pagelaran-tab" data-toggle="tab" href="#pagelaran" role="tab" aria-controls="pagelaran" aria-selected="false">Pagelaran/pameran/presentasi/publikasi Ilmiah DTPS</a>
+              <a class="nav-link" id="publikasi-tab" data-toggle="tab" href="#publikasi" role="tab" aria-controls="publikasi aria-selected="false">Publikasi Ilmiah DTPS</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="karya-tab" data-toggle="tab" href="#karya" role="tab" aria-controls="karya" aria-selected="false">Karya ilmiah DTPS yang disitasi dalam 3 tahun terakhir</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="produk-tab" data-toggle="tab" href="#produk" role="tab" aria-controls="produk" aria-selected="false">Produk/jasa DTPS yang diadopsi oleh industri/masyarakat</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="luaran-tab" data-toggle="tab" href="#luaran" role="tab" aria-controls="luaran" aria-selected="false">Luaran Penelitian/PkM Lainnya oleh DTPS</a>
@@ -61,17 +58,13 @@
     @include('tab.kinerjadosentab.pkm')
     {{-- AKHIR PKM --}}
 
-    {{-- AWAL PAGELARAN --}}
-    @include('tab.kinerjadosentab.pagelarandtps')        
-    {{-- AKHIR PAGELARAN  --}}
+    {{-- AWAL PUBLIKASI --}}
+    @include('tab.kinerjadosentab.publikasidtps')        
+    {{-- AKHIR PUBLIKASI  --}}
     
     {{-- AWAL KARYA ILMIAH --}}
     @include('tab.kinerjadosentab.karyailmiahdtps')     
     {{-- AKHIR KARYA ILMIAH --}}
-    
-    {{-- AWAL PRODUK DTPS --}}
-    @include('tab.kinerjadosentab.produkdtps') 
-    {{-- AKHIR PRODUK DTPS --}}
     
     {{-- AWAL LUARAN DTPS --}}
     @include('tab.kinerjadosentab.luarandtps')

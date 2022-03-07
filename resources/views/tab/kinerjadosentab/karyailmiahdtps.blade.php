@@ -13,9 +13,26 @@
     <div class="collapse" id="des5">
         <div class="card card-body">
             <p>
-                Karya ilmiah DTPS yang disitasi dalam 3 tahun terakhir
+                Tuliskan judul artikel karya ilmiah DTPS yang disitasi dalam <b> 3 tahun terakhir  </b> dengan
+                mengikuti format Tabel berikut ini. Judul artikel yang disitasi harus relevan dengan
+                bidang program studi. <br> <br>
             </p>
         </div> 
+    </div>
+
+    <!-- Modal Tambah Data Karya Ilmiah DTPS -->
+    <div class="modal fade" id="modalkaryailmiah" tabindex="-1" aria-labelledby="modalkaryailmiah" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modalkaryailmiah">Tambah Data Dosen Tetap</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.kinerjadosenmodal.karilm')
+        </div>
+        </div>
     </div>
 
     {{-- CONTENT --}}
@@ -24,9 +41,10 @@
             <thead>
                 <tr>
 
+                    <th class="align-middle" scope="col" rowspan="2">No</th>
                     <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
                     <th class="align-middle" scope="col" rowspan="2">Judul Artikel yang Disitasi (Jurnal/Buku,Volume, Tahun, Nomor,Halaman)</th>
-                    <th class="align-middle" scope="col" rowspan="2" >Jumlah</th>                    
+                    <th class="align-middle" scope="col" rowspan="2" >Jumlah Sitasi</th>                    
                 </tr>
 
 
@@ -51,7 +69,45 @@
             <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
             <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
             </tr>
-            @endforeach --}}
+             --}}
+
+            <!-- Modal Edit Data K.Ilm DTPS -->
+            <div class="modal fade" id="modalkaryailmiahedit" tabindex="-1" aria-labelledby="modalkaryailmiahedit" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalkaryailmiahedit">Edit Data Dosen Tetap</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.kinerjadosenmodal.karilmedit')
+            </div>
+            </div>
+            </div>
+        
+            <!-- Modal Delete Data K.Ilm DTPS -->
+            <div class="modal fade" id="modalkaryailmiahdelete" tabindex="-1" aria-labelledby="modalkaryailmiahdelete" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalkaryailmiahdelete">Yakin?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.kinerjadosenmodal.karilmdelete')
+            </div>
+            </div>
+            </div>
+
+            {{-- @endforeach --}}
+
+            <tr>
+                <td colspan="2"><b>Jumlah</b></td>
+                <td></td>
+                <td></td>
+            </tr>
             </table> 
         </div>
     </div>
