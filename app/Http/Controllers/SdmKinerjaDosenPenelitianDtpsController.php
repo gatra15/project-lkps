@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SdmKinerjaDosenPenelitianDtps;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\SdmKinerjaDosenPenelitianDtps;
 
 class SdmKinerjaDosenPenelitianDtpsController extends Controller
 {
@@ -33,9 +34,28 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $this->validate($req, [
+            'sumber_pembiayaan' => 'required',
+            'jumlah_ts2' => 'required',
+            'jumlah_ts1' => 'required',
+            'jumlah_ts' => 'required',
+            'jumlah' => 'required',
+        ]);
+
+        $pengakuan = new SdmKinerjaDosenPenelitianDtps;
+        $pengakuan->sumber_pembiayaan = $req->input('sumber_pembiayaan');
+        $pengakuan->jumlah_ts2 = $req->input('jumlah_ts2');
+        $pengakuan->jumlah_ts1 = $req->input('jumlah_ts1');
+        $pengakuan->jumlah_ts = $req->input('jumlah_ts');
+        $pengakuan->jumlah = $req->input('jumlah');
+        $pengakuan->tahun_laporan = '2022';
+        $pengakuan->prodi = auth()->user()->prodi;
+        $pengakuan->created_by = auth()->user()->name;
+        $pengakuan->created_at = Carbon::now();
+
+        return back()->with('success', 'Sdm Kinerja Dosen Penelitian Dtps has been created.');
     }
 
     /**
@@ -67,9 +87,27 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
      * @param  \App\Models\SdmKinerjaDosenPenelitianDtps  $sdmKinerjaDosenPenelitianDtps
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SdmKinerjaDosenPenelitianDtps $sdmKinerjaDosenPenelitianDtps)
+    public function update(Request $req, $id)
     {
-        //
+        $this->validate($req, [
+            'sumber_pembiayaan' => 'required',
+            'jumlah_ts2' => 'required',
+            'jumlah_ts1' => 'required',
+            'jumlah_ts' => 'required',
+            'jumlah' => 'required',
+        ]);
+
+        $pengakuan = new SdmKinerjaDosenPenelitianDtps;
+        $pengakuan->sumber_pembiayaan = $req->input('sumber_pembiayaan');
+        $pengakuan->jumlah_ts2 = $req->input('jumlah_ts2');
+        $pengakuan->jumlah_ts1 = $req->input('jumlah_ts1');
+        $pengakuan->jumlah_ts = $req->input('jumlah_ts');
+        $pengakuan->tahun_laporan = '2022';
+        $pengakuan->prodi = auth()->user()->prodi;
+        $pengakuan->created_by = auth()->user()->name;
+        $pengakuan->updated_at = Carbon::now();
+
+        return back()->with('success', 'Sdm Kinerja Dosen Penelitian Dtps has been updated.');
     }
 
     /**
@@ -78,8 +116,9 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
      * @param  \App\Models\SdmKinerjaDosenPenelitianDtps  $sdmKinerjaDosenPenelitianDtps
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SdmKinerjaDosenPenelitianDtps $sdmKinerjaDosenPenelitianDtps)
+    public function destroy($id)
     {
-        //
+        SdmKinerjaDosenPenelitianDtps::find($id)->delete();
+        return back()->with('error', 'Sdm Kinerja Dosen Penelitian Dtps has been deleted.');
     }
 }

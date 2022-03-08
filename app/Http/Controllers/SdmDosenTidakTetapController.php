@@ -43,11 +43,10 @@ class SdmDosenTidakTetapController extends Controller
             'pendidikan_pasca_sarjana' => 'required',
             'bidang_keahlian' => 'required',
             'jabatan_akademik' => 'required',
-            'sertifikat_pendidik_profesi' => 'required',
+            'sertifikat_pendidikan_profesi' => 'required',
             'sertifikat_profesi' => 'required',
             'mata_kuliah_diampu_ps_akreditasi' => 'required',
             'kesesuaian_mata_kuliah_diampu' => 'required',
-            'mata_kuliah_diampu_ps_lain' => 'required',
         ]);
 
         $dosen = new SdmDosenTidakTetap;
@@ -56,11 +55,10 @@ class SdmDosenTidakTetapController extends Controller
         $dosen->pendidikan_pasca_sarjana = $req->input('pendidikan_pasca_sarjana');
         $dosen->bidang_keahlian = $req->input('bidang_keahlian');
         $dosen->jabatan_akademik = $req->input('jabatan_akademik');
-        $dosen->sertifikat_pendidik_profesi = $req->input('sertifikat_pendidik_profesi');
+        $dosen->sertifikat_pendidikan_profesi = $req->input('sertifikat_pendidikan_profesi');
         $dosen->sertifikat_profesi = $req->input('sertifikat_profesi');
         $dosen->mata_kuliah_diampu_ps_akreditasi = $req->input('mata_kuliah_diampu_ps_akreditasi');
         $dosen->kesesuaian_mata_kuliah_diampu = $req->input('kesesuaian_mata_kuliah_diampu');
-        $dosen->mata_kuliah_diampu_ps_lain = $req->input('mata_kuliah_diampu_ps_lain');
         $dosen->slug = 'dosen-tidak-tetap';
         $dosen->tahun_laporan = '2022';
         $dosen->prodi = auth()->user()->prodi;
@@ -68,7 +66,7 @@ class SdmDosenTidakTetapController extends Controller
         $dosen->created_at = Carbon::now();
         $dosen->save();
 
-        return redirect('/profil-dosen/dosen-tidak-tetap')->with('success', 'New Dosen Tidak Tetap has been created.');
+        return back()->with('success', 'New Dosen Tidak Tetap has been created.');
     }
 
     /**
@@ -108,11 +106,10 @@ class SdmDosenTidakTetapController extends Controller
             'pendidikan_pasca_sarjana' => 'required',
             'bidang_keahlian' => 'required',
             'jabatan_akademik' => 'required',
-            'sertifikat_pendidik_profesi' => 'required',
+            'sertifikat_pendidikan_profesi' => 'required',
             'sertifikat_profesi' => 'required',
             'mata_kuliah_diampu_ps_akreditasi' => 'required',
             'kesesuaian_mata_kuliah_diampu' => 'required',
-            'mata_kuliah_diampu_ps_lain' => 'required',
         ]);
 
         $dosen = SdmDosenTidakTetap::find($id);
@@ -121,18 +118,17 @@ class SdmDosenTidakTetapController extends Controller
         $dosen->pendidikan_pasca_sarjana = $req->input('pendidikan_pasca_sarjana');
         $dosen->bidang_keahlian = $req->input('bidang_keahlian');
         $dosen->jabatan_akademik = $req->input('jabatan_akademik');
-        $dosen->sertifikat_pendidik_profesi = $req->input('sertifikat_pendidik_profesi');
+        $dosen->sertifikat_pendidikan_profesi = $req->input('sertifikat_pendidikan_profesi');
         $dosen->sertifikat_profesi = $req->input('sertifikat_profesi');
         $dosen->mata_kuliah_diampu_ps_akreditasi = $req->input('mata_kuliah_diampu_ps_akreditasi');
         $dosen->kesesuaian_mata_kuliah_diampu = $req->input('kesesuaian_mata_kuliah_diampu');
-        $dosen->mata_kuliah_diampu_ps_lain = $req->input('mata_kuliah_diampu_ps_lain');
         $dosen->tahun_laporan = '2022';
         $dosen->prodi = auth()->user()->prodi;
         $dosen->created_by = auth()->user()->name;
         $dosen->created_at = Carbon::now();
         $dosen->save();
 
-        return redirect('/profil-dosen/dosen-tidak-tetap')->with('success', 'Dosen Tidak Tetap has been updated.');
+        return back()->with('success', 'Dosen Tidak Tetap has been updated.');
     }
 
     /**

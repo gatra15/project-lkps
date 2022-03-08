@@ -15,12 +15,20 @@ use App\Http\Controllers\ProfilDosenController;
 use App\Http\Controllers\KinerjaDosenController;
 use App\Http\Controllers\TabMahasiswaController;
 use App\Http\Controllers\IdentitasPengusulController;
+use App\Http\Controllers\KaryaIlmiahMahasiswaController;
 use App\Http\Controllers\KeuanganSaranaPrasaranaController;
 use App\Http\Controllers\SdmDosenIndustriPraktisiController;
 use App\Http\Controllers\SdmDosenTidakTetapController;
 use App\Http\Controllers\SdmEkuivalenWaktuMengajarPenuhDosenTetapController;
+use App\Http\Controllers\SdmKinerjaDosenKaryaIlmiahDtpsController;
+use App\Http\Controllers\SdmKinerjaDosenLuaranPkmDtpsController;
+use App\Http\Controllers\SdmKinerjaDosenPenelitianDtpsController;
+use App\Http\Controllers\SdmKinerjaDosenPkmDtpsController;
+use App\Http\Controllers\SdmKinerjaDosenPublikasiIlmiahDtpsController;
 use App\Models\SdmDosenIndustriPraktisi;
 use App\Models\SdmDosenTidakTetap;
+use App\Models\SdmKinerjaDosenKaryaIlmiahDtps;
+use App\Models\SdmKinerjaDosenPkmDtps;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,6 +98,34 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('/profil-dosen/dosen-tidak-tetap/{id}', [SdmDosenTidakTetapController::class, 'destroy']);
 
         Route::get('/kinerja-dosen', [KinerjaDosenController::class, 'index']);
+        Route::post('/kinerja-dosen', [KinerjaDosenController::class, 'store']);
+        Route::put('/kinerja-dosen/{id}', [KinerjaDosenController::class, 'update']);
+        Route::get('/kinerja-dosen/{id}', [KinerjaDosenController::class, 'destroy']);
+
+        Route::get('/kinerja-dosen/karya-ilmiah', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'index']);
+        Route::post('/kinerja-dosen/karya-ilmiah', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'store']);
+        Route::put('/kinerja-dosen/karya-ilmiah/{id}', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'update']);
+        Route::get('/kinerja-dosen/karya-ilmiah/{id}', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'destroy']);
+
+        Route::get('/kinerja-dosen/penelitian-dtps', [SdmKinerjaDosenPenelitianDtpsController::class, 'index']);
+        Route::post('/kinerja-dosen/penelitian-dtps', [SdmKinerjaDosenPenelitianDtpsController::class, 'store']);
+        Route::put('/kinerja-dosen/penelitian-dtps/{id}', [SdmKinerjaDosenPenelitianDtpsController::class, 'update']);
+        Route::get('/kinerja-dosen/penelitian-dtps/{id}', [SdmKinerjaDosenPenelitianDtpsController::class, 'destroy']);
+
+        Route::get('/kinerja-dosen/pkm-dtps', [SdmKinerjaDosenPkmDtpsController::class, 'index']);
+        Route::post('/kinerja-dosen/pkm-dtps', [SdmKinerjaDosenPkmDtpsController::class, 'store']);
+        Route::put('/kinerja-dosen/pkm-dtps/{id}', [SdmKinerjaDosenPkmDtpsController::class, 'update']);
+        Route::get('/kinerja-dosen/pkm-dtps/{id}', [SdmKinerjaDosenPkmDtpsController::class, 'destroy']);
+
+        Route::get('/kinerja-dosen/publikasi-dtps', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'index']);
+        Route::post('/kinerja-dosen/publikasi-dtps', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'store']);
+        Route::put('/kinerja-dosen/publikasi-dtps/{id}', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'update']);
+        Route::get('/kinerja-dosen/publikasi-dtps/{id}', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'destroy']);
+
+        Route::get('/kinerja-dosen/luaran-dtps', [SdmKinerjaDosenLuaranPkmDtpsController::class, 'index']);
+        Route::post('/kinerja-dosen/luaran-dtps', [SdmKinerjaDosenLuaranPkmDtpsController::class, 'store']);
+        Route::put('/kinerja-dosen/luaran-dtps/{id}', [SdmKinerjaDosenLuaranPkmDtpsController::class, 'update']);
+        Route::get('/kinerja-dosen/luaran-dtps/{id}', [SdmKinerjaDosenLuaranPkmDtpsController::class, 'destroy']);
 
         Route::get('/keuangan-sarana-prasarana', [KeuanganSaranaPrasaranaController::class, 'index']);
 

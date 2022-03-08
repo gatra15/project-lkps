@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SdmKinerjaDosenKaryaIlmiahDtps;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\SdmKinerjaDosenKaryaIlmiahDtps;
+use App\Models\SdmKinerjaDosenPkmDtps;
 
 class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
 {
@@ -33,9 +35,25 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $this->validate($req, [
+            'nama' => 'required',
+            'judul' => 'required',
+            'jumlah_sitasi' => 'required',
+
+        ]);
+
+        $pengakuan = new SdmKinerjaDosenKaryaIlmiahDtps;
+        $pengakuan->nama = $req->input('nama');
+        $pengakuan->judul = $req->input('judul');
+        $pengakuan->jumlah_sitasi = $req->input('jumlah_sitasi');
+        $pengakuan->tahun_laporan = '2022';
+        $pengakuan->prodi = auth()->user()->prodi;
+        $pengakuan->created_by = auth()->user()->name;
+        $pengakuan->created_at = Carbon::now();
+
+        return back()->with('success', 'Sdm Kinerja Dosen Karya Ilmiah Dtps has been created.');
     }
 
     /**
@@ -67,9 +85,25 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
      * @param  \App\Models\SdmKinerjaDosenKaryaIlmiahDtps  $sdmKinerjaDosenKaryaIlmiahDtps
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SdmKinerjaDosenKaryaIlmiahDtps $sdmKinerjaDosenKaryaIlmiahDtps)
+    public function update(Request $req, $id)
     {
-        //
+        $this->validate($req, [
+            'nama' => 'required',
+            'judul' => 'required',
+            'jumlah_sitasi' => 'required',
+
+        ]);
+
+        $pengakuan = SdmKinerjaDosenKaryaIlmiahDtps::find($id);
+        $pengakuan->nama = $req->input('nama');
+        $pengakuan->judul = $req->input('judul');
+        $pengakuan->jumlah_sitasi = $req->input('jumlah_sitasi');
+        $pengakuan->tahun_laporan = '2022';
+        $pengakuan->prodi = auth()->user()->prodi;
+        $pengakuan->created_by = auth()->user()->name;
+        $pengakuan->created_at = Carbon::now();
+
+        return back()->with('success', 'Sdm Kinerja Dosen Karya Ilmiah Dtps has been updated.');
     }
 
     /**
@@ -78,8 +112,9 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
      * @param  \App\Models\SdmKinerjaDosenKaryaIlmiahDtps  $sdmKinerjaDosenKaryaIlmiahDtps
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SdmKinerjaDosenKaryaIlmiahDtps $sdmKinerjaDosenKaryaIlmiahDtps)
+    public function destroy($id)
     {
-        //
+        SdmKinerjaDosenKaryaIlmiahDtps::find($id)->delete();
+        return back()->with('error', 'Sdm Kinerja Dosen Karya Ilmiah Dtps has been deleted.');
     }
 }
