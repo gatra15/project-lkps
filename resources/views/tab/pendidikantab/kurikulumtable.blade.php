@@ -1,13 +1,14 @@
+
 <div>
     <table class="table">
     <thead>
     
     <tr>
     <th scope="col">No</th>
-    <th scope="col">Lembaga Mitra</th>
-    <th scope="col">Judul Kegiatan Kerjasama</th>
-    <th scope="col">Manfaat bagi PS yang Diakretasi</th>
-    <th scope="col">Waktu dan Durasi</th>
+    <th scope="col">Semester/th>
+    <th scope="col">Kode Mata Kuliah</th>
+    <th scope="col">Nama Mata Kuliah</th>
+    <th scope="col" class="rotate">Mata Kuliah Kompetensi <sup>1)</sup></th>
     <th scope="col">Bukti Kerjasama</th>
     </tr>
     
