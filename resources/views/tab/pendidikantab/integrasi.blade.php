@@ -22,6 +22,52 @@
     </div> 
     </div>
 
+          <!-- Modal Tambah Data Integritas -->
+          <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            </div>
+            </div>
+            </div>
+
+            {{-- foreach --}}
+          <!-- Modal Tambah Edit Integritas -->
+          <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            </div>
+            </div>
+            </div>
+
+          <!-- Modal Tambah Delete Integritas -->
+          <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            </div>
+            </div>
+            </div>
+            {{-- endforeach --}}
 {{-- CONTENT --}}
 
 {{-- TABLE AWAL --}}
