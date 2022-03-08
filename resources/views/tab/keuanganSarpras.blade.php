@@ -2,15 +2,19 @@
 @extends('layouts.main')
 
 @section('content')
+{{-- JUDUL --}}
 <div class="content-header">
     <div class="container-fluid">
             <h1>KEUANGAN, SARANA, DAN PRASARANA</h1>
     </div>
 </div>
-<!-- MENU ATAS -->
+
+<!-- HEAD CARD -->
 <div class="content">
     <div class="container-fluid">
             <div class="card">
+
+{{-- CARD HEAD & TAB LINK --}}
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs" id="bologna-list" role="tablist">
             <li class="nav-item">
@@ -19,84 +23,58 @@
         </ul>
     </div>
 
-    <!-- ISI BODY  -->
+    <!-- CARD BODY  -->
     <div class="card-body">
         <div class="tab-content mt-3">
+            <div class="tab-content" id="myTabContent">
+
+            {{-- BUTTON  --}}
             <div class="tab-pane active" id="kerjasama" role="tabpanel">
                 <p class="d-flex justify-content-between">
                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Deskripsi
                     </a>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalsapras">
                         Tambah data
                     </button>
+                    {{-- Button CSV dkk disini --}}
+
+                    {{-- <a class="btn btn-primary" href="{{ url('/download-pdf')}}">Download PDF</a> --}}
                 </p>
+            
+                <!-- Modal Tambah Data Sarana dan Prasarana-->
+                <div class="modal fade" id="modalsapras" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Keuangan Sarana dan Prasarana </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        @include('partials.keuangansaprasmodal.kesapras')
+                    </div>
+                    </div>
+                </div>
+            
                 <div class="collapse" id="collapseExample">
                 <div class="card card-body">
-                    <p>Tuliskan kerjasama tridharma di Unit Pengelola Program Studi (UPPS) dalam 3 tahun terakhir dengan mengikuti format Tabel 1 berikut ini.</p>
-                    Keterangan:
-                    <ol>
-                        <li>Beri tanda V pada kolom yang sesuai</li>
-                        <li>Diisi dengan judul kegiatan kerjasama yang sudah terimplementasikan, melibatkan sumber daya dan memberikan manfaat bagi Program Studi yang diakreditasi.</li>
-                        <li>Bukti kerjasama dapat berupa Surat Penugasan, Surat Perjanjian Kerjasama (SPK), 
-                            bukti-bukti pelaksanaan (laporan, hasil kerjasama, luaran kerjasama), atau bukti lain 
-                            yang relevan. Dokumen Memorandum of Understanding (MoU), Memorandum of 
-                            Agreement (MoA), atau dokumen sejenis yang memayungi pelaksanaan kerjasama,
-                            tidak dapat dijadikan bukti realisasi kerjasama</li>
-                    </ol>
-    
-                </div> 
-
-</div>
-</div>
+                    <p>
+                    Tuliskan data penggunaan dana  yang dikelola oleh UPPS dan data penggunaan dana yang dialokasikan ke program studi yang diakreditasi dalam <b>3 tahun terakhir</b> dengan mengikuti format berikut ini.
+                    </p>
+                </div>
+                </div>
 {{-- CONTENT --}}
-    
-<div id="printElement container-fluid">
-    <table id='form-print' class="table text-center table-bordered table-condensed">
-        <thead>
-            <tr>
-                <th class="align-middle" scope="col" rowspan="2">Jenis Penggunaa</th>
-                <th scope="col" colspan="4">Unit Pengelola Program Studi (Rp.)</th>
-                <th scope="col" colspan="4">Program Studi (Rp.)</th>
-            </tr>
-            <tr>
-                <th scope="col">TS-2</th>
-                <th scope="col">TS-1</th>
-                <th scope="col">TS</th>
-                <th scope="col">Rata-rata</th>
-                <th scope="col">TS-2</th>
-                <th scope="col">TS-1</th>
-                <th scope="col">TS</th>
-                <th scope="col">Rata-rata</th>
-            </tr>
-    
-        </thead>
-
-        <tbody class="text-dark">
-            <tr>
-                <td>Eko</td>
-                <td>Eko</td>
-                <td>Eko</td>
-                <td>Eko</td>
-                <td>Eko</td>
-            </tr>
-            {{-- @foreach ($mahasiswa_asing as $mhs)
-                <tr>
-                    @for ($i = 0; $i < $count; $i++)
-                    <td>{{ $i }}</td>
-                    @endfor
-                   <td>{{ $mhs->daya_tampung }}</td> 
-                   <td>{{ $mhs->c_pendaftar }}</td> 
-                   <td>{{ $mhs->c_lulus_seleksi }}</td> 
-                   <td>{{ $mhs->mahasiswa_reguler }}</td> 
-                   <td>{{ $mhs->mahasiswa_transfer }}</td> 
-                   <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-                   <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-                </tr>
-            @endforeach --}}
-    </table> 
+{{-- AWAL TABLE --}}
+@include('tab.kesaprastab.kesaprastable')
+{{-- AKHIR TABLE --}}
 </div>
 
 {{-- AKHIR CONTENT --}}
+    </div>
+    </div>
+    </div>
+</div>
+</div>
 </div>
 @endsection

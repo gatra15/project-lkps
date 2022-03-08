@@ -12,10 +12,10 @@ table.table-bordered{
   margin-top:20px;
 }
 table.table-bordered > thead > tr > th{
-  border:1px solid black;
+  border:solid black;
 }
 table.table-bordered > tbody > tr > td{
-  border:1px solid black;
+  border:solid black;
 }
 
 thead{
