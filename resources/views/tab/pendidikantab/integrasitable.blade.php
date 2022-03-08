@@ -1,5 +1,5 @@
 <div>
-    <table class="table">
+    <table class="table table-bordered table-condensed">
     <thead>
     
     <tr>

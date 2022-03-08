@@ -10,7 +10,9 @@
     <div class="collapse" id="collapseExample">
     <div class="card card-body">
         <p>
-            Tuliskan data Dosen Tetap Perguruan Tinggi yang ditugaskan sebagai pengampu mata kuliah di Program Studi yang Diakreditasi (DTPS) pada saat TS dengan mengikuti format Tabel 3.a.1) berikut ini
+            Tuliskan hasil pengukuran kepuasan mahasiswa terhadap proses pendidikan dengan
+            mengikuti format Tabel berikut ini. Data diambil dari <b>hasil studi penelusuran yang
+            dilakukan pada saat TS</b>. <br>
         </p>
     </div> 
     </div>

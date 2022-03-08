@@ -1,24 +1,24 @@
 <div>
-    <table class="table">
+    <table class="table table-bordered table-condensed">
     <thead>
     
     <tr>
-        <th scope="col">2</th>
-        <th scope="col">Lembaga Mitra</th>
-        <th scope="col">Judul Kegiatan Kerjasama</th>
-        <th scope="col">Manfaat bagi PS yang Diakretasi</th>
-        <th scope="col">Waktu dan Durasi</th>
-        <th scope="col">Bukti Kerjasama</th>
+        <th class="text-center align-middle" scope="col" rowspan="2">No</th>
+        <th class="text-center align-middle" scope="col" rowspan="2">Aspek yang Diukur</th>
+        <th class="text-center align-middle" scope="col" colspan="4">Tingkat Kepuasan Mahasiswa (%)</th>
+        <th class="text-center align-middle" scope="col" rowspan="2">Rencana Tindak Lanjut oleh UPPS/PS</th>
     </tr>
     
+    <tr>
+        <th class="text-center align-middle" scope="col">Sangat Baik</th>
+        <th class="text-center align-middle" scope="col">Baik</th>
+        <th class="text-center align-middle" scope="col">Cukup</th>
+        <th class="text-center align-middle" scope="col">Kurang</th>
+    </tr>
     </thead>
     
     <tbody>
-    {{-- @foreach ($kerjasama as $kerja)
-    <tr>
-    
-    </tr>
-    @endforeach --}}
+    {{-- ISI TABEL DISINI BOSS --}}
     </tbody>
     </table> 
 </div>
