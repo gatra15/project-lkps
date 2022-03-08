@@ -19,9 +19,7 @@ class TataPamongController extends Controller
         $jmlpenelitian = $kerjasama->where('tridharma', 'Penelitian')->count();
         $jmlpkm = $kerjasama->where('tridharma', 'Pengabdian Kepada Masyarakat')->count();
 
-        
-        
-        return view('tab.tataPamong', [
+        return view('tab.tataPamong',[
             'title' => 'Tata Pamong',
             'kerjasama' => $kerjasama,
             'jmlpendidikan' => $jmlpendidikan,
@@ -29,6 +27,8 @@ class TataPamongController extends Controller
             'jmlpkm' => $jmlpkm,
         ]);
     }
+
+
 
     public function generate()
     {
@@ -43,8 +43,10 @@ class TataPamongController extends Controller
             'jmlpendidikan' => $jmlpendidikan,
             'jmlpenelitian' => $jmlpenelitian,
             'jmlpkm' => $jmlpkm,
-        ]);
-        return $pdf->download('pdfview.pdf');
+        ])->setPaper('a4','landscape')->setWarnings(true)->save('tatakerjasama.pdf');
+
+
+        return $pdf->stream('tatakerjasama.pdf');
 
     }
 

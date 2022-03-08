@@ -10,7 +10,7 @@
     </p>
     <a href="{{ url('/download-excel') }}" class="btn btn-success">Excel</a>
     <a href="{{ url('/download-csv') }}" class="btn btn-success">CSV</a>
-    <a class="btn btn-primary" href="{{ url('/download-pdf')}}">Download PDF</a>
+    <a class="btn btn-primary" href="{{'/download-pdf'}}">Download PDF</a>
     <div class="collapse" id="des1">
         <div class="card card-body">
             <p>
