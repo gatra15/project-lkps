@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PendidikanIntegrasiKegiatanPenelitian;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\PendidikanIntegrasiKegiatanPenelitian;
 
 class PendidikanIntegrasiKegiatanPenelitianController extends Controller
 {
@@ -33,9 +34,27 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $this->validate($req, [
+            'judul' => 'required',
+            'nama_dosen' => 'required',
+            'mata_kuliah' => 'required',
+            'bentuk_integrasi' => 'required',
+        ]);
+
+        $integrasi = new PendidikanIntegrasiKegiatanPenelitian;
+        $integrasi->judul = $req->input('judul');
+        $integrasi->nama_dosen = $req->input('nama_dosen');
+        $integrasi->mata_kuliah = $req->input('mata_kuliah');
+        $integrasi->bentuk_integrasi = $req->input('bentuk_integrasi');
+        $integrasi->tahun_laporan = '2022';
+        $integrasi->prodi = auth()->user()->prodi;
+        $integrasi->created_by = auth()->user()->name;
+        $integrasi->created_at = Carbon::now();
+        $integrasi->save();
+
+        return back()->with('success', 'Pendidikan Integrasi Kegiatan Penelitian has been created.');
     }
 
     /**
@@ -67,9 +86,27 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
      * @param  \App\Models\PendidikanIntegrasiKegiatanPenelitian  $pendidikanIntegrasiKegiatanPenelitian
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PendidikanIntegrasiKegiatanPenelitian $pendidikanIntegrasiKegiatanPenelitian)
+    public function update(Request $req, $id)
     {
-        //
+        $this->validate($req, [
+            'judul' => 'required',
+            'nama_dosen' => 'required',
+            'mata_kuliah' => 'required',
+            'bentuk_integrasi' => 'required',
+        ]);
+
+        $integrasi = PendidikanIntegrasiKegiatanPenelitian::find($id);
+        $integrasi->judul = $req->input('judul');
+        $integrasi->nama_dosen = $req->input('nama_dosen');
+        $integrasi->mata_kuliah = $req->input('mata_kuliah');
+        $integrasi->bentuk_integrasi = $req->input('bentuk_integrasi');
+        $integrasi->tahun_laporan = '2022';
+        $integrasi->prodi = auth()->user()->prodi;
+        $integrasi->created_by = auth()->user()->name;
+        $integrasi->updated_at = Carbon::now();
+        $integrasi->save();
+
+        return back()->with('success', 'Pendidikan Integrasi Kegiatan Penelitian has been updated.');
     }
 
     /**
@@ -78,8 +115,9 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
      * @param  \App\Models\PendidikanIntegrasiKegiatanPenelitian  $pendidikanIntegrasiKegiatanPenelitian
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PendidikanIntegrasiKegiatanPenelitian $pendidikanIntegrasiKegiatanPenelitian)
+    public function destroy($id)
     {
-        //
+        PendidikanIntegrasiKegiatanPenelitian::find($id)->delete();
+        return back()->with('error', 'Pendidikan Integrasi Kegiatan Penelitian has been deleted.');
     }
 }

@@ -17,6 +17,8 @@ use App\Http\Controllers\TabMahasiswaController;
 use App\Http\Controllers\IdentitasPengusulController;
 use App\Http\Controllers\KaryaIlmiahMahasiswaController;
 use App\Http\Controllers\KeuanganSaranaPrasaranaController;
+use App\Http\Controllers\PendidikanIntegrasiKegiatanPenelitianController;
+use App\Http\Controllers\PrestasiMahasiswaController;
 use App\Http\Controllers\SdmDosenIndustriPraktisiController;
 use App\Http\Controllers\SdmDosenTidakTetapController;
 use App\Http\Controllers\SdmEkuivalenWaktuMengajarPenuhDosenTetapController;
@@ -130,12 +132,25 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('/keuangan-sarana-prasarana', [KeuanganSaranaPrasaranaController::class, 'index']);
 
         Route::get('/pendidikan', [PendidikanController::class, 'index']);
+        Route::post('/pendidikan', [PendidikanController::class, 'store']);
+        Route::put('/pendidikan', [PendidikanController::class, 'update']);
+        Route::get('/pendidikan', [PendidikanController::class, 'destroy']);
+
+        Route::get('/pendidikan/integrasi', [PendidikanIntegrasiKegiatanPenelitianController::class, 'index']);
+        Route::post('/pendidikan/integrasi', [PendidikanIntegrasiKegiatanPenelitianController::class, 'store']);
+        Route::put('/pendidikan/integrasi/{id}', [PendidikanIntegrasiKegiatanPenelitianController::class, 'update']);
+        Route::get('/pendidikan/integrasi/{id}', [PendidikanIntegrasiKegiatanPenelitianController::class, 'destroy']);
 
         Route::get('/penelitian', [PenelitianController::class, 'index']);
 
         Route::get('/pkm', [PengabdianController::class, 'index']);
 
         Route::get('/luaran-capaian-tridharma', [LuaranController::class, 'index']);
+
+        Route::get('/luaran-capaian-tridharma/prestasi-mahasiswa', [PrestasiMahasiswaController::class, 'index']);
+        Route::post('/luaran-capaian-tridharma/prestasi-mahasiswa', [PrestasiMahasiswaController::class, 'store']);
+        Route::put('/luaran-capaian-tridharma/prestasi-mahasiswa/{id}', [PrestasiMahasiswaController::class, 'index']);
+        Route::get('/luaran-capaian-tridharma/prestasi-mahasiswa/{id}', [PrestasiMahasiswaController::class, 'index']);
 
         Route::get('/simulasi', [SimulasiController::class, 'index']);
     });

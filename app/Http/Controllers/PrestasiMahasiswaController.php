@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PrestasiMahasiswa;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\PrestasiMahasiswa;
 
 class PrestasiMahasiswaController extends Controller
 {
@@ -33,9 +34,27 @@ class PrestasiMahasiswaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $this->validate($req, [
+            'nama_kegiatan' => 'required',
+            'tahun_perolehan' => 'required',
+            'tingkat' => 'required',
+            'type_prestasi' => 'required',
+        ]);
+
+        $prestasi = new PrestasiMahasiswa;
+        $prestasi->nama_kegiatan = $req->input('nama_kegiatan');
+        $prestasi->tahun_perolehan = $req->input('tahun_perolehan');
+        $prestasi->tingkat = $req->input('tingkat');
+        $prestasi->type_prestasi = $req->input('type_prestasi');
+        $prestasi->tahun_laporan = '2022';
+        $prestasi->prodi = auth()->user()->prodi;
+        $prestasi->created_by = auth()->user()->name;
+        $prestasi->created_at = Carbon::now();
+        $prestasi->save();
+
+        return back()->with('success', 'Prestasi Mahasiswa has been created.');
     }
 
     /**
@@ -67,9 +86,27 @@ class PrestasiMahasiswaController extends Controller
      * @param  \App\Models\PrestasiMahasiswa  $prestasiMahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PrestasiMahasiswa $prestasiMahasiswa)
+    public function update(Request $req, $id)
     {
-        //
+        $this->validate($req, [
+            'nama_kegiatan' => 'required',
+            'tahun_perolehan' => 'required',
+            'tingkat' => 'required',
+            'type_prestasi' => 'required',
+        ]);
+
+        $prestasi = PrestasiMahasiswa::find($id);
+        $prestasi->nama_kegiatan = $req->input('nama_kegiatan');
+        $prestasi->tahun_perolehan = $req->input('tahun_perolehan');
+        $prestasi->tingkat = $req->input('tingkat');
+        $prestasi->type_prestasi = $req->input('type_prestasi');
+        $prestasi->tahun_laporan = '2022';
+        $prestasi->prodi = auth()->user()->prodi;
+        $prestasi->created_by = auth()->user()->name;
+        $prestasi->update_at = Carbon::now();
+        $prestasi->update();
+
+        return back()->with('success', 'Prestasi Mahasiswa has been updated.');
     }
 
     /**
@@ -78,8 +115,9 @@ class PrestasiMahasiswaController extends Controller
      * @param  \App\Models\PrestasiMahasiswa  $prestasiMahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PrestasiMahasiswa $prestasiMahasiswa)
+    public function destroy($id)
     {
-        //
+        PrestasiMahasiswa::find($id)->delete();
+        return back()->with('error', 'Prestasi Mahasiswa has been deleted.');
     }
 }

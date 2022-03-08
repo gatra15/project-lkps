@@ -1,8 +1,11 @@
-<div class="tab-pane fade show active" id="mahasiswa" role="tabpanel" aria-labelledby="mahasiswa-tab">
+<div class="tab-pane fade show active" id="penelitiandtps" role="tabpanel" aria-labelledby="penelitiandtps-tab">
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#des1" role="button" aria-expanded="false" aria-controls="des1">
             Deskripsi
         </a>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#penelitiandtps">
+            Tambah data
+        </button>
     </p>
     <div class="collapse" id="des1">
         <div class="card card-body">
@@ -19,7 +22,19 @@
         </div> 
     </div>
     {{-- CONTENT --}}
-
-        @include('tab.penelitiantab.penelitiantable')
+    <div class="modal fade" id="penelitiandtps" tabindex="-1" aria-labelledby="penelitiandtps" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="penelitiandtps">Tambah Data Dosen Tetap</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('tab.penelitiantab.penelitiantable')
+        </div>
+        </div>
+    </div>
+        
     
 </div>

@@ -34,5 +34,9 @@
                    <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
                 </tr>
             @endforeach --}}
+            <tr>
+                <td colspan="3"><b>Jumlah</b></td>
+                <td></td>
+            </tr>
     </table> 
 </div>
