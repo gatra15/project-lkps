@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\SdmKinerjaDosenPkmDtps;
+use App\Models\Sumberdaya;
 
 class SdmKinerjaDosenPkmDtpsController extends Controller
 {
@@ -44,16 +45,17 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
             'jumlah' => 'required',
         ]);
 
-        $pengakuan = new SdmKinerjaDosenPkmDtps;
-        $pengakuan->sumber_pembiayaan = $req->input('sumber_pembiayaan');
-        $pengakuan->jumlah_ts2 = $req->input('jumlah_ts2');
-        $pengakuan->jumlah_ts1 = $req->input('jumlah_ts1');
-        $pengakuan->jumlah_ts = $req->input('jumlah_ts');
-        $pengakuan->tahun_laporan = '2022';
-        $pengakuan->prodi = auth()->user()->prodi;
-        $pengakuan->created_by = auth()->user()->name;
-        $pengakuan->created_at = Carbon::now();
-
+        $pkm = new SdmKinerjaDosenPkmDtps;
+        $pkm->sumber_pembiayaan = $req->input('sumber_pembiayaan');
+        $pkm->jumlah_ts2 = $req->input('jumlah_ts2');
+        $pkm->jumlah_ts1 = $req->input('jumlah_ts1');
+        $pkm->jumlah_ts = $req->input('jumlah_ts');
+        $pkm->sumber_id = Sumberdaya::all()->id;
+        $pkm->tahun_laporan = '2022';
+        $pkm->prodi = auth()->user()->prodi;
+        $pkm->created_by = auth()->user()->name;
+        $pkm->created_at = Carbon::now();
+        dd($pkm);
         return back()->with('success', 'Sdm Kinerja Dosen Pkm Dtps has been created.');
     }
 
@@ -96,15 +98,16 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
             'jumlah' => 'required',
         ]);
 
-        $pengakuan = new SdmKinerjaDosenPkmDtps;
-        $pengakuan->sumber_pembiayaan = $req->input('sumber_pembiayaan');
-        $pengakuan->jumlah_ts2 = $req->input('jumlah_ts2');
-        $pengakuan->jumlah_ts1 = $req->input('jumlah_ts1');
-        $pengakuan->jumlah_ts = $req->input('jumlah_ts');
-        $pengakuan->tahun_laporan = '2022';
-        $pengakuan->prodi = auth()->user()->prodi;
-        $pengakuan->created_by = auth()->user()->name;
-        $pengakuan->updated_at = Carbon::now();
+        $pkm = new SdmKinerjaDosenPkmDtps;
+        $pkm->sumber_pembiayaan = $req->input('sumber_pembiayaan');
+        $pkm->jumlah_ts2 = $req->input('jumlah_ts2');
+        $pkm->jumlah_ts1 = $req->input('jumlah_ts1');
+        $pkm->jumlah_ts = $req->input('jumlah_ts');
+        $pkm->sumber_id = Sumberdaya::all()->id;
+        $pkm->tahun_laporan = '2022';
+        $pkm->prodi = auth()->user()->prodi;
+        $pkm->created_by = auth()->user()->name;
+        $pkm->updated_at = Carbon::now();
 
         return back()->with('success', 'Sdm Kinerja Dosen Pkm Dtps has been updated.');
     }

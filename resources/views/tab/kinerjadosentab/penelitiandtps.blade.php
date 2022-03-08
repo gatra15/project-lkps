@@ -29,16 +29,16 @@
     </div>
 
     <!-- Modal Tambah Data Penelitian DTPS -->
-    <div class="modal fade" id="modaldosentetap" tabindex="-1" aria-labelledby="modaldosentetap" aria-hidden="true">
+    <div class="modal fade" id="modaldosenpenelitian" tabindex="-1" aria-labelledby="modaldosenpenelitian" aria-hidden="true">
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="modaldosentetap">Tambah Data Dosen Tetap</h5>
+        <h5 class="modal-title" id="modaldosenpenelitian">Tambah Data Dosen Tetap</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
         </div>
-        {{-- @include('partials.profildosenmodal.dosentetap') --}}
+        @include('partials.kinerjadosenmodal.penelitian')
     </div>
     </div>
     </div>
@@ -71,47 +71,47 @@
                     <td>1</td>
                 </tr>
                 
-                {{-- @foreach ($mahasiswa_asing as $mhs)
+                @foreach ($penelitian as $penelitian)
                     <tr>
-                        @for ($i = 0; $i < $count; $i++)
-                        <td>{{ $i }}</td>
-                        @endfor
-                    <td>{{ $mhs->daya_tampung }}</td> 
-                    <td>{{ $mhs->c_pendaftar }}</td> 
-                    <td>{{ $mhs->c_lulus_seleksi }}</td> 
-                    <td>{{ $mhs->mahasiswa_reguler }}</td> 
-                    <td>{{ $mhs->mahasiswa_transfer }}</td> 
-                    <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-                    <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $penelitian->nama }}</td> 
+                    <td>{{ $penelitian->bidang_keahlian }}</td> 
+                    <td>{{ $penelitian->bukti_pendukung }}</td> 
+                    <td>{{ $penelitian->tingkat }}</td> 
+                    <td>{{ $penelitian->tahun }}</td> 
+                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $penelitian->id }}"><i class="fas fa-edit"></i></a></li>
+                        <li>
+                            <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $pengkuan->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $penelitian->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                    </ul></td>
                     </tr>
-                @endforeach --}}
 
             <!-- Modal Edit Data Penelitian DTPS -->
-            <div class="modal fade" id="modaldosentetapedit" tabindex="-1" aria-labelledby="modaldosentetapedit" aria-hidden="true">
+            <div class="modal fade" id="modaldosenpenelitianedit-{{ $penelitian->id }}" tabindex="-1" aria-labelledby="modaldosenpenelitianedit" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="modaldosentetapedit">Edit Data Dosen Tetap</h5>
+                    <h5 class="modal-title" id="modaldosenpenelitianedit">Edit Data Dosen Tetap</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    {{-- @include('partials.profildosenmodal.dosentetapedit') --}}
+                    @include('partials.kinerjadosenmodal.penelitianedit')
                 </div>
                 </div>
                 </div>
         
                 <!-- Modal Delete Data Penelitian DTPS -->
-                <div class="modal fade" id="modaldosentetapdelete" tabindex="-1" aria-labelledby="modaldosentetapdelete" aria-hidden="true">
+                <div class="modal fade" id="modaldosenpenelitiandelete" tabindex="-1" aria-labelledby="modaldosenpenelitiandelete" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="modaldosentetapdelete">Yakin?</h5>
+                    <h5 class="modal-title" id="modaldosenpenelitiandelete">Yakin?</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    {{-- @include('partials.profildosenmodal.dosentetapdelete') --}}
+                    @include('partials.kinerjadosenmodal.penelitiandelete')
                 </div>
                 </div>
                 </div>
@@ -123,6 +123,7 @@
                     <td></td>
                     <td></td>
                 </tr>
+                @endforeach
         </table> 
     </div>
 </div>  

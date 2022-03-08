@@ -2,10 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Sumberdaya;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class SdmKinerjaDosenPkmDtps extends Model
 {
     use HasFactory;
+    protected $table = 'sdm_kinerja_dosen_pkm_dtps';
+    protected $guarded = ['id'];
+
+    public function sumberdaya_detail()
+    {
+        $this->belongsTo('\App\Models\Sumberdaya', 'sumber_id', 'id');
+    }
 }

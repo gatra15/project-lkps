@@ -1,8 +1,7 @@
-<form action="#" method="get">
+<form action="/kinerja-dosen/karya-ilmiah/{{ $karil->id }}" method="get">
     <div class="modal-body">
         @csrf
-        {{-- @method('get') --}}
-        <h5 class="text-center">Yakin Ingin Menghapus {{-- $sdm->nama_dosen --}} ? </h5>
+        <h5 class="text-center">Yakin Ingin Menghapus {{ $karil->nama_dosen }} ? </h5>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

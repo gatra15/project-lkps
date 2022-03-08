@@ -38,20 +38,21 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
     public function store(Request $req)
     {
         $this->validate($req, [
-            'nama' => 'required',
+            'nama_dosen' => 'required',
             'judul' => 'required',
             'jumlah_sitasi' => 'required',
 
         ]);
 
-        $pengakuan = new SdmKinerjaDosenKaryaIlmiahDtps;
-        $pengakuan->nama = $req->input('nama');
-        $pengakuan->judul = $req->input('judul');
-        $pengakuan->jumlah_sitasi = $req->input('jumlah_sitasi');
-        $pengakuan->tahun_laporan = '2022';
-        $pengakuan->prodi = auth()->user()->prodi;
-        $pengakuan->created_by = auth()->user()->name;
-        $pengakuan->created_at = Carbon::now();
+        $karil = new SdmKinerjaDosenKaryaIlmiahDtps;
+        $karil->nama_dosen = $req->input('nama_dosen');
+        $karil->judul = $req->input('judul');
+        $karil->jumlah_sitasi = $req->input('jumlah_sitasi');
+        $karil->tahun_laporan = '2022';
+        $karil->prodi = auth()->user()->prodi;
+        $karil->created_by = auth()->user()->name;
+        $karil->created_at = Carbon::now();
+        $karil->save();
 
         return back()->with('success', 'Sdm Kinerja Dosen Karya Ilmiah Dtps has been created.');
     }
@@ -88,20 +89,21 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
     public function update(Request $req, $id)
     {
         $this->validate($req, [
-            'nama' => 'required',
+            'nama_dosen' => 'required',
             'judul' => 'required',
             'jumlah_sitasi' => 'required',
 
         ]);
 
-        $pengakuan = SdmKinerjaDosenKaryaIlmiahDtps::find($id);
-        $pengakuan->nama = $req->input('nama');
-        $pengakuan->judul = $req->input('judul');
-        $pengakuan->jumlah_sitasi = $req->input('jumlah_sitasi');
-        $pengakuan->tahun_laporan = '2022';
-        $pengakuan->prodi = auth()->user()->prodi;
-        $pengakuan->created_by = auth()->user()->name;
-        $pengakuan->created_at = Carbon::now();
+        $karil = SdmKinerjaDosenKaryaIlmiahDtps::find($id);
+        $karil->nama_dosen = $req->input('nama_dosen');
+        $karil->judul = $req->input('judul');
+        $karil->jumlah_sitasi = $req->input('jumlah_sitasi');
+        $karil->tahun_laporan = '2022';
+        $karil->prodi = auth()->user()->prodi;
+        $karil->created_by = auth()->user()->name;
+        $karil->created_at = Carbon::now();
+        $karil->update();
 
         return back()->with('success', 'Sdm Kinerja Dosen Karya Ilmiah Dtps has been updated.');
     }

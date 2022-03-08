@@ -61,45 +61,19 @@
             </thead>
 
             <tbody class="text-dark">
+                @foreach ($sumberdaya as $sd)
                 <tr>
-                    <td>1 </td>
-                    <td>a) Perguruan Tinggi <br>
-                        b) Mandiri <sup>2)</sup> </td>
-                    <td> database </td>
-                    <td> database</td>
-                    <td> database </td>
-                    <td> coding jumlah</td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>@php echo $sd->sumberdaya @endphp </td>
+                    @foreach ($pkm as $pkm)
+                        <td>{{ $pkm->jumlah_ts2 }}</td>
+                        <td>{{ $pkm->jumlah_ts1 }}</td>
+                        <td>{{ $pkm->jumlah_ts }}</td>
+                        <td>{{ $pkm->jumlah }}</td>
+                    @endforeach
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Lembaga Dalam Negeri (Luar Negeri) </td>
-                    <td> database </td>
-                    <td> database</td>
-                    <td> database </td>
-                    <td> coding jumlah</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Lembaga Luar Negeri </td>
-                    <td> database </td>
-                    <td> database</td>
-                    <td> database </td>
-                    <td> coding jumlah</td>
-                </tr>
-                {{-- @foreach ($mahasiswa_asing as $mhs)
-                    <tr>
-                        @for ($i = 0; $i < $count; $i++)
-                        <td>{{ $i }}</td>
-                        @endfor
-                    <td>{{ $mhs->daya_tampung }}</td> 
-                    <td>{{ $mhs->c_pendaftar }}</td> 
-                    <td>{{ $mhs->c_lulus_seleksi }}</td> 
-                    <td>{{ $mhs->mahasiswa_reguler }}</td> 
-                    <td>{{ $mhs->mahasiswa_transfer }}</td> 
-                    <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-                    <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-                    </tr>
-                 --}}
+                @endforeach
+                
 
 
             <!-- Modal Edit Data PKM DTPS -->

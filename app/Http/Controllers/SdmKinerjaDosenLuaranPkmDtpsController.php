@@ -44,15 +44,16 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
             'jumlah' => 'required',
         ]);
 
-        $pengakuan = new SdmKinerjaDosenLuaranPkmDtps;
-        $pengakuan->type_luaran = $req->input('type_luaran');
-        $pengakuan->judul = $req->input('judul');
-        $pengakuan->tahun = $req->input('tahun');
-        $pengakuan->keterangan = $req->input('keterangan');
-        $pengakuan->tahun_laporan = '2022';
-        $pengakuan->prodi = auth()->user()->prodi;
-        $pengakuan->created_by = auth()->user()->name;
-        $pengakuan->created_at = Carbon::now();
+        $luaran = new SdmKinerjaDosenLuaranPkmDtps;
+        $luaran->type_luaran = $req->input('type_luaran');
+        $luaran->judul = $req->input('judul');
+        $luaran->tahun = $req->input('tahun');
+        $luaran->keterangan = $req->input('keterangan');
+        $luaran->tahun_laporan = '2022';
+        $luaran->prodi = auth()->user()->prodi;
+        $luaran->created_by = auth()->user()->name;
+        $luaran->created_at = Carbon::now();
+        $luaran->save();
 
         return back()->with('success', 'Sdm Kinerja Dosen Luaran Pkm Dtps has been created.');
     }
@@ -96,15 +97,16 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
             'jumlah' => 'required',
         ]);
 
-        $pengakuan = new SdmKinerjaDosenLuaranPkmDtps;
-        $pengakuan->type_luaran = $req->input('type_luaran');
-        $pengakuan->judul = $req->input('judul');
-        $pengakuan->tahun = $req->input('tahun');
-        $pengakuan->keterangan = $req->input('keterangan');
-        $pengakuan->tahun_laporan = '2022';
-        $pengakuan->prodi = auth()->user()->prodi;
-        $pengakuan->created_by = auth()->user()->name;
-        $pengakuan->updated_at = Carbon::now();
+        $luaran = new SdmKinerjaDosenLuaranPkmDtps;
+        $luaran->type_luaran = $req->input('type_luaran');
+        $luaran->judul = $req->input('judul');
+        $luaran->tahun = $req->input('tahun');
+        $luaran->keterangan = $req->input('keterangan');
+        $luaran->tahun_laporan = '2022';
+        $luaran->prodi = auth()->user()->prodi;
+        $luaran->created_by = auth()->user()->name;
+        $luaran->updated_at = Carbon::now();
+        $luaran->update();
 
         return back()->with('success', 'Sdm Kinerja Dosen Luaran Pkm Dtps has been updated.');
     }

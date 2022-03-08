@@ -20,6 +20,7 @@ class CreateSdmKinerjaDosenPkmDtpsTable extends Migration
             $table->string('jumlah_ts1');
             $table->string('jumlah_ts');
             $table->string('jumlah');
+            $table->unsignedInteger('sumber_id');
             $table->string('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by');
