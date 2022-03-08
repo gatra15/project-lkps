@@ -10,7 +10,13 @@
     <div class="collapse" id="collapseExample">
     <div class="card card-body">
         <p>
-            Tuliskan data Dosen Tetap Perguruan Tinggi yang ditugaskan sebagai pengampu mata kuliah di Program Studi yang Diakreditasi (DTPS) pada saat TS dengan mengikuti format Tabel 3.a.1) berikut ini
+            Tuliskan struktur program dan kelengkapan data mata kuliah sesuai dengan dokumen kurikulum program studi yang berlaku pada saat TS dengan mengikuti format berikut ini. <br> <br>
+            <b>Keterangan</b> <br>
+            1) Diisi dengan tanda centang V jika mata kuliah termasuk dalam mata kuliah kompetensi program studi. <br>
+            2) Diisi dengan konversi bobot kredit ke jam pelaksanaan pembelajaran. Data ini diisi oleh pengusul dari program studi pada
+            program Diploma Tiga/Sarjana/Sarjana Terapan. <br>
+            3) Beri tanda V pada kolom unsur pembentuk Capaian Pembelajaran Lulusan (CPL) sesuai dengan rencana pembelajaran. <br>
+            4) Diisi dengan nama dokumen rencana pembelajaran yang digunakan. <br>
         </p>
     </div> 
     </div>

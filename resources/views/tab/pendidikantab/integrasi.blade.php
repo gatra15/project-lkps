@@ -10,7 +10,14 @@
     <div class="collapse" id="collapseExample">
     <div class="card card-body">
         <p>
-            Tuliskan data Dosen Tetap Perguruan Tinggi yang ditugaskan sebagai pengampu mata kuliah di Program Studi yang Diakreditasi (DTPS) pada saat TS dengan mengikuti format Tabel 3.a.1) berikut ini
+            Tuliskan judul penelitian/PkM DTPS yang terintegrasi ke dalam pembelajaran/
+            pengembangan matakuliah dalam 3 tahun terakhir dengan mengikuti format Tabel
+            berikut ini. <br> <br>
+            <b>Keterangan</b> <br>
+            1) Judul penelitian dan PkM tercatat di unit/lembaga yang mengelola kegiatan
+            penelitian/PkM di tingkat Perguruan Tinggi/UPPS. <br>
+            2) Bentuk integrasi dapat berupa tambahan materi perkuliahan, studi kasus, Bab/
+            Subbab dalam buku ajar, atau bentuk lain yang relevan. <br>
         </p>
     </div> 
     </div>

@@ -1,24 +1,19 @@
 <div>
-    <table class="table">
+    <table class="table table-bordered table-condensed">
     <thead>
     
     <tr>
-    <th scope="col">1</th>
-    <th scope="col">Lembaga Mitra</th>
-    <th scope="col">Judul Kegiatan Kerjasama</th>
-    <th scope="col">Manfaat bagi PS yang Diakretasi</th>
-    <th scope="col">Waktu dan Durasi</th>
-    <th scope="col">Bukti Kerjasama</th>
+    <th scope="col">No</th>
+    <th scope="col">Judul Penelitian/PkM <sup>1)</sup>  </th>
+    <th scope="col">Nama Dosen</th>
+    <th scope="col">Mata Kuliah</th>
+    <th scope="col">Bentuk Integrasi <sup>2)</sup></th>
     </tr>
     
     </thead>
     
     <tbody>
-    {{-- @foreach ($kerjasama as $kerja)
-    <tr>
-    
-    </tr>
-    @endforeach --}}
+    {{-- ISI TABEL DISINI YA BOSS --}}
     </tbody>
     </table> 
 </div>
