@@ -16,7 +16,7 @@ background-color: #d8d8d8;
 </style>
 <form action="{{ url('/tata-pamong-tata-kelola-kerjasama') }}" method="GET">
     <div class="container-fluid">
-        <table  class="table text-center table-bordered table-condensed table-responsive">
+        <table  class="table text-center table-bordered">
             <thead>
                 <tr>
                     <th scope="col" class="align-middle" rowspan="2">Tema</th>
