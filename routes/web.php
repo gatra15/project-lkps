@@ -133,8 +133,8 @@ Route::group(['middleware' => 'auth:web'], function() {
 
         Route::get('/pendidikan', [PendidikanController::class, 'index']);
         Route::post('/pendidikan', [PendidikanController::class, 'store']);
-        Route::put('/pendidikan', [PendidikanController::class, 'update']);
-        Route::get('/pendidikan', [PendidikanController::class, 'destroy']);
+        Route::put('/pendidikan/{id}', [PendidikanController::class, 'update']);
+        Route::get('/pendidikan/{id}', [PendidikanController::class, 'destroy']);
 
         Route::get('/pendidikan/integrasi', [PendidikanIntegrasiKegiatanPenelitianController::class, 'index']);
         Route::post('/pendidikan/integrasi', [PendidikanIntegrasiKegiatanPenelitianController::class, 'store']);
