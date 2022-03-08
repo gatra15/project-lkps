@@ -1,4 +1,20 @@
-@extends('layouts.table')
+<style>
+    table.table-bordered{
+  border: 1px black;
+  margin-top:20px;
+}
+table.table-bordered > thead > tr > th{
+  border:0.5px solid black;
+}
+table.table-bordered > tbody > tr > td{
+  border:0.5px solid black;
+}
+
+thead{
+background-color: #d8d8d8;
+}
+</style>
+<form action="{{ url('/tata-pamong-tata-kelola-kerjasama') }}" method="GET">
     <div class="container-fluid">
         <table  class="table text-center table-bordered table-condensed table-responsive">
             <thead>
@@ -51,4 +67,6 @@
                     <td colspan="10" class="text-left"><b>Jumlah Pendidikan : {{ $jmlpendidikan }}</b> </td>
                 </tr>
         </table> 
+    
     </div>
+</form>
