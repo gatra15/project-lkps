@@ -20,7 +20,6 @@ class CreatePenelitianDtpsMelibatkanMahasiswasTable extends Migration
             $table->string('nama_mahasiswa');
             $table->string('judul');
             $table->string('tahun');
-            $table->string('type_penelitian');
             $table->string('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by');

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PendidikanIntegrasiKegiatanPenelitian;
+use App\Models\PendidikanKepuasanMahasiswa;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\PendidikanKurikulum;
@@ -11,9 +13,13 @@ class PendidikanController extends Controller
     public function index()
     {
         $kurikulum = PendidikanKurikulum::all();
+        $integrasi = PendidikanIntegrasiKegiatanPenelitian::all();
+        $kepuasanmahasiswa = PendidikanKepuasanMahasiswa::all();
         return view('tab.pendidikan', [
             'title' => 'Pendidikan',
             'kurikulum' => $kurikulum,
+            'integrasi' => $integrasi,
+            'kepuasanmahasiswa' => $kepuasanmahasiswa
         ]);
     }
 
@@ -55,7 +61,7 @@ class PendidikanController extends Controller
         $kurikulum->prodi = auth()->user()->prodi;
         $kurikulum->created_by = auth()->user()->name;
         $kurikulum->created_at = Carbon::now();
-        dd($kurikulum); 
+        $kurikulum->save();
 
         return back()->with('success', 'Pendidikan Kurikulum has been created.');
     }

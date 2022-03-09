@@ -3,7 +3,7 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
             Deskripsi
         </a>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalkepuasan">
             Tambah data
         </button>
     </p>
@@ -18,54 +18,56 @@
     </div>
 
     <!-- Modal Tambah Data Kepuasan -->
-    <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+    <div class="modal fade" id="modalkepuasan" tabindex="-1" aria-labelledby="modalkepuasan" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalkepuasan">Tambah Data Kepuasan Mahasiswa </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.pendidikanmodal.kepuasan')
         </div>
         </div>
         </div>
 
-        {{-- foreach --}}
+        {{-- TABLE AWAL --}}
+        @include('tab.pendidikantab.kepuasantable')
+        {{-- TABLE AKHIR --}}
+
+        @foreach($kepuasanmahasiswa as $kepuasan)
       <!-- Modal Tambah Edit Kepuasan -->
-      <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+      <div class="modal fade" id="modalkepuasanedit-{{ $kepuasan->id }}" tabindex="-1" aria-labelledby="modalkepuasanedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalkepuasanedit">Edit Data Kepuasan Mahasiswa </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.pendidikanmodal.kepuasanedit')
         </div>
         </div>
         </div>
 
       <!-- Modal Tambah Delete Kepuasan -->
-      <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+      <div class="modal fade" id="modalkepuasandelete-{{ $kepuasan->id }}" tabindex="-1" aria-labelledby="modalkepuasandelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalkepuasandelete">Delete Data Kepuasan Mahasiwa </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.pendidikanmodal.kepuasandelete')
         </div>
         </div>
         </div>
-        {{-- endforeach --}}
+        @endforeach
 {{-- CONTENT --}}
 
-{{-- TABLE AWAL --}}
-@include('tab.pendidikantab.kepuasantable')
-{{-- TABLE AKHIR --}}
+
 </div>

@@ -3,7 +3,7 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
             Deskripsi
         </a>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalintegrasi">
             Tambah data
         </button>
     </p>
@@ -23,54 +23,55 @@
     </div>
 
           <!-- Modal Tambah Data Integritas -->
-          <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+          <div class="modal fade" id="modalintegrasi" tabindex="-1" aria-labelledby="modalintegrasi" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+                <h5 class="modal-title" id="modalintegrasi">Tambah Data Integrasi Kegiatan Penelitian/PkM dalam Pembelajaran </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
-                {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+                @include('partials.pendidikanmodal.integrasi')
             </div>
             </div>
             </div>
+            {{-- TABLE AWAL --}}
+            @include('tab.pendidikantab.integrasitable')
+            {{-- TABLE AKHIR --}}
 
-            {{-- foreach --}}
+            @foreach($integrasi as $integrasi)
           <!-- Modal Tambah Edit Integritas -->
-          <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+          <div class="modal fade" id="modalintegrasiedit-{{ $integrasi->id }}" tabindex="-1" aria-labelledby="modalintegrasiedit" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+                <h5 class="modal-title" id="modalintegrasiedit">Edit Data Integrasi Kegiatan Penelitian/PkM dalam Pembelajaran </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
-                {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+                @include('partials.pendidikanmodal.integrasiedit')
             </div>
             </div>
             </div>
 
           <!-- Modal Tambah Delete Integritas -->
-          <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+          <div class="modal fade" id="modalintegrasidelete-{{ $integrasi->id }}" tabindex="-1" aria-labelledby="modalintegrasidelete" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+                <h5 class="modal-title" id="modalintegrasidelete">Delete Data Integrasi Kegiatan Penelitian/PkM dalam Pembelajaran </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
-                {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+                @include('partials.pendidikanmodal.integrasidelete')
             </div>
             </div>
             </div>
-            {{-- endforeach --}}
+            @endforeach
 {{-- CONTENT --}}
 
-{{-- TABLE AWAL --}}
-@include('tab.pendidikantab.integrasitable')
-{{-- TABLE AKHIR --}}
+
 </div>

@@ -37,8 +37,6 @@
         </div>
         </div>
     
-       
-
 {{-- TABLE AWAL --}}
 @include('tab.pendidikantab.kurikulumtable')
 {{-- TABLE AKHIR --}}

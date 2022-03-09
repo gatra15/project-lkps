@@ -16,20 +16,21 @@
 
         <tbody class="text-dark">
 
-            {{-- @foreach ($mahasiswa_asing as $mhs)
+            @foreach ($penelitian as $penelitian)
                 <tr>
-                    @for ($i = 0; $i < $count; $i++)
-                    <td>{{ $i }}</td>
-                    @endfor
-                   <td>{{ $mhs->daya_tampung }}</td> 
-                   <td>{{ $mhs->c_pendaftar }}</td> 
-                   <td>{{ $mhs->c_lulus_seleksi }}</td> 
-                   <td>{{ $mhs->mahasiswa_reguler }}</td> 
-                   <td>{{ $mhs->mahasiswa_transfer }}</td> 
-                   <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-                   <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $penelitian->nama_dosen }}</td>
+                    <td>{{ $penelitian->tema }}</td>
+                    <td>{{ $penelitian->nama_mahasiswa }}</td>
+                    <td>{{ $penelitian->judul }}</td>
+                    <td>{{ $penelitian->tahun }}</td>
+                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                        <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalpenelitiandtpsedit-{{ $penelitian->id }}"><i class="fas fa-edit"></i></a></li>
+                        <li>
+                            <a type="button" class="btn btn-danger" href="/penelitian/{{ $penelitian->id }}" data-toggle="modal" data-target="#modalpenelitiandtpsdelete-{{ $penelitian->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                    </ul></td>
                 </tr>
-            @endforeach --}}
+            @endforeach
 
             <tr>
                 <td colspan="5" class="text-center"> <b>Jumlah</b>  </td>

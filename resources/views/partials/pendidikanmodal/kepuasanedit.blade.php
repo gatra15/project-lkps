@@ -1,4 +1,4 @@
-<form action="#" method="POST">
+<form action="/pendidikan/kepuasan-mahasiswa/{{ $kepuasan->id }}" method="POST">
     @csrf
     <div class="modal-body">
         
@@ -9,21 +9,21 @@
                 {{-- coding modal insert --}}
                 <label for="lembaga"> Aspek yang Diukur</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="#" value="Sesuai dengan yang di ukur" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly>
+                    <input type="hidden" name="aspek[]"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="lembaga"> Tingkat Kepuasan Mahasiswa :</label>
                 <div class="input-group mb-3">
                     <select class="custom-select" name="tingkat" id="inputGroupSelect01">
-                        <option selected>-- pilih --</option>
-                        <option value="Internasional">Sangat Baik</option>
-                        <option value="Nasional">Baik</option>
-                        <option value="Lokal">Cukup</option>
-                        <option value="Lokal">Kurang</option>
+                        <option>-- pilih --</option>
+                        <option {{ $kepuasan->tingkat == 'Sangat Baik' ? 'selected' : '' }} value="Sangat Baik">Sangat Baik</option>
+                        <option {{ $kepuasan->tingkat == 'Baik' ? 'selected' : '' }} value="Baik">Baik</option>
+                        <option {{ $kepuasan->tingkat == 'Cukup' ? 'selected' : '' }} value="Cukup">Cukup</option>
+                        <option {{ $kepuasan->tingkat == 'Kurang' ? 'selected' : '' }} value="Kurang">Kurang</option>
                     </select>
                 </div>
                 <label for="lembaga">Rencana Tindak Lanjut oleh UPPS/PS :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="judul_kegiatan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="rencana_tindak_lanjut" value="{{ $kepuasan->rencana_tindak_lanjut }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                {{-- coding modal insert akhir --}}
 
@@ -37,6 +37,6 @@
     </div>
     <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-    <button type="submit" class="btn btn-primary">Tambah</button>
+    <button type="submit" class="btn btn-primary">Update</button>
     </div>
 </form>
