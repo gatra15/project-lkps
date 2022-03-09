@@ -37,7 +37,7 @@ class PendidikanKepuasanMahasiswaController extends Controller
     public function store(Request $req)
     {
         $this->validate($req, [
-            'aspek' => 'required',
+            'aspek_detail' => 'required',
             'tingkat' => 'required',
             'rencana_tindak_lanjut' => 'required',
         ]);

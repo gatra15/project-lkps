@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class PendidikanKepuasanMahasiswa extends Model
 {
     use HasFactory;
+
+    protected $table = 'pendidikan_kepuasan_mahasiswas';
+    protected $guarded = ['id'];
+
+    public function aspek_detail()
+    {
+        $this->belongsTo('App\Models\Aspek', 'aspek_id', 'id');
+    }
 }

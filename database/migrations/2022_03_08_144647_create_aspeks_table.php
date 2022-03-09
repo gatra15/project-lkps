@@ -15,6 +15,8 @@ class CreateAspeksTable extends Migration
     {
         Schema::create('aspeks', function (Blueprint $table) {
             $table->id();
+            $table->text('aspek');
+            $table->string('nama');
             $table->timestamps();
         });
     }

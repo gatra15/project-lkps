@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             MahasiswaSeeder::class,
             SumberdayaSeeder::class,
             MediaPublikasiSeeder::class,
+            AspekSeeder::class,
         ]);
 
     }
