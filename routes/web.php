@@ -19,8 +19,10 @@ use App\Http\Controllers\KaryaIlmiahMahasiswaController;
 use App\Http\Controllers\KeuanganSaranaPrasaranaController;
 use App\Http\Controllers\PendidikanIntegrasiKegiatanPenelitianController;
 use App\Http\Controllers\PendidikanKepuasanMahasiswaController;
+use App\Http\Controllers\PendidikanKurikulumController;
 use App\Http\Controllers\PrestasiMahasiswaController;
 use App\Http\Controllers\SdmDosenIndustriPraktisiController;
+use App\Http\Controllers\SdmDosenPembimbingTaController;
 use App\Http\Controllers\SdmDosenTidakTetapController;
 use App\Http\Controllers\SdmEkuivalenWaktuMengajarPenuhDosenTetapController;
 use App\Http\Controllers\SdmKinerjaDosenKaryaIlmiahDtpsController;
@@ -28,10 +30,12 @@ use App\Http\Controllers\SdmKinerjaDosenLuaranPkmDtpsController;
 use App\Http\Controllers\SdmKinerjaDosenPenelitianDtpsController;
 use App\Http\Controllers\SdmKinerjaDosenPkmDtpsController;
 use App\Http\Controllers\SdmKinerjaDosenPublikasiIlmiahDtpsController;
+use App\Models\PendidikanKurikulum;
 use App\Models\SdmDosenIndustriPraktisi;
 use App\Models\SdmDosenTidakTetap;
 use App\Models\SdmKinerjaDosenKaryaIlmiahDtps;
 use App\Models\SdmKinerjaDosenPkmDtps;
+use App\Models\SdmKinerjaDosenPublikasiIlmiahDtps;
 
 /*
 |--------------------------------------------------------------------------
@@ -186,16 +190,93 @@ Route::group(['middleware' => 'auth:web'], function() {
 
     Route::group(['middleware' => ['role:perwakilan|dekan|asesor']], function ()
     {
-<<<<<<< HEAD
-        // Route to tata Pamong
-=======
         
->>>>>>> b9aa68442c5036bb4161ac1375c0535db3731380
-        Route::get('/download-excel', [TataPamongController::class, 'exportToExcel']);
-        Route::get('/download-csv', [TataPamongController::class, 'exportToCSV']);
-        Route::get('/download-pdf', [TataPamongController::class, 'generate']);
+        // Route to Tata Pamong
+        Route::get('tata-pamong/download-excel', [TataPamongController::class, 'exportToExcel']);
+        Route::get('tata-pamong/download-csv', [TataPamongController::class, 'exportToCSV']);
+        Route::get('tata-pamong/download-pdf', [TataPamongController::class, 'generate']);
+        // End Route
+        
         // Route to Mahasiswa
+        Route::get('mahasiswa/download/excel', [TabMahasiswaController::class, 'exportToExcel']);
+        Route::get('mahasiswa/download/excel', [TabMahasiswaController::class, 'exportToCSV']);
+        Route::get('mahasiswa/download/pdf', [TabMahasiswaController::class, 'generate']);
+        // End Route
 
+        // Route to Profil Dosen
+        Route::get('profil-dosen/download/excel', [ProfilDosenController::class, 'exportToExcel']);
+        Route::get('profil-dosen/download/csv', [ProfilDosenController::class, 'exportToCSV']);
+        Route::get('profil-dosen/download/pdf', [ProfilDosenController::class, 'generate']);
+
+        Route::get('profil-dosen/dosen-pembimbing-ta/download/excel', [SdmDosenPembimbingTaController::class, 'exportToExcel']);
+        Route::get('profil-dosen/dosen-pembimbing-ta/download/csv', [SdmDosenPembimbingTaController::class, 'exportToCSV']);
+        Route::get('profil-dosen/dosen-pembimbing-ta/download/pdf', [SdmDosenPembimbingTaController::class, 'generate']);
+
+        Route::get('profil-dosen/dosen-ewmp/download/excel', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'exportToExcel']);
+        Route::get('profil-dosen/dosen-ewmp/download/csv', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'exportToCSV']);
+        Route::get('profil-dosen/dosen-ewmp/download/pdf', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'generate']);
+
+        Route::get('profil-dosen/dosen-tidak-tetap/download/excel', [SdmDosenTidakTetapController::class, 'exportToExcel']);
+        Route::get('profil-dosen/dosen-tidak-tetap/download/csv', [SdmDosenTidakTetapController::class, 'exportToCSV']);
+        Route::get('profil-dosen/dosen-tidak-tetap/download/pdf', [SdmDosenTidakTetapController::class, 'generate']);
+        // End Route
+
+        // Route to Kinerja Dosen
+        Route::get('kinerja-dosen/download/excel', [KinerjaDosenController::class, 'exportToExcel']);
+        Route::get('kinerja-dosen/download/csv', [KinerjaDosenController::class, 'exportToCSV']);
+        Route::get('kinerja-dosen/download/pdf', [KinerjaDosenController::class, 'generate']);
+        
+        Route::get('kinerja-dosen/penelitian-dtps/download/excel', [SdmKinerjaDosenPenelitianDtpsController::class, 'exportToExcel']);
+        Route::get('kinerja-dosen/penelitian-dtps/download/csv', [SdmKinerjaDosenPenelitianDtpsController::class, 'exportToCSV']);
+        Route::get('kinerja-dosen/penelitian-dtps/download/pdf', [SdmKinerjaDosenPenelitianDtpsController::class, 'generate']);
+        
+        Route::get('kinerja-dosen/pkm-dtps/download/excel', [SdmKinerjaDosenPkmDtpsController::class, 'exportToExcel']);
+        Route::get('kinerja-dosen/pkm-dtps/download/csv', [SdmKinerjaDosenPkmDtpsController::class, 'exportToCSV']);
+        Route::get('kinerja-dosen/pkm-dtps/download/pdf', [SdmKinerjaDosenPkmDtpsController::class, 'generate']);
+        
+        Route::get('kinerja-dosen/publikasi-ilmiah/download/excel', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'exportToExcel']);
+        Route::get('kinerja-dosen/publikasi-ilmiah/download/csv', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'exportToCSV']);
+        Route::get('kinerja-dosen/publikasi-ilmiah/download/pdf', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'generate']);
+
+        Route::get('kinerja-dosen/karya-ilmiah/download/excel', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'exportToExcel']);
+        Route::get('kinerja-dosen/karya-ilmiah/download/csv', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'exportToCSV']);
+        Route::get('kinerja-dosen/karya-ilmiah/download/pdf', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'generate']);
+
+        Route::get('kinerja-dosen/luaran/download/excel', [SdmKinerjaDosenLuaranPkmDtpsController::class, 'exportToExcel']);
+        Route::get('kinerja-dosen/luaran/download/csv', [SdmKinerjaDosenLuaranPkmDtpsController::class, 'exportToCSV']);
+        Route::get('kinerja-dosen/luaran/download/pdf', [SdmKinerjaDosenLuaranPkmDtpsController::class, 'generate']);
+        // End Route
+
+        // Route to Keuangan Sarpras
+        Route::get('/keuangan-sarana-prasarana/download/excel', [KeuanganSaranaPrasaranaController::class, 'exportToExcel']);
+        Route::get('/keuangan-sarana-prasarana/download/csv', [KeuanganSaranaPrasaranaController::class, 'exportToCSV']);
+        Route::get('/keuangan-sarana-prasarana/download/pdf', [KeuanganSaranaPrasaranaController::class, 'generate']);
+        // End Route
+        
+        // Route to Pendidikan
+        Route::get('pendidikan/download/excel', [PendidikanController::class, 'exportToExcel']);
+        Route::get('pendidikan/download/csv', [PendidikanController::class, 'exportToCSV']);
+        Route::get('pendidikan/download/pdf', [PendidikanController::class, 'generate']);
+        
+        Route::get('pendidikan/integrasi/download/excel', [PendidikanIntegrasiKegiatanPenelitianController::class, 'exportToExcel']);
+        Route::get('pendidikan/integrasi/download/csv', [PendidikanIntegrasiKegiatanPenelitianController::class, 'exportToCSV']);
+        Route::get('pendidikan/integrasi/download/pdf', [PendidikanIntegrasiKegiatanPenelitianController::class, 'generate']);
+
+        Route::get('pendidikan/kepuasan-mahasiswa/download/excel', [PendidikanKepuasanMahasiswaController::class, 'exportToExcel']);
+        Route::get('pendidikan/kepuasan-mahasiswa/download/csv', [PendidikanKepuasanMahasiswaController::class, 'exportToCSV']);
+        Route::get('pendidikan/kepuasan-mahasiswa/download/pdf', [PendidikanKepuasanMahasiswaController::class, 'generate']);
+        // End Route
+
+        // Route to Penelitian
+        Route::get('penelitian/download/excel', [PenelitianController::class, 'exportToExcel']);
+        Route::get('penelitian/download/csv', [PenelitianController::class, 'exportToCSV']);
+        Route::get('penelitian/download/pdf', [PenelitianController::class, 'generate']);
+        // End Route
+
+        // Route to Luaran
+        Route::get('luaran/download/excel', [PenelitianController::class, 'exportToExcel']);
+        Route::get('luaran/download/csv', [PenelitianController::class, 'exportToCSV']);
+        Route::get('luaran/download/pdf', [PenelitianController::class, 'generate']);
         // End Route
     });
 });

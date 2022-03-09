@@ -19,6 +19,6 @@ class TataPamongExport implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return collect(IndikatorTataKerjasama::getData());
+        return collect(IndikatorTataKerjasama::all());
     }
 }

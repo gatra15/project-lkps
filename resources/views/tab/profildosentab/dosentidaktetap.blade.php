@@ -7,6 +7,8 @@
             Tambah data
         </button>
     </p>
+    <a href="/profil-dosen/dosen-tidak-tetap/download/excel" class="btn btn-success">Excel</a>
+    <a href="/profil-dosen/dosen-tidak-tetap/download/csv" class="btn btn-success">CSV</a>
     <div class="collapse" id="des4">
         <div class="card card-body">
             <p>
@@ -26,8 +28,6 @@
             7) Diisi dengan tanda centang V jika bidang keahlian sesuai dengan mata kuliah yang diampu.<br>
         </div> 
     </div>
-  
-        
       
       <!-- Modal Tambah Data Dosen TA -->
       <div class="modal fade" id="modaldosentidaktetap" tabindex="-1" aria-labelledby="modaldosentidaktetap" aria-hidden="true">

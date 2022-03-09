@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\PendidikanKepuasanMahasiswa;
+use App\Exports\PendidikanKepuasanMahasiswaExport;
 
 class PendidikanKepuasanMahasiswaController extends Controller
 {
@@ -115,5 +117,14 @@ class PendidikanKepuasanMahasiswaController extends Controller
     {
         PendidikanKepuasanMahasiswa::find($id)->delete();
         return back()->with('error', 'Data Kepuasan Mahasiswa has been deleted.');
+    }
+    
+    public function exportToExcel()
+    {
+        return Excel::download(new PendidikanKepuasanMahasiswaExport, 'pendidikan-kepuasan-mahasiswa.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new PendidikanKepuasanMahasiswaExport, 'pendidikan-kepuasan-mahasiswa.csv');
     }
 }

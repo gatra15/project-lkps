@@ -38,6 +38,8 @@
                         Tambah Data
                     </a>
                 </p>
+                <a href="/mahasiswa/download-excel" class="btn btn-success">Excel</a>
+                <a href="/mahasiswa/download-csv" class="btn btn-success">CSV</a>
                 <div class="collapse" id="collapseExample">
                     <div class="card card-body">
                         <p>

@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\MediaPublikasi;
 use PhpParser\Node\Expr\FuncCall;
 use Illuminate\Support\Facades\DB;
+use App\Exports\PengakuanDtpsExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\SdmKinerjaDosenPkmDtps;
 use App\Models\SdmKinerjaDosenLuaranPkmDtps;
 use App\Models\SdmKinerjaDosenPengakuanDtps;
@@ -93,5 +95,14 @@ class KinerjaDosenController extends Controller
     {
         SdmKinerjaDosenPengakuanDtps::find($id)->delete();
         return back()->with('error', 'Sdm Kinerja Dosen Pengakuan Dtps has been deleted.');
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new PengakuanDtpsExport, 'pengakuan-dtps.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new PengakuanDtpsExport, 'pengakuan-dtps.csv');
     }
 }

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PendidikanIntegrasiKegiatanPenelitian;
-use App\Models\PendidikanKepuasanMahasiswa;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\PendidikanKurikulum;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PendidikanKurikulumExport;
+use App\Models\PendidikanKepuasanMahasiswa;
+use App\Models\PendidikanIntegrasiKegiatanPenelitian;
 
 class PendidikanController extends Controller
 {
@@ -113,5 +115,14 @@ class PendidikanController extends Controller
     {
         PendidikanKurikulum::find($id)->delete();
         return back()->with('error', 'Pendidikan Kurikulum has been deleted.');
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new PendidikanKurikulumExport, 'pendidikan-kurikulum.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new PendidikanKurikulumExport, 'pendidikan-kurikulum.csv');
     }
 }

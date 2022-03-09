@@ -7,6 +7,8 @@ use App\Models\Tahun;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use App\Models\MahasiswaAsing;
+use App\Exports\MahasiswaExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TabMahasiswaController extends Controller
 {
@@ -56,5 +58,24 @@ class TabMahasiswaController extends Controller
         $mahasiswa->prodi = auth()->user()->prodi;
         $mahasiswa->created_at = Carbon::now();
         dd($mahasiswa);
+    }
+
+    public function update(Request $req, $id)
+    {
+        //
+    }
+
+    public function destroy($id)
+    {
+        // 
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new MahasiswaExport, 'mahasiswa.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new MahasiswaExport, 'mahasiswa.csv');
     }
 }

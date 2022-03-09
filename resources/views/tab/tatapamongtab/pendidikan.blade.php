@@ -8,9 +8,9 @@
             Tambah data
         </button>
     </p>
-    <a href="{{ url('/download-excel') }}" class="btn btn-success">Excel</a>
-    <a href="{{ url('/download-csv') }}" class="btn btn-success">CSV</a>
-    <a class="btn btn-primary" href="{{'/download-pdf'}}">Download PDF</a>
+    <a href="{{ url('tata-pamong/download-excel') }}" class="btn btn-success">Excel</a>
+    <a href="{{ url('tata-pamong/download-csv') }}" class="btn btn-success">CSV</a>
+    <a class="btn btn-primary" href="{{'tata-pamong/download-pdf'}}">Download PDF</a>
     <div class="collapse" id="des1">
         <div class="card card-body">
             <p>

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SdmDosen;
-use App\Models\SdmDosenTidakTetap;
-use App\Models\SdmEkuivalenWaktuMengajarPenuhDosenTetap;
 use Carbon\Carbon;
+use App\Models\SdmDosen;
 use Illuminate\Http\Request;
+use App\Exports\DosenTetapExport;
+use App\Models\SdmDosenTidakTetap;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Models\SdmEkuivalenWaktuMengajarPenuhDosenTetap;
 
 class ProfilDosenController extends Controller
 {
@@ -105,6 +107,15 @@ class ProfilDosenController extends Controller
     {
         SdmDosen::find($id)->delete();
         return back()->with('error', 'Dosen Tetap has been deleted.');
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new DosenTetapExport, 'dosen-tetap.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new DosenTetapExport, 'dosen-tetap.csv');
     }
 
 }

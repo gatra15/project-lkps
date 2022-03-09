@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use App\Models\SdmKinerjaDosenPkmDtps;
 use App\Models\Sumberdaya;
+use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Models\SdmKinerjaDosenPkmDtps;
+use App\Exports\KinerjaDosenPkmDtpsExport;
 
 class SdmKinerjaDosenPkmDtpsController extends Controller
 {
@@ -122,5 +124,14 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
     {
         SdmKinerjaDosenPkmDtps::find($id)->delete();
         return back()->with('error', 'Sdm Kinerja Dosen Pkm Dtps has been updated.');
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new KinerjaDosenPkmDtpsExport, 'kinerja-dosen-pkm-dtps.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new KinerjaDosenPkmDtpsExport, 'kinerja-dosen-pkm-dtps.csv');
     }
 }

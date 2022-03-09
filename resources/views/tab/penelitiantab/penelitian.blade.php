@@ -7,6 +7,8 @@
             Tambah data
         </button>
     </p>
+    <a href="/penelitian/download/excel" class="btn btn-success">Excel</a>
+    <a href="/penelitian/download/csv" class="btn btn-success">CSV</a>
     <div class="collapse" id="des1">
         <div class="card card-body">
             <p>

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SdmKinerjaDosenKaryaIlmiahDtps;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\KinerjaDosenPublikasiExport;
+use App\Models\SdmKinerjaDosenKaryaIlmiahDtps;
 use App\Models\SdmKinerjaDosenPublikasiIlmiahDtps;
 
 class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
@@ -122,5 +124,14 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
     {
         SdmKinerjaDosenKaryaIlmiahDtps::find($id)->delete();
         return back()->with('error', 'Sdm Kinerja Dosen Publikasi Ilmiah Dtps has been deleted.');
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new KinerjaDosenPublikasiExport, 'kinerja-dosen-publikasi-ilmiah-dtps.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new KinerjaDosenPublikasiExport, 'kinerja-dosen-publikasi-ilmiah-dtps.csv');
     }
 }

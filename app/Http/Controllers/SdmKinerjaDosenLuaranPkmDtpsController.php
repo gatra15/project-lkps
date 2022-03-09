@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Exports\LuaranPkmDtpsExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\SdmKinerjaDosenLuaranPkmDtps;
 
 class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
@@ -121,5 +123,14 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
     {
         SdmKinerjaDosenLuaranPkmDtps::find($id)->delete();
         return back()->with('error', 'Sdm Kinerja Dosen Luaran Pkm Dtps has been deleted.');
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new LuaranPkmDtpsExport, 'luaran-pkm-dtps.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new LuaranPkmDtpsExport, 'luaran-pkm-dtps.csv');
     }
 }

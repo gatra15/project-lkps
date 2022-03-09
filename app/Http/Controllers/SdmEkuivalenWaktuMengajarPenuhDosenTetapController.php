@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Exports\DosenEwmpExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\SdmEkuivalenWaktuMengajarPenuhDosenTetap;
 
 class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
@@ -146,5 +148,14 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
         SdmEkuivalenWaktuMengajarPenuhDosenTetap::find($id)->delete();
         return back()->with('error', 'SDM EWMP has been deleted.');
 
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new DosenEwmpExport, 'ewmp-dosen.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new DosenEwmpExport, 'ewmp-dosen.csv');
     }
 }

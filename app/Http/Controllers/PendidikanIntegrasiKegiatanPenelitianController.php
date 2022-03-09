@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PendidikanIntegrasiExport;
 use App\Models\PendidikanIntegrasiKegiatanPenelitian;
 
 class PendidikanIntegrasiKegiatanPenelitianController extends Controller
@@ -119,5 +121,14 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
     {
         PendidikanIntegrasiKegiatanPenelitian::find($id)->delete();
         return back()->with('error', 'Pendidikan Integrasi Kegiatan Penelitian has been deleted.');
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new PendidikanIntegrasiExport, 'pendidikan-integrasi-kegiatan-penelitian.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new PendidikanIntegrasiExport, 'pendidikan-integrasi-kegiatan-penelitian.csv');
     }
 }

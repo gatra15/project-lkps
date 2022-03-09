@@ -11,8 +11,8 @@
             </button>
         
         </p>
-
-
+        <a href="/kinerja-dosen/karya-ilmiah/download/excel" class="btn btn-success">Excel</a>
+        <a href="/kinerja-dosen/karya-ilmiah/download/csv" class="btn btn-success">CSV</a>
     <div class="collapse" id="des2">
         <div class="card card-body">
             <p>

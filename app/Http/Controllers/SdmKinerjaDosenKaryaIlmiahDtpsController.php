@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Models\SdmKinerjaDosenKaryaIlmiahDtps;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\KaryaIlmiahDtpsExport;
 use App\Models\SdmKinerjaDosenPkmDtps;
+use App\Models\SdmKinerjaDosenKaryaIlmiahDtps;
 
 class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
 {
@@ -118,5 +120,14 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
     {
         SdmKinerjaDosenKaryaIlmiahDtps::find($id)->delete();
         return back()->with('error', 'Sdm Kinerja Dosen Karya Ilmiah Dtps has been deleted.');
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new KaryaIlmiahDtpsExport, 'karya-ilmiah-dtps.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new KaryaIlmiahDtpsExport, 'karya-ilmiah-dtps.csv');
     }
 }

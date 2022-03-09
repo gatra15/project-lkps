@@ -10,7 +10,8 @@
             Tambah data
         </button>
     </p>
-
+    <a href="/kinerja-dosen/karya-ilmiah/download/excel">Excel</a>
+    <a href="/kinerja-dosen/karya-ilmiah/download/csv">CSV</a>
     <!-- Modal Tambah PKM DTPS -->
     <div class="modal fade" id="modaldosentetap" tabindex="-1" aria-labelledby="modaldosentetap" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -21,7 +22,7 @@
             <span aria-hidden="true">&times;</span>
         </button>
         </div>
-        {{-- @include('partials.profildosenmodal.dosentetap') --}}
+        @include('partials.kinerjadosenmodal.pkm')
     </div>
     </div>
     </div>

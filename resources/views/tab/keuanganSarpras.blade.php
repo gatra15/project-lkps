@@ -38,7 +38,8 @@
                         Tambah data
                     </button>
                     {{-- Button CSV dkk disini --}}
-
+                    <a href="/keuangan-sarana-prasarana/download/excel" class="btn btn-success">Excel</a>
+                    <a href="/keuangan-sarana-prasarana/download/csv" class="btn btn-success">CSV</a>
                     {{-- <a class="btn btn-primary" href="{{ url('/download-pdf')}}">Download PDF</a> --}}
                 </p>
             

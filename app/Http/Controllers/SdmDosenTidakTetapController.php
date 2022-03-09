@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\SdmDosenTidakTetap;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\DosenTidakTetapExport;
 
 class SdmDosenTidakTetapController extends Controller
 {
@@ -141,5 +143,14 @@ class SdmDosenTidakTetapController extends Controller
     {
         SdmDosenTidakTetap::find($id)->delete();
         return back()->with('error', 'Dosen Tidak Tetap has been deleted.');
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new DosenTidakTetapExport, 'dosen-tidak-tetap.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new DosenTidakTetapExport, 'dosen-tidak-tetap.csv');
     }
 }

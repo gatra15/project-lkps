@@ -7,6 +7,8 @@
             Tambah data
         </button>
     </p>
+    <a href="/kinerja-dosen/luaran/download/excel" class="btn btn-success">Excel</a>
+    <a href="/kinerja-dosen/luaran/download/csv" class="btn btn-success">CSV</a>
 <div class="collapse" id="des7">
     <div class="card card-body">
         <p>

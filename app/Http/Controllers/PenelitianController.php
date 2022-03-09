@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Exports\PenelitianExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\PenelitianDtpsMelibatkanMahasiswa;
 
 class PenelitianController extends Controller
@@ -72,5 +74,14 @@ class PenelitianController extends Controller
         PenelitianDtpsMelibatkanMahasiswa::find($id)->delete();
 
         return back()->with('error', 'Data Penelitian DTPS yang Melibatkan Mahasiswa has been deleted.');
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new PenelitianExport, 'penelitian-dtps-melibatkan-mahasiswa.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new PenelitianExport, 'penelitian-dtps-melibatkan-mahasiswa.csv');
     }
 }

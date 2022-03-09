@@ -8,7 +8,8 @@
                 Tambah data
             </button>
         </p>
-
+    <a href="/kinerja-dosen/karya-ilmiah/download/excel" class="btn btn-success">Excel</a>
+    <a href="/kinerja-dosen/karya-ilmiah/download/csv" class="btn btn-success">CSV</a>
     {{-- DESKRIPSI --}}
     <div class="collapse" id="des5">
         <div class="card card-body">

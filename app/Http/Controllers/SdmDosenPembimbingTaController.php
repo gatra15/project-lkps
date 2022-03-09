@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SdmDosenPembimbingTa;
 use Illuminate\Http\Request;
+use App\Models\SdmDosenPembimbingTa;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\DosenPembimbingTAExport;
 
 class SdmDosenPembimbingTaController extends Controller
 {
@@ -82,5 +84,14 @@ class SdmDosenPembimbingTaController extends Controller
     public function destroy(SdmDosenPembimbingTa $sdmDosenPembimbingTa)
     {
         //
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new DosenPembimbingTAExport, 'dosen-pembimbing-ta.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new DosenPembimbingTAExport, 'dosen-pembimbing-ta.csv');
     }
 }
