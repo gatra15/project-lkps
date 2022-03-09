@@ -1,4 +1,5 @@
-<form action="#" method="POST">
+<form action="/penelitian/{{ $penelitian->id }}" method="POST">
+    @method('put')
     @csrf
     <div class="modal-body">
         
@@ -9,23 +10,23 @@
                 {{-- coding modal insert --}}
                 <label for="lembaga">Nama Dosen : </label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="#" value="#" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="text" name="nama_dosen" value="{{ $penelitian->nama_dosen }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="lembaga"> Tema Penelitian ( Sesuai Roadmap ) :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="lembaga_mitra" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="tema" value="{{ $penelitian->tema }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="lembaga"> Nama Mahasiswa :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="judul_kegiatan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="nama_mahasiswa" value="{{ $penelitian->nama_mahasiswa }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="lembaga"> Judul Kegiatan :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="manfaat" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="judul" value="{{ $penelitian->judul }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="lembaga"> Tahun :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="manfaat" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="tahun" value="{{ $penelitian->tahun }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                {{-- coding modal insert akhir --}}
 
@@ -39,6 +40,6 @@
     </div>
     <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-    <button type="submit" class="btn btn-primary">Tambah</button>
+    <button type="submit" class="btn btn-primary">Update</button>
     </div>
 </form>

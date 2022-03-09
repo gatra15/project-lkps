@@ -1,4 +1,4 @@
-<form action="{{-- url('/profil-dosen/dosen-tidak-tetap') --}}" method="POST">
+<form action="/kinerja-dosen/karya-ilmiah" method="POST">
     @csrf
     <div class="modal-body">
         
@@ -9,15 +9,15 @@
 
                 <label for="pengkuan"> Nama Dosen :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="#" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="nama_dosen" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="pengkuan"> Judul Artikel yang Disitasi :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="#" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="judul" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="pengkuan"> Rekognisi dan Bukti Pendukung :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="#" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="jumlah_sitasi" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                {{-- coding modal insert akhir --}}
                

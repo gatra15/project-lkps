@@ -17,16 +17,16 @@
 </div>
 
     <!-- Modal Tambah Data Publikasi DTPS -->
-    <div class="modal fade" id="modaldosentetap" tabindex="-1" aria-labelledby="modaldosentetap" aria-hidden="true">
+    <div class="modal fade" id="modalpublikasi" tabindex="-1" aria-labelledby="modalpublikasi" aria-hidden="true">
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="modaldosentetap">Tambah Data Dosen Tetap</h5>
+        <h5 class="modal-title" id="modalpublikasi">Tambah Data Dosen Tetap</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
         </div>
-        {{-- @include('partials.profildosenmodal.dosentetap') --}}
+        @include('partials.kinerjadosenmodal.publikasi')
     </div>
     </div>
     </div>
@@ -50,6 +50,12 @@
 
             </thead>
             <tbody>
+                @foreach ($mediapublikasi as $media)
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>@php echo $media->media @endphp</td>                
+                </tr>
+                
                 {{-- @foreach ($mahasiswa_asing as $mhs)
             <tr>
             @for ($i = 0; $i < $count; $i++)
@@ -66,36 +72,36 @@
              --}}
 
             <!-- Modal Edit Data Publikasi DTPS -->
-            <div class="modal fade" id="modaldosentetapedit" tabindex="-1" aria-labelledby="modaldosentetapedit" aria-hidden="true">
+            <div class="modal fade" id="modalpublikasiedit" tabindex="-1" aria-labelledby="modalpublikasiedit" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="modaldosentetapedit">Edit Data Dosen Tetap</h5>
+                    <h5 class="modal-title" id="modalpublikasiedit">Edit Data Dosen Tetap</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    {{-- @include('partials.profildosenmodal.dosentetapedit') --}}
+                    @include('partials.kinerjadosenmodal.publikasiedit')
                 </div>
                 </div>
             </div>
         
                 <!-- Modal Delete Data Publikasi DTPS -->
-            <div class="modal fade" id="modaldosentetapdelete" tabindex="-1" aria-labelledby="modaldosentetapdelete" aria-hidden="true">
+            <div class="modal fade" id="modalpublikasidelete" tabindex="-1" aria-labelledby="modalpublikasidelete" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="modaldosentetapdelete">Yakin?</h5>
+                    <h5 class="modal-title" id="modalpublikasidelete">Yakin?</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    {{-- @include('partials.profildosenmodal.dosentetapdelete') --}}
+                    @include('partials.kinerjadosenmodal.publikasidelete')
                 </div>
                 </div>
             </div>
 
-            {{-- @endforeach --}}
+            @endforeach
             </tbody>
 
             

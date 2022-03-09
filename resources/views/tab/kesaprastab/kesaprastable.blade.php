@@ -3,6 +3,7 @@
     <table width="90%" id='form-print' class="table text-center table-bordered table-condensed">
         <thead>
             <tr>
+                <th class="align-middle" scope="col" rowspan="2">NO</th>
                 <th class="align-middle" scope="col" rowspan="2">Jenis Penggunaan</th>
                 <th scope="col" colspan="4">Unit Pengelola Program Studi (Rp.)</th>
                 <th scope="col" colspan="4">Program Studi (Rp.)</th>
@@ -22,9 +23,7 @@
 
         <tbody class="text-dark">
             {{-- DATA 1 --}}
-            <tr>
-                <td></td>
-            </tr>
+            
             {{-- @foreach ($mahasiswa_asing as $mhs)
                 <tr>
                     @for ($i = 0; $i < $count; $i++)

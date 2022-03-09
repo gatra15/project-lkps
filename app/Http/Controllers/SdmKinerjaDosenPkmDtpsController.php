@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SdmKinerjaDosenPkmDtps;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\SdmKinerjaDosenPkmDtps;
+use App\Models\Sumberdaya;
 
 class SdmKinerjaDosenPkmDtpsController extends Controller
 {
@@ -33,9 +35,28 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $this->validate($req, [
+            'sumber_pembiayaan' => 'required',
+            'jumlah_ts2' => 'required',
+            'jumlah_ts1' => 'required',
+            'jumlah_ts' => 'required',
+            'jumlah' => 'required',
+        ]);
+
+        $pkm = new SdmKinerjaDosenPkmDtps;
+        $pkm->sumber_pembiayaan = $req->input('sumber_pembiayaan');
+        $pkm->jumlah_ts2 = $req->input('jumlah_ts2');
+        $pkm->jumlah_ts1 = $req->input('jumlah_ts1');
+        $pkm->jumlah_ts = $req->input('jumlah_ts');
+        $pkm->sumber_id = Sumberdaya::all()->id;
+        $pkm->tahun_laporan = '2022';
+        $pkm->prodi = auth()->user()->prodi;
+        $pkm->created_by = auth()->user()->name;
+        $pkm->created_at = Carbon::now();
+        dd($pkm);
+        return back()->with('success', 'Sdm Kinerja Dosen Pkm Dtps has been created.');
     }
 
     /**
@@ -67,9 +88,28 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
      * @param  \App\Models\SdmKinerjaDosenPkmDtps  $sdmKinerjaDosenPkmDtps
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SdmKinerjaDosenPkmDtps $sdmKinerjaDosenPkmDtps)
+    public function update(Request $req, $id)
     {
-        //
+        $this->validate($req, [
+            'sumber_pembiayaan' => 'required',
+            'jumlah_ts2' => 'required',
+            'jumlah_ts1' => 'required',
+            'jumlah_ts' => 'required',
+            'jumlah' => 'required',
+        ]);
+
+        $pkm = new SdmKinerjaDosenPkmDtps;
+        $pkm->sumber_pembiayaan = $req->input('sumber_pembiayaan');
+        $pkm->jumlah_ts2 = $req->input('jumlah_ts2');
+        $pkm->jumlah_ts1 = $req->input('jumlah_ts1');
+        $pkm->jumlah_ts = $req->input('jumlah_ts');
+        $pkm->sumber_id = Sumberdaya::all()->id;
+        $pkm->tahun_laporan = '2022';
+        $pkm->prodi = auth()->user()->prodi;
+        $pkm->created_by = auth()->user()->name;
+        $pkm->updated_at = Carbon::now();
+
+        return back()->with('success', 'Sdm Kinerja Dosen Pkm Dtps has been updated.');
     }
 
     /**
@@ -78,8 +118,9 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
      * @param  \App\Models\SdmKinerjaDosenPkmDtps  $sdmKinerjaDosenPkmDtps
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SdmKinerjaDosenPkmDtps $sdmKinerjaDosenPkmDtps)
+    public function destroy($id)
     {
-        //
+        SdmKinerjaDosenPkmDtps::find($id)->delete();
+        return back()->with('error', 'Sdm Kinerja Dosen Pkm Dtps has been updated.');
     }
 }

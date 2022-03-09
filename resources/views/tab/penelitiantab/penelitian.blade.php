@@ -1,8 +1,11 @@
-<div class="tab-pane fade show active" id="mahasiswa" role="tabpanel" aria-labelledby="mahasiswa-tab">
+<div class="tab-pane fade show active" id="penelitiandtps" role="tabpanel" aria-labelledby="penelitiandtps-tab">
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#des1" role="button" aria-expanded="false" aria-controls="des1">
             Deskripsi
         </a>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalpenelitiandtps">
+            Tambah data
+        </button>
     </p>
     <div class="collapse" id="des1">
         <div class="card card-body">
@@ -20,53 +23,55 @@
     </div>
 
     <!-- Modal Tambah Data Penelitian -->
-    <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+    <div class="modal fade" id="modalpenelitiandtps" tabindex="-1" aria-labelledby="modalpenelitiandtps" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalpenelitiandtps">Tambah Data Penelitian DTPS yang Melibatkan Mahasiswa </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.penelitianmodal.penelitian')
         </div>
         </div>
         </div>
+        {{-- Table --}}
+        @include('tab.penelitiantab.penelitiantable')
+        {{-- End Table --}}
 
-        {{-- foreach --}}
+        @foreach($penelitian as $penelitian)
       <!-- Modal Tambah Edit Penelitian -->
-      <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+      <div class="modal fade" id="modalpenelitiandtpsedit-{{ $penelitian->id }}" tabindex="-1" aria-labelledby="modalpenelitiandtpsedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalpenelitiandtpsedit">Edit Data Penelitian DTPS yang Melibatkan Mahasiswa </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.penelitianmodal.penelitianedit')
         </div>
         </div>
         </div>
 
       <!-- Modal Tambah Delete Penelitian -->
-      <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+      <div class="modal fade" id="modalpenelitiandtpsdelete-{{ $penelitian->id }}" tabindex="-1" aria-labelledby="modalpenelitiandtpsdelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalpenelitiandtpsdelete">Hapus Data Penelitian DTPS yang Melibatkan Mahasiswa </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.penelitianmodal.penelitiandelete')
         </div>
         </div>
         </div>
-        {{-- endforeach --}}
+        @endforeach
     {{-- CONTENT --}}
-
-        @include('tab.penelitiantab.penelitiantable')
+        
     
 </div>

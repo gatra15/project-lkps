@@ -18,9 +18,7 @@ class CreateSdmKinerjaDosenPengakuanDtpsTable extends Migration
             $table->string('nama');
             $table->string('bidang_keahlian');
             $table->string('bukti_pendukung');
-            $table->string('wilayah');
-            $table->string('nasional');
-            $table->string('internasional');
+            $table->string('tingkat');
             $table->string('tahun');
             $table->string('tahun_laporan');
             $table->string('prodi');

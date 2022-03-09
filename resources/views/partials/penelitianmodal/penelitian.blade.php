@@ -1,4 +1,4 @@
-<form action="#" method="POST">
+<form action="/penelitian" method="POST">
     @csrf
     <div class="modal-body">
         
@@ -9,23 +9,23 @@
                 {{-- coding modal insert --}}
                 <label for="lembaga">Nama Dosen : </label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="#" value="#" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                    <input type="text" name="nama_dosen" value="" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="lembaga"> Tema Penelitian ( Sesuai Roadmap ) :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="lembaga_mitra" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="tema" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="lembaga"> Nama Mahasiswa :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="judul_kegiatan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="nama_mahasiswa" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="lembaga"> Judul Kegiatan :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="manfaat" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="judul" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="lembaga"> Tahun :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="manfaat" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="tahun" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                {{-- coding modal insert akhir --}}
 

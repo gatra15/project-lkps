@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PendidikanKepuasanMahasiswa;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\PendidikanKepuasanMahasiswa;
 
 class PendidikanKepuasanMahasiswaController extends Controller
 {
@@ -33,9 +34,25 @@ class PendidikanKepuasanMahasiswaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $this->validate($req, [
+            'aspek' => 'required',
+            'tingkat' => 'required',
+            'rencana_tindak_lanjut' => 'required',
+        ]);
+
+        $kepuasan = new PendidikanKepuasanMahasiswa;
+        $kepuasan->aspek = $req->input('aspek');
+        $kepuasan->tingkat = $req->input('tingkat');
+        $kepuasan->rencana_tindak_lanjut = $req->input('rencana_tindak_lanjut');
+        $kepuasan->tahun_laporan = '2022';
+        $kepuasan->prodi = auth()->user()->prodi;
+        $kepuasan->created_by = auth()->user()->name;
+        $kepuasan->created_at = Carbon::now();
+        $kepuasan->save();
+
+        return back()->with('success', 'Data Kepuasan Mahasiswa has been created.');
     }
 
     /**
@@ -67,9 +84,25 @@ class PendidikanKepuasanMahasiswaController extends Controller
      * @param  \App\Models\PendidikanKepuasanMahasiswa  $pendidikanKepuasanMahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PendidikanKepuasanMahasiswa $pendidikanKepuasanMahasiswa)
+    public function update(Request $req, $id)
     {
-        //
+        $this->validate($req, [
+            'aspek' => 'required',
+            'tingkat' => 'required',
+            'rencana_tindak_lanjut' => 'required',
+        ]);
+
+        $kepuasan = PendidikanKepuasanMahasiswa::find($id);
+        $kepuasan->aspek = $req->input('aspek');
+        $kepuasan->tingkat = $req->input('tingkat');
+        $kepuasan->rencana_tindak_lanjut = $req->input('rencana_tindak_lanjut');
+        $kepuasan->tahun_laporan = '2022';
+        $kepuasan->prodi = auth()->user()->prodi;
+        $kepuasan->created_by = auth()->user()->name;
+        $kepuasan->updated_at = Carbon::now();
+        $kepuasan->update();
+
+        return back()->with('success', 'Data Kepuasan Mahasiswa has been updated.');
     }
 
     /**
@@ -78,8 +111,9 @@ class PendidikanKepuasanMahasiswaController extends Controller
      * @param  \App\Models\PendidikanKepuasanMahasiswa  $pendidikanKepuasanMahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PendidikanKepuasanMahasiswa $pendidikanKepuasanMahasiswa)
+    public function destroy($id)
     {
-        //
+        PendidikanKepuasanMahasiswa::find($id)->delete();
+        return back()->with('error', 'Data Kepuasan Mahasiswa has been deleted.');
     }
 }
