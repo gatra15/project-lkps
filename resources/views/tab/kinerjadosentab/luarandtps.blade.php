@@ -28,152 +28,38 @@
         </div>
         </div>
     </div>
-{{-- CONTENT --}}
 
-    <div id="printElement container-fluid">
-        <table id='form-print' class="table text-center table-bordered table-condensed">
-            <thead>
-            <tr>
+{{-- TABLE HERE  --}}
+@include('tab.kinerjadosentab.luarantable')
 
-            <th class="align-middle" scope="col" rowspan="2">No</th>
-            <th class="align-middle" scope="col" rowspan="2">Judul Luaran Penelitian/PkM</th>
-            <th class="align-middle" scope="col" rowspan="2">Tahun</th>
-            <th class="align-middle" scope="col" rowspan="2">Keterangan</th>                                               
-            </tr>
-            </thead>
-
-            <tbody class="text-dark">
-            <tr>
-            <td>Eko</td>
-            <td>Eko</td>
-            <td>Eko</td>
-            </tr>
-            {{-- @foreach ($mahasiswa_asing as $mhs)
-            <tr>
-                @for ($i = 0; $i < $count; $i++)
-                <td>{{ $i }}</td>
-                @endfor
-            <td>{{ $mhs->daya_tampung }}</td> 
-            <td>{{ $mhs->c_pendaftar }}</td> 
-            <td>{{ $mhs->c_lulus_seleksi }}</td> 
-            <td>{{ $mhs->mahasiswa_reguler }}</td> 
-            <td>{{ $mhs->mahasiswa_transfer }}</td> 
-            <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-            </tr>
-            @endforeach --}}
-            
-            <tr>
-                <td colspan="2" class="text-center"><b>Jumlah </b> </td>
-                <td class="text-left"> <b> N<sub>A</sub> :</b></td>
-                <td scope="col"></td>
-            </tr>
-            </tbody>
-            <thead>
-                <th scope="col"> No </th>
-                <th scope="col"> Judul Luaran Penelitian/PkM </th>
-                <th scope="col"> Tahun </th>
-                <th scope="col"> Keterangan </th>
-            </thead>
-            <tbody class="text-dark">
-                {{-- @foreach ($mahasiswa_asing as $mhs)
-            <tr>
-                @for ($i = 0; $i < $count; $i++)
-                <td>{{ $i }}</td>
-                @endfor
-            <td>{{ $mhs->daya_tampung }}</td> 
-            <td>{{ $mhs->c_pendaftar }}</td> 
-            <td>{{ $mhs->c_lulus_seleksi }}</td> 
-            <td>{{ $mhs->mahasiswa_reguler }}</td> 
-            <td>{{ $mhs->mahasiswa_transfer }}</td> 
-            <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-            </tr>
-            @endforeach --}}
-            
-            <tr>
-                <td colspan="2" class="text-center"><b>Jumlah </b> </td>
-                <td class="text-left"> <b> N<sub>B</sub> :</b></td>
-                <td scope="col"></td>
-            </tr>
-            </tbody>
-            <thead>
-                <th scope="col"> No </th>
-                <th scope="col"> Judul Luaran Penelitian/PkM </th>
-                <th scope="col"> Tahun </th>
-                <th scope="col"> Keterangan </th>
-            </thead>
-            <tbody class="text-dark">
-                {{-- @foreach ($mahasiswa_asing as $mhs)
-            <tr>
-                @for ($i = 0; $i < $count; $i++)
-                <td>{{ $i }}</td>
-                @endfor
-            <td>{{ $mhs->daya_tampung }}</td> 
-            <td>{{ $mhs->c_pendaftar }}</td> 
-            <td>{{ $mhs->c_lulus_seleksi }}</td> 
-            <td>{{ $mhs->mahasiswa_reguler }}</td> 
-            <td>{{ $mhs->mahasiswa_transfer }}</td> 
-            <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-            </tr>
-            @endforeach --}}
-            
-            <tr>
-                <td colspan="2" class="text-center"><b>Jumlah </b> </td>
-                <td class="text-left"> <b> N<sub>C</sub> :</b></td>
-                <td scope="col"></td>
-            </tr>
-            </tbody>
-            <thead>
-                <th scope="col"> No </th>
-                <th scope="col"> Judul Luaran Penelitian/PkM </th>
-                <th scope="col"> Tahun </th>
-                <th scope="col"> Keterangan </th>
-            </thead>
-            <tbody class="text-dark">
-                {{-- @foreach ($mahasiswa_asing as $mhs)
-            <tr>
-                @for ($i = 0; $i < $count; $i++)
-                <td>{{ $i }}</td>
-                @endfor
-            <td>{{ $mhs->daya_tampung }}</td> 
-            <td>{{ $mhs->c_pendaftar }}</td> 
-            <td>{{ $mhs->c_lulus_seleksi }}</td> 
-            <td>{{ $mhs->mahasiswa_reguler }}</td> 
-            <td>{{ $mhs->mahasiswa_transfer }}</td> 
-            <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-            </tr>
-            @endforeach --}}
-            <tr>
-                <td colspan="2" class="text-center"><b>Jumlah </b> </td>
-                <td class="text-left"> <b> N<sub>D</sub> :</b></td>
-                <td scope="col"></td>
-            </tr>
-            </tbody>
-            <thead>
-                <th scope="col"> No </th>
-                <th scope="col"> Judul Luaran Penelitian/PkM </th>
-                <th scope="col"> Tahun </th>
-                <th scope="col" > Keterangan </th>
-            </thead>
-            <tbody class="text-dark">
-                {{-- @foreach ($mahasiswa_asing as $mhs)
-            <tr>
-                @for ($i = 0; $i < $count; $i++)
-                <td>{{ $i }}</td>
-                @endfor
-            <td>{{ $mhs->daya_tampung }}</td> 
-            <td>{{ $mhs->c_pendaftar }}</td> 
-            <td>{{ $mhs->c_lulus_seleksi }}</td> 
-            <td>{{ $mhs->mahasiswa_reguler }}</td> 
-            <td>{{ $mhs->mahasiswa_transfer }}</td> 
-            <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-            </tr>
-            @endforeach --}}
-            </tbody>
-        </table> 
+    <!-- Modal Edit Data Luaran DTPS -->
+    <div class="modal fade" id="modaldosenluaran" tabindex="-1" aria-labelledby="modaldosenluaran" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modaldosenluaran">Tambah Data Dosen Tetap</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            {{-- @include('partials.profildosenmodal.dosentetap') --}}
+        </div>
+        </div>
     </div>
+
+    <!-- Modal Delete Data Luaran DTPS -->
+    <div class="modal fade" id="modaldosenluaran" tabindex="-1" aria-labelledby="modaldosenluaran" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modaldosenluaran">Tambah Data Dosen Tetap</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            {{-- @include('partials.profildosenmodal.dosentetap') --}}
+        </div>
+        </div>
+    </div>
+    
 </div>
