@@ -186,7 +186,11 @@ Route::group(['middleware' => 'auth:web'], function() {
 
     Route::group(['middleware' => ['role:perwakilan|dekan|asesor']], function ()
     {
+<<<<<<< HEAD
         // Route to tata Pamong
+=======
+        
+>>>>>>> b9aa68442c5036bb4161ac1375c0535db3731380
         Route::get('/download-excel', [TataPamongController::class, 'exportToExcel']);
         Route::get('/download-csv', [TataPamongController::class, 'exportToCSV']);
         Route::get('/download-pdf', [TataPamongController::class, 'generate']);
