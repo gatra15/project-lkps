@@ -3,7 +3,7 @@
                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Deskripsi
                     </a>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalpkm">
                         Tambah data
                     </button>
                 </p>
@@ -20,53 +20,55 @@
                 </div>
 
                 <!-- Modal Tambah Data PKM -->
-          <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+          <div class="modal fade" id="modalpkm" tabindex="-1" aria-labelledby="modalpkm" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+                <h5 class="modal-title" id="modalpkm">Tambah Data PkM DTPS yang Melibatkan Mahasiswa </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
-                {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+                @include('partials.pkmmodal.pkmmodal')
             </div>
             </div>
             </div>
 
-            {{-- foreach --}}
+            {{-- TABLE --}}
+            @include('tab.pkmtab.pkmtable')
+
+            @foreach($pengabdian as $pkm)
           <!-- Modal Tambah Edit PKM -->
-          <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+          <div class="modal fade" id="modalpkmedit-{{ $pkm->id }}" tabindex="-1" aria-labelledby="modalpkmedit" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+                <h5 class="modal-title" id="modalpkmedit">Update Data PkM DTPS yang Melibatkan Mahasiswa </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
-                {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+                @include('partials.pkmmodal.pkmmodaledit')
             </div>
             </div>
             </div>
 
           <!-- Modal Tambah Delete PKM -->
-          <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+          <div class="modal fade" id="modalpkmdelete-{{ $pkm->id }}" tabindex="-1" aria-labelledby="modalpkmdelete" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+                <h5 class="modal-title" id="modalpkmdelete">Hapus Data PkM DTPS yang Melibatkan Mahasiswa </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
-                {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+                @include('partials.pkmmodal.pkmmodaldelete')
             </div>
             </div>
             </div>
-            {{-- endforeach --}}
-{{-- TABLE --}}
-@include('tab.pkmtab.pkmtable')
+            @endforeach
+
     
 
 </div>

@@ -1,4 +1,5 @@
 <div class="tab-pane fade show" id="kepuasan" role="tabpanel">
+    
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
             Deskripsi
@@ -6,6 +7,7 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalkepuasan">
             Tambah data
         </button>
+        
     </p>
     <a href="/pendidikan/kepuasan-mahasiswa/download/excel" class="btn btn-success">Excel</a>
     <a href="/pendidikan/kepuasan-mahasiswa/download/csv" class="btn btn-success">CSV</a>
@@ -18,7 +20,7 @@
         </p>
     </div> 
     </div>
-
+    {{-- @foreach ($aspek as $aspeks) --}}
     <!-- Modal Tambah Data Kepuasan -->
     <div class="modal fade" id="modalkepuasan" tabindex="-1" aria-labelledby="modalkepuasan" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -33,6 +35,7 @@
         </div>
         </div>
         </div>
+        {{-- @endforeach --}}
 
         {{-- TABLE AWAL --}}
         @include('tab.pendidikantab.kepuasantable')

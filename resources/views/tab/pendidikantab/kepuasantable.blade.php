@@ -18,6 +18,9 @@
     </thead>
     
     <tbody>
+        @foreach ($kepuasanmahasiswa as $kepuansan)
+            {{ $kepuasan }}
+        @endforeach
     {{-- ISI TABEL DISINI BOSS --}}
     </tbody>
     </table> 

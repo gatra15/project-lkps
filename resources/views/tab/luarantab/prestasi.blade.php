@@ -3,7 +3,7 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#des2" role="button" aria-expanded="false" aria-controls="des2">
             Deskripsi
         </a>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalluaranprestasi">
             Tambah data
         </button>
     </p>
@@ -16,50 +16,53 @@
     </div>
 
      <!-- Modal Tambah Data Prestasi -->
-     <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+     <div class="modal fade" id="modalluaranprestasi" tabindex="-1" aria-labelledby="modalluaranprestasi" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalluaranprestasi">Tambah Data Prestasi Mahasiswa </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.luarancapaianmodal.prestasi')
         </div>
         </div>
         </div>
 
-        {{-- foreach --}}
+        {{-- Table Luaran Prestasi --}}
+        @include('tab.luarantab.prestasitable')
+        {{-- End Luaran Prestasi --}}
+
+        @foreach($prestasi as $prestasi)
       <!-- Modal Tambah Edit Prestasi -->
-      <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+      <div class="modal fade" id="modalluaranprestasiedit-{{ $prestasi->id }}" tabindex="-1" aria-labelledby="modalluaranprestasiedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalluaranprestasiedit">Update Data Prestasi Mahasiswa </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.luarancapaianmodal.prestasiedit')
         </div>
         </div>
         </div>
 
       <!-- Modal Tambah Delete Prestasi -->
-      <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+      <div class="modal fade" id="modalluaranprestasidelete-{{ $prestasi->id }}" tabindex="-1" aria-labelledby="modalluaranprestasidelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalluaranprestasidelete">Hapus Data Prestasi Mahasiswa </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.luarancapaianmodal.prestasidelete')
         </div>
         </div>
         </div>
-        {{-- endforeach --}}
-    @include('tab.luarantab.prestasitable')
+        @endforeach
 </div>
