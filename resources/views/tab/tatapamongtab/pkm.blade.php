@@ -37,6 +37,7 @@
     @include('tab.tatapamongtab.pkmtable')
 
     @foreach ($kerjasama as $indikator)
+    
     <!-- Modal Edit Data Pkm -->
     <div class="modal fade" id="modalpkmedit-{{ $indikator->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
