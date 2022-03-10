@@ -48,11 +48,12 @@ class PrestasiMahasiswaController extends Controller
         $prestasi->tahun_perolehan = $req->input('tahun_perolehan');
         $prestasi->tingkat = $req->input('tingkat');
         $prestasi->type_prestasi = $req->input('type_prestasi');
-        $prestasi->tahun_laporan = '2022';
+        $prestasi->tahun_laporan = 2022;
         $prestasi->prodi = auth()->user()->prodi;
         $prestasi->created_by = auth()->user()->name;
         $prestasi->created_at = Carbon::now();
-        $prestasi->save();
+        // $prestasi->save();
+        dd($prestasi);
 
         return back()->with('success', 'Prestasi Mahasiswa has been created.');
     }
@@ -100,7 +101,7 @@ class PrestasiMahasiswaController extends Controller
         $prestasi->tahun_perolehan = $req->input('tahun_perolehan');
         $prestasi->tingkat = $req->input('tingkat');
         $prestasi->type_prestasi = $req->input('type_prestasi');
-        $prestasi->tahun_laporan = '2022';
+        $prestasi->tahun_laporan = 2022;
         $prestasi->prodi = auth()->user()->prodi;
         $prestasi->created_by = auth()->user()->name;
         $prestasi->update_at = Carbon::now();

@@ -45,15 +45,15 @@ class PendidikanKepuasanMahasiswaController extends Controller
         ]);
 
         $kepuasan = new PendidikanKepuasanMahasiswa;
-        $kepuasan->aspek = $req->input('aspek');
+        $kepuasan->aspek_id = $req->input('aspek_id');
         $kepuasan->tingkat = $req->input('tingkat');
         $kepuasan->rencana_tindak_lanjut = $req->input('rencana_tindak_lanjut');
         $kepuasan->tahun_laporan = '2022';
         $kepuasan->prodi = auth()->user()->prodi;
         $kepuasan->created_by = auth()->user()->name;
         $kepuasan->created_at = Carbon::now();
-        $kepuasan->save();
-
+        // $kepuasan->save();
+        dd($kepuasan);
         return back()->with('success', 'Data Kepuasan Mahasiswa has been created.');
     }
 

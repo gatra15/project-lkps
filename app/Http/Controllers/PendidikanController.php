@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\PendidikanKurikulum;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PendidikanKurikulumExport;
+use App\Models\Aspek;
 use App\Models\PendidikanKepuasanMahasiswa;
 use App\Models\PendidikanIntegrasiKegiatanPenelitian;
 
@@ -17,11 +18,13 @@ class PendidikanController extends Controller
         $kurikulum = PendidikanKurikulum::all();
         $integrasi = PendidikanIntegrasiKegiatanPenelitian::all();
         $kepuasanmahasiswa = PendidikanKepuasanMahasiswa::all();
+        $aspek = Aspek::all();
         return view('tab.pendidikan', [
             'title' => 'Pendidikan',
             'kurikulum' => $kurikulum,
             'integrasi' => $integrasi,
-            'kepuasanmahasiswa' => $kepuasanmahasiswa
+            'kepuasanmahasiswa' => $kepuasanmahasiswa,
+            'aspek' => $aspek,
         ]);
     }
 

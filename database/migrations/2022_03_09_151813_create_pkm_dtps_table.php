@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePrestasiMahasiswasTable extends Migration
+class CreatePkmDtpsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreatePrestasiMahasiswasTable extends Migration
      */
     public function up()
     {
-        Schema::create('prestasi_mahasiswas', function (Blueprint $table) {
+        Schema::create('pkm_dtps', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kegiatan');
-            $table->string('tahun_perolehan');
-            $table->string('tingkat');
-            $table->string('type_prestasi');
+            $table->string('nama_dosen');
+            $table->string('tema');
+            $table->string('nama_mahasiswa');
+            $table->string('judul_kegiatan');
+            $table->integer('tahun');
             $table->integer('tahun_laporan');
-            $table->string('prodi');
-            $table->string('created_by');
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +34,6 @@ class CreatePrestasiMahasiswasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prestasi_mahasiswas');
+        Schema::dropIfExists('pkm_dtps');
     }
 }

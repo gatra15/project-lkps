@@ -5,21 +5,30 @@
         <div class="card-body px-20 pb-20">
             <div class="row">
                
+                @foreach ($aspek as $aspeks)
+                    
                 
                 {{-- coding modal insert --}}
-                <label for="lembaga"> Aspek yang Diukur</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="aspek" value="Sesuai dengan yang di ukur" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="hidden" name="aspek_id" value="{{ $aspeks->id }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
-                <label for="lembaga"> Tingkat Kepuasan Mahasiswa :</label>
-                <div class="input-group mb-3">
-                    <select class="custom-select" name="tingkat" id="inputGroupSelect01">
-                        <option selected>-- pilih --</option>
-                        <option value="Sangat Baik">Sangat Baik</option>
-                        <option value="Baik">Baik</option>
-                        <option value="Cukup">Cukup</option>
-                        <option value="Kurang">Kurang</option>
-                    </select>
+                <h5 class="mb-2">{{ $aspeks->nama }}</h5>
+                <label for="lembaga">Tingkat Kepuasan</label>
+                <label for="lembaga">Sangat Baik :</label>
+                <div class="input-group input-group-sm mb-3">
+                    <input type="text" name="sangat_baik" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                </div>
+                <label for="lembaga">Baik :</label>
+                <div class="input-group input-group-sm mb-3">
+                    <input type="text" name="baik" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                </div>
+                <label for="lembaga">Cukup :</label>
+                <div class="input-group input-group-sm mb-3">
+                    <input type="text" name="cukup" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                </div>
+                <label for="lembaga">Kurang :</label>
+                <div class="input-group input-group-sm mb-3">
+                    <input type="text" name="kurang" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="lembaga">Rencana Tindak Lanjut oleh UPPS/PS :</label>
                 <div class="input-group input-group-sm mb-3">
@@ -29,7 +38,7 @@
 
             {{-- script modal insert --}}
             {{-- script modal insert akhir--}}
-               
+            @endforeach
 
             </div>
         </div>

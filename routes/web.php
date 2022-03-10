@@ -174,6 +174,9 @@ Route::group(['middleware' => 'auth:web'], function() {
 
         // Route to PKM
         Route::get('/pkm', [PengabdianController::class, 'index']);
+        Route::post('/pkm', [PengabdianController::class, 'store']);
+        Route::put('/pkm/{id}', [PengabdianController::class, 'update']);
+        Route::get('/pkm/{id}', [PengabdianController::class, 'destroy']);
         // End PKM
 
         // Route to Luaran
@@ -274,9 +277,9 @@ Route::group(['middleware' => 'auth:web'], function() {
         // End Route
 
         // Route to Luaran
-        Route::get('luaran/download/excel', [PenelitianController::class, 'exportToExcel']);
-        Route::get('luaran/download/csv', [PenelitianController::class, 'exportToCSV']);
-        Route::get('luaran/download/pdf', [PenelitianController::class, 'generate']);
+        Route::get('luaran/download/excel', [LuaranController::class, 'exportToExcel']);
+        Route::get('luaran/download/csv', [LuaranController::class, 'exportToCSV']);
+        Route::get('luaran/download/pdf', [LuaranController::class, 'generate']);
         // End Route
     });
 });
