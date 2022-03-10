@@ -1,13 +1,23 @@
 <div id="printElement container-fluid">
-    <table id='form-print' class="table text-center table-bordered table-condensed">
+    <table id='form-print' class="table table-bordered table-condensed">
     <thead>
     <tr>
-    <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
-    <th class="align-middle" scope="col" rowspan="2">Tema Penelitian Sesuai Roadmap</th>
-    <th class="align-middle" scope="col" rowspan="2">Nama Mahasiswa</th>
-    <th class="align-middle" scope="col" rowspan="2">Judul Tesis/ Disertai</th>
-    <th class="align-middle" scope="col" rowspan="2">Tahun</th>
+    <th class="align-middle text-center" scope="col" rowspan="2">Tahun <br> Masuk</th>
+    <th class="align-middle text-center" scope="col" rowspan="2">Jumlah <br> Mahasiswa <br> Diterima <sup>1)</sup></th>
+    <th class="align-middle text-center" scope="col" colspan="7">Jumlah Mahasiswa yang Lulus pada</th>
+    <th class="align-middle text-center" scope="col" rowspan="2">Jumlah <br> Lulusan <br> s.d. <br> Akhir TS</th>
+    <th class="align-middle text-center" scope="col" rowspan="2">Rata- <br> rata <br> Masa <br> Studi</th>
     
+    </tr>
+
+    <tr>
+        <th class="align-middle text-center" scope="col" >Akhir <br> TS-6 </th>
+        <th class="align-middle text-center" scope="col" >Akhir <br> TS-5 </th>
+        <th class="align-middle text-center" scope="col" >Akhir <br> TS-4 </th>
+        <th class="align-middle text-center" scope="col" >Akhir <br> TS-3 </th>
+        <th class="align-middle text-center" scope="col" >Akhir <br> TS-2 </th>
+        <th class="align-middle text-center" scope="col" >Akhir <br> TS-1 </th>
+        <th class="align-middle text-center" scope="col" >Akhir <br> TS </th>
     </tr>
     
     </thead>

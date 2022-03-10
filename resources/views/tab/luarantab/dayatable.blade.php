@@ -2,12 +2,16 @@
     <table id='form-print' class="table text-center table-bordered table-condensed">
     <thead>
     <tr>
-    <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
-    <th class="align-middle" scope="col" rowspan="2">Tema Penelitian Sesuai Roadmap</th>
-    <th class="align-middle" scope="col" rowspan="2">Nama Mahasiswa</th>
-    <th class="align-middle" scope="col" rowspan="2">Judul Tesis/ Disertai</th>
-    <th class="align-middle" scope="col" rowspan="2">Tahun</th>
-    
+        <th class="align-middle text-center" scope="col" rowspan="2">Tahun <br> Lulus</th>
+        <th class="align-middle text-center" scope="col" rowspan="2">Jumlah <br> Lulusan</th>
+        <th class="align-middle text-center" scope="col" rowspan="2">Jumlah <br> Lulusan <br> yang <br> Terlacak </th>
+        <th class="align-middle text-center" scope="col" colspan="3">Jumlah Lulusan Terlacak <br> dengan Waktu Tunggu <br> Mendapatkan Pekerjaan </th>
+    </tr>
+
+    <tr>
+        <th class="align-middle text-center" scope="col">WT < 6 <br> bulan </th>
+        <th class="align-middle text-center" scope="col">6  ≤ WT  ≤ <br> 18 bulan </th>
+        <th class="align-middle text-center" scope="col">WT > 18 <br> bulan </th>
     </tr>
     
     </thead>
