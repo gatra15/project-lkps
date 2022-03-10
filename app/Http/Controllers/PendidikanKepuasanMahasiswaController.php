@@ -39,21 +39,22 @@ class PendidikanKepuasanMahasiswaController extends Controller
     public function store(Request $req)
     {
         $this->validate($req, [
-            'aspek_detail' => 'required',
-            'tingkat' => 'required',
-            'rencana_tindak_lanjut' => 'required',
+            'aspek_id' => 'required',
         ]);
 
         $kepuasan = new PendidikanKepuasanMahasiswa;
         $kepuasan->aspek_id = $req->input('aspek_id');
-        $kepuasan->tingkat = $req->input('tingkat');
+        $kepuasan->sangat_baik = $req->input('sangat_baik');
+        $kepuasan->baik = $req->input('baik');
+        $kepuasan->cukup = $req->input('cukup');
+        $kepuasan->kurang = $req->input('kurang');
         $kepuasan->rencana_tindak_lanjut = $req->input('rencana_tindak_lanjut');
         $kepuasan->tahun_laporan = '2022';
         $kepuasan->prodi = auth()->user()->prodi;
         $kepuasan->created_by = auth()->user()->name;
         $kepuasan->created_at = Carbon::now();
-        // $kepuasan->save();
-        dd($kepuasan);
+        $kepuasan->save();
+        // dd($kepuasan);
         return back()->with('success', 'Data Kepuasan Mahasiswa has been created.');
     }
 
@@ -89,14 +90,20 @@ class PendidikanKepuasanMahasiswaController extends Controller
     public function update(Request $req, $id)
     {
         $this->validate($req, [
-            'aspek' => 'required',
-            'tingkat' => 'required',
+            'aspek_id' => 'required',
+            'sangat_baik' => 'required',
+            'baik' => 'required',
+            'cukup' => 'required',
+            'kurang' => 'required',
             'rencana_tindak_lanjut' => 'required',
         ]);
 
         $kepuasan = PendidikanKepuasanMahasiswa::find($id);
-        $kepuasan->aspek = $req->input('aspek');
-        $kepuasan->tingkat = $req->input('tingkat');
+        $kepuasan->aspek_id = $req->input('aspek_id');
+        $kepuasan->sangat_baik = $req->input('sangat_baik');
+        $kepuasan->baik = $req->input('baik');
+        $kepuasan->cukup = $req->input('cukup');
+        $kepuasan->kurang = $req->input('kurang');
         $kepuasan->rencana_tindak_lanjut = $req->input('rencana_tindak_lanjut');
         $kepuasan->tahun_laporan = '2022';
         $kepuasan->prodi = auth()->user()->prodi;
@@ -113,9 +120,16 @@ class PendidikanKepuasanMahasiswaController extends Controller
      * @param  \App\Models\PendidikanKepuasanMahasiswa  $pendidikanKepuasanMahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $req, $id)
     {
-        PendidikanKepuasanMahasiswa::find($id)->delete();
+        $kepuasan = PendidikanKepuasanMahasiswa::find($id);
+        $kepuasan->aspek_id = $req->input('aspek_id');
+        $kepuasan->sangat_baik = null;
+        $kepuasan->baik = null;
+        $kepuasan->cukup = null;
+        $kepuasan->kurang = null;
+        $kepuasan->rencana_tindak_lanjut = null;
+        $kepuasan->update();
         return back()->with('error', 'Data Kepuasan Mahasiswa has been deleted.');
     }
     

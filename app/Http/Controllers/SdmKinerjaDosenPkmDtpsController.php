@@ -39,26 +39,26 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
      */
     public function store(Request $req)
     {
-        $this->validate($req, [
-            'sumber_pembiayaan' => 'required',
-            'jumlah_ts2' => 'required',
-            'jumlah_ts1' => 'required',
-            'jumlah_ts' => 'required',
-            'jumlah' => 'required',
-        ]);
+        // $this->validate($req, [
+        //     'sumber_pembiayaan' => 'required',
+        //     'jumlah_ts2' => 'required',
+        //     'jumlah_ts1' => 'required',
+        //     'jumlah_ts' => 'required',
+        //     'jumlah' => 'required',
+        // ]);
 
-        $pkm = new SdmKinerjaDosenPkmDtps;
-        $pkm->sumber_pembiayaan = $req->input('sumber_pembiayaan');
-        $pkm->jumlah_ts2 = $req->input('jumlah_ts2');
-        $pkm->jumlah_ts1 = $req->input('jumlah_ts1');
-        $pkm->jumlah_ts = $req->input('jumlah_ts');
-        $pkm->sumber_id = Sumberdaya::all()->id;
-        $pkm->tahun_laporan = '2022';
-        $pkm->prodi = auth()->user()->prodi;
-        $pkm->created_by = auth()->user()->name;
-        $pkm->created_at = Carbon::now();
-        dd($pkm);
-        return back()->with('success', 'Sdm Kinerja Dosen Pkm Dtps has been created.');
+        // $pkm = new SdmKinerjaDosenPkmDtps;
+        // $pkm->sumber_pembiayaan = $req->input('sumber_pembiayaan');
+        // $pkm->jumlah_ts2 = $req->input('jumlah_ts2');
+        // $pkm->jumlah_ts1 = $req->input('jumlah_ts1');
+        // $pkm->jumlah_ts = $req->input('jumlah_ts');
+        // $pkm->sumber_id = Sumberdaya::all()->id;
+        // $pkm->tahun_laporan = '2022';
+        // $pkm->prodi = auth()->user()->prodi;
+        // $pkm->created_by = auth()->user()->name;
+        // $pkm->created_at = Carbon::now();
+        // dd($pkm);
+        // return back()->with('success', 'Sdm Kinerja Dosen Pkm Dtps has been created.');
     }
 
     /**
@@ -93,23 +93,24 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
     public function update(Request $req, $id)
     {
         $this->validate($req, [
-            'sumber_pembiayaan' => 'required',
+            'sumber_id' => 'required',
             'jumlah_ts2' => 'required',
             'jumlah_ts1' => 'required',
             'jumlah_ts' => 'required',
             'jumlah' => 'required',
         ]);
 
-        $pkm = new SdmKinerjaDosenPkmDtps;
-        $pkm->sumber_pembiayaan = $req->input('sumber_pembiayaan');
+        $pkm = SdmKinerjaDosenPkmDtps::find($id);
+        $pkm->sumber_id = $req->input('sumber_id');
         $pkm->jumlah_ts2 = $req->input('jumlah_ts2');
         $pkm->jumlah_ts1 = $req->input('jumlah_ts1');
         $pkm->jumlah_ts = $req->input('jumlah_ts');
-        $pkm->sumber_id = Sumberdaya::all()->id;
+        $pkm->jumlah = $req->input('jumlah');
         $pkm->tahun_laporan = '2022';
         $pkm->prodi = auth()->user()->prodi;
         $pkm->created_by = auth()->user()->name;
         $pkm->updated_at = Carbon::now();
+        $pkm->update();
 
         return back()->with('success', 'Sdm Kinerja Dosen Pkm Dtps has been updated.');
     }
@@ -120,10 +121,16 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
      * @param  \App\Models\SdmKinerjaDosenPkmDtps  $sdmKinerjaDosenPkmDtps
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $req,$id)
     {
-        SdmKinerjaDosenPkmDtps::find($id)->delete();
-        return back()->with('error', 'Sdm Kinerja Dosen Pkm Dtps has been updated.');
+        $pengakuan = SdmKinerjaDosenPkmDtps::find($id);
+        $pengakuan->sumber_id = $req->input('sumber_id');
+        $pengakuan->jumlah_ts2 = null;
+        $pengakuan->jumlah_ts1 = null;
+        $pengakuan->jumlah_ts = null;
+        $pengakuan->jumlah = null;
+        $pengakuan->update();
+        return back()->with('error', 'Sdm Kinerja Dosen Pkm Dtps has been deleted.');
     }
 
     public function exportToExcel()

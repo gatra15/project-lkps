@@ -6,9 +6,9 @@
             <a class="btn btn-primary" data-toggle="collapse" href="#des2" role="button" aria-expanded="false" aria-controls="des2">
                 Deskripsi
             </a>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitian">
                 Tambah Data
-            </button>
+            </button> --}}
         
         </p>
         <a href="/kinerja-dosen/karya-ilmiah/download/excel" class="btn btn-success">Excel</a>
@@ -33,7 +33,7 @@
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="modaldosenpenelitian">Tambah Data Dosen Tetap</h5>
+        <h5 class="modal-title" id="modaldosenpenelitian">Tambah Data Dosen Penelitian DTPS</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -47,13 +47,13 @@
 @include('tab.kinerjadosentab.penelitiantable')
 
 
-@foreach ($penelitian as $penelitian)
+@foreach ($penelitians as $penelitian)
     <!-- Modal Edit Data Penelitian DTPS -->
     <div class="modal fade" id="modaldosenpenelitianedit-{{ $penelitian->id }}" tabindex="-1" aria-labelledby="modaldosenpenelitianedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenpenelitianedit">Edit Data Dosen Tetap</h5>
+            <h5 class="modal-title" id="modaldosenpenelitianedit">Edit Data Dosen Penelitian DTPS</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -64,11 +64,11 @@
         </div>
 
         <!-- Modal Delete Data Penelitian DTPS -->
-        <div class="modal fade" id="modaldosenpenelitiandelete" tabindex="-1" aria-labelledby="modaldosenpenelitiandelete" aria-hidden="true">
+        <div class="modal fade" id="modalpenelitiandelete-{{ $penelitian->id }}" tabindex="-1" aria-labelledby="modaldosenpenelitiandelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenpenelitiandelete">Yakin?</h5>
+            <h5 class="modal-title" id="modaldosenpenelitiandelete">Hapus Data Dosen Penelitian DTPS</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

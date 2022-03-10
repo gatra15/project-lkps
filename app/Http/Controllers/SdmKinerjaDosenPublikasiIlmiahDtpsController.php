@@ -93,24 +93,24 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
     public function update(Request $req, $id)
     {
         $this->validate($req, [
-            'media_publikasi' => 'required',
+            'media_id' => 'required',
             'jumlah_ts2' => 'required',
             'jumlah_ts1' => 'required',
             'jumlah_ts' => 'required',
             'jumlah' => 'required',
         ]);
 
-        $pengakuan = SdmKinerjaDosenPublikasiIlmiahDtps::find($id);
-        $pengakuan->media_publikasi = $req->input('media_publikasi');
-        $pengakuan->jumlah_ts2 = $req->input('jumlah_ts2');
-        $pengakuan->jumlah_ts1 = $req->input('jumlah_ts1');
-        $pengakuan->jumlah_ts = $req->input('jumlah_ts');
-        $pengakuan->jumlah = $req->input('jumlah');
-        $pengakuan->tahun_laporan = '2022';
-        $pengakuan->prodi = auth()->user()->prodi;
-        $pengakuan->created_by = auth()->user()->name;
-        $pengakuan->updated_at = Carbon::now();
-
+        $data = SdmKinerjaDosenPublikasiIlmiahDtps::find($id);
+        $data->media_id = $req->input('media_id');
+        $data->jumlah_ts2 = $req->input('jumlah_ts2');
+        $data->jumlah_ts1 = $req->input('jumlah_ts1');
+        $data->jumlah_ts = $req->input('jumlah_ts');
+        $data->jumlah = $req->input('jumlah');
+        $data->tahun_laporan = '2022';
+        $data->prodi = auth()->user()->prodi;
+        $data->created_by = auth()->user()->name;
+        $data->updated_at = Carbon::now();
+        $data->update();
         return back()->with('success', 'Sdm Kinerja Dosen Publikasi Ilmiah Dtps has been updated.');
     }
 
@@ -120,9 +120,16 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
      * @param  \App\Models\SdmKinerjaDosenPublikasiIlmiahDtps  $sdmKinerjaDosenPublikasiIlmiahDtps
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $req, $id)
     {
-        SdmKinerjaDosenKaryaIlmiahDtps::find($id)->delete();
+        $data = SdmKinerjaDosenPublikasiIlmiahDtps::find($id);
+        $data->media_id = $req->input('media_id');
+        $data->jumlah_ts2 = null;
+        $data->jumlah_ts1 = null;
+        $data->jumlah_ts = null;
+        $data->jumlah = null;
+        $data->tahun_laporan = '2022';
+        $data->update();
         return back()->with('error', 'Sdm Kinerja Dosen Publikasi Ilmiah Dtps has been deleted.');
     }
 

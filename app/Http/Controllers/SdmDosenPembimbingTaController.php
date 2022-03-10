@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\SdmDosenPembimbingTa;
 use Maatwebsite\Excel\Facades\Excel;
@@ -36,9 +37,40 @@ class SdmDosenPembimbingTaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $rule = [
+            'nama' => 'required',
+            'jumlah_ps_akreditasi_ts2' => 'required',
+            'jumlah_ps_akreditasi_ts1' => 'required',
+            'jumlah_ps_akreditasi_ts' => 'required',
+            'jumlah_ps_akreditasi_average' => 'required',
+            'jumlah_ps_lain_ts2' => 'required',
+            'jumlah_ps_lain_ts1' => 'required',
+            'jumlah_ps_lain_ts' => 'required',
+            'jumlah_ps_lain_average' => 'required',
+            'average' => 'required',
+        ];
+        $this->validate($req, $rule);
+
+        $data = new SdmDosenPembimbingTa;
+        $data->nama = $req->input('nama');
+        $data->jumlah_ps_akreditasi_ts2 = $req->input('jumlah_ps_akreditasi_ts2');
+        $data->jumlah_ps_akreditasi_ts1 = $req->input('jumlah_ps_akreditasi_ts1');
+        $data->jumlah_ps_akreditasi_ts = $req->input('jumlah_ps_akreditasi_ts');
+        $data->jumlah_ps_akreditasi_average = $req->input('jumlah_ps_akreditasi_average');
+        $data->jumlah_ps_lain_ts2 = $req->input('jumlah_ps_lain_ts2');
+        $data->jumlah_ps_lain_ts1 = $req->input('jumlah_ps_lain_ts1');
+        $data->jumlah_ps_lain_ts = $req->input('jumlah_ps_lain_ts');
+        $data->jumlah_ps_lain_average = $req->input('jumlah_ps_lain_average');
+        $data->average = $req->input('average');
+        $data->tahun_laporan = '2022';
+        $data->prodi = auth()->user()->prodi;
+        $data->created_by = auth()->user()->name;
+        $data->created_at = Carbon::now();
+        $data->save();
+
+        return back()->with('success', 'Dosen Pembimbing Utama TA has been created.');
     }
 
     /**
@@ -70,9 +102,40 @@ class SdmDosenPembimbingTaController extends Controller
      * @param  \App\Models\SdmDosenPembimbingTa  $sdmDosenPembimbingTa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SdmDosenPembimbingTa $sdmDosenPembimbingTa)
+    public function update(Request $req, $id)
     {
-        //
+        $rule = [
+            'nama' => 'required',
+            'jumlah_ps_akreditasi_ts2' => 'required',
+            'jumlah_ps_akreditasi_ts1' => 'required',
+            'jumlah_ps_akreditasi_ts' => 'required',
+            'jumlah_ps_akreditasi_average' => 'required',
+            'jumlah_ps_lain_ts2' => 'required',
+            'jumlah_ps_lain_ts1' => 'required',
+            'jumlah_ps_lain_ts' => 'required',
+            'jumlah_ps_lain_average' => 'required',
+            'average' => 'required',
+        ];
+        $this->validate($req, $rule);
+
+        $data = SdmDosenPembimbingTa::find($id);
+        $data->nama = $req->input('nama');
+        $data->jumlah_ps_akreditasi_ts2 = $req->input('jumlah_ps_akreditasi_ts2');
+        $data->jumlah_ps_akreditasi_ts1 = $req->input('jumlah_ps_akreditasi_ts1');
+        $data->jumlah_ps_akreditasi_ts = $req->input('jumlah_ps_akreditasi_ts');
+        $data->jumlah_ps_akreditasi_average = $req->input('jumlah_ps_akreditasi_average');
+        $data->jumlah_ps_lain_ts2 = $req->input('jumlah_ps_lain_ts2');
+        $data->jumlah_ps_lain_ts1 = $req->input('jumlah_ps_lain_ts1');
+        $data->jumlah_ps_lain_ts = $req->input('jumlah_ps_lain_ts');
+        $data->jumlah_ps_lain_average = $req->input('jumlah_ps_lain_average');
+        $data->average = $req->input('average');
+        $data->tahun_laporan = '2022';
+        $data->prodi = auth()->user()->prodi;
+        $data->created_by = auth()->user()->name;
+        $data->updated_at = Carbon::now();
+        $data->save();
+
+        return back()->with('success', 'Dosen Pembimbing Utama TA has been updated.');
     }
 
     /**
@@ -81,9 +144,10 @@ class SdmDosenPembimbingTaController extends Controller
      * @param  \App\Models\SdmDosenPembimbingTa  $sdmDosenPembimbingTa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SdmDosenPembimbingTa $sdmDosenPembimbingTa)
+    public function destroy($id)
     {
-        //
+        SdmDosenPembimbingTa::find($id)->delete();
+        return back()->with('success', 'Dosen Pembimbing Utama TA has been deleted.');
     }
 
     public function exportToExcel()

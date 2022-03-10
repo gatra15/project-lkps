@@ -17,7 +17,7 @@ class PendidikanController extends Controller
     {
         $kurikulum = PendidikanKurikulum::all();
         $integrasi = PendidikanIntegrasiKegiatanPenelitian::all();
-        $kepuasanmahasiswa = PendidikanKepuasanMahasiswa::all();
+        $kepuasanmahasiswa = PendidikanKepuasanMahasiswa::with('aspek')->get();
         $aspek = Aspek::all();
         return view('tab.pendidikan', [
             'title' => 'Pendidikan',

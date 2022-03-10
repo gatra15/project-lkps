@@ -52,8 +52,7 @@ class PrestasiMahasiswaController extends Controller
         $prestasi->prodi = auth()->user()->prodi;
         $prestasi->created_by = auth()->user()->name;
         $prestasi->created_at = Carbon::now();
-        // $prestasi->save();
-        dd($prestasi);
+        $prestasi->save();
 
         return back()->with('success', 'Prestasi Mahasiswa has been created.');
     }

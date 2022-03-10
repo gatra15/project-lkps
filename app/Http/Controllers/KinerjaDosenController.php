@@ -23,8 +23,8 @@ class KinerjaDosenController extends Controller
     {
         $pengakuan = SdmKinerjaDosenPengakuanDtps::all();
         $karyailmiah = SdmKinerjaDosenKaryaIlmiahDtps::all();
-        $penelitian = SdmKinerjaDosenPenelitianDtps::all();
-        $pkm = SdmKinerjaDosenPkmDtps::all();
+        $penelitians = SdmKinerjaDosenPenelitianDtps::with('sumber')->get();
+        $pkm = SdmKinerjaDosenPkmDtps::with('sumber_detail')->get();
         $publikasi = SdmKinerjaDosenPublikasiIlmiahDtps::all();
         $luaran = SdmKinerjaDosenLuaranPkmDtps::all();
         $sumberdaya = Sumberdaya::all();
@@ -34,7 +34,7 @@ class KinerjaDosenController extends Controller
             'title' => 'Kinerja Dosen',
             'pengakuan' => $pengakuan,
             'karyailmiah' => $karyailmiah,
-            'penelitian' => $penelitian,
+            'penelitians' => $penelitians,
             'pkm' => $pkm,
             'publikasi' => $publikasi,
             'luaran' => $luaran,
@@ -45,13 +45,13 @@ class KinerjaDosenController extends Controller
 
     public function store(Request $req)
     {
-        // $this->validate($req, [
-        //     'nama' => 'required',
-        //     'bidang_keahlian' => 'required',
-        //     'bukti_pendukung' => 'required',
-        //     'tingkat' => 'required',
-        //     'tahun' => 'required',
-        // ]);
+        $this->validate($req, [
+            'nama' => 'required',
+            'bidang_keahlian' => 'required',
+            'bukti_pendukung' => 'required',
+            'tingkat' => 'required',
+            'tahun' => 'required',
+        ]);
         $pengakuan = new SdmKinerjaDosenPengakuanDtps;
         $pengakuan->nama = $req->input('nama');
         $pengakuan->bidang_keahlian = $req->input('bidang_keahlian');

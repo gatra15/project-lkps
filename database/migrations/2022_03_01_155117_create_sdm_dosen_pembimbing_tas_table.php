@@ -16,7 +16,6 @@ class CreateSdmDosenPembimbingTasTable extends Migration
         Schema::create('sdm_dosen_pembimbing_tas', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('surat_tugas');
             $table->string('jumlah_ps_akreditasi_ts2');
             $table->string('jumlah_ps_akreditasi_ts1');
             $table->string('jumlah_ps_akreditasi_ts');

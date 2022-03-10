@@ -3,9 +3,11 @@
         <thead>
             <tr>
 
+                <th class="align-middle" scope="col" rowspan="2">No</th>
                 <th class="align-middle" scope="col" rowspan="2">Jenis</th>
                 <th scope="col" colspan="3">Jumlah Judul</th>
                 <th class="align-middle" scope="col" rowspan="2" >Jumlah</th>                    
+                <th class="align-middle" scope="col" rowspan="2" >Opsi</th>                    
             </tr>
             <tr>
                 <th scope="col">TS-2</th>
@@ -15,28 +17,23 @@
 
         </thead>
         <tbody>
-            @foreach ($mediapublikasi as $media)
+            @foreach ($publikasi as $publikasis)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>@php echo $media->media @endphp</td>                
-            </tr>
-            
-            {{-- @foreach ($mahasiswa_asing as $mhs)
-        <tr>
-        @for ($i = 0; $i < $count; $i++)
-        <td>{{ $i }}</td>
-        @endfor
-        <td>{{ $mhs->daya_tampung }}</td> 
-        <td>{{ $mhs->c_pendaftar }}</td> 
-        <td>{{ $mhs->c_lulus_seleksi }}</td> 
-        <td>{{ $mhs->mahasiswa_reguler }}</td> 
-        <td>{{ $mhs->mahasiswa_transfer }}</td> 
-        <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-        <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-        </tr>
-         --}}
-
-        @endforeach
+                <td>@php
+                   echo $publikasis->media->media
+                @endphp</td> 
+                <td>{{ $publikasis->jumlah_ts2 }}</td> 
+                <td>{{ $publikasis->jumlah_ts1 }}</td> 
+                <td>{{ $publikasis->jumlah_ts }}</td> 
+                <td>{{ $publikasis->jumlah }}</td> 
+                <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpublikasiedit-{{ $publikasis->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/publikasi-dtps/{{ $publikasis->id }}" data-toggle="modal" data-target="#modalpublikasidelete-{{ $publikasis->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                </ul></td>
+                </tr>
+            @endforeach
         </tbody>
 
         

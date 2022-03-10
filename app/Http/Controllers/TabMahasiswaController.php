@@ -31,7 +31,7 @@ class TabMahasiswaController extends Controller
     {
         
         $this->validate($req, [
-            'tahun_akademik' => 'required',
+            'tahun_id' => 'required',
             'daya_tampung' => 'required',
             'c_pendaftar' => 'required',
             'c_lulus_seleksi' => 'required',
@@ -46,7 +46,7 @@ class TabMahasiswaController extends Controller
         $tahun = Tahun::all()->select('tahun')->where('id', $req->input('tahun_id'));
 
         $mahasiswa = new Mahasiswa;
-        $mahasiswa->tahun_akademik = $req->input('tahun_akademik');
+        $mahasiswa->tahun_id = $req->input('tahun_id');
         $mahasiswa->daya_tampung = $req->input('daya_tampung');
         $mahasiswa->c_pendaftar = $req->input('c_pendaftar');
         $mahasiswa->c_lulus_seleksi = $req->input('c_lulus_seleksi');

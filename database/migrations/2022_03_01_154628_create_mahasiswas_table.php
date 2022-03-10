@@ -15,7 +15,7 @@ class CreateMahasiswasTable extends Migration
     {
         Schema::create('mahasiswas', function (Blueprint $table) {
             $table->id();
-            $table->string('tahun_akademik')->nullable();
+            $table->bigInteger('tahun_id');
             $table->string('daya_tampung');
             $table->string('c_pendaftar');
             $table->string('c_lulus_seleksi');
