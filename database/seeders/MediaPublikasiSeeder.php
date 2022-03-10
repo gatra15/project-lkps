@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\MediaPublikasi;
+use App\Models\SdmKinerjaDosenPublikasiIlmiahDtps;
 use Illuminate\Database\Seeder;
 
 class MediaPublikasiSeeder extends Seeder
@@ -43,6 +44,66 @@ class MediaPublikasiSeeder extends Seeder
         ]);
         MediaPublikasi::create([
             'media' => 'Tulisan di media massa internasional',
+        ]);
+        SdmKinerjaDosenPublikasiIlmiahDtps::create([
+            'media_id' => 1,
+            'tahun_laporan' => '2022',
+            'prodi' => 'a',
+            'created_by' => 'a',
+        ]);
+        SdmKinerjaDosenPublikasiIlmiahDtps::create([
+            'media_id' => 2,
+            'tahun_laporan' => '2022',
+            'prodi' => 'a',
+            'created_by' => 'a',
+        ]);
+        SdmKinerjaDosenPublikasiIlmiahDtps::create([
+            'media_id' => 3,
+            'tahun_laporan' => '2022',
+            'prodi' => 'a',
+            'created_by' => 'a',
+        ]);
+        SdmKinerjaDosenPublikasiIlmiahDtps::create([
+            'media_id' => 4,
+            'tahun_laporan' => '2022',
+            'prodi' => 'a',
+            'created_by' => 'a',
+        ]);
+        SdmKinerjaDosenPublikasiIlmiahDtps::create([
+            'media_id' => 5,
+            'tahun_laporan' => '2022',
+            'prodi' => 'a',
+            'created_by' => 'a',
+        ]);
+        SdmKinerjaDosenPublikasiIlmiahDtps::create([
+            'media_id' => 6,
+            'tahun_laporan' => '2022',
+            'prodi' => 'a',
+            'created_by' => 'a',
+        ]);
+        SdmKinerjaDosenPublikasiIlmiahDtps::create([
+            'media_id' => 7,
+            'tahun_laporan' => '2022',
+            'prodi' => 'a',
+            'created_by' => 'a',
+        ]);
+        SdmKinerjaDosenPublikasiIlmiahDtps::create([
+            'media_id' => 8,
+            'tahun_laporan' => '2022',
+            'prodi' => 'a',
+            'created_by' => 'a',
+        ]);
+        SdmKinerjaDosenPublikasiIlmiahDtps::create([
+            'media_id' => 9,
+            'tahun_laporan' => '2022',
+            'prodi' => 'a',
+            'created_by' => 'a',
+        ]);
+        SdmKinerjaDosenPublikasiIlmiahDtps::create([
+            'media_id' => 10,
+            'tahun_laporan' => '2022',
+            'prodi' => 'a',
+            'created_by' => 'a',
         ]);
     }
 }

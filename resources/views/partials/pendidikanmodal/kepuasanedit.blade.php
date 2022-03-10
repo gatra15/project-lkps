@@ -1,4 +1,5 @@
 <form action="/pendidikan/kepuasan-mahasiswa/{{ $kepuasan->id }}" method="POST">
+    @method('put')
     @csrf
     <div class="modal-body">
         
@@ -8,18 +9,26 @@
                 
                 {{-- coding modal insert --}}
                 <label for="lembaga"> Aspek yang Diukur</label>
+                <p>@php echo $kepuasan->aspek->aspek @endphp</p> 
                 <div class="input-group input-group-sm mb-3">
-                    <input type="hidden" name="aspek[]"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="hidden" name="aspek_id" value="{{ $kepuasan->aspek_id }}"  class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="lembaga"> Tingkat Kepuasan Mahasiswa :</label>
-                <div class="input-group mb-3">
-                    <select class="custom-select" name="tingkat" id="inputGroupSelect01">
-                        <option>-- pilih --</option>
-                        <option {{ $kepuasan->tingkat == 'Sangat Baik' ? 'selected' : '' }} value="Sangat Baik">Sangat Baik</option>
-                        <option {{ $kepuasan->tingkat == 'Baik' ? 'selected' : '' }} value="Baik">Baik</option>
-                        <option {{ $kepuasan->tingkat == 'Cukup' ? 'selected' : '' }} value="Cukup">Cukup</option>
-                        <option {{ $kepuasan->tingkat == 'Kurang' ? 'selected' : '' }} value="Kurang">Kurang</option>
-                    </select>
+                <label for="lembaga"> Sangat Baik :</label>
+                <div class="input-group input-group-sm mb-3">
+                    <input type="text" name="sangat_baik" value="{{ $kepuasan->sangat_baik }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                </div>
+                <label for="lembaga"> Baik :</label>
+                <div class="input-group input-group-sm mb-3">
+                    <input type="text" name="baik" value="{{ $kepuasan->baik }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                </div>
+                <label for="lembaga"> Cukup :</label>
+                <div class="input-group input-group-sm mb-3">
+                    <input type="text" name="cukup" value="{{ $kepuasan->cukup }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                </div>
+                <label for="lembaga"> Kurang :</label>
+                <div class="input-group input-group-sm mb-3">
+                    <input type="text" name="kurang" value="{{ $kepuasan->kurang }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="lembaga">Rencana Tindak Lanjut oleh UPPS/PS :</label>
                 <div class="input-group input-group-sm mb-3">
@@ -37,6 +46,6 @@
     </div>
     <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="submit" class="btn btn-primary">Simpan</button>
     </div>
 </form>

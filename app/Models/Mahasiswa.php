@@ -11,9 +11,7 @@ class Mahasiswa extends Model
 
     protected $guarded = ['id'];
 
-    protected $nullable = ['tahun_akademik'];
-
-    public function tahun_detail()
+    public function tahun()
     {
         $this->belongsTo('\App\Models\Tahun', 'tahun_id', 'id');
     }

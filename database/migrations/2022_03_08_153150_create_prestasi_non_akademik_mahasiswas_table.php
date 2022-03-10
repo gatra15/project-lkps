@@ -15,6 +15,10 @@ class CreatePrestasiNonAkademikMahasiswasTable extends Migration
     {
         Schema::create('prestasi_non_akademik_mahasiswas', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_kegiatan');
+            $table->string('tahun_perolehan');
+            $table->string('tingkat');
+            $table->string('prestasi');
             $table->timestamps();
         });
     }

@@ -15,12 +15,12 @@ class CreatePendidikanKepuasanMahasiswasTable extends Migration
     {
         Schema::create('pendidikan_kepuasan_mahasiswas', function (Blueprint $table) {
             $table->id();
-            $table->integer('aspek_id');
-            $table->string('sangat_baik');
-            $table->string('baik');
-            $table->string('cukup');
-            $table->string('kurang');
-            $table->string('rencana_tindak_lanjut');
+            $table->foreignId('aspek_id');
+            $table->string('sangat_baik')->nullable(true);
+            $table->string('baik')->nullable(true);
+            $table->string('cukup')->nullable(true);
+            $table->string('kurang')->nullable(true);
+            $table->string('rencana_tindak_lanjut')->nullable(true);
             $table->string('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by');

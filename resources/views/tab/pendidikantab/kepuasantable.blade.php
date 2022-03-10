@@ -7,6 +7,7 @@
         <th class="text-center align-middle" scope="col" rowspan="2">Aspek yang Diukur</th>
         <th class="text-center align-middle" scope="col" colspan="4">Tingkat Kepuasan Mahasiswa (%)</th>
         <th class="text-center align-middle" scope="col" rowspan="2">Rencana Tindak Lanjut oleh UPPS/PS</th>
+        <th class="text-center align-middle" scope="col" rowspan="2">Opsi</th>
     </tr>
     
     <tr>
@@ -18,8 +19,21 @@
     </thead>
     
     <tbody>
-        @foreach ($kepuasanmahasiswa as $kepuansan)
-            {{ $kepuasan }}
+        @foreach ($kepuasanmahasiswa as $kepuasan)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>@php echo $kepuasan->aspek->aspek @endphp</td>
+                <td>{{ $kepuasan->sangat_baik }}</td>
+                <td>{{ $kepuasan->baik }}</td>
+                <td>{{ $kepuasan->cukup }}</td>
+                <td>{{ $kepuasan->kurang }}</td>
+                <td>{{ $kepuasan->rencana_tindak_lanjut }}</td>
+                <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalkepuasanedit-{{ $kepuasan->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li>
+                        <a type="button" class="btn btn-danger" href="/pendidikan/kepuasan-mahasiswa/{{ $kepuasan->id }}" data-toggle="modal" data-target="#modalkepuasandelete-{{ $kepuasan->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                </ul></td>
+            </tr>
         @endforeach
     {{-- ISI TABEL DISINI BOSS --}}
     </tbody>

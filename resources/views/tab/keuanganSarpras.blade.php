@@ -37,12 +37,9 @@
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalsapras">
                         Tambah data
                     </button>
-                    {{-- Button CSV dkk disini --}}
-                    <a href="/keuangan-sarana-prasarana/download/excel" class="btn btn-success">Excel</a>
-                    <a href="/keuangan-sarana-prasarana/download/csv" class="btn btn-success">CSV</a>
-                    {{-- <a class="btn btn-primary" href="{{ url('/download-pdf')}}">Download PDF</a> --}}
                 </p>
-            
+                <a href="/keuangan-sarana-prasarana/download/excel" class="btn btn-success">Excel</a>
+                <a href="/keuangan-sarana-prasarana/download/csv" class="btn btn-success">CSV</a>
                 <!-- Modal Tambah Data Sarana dan Prasarana-->
                 <div class="modal fade" id="modalsapras" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">

@@ -15,11 +15,11 @@ class CreateSdmKinerjaDosenPublikasiIlmiahDtpsTable extends Migration
     {
         Schema::create('sdm_kinerja_dosen_publikasi_ilmiah_dtps', function (Blueprint $table) {
             $table->id();
-            $table->string('media_publikasi');
-            $table->string('jumlah_ts2');
-            $table->string('jumlah_ts1');
-            $table->string('jumlah_ts');
-            $table->string('jumlah');
+            $table->foreignId('media_id');
+            $table->string('jumlah_ts2')->nullable(true);
+            $table->string('jumlah_ts1')->nullable(true);
+            $table->string('jumlah_ts')->nullable(true);
+            $table->string('jumlah')->nullable(true);
             $table->string('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by');

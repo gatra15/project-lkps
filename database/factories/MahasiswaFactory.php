@@ -15,7 +15,7 @@ class MahasiswaFactory extends Factory
     public function definition()
     {
         return [
-            'tahun_akademik' => $this->faker->title,
+            'tahun_id' => $this->faker->id,
             'daya_tampung' => $this->faker->title,
             'c_pendaftar' => $this->faker->title,
             'c_lulus_seleksi' => $this->faker->title,

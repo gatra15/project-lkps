@@ -3,7 +3,7 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#des2" role="button" aria-expanded="false" aria-controls="des2">
             Deskripsi
         </a>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenta">
             Tambah data
         </button>
     </p>
@@ -30,7 +30,7 @@
           <div class="modal-dialog modal-lg">
           <div class="modal-content">
               <div class="modal-header">
-              <h5 class="modal-title" id="modaldosenta">Tambah Data Dosen TA </h5>
+              <h5 class="modal-title" id="modaldosenta">Tambah Data Dosen Pembimbing Utama TA </h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
               </button>
@@ -44,12 +44,14 @@
     {{-- TABLE HERE --}}
     @include('tab.profildosentab.dosenpembimbingtatable')
         
+    @foreach ($dosenta as $sdm)
+ 
     <!-- Modal Edit Data TA -->
-    <div class="modal fade" id="modaldosentaedit{{-- $sdm->id --}}" tabindex="-1" aria-labelledby="modaldosentaeditt" aria-hidden="true">
+    <div class="modal fade" id="modaldosentaedit-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentaedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosentaedit">Edit Data EWMP Dosen</h5>
+            <h5 class="modal-title" id="modaldosentaedit">Edit Data Dosen Pembimbing Utama TA</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -60,11 +62,11 @@
         </div>
 
         <!-- Modal Delete Data Dosen TA -->
-        <div class="modal fade" id="modaldosentadelete{{-- $sdm->id --}}" tabindex="-1" aria-labelledby="modaldosentadelete" aria-hidden="true">
+        <div class="modal fade" id="modaldosentadelete-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentadelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosentadelete">Yakin?</h5>
+            <h5 class="modal-title" id="modaldosentadelete">Hapus Data Dosen Pembimbing Utama TA</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -73,4 +75,5 @@
         </div>
         </div>
         </div>
+        @endforeach
 </div>

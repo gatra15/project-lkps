@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PrestasiNonAkademikMahasiswa;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\PrestasiNonAkademikMahasiswa;
 
 class PrestasiNonAkademikMahasiswaController extends Controller
 {
@@ -33,9 +34,27 @@ class PrestasiNonAkademikMahasiswaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        $this->validate($req, [
+            'nama_kegiatan' => 'required',
+            'tahun_perolehan' => 'required',
+            'tingkat' => 'required',
+            'prestasi' => 'required',
+        ]);
+
+        $prestasi = new PrestasiNonAkademikMahasiswa;
+        $prestasi->nama_kegiatan = $req->input('nama_kegiatan');
+        $prestasi->tahun_perolehan = $req->input('tahun_perolehan');
+        $prestasi->tingkat = $req->input('tingkat');
+        $prestasi->prestasi = $req->input('prestasi');
+        $prestasi->tahun_laporan = 2022;
+        $prestasi->prodi = auth()->user()->prodi;
+        $prestasi->created_by = auth()->user()->name;
+        $prestasi->created_at = Carbon::now();
+        $prestasi->save();
+
+        return back()->with('success', 'Prestasi Nonakademik Mahasiswa has been created.');
     }
 
     /**
@@ -67,9 +86,27 @@ class PrestasiNonAkademikMahasiswaController extends Controller
      * @param  \App\Models\PrestasiNonAkademikMahasiswa  $prestasiNonAkademikMahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PrestasiNonAkademikMahasiswa $prestasiNonAkademikMahasiswa)
+    public function update(Request $req, $id)
     {
-        //
+        $this->validate($req, [
+            'nama_kegiatan' => 'required',
+            'tahun_perolehan' => 'required',
+            'tingkat' => 'required',
+            'prestasi' => 'required',
+        ]);
+
+        $prestasi = PrestasiNonAkademikMahasiswa::find($id);
+        $prestasi->nama_kegiatan = $req->input('nama_kegiatan');
+        $prestasi->tahun_perolehan = $req->input('tahun_perolehan');
+        $prestasi->tingkat = $req->input('tingkat');
+        $prestasi->prestasi = $req->input('prestasi');
+        $prestasi->tahun_laporan = 2022;
+        $prestasi->prodi = auth()->user()->prodi;
+        $prestasi->created_by = auth()->user()->name;
+        $prestasi->update_at = Carbon::now();
+        $prestasi->update();
+
+        return back()->with('success', 'Prestasi Mahasiswa has been updated.');
     }
 
     /**
@@ -78,8 +115,9 @@ class PrestasiNonAkademikMahasiswaController extends Controller
      * @param  \App\Models\PrestasiNonAkademikMahasiswa  $prestasiNonAkademikMahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PrestasiNonAkademikMahasiswa $prestasiNonAkademikMahasiswa)
+    public function destroy($id)
     {
-        //
+        PrestasiNonAkademikMahasiswa::find($id)->delete();
+        return back()->with('error', 'Prestasi Mahasiswa has been deleted.');
     }
 }

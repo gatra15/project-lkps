@@ -5,7 +5,8 @@
                 <th class="align-middle" scope="col" rowspan="3">No</th>
                 <th class="align-middle" scope="col" rowspan="3">Nama Dosen <sup>2)</sup></th>
                 <th scope="col" colspan="8" >Jumlah Mahasiswa Yang Dibimbing</th>
-                <th class="align-middle" scope="col" rowspan="3">Rata-rata Jumlah Bimbingan di Semua Program/Semester<sup>5)</sup>  </th>  
+                <th class="align-middle" scope="col" rowspan="3">Rata-rata Jumlah Bimbingan di Semua Program/Semester<sup>5)</sup>  </th> 
+                <th class="align-middle" scope="col" rowspan="3">Opsi</th> 
             </tr>
             <tr>
                 <th scope="col" colspan="4">pada PS yang Diakreditasi<sup>3)</sup></th>
@@ -26,31 +27,26 @@
 
         <tbody class="text-dark">
              {{-- Coding Tabel Disini --}}
-             {{-- <tr>
-            @foreach ($dosen as $sdm)
+             <tr>
+            @foreach ($dosenta as $sdm)
             <tr>
-                <td>{{ $sdm->nama_dosen }}</td>
-                <td>{{ $sdm->nidn_nidk }}</td>
-                <td>{{ $sdm->pendidikan_pasca_sarjana_magister }}</td>
-                <td>{{ $sdm->pendidikan_pasca_sarjana_doktor }}</td>
-                <td>{{ $sdm->bidang_keahlian }}</td>
-                <td>{{ $sdm->kesesuaian_ps }}</td>
-                <td>{{ $sdm->jabatan_akademik }}</td>
-                <td>{{ $sdm->sertifikat_pendidik_profesi }}</td>
-                <td>{{ $sdm->sertifikat_kompetensi }}</td>
-                <td>{{ $sdm->mata_kuliah_akreditasi_diampu }}</td>
-                <td>{{ $sdm->kesesuaian_mata_kuliah_diampu }}</td>
-                <td>{{ $sdm->mata_kuliah_diampu_ps_lain }}</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $sdm->nama }}</td>
+                <td>{{ $sdm->jumlah_ps_akreditasi_ts2 }}</td>
+                <td>{{ $sdm->jumlah_ps_akreditasi_ts1 }}</td>
+                <td>{{ $sdm->jumlah_ps_akreditasi_ts }}</td>
+                <td>{{ $sdm->jumlah_ps_akreditasi_average }}</td>
+                <td>{{ $sdm->jumlah_ps_lain_ts2 }}</td>
+                <td>{{ $sdm->jumlah_ps_lain_ts1 }}</td>
+                <td>{{ $sdm->jumlah_ps_lain_ts }}</td>
+                <td>{{ $sdm->jumlah_ps_lain_average }}</td>
+                <td>{{ $sdm->average }}</td>
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenewmpedit-{{ $sdm->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosentaedit-{{ $sdm->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
-                        <a type="button" class="btn btn-danger" href="/profil-dosen/{{ $sdm->id }}" data-toggle="modal" data-target="#modaldosenewmpdelete-{{ $sdm->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        <a type="button" class="btn btn-danger" href="/profil-dosen/pembimbing-ta/{{ $sdm->id }}" data-toggle="modal" data-target="#modaldosentadelete-{{ $sdm->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
-            </tr> --}}
-            <tr> <td>eko</td> </tr>
-          
-          
-
-            {{-- @endforeach --}}
+            </tr>
+            @endforeach
     </table>
 </div>

@@ -12,8 +12,8 @@ class PendidikanKepuasanMahasiswa extends Model
     protected $table = 'pendidikan_kepuasan_mahasiswas';
     protected $guarded = ['id'];
 
-    public function aspek_detail()
+    public function aspek()
     {
-        $this->belongsTo('App\Models\Aspek', 'aspek_id', 'id');
+        return $this->belongsTo('App\Models\Aspek', 'aspek_id', 'id');
     }
 }

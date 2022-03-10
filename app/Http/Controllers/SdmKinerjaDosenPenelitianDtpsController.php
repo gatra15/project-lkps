@@ -47,7 +47,7 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
         ]);
 
         $pengakuan = new SdmKinerjaDosenPenelitianDtps;
-        $pengakuan->sumber_pembiayaan = $req->input('sumber_pembiayaan');
+        $pengakuan->sumber_pembiayaan = $req->input('sumber_id');
         $pengakuan->jumlah_ts2 = $req->input('jumlah_ts2');
         $pengakuan->jumlah_ts1 = $req->input('jumlah_ts1');
         $pengakuan->jumlah_ts = $req->input('jumlah_ts');
@@ -92,22 +92,24 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
     public function update(Request $req, $id)
     {
         $this->validate($req, [
-            'sumber_pembiayaan' => 'required',
+            'sumber_id' => 'required',
             'jumlah_ts2' => 'required',
             'jumlah_ts1' => 'required',
             'jumlah_ts' => 'required',
             'jumlah' => 'required',
         ]);
 
-        $pengakuan = new SdmKinerjaDosenPenelitianDtps;
-        $pengakuan->sumber_pembiayaan = $req->input('sumber_pembiayaan');
+        $pengakuan = SdmKinerjaDosenPenelitianDtps::find($id);
+        $pengakuan->sumber_id = $req->input('sumber_id');
         $pengakuan->jumlah_ts2 = $req->input('jumlah_ts2');
         $pengakuan->jumlah_ts1 = $req->input('jumlah_ts1');
         $pengakuan->jumlah_ts = $req->input('jumlah_ts');
+        $pengakuan->jumlah = $req->input('jumlah');
         $pengakuan->tahun_laporan = '2022';
         $pengakuan->prodi = auth()->user()->prodi;
         $pengakuan->created_by = auth()->user()->name;
         $pengakuan->updated_at = Carbon::now();
+        $pengakuan->update();
 
         return back()->with('success', 'Sdm Kinerja Dosen Penelitian Dtps has been updated.');
     }
@@ -118,9 +120,15 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
      * @param  \App\Models\SdmKinerjaDosenPenelitianDtps  $sdmKinerjaDosenPenelitianDtps
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $req,$id)
     {
-        SdmKinerjaDosenPenelitianDtps::find($id)->delete();
+        $pengakuan = SdmKinerjaDosenPenelitianDtps::find($id);
+        $pengakuan->sumber_id = $req->input('sumber_id');
+        $pengakuan->jumlah_ts2 = null;
+        $pengakuan->jumlah_ts1 = null;
+        $pengakuan->jumlah_ts = null;
+        $pengakuan->jumlah = null;
+        $pengakuan->update();
         return back()->with('error', 'Sdm Kinerja Dosen Penelitian Dtps has been deleted.');
     }
 

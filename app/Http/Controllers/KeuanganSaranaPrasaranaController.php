@@ -15,7 +15,15 @@ class KeuanganSaranaPrasaranaController extends Controller
         $keuangan = SaranaDana::all();
         return view('tab.keuanganSarpras', [
             'title' => 'Keuangan Sarpras',
+            'keuangan' => $keuangan,
         ]);
+    }
+
+    public function store(Request $req)
+    {
+        $rule = [
+            
+        ];
     }
 
     public function exportToExcel()

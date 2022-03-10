@@ -20,26 +20,25 @@
         </thead>
 
         <tbody class="text-dark">
-            <tr id="table">
-                <td>1</td>
-            </tr>
             
-            @foreach ($penelitian as $penelitian)
+            @foreach ($penelitians as $penelitian)
                 <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $penelitian->nama }}</td> 
-                <td>{{ $penelitian->bidang_keahlian }}</td> 
-                <td>{{ $penelitian->bukti_pendukung }}</td> 
-                <td>{{ $penelitian->tingkat }}</td> 
-                <td>{{ $penelitian->tahun }}</td> 
+                <td>@php
+                   echo $penelitian->sumber->sumberdaya
+                @endphp</td> 
+                <td>{{ $penelitian->jumlah_ts2 }}</td> 
+                <td>{{ $penelitian->jumlah_ts1 }}</td> 
+                <td>{{ $penelitian->jumlah_ts }}</td> 
+                <td>{{ $penelitian->jumlah }}</td> 
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $penelitian->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $pengkuan->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $penelitian->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $penelitian->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $penelitian->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
                 </tr>
 
-        
+                @endforeach
 
             <tr>
                 <td colspan="2" class="text-center"><b>Jumlah</b></td>
@@ -48,6 +47,6 @@
                 <td></td>
                 <td></td>
             </tr>
-            @endforeach
+            
     </table> 
 </div>

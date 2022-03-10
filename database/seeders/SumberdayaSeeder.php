@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Sumberdaya;
 use Illuminate\Database\Seeder;
+use App\Models\SdmKinerjaDosenPenelitianDtps;
+use App\Models\SdmKinerjaDosenPkmDtps;
 
 class SumberdayaSeeder extends Seeder
 {
@@ -23,6 +25,66 @@ class SumberdayaSeeder extends Seeder
         ]);
         Sumberdaya::create([
             'sumberdaya' => 'Lembaga Luar Negeri ',
+        ]);
+        SdmKinerjaDosenPenelitianDtps::create([
+            'sumber_id' => 1,
+            'jumlah_ts2' => null ,
+            'jumlah_ts1' => null,
+            'jumlah_ts' => null,
+            'jumlah' => null,
+            'tahun_laporan' => '2022',
+            'prodi' => 'Teknik Industri',
+            'created_by' => 'Teknik Industri',
+        ]);
+        SdmKinerjaDosenPenelitianDtps::create([
+            'sumber_id' => 2,
+            'jumlah_ts2' => null ,
+            'jumlah_ts1' => null,
+            'jumlah_ts' => null,
+            'jumlah' => null,
+            'tahun_laporan' => '2022',
+            'prodi' => 'Teknik Industri',
+            'created_by' => 'Teknik Industri',
+        ]);
+        SdmKinerjaDosenPenelitianDtps::create([
+            'sumber_id' => 2,
+            'jumlah_ts2' => null ,
+            'jumlah_ts1' => null,
+            'jumlah_ts' => null,
+            'jumlah' => null,
+            'tahun_laporan' => '2022',
+            'prodi' => 'Teknik Industri',
+            'created_by' => 'Teknik Industri',
+        ]);
+        SdmKinerjaDosenPkmDtps::create([
+            'sumber_id' => 1,
+            'jumlah_ts2' => null ,
+            'jumlah_ts1' => null,
+            'jumlah_ts' => null,
+            'jumlah' => null,
+            'tahun_laporan' => '2022',
+            'prodi' => 'Teknik Industri',
+            'created_by' => 'Teknik Industri',
+        ]);
+        SdmKinerjaDosenPkmDtps::create([
+            'sumber_id' => 2,
+            'jumlah_ts2' => null ,
+            'jumlah_ts1' => null,
+            'jumlah_ts' => null,
+            'jumlah' => null,
+            'tahun_laporan' => '2022',
+            'prodi' => 'Teknik Industri',
+            'created_by' => 'Teknik Industri',
+        ]);
+        SdmKinerjaDosenPkmDtps::create([
+            'sumber_id' => 2,
+            'jumlah_ts2' => null ,
+            'jumlah_ts1' => null,
+            'jumlah_ts' => null,
+            'jumlah' => null,
+            'tahun_laporan' => '2022',
+            'prodi' => 'Teknik Industri',
+            'created_by' => 'Teknik Industri',
         ]);
     }
 }

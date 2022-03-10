@@ -95,13 +95,7 @@
             <?php $i=4;?>
             @foreach ($mahasiswa as $index => $mhs)
                 <tr>
-                   <td>TS
-                    @if ($i == 0)
-                        <?php $i="";?>
-                    @else
-                        <?php echo $x;?>
-                    @endif   
-                    {{ $i }}</td>
+                   <td>{{ $mhs->tahun_id }}</td>
                    <td>{{ $mhs->daya_tampung }}</td> 
                    <td>{{ $mhs->c_pendaftar }}</td> 
                    <td>{{ $mhs->c_lulus_seleksi }}</td> 
