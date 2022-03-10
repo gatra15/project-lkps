@@ -39,5 +39,36 @@
     
 {{-- TABLE --}}
 @include('tab.mahasiswatab.mahasiswatable')
+{{-- End Table --}}
 
+@foreach ($mahasiswa as $mhs)
+    <!-- Modal Edit -->
+    <div class="modal fade" id="modalmahasiswaedit-{{ $mhs->id }}" tabindex="-1" aria-labelledby="modalmahasiswaedit" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modalmahasiswaedit">Edit Data</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.mahasiswamodal.mahasiswaedit')
+        </div>
+        </div>
+    </div>
+    <!-- Modal De;ete -->
+    <div class="modal fade" id="modalmahasiswadelete-{{ $mhs->id }}" tabindex="-1" aria-labelledby="modalmahasiswadelete" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modalmahasiswadelete">Hapus Data</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.mahasiswamodal.mahasiswadelete')
+        </div>
+        </div>
+    </div>
+    @endforeach
 </div>
