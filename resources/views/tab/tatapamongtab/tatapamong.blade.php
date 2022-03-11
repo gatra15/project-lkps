@@ -13,7 +13,18 @@
     <div class="collapse" id="des1">
         <div class="card card-body">
             <p>
-                Tuliskan data Dosen Tetap Perguruan Tinggi yang ditugaskan sebagai pengampu mata kuliah di Program Studi yang Diakreditasi (DTPS) pada saat TS dengan mengikuti format Tabel 3.a.1) berikut ini
+            Tuliskan kerjasama tridharma di Unit Pengelola Program Studi (UPPS) dalam 3 tahun
+            terakhir dengan mengikuti format berikut ini. <br> <br>
+
+            <b>Keterangan :</b> <br>
+            1) Beri tanda V pada kolom yang sesuai. <br>
+            2) Diisi dengan judul kegiatan kerjasama yang sudah terimplementasikan, melibatkan
+            sumber daya dan memberikan manfaat bagi Program Studi yang diakreditasi. <br>
+            3) Bukti kerjasama dapat berupa Surat Penugasan, Surat Perjanjian Kerjasama (SPK),
+            bukti-bukti pelaksanaan (laporan, hasil kerjasama, luaran kerjasama), atau bukti lain
+            yang relevan. Dokumen Memorandum of Understanding (MoU), Memorandum of
+            Agreement (MoA), atau dokumen sejenis yang memayungi pelaksanaan kerjasama,
+            tidak dapat dijadikan bukti realisasi kerjasama. <br>
             </p>
         </div> 
     </div>

@@ -32,6 +32,8 @@
         </div>
         </div>
 
+        @include('tab.luarantab.luarantable')
+
         {{-- foreach --}}
       <!-- Modal Tambah Edit Luaran -->
       <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
@@ -63,5 +65,5 @@
         </div>
         </div>
 
-    @include('tab.luarantab.luarantable')
+    
 </div>
