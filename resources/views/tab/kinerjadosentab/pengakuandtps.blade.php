@@ -58,7 +58,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalpengakuanedit">Edit Data Dosen Tetap</h5>
+            <h5 class="modal-title" id="modalpengakuanedit">Edit Data {{ $pengakuan->nama }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -73,7 +73,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalpengakuandelete">Yakin?</h5>
+            <h5 class="modal-title" id="modalpengakuandelete">Hapus Data {{ $pengakuan->nama }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

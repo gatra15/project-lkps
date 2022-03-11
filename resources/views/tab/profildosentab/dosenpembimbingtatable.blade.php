@@ -1,26 +1,26 @@
-<div id="printElement container-fluid">
-    <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
+<div id="#">
+    <table id='form-print' class="table table-bordered table-condensed">
         <thead>
             <tr>
-                <th class="align-middle" scope="col" rowspan="3">No</th>
-                <th class="align-middle" scope="col" rowspan="3">Nama Dosen <sup>2)</sup></th>
-                <th scope="col" colspan="8" >Jumlah Mahasiswa Yang Dibimbing</th>
-                <th class="align-middle" scope="col" rowspan="3">Rata-rata Jumlah Bimbingan di Semua Program/Semester<sup>5)</sup>  </th> 
-                <th class="align-middle" scope="col" rowspan="3">Opsi</th> 
+                <th class="align-middle text-center" scope="col" rowspan="3">No</th>
+                <th class="align-middle text-center" scope="col" rowspan="3">Nama Dosen<sup>2)</sup></th>
+                <th class="align-middle text-center" scope="col" colspan="8" >Jumlah Mahasiswa Yang Dibimbing</th>
+                <th class="align-middle text-center" scope="col" rowspan="3">Rata-rata Jumlah <br> Bimbingan di Semua <br> Program/Semester<sup>5)</sup>  </th> 
+                <th class="align-middle text-center" scope="col" rowspan="3">Opsi</th> 
             </tr>
             <tr>
-                <th scope="col" colspan="4">pada PS yang Diakreditasi<sup>3)</sup></th>
-                <th scope="col" colspan="4">pada PS Lain di PT<sup>4)</sup></th>       
+                <th class="align-middle text-center" scope="col" colspan="4">pada PS yang Diakreditasi<sup>3)</sup></th>
+                <th class="align-middle text-center" scope="col" colspan="4">pada PS Lain di PT<sup>4)</sup></th>       
             </tr>
             <tr>
-                <th scope="col" >TS-2</th>
-                <th scope="col" >TS-1</th>
-                <th scope="col" >TS</th>
-                <th scope="col" >Rata - rata</th>    
-                <th scope="col" >TS-2</th>
-                <th scope="col" >TS-1</th>
-                <th scope="col" >TS</th>
-                <th scope="col" >Rata - rata</th>    
+                <th class="align-middle text-center" scope="col" >TS-2</th>
+                <th class="align-middle text-center" scope="col" >TS-1</th>
+                <th class="align-middle text-center" scope="col" >TS</th>
+                <th class="align-middle text-center" scope="col" >Rata - rata</th>    
+                <th class="align-middle text-center" scope="col" >TS-2</th>
+                <th class="align-middle text-center" scope="col" >TS-1</th>
+                <th class="align-middle text-center" scope="col" >TS</th>
+                <th class="align-middle text-center" scope="col" >Rata - rata</th>    
             </tr>
     
         </thead>

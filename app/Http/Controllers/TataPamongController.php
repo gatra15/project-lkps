@@ -37,13 +37,13 @@ class TataPamongController extends Controller
         $jmlpenelitian = $kerjasama->where('tridharma', 'Penelitian')->count();
         $jmlpkm = $kerjasama->where('tridharma', 'Pengabdian Kepada Masyarakat')->count();
 
-        $pdf = PDF::loadView('tab.tatapamongtab.pendidikantable',[
+        $pdf = PDF::loadView('tab.tatapamongtab.tatapamongtable',[
             'title' => 'Tata Pamong',
             'kerjasama' => $kerjasama,
             'jmlpendidikan' => $jmlpendidikan,
             'jmlpenelitian' => $jmlpenelitian,
             'jmlpkm' => $jmlpkm,
-        ])->setPaper('a4','landscape')->setWarnings(true)->save('tatakerjasama.pdf');
+        ])->setPaper('a4','landscape')->setWarnings(false)->save('tatakerjasama.pdf');
 
 
         return $pdf->stream('tatakerjasama.pdf');

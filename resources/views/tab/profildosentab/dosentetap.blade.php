@@ -59,7 +59,7 @@
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="modaldosentetapedit">Edit Data Dosen Tetap</h5>
+        <h5 class="modal-title" id="modaldosentetapedit">Edit Data {{ $sdm->nama_dosen }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -74,7 +74,7 @@
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="modaldosentetapdelete">Yakin?</h5>
+        <h5 class="modal-title" id="modaldosentetapdelete">Hapus Data {{ $sdm->nama_dosen }} </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>

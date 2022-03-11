@@ -59,4 +59,12 @@ padding: 15px;
 flex: 1 1 100%;
 }
 
+tr th.putih{
+background: #ffffff
+}
+
+tr td {
+  align-content: center;
+  text-align: center;
+}
 </style>

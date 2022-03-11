@@ -18,25 +18,125 @@
                 <th scope="col">TS</th>
                 <th scope="col">Rata-rata</th>
             </tr>
+            <tr>
+                <th class="text-left putih"></th>
+                <th class="text-left putih"> Biaya Operasional Pendidikan </th>
+                <th class="text-left putih"></th>
+                <th class="text-left putih"></th>
+                <th class="text-left putih"></th>
+                <th class="text-left putih"></th>
+                <th class="text-left putih"></th>
+                <th class="text-left putih"></th>
+                <th class="text-left putih"></th>
+                <th class="text-left putih"></th>
+            </tr>
     
         </thead>
 
         <tbody class="text-dark">
-            {{-- DATA 1 --}}
-            
-            {{-- @foreach ($mahasiswa_asing as $mhs)
-                <tr>
-                    @for ($i = 0; $i < $count; $i++)
-                    <td>{{ $i }}</td>
-                    @endfor
-                   <td>{{ $mhs->daya_tampung }}</td> 
-                   <td>{{ $mhs->c_pendaftar }}</td> 
-                   <td>{{ $mhs->c_lulus_seleksi }}</td> 
-                   <td>{{ $mhs->mahasiswa_reguler }}</td> 
-                   <td>{{ $mhs->mahasiswa_transfer }}</td> 
-                   <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-                   <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-                </tr>
-            @endforeach --}}
+        {{-- ISI TABEL --}}
+        <tr>
+            <td>1</td>
+            <td>a. Biaya Dosen (Gaji, Honor)</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Biaya operasional kemahasiswaan
+                (penalaran, minat, bakat, dan
+                kesejahteraan).</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="text-center"> <b>Jumlah </b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+
+        <thead>
+            <tr>
+                <th class="align-middle text-center" scope="col" rowspan="1">NO</th>
+                <th class="align-middle text-center" scope="col" rowspan="1">Jenis Penggunaan</th>
+                <th class="align-middle text-center" scope="col">TS-2</th>
+                <th class="align-middle text-center" scope="col">TS-1</th>
+                <th class="align-middle text-center" scope="col">TS</th>
+                <th class="align-middle text-center" scope="col">Rata-rata</th>
+                <th class="align-middle text-center" scope="col">TS-2</th>
+                <th class="align-middle text-center" scope="col">TS-1</th>
+                <th class="align-middle text-center" scope="col">TS</th>
+                <th class="align-middle text-center" scope="col">Rata-rata</th>
+            </tr>
+        </thead>
+
+        <tbody class="text-dark">
+            {{-- ISI TABEL --}}
+            <tr>
+                <td>3</td>
+                <td>Biaya Penelitian</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Biaya PKM</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"> <b>Jumlah </b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+
+        <thead>
+            <tr>
+                <th class="align-middle text-center" scope="col" rowspan="1">NO</th>
+                <th class="align-middle text-center" scope="col" rowspan="1">Jenis Penggunaan</th>
+                <th class="align-middle text-center" scope="col">TS-2</th>
+                <th class="align-middle text-center" scope="col">TS-1</th>
+                <th class="align-middle text-center" scope="col">TS</th>
+                <th class="align-middle text-center" scope="col">Rata-rata</th>
+                <th class="align-middle text-center" scope="col">TS-2</th>
+                <th class="align-middle text-center" scope="col">TS-1</th>
+                <th class="align-middle text-center" scope="col">TS</th>
+                <th class="align-middle text-center" scope="col">Rata-rata</th>
+            </tr>
+        </thead>
+
+        <tbody class="text-dark">
+            {{-- ISI TABEL --}}
+            <tr>
+                <td>5</td>
+                <td>Biaya Investasi</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Biaya PKM</td>
+            </tr>
+
+            <tr>
+                <td colspan="2" class="text-center"> <b>Jumlah </b></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center"> <b>TOTAL </b></td>
+            </tr>
+            </tbody>
+
         </table> 
     </div>

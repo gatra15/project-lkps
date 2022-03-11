@@ -9,7 +9,7 @@
 
                 <label for="dosentetap"> Nama Dosen :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="nama_dosen" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="nama_dosen" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required> ucwords()
                 </div>
                 <label for="dosentetap"> NIDN / NIDK :</label>
                 <div class="input-group input-group-sm mb-3">

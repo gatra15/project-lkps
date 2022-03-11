@@ -34,8 +34,16 @@
                 </ul></td>
                 </tr>
             @endforeach
-        </tbody>
-
         
+
+        <tr>
+            <td class="text-center" colspan="2"> <b> Total </b> </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+    </tbody>
     </table> 
 </div>

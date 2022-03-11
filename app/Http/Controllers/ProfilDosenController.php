@@ -19,6 +19,7 @@ class ProfilDosenController extends Controller
         $dosenta = SdmDosenPembimbingTa::all();
         $dosentidaktetap = SdmDosenTidakTetap::all();
         $dosenewmp = SdmEkuivalenWaktuMengajarPenuhDosenTetap::all();
+
         return view('tab.profildosentab.profilDosen', [
             'title' => 'Profil Dosen',
             'dosen' => $dosen,
@@ -45,8 +46,6 @@ class ProfilDosenController extends Controller
             'mata_kuliah_diampu_ps_lain' => 'required',
         ]);
 
-        $data = $req->session()->all();
-        dd($data);
         $dosen = new SdmDosen;
         $dosen->nama_dosen = $req->input('nama_dosen');
         $dosen->nidn_nidk = $req->input('nidn_nidk');

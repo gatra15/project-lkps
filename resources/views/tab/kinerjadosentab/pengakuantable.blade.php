@@ -39,10 +39,7 @@
                 @endforeach 
             <tr>
                 <td colspan="4" class="text-center"><b>Jumlah</b></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td colspan="5" class="text-center">{{-- database jumlah here --}}</td>
             </tr>
             
     </table> 

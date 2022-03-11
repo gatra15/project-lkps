@@ -1,3 +1,4 @@
+@extends('layouts.table')
 <style>
     
 th {
@@ -19,10 +20,10 @@ th span {
     
     <tr>
     <th scope="col" class="align-middle text-center" rowspan="2">No</th>
-    <th scope="col" class="align-middle text-center" rowspan="2">Semester</th>
+    <th scope="col" class="align-middle text-center" rowspan="2"> <span> Semester</span></th>
     <th scope="col" class="align-middle text-center" rowspan="2">Kode <br> Mata <br> Kuliah</th>
     <th scope="col" class="align-middle text-center" rowspan="2">Nama <br> Mata <br> Kuliah</th>
-    <th scope="col" rowspan="2"><span>Mata Kuliah Kompetensi <sup>1)</sup></span></th>
+    <th scope="col" class="align-middle text-center" rowspan="2">Mata Kuliah <br> Kompetensi <sup>1)</sup></th>
     <th scope="col" class="align-middle text-center" colspan="3">Bukti Kredit <br> (sks)</th>
     <th scope="col" rowspan="2"><span>Konversi Kredit ke Jam <sup>2)</sup></span></th>
     <th scope="col" class="align-middle text-center" colspan="4">Bukti Kredit <br> (sks)</th>
@@ -67,8 +68,20 @@ th span {
                     <a type="button" class="btn btn-danger" href="/pendidikan/{{ $kurikulum->id }}" data-toggle="modal" data-target="#modalkurikulumdelete-{{ $kurikulum->id }}"><i class="fas fa-trash btn-del"></i></a></li>
             </ul></td>
         </tr>
+        </tbody>
         @endforeach
-    </tbody>
+        <thead>
+        <tr>
+        <th class="putih align-middle text-center" colspan="4"><b>Jumlah </b></th>
+        <th class="putih align-middle text-center"></th>
+        <th class="putih align-middle text-center"></th>
+        <th class="putih align-middle text-center"></th>
+        <th class="putih align-middle text-center"></th>
+        <th class="putih align-middle text-center"></th>
+        <th colspan="7"></th>
+        </tr>
+        </thead>
+    
     </table> 
 </div>
 

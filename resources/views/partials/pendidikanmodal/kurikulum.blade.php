@@ -8,8 +8,22 @@
                 
                 {{-- coding modal insert --}}
                 <label for="kurikulum"> Semester :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="semester" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                <div class="input-group mb-3">
+                    <select class="custom-select" name="semester" id="inputGroupSelect01" >
+                        <option selected>pilih...</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
                 </div>
                 <label for="kurikulum"> Kode Mata Kuliah :</label>
                 <div class="input-group input-group-sm mb-3">
