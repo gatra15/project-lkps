@@ -67,4 +67,11 @@ tr td {
   align-content: center;
   text-align: center;
 }
+
+tr td.bold {
+  border:solid black;
+}
+tbody tr td.bold {
+  border:solid black;
+}
 </style>
