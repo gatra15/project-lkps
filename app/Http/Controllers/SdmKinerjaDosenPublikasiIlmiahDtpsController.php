@@ -18,7 +18,18 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
      */
     public function index()
     {
-        //
+        $publikasi = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->get();
+        $jumlah_ts2 = SdmKinerjaDosenPublikasiIlmiahDtps::sum('jumlah_ts2');
+        $jumlah_ts1 = SdmKinerjaDosenPublikasiIlmiahDtps::sum('jumlah_ts1');
+        $jumlah_ts = SdmKinerjaDosenPublikasiIlmiahDtps::sum('jumlah_ts');
+        $jumlah = SdmKinerjaDosenPublikasiIlmiahDtps::sum('jumlah');
+        return [
+            'publikasi' => $publikasi,
+            'jumlah_ts2' => $jumlah_ts2,
+            'jumlah_ts1' => $jumlah_ts1,
+            'jumlah_ts' => $jumlah_ts,
+            'jumlah' => $jumlah
+        ];
     }
 
     /**
@@ -44,7 +55,6 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
             'jumlah_ts2' => 'required',
             'jumlah_ts1' => 'required',
             'jumlah_ts' => 'required',
-            'jumlah' => 'required',
         ]);
 
         $pengakuan = new SdmKinerjaDosenPublikasiIlmiahDtps;
@@ -52,7 +62,7 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
         $pengakuan->jumlah_ts2 = $req->input('jumlah_ts2');
         $pengakuan->jumlah_ts1 = $req->input('jumlah_ts1');
         $pengakuan->jumlah_ts = $req->input('jumlah_ts');
-        $pengakuan->jumlah = $req->input('jumlah');
+        $pengakuan->jumlah = $req->jumlah_ts + $req->jumlah_ts1 + $req->jumlah_ts2;
         $pengakuan->tahun_laporan = '2022';
         $pengakuan->prodi = auth()->user()->prodi;
         $pengakuan->created_by = auth()->user()->name;
@@ -97,7 +107,6 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
             'jumlah_ts2' => 'required',
             'jumlah_ts1' => 'required',
             'jumlah_ts' => 'required',
-            'jumlah' => 'required',
         ]);
 
         $data = SdmKinerjaDosenPublikasiIlmiahDtps::find($id);
@@ -105,8 +114,8 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
         $data->jumlah_ts2 = $req->input('jumlah_ts2');
         $data->jumlah_ts1 = $req->input('jumlah_ts1');
         $data->jumlah_ts = $req->input('jumlah_ts');
-        $data->jumlah = $req->input('jumlah');
-        $data->tahun_laporan = '2022';
+        $data->jumlah = $req->jumlah_ts + $req->jumlah_ts + $req->jumlah_ts;
+        $data->tahun_laporan = 2022;
         $data->prodi = auth()->user()->prodi;
         $data->created_by = auth()->user()->name;
         $data->updated_at = Carbon::now();
@@ -128,7 +137,6 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
         $data->jumlah_ts1 = null;
         $data->jumlah_ts = null;
         $data->jumlah = null;
-        $data->tahun_laporan = '2022';
         $data->update();
         return back()->with('error', 'Sdm Kinerja Dosen Publikasi Ilmiah Dtps has been deleted.');
     }

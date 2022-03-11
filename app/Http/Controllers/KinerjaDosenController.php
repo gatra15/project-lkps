@@ -23,9 +23,6 @@ class KinerjaDosenController extends Controller
     public function index()
     {
         $pengakuan = SdmKinerjaDosenPengakuanDtps::all();
-        $karyailmiah = SdmKinerjaDosenKaryaIlmiahDtps::all();
-        $pkm = SdmKinerjaDosenPkmDtps::with('sumber_detail')->get();
-        $publikasi = SdmKinerjaDosenPublikasiIlmiahDtps::all();
         $luaran = SdmKinerjaDosenLuaranPkmDtps::all();
         $sumberdaya = Sumberdaya::all();
         $mediapublikasi = MediaPublikasi::all();
@@ -36,14 +33,22 @@ class KinerjaDosenController extends Controller
         $countInternasional = SdmKinerjaDosenPengakuanDtps::where('tingkat', 'Internasional')->count();
         $sumPengakuan = $countWilayah + $countNasional + $countInternasional;
 
-        $penelitianController = (new SdmKinerjaDosenPenelitianDtpsController)->index();
+        // penelitian
+        $penelitian = (new SdmKinerjaDosenPenelitianDtpsController)->index();
+        // pkm
+        $pkms = (new SdmKinerjaDosenPkmDtpsController)->index();
+        // publikasi
+        $publikasi = (new SdmKinerjaDosenPublikasiIlmiahDtpsController)->index();
+        // karya ilmiah
+        $karyailmiah = (new SdmKinerjaDosenKaryaIlmiahDtpsController)->index();
+
 
         return view('tab.kinerjadosentab.kinerjaDosen', [
             'title' => 'Kinerja Dosen',
             'pengakuan' => $pengakuan,
             'karyailmiah' => $karyailmiah,
-            'penelitians' => $penelitianController,
-            'pkm' => $pkm,
+            'penelitians' => $penelitian,
+            'pkms' => $pkms,
             'publikasi' => $publikasi,
             'luaran' => $luaran,
             'sumberdaya' => $sumberdaya,

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Sumberdaya;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\SdmKinerjaDosenPkmDtps;
 use App\Exports\KinerjaDosenPkmDtpsExport;
@@ -18,7 +19,18 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
      */
     public function index()
     {
-        //
+        $pkm = SdmKinerjaDosenPkmDtps::with('sumber_detail')->get();
+        $jumlah_ts2 = SdmKinerjaDosenPkmDtps::sum('jumlah_ts2');
+        $jumlah_ts1 = SdmKinerjaDosenPkmDtps::sum('jumlah_ts1');
+        $jumlah_ts = SdmKinerjaDosenPkmDtps::sum('jumlah_ts');
+        $jumlah = SdmKinerjaDosenPkmDtps::sum('jumlah');
+        return [
+            'pkm' => $pkm,
+            'jumlah_ts2' => $jumlah_ts2,
+            'jumlah_ts1' => $jumlah_ts1,
+            'jumlah_ts' => $jumlah_ts,
+            'jumlah' => $jumlah
+        ];
     }
 
     /**
@@ -92,20 +104,21 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $connection = 'mysql';
         $this->validate($req, [
             'sumber_id' => 'required',
             'jumlah_ts2' => 'required',
             'jumlah_ts1' => 'required',
             'jumlah_ts' => 'required',
-            'jumlah' => 'required',
         ]);
 
+        try {
         $pkm = SdmKinerjaDosenPkmDtps::find($id);
         $pkm->sumber_id = $req->input('sumber_id');
-        $pkm->jumlah_ts2 = $req->input('jumlah_ts2');
-        $pkm->jumlah_ts1 = $req->input('jumlah_ts1');
-        $pkm->jumlah_ts = $req->input('jumlah_ts');
-        $pkm->jumlah = $req->input('jumlah');
+        $pkm->jumlah_ts2 = (int) $req->input('jumlah_ts2');
+        $pkm->jumlah_ts1 = (int) $req->input('jumlah_ts1');
+        $pkm->jumlah_ts = (int) $req->input('jumlah_ts');
+        $pkm->jumlah = $req->jumlah_ts + $req->jumlah_ts1 + $req->jumlah_ts2;
         $pkm->tahun_laporan = '2022';
         $pkm->prodi = auth()->user()->prodi;
         $pkm->created_by = auth()->user()->name;
@@ -113,6 +126,13 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
         $pkm->update();
 
         return back()->with('success', 'Sdm Kinerja Dosen Pkm Dtps has been updated.');
+        } catch(\Exception $ex) {
+            DB::connection($connection)->rollBack();
+            return response()->json(['message' => $ex->getMessage()], 500);
+        } catch(\Throwable $ex) {
+            DB::connection($connection)->rollBack();
+            return response(['message' => $ex->getMessage()],500);
+        }
     }
 
     /**

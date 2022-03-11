@@ -17,7 +17,7 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -50,7 +50,7 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
         $integrasi->nama_dosen = $req->input('nama_dosen');
         $integrasi->mata_kuliah = $req->input('mata_kuliah');
         $integrasi->bentuk_integrasi = $req->input('bentuk_integrasi');
-        $integrasi->tahun_laporan = '2022';
+        $integrasi->tahun_laporan = 2022;
         $integrasi->prodi = auth()->user()->prodi;
         $integrasi->created_by = auth()->user()->name;
         $integrasi->created_at = Carbon::now();

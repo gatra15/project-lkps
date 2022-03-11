@@ -17,7 +17,7 @@
 
         </thead>
         <tbody>
-            @foreach ($publikasi as $publikasis)
+            @foreach ($publikasi['publikasi'] as $publikasis)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>@php
@@ -35,6 +35,13 @@
                 </tr>
             @endforeach
         </tbody>
+        <tr>
+            <td colspan="2" class="text-center"><b>Jumlah</b></td>
+            <td>{{ $publikasi['jumlah_ts2'] }}</td>
+            <td>{{ $publikasi['jumlah_ts1'] }}</td>
+            <td>{{ $publikasi['jumlah_ts'] }}</td>
+            <td>{{ $publikasi['jumlah'] }}</td>
+        </tr>
 
         
     </table> 

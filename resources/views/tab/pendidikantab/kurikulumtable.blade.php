@@ -43,7 +43,7 @@ th span {
     </thead>
     
     <tbody>
-        @foreach ($kurikulum as $kurikulum)
+        @foreach ($kurikulum['kurikulum'] as $kurikulum)
         <tr>
             
             <td>{{ $loop->iteration }}</td>

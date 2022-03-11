@@ -15,7 +15,7 @@ class PendidikanController extends Controller
 {
     public function index()
     {
-        $kurikulum = PendidikanKurikulum::all();
+        $kurikulum = (new PendidikanKurikulumController)->index();
         $integrasi = PendidikanIntegrasiKegiatanPenelitian::all();
         $kepuasanmahasiswa = PendidikanKepuasanMahasiswa::with('aspek')->get();
         $aspek = Aspek::all();
