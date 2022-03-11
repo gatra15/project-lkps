@@ -1,5 +1,4 @@
-
-<div class="tab-pane fade show active" id="pendidikan" role="tabpanel" aria-labelledby="pendidikan-tab">
+<div class="tab-pane fade show active" id="pendidikan" role="tabpanel" aria-labelledby="pendidikan-tab" >
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#des1" role="button" aria-expanded="false" aria-controls="des1">
             Deskripsi
@@ -10,11 +9,22 @@
     </p>
     <a href="{{ url('tata-pamong/download-excel') }}" class="btn btn-success">Excel</a>
     <a href="{{ url('tata-pamong/download-csv') }}" class="btn btn-success">CSV</a>
-    <a class="btn btn-primary" href="{{'tata-pamong/download-pdf'}}">Download PDF</a>
+    <input type="button" class="btn btn-primary" onclick="printDiv('print-table')" value="Print Document" />
     <div class="collapse" id="des1">
         <div class="card card-body">
             <p>
-                Tuliskan data Dosen Tetap Perguruan Tinggi yang ditugaskan sebagai pengampu mata kuliah di Program Studi yang Diakreditasi (DTPS) pada saat TS dengan mengikuti format Tabel 3.a.1) berikut ini
+            Tuliskan kerjasama tridharma di Unit Pengelola Program Studi (UPPS) dalam 3 tahun
+            terakhir dengan mengikuti format berikut ini. <br> <br>
+
+            <b>Keterangan :</b> <br>
+            1) Beri tanda V pada kolom yang sesuai. <br>
+            2) Diisi dengan judul kegiatan kerjasama yang sudah terimplementasikan, melibatkan
+            sumber daya dan memberikan manfaat bagi Program Studi yang diakreditasi. <br>
+            3) Bukti kerjasama dapat berupa Surat Penugasan, Surat Perjanjian Kerjasama (SPK),
+            bukti-bukti pelaksanaan (laporan, hasil kerjasama, luaran kerjasama), atau bukti lain
+            yang relevan. Dokumen Memorandum of Understanding (MoU), Memorandum of
+            Agreement (MoA), atau dokumen sejenis yang memayungi pelaksanaan kerjasama,
+            tidak dapat dijadikan bukti realisasi kerjasama. <br>
             </p>
         </div> 
     </div>
@@ -73,3 +83,5 @@
 </div>
         @endforeach
 </div>
+</body>
+@include('layouts.table')

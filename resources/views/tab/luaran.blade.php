@@ -45,6 +45,12 @@
             <li class="nav-item">
               <a class="nav-link" id="luaran-tab" data-toggle="tab" href="#luaran" role="tab" aria-controls="luaran" aria-selected="false">Luaran Penelitian dan PkM Mahasiswa</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" id="kesesuaian-tab" data-toggle="tab" href="#kesesuaian" role="tab" aria-controls="kesesuaian" aria-selected="false">Kesesuaian Bidang Kerja Lulusan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="kepuasan-tab" data-toggle="tab" href="#kepuasan" role="tab" aria-controls="kepuasan" aria-selected="false">Kepuasan Pengguna</a>
+            </li>
         </ul>
     </div>
 
@@ -76,6 +82,14 @@
                 {{-- LUARAN  AWAL --}}
                     @include('tab.luarantab.luaran')
                 {{-- LUARAN AKHIR --}}
+
+                {{-- KESESUAIAN AWAL --}}
+                    @include('tab.luarantab.kesesuaian')
+                {{-- KESESUAIAN AKHIR --}}
+
+                {{-- KESESUAIAN AWAL --}}
+                    @include('tab.luarantab.kepuasan')
+                {{-- KESESUAIAN AKHIR --}}
 
                 
                 

@@ -1,40 +1,39 @@
-<div class="tab-pane fade" id="efektifitas" role="tabpanel" aria-labelledby="efektifitas-tab">
+<div class="tab-pane fade" id="kesesuaian" role="tabpanel" aria-labelledby="kesesuaian-tab">
     <p class="d-flex justify-content-between">
-        <a class="btn btn-primary" data-toggle="collapse" href="#des3" role="button" aria-expanded="false" aria-controls="des3">
+        <a class="btn btn-primary" data-toggle="collapse" href="#des6" role="button" aria-expanded="false" aria-controls="des6">
             Deskripsi
         </a>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalefek">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
             Tambah data
         </button>
     </p>
-    <div class="collapse" id="des3">
+    <div class="collapse" id="des6">
         <div class="card card-body">
             <p>
-                Tuliskan masa studi lulusan untuk dengan mengikuti format Tabel berikut ini. <br> <br>
-                <b>Keterangan: </b> <br>
-                1) Tidak termasuk mahasiswa transfer. <br>
-                TS = Tahun akademik penuh terakhir. <br>
+                Tuliskan jumlah publikasi ilmiah mahasiswa, yang dihasilkan secara mandiri atau
+                bersama DTPS, <b>dalam 3 tahun terakhir</b>  dengan mengikuti format Tabel berikut
+                ini. Judul publikasi harus relevan dengan bidang program studi.
+
             </p>
         </div> 
     </div>
-
-     <!-- Modal Tambah Data Efektivitas -->
-     <div class="modal fade" id="modalefek" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+    <!-- Modal Tambah Data Luaran -->
+    <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalefek">Tambah Data Efektivitas </h5>
+            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            @include('partials.luarancapaianmodal.efektivitas')
+            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
         </div>
         </div>
         </div>
 
         {{-- foreach --}}
-      <!-- Modal Tambah Edit Efektivitas -->
+      <!-- Modal Tambah Edit Luaran -->
       <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -49,7 +48,7 @@
         </div>
         </div>
 
-      <!-- Modal Tambah Delete Efektivitas -->
+      <!-- Modal Tambah Delete Luaran -->
       <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -63,9 +62,6 @@
         </div>
         </div>
         </div>
-        {{-- endforeach --}}
-        {{-- PRESTASI AWAL --}}
-        @include('tab.luarantab.efektivitastable')
-        {{-- PRESTASI AKHIR --}}
 
+    @include('tab.luarantab.kesesuaiantable')
 </div>

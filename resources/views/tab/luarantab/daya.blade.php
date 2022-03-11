@@ -3,7 +3,7 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#des4" role="button" aria-expanded="false" aria-controls="des4">
             Deskripsi
         </a>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaldaya">
             Tambah data
         </button>
     </p>
@@ -18,16 +18,16 @@
     </div>
 
     <!-- Modal Tambah Data Daya -->
-    <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+    <div class="modal fade" id="modaldaya" tabindex="-1" aria-labelledby="modaldaya" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modaldaya">Tambah Data Dosen Industri </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.luarancapaianmodal.daya')
         </div>
         </div>
         </div>

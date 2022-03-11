@@ -7,31 +7,33 @@
                
                 {{-- MASUK KE TABEL SDM DOSENS --}}
 
-                <label for="pengkuan"> Nama Dosen :</label>
+                <label for="pengkuan"> Tahun Lulus :</label>
                 <div class="input-group input-group-sm mb-3">
                     <input type="text" name="nama" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
-                <label for="pengkuan"> Bidang Keahlian :</label>
+                <label for="pengkuan"> Jumlah Lulusan :</label>
                 <div class="input-group input-group-sm mb-3">
                     <input type="text" name="bidang_keahlian" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
-                <label for="pengkuan"> Rekognisi dan Bukti Pendukung :</label>
+                <label for="pengkuan"> Jumlah Lulusan yang Terlacak :</label>
                 <div class="input-group input-group-sm mb-3">
                     <input type="text" name="bukti_pendukung" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
-                <label for="pengkuan"> Tingkat :</label>
-                <div class="input-group mb-3">
-                    <select class="custom-select" name="tingkat" id="inputGroupSelect01">
-                        <option selected>pilih...</option>
-                        <option value="Wilayah">Wilayah</option>
-                        <option value="Nasional">Nasional</option>
-                        <option value="Internasional">Internsional</option>
-                    </select>
-                </div>
-                <label for="pengkuan"> Tahun:</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="tahun" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
+                <label for="pengkuan"> Jumlah Lulusan Terlacak dengan Waktu Tunggu Mendapatkan Pekerjaan : </label>
+                <div class="form-row justify-content-center">
+                    <div class="form-group col-md-4 align-middle">
+                      <label for="#">WT < 6 bulan</label>
+                      <input type="text" class="form-control form-control-sm mb-3" name="mahasiswa_aktif_ts_2" id="#" >
+                    </div>
+                    <div class="form-group col-md-4 align-middle">
+                      <label for="#">6 ≤ WT ≤ 18 bulan</label>
+                      <input type="text" class="form-control form-control-sm mb-3" name="mahasiswa_aktif_ts_1" id="#">
+                    </div>
+                    <div class="form-group col-md-4 align-middle">
+                      <label for="#">WT > 18 bulan</label>
+                      <input type="text" class="form-control form-control-sm mb-3" name="mahasiswa_aktif_ts" id="#">
+                    </div>
+                  </div>
                 
                 
 
