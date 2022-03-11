@@ -6,9 +6,9 @@
             <div class="row">
             
                 {{-- coding modal insert --}}
-                <label for="lembaga"> Tridharma :</label>
+                <label for="lembaga"> Tema :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="tridharma" value="Pendidikan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly>
+                    <input type="text" name="tridharma" value="{{ $indikator->tridharma }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly>
                 </div>
                 <label for="lembaga"> Lembaga Mitra :</label>
                 <div class="input-group input-group-sm mb-3">

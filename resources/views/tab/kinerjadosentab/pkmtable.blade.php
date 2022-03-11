@@ -36,6 +36,14 @@
                 </tr>
 
                 @endforeach
+            
+                <tr>
+                    <td colspan="2" class="text-center"> <b>Total</b> </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
         
                 <tr>
                     <td colspan="2" class="text-center"><b>Jumlah</b></td>

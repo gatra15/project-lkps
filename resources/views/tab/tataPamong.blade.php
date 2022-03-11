@@ -30,13 +30,7 @@
             <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                      <a class="nav-link active" id="pendidikan-tab" data-toggle="tab" href="#pendidikan" role="tab" aria-controls="pendidikan" aria-selected="true">Pendidikan</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="penelitian-tab" data-toggle="tab" href="#penelitian" role="tab" aria-controls="penelitian" aria-selected="false">Penelitian</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="pkm-tab" data-toggle="tab" href="#pkm" role="tab" aria-controls="pkm" aria-selected="false">Pengabdian Kepada Masyarakat</a>
+                      <a class="nav-link active" id="tatapamong-tab" data-toggle="tab" href="#tatapamong" role="tab" aria-controls="tatapamong" aria-selected="true">Tata Pamong Kerjasama </a>
                     </li>
                 </ul>
             </div>
@@ -48,17 +42,8 @@
                     <div class="tab-content" id="myTabContent">
 
                         {{-- TATA PAMONG AWAL --}}
-                        @include('tab.tatapamongtab.pendidikan')
+                        @include('tab.tatapamongtab.tatapamong')
                         {{-- TATA PAMONG AKHIR  --}}
-
-                        {{-- Tab --}}
-                        @include('tab.tatapamongtab.penelitian')
-                        {{-- End Tab --}}
-
-
-                        {{-- Tab --}}
-                        @include('tab.tatapamongtab.pkm')
-                        {{-- End Tab --}}
                         
                     </div>
                 </div>

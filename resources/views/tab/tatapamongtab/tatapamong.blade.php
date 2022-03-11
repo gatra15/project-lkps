@@ -24,7 +24,7 @@
 <div class="modal-dialog modal-lg">
 <div class="modal-content">
 <div class="modal-header">
-<h5 class="modal-title" id="exampleModalLabel">Tambah Data Pendidikan</h5>
+<h5 class="modal-title" id="exampleModalLabel">Tambah Data Tata Pamong Kerjasama</h5>
 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
 </button>
@@ -34,14 +34,18 @@
 </div>
 </div>
 
-@foreach ($kerjasama as $indikator)
+    {{-- CONTENT --}}
+    @include('tab.tatapamongtab.tatapamongtable')
+    {{-- End Content --}}
+    
+    @foreach ($kerjasama as $indikator)
 
 <!-- Modal Edit Data Pendidikan -->
 <div class="modal fade" id="modalpendidikanedit-{{ $indikator->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pendidikan</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Data {{ $indikator->tridharma }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -57,7 +61,7 @@
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Yakin?</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Hapus Data {{ $indikator->tridharma }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -67,11 +71,5 @@
     </div>
     </div>
 </div>
-@endforeach
-
-
-    {{-- CONTENT --}}
-    @include('tab.tatapamongtab.pendidikantable')
-    {{-- End Content --}}
-    
+        @endforeach
 </div>

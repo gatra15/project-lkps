@@ -2,7 +2,7 @@
     <div class="modal-body">
         @csrf
         @method('get')
-        <h5 class="text-center">Yakin Ingin Delete {{ $indikator->tridharma }} dengan lembaga {{ $indikator->lembaga_mitra }}? </h5>
+        <h5 class="text-center">Yakin Ingin Delete Lembaga {{ $indikator->lembaga_mitra }}? </h5>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

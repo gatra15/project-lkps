@@ -12,13 +12,20 @@
     <div class="collapse" id="collapseExample">
         <div class="card card-body">
             <p>
-                Tuliskan data daya tampung, jumlah calon mahasiswa (pendaftar dan peserta yang lulus 
-                seleksi), jumlah mahasiswa baru (reguler dan transfer) dan jumlah mahasiswa aktif 
-                (reguler dan transfer) dalam 5 tahun terakhir di Program Studi yang diakreditasi dengan 
-                mengikuti format Tabel 2.a berikut ini.
-            </p>
-            Keterangan: <br>
-            TS = Tahun akademik penuh terakhir saat pengajuan usulan akreditasi.
+                Tuliskan data daya tampung, jumlah calon mahasiswa (pendaftar dan peserta yang lulus
+                seleksi), jumlah mahasiswa baru (reguler dan transfer) dan jumlah mahasiswa aktif
+                (reguler dan transfer) <b>dalam 5 tahun terakhir</b>  di Program Studi yang diakreditasi dengan
+                mengikuti format berikut ini. <br> <br>
+            
+                <b>Keterangan</b> <br>
+                TS = Tahun akademik penuh terakhir saat pengajuan usulan akreditasi. <br>
+                N<sub>A</sub> = Jumlah calon mahasiswa pendaftar <br>
+                N<sub>B</sub> = Jumlah calon mahasiswa lulus seleksi <br>
+                N<sub>C</sub> = Jumlah mahasiswa baru reguler <br>
+                N<sub>D</sub> = Jumlah mahasiswa baru transfer <br>
+                N<sub>M</sub> = Jumlah mahasiswa aktif reguler + mahasiswa aktif transfer <br>
+
+        </p>
         </div> 
     </div>
 

@@ -26,7 +26,7 @@
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosentetap') --}}
+            @include('partials.kinerjadosenmodal.luaran')
         </div>
         </div>
     </div>
@@ -35,31 +35,31 @@
 @include('tab.kinerjadosentab.luarantable')
 
     <!-- Modal Edit Data Luaran DTPS -->
-    <div class="modal fade" id="modaldosenluaran" tabindex="-1" aria-labelledby="modaldosenluaran" aria-hidden="true">
+    <div class="modal fade" id="modaldosenluaranedit" tabindex="-1" aria-labelledby="modaldosenluaranedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenluaran">Tambah Data Dosen Tetap</h5>
+            <h5 class="modal-title" id="modaldosenluaranedit">Tambah Data Dosen Tetap</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosentetap') --}}
+            @include('partials.kinerjadosenmodal.luaranedit')
         </div>
         </div>
     </div>
 
     <!-- Modal Delete Data Luaran DTPS -->
-    <div class="modal fade" id="modaldosenluaran" tabindex="-1" aria-labelledby="modaldosenluaran" aria-hidden="true">
+    <div class="modal fade" id="modaldosenluarandelete" tabindex="-1" aria-labelledby="modaldosenluarandelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenluaran">Tambah Data Dosen Tetap</h5>
+            <h5 class="modal-title" id="modaldosenluarandelete">Tambah Data Dosen Tetap</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosentetap') --}}
+            @include('partials.kinerjadosenmodal.luarandelete')
         </div>
         </div>
     </div>

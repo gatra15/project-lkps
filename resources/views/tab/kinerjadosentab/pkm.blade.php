@@ -12,8 +12,10 @@
     </p>
     <a href="/kinerja-dosen/karya-ilmiah/download/excel" class="btn btn-success">Excel</a>
     <a href="/kinerja-dosen/karya-ilmiah/download/csv" class="btn btn-success">CSV</a>
+    
     <!-- Modal Tambah PKM DTPS -->
-    <div class="modal fade" id="modaldosentetap" tabindex="-1" aria-labelledby="modaldosentetap" aria-hidden="true">
+
+    {{-- <div class="modal fade" id="modaldosentetap" tabindex="-1" aria-labelledby="modaldosentetap" aria-hidden="true">
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
@@ -25,7 +27,7 @@
         @include('partials.kinerjadosenmodal.pkm')
     </div>
     </div>
-    </div>
+    </div> --}}
     
     <div class="collapse" id="des3">
         <div class="card card-body">

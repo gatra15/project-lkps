@@ -39,7 +39,15 @@
             </ul></td>
         </tr>
     @endforeach
-    
+        
+        <tr>
+            <td class="align-middle text-center" colspan="2"><b>Jumlah</b></td>
+            <td class="align-middle text-center"><b>N<sub>A</sub> =</b></td>
+            <td class="align-middle text-center"><b>N<sub>B</sub> =</b></td>
+            <td class="align-middle text-center"><b>N<sub>C</sub> =</b></td>
+            <td class="align-middle text-center"><b>N<sub>D</sub> =</b></td>
+            <td class="align-middle text-center" colspan="2"><b>N<sub>M</sub> =</b></td>
+        </tr>
     
     </tbody>
     </table> 

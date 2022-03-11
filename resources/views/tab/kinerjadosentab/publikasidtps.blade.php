@@ -17,7 +17,7 @@
     </div> 
 </div>
 
-    <!-- Modal Tambah Data Publikasi DTPS -->
+    {{-- <!-- Modal Tambah Data Publikasi DTPS -->
     <div class="modal fade" id="modalpublikasi" tabindex="-1" aria-labelledby="modalpublikasi" aria-hidden="true">
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -30,7 +30,7 @@
         @include('partials.kinerjadosenmodal.publikasi')
     </div>
     </div>
-    </div>
+    </div> --}}
 
 {{-- TABLE HERE --}}
 @include('tab.kinerjadosentab.publikasitable')

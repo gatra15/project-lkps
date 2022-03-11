@@ -7,9 +7,14 @@
                
                 
                 {{-- coding modal insert --}}
-                <label for="lembaga"> Tridharma :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="tridharma" value="Pendidikan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly>
+                <label for="lembaga"> Tema :</label>
+                <div class="input-group mb-3">
+                    <select class="custom-select" name="tridharma" id="inputGroupSelect01" required>
+                        <option selected>pilih...</option>
+                        <option value="Pendidikan">Pendidikan</option>
+                        <option value="Penelitian">Penelitian</option>
+                        <option value="Pengabdian Kepada Masyarakat">Pengabdian Kepada Masyarakat</option>
+                    </select>
                 </div>
                 <label for="lembaga"> Lembaga Mitra :</label>
                 <div class="input-group input-group-sm mb-3">

@@ -4,9 +4,9 @@
         <tr>
             <th class="align-middle" scope="col" rowspan="2">No</th>
             <th class="align-middle" scope="col" rowspan="2">Program Studi</th>
-            <th scope="col" colspan="3">Jumlah Mahasiswa Aktif</th>
-            <th scope="col" colspan="3" >Jumlah Mahasiswa Asing Penuh Waktu(Full-time)</th>
-            <th scope="col" colspan="3">Jumlah Mahasiswa Asing Paruh Waktu(Part-time)</th>  
+            <th class="align-middle" scope="col" colspan="3">Jumlah Mahasiswa <br> Aktif</th>
+            <th class="align-middle" scope="col" colspan="3" >Jumlah Mahasiswa <br> Asing Penuh <br> Waktu(Full-time)</th>
+            <th class="align-middle" scope="col" colspan="3">Jumlah Mahasiswa <br> Asing Paruh <br> Waktu(Part-time)</th>  
             <th class="align-middle" scope="col" rowspan="2">Opsi</th>
         </tr>
         <tr>
@@ -44,5 +44,18 @@
             </ul></td>
         </tr>
     @endforeach
+     <tr>
+         <td class="align-middle text-center" colspan="2"><b>Jumlah</b></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td></td>
+     </tr>
+    </tbody>
     </table> 
 </div>
