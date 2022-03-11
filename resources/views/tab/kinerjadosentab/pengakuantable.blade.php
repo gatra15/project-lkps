@@ -39,10 +39,10 @@
                 @endforeach 
             <tr>
                 <td colspan="4" class="text-center"><b>Jumlah</b></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{ $countWilayah }}</td>
+                <td>{{ $countNasional }}</td>
+                <td>{{ $countInternasional }}</td>
+                <td>{{ $sumPengakuan }}</td>
             </tr>
             
     </table> 

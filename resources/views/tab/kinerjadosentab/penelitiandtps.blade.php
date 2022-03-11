@@ -46,8 +46,10 @@
 {{-- TABLE HERE --}}
 @include('tab.kinerjadosentab.penelitiantable')
 
-
-@foreach ($penelitians as $penelitian)
+ @php
+    
+ @endphp
+{{-- @foreach ($penelitians as $penelitian)
     <!-- Modal Edit Data Penelitian DTPS -->
     <div class="modal fade" id="modaldosenpenelitianedit-{{ $penelitian->id }}" tabindex="-1" aria-labelledby="modaldosenpenelitianedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -63,6 +65,8 @@
         </div>
         </div>
 
+        {{ dd($penelitian) }}
+
         <!-- Modal Delete Data Penelitian DTPS -->
         <div class="modal fade" id="modalpenelitiandelete-{{ $penelitian->id }}" tabindex="-1" aria-labelledby="modaldosenpenelitiandelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -77,7 +81,7 @@
         </div>
         </div>
         </div>
-@endforeach
+@endforeach --}}
 
 </div>  
 

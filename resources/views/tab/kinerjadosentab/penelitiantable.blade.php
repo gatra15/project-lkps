@@ -21,7 +21,7 @@
 
         <tbody class="text-dark">
             
-            @foreach ($penelitians as $penelitian)
+            @foreach ($penelitians['penelitian'] as $penelitian)
                 <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>@php
@@ -42,10 +42,10 @@
 
             <tr>
                 <td colspan="2" class="text-center"><b>Jumlah</b></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{ $penelitians['jumlah_ts2'] }}</td>
+                <td>{{ $penelitians['jumlah_ts1'] }}</td>
+                <td>{{ $penelitians['jumlah_ts'] }}</td>
+                <td>{{ $penelitians['jumlah'] }}</td>
             </tr>
             
     </table> 
