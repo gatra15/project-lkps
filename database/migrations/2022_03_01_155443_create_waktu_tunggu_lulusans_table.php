@@ -17,16 +17,15 @@ class CreateWaktuTungguLulusansTable extends Migration
             $table->id();
             $table->string('jumlah_lulusan');
             $table->string('jumlah_lulusan_terlacak');
-            $table->string('jumlah_lulusan_dipesan');
-            $table->string('program');
-            $table->string('waktu_tunggu_3_6');
-            $table->string('waktu_tunggu_3_18');
             $table->string('waktu_tunggu_6');
+            $table->string('waktu_tunggu_6_18');
             $table->string('waktu_tunggu_18');
-            $table->string('tahun_laporan');
+            $table->integer('tahun_laporan');
             $table->string('prodi');
-            $table->string('created_by');
-            $table->timestamps();
+            $table->string('created_by')->nullable(true);
+            $table->string('updated_by')->nullable(true);
+            $table->timestamp('created_at')->nullable(true);
+            $table->timestamp('updated_at')->nullable(true);
         });
     }
 

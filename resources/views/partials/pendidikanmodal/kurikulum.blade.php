@@ -53,10 +53,10 @@
                 <div class="input-group input-group-sm mb-3">
                     <input type="text" name="bobot_praktikum" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
-                <label for="kurikulum"> Konversi Kredit ke Jam :</label>
+                {{-- <label for="kurikulum"> Konversi Kredit ke Jam :</label>
                 <div class="input-group input-group-sm mb-3">
                     <input type="text" name="konversi_kredit_jam" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
+                </div> --}}
                 <label for="kurikulum"> Sikap :</label>
                 <div class="input-group mb-3">
                     <select class="custom-select" name="capaian_sikap" id="inputGroupSelect01" >

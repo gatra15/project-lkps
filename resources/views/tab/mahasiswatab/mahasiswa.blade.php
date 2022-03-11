@@ -48,7 +48,7 @@
 @include('tab.mahasiswatab.mahasiswatable')
 {{-- End Table --}}
 
-@foreach ($mahasiswa as $mhs)
+@foreach ($mahasiswa['mahasiswa'] as $mhs)
     <!-- Modal Edit -->
     <div class="modal fade" id="modalmahasiswaedit-{{ $mhs->id }}" tabindex="-1" aria-labelledby="modalmahasiswaedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">

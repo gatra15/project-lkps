@@ -10,8 +10,10 @@ class IdentitasPengusulController extends Controller
 {
     public function index()
     {
+        $identitas = IdentitasPengusul::all();
         return view('tab.identitasPengusul', [
-            'title' => 'Identitas Pengusul'
+            'title' => 'Identitas Pengusul',
+            'identitas' => $identitas,
         ]);
     }
 

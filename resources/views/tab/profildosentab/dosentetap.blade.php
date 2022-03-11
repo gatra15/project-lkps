@@ -53,7 +53,7 @@
   {{-- TABLE HERE --}}
   @include('tab.profildosentab.dosentetaptable')
 
-  @foreach ($dosen as $sdm)    
+  @foreach ($dosen['dosen'] as $sdm)    
   <!-- Modal Edit Data Dosen Tetap -->
   <div class="modal fade" id="modaldosentetapedit-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentetapedit" aria-hidden="true">
     <div class="modal-dialog modal-lg">

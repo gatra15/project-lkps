@@ -16,10 +16,10 @@ class PendidikanKurikulumController extends Controller
     {
         $kurikulum = PendidikanKurikulum::all();
         $makul = PendidikanKurikulum::select('mata_kuliah_kompetensial')->count();
-        $bobot_kuliah = PendidikanKurikulum::select('bobot_kuliah')->count();
-        $bobot_seminar = PendidikanKurikulum::select('bobot_seminar')->count();
-        $bobot_praktikum = PendidikanKurikulum::select('bobot_praktikum')->count();
-        $konversi_kredit_jam = PendidikanKurikulum::select('konversi_kredit_jam')->count();
+        $bobot_kuliah = PendidikanKurikulum::sum('bobot_kuliah');
+        $bobot_seminar = PendidikanKurikulum::sum('bobot_seminar');
+        $bobot_praktikum = PendidikanKurikulum::sum('bobot_praktikum');
+        $konversi_kredit_jam = PendidikanKurikulum::sum('konversi_kredit_jam');
         $sikap = PendidikanKurikulum::where('capaian_sikap', 1)->count();
         $pengetahuan = PendidikanKurikulum::where('capaian_pengetahuan', 1)->count();
         $ketrampilan_umum = PendidikanKurikulum::where('capaian_ketrampilan_umum', 1)->count();

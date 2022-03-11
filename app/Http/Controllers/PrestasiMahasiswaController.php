@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\PrestasiMahasiswa;
+use Illuminate\Support\Facades\DB;
 
 class PrestasiMahasiswaController extends Controller
 {
@@ -15,7 +16,17 @@ class PrestasiMahasiswaController extends Controller
      */
     public function index()
     {
-        //
+        $prestasi = PrestasiMahasiswa::all();
+        $wilayah = PrestasiMahasiswa::where('tingkat', 'Lokal/Wilayah')->count();
+        $nasional = PrestasiMahasiswa::where('tingkat', 'Nasional')->count();
+        $internasional = PrestasiMahasiswa::where('tingkat', 'Internasional')->count();
+
+        return [
+            'prestasi' => $prestasi,
+            'wilayah' => $wilayah,
+            'nasional' => $nasional,
+            'internasional' => $internasional,
+        ];
     }
 
     /**
@@ -36,13 +47,14 @@ class PrestasiMahasiswaController extends Controller
      */
     public function store(Request $req)
     {
+        $connection = 'mysql';
         $this->validate($req, [
             'nama_kegiatan' => 'required',
             'tahun_perolehan' => 'required',
             'tingkat' => 'required',
             'type_prestasi' => 'required',
         ]);
-
+    try{
         $prestasi = new PrestasiMahasiswa;
         $prestasi->nama_kegiatan = $req->input('nama_kegiatan');
         $prestasi->tahun_perolehan = $req->input('tahun_perolehan');
@@ -53,6 +65,14 @@ class PrestasiMahasiswaController extends Controller
         $prestasi->created_by = auth()->user()->name;
         $prestasi->created_at = Carbon::now();
         $prestasi->save();
+
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }    
 
         return back()->with('success', 'Prestasi Mahasiswa has been created.');
     }
@@ -88,13 +108,14 @@ class PrestasiMahasiswaController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $connection = 'mysql';
         $this->validate($req, [
             'nama_kegiatan' => 'required',
             'tahun_perolehan' => 'required',
             'tingkat' => 'required',
             'type_prestasi' => 'required',
         ]);
-
+    try {
         $prestasi = PrestasiMahasiswa::find($id);
         $prestasi->nama_kegiatan = $req->input('nama_kegiatan');
         $prestasi->tahun_perolehan = $req->input('tahun_perolehan');
@@ -107,6 +128,13 @@ class PrestasiMahasiswaController extends Controller
         $prestasi->update();
 
         return back()->with('success', 'Prestasi Mahasiswa has been updated.');
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }    
     }
 
     /**
@@ -117,7 +145,18 @@ class PrestasiMahasiswaController extends Controller
      */
     public function destroy($id)
     {
+    $connection = 'mysql';
+    try{
+
         PrestasiMahasiswa::find($id)->delete();
         return back()->with('error', 'Prestasi Mahasiswa has been deleted.');
+
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }    
     }
 }

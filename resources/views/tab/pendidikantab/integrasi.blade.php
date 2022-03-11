@@ -42,7 +42,7 @@
             @include('tab.pendidikantab.integrasitable')
             {{-- TABLE AKHIR --}}
 
-            @foreach($integrasi as $integrasi)
+            @foreach($integrasi['integrasi'] as $integrasi)
           <!-- Modal Tambah Edit Integritas -->
           <div class="modal fade" id="modalintegrasiedit-{{ $integrasi->id }}" tabindex="-1" aria-labelledby="modalintegrasiedit" aria-hidden="true">
             <div class="modal-dialog modal-lg">

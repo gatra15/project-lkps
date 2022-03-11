@@ -41,7 +41,7 @@
         @include('tab.pendidikantab.kepuasantable')
         {{-- TABLE AKHIR --}}
 
-        @foreach($kepuasanmahasiswa as $kepuasan)
+        @foreach($kepuasanmahasiswa['kepuasan'] as $kepuasan)
       <!-- Modal Tambah Edit Kepuasan -->
       <div class="modal fade" id="modalkepuasanedit-{{ $kepuasan->id }}" tabindex="-1" aria-labelledby="modalkepuasanedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">

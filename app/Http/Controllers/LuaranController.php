@@ -9,10 +9,14 @@ class LuaranController extends Controller
 {
     public function index()
     {
-        $prestasi = PrestasiMahasiswa::all();
+        $prestasi = (new PrestasiMahasiswaController)->index();
+        // capaian
+        $capaianPembelajaran = (new CapaianPembelajaranController)->index();
+
         return view('tab.luaran', [
             'title' => 'Luaran',
             'prestasi' => $prestasi,
+            'capaianPembelajaran' => $capaianPembelajaran,
         ]);
     }
 }

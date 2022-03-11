@@ -21,10 +21,12 @@ class CreateKesesuaianBidangKerjasTable extends Migration
             $table->string('kesesuaian_rendah');
             $table->string('kesesuaian_sedang');
             $table->string('kesesuaian_tinggi');
-            $table->string('tahun_laporan');
+            $table->integer('tahun_laporan');
             $table->string('prodi');
-            $table->string('creted_by');
-            $table->timestamps();
+            $table->string('created_by')->nullable(true);
+            $table->string('updated_by')->nullable(true);
+            $table->timestamp('created_at')->nullable(true);
+            $table->timestamp('updated_at')->nullable(true);
         });
     }
 

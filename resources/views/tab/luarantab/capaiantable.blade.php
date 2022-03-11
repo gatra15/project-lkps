@@ -1,10 +1,12 @@
+@extends('layouts.table')
 <div id="printElement container-fluid">
     <table id='form-print' class="table text-center table-bordered table-condensed">
     <thead>
     <tr>
-    <th class="align-middle" scope="col" rowspan="2">Tahun Lulus</th>
-    <th class="align-middle" scope="col" rowspan="2">Jumlah Lulusan</th>
-    <th scope="col" colspan="3">Indeks Prestasi Kumulatif (IPK)</th>
+        <th class="align-middle" scope="col" rowspan="2">Tahun Lulus</th>
+        <th class="align-middle" scope="col" rowspan="2">Jumlah Lulusan</th>
+        <th scope="col" colspan="3">Indeks Prestasi Kumulatif (IPK)</th>
+        <th class="align-middle" scope="col" rowspan="2">Opsi</th>
     </tr>
     <tr>
     <th scope="col">Min.</th>
@@ -15,26 +17,20 @@
     </thead>
     
     <tbody class="text-dark">
-    <tr>
-    <td>Eko</td>
-    <td>Eko</td>
-    <td>Eko</td>
-    <td>Eko</td>
-    <td>Eko</td>
-    </tr>
-    {{-- @foreach ($mahasiswa_asing as $mhs)
-    <tr>
-        @for ($i = 0; $i < $count; $i++)
-        <td>{{ $i }}</td>
-        @endfor
-       <td>{{ $mhs->daya_tampung }}</td> 
-       <td>{{ $mhs->c_pendaftar }}</td> 
-       <td>{{ $mhs->c_lulus_seleksi }}</td> 
-       <td>{{ $mhs->mahasiswa_reguler }}</td> 
-       <td>{{ $mhs->mahasiswa_transfer }}</td> 
-       <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-       <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-    </tr>
-    @endforeach --}}
+    @foreach ($capaianPembelajaran['capaian'] as $capaian)
+        <tr>
+            <td>{{ $capaian->tahun->name }}</td>
+            <td>{{ $capaian->jumlah_lulusan }}</td>
+            <td>{{ $capaian->ipk_min }}</td>
+            <td>{{ $capaian->ipk_avg }}</td>
+            <td>{{ $capaian->ipk_max }}</td>
+            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalcapaianedit-{{ $capaian->id }}"><i class="fas fa-edit"></i></a></li>
+                <li>
+                    <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/{{ $capaian->id }}" data-toggle="modal" data-target="#modalcapaiandelete-{{ $capaian->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+            </ul></td>
+        </tr>
+    @endforeach
+    </tbody>
     </table> 
     </div>

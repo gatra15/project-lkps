@@ -8,16 +8,17 @@ use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use App\Models\MahasiswaAsing;
 use App\Exports\MahasiswaExport;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 class TabMahasiswaController extends Controller
 {
     public function index()
     {
-        $mahasiswa = Mahasiswa::with('tahun')->get();
-        $mahasiswa_asing = MahasiswaAsing::all();
+        $mahasiswa = (new MahasiswaController)->index();
+        $mahasiswa_asing = (new MahasiswaAsingController)->index();
         $count = Mahasiswa::count();
-        $mahasiswa = Mahasiswa::paginate(5);
+
         
         return view('tab.mahasiswa', [
             'title' => 'Mahasiswa',
@@ -54,37 +55,49 @@ class TabMahasiswaController extends Controller
 
     public function update(Request $req, $id)
     {
+        $connection = 'mysql';
         $this->validate($req, [
-            'tahun_id' => 'required',
-            'daya_tampung' => 'required',
-            'c_pendaftar' => 'required',
-            'c_lulus_seleksi' => 'required',
-            'mahasiswa_reguler' => 'required',
-            'mahasiswa_transfer' => 'required',
-            'mahasiswa_aktif_reguler' => 'required',
-            'mahasiswa_aktif_transfer' => 'required',
+            'tahun_id' => 'required|integer',
+            'daya_tampung' => 'required|integer',
+            'c_pendaftar' => 'required|integer',
+            'c_lulus_seleksi' => 'required|integer',
+            'mahasiswa_reguler' => 'required|integer',
+            'mahasiswa_transfer' => 'required|integer',
+            'mahasiswa_aktif_reguler' => 'required|integer',
+            'mahasiswa_aktif_transfer' => 'required|integer',
         ]);
-
+    try{
         $mahasiswa = Mahasiswa::find($id);
-        $mahasiswa->tahun_id = $req->input('tahun_id');
-        $mahasiswa->daya_tampung = $req->input('daya_tampung');
-        $mahasiswa->c_pendaftar = $req->input('c_pendaftar');
-        $mahasiswa->c_lulus_seleksi = $req->input('c_lulus_seleksi');
-        $mahasiswa->mahasiswa_reguler = $req->input('mahasiswa_reguler');
-        $mahasiswa->mahasiswa_transfer = $req->input('mahasiswa_transfer');
-        $mahasiswa->mahasiswa_aktif_reguler = $req->input('mahasiswa_aktif_reguler');
-        $mahasiswa->mahasiswa_aktif_transfer = $req->input('mahasiswa_aktif_transfer');
-        $mahasiswa->tahun_laporan = '2022';
+        $mahasiswa->tahun_id = (int) $req->input('tahun_id');
+        $mahasiswa->daya_tampung = (int) $req->input('daya_tampung');
+        $mahasiswa->c_pendaftar = (int) $req->input('c_pendaftar');
+        $mahasiswa->c_lulus_seleksi = (int) $req->input('c_lulus_seleksi');
+        $mahasiswa->mahasiswa_reguler = (int) $req->input('mahasiswa_reguler');
+        $mahasiswa->mahasiswa_transfer = (int) $req->input('mahasiswa_transfer');
+        $mahasiswa->mahasiswa_aktif_reguler = (int) $req->input('mahasiswa_aktif_reguler');
+        $mahasiswa->mahasiswa_aktif_transfer = (int) $req->input('mahasiswa_aktif_transfer');
+        $mahasiswa->tahun_laporan = 2022;
         $mahasiswa->prodi = auth()->user()->prodi;
         $mahasiswa->created_by = auth()->user()->name;
-        $mahasiswa->updated_at = Carbon::now();
+        $mahasiswa->created_at = Carbon::now();
         $mahasiswa->update();
 
-        return back()->with('success', 'Data berhasi diedit.');
+        return back()->with('success', 'Data berhasi ditambahkan.');
+
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
     }
 
     public function destroy(Request $req, $id)
     {
+    
+        $connection = 'mysql';
+    try{
         $mahasiswa = Mahasiswa::find($id);
         $mahasiswa->tahun_id = $req->input('tahun_id');
         $mahasiswa->daya_tampung = null;
@@ -94,10 +107,21 @@ class TabMahasiswaController extends Controller
         $mahasiswa->mahasiswa_transfer = null;
         $mahasiswa->mahasiswa_aktif_reguler = null;
         $mahasiswa->mahasiswa_aktif_transfer = null;
+        $mahasiswa->tahun_laporan = 2022;
+        $mahasiswa->prodi = auth()->user()->prodi;
+        $mahasiswa->updated_by = auth()->user()->name;
         $mahasiswa->updated_at = Carbon::now();
         $mahasiswa->update();
 
         return back()->with('error', 'Data berhasil dihapus.');
+
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
     }
 
     public function exportToExcel()

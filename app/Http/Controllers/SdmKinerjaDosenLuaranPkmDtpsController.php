@@ -38,23 +38,24 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
      */
     public function store(Request $req)
     {
-        $this->validate($req, [
-            'type_luaran' => 'required',
-            'judul' => 'required',
-            'tahun' => 'required',
-            'keterangan' => 'required',
-            'jumlah' => 'required',
-        ]);
+        // $this->validate($req, [
+        //     'type_luaran' => 'required',
+        //     'judul' => 'required',
+        //     'tahun' => 'required',
+        //     'keterangan' => 'required',
+        //     'jumlah' => 'required',
+        // ]);
 
         $luaran = new SdmKinerjaDosenLuaranPkmDtps;
         $luaran->type_luaran = $req->input('type_luaran');
         $luaran->judul = $req->input('judul');
         $luaran->tahun = $req->input('tahun');
         $luaran->keterangan = $req->input('keterangan');
-        $luaran->tahun_laporan = '2022';
+        $luaran->tahun_laporan = 2022;
         $luaran->prodi = auth()->user()->prodi;
         $luaran->created_by = auth()->user()->name;
         $luaran->created_at = Carbon::now();
+        dd($luaran);
         $luaran->save();
 
         return back()->with('success', 'Sdm Kinerja Dosen Luaran Pkm Dtps has been created.');

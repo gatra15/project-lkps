@@ -1,4 +1,5 @@
-{{-- <form action="/kinerja-dosen" method="post"> --}}
+<form action="/luaran-capaian-tridharma/capaian/{{ $capaian->id }}" method="post">
+    @method('put')
     @csrf
     <div class="modal-body">
         
@@ -7,31 +8,30 @@
                
                 {{-- MASUK KE TABEL SDM DOSENS --}}
 
-                <label for="pengkuan"> Nama Dosen :</label>
+                <label for="dosentetap"> Tahun Akademik :</label>
+                <p>@php echo $capaian->tahun->name @endphp</p>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="nama" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="hidden" name="tahun_id" value="{{ $capaian->tahun_id }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly>
                 </div>
-                <label for="pengkuan"> Bidang Keahlian :</label>
+                <label for="capaianpembelajaran"> Jumlah Lulusan :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="bidang_keahlian" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="jumlah_lulusan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
-                <label for="pengkuan"> Rekognisi dan Bukti Pendukung :</label>
+                <label for="lembaga" class="fs-6 my-2"> Indeks Prestasi Kumulatif </label>
+                <div class="form-row justify-content-center">
+                    <div class="form-group col-md-6 align-middle">
+                      <label for="#">Min.</label>
+                      <input type="text" class="form-control mb-3" value="{{ $capaian->ipk_min }}" name="ipk_min" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    </div>
+                    <div class="form-group col-md-6 align-middle">
+                      <label for="#">Max.</label>
+                      <input type="text" class="form-control mb-3" value="{{ $capaian->ipk_max }}" name="ipk_max" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    </div>
+                  </div>
+                <label for="capaianpembelajaran"> Rata-rata :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="bukti_pendukung" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
-                <label for="pengkuan"> Tingkat :</label>
-                <div class="input-group mb-3">
-                    <select class="custom-select" name="tingkat" id="inputGroupSelect01">
-                        <option selected>pilih...</option>
-                        <option value="Wilayah">Wilayah</option>
-                        <option value="Nasional">Nasional</option>
-                        <option value="Internasional">Internsional</option>
-                    </select>
-                </div>
-                <label for="pengkuan"> Tahun:</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="tahun" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
+                    <input type="text" name="ipk_avg" value="{{ $capaian->ipk_avg }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                </div>  
                 
                 
 
@@ -43,6 +43,6 @@
     </div>
     <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-    <button type="submit" class="btn btn-primary">Tambah</button>
+    <button type="submit" class="btn btn-primary">Simpan</button>
     </div>
 </form>

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Aspek;
+use App\Models\PendidikanKepuasanMahasiswa;
 use Illuminate\Database\Seeder;
 
 class AspekSeeder extends Seeder
@@ -33,6 +34,32 @@ class AspekSeeder extends Seeder
         Aspek::create([
             'aspek' => 'Tangible: penilaian mahasiswa terhadap kecukupan, aksesibitas, kualitas sarana dan prasarana.',
             'nama' => 'Tangible'
+        ]);
+
+        PendidikanKepuasanMahasiswa::create([
+            'aspek_id' => 1,
+            'tahun_laporan' => 2022,
+            'prodi' => 'Teknik Industri',
+        ]);
+        PendidikanKepuasanMahasiswa::create([
+            'aspek_id' => 2,
+            'tahun_laporan' => 2022,
+            'prodi' => 'Teknik Industri',
+        ]);
+        PendidikanKepuasanMahasiswa::create([
+            'aspek_id' => 3,
+            'tahun_laporan' => 2022,
+            'prodi' => 'Teknik Industri',
+        ]);
+        PendidikanKepuasanMahasiswa::create([
+            'aspek_id' => 4,
+            'tahun_laporan' => 2022,
+            'prodi' => 'Teknik Industri',
+        ]);
+        PendidikanKepuasanMahasiswa::create([
+            'aspek_id' => 5,
+            'tahun_laporan' => 2022,
+            'prodi' => 'Teknik Industri',
         ]);
     }
 }

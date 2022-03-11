@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\PendidikanKepuasanMahasiswa;
 use App\Exports\PendidikanKepuasanMahasiswaExport;
@@ -17,7 +18,19 @@ class PendidikanKepuasanMahasiswaController extends Controller
      */
     public function index()
     {
-        //
+        $kepuasan = PendidikanKepuasanMahasiswa::with('aspek')->get();
+        $sangat_baik = PendidikanKepuasanMahasiswa::sum('sangat_baik');
+        $baik = PendidikanKepuasanMahasiswa::sum('baik');
+        $cukup = PendidikanKepuasanMahasiswa::sum('cukup');
+        $kurang = PendidikanKepuasanMahasiswa::sum('kurang');
+
+        return [
+            'kepuasan' => $kepuasan,
+            'sangat_baik' => $sangat_baik,
+            'baik' => $baik,
+            'cukup' => $cukup,
+            'kurang' => $kurang,
+        ];
     }
 
     /**
@@ -38,10 +51,12 @@ class PendidikanKepuasanMahasiswaController extends Controller
      */
     public function store(Request $req)
     {
+        $connection = 'mysql';
         $this->validate($req, [
             'aspek_id' => 'required',
         ]);
 
+        try{
         $kepuasan = new PendidikanKepuasanMahasiswa;
         $kepuasan->aspek_id = $req->input('aspek_id');
         $kepuasan->sangat_baik = $req->input('sangat_baik');
@@ -56,6 +71,13 @@ class PendidikanKepuasanMahasiswaController extends Controller
         $kepuasan->save();
         // dd($kepuasan);
         return back()->with('success', 'Data Kepuasan Mahasiswa has been created.');
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
     }
 
     /**
@@ -89,6 +111,7 @@ class PendidikanKepuasanMahasiswaController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $connection = 'mysql';
         $this->validate($req, [
             'aspek_id' => 'required',
             'sangat_baik' => 'required',
@@ -97,7 +120,7 @@ class PendidikanKepuasanMahasiswaController extends Controller
             'kurang' => 'required',
             'rencana_tindak_lanjut' => 'required',
         ]);
-
+    try{
         $kepuasan = PendidikanKepuasanMahasiswa::find($id);
         $kepuasan->aspek_id = $req->input('aspek_id');
         $kepuasan->sangat_baik = $req->input('sangat_baik');
@@ -107,11 +130,18 @@ class PendidikanKepuasanMahasiswaController extends Controller
         $kepuasan->rencana_tindak_lanjut = $req->input('rencana_tindak_lanjut');
         $kepuasan->tahun_laporan = '2022';
         $kepuasan->prodi = auth()->user()->prodi;
-        $kepuasan->created_by = auth()->user()->name;
+        $kepuasan->updated_by = auth()->user()->name;
         $kepuasan->updated_at = Carbon::now();
         $kepuasan->update();
 
         return back()->with('success', 'Data Kepuasan Mahasiswa has been updated.');
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
     }
 
     /**
