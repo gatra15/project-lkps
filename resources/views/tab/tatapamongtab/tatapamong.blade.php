@@ -1,5 +1,4 @@
-
-<div class="tab-pane fade show active" id="pendidikan" role="tabpanel" aria-labelledby="pendidikan-tab">
+<div class="tab-pane fade show active" id="pendidikan" role="tabpanel" aria-labelledby="pendidikan-tab" >
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#des1" role="button" aria-expanded="false" aria-controls="des1">
             Deskripsi
@@ -10,7 +9,7 @@
     </p>
     <a href="{{ url('tata-pamong/download-excel') }}" class="btn btn-success">Excel</a>
     <a href="{{ url('tata-pamong/download-csv') }}" class="btn btn-success">CSV</a>
-    <a class="btn btn-primary" href="{{'tata-pamong/download-pdf'}}">Download PDF</a>
+    <input type="button" class="btn btn-primary" onclick="printDiv('print-table')" value="Print Document" />
     <div class="collapse" id="des1">
         <div class="card card-body">
             <p>
@@ -73,3 +72,5 @@
 </div>
         @endforeach
 </div>
+</body>
+@include('layouts.table')

@@ -6,7 +6,7 @@
                 <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
                 <th class="align-middle" scope="col" rowspan="2">Tema PkM Sesuai Roadmap</th>
                 <th class="align-middle" scope="col" rowspan="2">Nama Mahasiswa</th>
-                <th class="align-middle" scope="col" rowspan="2">Judul Kegiatan</th>
+                <th class="align-middle" scope="col" rowspan="2">Judul Kegiatan <sup>1)</sup></th>
                 <th class="align-middle" scope="col" rowspan="2">Tahun</th>
                 <th class="align-middle" scope="col" rowspan="2">Opsi</th>
 
