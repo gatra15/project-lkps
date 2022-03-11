@@ -87,12 +87,12 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('/mahasiswa', [TabMahasiswaController::class, 'index']);
         Route::post('/mahasiswa', [TabMahasiswaController::class, 'store']);
         Route::put('/mahasiswa/{id}', [TabMahasiswaController::class, 'update']);
-        Route::get('/mahasiswa/{id}', [TabMahasiswaController::class, 'destroy']);
+        Route::post('/mahasiswa/delete/{id}', [TabMahasiswaController::class, 'destroy']);
 
-        Route::get('/mahasiswa/asing', [MahasiswaAsingController::class, 'index']);
-        Route::post('/mahasiswa/asing', [MahasiswaAsingController::class, 'store']);
-        Route::put('/mahasiswa/asing/{id}', [MahasiswaAsingController::class, 'update']);
-        Route::get('/mahasiswa/asing/{id}', [MahasiswaAsingController::class, 'destroy']);
+        Route::get('/mahasiswa/mahasiswa-asing', [MahasiswaAsingController::class, 'index']);
+        Route::post('/mahasiswa/mahasiswa-asing', [MahasiswaAsingController::class, 'store']);
+        Route::put('/mahasiswa/mahasiswa-asing/{id}', [MahasiswaAsingController::class, 'update']);
+        Route::get('/mahasiswa/mahasiswa-asing/{id}', [MahasiswaAsingController::class, 'destroy']);
         // End Mahasiswa
 
         // Route to Sdm Dosen

@@ -16,6 +16,7 @@ use App\Models\SdmKinerjaDosenPengakuanDtps;
 use App\Models\SdmKinerjaDosenPenelitianDtps;
 use App\Models\SdmKinerjaDosenKaryaIlmiahDtps;
 use App\Models\SdmKinerjaDosenPublikasiIlmiahDtps;
+use App\Http\Controllers\SdmKinerjaDosenPenelitianDtpsController;
 
 class KinerjaDosenController extends Controller
 {
@@ -23,39 +24,65 @@ class KinerjaDosenController extends Controller
     {
         $pengakuan = SdmKinerjaDosenPengakuanDtps::all();
         $karyailmiah = SdmKinerjaDosenKaryaIlmiahDtps::all();
-        $penelitians = SdmKinerjaDosenPenelitianDtps::with('sumber')->get();
         $pkm = SdmKinerjaDosenPkmDtps::with('sumber_detail')->get();
         $publikasi = SdmKinerjaDosenPublikasiIlmiahDtps::all();
         $luaran = SdmKinerjaDosenLuaranPkmDtps::all();
         $sumberdaya = Sumberdaya::all();
         $mediapublikasi = MediaPublikasi::all();
 
+        // Agregation
+        $countWilayah = SdmKinerjaDosenPengakuanDtps::where('tingkat', 'Wilayah')->count();
+        $countNasional = SdmKinerjaDosenPengakuanDtps::where('tingkat', 'Nasional')->count();
+        $countInternasional = SdmKinerjaDosenPengakuanDtps::where('tingkat', 'Internasional')->count();
+        $sumPengakuan = $countWilayah + $countNasional + $countInternasional;
+
+        $penelitianController = (new SdmKinerjaDosenPenelitianDtpsController)->index();
+
         return view('tab.kinerjadosentab.kinerjaDosen', [
             'title' => 'Kinerja Dosen',
             'pengakuan' => $pengakuan,
             'karyailmiah' => $karyailmiah,
-            'penelitians' => $penelitians,
+            'penelitians' => $penelitianController,
             'pkm' => $pkm,
             'publikasi' => $publikasi,
             'luaran' => $luaran,
             'sumberdaya' => $sumberdaya,
             'mediapublikasi' => $mediapublikasi,
+
+            'countWilayah' => $countWilayah,
+            'countNasional' => $countNasional,
+            'countInternasional' => $countInternasional,
+            'sumPengakuan' => $sumPengakuan
         ]);
     }
 
     public function store(Request $req)
     {
+        $connection = 'mysql';
         $this->validate($req, [
             'nama' => 'required',
             'bidang_keahlian' => 'required',
-            'bukti_pendukung' => 'required',
+            'bukti_pendukung' => 'required|max:2048',
             'tingkat' => 'required',
             'tahun' => 'required',
         ]);
+
+        try {
+
+        if($req->hasFile('bukti_pendukung')){
+            $filenameWithExt    = $req->file('bukti_pendukung')->getClientOriginalName();
+            $fileName           = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $ext                = $req->file('bukti_pendukung')->getClientOriginalExtension();
+            $fileSave           = $fileName.'_'.time().'.'.$ext;
+            $path               = $req->file('bukti_pendukung')->storeAs('public/bukti_pendukung', $fileSave);
+        }else{
+            $fileSave           = 'Tidak ada file yang ditambahkan';
+        }
+        
         $pengakuan = new SdmKinerjaDosenPengakuanDtps;
         $pengakuan->nama = $req->input('nama');
         $pengakuan->bidang_keahlian = $req->input('bidang_keahlian');
-        $pengakuan->bukti_pendukung = $req->input('bukti_pendukung');
+        $pengakuan->bukti_pendukung = $fileSave;
         $pengakuan->tingkat = $req->input('tingkat');
         $pengakuan->tahun = $req->input('tahun');
         $pengakuan->tahun_laporan = '2022';
@@ -63,7 +90,15 @@ class KinerjaDosenController extends Controller
         $pengakuan->created_by = auth()->user()->name;
         $pengakuan->created_at = Carbon::now();
         $pengakuan->save();
+
         return back()->with('success', 'Sdm Kinerja Dosen Pengakuan Dtps has been created.');
+        } catch(\Exception $ex) {
+            DB::connection($connection)->rollBack();
+            return response()->json(['message' => $ex->getMessage()], 500);
+        } catch(\Throwable $ex) {
+            DB::connection($connection)->rollBack();
+            return response(['message' => $ex->getMessage()],500);
+        }
     }
 
     public function update(Request $req, $id)
@@ -71,7 +106,7 @@ class KinerjaDosenController extends Controller
         $this->validate($req, [
             'nama' => 'required',
             'bidang_keahlian' => 'required',
-            'bukti_pendukung' => 'required',
+            'bukti_pendukung' => 'nullable|max:2048',
             'tingkat' => 'required',
             'tahun' => 'required',
         ]);

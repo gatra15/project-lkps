@@ -3,7 +3,7 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
             Deskripsi
         </a>
-        <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal2">
+        <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalmahasiswaasing">
             Tambah Data
         </a>
     </p>
@@ -19,22 +19,17 @@
             TS = Tahun akademik penuh terakhir saat pengajuan usulan akreditasi.
         </div> 
     </div>
-    <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2" aria-hidden="true">
+    {{-- Modal Tambah --}}
+    <div class="modal fade" id="modalmahasiswaasing" tabindex="-1" aria-labelledby="modalmahasiswaasing" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modal2">Tambah Mahasiswa</h5>
+            <h5 class="modal-title" id="modalmahasiswaasing">Tambah Data</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            <div class="modal-body">
-                <p>FOrm</p>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary">Tambah</button>
-            </div>
+            @include('partials.mahasiswamodal.asing')
         </div>
         </div>
     </div>
@@ -42,6 +37,36 @@
 {{-- TABLE --}}
 
 @include('tab.mahasiswatab.asingtable')
+{{-- End --}}
 
+@foreach ($mahasiswa_asing as $mhs)
+
+<div class="modal fade" id="modalmahasiswaasingedit-{{ $mhs->id }}" tabindex="-1" aria-labelledby="modalmahasiswaasingedit" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="modalmahasiswaasingedit">Edit Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        @include('partials.mahasiswamodal.asingedit')
+    </div>
+    </div>
+</div>
+<div class="modal fade" id="modalmahasiswaasingdelete-{{ $mhs->id }}" tabindex="-1" aria-labelledby="modalmahasiswaasingdelete" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="modalmahasiswaasingdelete">Hapus Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        @include('partials.mahasiswamodal.asingdelete')
+    </div>
+    </div>
+</div>    
+@endforeach
 
 </div>

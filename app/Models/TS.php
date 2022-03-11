@@ -5,14 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Mahasiswa extends Model
+class TS extends Model
 {
     use HasFactory;
-
+    protected $table = 't_s';
     protected $guarded = ['id'];
-
-    public function tahun()
-    {
-       return $this->belongsTo('\App\Models\TS', 'tahun_id', 'id');
-    }
 }

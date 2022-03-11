@@ -19,18 +19,12 @@
     </tr>
     
     </thead>
-    <?php $x='-';?>
+    
     <tbody class="text-dark">
-    <?php $i=4;?>
-    @foreach ($mahasiswa as $index => $mhs)
+    
+    @foreach ($mahasiswa as $mhs)
         <tr>
-           <td>TS
-            @if ($i == 0)
-                <?php $i="";?>
-            @else
-                <?php echo $x;?>
-            @endif   
-            {{ $i }}</td>
+           <td>@php echo $mhs->tahun->name @endphp</td>
            <td>{{ $mhs->daya_tampung }}</td> 
            <td>{{ $mhs->c_pendaftar }}</td> 
            <td>{{ $mhs->c_lulus_seleksi }}</td> 
@@ -38,12 +32,11 @@
            <td>{{ $mhs->mahasiswa_transfer }}</td> 
            <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-           <td>
-            <ul class="action-list d-flex justify-content-center" id="action">
-                <li><a href="#" class="btn btn-primary m-1"><i class="fas fa-edit"></i></a></li>
-                <li><a href="#" class="btn btn-danger m-1"><i class="fas fa-trash"></i></a></li>
+            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalmahasiswaedit-{{ $mhs->id }}"><i class="fas fa-edit"></i></a></li>
+                <li>
+                    <a type="button" class="btn btn-danger" href="/mahasiswa/delete/{{ $mhs->id }}" data-toggle="modal" data-target="#modalmahasiswadelete-{{ $mhs->id }}"><i class="fas fa-trash btn-del"></i></a></li>
             </ul></td>
-         <?php $i--; ?>
         </tr>
     @endforeach
     

@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\MediaPublikasi;
 use App\Models\User;
+use App\Models\MediaPublikasi;
+use Database\Seeders\TsSeeder;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -22,6 +23,7 @@ class DatabaseSeeder extends Seeder
             SumberdayaSeeder::class,
             MediaPublikasiSeeder::class,
             AspekSeeder::class,
+            TsSeeder::class,
         ]);
 
     }

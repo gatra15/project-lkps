@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Models\SdmKinerjaDosenPkmDtps;
 use App\Models\SdmKinerjaDosenPenelitianDtps;
 use App\Exports\KinerjaDosenPenelitianDtpsExport;
 
@@ -17,7 +19,18 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
      */
     public function index()
     {
-        //
+        $penelitian = SdmKinerjaDosenPenelitianDtps::with('sumber')->get();
+        $jumlah_ts2 = SdmKinerjaDosenPenelitianDtps::sum('jumlah_ts2');
+        $jumlah_ts1 = SdmKinerjaDosenPenelitianDtps::sum('jumlah_ts1');
+        $jumlah_ts = SdmKinerjaDosenPenelitianDtps::sum('jumlah_ts');
+        $jumlah = SdmKinerjaDosenPenelitianDtps::sum('jumlah');
+        return [
+            'penelitian' => $penelitian,
+            'jumlah_ts2' => $jumlah_ts2,
+            'jumlah_ts1' => $jumlah_ts1,
+            'jumlah_ts' => $jumlah_ts,
+            'jumlah' => $jumlah
+        ];
     }
 
     /**
@@ -38,6 +51,7 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
      */
     public function store(Request $req)
     {
+        $connection = 'mysql';
         $this->validate($req, [
             'sumber_pembiayaan' => 'required',
             'jumlah_ts2' => 'required',
@@ -46,6 +60,7 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
             'jumlah' => 'required',
         ]);
 
+        try {
         $pengakuan = new SdmKinerjaDosenPenelitianDtps;
         $pengakuan->sumber_pembiayaan = $req->input('sumber_id');
         $pengakuan->jumlah_ts2 = $req->input('jumlah_ts2');
@@ -56,8 +71,16 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
         $pengakuan->prodi = auth()->user()->prodi;
         $pengakuan->created_by = auth()->user()->name;
         $pengakuan->created_at = Carbon::now();
-
+        dd($pengakuan);
         return back()->with('success', 'Sdm Kinerja Dosen Penelitian Dtps has been created.');
+        
+        } catch(\Exception $ex) {
+            DB::connection($connection)->rollBack();
+            return response()->json(['message' => $ex->getMessage()], 500);
+        } catch(\Throwable $ex) {
+            DB::connection($connection)->rollBack();
+            return response(['message' => $ex->getMessage()],500);
+        }
     }
 
     /**
@@ -91,27 +114,37 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $connection = 'mysql';
         $this->validate($req, [
             'sumber_id' => 'required',
             'jumlah_ts2' => 'required',
             'jumlah_ts1' => 'required',
             'jumlah_ts' => 'required',
-            'jumlah' => 'required',
         ]);
+        
 
+        try{
         $pengakuan = SdmKinerjaDosenPenelitianDtps::find($id);
         $pengakuan->sumber_id = $req->input('sumber_id');
-        $pengakuan->jumlah_ts2 = $req->input('jumlah_ts2');
-        $pengakuan->jumlah_ts1 = $req->input('jumlah_ts1');
-        $pengakuan->jumlah_ts = $req->input('jumlah_ts');
-        $pengakuan->jumlah = $req->input('jumlah');
+        $pengakuan->jumlah_ts1 = (int) $req->input('jumlah_ts1');
+        $pengakuan->jumlah_ts2 = (int) $req->input('jumlah_ts2');
+        $pengakuan->jumlah_ts = (int) $req->input('jumlah_ts');
+        $pengakuan->jumlah = $req->jumlah_ts + $req->jumlah_ts1 + $req->jumlah_ts2;
         $pengakuan->tahun_laporan = '2022';
         $pengakuan->prodi = auth()->user()->prodi;
         $pengakuan->created_by = auth()->user()->name;
         $pengakuan->updated_at = Carbon::now();
         $pengakuan->update();
+        // dd($pengakuan);
 
         return back()->with('success', 'Sdm Kinerja Dosen Penelitian Dtps has been updated.');
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
     }
 
     /**
