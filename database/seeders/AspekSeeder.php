@@ -36,6 +36,7 @@ class AspekSeeder extends Seeder
             'nama' => 'Tangible'
         ]);
 
+        // Kepuasan Mahasiswa
         PendidikanKepuasanMahasiswa::create([
             'aspek_id' => 1,
             'tahun_laporan' => 2022,
