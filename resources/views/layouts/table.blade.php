@@ -88,3 +88,23 @@ tbody tr td.bold {
      document.body.innerHTML = originalContents;
 }
 </script>
+
+<script>
+  $(function() {
+      $('[data-toggle="popover"]').popover();
+  });
+</script>
+
+<div class="modal fade" id="caradownload" tabindex="-1" aria-labelledby="caradownloadlabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="caradownloadlabel">Cara Download PDF</h5>
+      </div>
+      <div class="modal-body">
+       Klik Print Document > Pilih Destination > Save as PDF > pilih Save
+       <img src="{{ asset('dist/img/imagesdownload.png') }}" width="100%" height="100%" alt="image_download">
+      </div>
+    </div>
+  </div>
+</div>
