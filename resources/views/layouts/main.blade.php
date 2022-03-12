@@ -4,8 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>LKPS</title>
-
+  <title>SIAPS-FT</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -88,6 +92,18 @@
   flex: 1 1 100%;
 }
 
+label.kanan {
+  margin-right: 10px;
+  display: flex;
+  width: 25%;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+input.lebar {
+    width : 80%; /*adjust as needed*/
+    margin-top: 20px;
+}
 	</style>
 
 </head>
