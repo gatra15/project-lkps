@@ -35,7 +35,7 @@
 {{-- TABLE HERE --}}
 @include('tab.kinerjadosentab.publikasitable')
   
-@foreach ($publikasi as $publikasis)
+@foreach ($publikasi['publikasi'] as $publikasis)
     
 
         <!-- Modal Edit Data Publikasi DTPS -->

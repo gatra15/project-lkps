@@ -14,7 +14,33 @@ class PendidikanKurikulumController extends Controller
      */
     public function index()
     {
-        //
+        $kurikulum = PendidikanKurikulum::all();
+        $makul = PendidikanKurikulum::select('mata_kuliah_kompetensial')->count();
+        $bobot_kuliah = PendidikanKurikulum::sum('bobot_kuliah');
+        $bobot_seminar = PendidikanKurikulum::sum('bobot_seminar');
+        $bobot_praktikum = PendidikanKurikulum::sum('bobot_praktikum');
+        $konversi_kredit_jam = PendidikanKurikulum::sum('konversi_kredit_jam');
+        $sikap = PendidikanKurikulum::where('capaian_sikap', 1)->count();
+        $pengetahuan = PendidikanKurikulum::where('capaian_pengetahuan', 1)->count();
+        $ketrampilan_umum = PendidikanKurikulum::where('capaian_ketrampilan_umum', 1)->count();
+        $ketrampilan_khusus = PendidikanKurikulum::where('capaian_ketrampilan_khusus', 1)->count();
+        $dokumen = PendidikanKurikulum::where('document_rencana_pembelajaran', 1)->count();
+        $unit = PendidikanKurikulum::select('unit_penyelenggara')->count();
+
+        return [
+            'kurikulum' => $kurikulum,
+            'makul' => $makul,
+            'bobot_kuliah' => $bobot_kuliah,
+            'bobot_seminar' => $bobot_seminar,
+            'bobot_praktikum' => $bobot_praktikum,
+            'konversi_kredit_jam' => $konversi_kredit_jam,
+            'sikap' => $sikap,
+            'pengetahuan' => $pengetahuan,
+            'ketrampilan_umum' => $ketrampilan_umum,
+            'ketrampilan_khusus' => $ketrampilan_khusus,
+            'dokumen' => $dokumen,
+            'unit' => $unit,
+        ];
     }
 
     /**

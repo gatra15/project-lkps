@@ -19,7 +19,7 @@
     </thead>
     
     <tbody>
-        @foreach ($kepuasanmahasiswa as $kepuasan)
+        @foreach ($kepuasanmahasiswa['kepuasan'] as $kepuasan)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>@php echo $kepuasan->aspek->aspek @endphp</td>

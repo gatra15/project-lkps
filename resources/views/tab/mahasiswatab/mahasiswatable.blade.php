@@ -22,7 +22,7 @@
     
     <tbody class="text-dark">
     
-    @foreach ($mahasiswa as $mhs)
+    @foreach ($mahasiswa['mahasiswa'] as $mhs)
         <tr>
            <td>@php echo $mhs->tahun->name @endphp</td>
            <td>{{ $mhs->daya_tampung }}</td> 
@@ -42,11 +42,11 @@
         
         <tr>
             <td class="align-middle text-center" colspan="2"><b>Jumlah</b></td>
-            <td class="align-middle text-center"><b>N<sub>A</sub> =</b></td>
-            <td class="align-middle text-center"><b>N<sub>B</sub> =</b></td>
-            <td class="align-middle text-center"><b>N<sub>C</sub> =</b></td>
-            <td class="align-middle text-center"><b>N<sub>D</sub> =</b></td>
-            <td class="align-middle text-center" colspan="2"><b>N<sub>M</sub> =</b></td>
+            <td class="align-middle text-center"><b>N<sub>A</sub> = </b>{{ $mahasiswa['pendaftar'] }}</td>
+            <td class="align-middle text-center"><b>N<sub>B</sub> = </b>{{ $mahasiswa['lulus_seleksi'] }}</td>
+            <td class="align-middle text-center"><b>N<sub>C</sub> = </b>{{ $mahasiswa['reguler'] }}</td>
+            <td class="align-middle text-center"><b>N<sub>D</sub> = </b>{{ $mahasiswa['transfer'] }}</td>
+            <td class="align-middle text-center" colspan="2"><b>N<sub>M</sub> = </b>{{ $mahasiswa['total'] }}</td>
         </tr>
     
     </tbody>

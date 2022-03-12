@@ -24,7 +24,7 @@
     </thead>
     
     <tbody class="text-dark">
-        @foreach ($mahasiswa_asing as $mhs)
+        @foreach ($mahasiswa_asing['mahasiswa'] as $mhs)
         <tr>
            <td>{{ $loop->iteration }}</td>
            <td>{{ $mhs->program_studi }}</td> 
@@ -46,15 +46,15 @@
     @endforeach
      <tr>
          <td class="align-middle text-center" colspan="2"><b>Jumlah</b></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
-         <td></td>
+         <td>{{ $mahasiswa_asing['aktif_ts2'] }}</td>
+         <td>{{ $mahasiswa_asing['aktif_ts1'] }}</td>
+         <td>{{ $mahasiswa_asing['aktif_ts'] }}</td>
+         <td>{{ $mahasiswa_asing['full_ts2'] }}</td>
+         <td>{{ $mahasiswa_asing['full_ts1'] }}</td>
+         <td>{{ $mahasiswa_asing['full_ts'] }}</td>
+         <td>{{ $mahasiswa_asing['part_ts2'] }}</td>
+         <td>{{ $mahasiswa_asing['part_ts1'] }}</td>
+         <td>{{ $mahasiswa_asing['part_ts'] }}</td>
      </tr>
     </tbody>
     </table> 

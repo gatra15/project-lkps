@@ -25,10 +25,12 @@ class CreateMahasiswaAsingsTable extends Migration
             $table->string('mahasiswa_asing_pt_ts_2');
             $table->string('mahasiswa_asing_pt_ts_1');
             $table->string('mahasiswa_asing_pt_ts');
-            $table->string('tahun_laporan');
+            $table->integer('tahun_laporan');
             $table->string('prodi');
-            $table->string('created_by');
-            $table->timestamps();
+            $table->string('created_by')->nullable(true);
+            $table->string('updated_by')->nullable(true);
+            $table->timestamp('created_at')->nullable(true);
+            $table->timestamp('updated_at')->nullable(true);
         });
     }
 

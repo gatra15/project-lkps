@@ -17,8 +17,8 @@ class CreateSdmKinerjaDosenKaryaIlmiahDtpsTable extends Migration
             $table->id();
             $table->string('nama_dosen');
             $table->string('judul');
-            $table->string('jumlah_sitasi');
-            $table->string('tahun_laporan');
+            $table->integer('jumlah_sitasi');
+            $table->integer('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by');
             $table->timestamps();

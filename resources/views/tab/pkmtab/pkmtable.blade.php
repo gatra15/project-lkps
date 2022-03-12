@@ -31,23 +31,9 @@
                 </tr>
             @endforeach
             
-            {{-- @foreach ($mahasiswa_asing as $mhs)
-                <tr>
-                    @for ($i = 0; $i < $count; $i++)
-                    <td>{{ $i }}</td>
-                    @endfor
-                <td>{{ $mhs->daya_tampung }}</td> 
-                <td>{{ $mhs->c_pendaftar }}</td> 
-                <td>{{ $mhs->c_lulus_seleksi }}</td> 
-                <td>{{ $mhs->mahasiswa_reguler }}</td> 
-                <td>{{ $mhs->mahasiswa_transfer }}</td> 
-                <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-                <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-                </tr>
-            @endforeach --}}
             <tr>
-                <td class="align-middle text-center" colspan="5"><b>Jumlah</b></td>
-                <td></td>
+                <td class="align-middle text-center" colspan="4"><b>Jumlah</b></td>
+                <td>{{ $jumlah_judul }}</td>
             </tr>
     </table> 
 </div>

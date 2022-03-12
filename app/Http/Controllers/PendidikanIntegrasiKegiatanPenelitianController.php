@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PendidikanIntegrasiExport;
 use App\Models\PendidikanIntegrasiKegiatanPenelitian;
@@ -17,7 +18,10 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
      */
     public function index()
     {
-        //
+        $integrasi = PendidikanIntegrasiKegiatanPenelitian::all();
+        return [
+            'integrasi' => $integrasi,
+        ];
     }
 
     /**
@@ -38,6 +42,7 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
      */
     public function store(Request $req)
     {
+        $connection = 'mysql';
         $this->validate($req, [
             'judul' => 'required',
             'nama_dosen' => 'required',
@@ -45,18 +50,27 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
             'bentuk_integrasi' => 'required',
         ]);
 
+        try{
         $integrasi = new PendidikanIntegrasiKegiatanPenelitian;
         $integrasi->judul = $req->input('judul');
         $integrasi->nama_dosen = $req->input('nama_dosen');
         $integrasi->mata_kuliah = $req->input('mata_kuliah');
         $integrasi->bentuk_integrasi = $req->input('bentuk_integrasi');
-        $integrasi->tahun_laporan = '2022';
+        $integrasi->tahun_laporan = 2022;
         $integrasi->prodi = auth()->user()->prodi;
         $integrasi->created_by = auth()->user()->name;
         $integrasi->created_at = Carbon::now();
         $integrasi->save();
 
         return back()->with('success', 'Pendidikan Integrasi Kegiatan Penelitian has been created.');
+
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
     }
 
     /**
@@ -90,6 +104,7 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $connection = 'mysql';
         $this->validate($req, [
             'judul' => 'required',
             'nama_dosen' => 'required',
@@ -97,6 +112,7 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
             'bentuk_integrasi' => 'required',
         ]);
 
+        try{
         $integrasi = PendidikanIntegrasiKegiatanPenelitian::find($id);
         $integrasi->judul = $req->input('judul');
         $integrasi->nama_dosen = $req->input('nama_dosen');
@@ -109,6 +125,13 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
         $integrasi->save();
 
         return back()->with('success', 'Pendidikan Integrasi Kegiatan Penelitian has been updated.');
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
     }
 
     /**

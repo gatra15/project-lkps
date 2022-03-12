@@ -33,7 +33,8 @@
             @endforeach
 
             <tr>
-                <td colspan="5" class="text-center"> <b>Jumlah</b>  </td>
+                <td colspan="4" class="text-center"> <b>Jumlah</b>  </td>
+                <td>{{ $jumlah_judul }}</td>
             </tr>
             
             

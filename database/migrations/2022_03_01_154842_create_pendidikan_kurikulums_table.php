@@ -29,7 +29,7 @@ class CreatePendidikanKurikulumsTable extends Migration
             $table->string('capaian_ketrampilan_khusus');
             $table->string('document_rencana_pembelajaran');
             $table->string('unit_penyelenggara');
-            $table->string('tahun_laporan');
+            $table->integer('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by');
             $table->timestamps();

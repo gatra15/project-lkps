@@ -17,9 +17,9 @@ class CreateSdmKinerjaDosenLuaranPkmDtpsTable extends Migration
             $table->id();
             $table->string('type_luaran');
             $table->string('judul');
-            $table->string('tahun');
+            $table->integer('tahun');
             $table->string('keterangan');
-            $table->string('tahun_laporan');
+            $table->integer('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by');
             $table->timestamps();

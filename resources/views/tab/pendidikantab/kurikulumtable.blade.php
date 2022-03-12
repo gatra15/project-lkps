@@ -44,7 +44,7 @@ th span {
     </thead>
     
     <tbody>
-        @foreach ($kurikulum as $kurikulum)
+        @foreach ($kurikulum['kurikulum'] as $kurikulum)
         <tr>
             
             <td>{{ $loop->iteration }}</td>
@@ -73,11 +73,11 @@ th span {
         <thead>
         <tr>
         <th class="putih align-middle text-center" colspan="4"><b>Jumlah </b></th>
-        <th class="putih align-middle text-center"></th>
-        <th class="putih align-middle text-center"></th>
-        <th class="putih align-middle text-center"></th>
-        <th class="putih align-middle text-center"></th>
-        <th class="putih align-middle text-center"></th>
+        <th class="putih align-middle text-center">{{ $kurikulum['makul'] }}</th>
+        <th class="putih align-middle text-center">{{ $kurikulum['bobot_kuliah'] }}</th>
+        <th class="putih align-middle text-center">{{ $kurikulum['bobot_seminar'] }}</th>
+        <th class="putih align-middle text-center">{{ $kurikulum['bobot_praktikum'] }}</th>
+        <th class="putih align-middle text-center">{{ $kurikulum['konversi_kredit_jam'] }}</th>
         <th colspan="7"></th>
         </tr>
         </thead>

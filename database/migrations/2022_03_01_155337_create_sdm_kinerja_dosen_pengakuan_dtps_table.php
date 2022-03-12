@@ -20,7 +20,7 @@ class CreateSdmKinerjaDosenPengakuanDtpsTable extends Migration
             $table->string('bukti_pendukung');
             $table->string('tingkat');
             $table->integer('tahun');
-            $table->string('tahun_laporan');
+            $table->integer('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by');
             $table->timestamps();

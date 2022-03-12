@@ -46,11 +46,11 @@
 {{-- TABLE HERE --}}
 @include('tab.kinerjadosentab.pkmtable')    
 
-@foreach ($pkm as $pkms)
+@foreach ($pkms['pkm'] as $pkm)
     
 
 <!-- Modal Edit Data PKM DTPS -->
-<div class="modal fade" id="modaldosenpkmedit-{{ $pkms->id }}" tabindex="-1" aria-labelledby="modaldosenpkmedit" aria-hidden="true">
+<div class="modal fade" id="modaldosenpkmedit-{{ $pkm->id }}" tabindex="-1" aria-labelledby="modaldosenpkmedit" aria-hidden="true">
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
@@ -65,7 +65,7 @@
     </div>
 
     <!-- Modal Delete Data PKM DTPS -->
-    <div class="modal fade" id="modaldosenpkmdelete-{{ $pkms->id }}" tabindex="-1" aria-labelledby="modaldosenpkmdelete" aria-hidden="true">
+    <div class="modal fade" id="modaldosenpkmdelete-{{ $pkm->id }}" tabindex="-1" aria-labelledby="modaldosenpkmdelete" aria-hidden="true">
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">

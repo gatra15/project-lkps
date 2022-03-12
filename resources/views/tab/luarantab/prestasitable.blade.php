@@ -19,7 +19,7 @@
     
     <tbody class="text-dark">
     <tr>
-        @foreach ($prestasi as $prest)
+        @foreach ($prestasi['prestasi'] as $prest)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $prest->nama_kegiatan }}</td>
@@ -36,19 +36,8 @@
                 </tr>
             @endforeach
     </tr>
-    {{-- @foreach ($mahasiswa_asing as $mhs)
-    <tr>
-        @for ($i = 0; $i < $count; $i++)
-        <td>{{ $i }}</td>
-        @endfor
-       <td>{{ $mhs->daya_tampung }}</td> 
-       <td>{{ $mhs->c_pendaftar }}</td> 
-       <td>{{ $mhs->c_lulus_seleksi }}</td> 
-       <td>{{ $mhs->mahasiswa_reguler }}</td> 
-       <td>{{ $mhs->mahasiswa_transfer }}</td> 
-       <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-       <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-    </tr>
-    @endforeach --}}
+    {{-- <td>{{ $prestasi['wilayah'] }}</td>
+    <td>{{ $prestasi['nasional'] }}</td>
+    <td>{{ $prestasi['internasional'] }}</td> --}}
     </table> 
     </div>

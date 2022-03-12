@@ -14,7 +14,7 @@
         </thead>
 
         <tbody class="text-dark">
-            @foreach ($karyailmiah as $karil)
+            @foreach ($karyailmiah['karyailmiah'] as $karil)
             <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $karil->nama_dosen }}</td> 
@@ -33,8 +33,8 @@
 
         <tr>
             <td colspan="2"><b>Jumlah</b></td>
-            <td></td>
-            <td></td>
+            <td>{{ $karyailmiah['count'] }}</td>
+            <td>{{ $karyailmiah['jumlah'] }}</td>
         </tr>
         </table> 
     </div>

@@ -18,20 +18,20 @@
         </thead>
 
         <tbody class="text-dark">
-            @foreach ($pkm as $pkms)
+            @foreach ($pkms['pkm'] as $pkm)
                 <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>@php
-                   echo $pkms->sumber_detail->sumberdaya
+                   echo $pkm->sumber_detail->sumberdaya
                 @endphp</td> 
-                <td>{{ $pkms->jumlah_ts2 }}</td> 
-                <td>{{ $pkms->jumlah_ts1 }}</td> 
-                <td>{{ $pkms->jumlah_ts }}</td> 
-                <td>{{ $pkms->jumlah }}</td> 
+                <td>{{ $pkm->jumlah_ts2 }}</td> 
+                <td>{{ $pkm->jumlah_ts1 }}</td> 
+                <td>{{ $pkm->jumlah_ts }}</td> 
+                <td>{{ $pkm->jumlah }}</td> 
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpkmedit-{{ $pkms->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpkmedit-{{ $pkm->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/pkm-dtps/{{ $pkms->id }}" data-toggle="modal" data-target="#modaldosenpkmdelete-{{ $pkms->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/pkm-dtps/{{ $pkm->id }}" data-toggle="modal" data-target="#modaldosenpkmdelete-{{ $pkm->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
                 </tr>
 
@@ -45,7 +45,13 @@
                     <td></td>
                 </tr>
         
-            
+                <tr>
+                    <td colspan="2" class="text-center"><b>Jumlah</b></td>
+                    <td>{{ $pkms['jumlah_ts2'] }}</td>
+                    <td>{{ $pkms['jumlah_ts1'] }}</td>
+                    <td>{{ $pkms['jumlah_ts'] }}</td>
+                    <td>{{ $pkms['jumlah'] }}</td>
+                </tr>
             {{-- @endforeach --}}
 
             

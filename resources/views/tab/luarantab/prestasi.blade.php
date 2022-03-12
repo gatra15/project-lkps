@@ -34,7 +34,7 @@
         @include('tab.luarantab.prestasitable')
         {{-- End Luaran Prestasi --}}
 
-        @foreach($prestasi as $prest)
+        @foreach($prestasi['prestasi'] as $prest)
       <!-- Modal Tambah Edit Prestasi -->
       <div class="modal fade" id="modalluaranprestasiedit-{{ $prest->id }}" tabindex="-1" aria-labelledby="modalluaranprestasiedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">

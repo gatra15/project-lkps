@@ -39,7 +39,7 @@
 @include('tab.mahasiswatab.asingtable')
 {{-- End --}}
 
-@foreach ($mahasiswa_asing as $mhs)
+@foreach ($mahasiswa_asing['mahasiswa'] as $mhs)
 
 <div class="modal fade" id="modalmahasiswaasingedit-{{ $mhs->id }}" tabindex="-1" aria-labelledby="modalmahasiswaasingedit" aria-hidden="true">
     <div class="modal-dialog">

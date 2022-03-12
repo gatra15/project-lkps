@@ -15,7 +15,7 @@ class ProfilDosenController extends Controller
 {
     public function index()
     {
-        $dosen = SdmDosen::all();
+        $dosen = (new SdmDosenController)->index();
         $dosenta = SdmDosenPembimbingTa::all();
         $dosentidaktetap = SdmDosenTidakTetap::all();
         $dosenewmp = SdmEkuivalenWaktuMengajarPenuhDosenTetap::all();

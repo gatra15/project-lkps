@@ -3,7 +3,7 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#des1" role="button" aria-expanded="false" aria-controls="des1">
             Deskripsi
         </a>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalcapai">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalcapaian">
             Tambah data
         </button>
     </p>
@@ -18,11 +18,11 @@
     </div>
 
     <!-- Modal Tambah Data Capaian -->
-    <div class="modal fade" id="modalcapai" tabindex="-1" aria-labelledby="modalcapai" aria-hidden="true">
+    <div class="modal fade" id="modalcapaian" tabindex="-1" aria-labelledby="modalcapaian" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalcapai">Tambah Data Capaian </h5>
+            <h5 class="modal-title" id="modalcapaian">Tambah Data </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -31,38 +31,39 @@
         </div>
         </div>
         </div>
+            {{-- TABLE --}}
+            @include('tab.luarantab.capaiantable')  
 
-        {{-- foreach --}}
+        @foreach($capaianPembelajaran['capaian'] as $capaian)
       <!-- Modal Tambah Edit Capaian -->
-      <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+      <div class="modal fade" id="modalcapaianedit-{{ $capaian->id }}" tabindex="-1" aria-labelledby="modalcapaianedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalcapaianedit">Edit Data </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.luarancapaianmodal.capaianedit')
         </div>
         </div>
         </div>
 
       <!-- Modal Tambah Delete Capaian -->
-      <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+      <div class="modal fade" id="modalcapaiandelete-{{ $capaian->id }}" tabindex="-1" aria-labelledby="modalcapaiandelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalcapaiandelete">Hapus Data </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.luarancapaianmodal.capaiandelete')
         </div>
         </div>
         </div>
-        {{-- endforeach --}}
-    {{-- TABLE --}}
-    @include('tab.luarantab.capaiantable')
+        @endforeach
+
 </div>

@@ -14,7 +14,25 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        //
+        $mahasiswa = Mahasiswa::with('tahun')->get();
+        $pendaftar = Mahasiswa::sum('c_pendaftar');
+        $lulus_seleksi = Mahasiswa::sum('c_lulus_seleksi');
+        $reguler = Mahasiswa::sum('mahasiswa_reguler');
+        $transfer = Mahasiswa::sum('mahasiswa_transfer');
+        $aktif_reguler = Mahasiswa::sum('mahasiswa_aktif_reguler');
+        $aktif_transfer = Mahasiswa::sum('mahasiswa_aktif_transfer');
+        $total = $aktif_reguler + $aktif_transfer;
+
+        return [
+            'mahasiswa' => $mahasiswa,
+            'pendaftar' => $pendaftar,
+            'lulus_seleksi' => $lulus_seleksi,
+            'reguler' => $reguler,
+            'transfer' => $transfer,
+            'aktif_reguler' => $aktif_reguler,
+            'aktif_transfer' => $aktif_transfer,
+            'total' => $total,
+        ];
     }
 
     /**

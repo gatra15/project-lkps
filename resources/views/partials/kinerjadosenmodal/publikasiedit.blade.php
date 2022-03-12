@@ -26,10 +26,7 @@
                 <div class="input-group input-group-sm mb-3">
                     <input type="text" name="jumlah_ts" value="{{ $publikasis->jumlah_ts }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
-                <label for="dosentetap"> Jumlah :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jumlah" value="{{ $publikasis->jumlah }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
+            
 
                {{-- coding modal insert akhir --}}
                

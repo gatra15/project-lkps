@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SdmController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CapaianPembelajaranController;
 use App\Http\Controllers\LuaranController;
 use App\Http\Controllers\SimulasiController;
 use App\Http\Controllers\PendidikanController;
@@ -192,6 +193,8 @@ Route::group(['middleware' => 'auth:web'], function() {
 
         // Route to Luaran
         Route::get('/luaran-capaian-tridharma', [LuaranController::class, 'index']);
+        Route::put('/luaran-capaian-tridharma/capaian/{id}', [CapaianPembelajaranController::class, 'update']);
+        Route::post('/luaran-capaian-tridharma/capaian/{id}', [CapaianPembelajaranController::class, 'destroy']);
 
         Route::get('/luaran-capaian-tridharma/prestasi-mahasiswa', [PrestasiMahasiswaController::class, 'index']);
         Route::post('/luaran-capaian-tridharma/prestasi-mahasiswa', [PrestasiMahasiswaController::class, 'store']);

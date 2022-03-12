@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SdmDosen;
+use App\Models\EfektifitasProduktifitasPendidikan;
 use Illuminate\Http\Request;
 
-class SdmDosenController extends Controller
+class EfektifitasProduktifitasPendidikanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,15 +14,7 @@ class SdmDosenController extends Controller
      */
     public function index()
     {
-        $dosen = SdmDosen::all();
-        $ndt = SdmDosen::select('nama_dosen')->count();
-        $ndts = SdmDosen::where('kesesuaian_mata_kuliah_diampu', 1)->count();
-
-        return [
-            'dosen' => $dosen,
-            'ndt' => $ndt,
-            'ndts' => $ndts,
-        ];
+        //
     }
 
     /**
@@ -49,10 +41,10 @@ class SdmDosenController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\SdmDosen  $sdmDosen
+     * @param  \App\Models\EfektifitasProduktifitasPendidikan  $efektifitasProduktifitasPendidikan
      * @return \Illuminate\Http\Response
      */
-    public function show(SdmDosen $sdmDosen)
+    public function show(EfektifitasProduktifitasPendidikan $efektifitasProduktifitasPendidikan)
     {
         //
     }
@@ -60,10 +52,10 @@ class SdmDosenController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\SdmDosen  $sdmDosen
+     * @param  \App\Models\EfektifitasProduktifitasPendidikan  $efektifitasProduktifitasPendidikan
      * @return \Illuminate\Http\Response
      */
-    public function edit(SdmDosen $sdmDosen)
+    public function edit(EfektifitasProduktifitasPendidikan $efektifitasProduktifitasPendidikan)
     {
         //
     }
@@ -72,10 +64,10 @@ class SdmDosenController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SdmDosen  $sdmDosen
+     * @param  \App\Models\EfektifitasProduktifitasPendidikan  $efektifitasProduktifitasPendidikan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SdmDosen $sdmDosen)
+    public function update(Request $request, EfektifitasProduktifitasPendidikan $efektifitasProduktifitasPendidikan)
     {
         //
     }
@@ -83,10 +75,10 @@ class SdmDosenController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\SdmDosen  $sdmDosen
+     * @param  \App\Models\EfektifitasProduktifitasPendidikan  $efektifitasProduktifitasPendidikan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SdmDosen $sdmDosen)
+    public function destroy(EfektifitasProduktifitasPendidikan $efektifitasProduktifitasPendidikan)
     {
         //
     }

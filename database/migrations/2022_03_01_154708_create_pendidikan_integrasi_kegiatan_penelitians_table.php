@@ -19,7 +19,7 @@ class CreatePendidikanIntegrasiKegiatanPenelitiansTable extends Migration
             $table->string('nama_dosen');
             $table->string('mata_kuliah');
             $table->string('bentuk_integrasi');
-            $table->string('tahun_laporan');
+            $table->integer('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by');
             $table->timestamps();

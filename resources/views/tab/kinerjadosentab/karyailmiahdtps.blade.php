@@ -26,7 +26,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalkaryailmiah">Tambah Data Dosen Tetap</h5>
+            <h5 class="modal-title" id="modalkaryailmiah">Tambah Data</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -40,13 +40,13 @@
     @include('tab.kinerjadosentab.karyailmiahdtpstable') 
 
 
-     @foreach ($karyailmiah as $karil)  
+     @foreach ($karyailmiah['karyailmiah'] as $karil)  
     <!-- Modal Edit Data K.Ilm DTPS -->
     <div class="modal fade" id="modalkaryailmiahedit-{{ $karil->id }}" tabindex="-1" aria-labelledby="modalkaryailmiahedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalkaryailmiahedit">Edit Data Dosen Tetap</h5>
+            <h5 class="modal-title" id="modalkaryailmiahedit">Edit Data</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -61,7 +61,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalkaryailmiahdelete">Yakin?</h5>
+            <h5 class="modal-title" id="modalkaryailmiahdelete">Hapus Data</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

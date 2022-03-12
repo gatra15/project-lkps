@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\KaryaIlmiahDtpsExport;
 use App\Models\SdmKinerjaDosenPkmDtps;
@@ -18,7 +19,14 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
      */
     public function index()
     {
-        //
+        $karyailmiah = SdmKinerjaDosenKaryaIlmiahDtps::all();
+        $jumlah = SdmKinerjaDosenKaryaIlmiahDtps::sum('jumlah_sitasi');
+        $count = SdmKinerjaDosenKaryaIlmiahDtps::select('judul')->count();
+        return [
+            'karyailmiah' => $karyailmiah,
+            'jumlah' => $jumlah,
+            'count' => $count,
+        ];
     }
 
     /**
@@ -39,6 +47,7 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
      */
     public function store(Request $req)
     {
+        $connection = 'mysql';
         $this->validate($req, [
             'nama_dosen' => 'required',
             'judul' => 'required',
@@ -46,17 +55,25 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
 
         ]);
 
+    try{
         $karil = new SdmKinerjaDosenKaryaIlmiahDtps;
         $karil->nama_dosen = $req->input('nama_dosen');
         $karil->judul = $req->input('judul');
         $karil->jumlah_sitasi = $req->input('jumlah_sitasi');
-        $karil->tahun_laporan = '2022';
+        $karil->tahun_laporan = 2022;
         $karil->prodi = auth()->user()->prodi;
         $karil->created_by = auth()->user()->name;
         $karil->created_at = Carbon::now();
         $karil->save();
 
         return back()->with('success', 'Sdm Kinerja Dosen Karya Ilmiah Dtps has been created.');
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
     }
 
     /**
@@ -90,6 +107,7 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $connection = 'mysql';
         $this->validate($req, [
             'nama_dosen' => 'required',
             'judul' => 'required',
@@ -97,17 +115,25 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
 
         ]);
 
+    try{
         $karil = SdmKinerjaDosenKaryaIlmiahDtps::find($id);
         $karil->nama_dosen = $req->input('nama_dosen');
         $karil->judul = $req->input('judul');
         $karil->jumlah_sitasi = $req->input('jumlah_sitasi');
-        $karil->tahun_laporan = '2022';
+        $karil->tahun_laporan = 2022;
         $karil->prodi = auth()->user()->prodi;
         $karil->created_by = auth()->user()->name;
         $karil->created_at = Carbon::now();
         $karil->update();
 
         return back()->with('success', 'Sdm Kinerja Dosen Karya Ilmiah Dtps has been updated.');
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
     }
 
     /**
