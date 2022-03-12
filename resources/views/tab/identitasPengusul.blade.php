@@ -2,21 +2,26 @@
 @extends('layouts.main')
 
 @section('content')
+
+{{-- JUDUL --}}
 <div class="content-header">
     <div class="container-fluid">
             <h1>IDENTITAS</h1>
     </div>
 </div>
 
-
+{{-- CARD HEAD --}}
 <div class="content">
 <div class="container-fluid">
         <div class="card">
+
             @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <strong>{{ $message }}</strong>
             </div>
           @endif
+
+{{-- CARD TAB --}}
 <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs" id="bologna-list" role="tablist">
         <li class="nav-item">
