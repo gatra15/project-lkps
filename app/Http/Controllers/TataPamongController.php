@@ -61,6 +61,9 @@ class TataPamongController extends Controller
             'waktu_durasi'      => 'required',
             'bukti_kerjasama'   => 'required',
         ]);
+        $name = $request->file('bukti_kerjasama')->getClientOriginalName();
+ 
+        $request->file('bukti_kerjasama')->store('public/store');
 
         $indikator = new IndikatorTataKerjasama;
         $indikator->tridharma = $request->input('tridharma');
@@ -69,17 +72,12 @@ class TataPamongController extends Controller
         $indikator->judul_kegiatan = $request->input('judul_kegiatan');
         $indikator->manfaat = $request->input('manfaat');
         $indikator->waktu_durasi = $request->input('waktu_durasi');
-        $indikator->bukti_kerjasama = $request->input('bukti_kerjasama');
-
-        // if($request->file()) {
-        //     $fileName = time().'_'.$request->file->getClientOriginalName();
-        //     $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
-        //     $indikator->bukti_kerjasama = '/storage/' . $filePath;
-        // }
+        $indikator->bukti_kerjasama = $name;
         $indikator->tahun_laporan = '2021';
         $indikator->prodi = 'Teknik Industri';
         $indikator->created_by = auth()->user()->name;
         $indikator->created_at = Carbon::now();
+        // dd($indikator);
         $indikator->save();
 
         return redirect('/tata-pamong-tata-kelola-kerjasama')->with('success', 'New Indikator Tata Kerjasama has been added!');

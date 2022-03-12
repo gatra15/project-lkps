@@ -28,6 +28,7 @@
     <div class="tab-content mt-3">
         <div class="tab-pane active" id="description" role="tabpanel">
             <form id="mainform" method="post" action="/identitas-pengusul">
+                @method('put')
                 @csrf
                 <input type="hidden" name="id" class="form-control" value="">
                 <div class="modal-body">

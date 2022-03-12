@@ -74,7 +74,7 @@ Route::group(['middleware' => 'auth:web'], function() {
 
         // Route to Identitas Pengusul
         Route::get('/identitas-pengusul', [IdentitasPengusulController::class, 'index']);
-        Route::post('/identitas-pengusul', [IdentitasPengusulController::class, 'store']);
+        Route::put('/identitas-pengusul/{id}', [IdentitasPengusulController::class, 'update']);
         // End Route Identitas Pengusul
 
         // Route to Tata Pamong
