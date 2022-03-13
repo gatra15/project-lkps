@@ -28,7 +28,7 @@
         <tbody class="text-dark">
              {{-- Coding Tabel Disini --}}
              <tr>
-            @foreach ($dosenewmp as $ewmp)
+            @foreach ($dosenewmp['dosen'] as $ewmp)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $ewmp->nama }}</td>
@@ -54,9 +54,13 @@
             <tr>
                 <td rowspan="2" class="align-middle"><b>Jumlah</b></td>
                 <td colspan="8" class="text-right"><b> Rata Rata DT </b></td>
+                <td>{{ $dosenewmp['average_dt_jumlah'] }}</td>
+                <td>{{ $dosenewmp['average_dt_average'] }}</td>
             </tr> 
             <tr>
                 <td colspan="8" class="text-right"><b> Rata Rata DTPS </b></td>
+                <td>{{ $dosenewmp['average_dtps_jumlah'] }}</td>
+                <td>{{ $dosenewmp['average_dtps_average'] }}</td>
             </tr> 
     </table>
 </div>

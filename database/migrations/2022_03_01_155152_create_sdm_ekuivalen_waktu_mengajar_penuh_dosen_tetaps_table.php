@@ -17,19 +17,21 @@ class CreateSdmEkuivalenWaktuMengajarPenuhDosenTetapsTable extends Migration
             $table->id();
             $table->string('nama');
             $table->string('dtps');
-            $table->string('ps_akreditasi');
-            $table->string('ps_lain_dalam_pt');
-            $table->string('ps_lain_luar_pt');
-            $table->string('penelitian');
-            $table->string('pkm');
-            $table->string('penunjang');
-            $table->string('sks');
-            $table->string('average_per_sks');
+            $table->integer('ps_akreditasi');
+            $table->integer('ps_lain_dalam_pt');
+            $table->integer('ps_lain_luar_pt');
+            $table->integer('penelitian');
+            $table->integer('pkm');
+            $table->integer('penunjang');
+            $table->integer('sks');
+            $table->float('average_per_sks');
             $table->string('slug');
-            $table->string('tahun_laporan');
+            $table->integer('tahun_laporan');
             $table->string('prodi');
-            $table->string('created_by');
-            $table->timestamps();
+            $table->string('created_by')->nullable(true);
+            $table->string('updated_by')->nullable(true);
+            $table->timestamp('created_at')->nullable(true);
+            $table->timestamp('updated_at')->nullable(true);
         });
     }
 
