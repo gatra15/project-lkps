@@ -55,6 +55,7 @@ div.shadow-sm {
 
     <form id="mainform" method="post" action="#">
         @csrf
+    <div class="modal-body">
         <input type="hidden" name="id" class="form-control" value="">
             
             <div class="input-group input-group-sm mb-3">
@@ -86,6 +87,11 @@ div.shadow-sm {
             {{-- PREVIEW TANDA TANGAN --}}
             <p class="font-italic text-dark text-center">File Tanda Tangan :</p>
             <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+        </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="submit"  class="btn btn-primary">Simpan</button>
+            </div>
     </form>
 </div>
 

@@ -8,6 +8,7 @@
         <th class="align-middle" scope="col" rowspan="1">Judul Luaran Penelitian/PkM</th>
         <th class="align-middle" scope="col" rowspan="1">Tahun</th>
         <th class="align-middle" scope="col" rowspan="1">Keterangan</th>
+        <th class="align-middle" scope="col" rowspan="1">Bukti</th>
         <th class="align-middle" scope="col" rowspan="1"> Opsi </th>                                               
         </tr>
         </thead>
@@ -22,11 +23,13 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <thead>
             <tr>
                 <th>No</th>
+                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -52,6 +55,7 @@
                 <td class="bold text-center" rowspan="1" colspan="2"> <b>Jumlah</b></td>
                 <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>A</sub>=</b></td>
                 <td class="bold text-center" rowspan="1" colspan="1"></td>
+                <td class="bold text-center" rowspan="1" colspan="1"></td>
                 <td></td>
             </tr>
         </tbody>
@@ -72,11 +76,13 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <thead>
             <tr>
                 <th>No</th>
+                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -101,6 +107,7 @@
                 <td class="bold text-center" rowspan="1" colspan="2"> <b>Jumlah</b></td>
                 <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>B</sub>=</b></td>
                 <td class="bold text-center" rowspan="1" colspan="1"></td>
+                <td></td>
                 <td></td>
             </tr>
         </tbody>
@@ -118,11 +125,13 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <thead>
             <tr>
                 <th>No</th>
+                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -148,6 +157,7 @@
                 <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>B</sub>=</b></td>
                 <td class="bold text-center" rowspan="1" colspan="1"></td>
                 <td></td>
+                <td></td>
             </tr>
         </tbody>
 
@@ -161,11 +171,13 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <thead>
             <tr>
                 <th>No</th>
+                <th></th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -190,6 +202,7 @@
                 <td class="bold text-center" rowspan="1" colspan="2"> <b>Jumlah</b></td>
                 <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>B</sub>=</b></td>
                 <td class="bold text-center" rowspan="1" colspan="1"></td>
+                <td></td>
                 <td></td>
             </tr>
         </tbody>
