@@ -62,7 +62,7 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
         $integrasi->created_at = Carbon::now();
         $integrasi->save();
 
-        return back()->with('success', 'Pendidikan Integrasi Kegiatan Penelitian has been created.');
+        return back()->with('success', 'Data Pendidikan Integrasi Kegiatan Penelitian berhasil ditambahkan.');
 
     } catch(\Exception $ex) {
         DB::connection($connection)->rollBack();
@@ -120,11 +120,11 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
         $integrasi->bentuk_integrasi = $req->input('bentuk_integrasi');
         $integrasi->tahun_laporan = '2022';
         $integrasi->prodi = auth()->user()->prodi;
-        $integrasi->created_by = auth()->user()->name;
+        $integrasi->updated_by = auth()->user()->name;
         $integrasi->updated_at = Carbon::now();
-        $integrasi->save();
+        $integrasi->update();
 
-        return back()->with('success', 'Pendidikan Integrasi Kegiatan Penelitian has been updated.');
+        return back()->with('success', 'Data Pendidikan Integrasi Kegiatan Penelitian berhasil diubah.');
     } catch(\Exception $ex) {
         DB::connection($connection)->rollBack();
         return response()->json(['message' => $ex->getMessage()], 500);
@@ -143,7 +143,7 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
     public function destroy($id)
     {
         PendidikanIntegrasiKegiatanPenelitian::find($id)->delete();
-        return back()->with('error', 'Pendidikan Integrasi Kegiatan Penelitian has been deleted.');
+        return back()->with('success', 'Data Pendidikan Integrasi Kegiatan Penelitian berhasil dihapus.');
     }
 
     public function exportToExcel()

@@ -63,12 +63,12 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
         $pengakuan->jumlah_ts1 = $req->input('jumlah_ts1');
         $pengakuan->jumlah_ts = $req->input('jumlah_ts');
         $pengakuan->jumlah = $req->jumlah_ts + $req->jumlah_ts1 + $req->jumlah_ts2;
-        $pengakuan->tahun_laporan = '2022';
+        $pengakuan->tahun_laporan = 2022;
         $pengakuan->prodi = auth()->user()->prodi;
         $pengakuan->created_by = auth()->user()->name;
         $pengakuan->created_at = Carbon::now();
 
-        return back()->with('success', 'Sdm Kinerja Dosen Publikasi Ilmiah Dtps has been created.');
+        return back()->with('success', 'Sdm Publikasi Ilmiah Dtps berhasil ditambahkan.');
     }
 
     /**
@@ -118,9 +118,9 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
         $data->tahun_laporan = 2022;
         $data->prodi = auth()->user()->prodi;
         $data->created_by = auth()->user()->name;
-        $data->updated_at = Carbon::now();
+        $data->created_at = Carbon::now();
         $data->update();
-        return back()->with('success', 'Sdm Kinerja Dosen Publikasi Ilmiah Dtps has been updated.');
+        return back()->with('success', 'Sdm Publikasi Ilmiah Dtps berhasil ditambahkan.');
     }
 
     /**
@@ -137,8 +137,12 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
         $data->jumlah_ts1 = null;
         $data->jumlah_ts = null;
         $data->jumlah = null;
+        $data->tahun_laporan = 2022;
+        $data->prodi = auth()->user()->prodi;
+        $data->updated_by = auth()->user()->name;
+        $data->updated_at = Carbon::now();
         $data->update();
-        return back()->with('error', 'Sdm Kinerja Dosen Publikasi Ilmiah Dtps has been deleted.');
+        return back()->with('success', 'Sdm Publikasi Ilmiah Dtps berhasil dihapus.');
     }
 
     public function exportToExcel()

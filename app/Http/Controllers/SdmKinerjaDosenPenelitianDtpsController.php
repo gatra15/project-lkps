@@ -67,12 +67,12 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
         $pengakuan->jumlah_ts1 = $req->input('jumlah_ts1');
         $pengakuan->jumlah_ts = $req->input('jumlah_ts');
         $pengakuan->jumlah = $req->input('jumlah');
-        $pengakuan->tahun_laporan = '2022';
+        $pengakuan->tahun_laporan = 2022;
         $pengakuan->prodi = auth()->user()->prodi;
         $pengakuan->created_by = auth()->user()->name;
         $pengakuan->created_at = Carbon::now();
         dd($pengakuan);
-        return back()->with('success', 'Sdm Kinerja Dosen Penelitian Dtps has been created.');
+        return back()->with('success', 'Data Penelitian Dtps berhasil ditambahkan.');
         
         } catch(\Exception $ex) {
             DB::connection($connection)->rollBack();
@@ -133,11 +133,11 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
         $pengakuan->tahun_laporan = '2022';
         $pengakuan->prodi = auth()->user()->prodi;
         $pengakuan->created_by = auth()->user()->name;
-        $pengakuan->updated_at = Carbon::now();
+        $pengakuan->created_at = Carbon::now();
         $pengakuan->update();
         // dd($pengakuan);
 
-        return back()->with('success', 'Sdm Kinerja Dosen Penelitian Dtps has been updated.');
+        return back()->with('success', 'Data Penelitian Dtps berhasil ditambahkan.');
     } catch(\Exception $ex) {
         DB::connection($connection)->rollBack();
         return response()->json(['message' => $ex->getMessage()], 500);
@@ -161,8 +161,12 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
         $pengakuan->jumlah_ts1 = null;
         $pengakuan->jumlah_ts = null;
         $pengakuan->jumlah = null;
+        $pengakuan->tahun_laporan = 2022;
+        $pengakuan->prodi = auth()->user()->prodi;
+        $pengakuan->updated_by = auth()->user()->name;
+        $pengakuan->updated_at = Carbon::now();
         $pengakuan->update();
-        return back()->with('error', 'Sdm Kinerja Dosen Penelitian Dtps has been deleted.');
+        return back()->with('success', 'Data Penelitian Dtps berhasil dihapus.');
     }
 
     public function exportToExcel()

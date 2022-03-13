@@ -31,8 +31,10 @@ class CreatePendidikanKurikulumsTable extends Migration
             $table->string('unit_penyelenggara');
             $table->integer('tahun_laporan');
             $table->string('prodi');
-            $table->string('created_by');
-            $table->timestamps();
+            $table->string('created_by')->nullable(true);
+            $table->string('updated_by')->nullable(true);
+            $table->timestamp('created_at')->nullable(true);
+            $table->timestamp('updated_at')->nullable(true);
         });
     }
 

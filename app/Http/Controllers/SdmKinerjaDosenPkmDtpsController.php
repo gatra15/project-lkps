@@ -70,7 +70,7 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
         // $pkm->created_by = auth()->user()->name;
         // $pkm->created_at = Carbon::now();
         // dd($pkm);
-        // return back()->with('success', 'Sdm Kinerja Dosen Pkm Dtps has been created.');
+        // return back()->with('success', ' Pkm Dtps has been created.');
     }
 
     /**
@@ -119,13 +119,13 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
         $pkm->jumlah_ts1 = (int) $req->input('jumlah_ts1');
         $pkm->jumlah_ts = (int) $req->input('jumlah_ts');
         $pkm->jumlah = $req->jumlah_ts + $req->jumlah_ts1 + $req->jumlah_ts2;
-        $pkm->tahun_laporan = '2022';
+        $pkm->tahun_laporan = 2022;
         $pkm->prodi = auth()->user()->prodi;
         $pkm->created_by = auth()->user()->name;
-        $pkm->updated_at = Carbon::now();
+        $pkm->created_at = Carbon::now();
         $pkm->update();
 
-        return back()->with('success', 'Sdm Kinerja Dosen Pkm Dtps has been updated.');
+        return back()->with('success', 'Data  Pkm Dtps berhasil ditambahkan.');
         } catch(\Exception $ex) {
             DB::connection($connection)->rollBack();
             return response()->json(['message' => $ex->getMessage()], 500);
@@ -143,14 +143,18 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
      */
     public function destroy(Request $req,$id)
     {
-        $pengakuan = SdmKinerjaDosenPkmDtps::find($id);
-        $pengakuan->sumber_id = $req->input('sumber_id');
-        $pengakuan->jumlah_ts2 = null;
-        $pengakuan->jumlah_ts1 = null;
-        $pengakuan->jumlah_ts = null;
-        $pengakuan->jumlah = null;
-        $pengakuan->update();
-        return back()->with('error', 'Sdm Kinerja Dosen Pkm Dtps has been deleted.');
+        $pkm = SdmKinerjaDosenPkmDtps::find($id);
+        $pkm->sumber_id = $req->input('sumber_id');
+        $pkm->jumlah_ts2 = null;
+        $pkm->jumlah_ts1 = null;
+        $pkm->jumlah_ts = null;
+        $pkm->jumlah = null;
+        $pkm->tahun_laporan = 2022;
+        $pkm->prodi = auth()->user()->prodi;
+        $pkm->updated_by = auth()->user()->name;
+        $pkm->updated_at = Carbon::now();
+        $pkm->update();
+        return back()->with('error', 'Data Pkm Dtps berhasil dihapus.');
     }
 
     public function exportToExcel()

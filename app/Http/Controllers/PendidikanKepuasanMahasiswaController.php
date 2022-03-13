@@ -70,7 +70,7 @@ class PendidikanKepuasanMahasiswaController extends Controller
         $kepuasan->created_at = Carbon::now();
         $kepuasan->save();
         // dd($kepuasan);
-        return back()->with('success', 'Data Kepuasan Mahasiswa has been created.');
+        return back()->with('success', 'Data Kepuasan Mahasiswa berhasil ditambahkan.');
     } catch(\Exception $ex) {
         DB::connection($connection)->rollBack();
         return response()->json(['message' => $ex->getMessage()], 500);
@@ -128,13 +128,13 @@ class PendidikanKepuasanMahasiswaController extends Controller
         $kepuasan->cukup = $req->input('cukup');
         $kepuasan->kurang = $req->input('kurang');
         $kepuasan->rencana_tindak_lanjut = $req->input('rencana_tindak_lanjut');
-        $kepuasan->tahun_laporan = '2022';
+        $kepuasan->tahun_laporan = 2022;
         $kepuasan->prodi = auth()->user()->prodi;
-        $kepuasan->updated_by = auth()->user()->name;
-        $kepuasan->updated_at = Carbon::now();
+        $kepuasan->created_by = auth()->user()->name;
+        $kepuasan->created_at = Carbon::now();
         $kepuasan->update();
 
-        return back()->with('success', 'Data Kepuasan Mahasiswa has been updated.');
+        return back()->with('success', 'Data Kepuasan Mahasiswa berhasil ditambahkan.');
     } catch(\Exception $ex) {
         DB::connection($connection)->rollBack();
         return response()->json(['message' => $ex->getMessage()], 500);
@@ -159,8 +159,11 @@ class PendidikanKepuasanMahasiswaController extends Controller
         $kepuasan->cukup = null;
         $kepuasan->kurang = null;
         $kepuasan->rencana_tindak_lanjut = null;
+        $kepuasan->prodi = auth()->user()->prodi;
+        $kepuasan->updated_by = auth()->user()->name;
+        $kepuasan->updated_at = Carbon::now();
         $kepuasan->update();
-        return back()->with('error', 'Data Kepuasan Mahasiswa has been deleted.');
+        return back()->with('error', 'Data Kepuasan Mahasiswa berhasil dihapus.');
     }
     
     public function exportToExcel()

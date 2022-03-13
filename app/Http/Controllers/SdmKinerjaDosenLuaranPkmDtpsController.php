@@ -55,7 +55,7 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
         $luaran->prodi = auth()->user()->prodi;
         $luaran->created_by = auth()->user()->name;
         $luaran->created_at = Carbon::now();
-        dd($luaran);
+        // dd($luaran);
         $luaran->save();
 
         return back()->with('success', 'Sdm Kinerja Dosen Luaran Pkm Dtps has been created.');

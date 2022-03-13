@@ -93,7 +93,7 @@ class CapaianPembelajaranController extends Controller
         $data->created_by = auth()->user()->name;
         $data->created_at = Carbon::now();
         $data->update();
-        return back()->with('success', 'Data Berhasil ditambahkan.');
+        return back()->with('success', 'Data Capaian Pembelajaran berhasil ditambahkan.');
 
     } catch(\Exception $ex) {
         DB::connection($connection)->rollBack();
@@ -127,7 +127,7 @@ class CapaianPembelajaranController extends Controller
         $data->updated_at = Carbon::now();
         $data->update();
 
-        return back()->with('success', 'Data Berhasil dihapus.');
+        return back()->with('success', 'Data Capaian Pembelajaran Berhasil dihapus.');
 
     } catch(\Exception $ex) {
         DB::connection($connection)->rollBack();

@@ -44,28 +44,28 @@ th span {
     </thead>
     
     <tbody>
-        @foreach ($kurikulum['kurikulum'] as $kurikulum)
+        @foreach ($kurikulum['kurikulum'] as $kur)
         <tr>
             
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $kurikulum->semester }}</td>
-            <td>{{ $kurikulum->kode_mata_kuliah }}</td>
-            <td>{{ $kurikulum->nama_mata_kuliah }}</td>
-            <td>{{ $kurikulum->mata_kuliah_kompetensial == '1' ? 'V' : '' }}</td>
-            <td>{{ $kurikulum->bobot_kuliah }}</td>
-            <td>{{ $kurikulum->bobot_seminar }}</td>
-            <td>{{ $kurikulum->bobot_praktikum }}</td>
-            <td>{{ $kurikulum->konversi_kredit_jam }}</td>
-            <td>{{ $kurikulum->capaian_sikap == '1' ? 'V' : '' }}</td>
-            <td>{{ $kurikulum->capaian_pengetahuan == '1' ? 'V' : ''  }}</td>
-            <td>{{ $kurikulum->capaian_ketrampilan_umum == '1' ? 'V' : ''  }}</td>
-            <td>{{ $kurikulum->capaian_ketrampilan_khusus == '1' ? 'V' : ''  }}</td>
-            <td>{{ $kurikulum->document_rencana_pembelajaran == '1' ? 'V' : ''  }}</td>
-            <td>{{ $kurikulum->unit_penyelenggara }}</td>
+            <td>{{ $kur->semester }}</td>
+            <td>{{ $kur->kode_mata_kuliah }}</td>
+            <td>{{ $kur->nama_mata_kuliah }}</td>
+            <td>{{ $kur->mata_kuliah_kompetensial == '1' ? 'V' : '' }}</td>
+            <td>{{ $kur->bobot_kuliah }}</td>
+            <td>{{ $kur->bobot_seminar }}</td>
+            <td>{{ $kur->bobot_praktikum }}</td>
+            <td>{{ $kur->konversi_kredit_jam }} Jam</td>
+            <td>{{ $kur->capaian_sikap == '1' ? 'V' : '' }}</td>
+            <td>{{ $kur->capaian_pengetahuan == '1' ? 'V' : ''  }}</td>
+            <td>{{ $kur->capaian_ketrampilan_umum == '1' ? 'V' : ''  }}</td>
+            <td>{{ $kur->capaian_ketrampilan_khusus == '1' ? 'V' : ''  }}</td>
+            <td>{{ $kur->document_rencana_pembelajaran == '1' ? 'V' : ''  }}</td>
+            <td>{{ $kur->unit_penyelenggara }}</td>
             <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalkurikulumedit-{{ $kurikulum->id }}"><i class="fas fa-edit"></i></a></li>
+                <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalkurikulumedit-{{ $kur->id }}"><i class="fas fa-edit"></i></a></li>
                 <li>
-                    <a type="button" class="btn btn-danger" href="/pendidikan/{{ $kurikulum->id }}" data-toggle="modal" data-target="#modalkurikulumdelete-{{ $kurikulum->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                    <a type="button" class="btn btn-danger" href="/pendidikan/{{ $kur->id }}" data-toggle="modal" data-target="#modalkurikulumdelete-{{ $kur->id }}"><i class="fas fa-trash btn-del"></i></a></li>
             </ul></td>
         </tr>
         </tbody>
@@ -77,7 +77,7 @@ th span {
         <th class="putih align-middle text-center">{{ $kurikulum['bobot_kuliah'] }}</th>
         <th class="putih align-middle text-center">{{ $kurikulum['bobot_seminar'] }}</th>
         <th class="putih align-middle text-center">{{ $kurikulum['bobot_praktikum'] }}</th>
-        <th class="putih align-middle text-center">{{ $kurikulum['konversi_kredit_jam'] }}</th>
+        <th class="putih align-middle text-center">{{ $kurikulum['konversi_kredit_jam'] }} Jam</th>
         <th colspan="7"></th>
         </tr>
         </thead>

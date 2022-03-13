@@ -19,7 +19,7 @@
     </div>
 
      <!-- Modal Tambah Data Efektivitas -->
-     <div class="modal fade" id="modalefek" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+     <div class="modal fade" id="modalefek" tabindex="-1" aria-labelledby="modalefek" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -35,11 +35,11 @@
 
         {{-- foreach --}}
       <!-- Modal Tambah Edit Efektivitas -->
-      <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+      <div class="modal fade" id="modalefekedit-{{ $efektifitas->id }}" tabindex="-1" aria-labelledby="modalefekedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalefekedit">Tambah Data Dosen Industri </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -50,11 +50,11 @@
         </div>
 
       <!-- Modal Tambah Delete Efektivitas -->
-      <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+      <div class="modal fade" id="modalefekdelet-{{ $efektifitas->id }}" tabindex="-1" aria-labelledby="modalefekdelet" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalefekdelet">Tambah Data Dosen Industri </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

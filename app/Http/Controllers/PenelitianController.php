@@ -45,7 +45,7 @@ class PenelitianController extends Controller
         $penelitian->created_at = Carbon::now();
         $penelitian->save();
 
-        return back()->with('success', 'Data Penelitian DTPS yang Melibatkan Mahasiswa has been created.');
+        return back()->with('success', 'Data Penelitian DTPS yang Melibatkan Mahasiswa berhasil ditambahkan.');
     } catch(\Exception $ex) {
         DB::connection($connection)->rollBack();
         return response()->json(['message' => $ex->getMessage()], 500);
@@ -75,11 +75,11 @@ class PenelitianController extends Controller
         $penelitian->tahun = $req->input('tahun');
         $penelitian->tahun_laporan = 2022;
         $penelitian->prodi = auth()->user()->prodi;
-        $penelitian->created_by = auth()->user()->name;
+        $penelitian->updated_by = auth()->user()->name;
         $penelitian->updated_at = Carbon::now();
         $penelitian->save();
 
-        return back()->with('success', 'Data Penelitian DTPS yang Melibatkan Mahasiswa has been updated.');
+        return back()->with('success', 'Data Penelitian DTPS yang Melibatkan Mahasiswa berhasil diubah.');
     } catch(\Exception $ex) {
         DB::connection($connection)->rollBack();
         return response()->json(['message' => $ex->getMessage()], 500);
@@ -93,7 +93,7 @@ class PenelitianController extends Controller
     {
         PenelitianDtpsMelibatkanMahasiswa::find($id)->delete();
 
-        return back()->with('error', 'Data Penelitian DTPS yang Melibatkan Mahasiswa has been deleted.');
+        return back()->with('success', 'Data Penelitian DTPS yang Melibatkan Mahasiswa berhasil dihapus.');
     }
 
     public function exportToExcel()

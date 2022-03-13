@@ -17,6 +17,7 @@ class PendidikanController extends Controller
     public function index()
     {
         $kurikulum = (new PendidikanKurikulumController)->index();
+        // ddd($kurikulum);
         $integrasi = (new PendidikanIntegrasiKegiatanPenelitianController)->index();
         $kepuasanmahasiswa = (new PendidikanKepuasanMahasiswaController)->index();
         $aspek = Aspek::all();
@@ -57,20 +58,20 @@ class PendidikanController extends Controller
         $kurikulum->bobot_kuliah = (int) $req->input('bobot_kuliah');
         $kurikulum->bobot_seminar = (int) $req->input('bobot_seminar');
         $kurikulum->bobot_praktikum = (int) $req->input('bobot_praktikum');
-        $kurikulum->konversi_kredit_jam = (int) ($req->bobot_kuliah + $req->bobot_seminar + $req->bobot_praktikum) * 50;
+        $kurikulum->konversi_kredit_jam = (int) ($req->bobot_kuliah + $req->bobot_seminar + $req->bobot_praktikum) * 50/60;
         $kurikulum->capaian_sikap = $req->input('capaian_sikap');
         $kurikulum->capaian_pengetahuan = $req->input('capaian_pengetahuan');
         $kurikulum->capaian_ketrampilan_umum = $req->input('capaian_ketrampilan_umum');
         $kurikulum->capaian_ketrampilan_khusus = $req->input('capaian_ketrampilan_khusus');
         $kurikulum->document_rencana_pembelajaran = $req->input('document_rencana_pembelajaran');
         $kurikulum->unit_penyelenggara = $req->input('unit_penyelenggara');
-        $kurikulum->tahun_laporan = '2022';
+        $kurikulum->tahun_laporan = 2022;
         $kurikulum->prodi = auth()->user()->prodi;
         $kurikulum->created_by = auth()->user()->name;
         $kurikulum->created_at = Carbon::now();
         $kurikulum->save();
 
-        return back()->with('success', 'Pendidikan Kurikulum has been created.');
+        return back()->with('success', 'Data Pendidikan Kurikulum berhasil ditambahkan.');
     } catch(\Exception $ex) {
         DB::connection($connection)->rollBack();
         return response()->json(['message' => $ex->getMessage()], 500);
@@ -108,20 +109,20 @@ class PendidikanController extends Controller
         $kurikulum->bobot_kuliah = (int) $req->input('bobot_kuliah');
         $kurikulum->bobot_seminar = (int) $req->input('bobot_seminar');
         $kurikulum->bobot_praktikum = (int) $req->input('bobot_praktikum');
-        $kurikulum->konversi_kredit_jam = (int) ($req->bobot_kuliah + $req->bobot_seminar + $req->bobot_praktikum) * 50;
+        $kurikulum->konversi_kredit_jam = (int) ($req->bobot_kuliah + $req->bobot_seminar + $req->bobot_praktikum) * 50/60;
         $kurikulum->capaian_sikap = $req->input('capaian_sikap');
         $kurikulum->capaian_pengetahuan = $req->input('capaian_pengetahuan');
         $kurikulum->capaian_ketrampilan_umum = $req->input('capaian_ketrampilan_umum');
         $kurikulum->capaian_ketrampilan_khusus = $req->input('capaian_ketrampilan_khusus');
         $kurikulum->document_rencana_pembelajaran = $req->input('document_rencana_pembelajaran');
         $kurikulum->unit_penyelenggara = $req->input('unit_penyelenggara');
-        $kurikulum->tahun_laporan = '2022';
+        $kurikulum->tahun_laporan = 2022;
         $kurikulum->prodi = auth()->user()->prodi;
-        $kurikulum->created_by = auth()->user()->name;
+        $kurikulum->updated_by = auth()->user()->name;
         $kurikulum->updated_at = Carbon::now();
         $kurikulum->update();
 
-        return back()->with('success', 'Pendidikan Kurikulum has been updated.');
+        return back()->with('success', 'Data Pendidikan Kurikulum berhasil diubah.');
     } catch(\Exception $ex) {
         DB::connection($connection)->rollBack();
         return response()->json(['message' => $ex->getMessage()], 500);
@@ -134,7 +135,7 @@ class PendidikanController extends Controller
     public function destroy($id)
     {
         PendidikanKurikulum::find($id)->delete();
-        return back()->with('error', 'Pendidikan Kurikulum has been deleted.');
+        return back()->with('success', 'Data Pendidikan Kurikulum dihapus.');
     }
 
     public function exportToExcel()

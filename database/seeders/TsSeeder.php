@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\CapaianPembelajaran;
+use App\Models\EfektifitasProduktifitasPendidikan;
 use App\Models\Mahasiswa;
 use App\Models\TS;
 use Illuminate\Database\Seeder;
@@ -66,7 +67,26 @@ class TsSeeder extends Seeder
         ]);
 
         // Efektifitas
-        
+        EfektifitasProduktifitasPendidikan::create([
+            'tahun_id' => 1,
+            'tahun_laporan' => 2022,
+            'prodi' => 'Teknik Industri',
+        ]);
+        EfektifitasProduktifitasPendidikan::create([
+            'tahun_id' => 2,
+            'tahun_laporan' => 2022,
+            'prodi' => 'Teknik Industri',
+        ]);
+        EfektifitasProduktifitasPendidikan::create([
+            'tahun_id' => 3,
+            'tahun_laporan' => 2022,
+            'prodi' => 'Teknik Industri',
+        ]);
+        EfektifitasProduktifitasPendidikan::create([
+            'tahun_id' => 4,
+            'tahun_laporan' => 2022,
+            'prodi' => 'Teknik Industri',
+        ]);
 
         // capaian pembelajara
         CapaianPembelajaran::create([

@@ -23,13 +23,17 @@
     </thead>
     
     <tbody class="text-dark">
-    <tr>
-    <td>Eko</td>
-    <td>Eko</td>
-    <td>Eko</td>
-    <td>Eko</td>
-    <td>Eko</td>
-    </tr>
+        @foreach ($efektifitasPrestasi['efektifitas'] as $efektifitas)
+            <tr>
+                <td>{{ $efektifitas->jumlah_mahasiswa }}</td>
+                <td>{{ $efektifitas->ts3 }}</td>
+                <td>{{ $efektifitas->ts2 }}</td>
+                <td>{{ $efektifitas->ts1 }}</td>
+                <td>{{ $efektifitas->ts }}</td>
+                <td>{{ $efektifitas->jumlah }}</td>
+                <td>{{ $efektifitas->average }}</td>
+            </tr>
+        @endforeach
     {{-- @foreach ($mahasiswa_asing as $mhs)
     <tr>
         @for ($i = 0; $i < $count; $i++)

@@ -1,4 +1,4 @@
-<form action="{{-- url('/profil-dosen/dosen-tidak-tetap') --}}" method="POST">
+<form action="url('/keuangan-sarana-prasarana')" method="POST">
     @csrf
     <div class="modal-body">
         

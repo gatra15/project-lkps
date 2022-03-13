@@ -74,7 +74,7 @@ class PrestasiMahasiswaController extends Controller
         return response(['message' => $ex->getMessage()],500);
     }    
 
-        return back()->with('success', 'Prestasi Mahasiswa has been created.');
+        return back()->with('success', 'Prestasi Mahasiswa berhasil ditambahkan.');
     }
 
     /**
@@ -123,11 +123,11 @@ class PrestasiMahasiswaController extends Controller
         $prestasi->type_prestasi = $req->input('type_prestasi');
         $prestasi->tahun_laporan = 2022;
         $prestasi->prodi = auth()->user()->prodi;
-        $prestasi->created_by = auth()->user()->name;
-        $prestasi->update_at = Carbon::now();
+        $prestasi->updated_by = auth()->user()->name;
+        $prestasi->updated_at = Carbon::now();
         $prestasi->update();
 
-        return back()->with('success', 'Prestasi Mahasiswa has been updated.');
+        return back()->with('success', 'Prestasi Mahasiswa berhasil diubah.');
     } catch(\Exception $ex) {
         DB::connection($connection)->rollBack();
         return response()->json(['message' => $ex->getMessage()], 500);
@@ -149,7 +149,7 @@ class PrestasiMahasiswaController extends Controller
     try{
 
         PrestasiMahasiswa::find($id)->delete();
-        return back()->with('error', 'Prestasi Mahasiswa has been deleted.');
+        return back()->with('error', 'Prestasi Mahasiswa berhasil dihapus.');
 
     } catch(\Exception $ex) {
         DB::connection($connection)->rollBack();

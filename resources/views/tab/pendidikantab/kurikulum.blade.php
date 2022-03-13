@@ -43,10 +43,10 @@
 @include('tab.pendidikantab.kurikulumtable')
 {{-- TABLE AKHIR --}}
 
-@foreach ($kurikulum['kurikulum'] as $kurikulum)
+@foreach ($kurikulum['kurikulum'] as $kur)
             
 <!-- Modal Tambah Data Kurikulum -->
-<div class="modal fade" id="modalkurikulumedit-{{ $kurikulum->id }}" tabindex="-1" aria-labelledby="modalkurikulumedit" aria-hidden="true">
+<div class="modal fade" id="modalkurikulumedit-{{ $kur->id }}" tabindex="-1" aria-labelledby="modalkurikulumedit" aria-hidden="true">
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
@@ -61,7 +61,7 @@
     </div>
 
     <!-- Modal Tambah Data Kurikulum -->
-    <div class="modal fade" id="modalkurikulumdelete-{{ $kurikulum->id }}" tabindex="-1" aria-labelledby="modalkurikulumdelete" aria-hidden="true">
+    <div class="modal fade" id="modalkurikulumdelete-{{ $kur->id }}" tabindex="-1" aria-labelledby="modalkurikulumdelete" aria-hidden="true">
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
