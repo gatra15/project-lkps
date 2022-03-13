@@ -7,24 +7,26 @@
             <div class="row">
                
                 {{-- MASUK KE TABEL SDM DOSENS --}}
-
                 <label for="dosentetap"> Sumber Daya Pembiyaan :</label>
                 <p>@php echo $penelitian->sumber->sumberdaya @endphp</p>
                 <div class="input-group input-group-sm mb-3">
                     <input type="hidden" name="sumber_id" value="{{ $penelitian->sumber_id }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly>
                 </div>
-                <label>Jumlah Judul</label>
-                <label for="dosentetap"> TS-2 :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jumlah_ts2" value="{{ $penelitian->jumlah_ts2 }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
-                <label for="dosentetap"> TS-1 :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jumlah_ts1" value="{{ $penelitian->jumlah_ts1 }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
-                <label for="dosentetap"> TS :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jumlah_ts" value="{{ $penelitian->jumlah_ts2 }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+
+                <label for="penelitian" class="fs-6 my-2"> Pada PS Yang Diakreditasi </label>
+                <div class="form-row justify-content-center text-center">
+                    <div class="form-group col-md-4 align-middle">
+                    <label for="dosentetap"> TS-2 :</label>
+                      <input name="jumlah_ts2" value="{{ $penelitian->jumlah_ts2 }}" class="form-control form-control-sm mb-3" type="number" min="1" required>
+                    </div>
+                    <div class="form-group col-md-4 align-middle">
+                        <label for="dosentetap"> TS-1 :</label>
+                        <input name="jumlah_ts1" value="{{ $penelitian->jumlah_ts1 }}"  class="form-control form-control-sm mb-3" type="number" min="1" required>
+                      </div>
+                    <div class="form-group col-md-4 align-middle">
+                        <label for="dosentetap"> TS :</label>
+                        <input name="jumlah_ts" value="{{ $penelitian->jumlah_ts2 }}" class="form-control form-control-sm mb-3" type="number" min="1" required>
+                    </div>
                 </div>
 
                {{-- coding modal insert akhir --}}

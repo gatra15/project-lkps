@@ -1,5 +1,5 @@
-<div id="#">
-    <table id='form-print' class="table table-bordered table-condensed">
+<div id="print-table2">
+    <table id='form-print' class="table table-bordered table-condensed text-center align-middle">
         <thead>
             <tr>
                 <th class="align-middle text-center" scope="col" rowspan="3">No</th>
@@ -50,3 +50,4 @@
             @endforeach
     </table>
 </div>
+@include('layouts.table')

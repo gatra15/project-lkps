@@ -42,15 +42,16 @@ class SdmDosenPembimbingTaController extends Controller
      */
     public function store(Request $req)
     {
+
         $connection = 'mysql';
         $rule = [
             'nama' => 'required',
-            'jumlah_ps_akreditasi_ts2' => 'required',
-            'jumlah_ps_akreditasi_ts1' => 'required',
-            'jumlah_ps_akreditasi_ts' => 'required',
-            'jumlah_ps_lain_ts2' => 'required',
-            'jumlah_ps_lain_ts1' => 'required',
-            'jumlah_ps_lain_ts' => 'required',
+            'jumlah_ps_akreditasi_ts2' => 'required|numeric',
+            'jumlah_ps_akreditasi_ts1' => 'required|numeric',
+            'jumlah_ps_akreditasi_ts' => 'required|numeric',
+            'jumlah_ps_lain_ts2' => 'required|numeric',
+            'jumlah_ps_lain_ts1' => 'required|numeric',
+            'jumlah_ps_lain_ts' => 'required|numeric',
         ];
         $this->validate($req, $rule);
 

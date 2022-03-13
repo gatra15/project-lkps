@@ -3,12 +3,13 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#des7" role="button" aria-expanded="false" aria-controls="des7">
             Deskripsi
         </a>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaran">
-            Tambah data
-        </button>
     </p>
     <a href="/kinerja-dosen/luaran/download/excel" class="btn btn-success">Excel</a>
     <a href="/kinerja-dosen/luaran/download/csv" class="btn btn-success">CSV</a>
+    <input type="button" class="btn btn-primary" onclick="printDiv('print-table2')" value="Print Document" />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
+        Cara Download PDF
+    </button>
 <div class="collapse" id="des7">
     <div class="card card-body">
         <p>
@@ -17,11 +18,11 @@
     </div> 
 </div>
     <!-- Modal Tambah Data Luaran DTPS -->
-    <div class="modal fade" id="modaldosenluaran" tabindex="-1" aria-labelledby="modaldosenluaran" aria-hidden="true">
+    <div class="modal fade" id="modalluarantambah" tabindex="-1" aria-labelledby="modalluarantambah" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenluaran">Tambah Data Dosen Tetap</h5>
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -65,3 +66,4 @@
     </div>
     
 </div>
+@include('layouts.table')

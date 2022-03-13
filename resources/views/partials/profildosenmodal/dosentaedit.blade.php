@@ -12,36 +12,38 @@
                 <div class="input-group input-group-sm mb-3">
                     <input type="text" name="nama" value="{{ $sdm->nama }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
-                <h5>Jumlah Mahasiswa yang Dibimbing</h5>
-                <h6>pada PS yang Diakreditasi</h6>
-                <label for="dosentetap"> TS-2 :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jumlah_ps_akreditasi_ts2" value="{{ $sdm->jumlah_ps_akreditasi_ts2 }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+
+                <label for="dosenewmp" class="fs-6 my-2"> Pada PS Yang Diakreditasi </label>
+                <div class="form-row justify-content-center text-center">
+                    <div class="form-group col-md-4 align-middle">
+                    <label for="dosentetap"> TS-2 :</label>
+                      <input name="jumlah_ps_akreditasi_ts2" class="form-control form-control-sm mb-3" type="number" min="1" value="{{ $sdm->jumlah_ps_akreditasi_ts2 }}" required>
+                    </div>
+                    <div class="form-group col-md-4 align-middle">
+                        <label for="dosentetap"> TS-1 :</label>
+                        <input name="jumlah_ps_akreditasi_ts1" class="form-control form-control-sm mb-3" type="number" min="1" value="{{ $sdm->jumlah_ps_akreditasi_ts1 }}" required>
+                      </div>
+                    <div class="form-group col-md-4 align-middle">
+                        <label for="dosentetap"> TS :</label>
+                        <input name="jumlah_ps_akreditasi_ts" class="form-control form-control-sm mb-3" type="number" min="1" value="{{ $sdm->jumlah_ps_akreditasi_ts }}" required>
+                    </div>
                 </div>
-                <label for="dosentetap"> TS-1 :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jumlah_ps_akreditasi_ts1" value="{{ $sdm->jumlah_ps_akreditasi_ts1 }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+
+                <label for="dosenewmp" class="fs-6 my-2"> Pada PS Lain di PT </label>
+                <div class="form-row justify-content-center text-center">
+                    <div class="form-group col-md-4 align-middle">
+                    <label for="dosentetap"> TS-2 :</label>
+                      <input name="jumlah_ps_lain_ts2" class="form-control form-control-sm mb-3" type="number" min="1" value="{{ $sdm->jumlah_ps_lain_ts2 }}" required>
+                    </div>
+                    <div class="form-group col-md-4 align-middle">
+                        <label for="dosentetap"> TS-1 :</label>
+                        <input name="jumlah_ps_lain_ts1" class="form-control form-control-sm mb-3" type="number" min="1" value="{{ $sdm->jumlah_ps_lain_ts1 }}" required>
+                    </div>
+                    <div class="form-group col-md-4 align-middle">
+                        <label for="dosentetap"> TS :</label>
+                        <input name="jumlah_ps_lain_ts" class="form-control form-control-sm mb-3" type="number" min="1" value="{{ $sdm->jumlah_ps_lain_ts }}" required>
+                    </div>
                 </div>
-                <label for="dosentetap"> TS :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jumlah_ps_akreditasi_ts"
-                    value="{{ $sdm->jumlah_ps_akreditasi_ts }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
-                
-                <h6>pada PS Lain di PT</h6>
-                <label for="dosentetap"> TS-2 :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jumlah_ps_lain_ts2" value="{{ $sdm->jumlah_ps_lain_ts2 }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
-                <label for="dosentetap"> TS-1 :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jumlah_ps_lain_ts1" value="{{ $sdm->jumlah_ps_lain_ts1 }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
-                <label for="dosentetap"> TS :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jumlah_ps_lain_ts" value="{{ $sdm->jumlah_ps_lain_ts }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
-                
 
                {{-- coding modal insert akhir --}}
                

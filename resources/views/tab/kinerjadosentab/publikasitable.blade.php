@@ -1,4 +1,4 @@
-<div id="printElement container-fluid">
+<div id="print-table6">
     <table id='form-print' class="table table-inverse text-center table-bordered table-condensed">
         <thead>
             <tr>
@@ -34,13 +34,14 @@
                 </ul></td>
                 </tr>
             @endforeach
-        </tbody>
+        
         <tr>
             <td colspan="2" class="text-center"><b>Total</b></td>
             <td>{{ $publikasi['jumlah_ts2'] }}</td>
             <td>{{ $publikasi['jumlah_ts1'] }}</td>
             <td>{{ $publikasi['jumlah_ts'] }}</td>
             <td>{{ $publikasi['jumlah'] }}</td>
+            <td></td>
         </tr>
 
     </tbody>

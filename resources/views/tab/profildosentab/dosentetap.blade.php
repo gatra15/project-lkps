@@ -9,6 +9,10 @@
     </p>  
     <a href="{{ url('profil-dosen/download/excel') }}" class="btn btn-success">Excel</a>
     <a href="{{ url('profil-dosen/download/csv') }}" class="btn btn-success">CSV</a>
+    <input type="button" class="btn btn-primary" onclick="printDiv('print-table')" value="Print Document" />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
+        Cara Download PDF
+    </button>
 <div class="collapse" id="des1">
     <div class="card card-body">
         <p>
@@ -17,7 +21,7 @@
         <b>Keterangan</b> <br>
         NDT = Jumlah Dosen Tetap Perguruan Tinggi yang ditugaskan sebagai pengampu mata kuliah di Program Studi yang diakreditasi.<br>
         NDTPS = Jumlah Dosen Tetap Perguruan Tinggi yang ditugaskan sebagai pengampu mata kuliah dengan bidang keahlian yang<br>
-        sesuai dengan kompetensi inti program studi yang diakreditasi.
+        sesuai dengan kompetensi inti program studi yang diakreditasi. <br>
         1) Diisi dengan nama program studi pada pendidikan pasca sarjana (Magister/Magister Terapan dan/atau Doktor/Doktor Terapan)
         yang pernah diikuti.<br>
         2) Diisi dengan bidang keahlian sesuai pendidikan pasca sarjana yang relevan dengan mata kuliah yang diampu.<br>
@@ -86,3 +90,4 @@
     @endforeach
 
 </div>
+@include('layouts.table')

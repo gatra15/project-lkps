@@ -1,4 +1,4 @@
-<div id="printElement container-fluid">
+<div id="print-table">
     <table id='form-print' class="table text-center table-bordered table-condensed">
         <thead>
             <tr>
@@ -35,6 +35,7 @@
             <td colspan="2"><b>Jumlah</b></td>
             <td>{{ $karyailmiah['count'] }}</td>
             <td>{{ $karyailmiah['jumlah'] }}</td>
+            <td></td>
         </tr>
         </table> 
     </div>

@@ -17,7 +17,7 @@
                 </div>
                 <label for="pengkuan"> Jumlah :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jumlah_sitasi" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="number" name="jumlah_sitasi" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" min="1" required>
                 </div>
                {{-- coding modal insert akhir --}}
                

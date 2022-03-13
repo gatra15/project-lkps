@@ -12,22 +12,10 @@
     </p>
     <a href="/kinerja-dosen/karya-ilmiah/download/excel" class="btn btn-success">Excel</a>
     <a href="/kinerja-dosen/karya-ilmiah/download/csv" class="btn btn-success">CSV</a>
-    
-    <!-- Modal Tambah PKM DTPS -->
-
-    {{-- <div class="modal fade" id="modaldosentetap" tabindex="-1" aria-labelledby="modaldosentetap" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="modaldosentetap">Tambah Data Pengabdian Kepada Masyarakat DTPS</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
-        @include('partials.kinerjadosenmodal.pkm')
-    </div>
-    </div>
-    </div> --}}
+    <input type="button" class="btn btn-primary" onclick="printDiv('print-table5')" value="Print Document" />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
+        Cara Download PDF
+    </button>
     
     <div class="collapse" id="des3">
         <div class="card card-body">
@@ -80,4 +68,4 @@
     </div>
     @endforeach
 </div>
-
+@include('layouts.table')

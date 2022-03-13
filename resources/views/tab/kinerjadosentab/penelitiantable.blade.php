@@ -1,4 +1,4 @@
-<div id="printElement container-fluid">
+<div id="print-table3">
     <table id='form-print' class="table text-center table-bordered table-condensed">
         <thead>
             <tr>
@@ -46,6 +46,7 @@
                 <td>{{ $penelitians['jumlah_ts1'] }}</td>
                 <td>{{ $penelitians['jumlah_ts'] }}</td>
                 <td>{{ $penelitians['jumlah'] }}</td>
+                <td></td>
             </tr>
             
     </table> 

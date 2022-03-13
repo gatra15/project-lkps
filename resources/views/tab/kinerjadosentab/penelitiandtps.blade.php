@@ -13,6 +13,10 @@
         </p>
         <a href="/kinerja-dosen/karya-ilmiah/download/excel" class="btn btn-success">Excel</a>
         <a href="/kinerja-dosen/karya-ilmiah/download/csv" class="btn btn-success">CSV</a>
+        <input type="button" class="btn btn-primary" onclick="printDiv('print-table3')" value="Print Document" />
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
+            Cara Download PDF
+        </button>
     <div class="collapse" id="des2">
         <div class="card card-body">
             <p>
@@ -28,20 +32,6 @@
         </div> 
     </div>
 
-    <!-- Modal Tambah Data Penelitian DTPS -->
-    <div class="modal fade" id="modaldosenpenelitian" tabindex="-1" aria-labelledby="modaldosenpenelitian" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="modaldosenpenelitian">Tambah Data Dosen Penelitian DTPS</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
-        @include('partials.kinerjadosenmodal.penelitian')
-    </div>
-    </div>
-    </div>
 
 {{-- TABLE HERE --}}
 @include('tab.kinerjadosentab.penelitiantable')
@@ -52,7 +42,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-        <h5 class="modal-title" id="modaldosenpenelitianedit">Edit Data <br> @php echo $penelitian->sumber->sumberdaya @endphp </h5>
+        <h5 class="modal-title" id="modaldosenpenelitianedit">Edit Data Penelitian</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -67,7 +57,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenpenelitiandelete">Hapus Data <br> @php echo $penelitian->sumber->sumberdaya @endphp</h5>
+            <h5 class="modal-title" id="modaldosenpenelitiandelete">Hapus Data Penelitian </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -79,5 +69,6 @@
 @endforeach
 
 </div>  
+@include('layouts.table')
 
 
