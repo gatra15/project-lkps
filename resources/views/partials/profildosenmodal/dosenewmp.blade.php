@@ -19,30 +19,34 @@
                         <option value="0">Tidak</option>
                     </select>
                 </div>
-                <label for="dosenewmp"> PS yang Diakreditasi :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="ps_akreditasi" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-                <label for="dosenewmp"> PS Lain di dalam PT :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="ps_lain_dalam_pt" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-                <label for="dosenewmp"> PS Lain di luar PT :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="ps_lain_luar_pt" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-                <label for="dosenewmp"> Penelitian :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="penelitian" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-                <label for="dosenewmp"> PkM :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="pkm" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-                <label for="dosenewmp"> Tugas Tambahan dan/atau Penunjang :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="penunjang" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
+                <label for="dosenewmp" class="fs-6 my-2"> Ekuivalen Waktu Mengajar Penuh(EWMP) pada saat TS dalam satuan kredit semester (sks) </label>
+                <div class="form-row justify-content-center text-center">
+                    <div class="form-group col-md-4 align-middle">
+                      <label for="#">PS yang Diakreditasi :</label>
+                      <input type="number" name="ps_akreditasi" class="form-control form-control-sm mb-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="#" >
+                    </div>
+                    <div class="form-group col-md-4 align-middle">
+                      <label for="#">PS Lain di dalam PT :</label>
+                      <input type="number" name="ps_lain_dalam_pt" class="form-control form-control-sm mb-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="#" >
+                    </div>
+                    <div class="form-group col-md-4 align-middle">
+                      <label for="#">PS Lain di luar PT :</label>
+                      <input type="number" name="ps_lain_luar_pt" class="form-control form-control-sm mb-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="#" >
+                    </div>
+                    <div class="form-group col-md-4 align-middle">
+                      <label for="#"> <br> <br> Penelitian :</label>
+                      <input type="number" name="penelitian" class="form-control form-control-sm mb-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="#" >
+                    </div>
+                    <div class="form-group col-md-4 align-middle">
+                      <label for="#"> <br> <br> PkM :</label>
+                      <input type="number" name="pkm" class="form-control form-control-sm mb-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="#" >
+                    </div>
+                    <div class="form-group col-md-4 align-middle">
+                      <label for="#">Tugas Tambahan dan/atau Penunjang :</label>
+                      <input type="number" name="penunjang" class="form-control form-control-sm mb-3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="#" >
+                    </div>
+                    
+                  </div>
                 
                {{-- coding modal insert akhir --}}
 

@@ -1,5 +1,5 @@
-<div id="printElement container-fluid">
-    <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
+<div id="print-table3">
+    <table id='form-print' class="table text-center align-middle table-bordered table-condensed table-responsive">
         <thead>
             <tr>
                 <th class="align-middle" scope="col" rowspan="2" >Nama Dosen</th>
@@ -15,7 +15,7 @@
             </tr>
         </thead>
 
-        <tbody class="text-dark">
+        <tbody class="text-dark text-center align-middle">
              {{-- Coding Tabel Disini --}}
              <tr>
         @foreach ($dosentidaktetap['dosen'] as $sdm)
@@ -44,3 +44,4 @@
           </tr>
     </table>
 </div>
+@include('layouts.table')

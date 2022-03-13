@@ -46,6 +46,7 @@
                 <td>{{ $penelitians['jumlah_ts1'] }}</td>
                 <td>{{ $penelitians['jumlah_ts'] }}</td>
                 <td>{{ $penelitians['jumlah'] }}</td>
+                <td></td>
             </tr>
             
     </table> 

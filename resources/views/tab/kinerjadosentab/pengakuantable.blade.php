@@ -43,6 +43,7 @@
                 <td>{{ $countNasional }}</td>
                 <td>{{ $countInternasional }}</td>
                 <td>{{ $sumPengakuan }}</td>
+                <td></td>
             </tr>
             
     </table> 

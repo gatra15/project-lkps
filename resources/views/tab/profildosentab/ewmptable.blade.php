@@ -1,5 +1,5 @@
-<div id="printElement container-fluid">
-    <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
+<div id="print-table4">
+    <table id='form-print' class="table text-center align-middle table-bordered table-condensed">
         <thead>
             <tr>
                 <th class="align-middle" scope="col" rowspan="3">No</th>
@@ -11,16 +11,16 @@
                 <th class="align-middle" scope="col" rowspan="3" >Opsi</th>   
             </tr>
             <tr>
-                <th scope="col" colspan="3">pada PS yang Diakreditasi</th>
+                <th class="align-middle" scope="col" colspan="3">pada PS yang Diakreditasi</th>
                 <th class="align-middle" scope="col" rowspan="2">Penelitian</th>
                 <th class="align-middle" scope="col" rowspan="2">PkM</th> 
                 <th class="align-middle" scope="col" rowspan="2">Tugas Tambahan dan/atau Penunjang</th>        
             </tr>
             
             <tr>
-                <th scope="col" >PS yang Diakreditasi</th>
-                <th scope="col" >PS Lain di dalam PT</th>
-                <th scope="col" >PS Lain di luar PT</th> 
+                <th class="align-middle" scope="col" >PS yang Diakreditasi</th>
+                <th class="align-middle" scope="col" >PS Lain di dalam PT</th>
+                <th class="align-middle" scope="col" >PS Lain di luar PT</th> 
             </tr>
     
         </thead>
@@ -64,3 +64,4 @@
             </tr> 
     </table>
 </div>
+@include('layouts.table')

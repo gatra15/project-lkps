@@ -1,12 +1,12 @@
-<div id="printElement container-fluid">
-    <table id='form-print' class="table text-center table-bordered table-condensed table-responsive">
+<div id="print-table">
+    <table id='form-print' class="table text-center align-middle table-bordered table-condensed table-responsive">
         <thead>
             <tr>
 
                 <th class="align-middle" scope="col" rowspan="2">No</th>
                 <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
                 <th class="align-middle" scope="col" rowspan="2">NIDN/ NIDK</th>
-                <th th scope="col" colspan="2" >Pendidikan Pasca Sarjana <sup>1)</sup></th>
+                <th class="align-middle" scope="col" colspan="2" >Pendidikan Pasca Sarjana <sup>1)</sup></th>
                 <th class="align-middle" scope="col" rowspan="2">Bidang Keahlian <sup>2)</sup></th>
                 <th class="align-middle" scope="col" rowspan="2" >Kesesuaian dengan Kompetensi Inti PS <sup>3)</sup></th>  
                 <th class="align-middle" scope="col" rowspan="2" >Jabatan Akademik</th>  
@@ -24,7 +24,7 @@
     
         </thead>
 
-        <tbody class="text-dark">
+        <tbody class="text-dark text-center align-middle">
              {{-- Coding Tabel Disini --}}
             @foreach ($dosen['dosen'] as $sdm)
             <tr>
@@ -59,3 +59,4 @@
             </tr>
       </table>
   </div>
+@include('layouts.table')

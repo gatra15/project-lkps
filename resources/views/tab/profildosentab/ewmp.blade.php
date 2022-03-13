@@ -9,6 +9,10 @@
     </p>
     <a href="/profil-dosen/dosen-ewmp/download/excel" class="btn btn-success">Excel</a>
     <a href="/profil-dosen/dosen-ewmp/download/csv" class="btn btn-success">CSV</a>
+    <input type="button" class="btn btn-primary" onclick="printDiv('print-table4')" value="Print Document" />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
+        Cara Download PDF
+    </button>
 <div class="collapse" id="des3">
     <div class="card card-body">
         <p>
@@ -24,7 +28,7 @@
   
       <!-- Modal Tambah Data Dosen Tetap -->
       <div class="modal fade" id="modaldosenewmp" tabindex="-1" aria-labelledby="modaldosenewmp" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
+          <div class="modal-dialog">
           <div class="modal-content">
               <div class="modal-header">
               <h5 class="modal-title" id="modaldosenewmp">Tambah Data EWMP Dosen</h5>
@@ -44,7 +48,7 @@
     @foreach ($dosenewmp['dosen'] as $ewmp)
     <!-- Modal Edit Data EWMP -->
     <div class="modal fade" id="modaldosenewmpedit-{{ $ewmp->id }}" tabindex="-1" aria-labelledby="modaldosenewmpeditt" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
             <h5 class="modal-title" id="modaldosenewmpedit">Edit Data EWMP Dosen</h5>
@@ -74,3 +78,4 @@
         @endforeach
 
 </div>
+@include('layouts.table')

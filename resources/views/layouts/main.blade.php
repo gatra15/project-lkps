@@ -104,6 +104,29 @@ input.lebar {
     width : 80%; /*adjust as needed*/
     margin-top: 20px;
 }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.ui-datepicker-calendar {
+   display: none;
+}
+.ui-datepicker-month {
+   display: none;
+}
+.ui-datepicker-next,.ui-datepicker-prev {
+  display:none;
+}
+
 	</style>
 
 </head>
@@ -158,6 +181,23 @@ input.lebar {
   $('#myModal').on('shown.bs.modal', function () {
       $('#myInput').trigger('focus')
   })
+</script>
+
+<script>
+  $(function() {
+    $('#datepicker').datepicker({
+        changeYear: true,
+        showButtonPanel: true,
+        dateFormat: 'yy',
+        onClose: function(dateText, inst) { 
+            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(year, 1));
+        }
+    });
+ $(".date-picker-year").focus(function () {
+        $(".ui-datepicker-month").hide();
+    });
+});
 </script>
 <script>
 // display a modal (small modal)

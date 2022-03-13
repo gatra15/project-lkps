@@ -35,6 +35,7 @@
             <td colspan="2"><b>Jumlah</b></td>
             <td>{{ $karyailmiah['count'] }}</td>
             <td>{{ $karyailmiah['jumlah'] }}</td>
+            <td></td>
         </tr>
         </table> 
     </div>

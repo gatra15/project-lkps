@@ -17,20 +17,6 @@
     </div> 
 </div>
 
-    {{-- <!-- Modal Tambah Data Publikasi DTPS -->
-    <div class="modal fade" id="modalpublikasi" tabindex="-1" aria-labelledby="modalpublikasi" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="modalpublikasi">Tambah Data Dosen Tetap</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
-        @include('partials.kinerjadosenmodal.publikasi')
-    </div>
-    </div>
-    </div> --}}
 
 {{-- TABLE HERE --}}
 @include('tab.kinerjadosentab.publikasitable')

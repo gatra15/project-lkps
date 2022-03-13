@@ -30,7 +30,15 @@
                 </div>
                 <label for="pengkuan"> Tahun:</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="tahun" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <select class="custom-select" name="tahun" id="inputGroupSelect01">
+                @php
+                    $years = range(2000, strftime("%Y", time()));
+                @endphp
+                <option>Pilih Tahun</option>
+                <?php foreach($years as $year) : ?>
+                    <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                <?php endforeach; ?>
+                    </select>
                 </div>
                 
                 

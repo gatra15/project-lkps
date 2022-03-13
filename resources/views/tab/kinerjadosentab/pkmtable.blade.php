@@ -37,13 +37,13 @@
 
                 @endforeach
             
-                <tr>
+                {{-- <tr>
                     <td colspan="2" class="text-center"> <b>Total</b> </td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                </tr>
+                </tr> --}}
         
                 <tr>
                     <td colspan="2" class="text-center"><b>Jumlah</b></td>
@@ -51,6 +51,7 @@
                     <td>{{ $pkms['jumlah_ts1'] }}</td>
                     <td>{{ $pkms['jumlah_ts'] }}</td>
                     <td>{{ $pkms['jumlah'] }}</td>
+                    <td></td>
                 </tr>
             {{-- @endforeach --}}
 

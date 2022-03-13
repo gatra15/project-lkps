@@ -14,7 +14,7 @@
                 </div>
                 <label for="dosentetap"> NIDN / NIDK :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="no_id" value="{{ $sdm->no_id }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="number" name="no_id" value="{{ $sdm->no_id }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="dosentetap"> Pendidikan Pasca Sarjana :</label>
                 <div class="input-group input-group-sm mb-3">
@@ -30,7 +30,7 @@
                 </div>
                 <label for="dosentetap"> Sertifikat Pendidik Profesional :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="sertifikat_pendidikan_profesi" value="{{ $sdm->sertifikat_pendidikan_profesi }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="number" name="sertifikat_pendidikan_profesi" value="{{ $sdm->sertifikat_pendidikan_profesi }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="dosentetap"> Sertifikat Kompetensi / Profesi / Industri :</label>
                 <div class="input-group input-group-sm mb-3">
