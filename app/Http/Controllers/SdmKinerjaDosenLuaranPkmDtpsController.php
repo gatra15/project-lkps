@@ -17,7 +17,8 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
      */
     public function index()
     {
-        //
+        $data = SdmKinerjaDosenLuaranPkmDtps::all();
+        return ['data' => $data];
     }
 
     /**
@@ -38,13 +39,12 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
      */
     public function store(Request $req)
     {
-        // $this->validate($req, [
-        //     'type_luaran' => 'required',
-        //     'judul' => 'required',
-        //     'tahun' => 'required',
-        //     'keterangan' => 'required',
-        //     'jumlah' => 'required',
-        // ]);
+        $this->validate($req, [
+            'type_luaran' => 'required',
+            'judul' => 'required',
+            'tahun' => 'required',
+            'keterangan' => 'required',
+        ]);
 
         $luaran = new SdmKinerjaDosenLuaranPkmDtps;
         $luaran->type_luaran = $req->input('type_luaran');
@@ -58,7 +58,7 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
         // dd($luaran);
         $luaran->save();
 
-        return back()->with('success', 'Sdm Kinerja Dosen Luaran Pkm Dtps has been created.');
+        return back()->with('success', 'Data Sdm Kinerja Dosen Luaran Pkm Dtps berhasil ditambahkan.');
     }
 
     /**
@@ -97,7 +97,6 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
             'judul' => 'required',
             'tahun' => 'required',
             'keterangan' => 'required',
-            'jumlah' => 'required',
         ]);
 
         $luaran = new SdmKinerjaDosenLuaranPkmDtps;
@@ -105,13 +104,13 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
         $luaran->judul = $req->input('judul');
         $luaran->tahun = $req->input('tahun');
         $luaran->keterangan = $req->input('keterangan');
-        $luaran->tahun_laporan = '2022';
+        $luaran->tahun_laporan = 2022;
         $luaran->prodi = auth()->user()->prodi;
         $luaran->created_by = auth()->user()->name;
         $luaran->updated_at = Carbon::now();
         $luaran->update();
 
-        return back()->with('success', 'Sdm Kinerja Dosen Luaran Pkm Dtps has been updated.');
+        return back()->with('success', 'Data Sdm Kinerja Dosen Luaran Pkm Dtps berhasil diubah.');
     }
 
     /**
@@ -123,7 +122,7 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
     public function destroy($id)
     {
         SdmKinerjaDosenLuaranPkmDtps::find($id)->delete();
-        return back()->with('error', 'Sdm Kinerja Dosen Luaran Pkm Dtps has been deleted.');
+        return back()->with('error', 'Data Sdm Kinerja Dosen Luaran Pkm Dtps berhasil dihapus.');
     }
 
     public function exportToExcel()

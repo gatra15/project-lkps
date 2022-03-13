@@ -35,8 +35,10 @@
 {{-- TABLE HERE  --}}
 @include('tab.kinerjadosentab.luarantable')
 
+@foreach ($luaran['data'] as $data)
+
     <!-- Modal Edit Data Luaran DTPS -->
-    <div class="modal fade" id="modaldosenluaranedit" tabindex="-1" aria-labelledby="modaldosenluaranedit" aria-hidden="true">
+    <div class="modal fade" id="modaldosenluaranedit-{{ $data->id }}" tabindex="-1" aria-labelledby="modaldosenluaranedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -51,7 +53,7 @@
     </div>
 
     <!-- Modal Delete Data Luaran DTPS -->
-    <div class="modal fade" id="modaldosenluarandelete" tabindex="-1" aria-labelledby="modaldosenluarandelete" aria-hidden="true">
+    <div class="modal fade" id="modaldosenluarandelete-{{ $data->id }}" tabindex="-1" aria-labelledby="modaldosenluarandelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -64,6 +66,7 @@
         </div>
         </div>
     </div>
-    
+        
+@endforeach
 </div>
 @include('layouts.table')

@@ -23,7 +23,7 @@ class KinerjaDosenController extends Controller
     public function index()
     {
         $pengakuan = SdmKinerjaDosenPengakuanDtps::all();
-        $luaran = SdmKinerjaDosenLuaranPkmDtps::all();
+        $luaran = (new SdmKinerjaDosenLuaranPkmDtpsController)->index();
         $sumberdaya = Sumberdaya::all();
         $mediapublikasi = MediaPublikasi::all();
 
