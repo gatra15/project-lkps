@@ -1,4 +1,4 @@
-<div id="printElement container-fluid">
+<div id="print-table6">
     <table id='form-print' class="table table-inverse text-center table-bordered table-condensed">
         <thead>
             <tr>

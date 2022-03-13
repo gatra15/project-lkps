@@ -1,5 +1,5 @@
 @extends('layouts.table')
-<div id="printElement container-fluid">
+<div id="print-table2">
     <table id='form-print' class="table text-center table-bordered table-condensed">
         <thead>
         <tr>
@@ -21,18 +21,11 @@
                     b) Paten Sederhana</th>
                 <th></th>
                 <th></th>
-                <th></th>
+                <th class="putih align-middle"><ul class="action-list align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah"><i class="fas fa-plus"></i></a></li></th>
             </tr>
         </thead>
-        <thead>
-            <tr>
-                <th>No</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
+
 
         <tbody class="text-dark">
             {{-- TABLE CONTENT --}}
@@ -43,6 +36,7 @@
                 <td>eko </td>
                 <td>1</td>
                 <td>1</td>
+                <td></td>
             </tr>
             {{-- endforeach --}}
             {{-- endif --}}
@@ -71,18 +65,11 @@
                     e) dll.)</th>
                 <th></th>
                 <th></th>
-                <th></th>
+                <th class="putih align-middle"><ul class="action-list align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah"><i class="fas fa-plus"></i></a></li></th>
             </tr>
         </thead>
-        <thead>
-            <tr>
-                <th>No</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
+
 
         <tbody class="text-dark">
                 {{-- TABLE CONTENT --}}
@@ -93,6 +80,7 @@
                     <td>eko </td>
                     <td>1</td>
                     <td>1</td>
+                    <td></td>
                 </tr>
                 {{-- endforeach --}}
                 {{-- endif --}}
@@ -117,18 +105,11 @@
                 </th>
                 <th></th>
                 <th></th>
-                <th></th>
+                <th class="putih align-middle"><ul class="action-list align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah"><i class="fas fa-plus"></i></a></li></th>
             </tr>
         </thead>
-        <thead>
-            <tr>
-                <th>No</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
+
 
         <tbody class="text-dark">
                 {{-- TABLE CONTENT --}}
@@ -139,6 +120,7 @@
                     <td>eko </td>
                     <td>1</td>
                     <td>1</td>
+                    <td></td>
                 </tr>
                 {{-- endforeach --}}
                 {{-- endif --}}
@@ -160,16 +142,8 @@
                 </th>
                 <th></th>
                 <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <thead>
-            <tr>
-                <th>No</th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th class="putih align-middle"><ul class="action-list align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah"><i class="fas fa-plus"></i></a></li></th>
             </tr>
         </thead>
 
@@ -182,6 +156,7 @@
                     <td>eko </td>
                     <td>1</td>
                     <td>1</td>
+                    <td></td>
                 </tr>
                 {{-- endforeach --}}
                 {{-- endif --}}

@@ -35,6 +35,15 @@
                 </ul></td>
             </tr>
         @endforeach
+        <tr>
+            <td rowspan="2" class="align-middle text-center"><b>Jumlah</b></td>
+            <td class="putih"></td>
+            <td class="putih"></td>
+            <td class="putih"></td>
+            <td class="putih"></td>
+            <td></td>
+            <td></td>
+        </tr>
     {{-- ISI TABEL DISINI BOSS --}}
     </tbody>
     </table> 

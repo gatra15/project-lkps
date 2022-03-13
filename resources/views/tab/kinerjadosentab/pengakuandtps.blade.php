@@ -7,6 +7,10 @@
             Tambah data
         </button>
     </p>
+    <input type="button" class="btn btn-primary" onclick="printDiv('print-table4')" value="Print Document" />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
+        Cara Download PDF
+    </button>
 <div class="collapse" id="des1">
     <div class="card card-body">
         <p>
@@ -84,3 +88,4 @@
         </div>
         @endforeach 
 </div>
+@include('layouts.table')
