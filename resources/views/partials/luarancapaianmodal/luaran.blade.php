@@ -1,4 +1,4 @@
-{{-- <form action="/kinerja-dosen" method="post"> --}}
+{{-- <form action="/kinerja-dosen/luaran-dtps" method="post"> --}}
     @csrf
     <div class="modal-body">
         
@@ -7,27 +7,29 @@
                
                 {{-- MASUK KE TABEL SDM DOSENS --}}
 
-                <label for="pengkuan"> Nomor Pilihan :</label>
-                <div class="input-group mb-3">
-                    <select class="custom-select" name="#" id="inputGroupSelect01">
-                        <option selected>pilih...</option>
-                        <option value="I">I</option>
-                        <option value="II">II</option>
-                        <option value="III">III</option>
-                        <option value="IV">IV</option>
-                    </select>
+                <label for="pengkuan"> No :</label>
+                <div class="input-group input-group-sm mb-3">
+                    <input type="text" name="judul" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="sesuai yang dipencet" required>
                 </div>
                 <label for="pengkuan"> Judul :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="#" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="judul" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
-                <label for="pengkuan"> Tahun :</label>
+                <label for="pengkuan"> Tahun:</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="#" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <select class="custom-select" name="tahun" id="inputGroupSelect01">
+                @php
+                    $years = range(2000, strftime("%Y", time()));
+                @endphp
+                <option>Pilih Tahun</option>
+                <?php foreach($years as $year) : ?>
+                    <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                <?php endforeach; ?>
+                    </select>
                 </div>
-                <label for="pengkuan"> Keterangan:</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="#" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                <label class="kanan"> Keterangan: </label>
+                <div class="form">
+                    <textarea class="form-control" type="text" name="keterangan" placeholder="" id="floatingTextarea2" style="height: 200px" required>  </textarea>
                 </div>
                 
                 

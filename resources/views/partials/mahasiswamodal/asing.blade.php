@@ -13,45 +13,45 @@
                 <div class="form-row justify-content-center">
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS-2</label>
-                      <input type="text" class="form-control form-control-sm mb-3" name="mahasiswa_aktif_ts_2" id="#" >
+                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_aktif_ts_2" id="#" >
                     </div>
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS-1</label>
-                      <input type="text" class="form-control form-control-sm mb-3" name="mahasiswa_aktif_ts_1" id="#">
+                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_aktif_ts_1" id="#">
                     </div>
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS</label>
-                      <input type="text" class="form-control form-control-sm mb-3" name="mahasiswa_aktif_ts" id="#">
+                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_aktif_ts" id="#">
                     </div>
                   </div>
                 <label for="lembaga" class="fs-6 my-2"> Jumlah Mahasiswa Asing Penuh Waktu <i>(Full-time)</i> </label>
                 <div class="form-row justify-content-center">
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS-2</label>
-                      <input type="text" class="form-control form-control-sm mb-3" name="mahasiswa_asing_ft_ts_2" id="#" >
+                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_asing_ft_ts_2" id="#" >
                     </div>
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS-1</label>
-                      <input type="text" class="form-control form-control-sm mb-3" name="mahasiswa_asing_ft_ts_1" id="#">
+                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_asing_ft_ts_1" id="#">
                     </div>
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS</label>
-                      <input type="text" class="form-control form-control-sm mb-3" name="mahasiswa_asing_ft_ts" id="#">
+                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_asing_ft_ts" id="#">
                     </div>
                   </div>
                 <label for="lembaga" class="fs-6 my-2"> Jumlah Mahasiswa Asing Paruh Waktu <i>(Part-time)</i> </label>
                 <div class="form-row justify-content-center">
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS-2</label>
-                      <input type="text" class="form-control form-control-sm mb-3" name="mahasiswa_asing_pt_ts_2" id="#" >
+                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_asing_pt_ts_2" id="#" >
                     </div>
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS-1</label>
-                      <input type="text" class="form-control form-control-sm mb-3" name="mahasiswa_asing_pt_ts_1" id="#">
+                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_asing_pt_ts_1" id="#">
                     </div>
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS</label>
-                      <input type="text" class="form-control form-control-sm mb-3" name="mahasiswa_asing_pt_ts" id="#">
+                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_asing_pt_ts" id="#">
                     </div>
                   </div>
                {{-- coding modal insert akhir --}}

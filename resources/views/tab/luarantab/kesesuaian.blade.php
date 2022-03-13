@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="kesesuaian" role="tabpanel" aria-labelledby="kesesuaian-tab">
+<div class="tab-pane fade show" id="kesesuaian" role="tabpanel" aria-labelledby="kesesuaian-tab">
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#des6" role="button" aria-expanded="false" aria-controls="des6">
             Deskripsi

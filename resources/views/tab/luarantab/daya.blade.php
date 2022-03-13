@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="daya-saing" role="tabpanel" aria-labelledby="dayaSaing-tab">
+<div class="tab-pane fade show" id="daya-saing" role="tabpanel" aria-labelledby="dayaSaing-tab">
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#des4" role="button" aria-expanded="false" aria-controls="des4">
             Deskripsi

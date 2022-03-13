@@ -1,11 +1,8 @@
-<div class="tab-pane fade" id="luaran" role="tabpanel" aria-labelledby="luaran-tab">
+<div class="tab-pane fade show" id="luaran" role="tabpanel" aria-labelledby="luaran-tab">
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#des6" role="button" aria-expanded="false" aria-controls="des6">
             Deskripsi
         </a>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalluaran">
-            Tambah data
-        </button>
     </p>
     <div class="collapse" id="des6">
         <div class="card card-body">
@@ -18,11 +15,11 @@
         </div> 
     </div>
     <!-- Modal Tambah Data Luaran -->
-    <div class="modal fade" id="modalluaran" tabindex="-1" aria-labelledby="modalluaran" aria-hidden="true">
+    <div class="modal fade" id="modalluarantambah" tabindex="-1" aria-labelledby="modalluarantambah" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluaran">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Dosen Industri </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

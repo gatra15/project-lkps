@@ -43,13 +43,16 @@
               <a class="nav-link" id="kinerja-tab" data-toggle="tab" href="#kinerja" role="tab" aria-controls="kinerja" aria-selected="false">Kinerja Lulusan</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="luaran-tab" data-toggle="tab" href="#luaran" role="tab" aria-controls="luaran" aria-selected="false">Luaran Penelitian dan PkM Mahasiswa</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" id="kesesuaian-tab" data-toggle="tab" href="#kesesuaian" role="tab" aria-controls="kesesuaian" aria-selected="false">Kesesuaian Bidang Kerja Lulusan</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="kepuasan-tab" data-toggle="tab" href="#kepuasan" role="tab" aria-controls="kepuasan" aria-selected="false">Kepuasan Pengguna</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="publikasi-tab" data-toggle="tab" href="#publikasi" role="tab" aria-controls="publikasi" aria-selected="false"> Publikasi Ilmiah mahasiswa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="luaran-tab" data-toggle="tab" href="#luaran" role="tab" aria-controls="luaran" aria-selected="false">Luaran Penelitian dan PkM Mahasiswa</a>
             </li>
         </ul>
     </div>
@@ -79,24 +82,21 @@
                     @include('tab.luarantab.kinerja')
                 {{-- KINERJA AKHIR --}}
 
+                {{-- KESESUAIAN AWAL --}}
+                @include('tab.luarantab.kesesuaian')
+                {{-- KESESUAIAN AKHIR --}}
+
+                {{-- KEPUASAN AWAL --}}
+                    @include('tab.luarantab.kepuasan')
+                {{-- KEPUASAN AKHIR --}}
+
+                {{-- PUBLIKASI AWAL --}}
+                    @include('tab.luarantab.publikasi')
+                {{-- PUBLIKASI AKHIR --}}
+
                 {{-- LUARAN  AWAL --}}
                     @include('tab.luarantab.luaran')
                 {{-- LUARAN AKHIR --}}
-
-                {{-- KESESUAIAN AWAL --}}
-                    @include('tab.luarantab.kesesuaian')
-                {{-- KESESUAIAN AKHIR --}}
-
-                {{-- KESESUAIAN AWAL --}}
-                    @include('tab.luarantab.kepuasan')
-                {{-- KESESUAIAN AKHIR --}}
-
-                
-                
-                
-
-
-                
 
 
         </div>

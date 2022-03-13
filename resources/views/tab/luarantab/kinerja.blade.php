@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="kinerja" role="tabpanel" aria-labelledby="kinerja-tab">
+<div class="tab-pane fade show" id="kinerja" role="tabpanel" aria-labelledby="kinerja-tab">
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#des5" role="button" aria-expanded="false" aria-controls="des5">
             Deskripsi
