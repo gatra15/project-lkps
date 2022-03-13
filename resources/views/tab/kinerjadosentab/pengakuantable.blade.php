@@ -6,7 +6,7 @@
                 <th class="align-middle" scope="col" rowspan="2">No</th>
                 <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
                 <th class="align-middle" scope="col" rowspan="2">Bidang Keahlian</th>
-                <th class="align-middle" scope="col" rowspan="2" >Rekognisi dan Bukti Pendukung <sup>1)</sup></th>
+                <th class="align-middle" scope="col" rowspan="2" >Rekognisi <br> dan Bukti <br> Pendukung <sup>1)</sup></th>
                 <th scope="col" colspan="3">Tingkat <sup>2)</sup></th>
                 <th class="align-middle" scope="col" rowspan="2" >Tahun</th>                    
                 <th class="align-middle" scope="col" rowspan="2" >Opsi</th>                    
@@ -25,7 +25,19 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $pengakuan->nama }}</td> 
                 <td>{{ $pengakuan->bidang_keahlian }}</td> 
-                <td>{{ $pengakuan->bukti_pendukung }}</td> 
+                <td>
+                @if ($pengakuan->bukti_pendukung == 'Tidak ada file yang ditambahkan' )
+                <a class="btn btn-warning" href="{{ asset('storage/'.$pengakuan->bukti_pendukung) }}"> 
+                    File <br> Tidak <br> Terbaca <br> <i class="fas fa-exclamation-triangle"></i>
+                </a>     
+                @else
+                <a class="btn btn-success" href="{{ asset('storage/'.$pengakuan->bukti_pendukung) }}"> 
+                    File <i class="fas fa-file-archive"></i>
+                </a>
+                @endif
+                
+              
+                </td></td> 
                 <td>{{ $pengakuan->tingkat == 'Wilayah' ? 'V' : '' }}</td> 
                 <td>{{ $pengakuan->tingkat == 'Nasional' ? 'V' : '' }}</td> 
                 <td>{{ $pengakuan->tingkat == 'Internasional' ? 'V' : '' }}</td> 

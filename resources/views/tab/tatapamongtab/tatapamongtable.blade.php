@@ -1,8 +1,7 @@
 @extends('layouts.table')
-
 <form action="{{ url('/tata-pamong-tata-kelola-kerjasama') }}" method="GET">
     <div id="print-table" class="container-fluid">
-        <table class="table text-center table-bordered">
+        <table class="table text-center table-bordered table-condensed table-responsive">
             <thead>
                 <tr>
                     <th scope="col" class="align-middle" rowspan="2">Tema</th>
@@ -26,24 +25,31 @@
         
             </thead>
         
-            <tbody class="text-dark">
+            <tbody class="text-dark align-middle">
                 
                 @foreach ($kerjasama as $indikator)
                 @if ($indikator->tridharma == 'Pendidikan')
                 <tr>
-                    <td>Pendidikan</td>
-                    <td>{{ $indikator->lembaga_mitra }}</td>
-                    <td>{{ $indikator->tingkat == 'Internasional' ? 'V' : '' }}</td>
-                    <td>{{ $indikator->tingkat == 'Nasional' ? 'V' : '' }}</td>
-                    <td>{{ $indikator->tingkat == 'Lokal' ? 'V' : '' }}</td>
+                    <td class="align-middle">Pendidikan</td>
+                    <td class="align-middle">{{ $indikator->lembaga_mitra }}</td>
+                    <td class="align-middle">{{ $indikator->tingkat == 'Internasional' ? 'V' : '' }}</td>
+                    <td class="align-middle">{{ $indikator->tingkat == 'Nasional' ? 'V' : '' }}</td>
+                    <td class="align-middle">{{ $indikator->tingkat == 'Lokal' ? 'V' : '' }}</td>
 
-                    <td>{{ $indikator->judul_kegiatan }}</td>
-                    <td>{{ $indikator->manfaat }}</td>
-                    <td>{{ $indikator->waktu_durasi }}</td>
-                    <td>
-                        <a href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}">{{ $indikator->bukti_kerjasama }}</a>
-                    </td>
-                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                    <td class="align-middle">{{ $indikator->judul_kegiatan }}</td>
+                    <td class="align-middle">{{ $indikator->manfaat }}</td>
+                    <td class="align-middle">{{ $indikator->waktu_durasi }}</td>
+                    <td class="align-middle">
+                        @if ($indikator->bukti_kerjasama == 'Tidak ada file yang ditambahkan' )
+                        <a class="btn btn-warning" href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}"> 
+                            Belum ada File <i class="fas fa-exclamation-triangle"></i>
+                        </a>     
+                        @else
+                        <a class="btn btn-success" href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}"> 
+                            File <i class="fas fa-file-archive"></i>
+                        </a>
+                        @endif
+                    <td class="align-middle"><ul class="action-list d-flex justify-content-center mr-1" id="action">
                         <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
                             <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
@@ -67,19 +73,20 @@
                     @foreach ($kerjasama as $indikator)
                     @if ($indikator->tridharma == 'Penelitian')
                     <tr>
-                        <td>Penelitian</td>
-                        <td>{{ $indikator->lembaga_mitra }}</td>
-                        <td>{{ $indikator->tingkat == 'Internasional' ? 'V' : '' }}</td>
-                        <td>{{ $indikator->tingkat == 'Nasional' ? 'V' : '' }}</td>
-                        <td>{{ $indikator->tingkat == 'Lokal' ? 'V' : '' }}</td>
+                        <td class="align-middle">Penelitian</td>
+                        <td class="align-middle">{{ $indikator->lembaga_mitra }}</td>
+                        <td class="align-middle">{{ $indikator->tingkat == 'Internasional' ? 'V' : '' }}</td>
+                        <td class="align-middle">{{ $indikator->tingkat == 'Nasional' ? 'V' : '' }}</td>
+                        <td class="align-middle">{{ $indikator->tingkat == 'Lokal' ? 'V' : '' }}</td>
     
-                        <td>{{ $indikator->judul_kegiatan }}</td>
-                        <td>{{ $indikator->manfaat }}</td>
-                        <td>{{ $indikator->waktu_durasi }}</td>
-                        <td>
-                            <a href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}">{{ $indikator->bukti_kerjasama }}</a>
+                        <td class="align-middle">{{ $indikator->judul_kegiatan }}</td>
+                        <td class="align-middle">{{ $indikator->manfaat }}</td>
+                        <td class="align-middle">{{ $indikator->waktu_durasi }}</td>
+                        <td class="align-middle">
+                            <a class="btn btn-success" href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}"> File <i class="fas fa-file-archive"></i></a>
                         </td>
-                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                        </td>
+                        <td class="align-middle"><ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
                             <li>
                                 <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
@@ -97,24 +104,24 @@
                     <th class="text-left align-middle" colspan="6"></th>
                 </tr>
             </thead>
-            <tbody class="text-dark">
+            <tbody class="text-dark align-middle">
                 <tr>
                     @foreach ($kerjasama as $indikator)
                     @if ($indikator->tridharma == 'Pengabdian Kepada Masyarakat')
-                    <tr>
-                        <td>Pengabdian Kepada Masyarakat</td>
-                        <td>{{ $indikator->lembaga_mitra }}</td>
-                        <td>{{ $indikator->tingkat == 'Internasional' ? 'V' : '' }}</td>
-                        <td>{{ $indikator->tingkat == 'Nasional' ? 'V' : '' }}</td>
-                        <td>{{ $indikator->tingkat == 'Lokal' ? 'V' : '' }}</td>
+                    <tr class="align-middle">
+                        <td class="align-middle">Pengabdian Kepada Masyarakat</td>
+                        <td class="align-middle">{{ $indikator->lembaga_mitra }}</td>
+                        <td class="align-middle">{{ $indikator->tingkat == 'Internasional' ? 'V' : '' }}</td>
+                        <td class="align-middle">{{ $indikator->tingkat == 'Nasional' ? 'V' : '' }}</td>
+                        <td class="align-middle">{{ $indikator->tingkat == 'Lokal' ? 'V' : '' }}</td>
             
-                        <td>{{ $indikator->judul_kegiatan }}</td>
-                        <td>{{ $indikator->manfaat }}</td>
-                        <td>{{ $indikator->waktu_durasi }}</td>
-                        <td>
-                            <a href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}">{{ $indikator->bukti_kerjasama }}</a>
+                        <td class="align-middle">{{ $indikator->judul_kegiatan }}</td>
+                        <td class="align-middle">{{ $indikator->manfaat }}</td>
+                        <td class="align-middle">{{ $indikator->waktu_durasi }}</td>
+                        <td class="align-middle">
+                            <a class="btn btn-success" href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}"> File <i class="fas fa-file-archive"></i></a>
                         </td>
-                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                        <td class="align-middle"><ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
                             <li>
                                 <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
@@ -131,3 +138,7 @@
     
     </div>
 </form>
+
+<script>
+    $('[data-toggle="popover"]').popover();  
+</script>

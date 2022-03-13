@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="prestasi" role="tabpanel" aria-labelledby="prestasi-tab">
+<div class="tab-pane fade show" id="prestasi" role="tabpanel" aria-labelledby="prestasi-tab">
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#des2" role="button" aria-expanded="false" aria-controls="des2">
             Deskripsi

@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="efektifitas" role="tabpanel" aria-labelledby="efektifitas-tab">
+<div class="tab-pane fade show" id="efektifitas" role="tabpanel" aria-labelledby="efektifitas-tab">
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#des3" role="button" aria-expanded="false" aria-controls="des3">
             Deskripsi

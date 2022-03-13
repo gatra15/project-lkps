@@ -15,9 +15,9 @@
                 <div class="input-group input-group-sm mb-3">
                     <input type="text" name="bidang_keahlian" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
-                <label for="pengkuan"> Rekognisi dan Bukti Pendukung :</label>
+                <label for="lembaga"> Rekognisi dan Bukti Pendukung :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="bukti_pendukung" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                <input type="file" name="bukti_pendukung" class="form-control" id="customFile" required>
                 </div>
                 <label for="pengkuan"> Tingkat :</label>
                 <div class="input-group mb-3">

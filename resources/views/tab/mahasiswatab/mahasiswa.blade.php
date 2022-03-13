@@ -6,6 +6,10 @@
     </p>
     <a href="/mahasiswa/download-excel" class="btn btn-success">Excel</a>
     <a href="/mahasiswa/download-csv" class="btn btn-success">CSV</a>
+    <input type="button" class="btn btn-primary" onclick="printDiv('print-table')" value="Print Document" />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
+        Cara Download PDF
+    </button>
     <div class="collapse" id="collapseExample">
         <div class="card card-body">
             <p>
@@ -62,3 +66,4 @@
     </div>
     @endforeach
 </div>
+@include('layouts.table')
