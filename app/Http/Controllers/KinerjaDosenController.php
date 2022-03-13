@@ -45,7 +45,7 @@ class KinerjaDosenController extends Controller
 
         return view('tab.kinerjadosentab.kinerjaDosen', [
             'title' => 'Kinerja Dosen',
-            'pengakuan' => $pengakuan,
+            'pengakuans' => $pengakuan,
             'karyailmiah' => $karyailmiah,
             'penelitians' => $penelitian,
             'pkms' => $pkms,
@@ -67,36 +67,35 @@ class KinerjaDosenController extends Controller
         $this->validate($req, [
             'nama' => 'required',
             'bidang_keahlian' => 'required',
-            'bukti_pendukung' => 'required|max:2048',
+            'bukti_pendukung' => 'file|max:10240',
             'tingkat' => 'required',
             'tahun' => 'required',
         ]);
 
-        try {
-
-        if($req->hasFile('bukti_pendukung')){
-            $filenameWithExt    = $req->file('bukti_pendukung')->getClientOriginalName();
-            $fileName           = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $ext                = $req->file('bukti_pendukung')->getClientOriginalExtension();
-            $fileSave           = $fileName.'_'.time().'.'.$ext;
-            $path               = $req->file('bukti_pendukung')->storeAs('public/bukti_pendukung', $fileSave);
-        }else{
-            $fileSave           = 'Tidak ada file yang ditambahkan';
+        if($req->file('bukti_pendukung')) {
+            $filenameWithExt = $req->file('bukti_pendukung')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $req->file('bukti_pendukung')->getClientOriginalExtension();
+            $fileSave = $filename.'.'.$extension;
+        } else {
+            $fileSave = 'Tidak Ada File yang disisipkan';
         }
+        try {
         
         $pengakuan = new SdmKinerjaDosenPengakuanDtps;
         $pengakuan->nama = $req->input('nama');
         $pengakuan->bidang_keahlian = $req->input('bidang_keahlian');
-        $pengakuan->bukti_pendukung = $fileSave;
+        $pengakuan->bukti_pendukung = $req->file('bukti_pendukung')->storeAs('bukti-pendukung', $fileSave);
         $pengakuan->tingkat = $req->input('tingkat');
         $pengakuan->tahun = $req->input('tahun');
         $pengakuan->tahun_laporan = '2022';
         $pengakuan->prodi = auth()->user()->prodi;
         $pengakuan->created_by = auth()->user()->name;
         $pengakuan->created_at = Carbon::now();
+        
         $pengakuan->save();
 
-        return back()->with('success', 'Sdm Kinerja Dosen Pengakuan Dtps has been created.');
+        return back()->with('success', 'Data Sdm Kinerja Dosen Pengakuan Dtps berhasil ditambahkan.');
         } catch(\Exception $ex) {
             DB::connection($connection)->rollBack();
             return response()->json(['message' => $ex->getMessage()], 500);
@@ -111,15 +110,22 @@ class KinerjaDosenController extends Controller
         $this->validate($req, [
             'nama' => 'required',
             'bidang_keahlian' => 'required',
-            'bukti_pendukung' => 'nullable|max:2048',
+            'bukti_pendukung' => 'file|max:10240',
             'tingkat' => 'required',
             'tahun' => 'required',
         ]);
 
+        if($req->file('bukti_pendukung')) {
+            $filenameWithExt = $req->file('bukti_pendukung')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $req->file('bukti_pendukung')->getClientOriginalExtension();
+            $fileSave = $filename.'.'.$extension;
+        }
+
         $pengakuan = SdmKinerjaDosenPengakuanDtps::find($id);
         $pengakuan->nama = $req->input('nama');
         $pengakuan->bidang_keahlian = $req->input('bidang_keahlian');
-        $pengakuan->bukti_pendukung = $req->input('bukti_pendukung');
+        $pengakuan->bukti_pendukung = $req->file('bukti_pendukung')->storeAs('bukti-pendukung', $fileSave);
         $pengakuan->tingkat = $req->input('tingkat');
         $pengakuan->tahun = $req->input('tahun');
         $pengakuan->tahun_laporan = '2022';
@@ -128,13 +134,13 @@ class KinerjaDosenController extends Controller
         $pengakuan->updated_at = Carbon::now();
         $pengakuan->update();
 
-        return back()->with('success', 'Sdm Kinerja Dosen Pengakuan Dtps has been updated.');
+        return back()->with('success', 'Data Sdm Kinerja Dosen Pengakuan Dtps berhasil diubah.');
     }
 
     public function destroy($id)
     {
         SdmKinerjaDosenPengakuanDtps::find($id)->delete();
-        return back()->with('error', 'Sdm Kinerja Dosen Pengakuan Dtps has been deleted.');
+        return back()->with('error', 'Data Sdm Kinerja Dosen Pengakuan Dtps Berhasil hapus.');
     }
 
     public function exportToExcel()

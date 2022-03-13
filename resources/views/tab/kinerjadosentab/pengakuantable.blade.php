@@ -20,7 +20,7 @@
         </thead>
 
         <tbody class="text-dark">
-            @foreach ($pengakuan as $pengakuan)
+            @foreach ($pengakuans as $pengakuan)
                 <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $pengakuan->nama }}</td> 

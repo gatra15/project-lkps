@@ -55,7 +55,7 @@
 {{-- TABLE HERE --}}
 @include('tab.kinerjadosentab.pengakuantable')
 
-    @foreach ($pengakuan as $pengakuan)
+    @foreach ($pengakuans as $pengakuan)
     
     <!-- Modal Edit Data Pengakuan DTPS -->
     <div class="modal fade" id="modalpengakuanedit-{{ $pengakuan->id }}" tabindex="-1" aria-labelledby="modalpengakuanedit" aria-hidden="true">

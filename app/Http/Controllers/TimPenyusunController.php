@@ -55,7 +55,7 @@ class TimPenyusunController extends Controller
             $filenameWithExt = $request->file('ttd')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             $extension = $request->file('ttd')->getClientOriginalExtension();
-            $filenameSimpan = $filename.'_'.time().'.'.$extension;
+            $filenameSimpan = $filename.'.'.$extension;
         } else {
             $filenameSimpan = 'Tidak Ada File yang disisipkan';
         }
