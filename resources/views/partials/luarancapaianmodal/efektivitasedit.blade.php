@@ -1,4 +1,5 @@
-{{-- <form action="/kinerja-dosen" method="post"> --}}
+<form action="/luaran-capaian-tridharma/efektifitas/{{ $efektifitas->id }}" method="post">
+    @method('put')
     @csrf
     <div class="modal-body">
         
@@ -9,7 +10,7 @@
 
                 <label for="pengkuan"> Nama Dosen :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="nama" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="nama" class="form-control" value="{{ $efektifitas->name }}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="pengkuan"> Bidang Keahlian :</label>
                 <div class="input-group input-group-sm mb-3">

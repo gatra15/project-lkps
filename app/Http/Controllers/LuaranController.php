@@ -16,12 +16,30 @@ class LuaranController extends Controller
         // efektifitas
         $efektifitasPrestasi = (new EfektifitasProduktifitasPendidikanController)->index();
         // ddd($efektifitasPrestasi);
+        // Daya Saing Lulusan
+        $dayasaing = (new WaktuTungguLulusanController)->index();
+
+        // Kesesuaian Bidang
+        $kesesuaianBidang = (new KesesuaianBidangKerjaController)->index();
+
+        // Kinerja Lulusan
+        $kinerjaLulusan = (new KinerjaLulusanController)->index();
+
+        // Kepuasan Pengguna
+        $kepuasanPengguna = (new KepuasanPenggunaController)->index();
+
+        // Publikasi Ilmiah Mahasiswa
+
+        // Luaran
+        // $luaranPenelitian = 
 
         return view('tab.luaran', [
             'title' => 'Luaran',
             'prestasi' => $prestasi,
-            'capaianPembelajaran' => $capaianPembelajaran,
-            'efektifitasPrestasi' => $efektifitasPrestasi,
+            'dayasaing' => $dayasaing,
+            'kesesuaianBidang' => $kesesuaianBidang,
+            'kinerjaLulusan' => $kinerjaLulusan,
+            'kepuasanPengguna' => $kepuasanPengguna,
         ]);
     }
 }

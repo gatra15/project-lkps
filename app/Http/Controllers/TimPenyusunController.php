@@ -41,7 +41,6 @@ class TimPenyusunController extends Controller
      */
     public function store(Request $request)
     {
-        ddd($request);
         $connection = 'mysql';
         $rule = [
             'nama' => 'required',

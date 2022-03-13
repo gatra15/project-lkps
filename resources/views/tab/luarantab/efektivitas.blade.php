@@ -33,7 +33,11 @@
         </div>
         </div>
 
-        {{-- foreach --}}
+        {{-- PRESTASI AWAL --}}
+        @include('tab.luarantab.efektivitastable')
+        {{-- PRESTASI AKHIR --}}
+
+        @foreach($efektifitasPrestasi['efektifitas'] as $efektifitas)
       <!-- Modal Tambah Edit Efektivitas -->
       <div class="modal fade" id="modalefekedit-{{ $efektifitas->id }}" tabindex="-1" aria-labelledby="modalefekedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -44,17 +48,17 @@
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.luarancapaianmodal.efektivitasedit')
         </div>
         </div>
         </div>
 
       <!-- Modal Tambah Delete Efektivitas -->
-      <div class="modal fade" id="modalefekdelet-{{ $efektifitas->id }}" tabindex="-1" aria-labelledby="modalefekdelet" aria-hidden="true">
+      <div class="modal fade" id="modalefekdelete-{{ $efektifitas->id }}" tabindex="-1" aria-labelledby="modalefekdelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalefekdelet">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalefekdelete">Tambah Data Dosen Industri </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -63,9 +67,7 @@
         </div>
         </div>
         </div>
-        {{-- endforeach --}}
-        {{-- PRESTASI AWAL --}}
-        @include('tab.luarantab.efektivitastable')
-        {{-- PRESTASI AKHIR --}}
+        @endforeach
+        
 
 </div>

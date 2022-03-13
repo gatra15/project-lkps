@@ -74,12 +74,12 @@ class EfektifitasProduktifitasPendidikanController extends Controller
     {
         $connection = 'mysql';
         $request->validate([
-            'tahun_id',
-            'jumlah_mahasiswa',
-            'ts3',
-            'ts2',
-            'ts1',
-            'ts',
+            'tahun_id' => 'required',
+            'jumlah_mahasiswa' => 'required',
+            'ts3' => 'required',
+            'ts2' => 'required',
+            'ts1' => 'required',
+            'ts' => 'required',
         ]);
 
         try{

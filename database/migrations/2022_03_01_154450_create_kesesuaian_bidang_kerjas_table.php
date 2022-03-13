@@ -15,12 +15,12 @@ class CreateKesesuaianBidangKerjasTable extends Migration
     {
         Schema::create('kesesuaian_bidang_kerjas', function (Blueprint $table) {
             $table->id();
-            $table->string('tahun_lulus');
-            $table->string('jumlah_lulusan');
-            $table->string('jumlah_lulusan_terlacak');
-            $table->string('kesesuaian_rendah');
-            $table->string('kesesuaian_sedang');
-            $table->string('kesesuaian_tinggi');
+            $table->foreignId('tahun_id');
+            $table->integer('jumlah_lulusan')->nullable(true);
+            $table->integer('jumlah_lulusan_terlacak')->nullable(true);
+            $table->string('kesesuaian_rendah')->nullable(true);
+            $table->string('kesesuaian_sedang')->nullable(true);
+            $table->string('kesesuaian_tinggi')->nullable(true);
             $table->integer('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by')->nullable(true);

@@ -7,6 +7,7 @@
     <th class="align-middle text-center" scope="col" colspan="7">Jumlah Mahasiswa yang Lulus pada</th>
     <th class="align-middle text-center" scope="col" rowspan="2">Jumlah <br> Lulusan <br> s.d. <br> Akhir TS</th>
     <th class="align-middle text-center" scope="col" rowspan="2">Rata- <br> rata <br> Masa <br> Studi</th>
+    <th class="align-middle text-center" scope="col" rowspan="2">Opsi</th>
     
     </tr>
 
@@ -25,28 +26,23 @@
     <tbody class="text-dark">
         @foreach ($efektifitasPrestasi['efektifitas'] as $efektifitas)
             <tr>
+                <td>{{ $efektifitas->tahun->name }}</td>
                 <td>{{ $efektifitas->jumlah_mahasiswa }}</td>
+                <td style="background-color: grey"></td>
+                <td></td>
+                <td></td>
                 <td>{{ $efektifitas->ts3 }}</td>
                 <td>{{ $efektifitas->ts2 }}</td>
                 <td>{{ $efektifitas->ts1 }}</td>
                 <td>{{ $efektifitas->ts }}</td>
                 <td>{{ $efektifitas->jumlah }}</td>
                 <td>{{ $efektifitas->average }}</td>
+                <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalefekedit-{{ $efektifitas->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li>
+                        <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/efektifitas/{{ $efektifitas->id }}" data-toggle="modal" data-target="#modalefekdelete-{{ $efektifitas->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                </ul></td>
             </tr>
         @endforeach
-    {{-- @foreach ($mahasiswa_asing as $mhs)
-    <tr>
-        @for ($i = 0; $i < $count; $i++)
-        <td>{{ $i }}</td>
-        @endfor
-       <td>{{ $mhs->daya_tampung }}</td> 
-       <td>{{ $mhs->c_pendaftar }}</td> 
-       <td>{{ $mhs->c_lulus_seleksi }}</td> 
-       <td>{{ $mhs->mahasiswa_reguler }}</td> 
-       <td>{{ $mhs->mahasiswa_transfer }}</td> 
-       <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-       <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-    </tr>
-    @endforeach --}}
     </table> 
     </div>

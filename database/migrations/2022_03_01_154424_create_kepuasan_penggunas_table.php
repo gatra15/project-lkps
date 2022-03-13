@@ -15,16 +15,18 @@ class CreateKepuasanPenggunasTable extends Migration
     {
         Schema::create('kepuasan_penggunas', function (Blueprint $table) {
             $table->id();
-            $table->string('jenis_kemampuan');
-            $table->string('sangat_baik');
-            $table->string('baik');
-            $table->string('cukup');
-            $table->string('kurang');
-            $table->string('rencana_tindak_lanjut');
-            $table->string('tahun_laporan');
+            $table->foreignId('kemampuan_id');
+            $table->integer('sangat_baik')->nullable(true);
+            $table->integer('baik')->nullable(true);
+            $table->integer('cukup')->nullable(true);
+            $table->integer('kurang')->nullable(true);
+            $table->string('rencana_tindak_lanjut')->nullable(true);
+            $table->integer('tahun_laporan');
             $table->string('prodi');
-            $table->string('created_by');
-            $table->timestamps();
+            $table->string('created_by')->nullable(true);
+            $table->string('updated_by')->nullable(true);
+            $table->timestamp('created_at')->nullable(true);
+            $table->timestamp('updated_at')->nullable(true);
         });
     }
 

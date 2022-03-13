@@ -43,7 +43,6 @@ class IdentitasPengusulController extends Controller
         $pengusul->tahun_pertama = $req->input('tahun_pertama');        
         $pengusul->peningkatan_terbaru = $req->input('peningkatan_terbaru');        
         $pengusul->nomor_sk_banpt = $req->input('nomor_sk_banpt');        
-        $pengusul->jumlah_mahasiswa_ts = (int) $req->input('jumlah_mahasiswa_ts');        
         $pengusul->created_by = auth()->user()->name;
         $pengusul->created_at = Carbon::now();
         $pengusul->save();
@@ -87,7 +86,6 @@ class IdentitasPengusulController extends Controller
         $pengusul->tahun_pertama = $req->input('tahun_pertama');        
         $pengusul->peningkatan_terbaru = $req->input('peningkatan_terbaru');        
         $pengusul->nomor_sk_banpt = $req->input('nomor_sk_banpt');        
-        $pengusul->jumlah_mahasiswa_ts = (int) $req->input('jumlah_mahasiswa_ts');        
         $pengusul->created_by = auth()->user()->name;
         $pengusul->created_at = Carbon::now();
         $pengusul->save();

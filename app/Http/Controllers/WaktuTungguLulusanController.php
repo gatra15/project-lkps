@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\WaktuTungguLulusan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\WaktuTungguLulusan;
+use Illuminate\Support\Facades\DB;
+use Svg\Tag\Rect;
 
 class WaktuTungguLulusanController extends Controller
 {
@@ -14,7 +17,8 @@ class WaktuTungguLulusanController extends Controller
      */
     public function index()
     {
-        //
+        $waktu = WaktuTungguLulusan::with('tahun')->get();
+        return ['waktu' => $waktu];
     }
 
     /**
@@ -67,9 +71,40 @@ class WaktuTungguLulusanController extends Controller
      * @param  \App\Models\WaktuTungguLulusan  $waktuTungguLulusan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, WaktuTungguLulusan $waktuTungguLulusan)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'tahun_id' => 'required',
+            'jumlah_lulusan' => 'required',
+            'jumlah_lulusan_terlacak' => 'required',
+            'waktu_tunggu_6' => 'required',
+            'waktu_tunggu_6_18' => 'required',
+            'waktu_tunggu_18' => 'required',
+        ]);
+
+        $connection = 'mysql';
+        try{
+            $data = WaktuTungguLulusan::find($id);
+            $data->tahun_id = $request->input('tahun_id');
+            $data->jumlah_lulusan = (int) $request->input('jumlah_lulusan');
+            $data->jumlah_lulusan_terlacak = (int) $request->input('jumlah_lulusan_terlacak');
+            $data->waktu_tunggu_6 = (int) $request->input('waktu_tunggu_6');
+            $data->waktu_tunggu_6_18 = (int) $request->input('waktu_tunggu_6_18');
+            $data->waktu_tunggu_18 = (int) $request->input('waktu_tunggu_18');
+            $data->tahun_laporan = 2022;
+            $data->prodi = auth()->user()->prodi;
+            $data->created_by = auth()->user()->name;
+            $data->created_at = Carbon::now();
+            $data->update();
+
+            return back()->with('success', 'Data Waktu Tunggu Lulusan berhasil ditambahkan.');
+        } catch(\Exception $ex) {
+            DB::connection($connection)->rollBack();
+            return response()->json(['message' => $ex->getMessage()], 500);
+        } catch(\Throwable $ex) {
+            DB::connection($connection)->rollBack();
+            return response(['message' => $ex->getMessage()],500);
+        }
     }
 
     /**
@@ -78,8 +113,30 @@ class WaktuTungguLulusanController extends Controller
      * @param  \App\Models\WaktuTungguLulusan  $waktuTungguLulusan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(WaktuTungguLulusan $waktuTungguLulusan)
+    public function destroy(Request $request, $id)
     {
-        //
+        $connection = 'mysql';
+        try{
+            $data = WaktuTungguLulusan::find($id);
+            $data->tahun_id = $request->input('tahun_id');
+            $data->jumlah_lulusan = null;
+            $data->jumlah_lulusan_terlacak = null;
+            $data->waktu_tunggu_6 = null;
+            $data->waktu_tunggu_6_18 = null;
+            $data->waktu_tunggu_18 = null;
+            $data->tahun_laporan = 2022;
+            $data->prodi = auth()->user()->prodi;
+            $data->updated_by = auth()->user()->name;
+            $data->updated_at = Carbon::now();
+            $data->update();
+
+            return back()->with('success', 'Data Waktu Tunggu Lulusan berhasil dihapus.');
+        } catch(\Exception $ex) {
+            DB::connection($connection)->rollBack();
+            return response()->json(['message' => $ex->getMessage()], 500);
+        } catch(\Throwable $ex) {
+            DB::connection($connection)->rollBack();
+            return response(['message' => $ex->getMessage()],500);
+        }
     }
 }

@@ -15,11 +15,12 @@ class CreateWaktuTungguLulusansTable extends Migration
     {
         Schema::create('waktu_tunggu_lulusans', function (Blueprint $table) {
             $table->id();
-            $table->string('jumlah_lulusan');
-            $table->string('jumlah_lulusan_terlacak');
-            $table->string('waktu_tunggu_6');
-            $table->string('waktu_tunggu_6_18');
-            $table->string('waktu_tunggu_18');
+            $table->foreignId('tahun_id');
+            $table->integer('jumlah_lulusan')->nullable(true);
+            $table->integer('jumlah_lulusan_terlacak')->nullable(true);
+            $table->integer('waktu_tunggu_6')->nullable(true);
+            $table->integer('waktu_tunggu_6_18')->nullable(true);
+            $table->integer('waktu_tunggu_18')->nullable(true);
             $table->integer('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by')->nullable(true);

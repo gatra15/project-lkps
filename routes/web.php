@@ -6,6 +6,7 @@ use App\Http\Controllers\SdmController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CapaianPembelajaranController;
+use App\Http\Controllers\EfektifitasProduktifitasPendidikanController;
 use App\Http\Controllers\LuaranController;
 use App\Http\Controllers\SimulasiController;
 use App\Http\Controllers\PendidikanController;
@@ -17,7 +18,10 @@ use App\Http\Controllers\KinerjaDosenController;
 use App\Http\Controllers\TabMahasiswaController;
 use App\Http\Controllers\IdentitasPengusulController;
 use App\Http\Controllers\KaryaIlmiahMahasiswaController;
+use App\Http\Controllers\KepuasanPenggunaController;
+use App\Http\Controllers\KesesuaianBidangKerjaController;
 use App\Http\Controllers\KeuanganSaranaPrasaranaController;
+use App\Http\Controllers\KinerjaLulusanController;
 use App\Http\Controllers\MahasiswaAsingController;
 use App\Http\Controllers\PendidikanIntegrasiKegiatanPenelitianController;
 use App\Http\Controllers\PendidikanKepuasanMahasiswaController;
@@ -34,6 +38,8 @@ use App\Http\Controllers\SdmKinerjaDosenPenelitianDtpsController;
 use App\Http\Controllers\SdmKinerjaDosenPkmDtpsController;
 use App\Http\Controllers\SdmKinerjaDosenPublikasiIlmiahDtpsController;
 use App\Http\Controllers\TimPenyusunController;
+use App\Http\Controllers\WaktuTungguLulusanController;
+use App\Models\KepuasanPengguna;
 use App\Models\MahasiswaAsing;
 use App\Models\PendidikanKurikulum;
 use App\Models\SdmDosenIndustriPraktisi;
@@ -206,12 +212,24 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('/luaran-capaian-tridharma/prestasi-mahasiswa', [PrestasiMahasiswaController::class, 'index']);
         Route::post('/luaran-capaian-tridharma/prestasi-mahasiswa', [PrestasiMahasiswaController::class, 'store']);
         Route::put('/luaran-capaian-tridharma/prestasi-mahasiswa/{id}', [PrestasiMahasiswaController::class, 'update']);
-        Route::get('/luaran-capaian-tridharma/prestasi-mahasiswa/{id}', [PrestasiMahasiswaController::class, 'destroy']);
+        Route::post('/luaran-capaian-tridharma/prestasi-mahasiswa/{id}', [PrestasiMahasiswaController::class, 'destroy']);
 
-        Route::get('/luaran-capaian-tridharma/prestasi-non-akademik', [PrestasiNonAkademikMahasiswaController::class, 'index']);
-        Route::post('/luaran-capaian-tridharma/prestasi-non-akademik', [PrestasiNonAkademikMahasiswaController::class, 'store']);
-        Route::put('/luaran-capaian-tridharma/prestasi-non-akademik/{id}', [PrestasiNonAkademikMahasiswaController::class, 'update']);
-        Route::get('/luaran-capaian-tridharma/prestasi-non-akademik/{id}', [PrestasiNonAkademikMahasiswaController::class, 'destroy']);
+        Route::get('/luaran-capaian-tridharma/efektifitas', [EfektifitasProduktifitasPendidikanController::class, 'index']);
+        Route::post('/luaran-capaian-tridharma/efektifitas', [EfektifitasProduktifitasPendidikanController::class, 'store']);
+        Route::put('/luaran-capaian-tridharma/efektifitas/{id}', [EfektifitasProduktifitasPendidikanController::class, 'update']);
+        Route::post('/luaran-capaian-tridharma/efektifitas/{id}', [EfektifitasProduktifitasPendidikanController::class, 'destroy']);
+
+        Route::put('/luaran-capaian-tridharma/daya-saing/{id}', [WaktuTungguLulusanController::class, 'update']);
+        Route::post('/luaran-capaian-tridharma/daya-saing/{id}', [WaktuTungguLulusanController::class, 'destroy']);
+
+        Route::put('/luaran-capaian-tridharma/kinerja-lulusan/{id}', [KinerjaLulusanController::class, 'update']);
+        Route::post('/luaran-capaian-tridharma/kinerja-lulusan/{id}', [KinerjaLulusanController::class, 'destroy']);
+
+        Route::put('/luaran-capaian-tridharma/kesesuain-bidang/{id}', [KesesuaianBidangKerjaController::class, 'update']);
+        Route::post('/luaran-capaian-tridharma/kesesuain-bidang/{id}', [KesesuaianBidangKerjaController::class, 'destroy']);
+
+        Route::put('/luaran-capaian-tridharma/kepuasan-pengguna/{id}', [KepuasanPenggunaController::class, 'update']);
+        Route::post('/luaran-capaian-tridharma/kepuasan-pengguna/{id}', [KepuasanPenggunaController::class, 'destroy']);
         // End Luaran
 
         Route::get('/simulasi', [SimulasiController::class, 'index']);
