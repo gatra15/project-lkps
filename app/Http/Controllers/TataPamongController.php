@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use PDF;
-use Excel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Exports\TataPamongExport;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\IndikatorTataKerjasama;
 
 class TataPamongController extends Controller
@@ -52,6 +53,9 @@ class TataPamongController extends Controller
 
     public function store(Request $request)
     {
+        
+        $connection = 'mysql';
+        
         $this->validate($request, [
             'tridharma'         => 'required',
             'lembaga_mitra'     => 'required',
@@ -59,12 +63,19 @@ class TataPamongController extends Controller
             'judul_kegiatan'    => 'required',
             'manfaat'           => 'required',
             'waktu_durasi'      => 'required',
-            'bukti_kerjasama'   => 'required',
+            'bukti_kerjasama'   => 'file|max:4096',
         ]);
-        $name = $request->file('bukti_kerjasama')->getClientOriginalName();
- 
-        $request->file('bukti_kerjasama')->store('public/store');
-
+        
+        if($request->file('bukti_kerjasama')) {
+            $filenameWithExt = $request->file('bukti_kerjasama')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('bukti_kerjasama')->getClientOriginalExtension();
+            $filenameSimpan = $filename.'.'.$extension;
+        } else {
+            $filenameSimpan = 'Tidak Ada File yang disisipkan';
+        }
+        
+        try{
         $indikator = new IndikatorTataKerjasama;
         $indikator->tridharma = $request->input('tridharma');
         $indikator->lembaga_mitra = $request->input('lembaga_mitra');
@@ -72,15 +83,22 @@ class TataPamongController extends Controller
         $indikator->judul_kegiatan = $request->input('judul_kegiatan');
         $indikator->manfaat = $request->input('manfaat');
         $indikator->waktu_durasi = $request->input('waktu_durasi');
-        $indikator->bukti_kerjasama = $name;
-        $indikator->tahun_laporan = '2021';
-        $indikator->prodi = 'Teknik Industri';
+        $indikator->bukti_kerjasama = $request->file('bukti_kerjasama')->storeAs('bukti-kerjasama', $filenameSimpan);
+        $indikator->tahun_laporan = 2022;
+        $indikator->prodi = auth()->user()->prodi;
         $indikator->created_by = auth()->user()->name;
         $indikator->created_at = Carbon::now();
-        // dd($indikator);
         $indikator->save();
 
-        return redirect('/tata-pamong-tata-kelola-kerjasama')->with('success', 'New Indikator Tata Kerjasama has been added!');
+        return back()->with('success', 'Data berhasil ditambahkan.');
+
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
     }
 
     public function edit($id)
@@ -89,39 +107,60 @@ class TataPamongController extends Controller
         return view('tab.tataPamong', ['indikator' => $indikator]);
     }
 
-    public function update(Request $req, $id)
+    public function update(Request $request, $id)
     {
         
-
-        $this->validate(request(), [
+        $connection = 'mysql';
+        
+        $this->validate($request, [
             'tridharma'         => 'required',
             'lembaga_mitra'     => 'required',
+            'tingkat'           => 'required',
             'judul_kegiatan'    => 'required',
             'manfaat'           => 'required',
             'waktu_durasi'      => 'required',
-            'bukti_kerjasama'   => 'required',
+            'bukti_kerjasama'   => 'file|max:4096',
         ]);
-
+        
+        if($request->file('bukti_kerjasama')) {
+            $filenameWithExt = $request->file('bukti_kerjasama')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('bukti_kerjasama')->getClientOriginalExtension();
+            $filenameSimpan = $filename.'_'.time().'.'.$extension;
+        } else {
+            $filenameSimpan = 'Tidak Ada File yang disisipkan';
+        }
+        
+        try{
         $indikator = IndikatorTataKerjasama::find($id);
-        $indikator->tridharma = $req->input('tridharma');
-        $indikator->lembaga_mitra = $req->input('lembaga_mitra');
-        $indikator->judul_kegiatan = $req->input('judul_kegiatan');
-        $indikator->tingkat = $req->input('tingkat');
-        $indikator->manfaat = $req->input('manfaat');
-        $indikator->waktu_durasi = $req->input('waktu_durasi');
-        $indikator->bukti_kerjasama = $req->input('bukti_kerjasama');
-        $indikator->tahun_laporan = '2021';
-        $indikator->prodi = 'Teknik Industri';
+        $indikator->tridharma = $request->input('tridharma');
+        $indikator->lembaga_mitra = $request->input('lembaga_mitra');
+        $indikator->tingkat = $request->input('tingkat');
+        $indikator->judul_kegiatan = $request->input('judul_kegiatan');
+        $indikator->manfaat = $request->input('manfaat');
+        $indikator->waktu_durasi = $request->input('waktu_durasi');
+        $indikator->bukti_kerjasama = $request->file('bukti_kerjasmaa')->storeAs('/bukti-kerjasama', $filenameSimpan);
+        $indikator->tahun_laporan = 2022;
+        $indikator->prodi = auth()->user()->prodi;
         $indikator->created_by = auth()->user()->name;
         $indikator->created_at = Carbon::now();
-        $indikator->save();
-        return redirect('/tata-pamong-tata-kelola-kerjasama')->with('success', 'Indikator Tata Kerjasama has been updated!');
+        $indikator->update();
+
+        return back()->with('success', 'Data berhasil diubah.');
+
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
     }
 
     public function destroy($id)
     {
         IndikatorTataKerjasama::find($id)->delete();
-        return back()->with('error', 'Indikator Tata Kerjasama has been deleted.');
+        return back()->with('error', 'Data berhasil dihapus.');
         
     }
 

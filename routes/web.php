@@ -33,6 +33,7 @@ use App\Http\Controllers\SdmKinerjaDosenLuaranPkmDtpsController;
 use App\Http\Controllers\SdmKinerjaDosenPenelitianDtpsController;
 use App\Http\Controllers\SdmKinerjaDosenPkmDtpsController;
 use App\Http\Controllers\SdmKinerjaDosenPublikasiIlmiahDtpsController;
+use App\Http\Controllers\TimPenyusunController;
 use App\Models\MahasiswaAsing;
 use App\Models\PendidikanKurikulum;
 use App\Models\SdmDosenIndustriPraktisi;
@@ -74,7 +75,13 @@ Route::group(['middleware' => 'auth:web'], function() {
 
         // Route to Identitas Pengusul
         Route::get('/identitas-pengusul', [IdentitasPengusulController::class, 'index']);
-        Route::put('/identitas-pengusul/{id}', [IdentitasPengusulController::class, 'update']);
+        Route::post('/identitas-pengusul', [IdentitasPengusulController::class, 'store']);
+        Route::get('/identitas-pengusul/{id}', [IdentitasPengusulController::class, 'show']);
+
+        Route::get('/identitas-pengusul/tim-penyusun', [TimPenyusunController::class, 'index']);
+        Route::post('/identitas-pengusul/tim-penyusun', [TimPenyusunController::class, 'store']);
+        Route::put('/identitas-pengusul/tim-penyusun/{id}', [TimPenyusunController::class, 'update']);
+        Route::post('/identitas-pengusul/tim-penyusun/{id}', [TimPenyusunController::class, 'delete']);
         // End Route Identitas Pengusul
 
         // Route to Tata Pamong

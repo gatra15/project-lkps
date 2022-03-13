@@ -1,4 +1,4 @@
-<form action="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" method="post">
+<form action="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" method="post" enctype="multipart/form-data">
     @method('put')
     @csrf
     <div class="modal-body">

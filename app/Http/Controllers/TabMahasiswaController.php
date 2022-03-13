@@ -57,14 +57,14 @@ class TabMahasiswaController extends Controller
     {
         $connection = 'mysql';
         $this->validate($req, [
-            'tahun_id' => 'required|integer',
-            'daya_tampung' => 'required|integer',
-            'c_pendaftar' => 'required|integer',
-            'c_lulus_seleksi' => 'required|integer',
-            'mahasiswa_reguler' => 'required|integer',
-            'mahasiswa_transfer' => 'required|integer',
-            'mahasiswa_aktif_reguler' => 'required|integer',
-            'mahasiswa_aktif_transfer' => 'required|integer',
+            'tahun_id' => 'integer|required',
+            'daya_tampung' => 'integer|required',
+            'c_pendaftar' => 'integer|required',
+            'c_lulus_seleksi' => 'integer|required',
+            'mahasiswa_reguler' => 'integer|required',
+            'mahasiswa_transfer' => 'integer|required',
+            'mahasiswa_aktif_reguler' => 'integer|required',
+            'mahasiswa_aktif_transfer' => 'integer|required',
         ]);
     try{
         $mahasiswa = Mahasiswa::find($id);
@@ -80,6 +80,7 @@ class TabMahasiswaController extends Controller
         $mahasiswa->prodi = auth()->user()->prodi;
         $mahasiswa->created_by = auth()->user()->name;
         $mahasiswa->created_at = Carbon::now();
+        // ddd($mahasiswa);
         $mahasiswa->update();
 
         return back()->with('success', 'Data berhasi ditambahkan.');

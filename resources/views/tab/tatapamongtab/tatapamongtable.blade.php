@@ -40,7 +40,9 @@
                     <td>{{ $indikator->judul_kegiatan }}</td>
                     <td>{{ $indikator->manfaat }}</td>
                     <td>{{ $indikator->waktu_durasi }}</td>
-                    <td>{{ $indikator->bukti_kerjasama }}</td>
+                    <td>
+                        <a href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}">{{ $indikator->bukti_kerjasama }}</a>
+                    </td>
                     <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                         <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
@@ -74,7 +76,9 @@
                         <td>{{ $indikator->judul_kegiatan }}</td>
                         <td>{{ $indikator->manfaat }}</td>
                         <td>{{ $indikator->waktu_durasi }}</td>
-                        <td>{{ $indikator->bukti_kerjasama }}</td>
+                        <td>
+                            <a href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}">{{ $indikator->bukti_kerjasama }}</a>
+                        </td>
                         <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
                             <li>
@@ -107,7 +111,9 @@
                         <td>{{ $indikator->judul_kegiatan }}</td>
                         <td>{{ $indikator->manfaat }}</td>
                         <td>{{ $indikator->waktu_durasi }}</td>
-                        <td>{{ $indikator->bukti_kerjasama }}</td>
+                        <td>
+                            <a href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}">{{ $indikator->bukti_kerjasama }}</a>
+                        </td>
                         <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
                             <li>

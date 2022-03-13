@@ -15,8 +15,13 @@
                 </div>
                 <label for="dosentetap"> Daya Tampung :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="daya_tampung" value="{{ $mhs->daya_tampung }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="daya_tampung" value="{{ $mhs->daya_tampung }}" class="form-control @error('daya_tampung') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
+                @error('daya_tampung')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 <label for="dosentetap"> Jumlah Calon Mahasiswa</label>
                 <label for="dosentetap"> Pendaftar :</label>
                 <div class="input-group input-group-sm mb-3">

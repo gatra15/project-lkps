@@ -118,12 +118,12 @@
                     <input type="text" class="form-control" value="" name="nomor_sk_banpt">
                 </div>
             </div>
-            <div class="form-group row">
+            {{-- <div class="form-group row">
                 <label for="staticEmail" class="col-sm-4 col-form-label d-flex justify-content-between">Jumlah Mahasiswa Saat TS <span>:</span></label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control" value="" name="nomor_sk_banpt">
                 </div>
-            </div>
+            </div> --}}
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

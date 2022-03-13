@@ -20,7 +20,7 @@ class CreateSdmKinerjaDosenPenelitianDtpsTable extends Migration
             $table->integer('jumlah_ts1')->nullable(true);
             $table->integer('jumlah_ts')->nullable(true);
             $table->integer('jumlah')->nullable(true);
-            $table->string('tahun_laporan');
+            $table->integer('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by');
             $table->timestamps();

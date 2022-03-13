@@ -1,4 +1,4 @@
-<form action="{{ url('/tata-pamong-tata-kelola-kerjasama') }}" method="POST">
+<form action="{{ url('/tata-pamong-tata-kelola-kerjasama') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="modal-body">
         
