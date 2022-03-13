@@ -36,12 +36,10 @@
                     <input type="text" name="waktu_durasi" value="{{ $indikator->waktu_durasi }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="lembaga"> Bukti Kerjasama :</label>
-                <div class="input-group mb-3">
-                <div class="custom-file">
-                    <input type="file" name="bukti_kerjasama" value="{{ $indikator->bukti_kerjasama }}" class="custom-file-input" id="inputGroupFile02" required>
-                    <label class="custom-file-label" for="inputGroupFile02" aria-describedby="Upload">Pilih File</label>
+                <div class="input-group input-group-sm mb-3">
+                    <input type="file" class="form-control" name="bukti_kerjasama" id="customFile" required />
                 </div>
-                </div>
+                <small for="">File Sebelumnya : <a href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}">{{ $indikator->bukti_kerjasama }}</a> </small>
                {{-- coding modal insert akhir --}}
 
             {{-- script modal insert --}}

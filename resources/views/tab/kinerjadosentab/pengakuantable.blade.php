@@ -25,7 +25,7 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $pengakuan->nama }}</td> 
                 <td>{{ $pengakuan->bidang_keahlian }}</td> 
-                <td>{{ $pengakuan->bukti_pendukung }}</td> 
+                <td><a href="{{ asset('storage/'.$pengakuan->bukti_pendukung) }}">{{ $pengakuan->bukti_pendukung }}</a></td> 
                 <td>{{ $pengakuan->tingkat == 'Wilayah' ? 'V' : '' }}</td> 
                 <td>{{ $pengakuan->tingkat == 'Nasional' ? 'V' : '' }}</td> 
                 <td>{{ $pengakuan->tingkat == 'Internasional' ? 'V' : '' }}</td> 

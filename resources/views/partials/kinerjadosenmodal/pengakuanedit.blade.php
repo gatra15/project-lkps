@@ -18,8 +18,9 @@
                 </div>
                 <label for="pengkuan"> Rekognisi dan Bukti Pendukung :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="bukti_pendukung" value="{{ $pengakuan->bukti_pendukung }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                <input type="file" class="form-control" name="bukti_pendukung" id="customFile" required />
                 </div>
+                <small for=""><a href="{{ asset('storage/'.$pengakuan->bukti_pendukung) }}">{{ $pengakuan->bukti_pendukung }}</a></small>
                 <label for="pengkuan"> Tingkat :</label>
                 <div class="input-group mb-3">
                     <select class="custom-select" name="tingkat" id="inputGroupSelect01">
