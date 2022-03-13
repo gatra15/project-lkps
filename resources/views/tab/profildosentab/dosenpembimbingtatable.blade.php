@@ -28,7 +28,7 @@
         <tbody class="text-dark">
              {{-- Coding Tabel Disini --}}
              <tr>
-            @foreach ($dosenta as $sdm)
+            @foreach ($dosenta['dosen'] as $sdm)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $sdm->nama }}</td>

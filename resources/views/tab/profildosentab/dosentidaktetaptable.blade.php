@@ -18,7 +18,7 @@
         <tbody class="text-dark">
              {{-- Coding Tabel Disini --}}
              <tr>
-        @foreach ($dosentidaktetap as $sdm)
+        @foreach ($dosentidaktetap['dosen'] as $sdm)
             <tr>
                 <td>{{ $sdm->nama }}</td>
                 <td>{{ $sdm->no_id }}</td>
@@ -40,7 +40,7 @@
             @endforeach
           <tr>
               <td class="text-center"> <b>Jumlah</b> </td>
-              <td colspan="9" class="text-left"> <b>NDTT :</b></td>
+              <td colspan="9" class="text-left"> <b>NDTT : {{ $dosentidaktetap['ndtt'] }}</b> </td>
           </tr>
     </table>
 </div>

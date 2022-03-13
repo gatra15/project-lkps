@@ -27,10 +27,7 @@
                     <input type="text" name="jumlah_ps_akreditasi_ts"
                     value="{{ $sdm->jumlah_ps_akreditasi_ts }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
-                <label for="dosentetap"> Rata-rata :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jumlah_ps_akreditasi_average" value="{{ $sdm->jumlah_ps_akreditasi_average }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
+                
                 <h6>pada PS Lain di PT</h6>
                 <label for="dosentetap"> TS-2 :</label>
                 <div class="input-group input-group-sm mb-3">
@@ -44,15 +41,7 @@
                 <div class="input-group input-group-sm mb-3">
                     <input type="text" name="jumlah_ps_lain_ts" value="{{ $sdm->jumlah_ps_lain_ts }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
-                <label for="dosentetap"> Rata-rata :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jumlah_ps_lain_average"
-                    value="{{ $sdm->jumlah_ps_lain_average }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
-                <label for="dosentetap"> Rata-rata Jumlah Bimbingan di Semua Program/Semester :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="average" value="{{ $sdm->average }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
+                
 
                {{-- coding modal insert akhir --}}
                

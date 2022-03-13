@@ -44,16 +44,13 @@ class SdmDosenPembimbingTaController extends Controller
     {
         $connection = 'mysql';
         $rule = [
-            // 'nama' => 'required',
-            // 'jumlah_ps_akreditasi_ts2' => 'required',
-            // 'jumlah_ps_akreditasi_ts1' => 'required',
-            // 'jumlah_ps_akreditasi_ts' => 'required',
-            // 'jumlah_ps_akreditasi_average' => 'required',
-            // 'jumlah_ps_lain_ts2' => 'required',
-            // 'jumlah_ps_lain_ts1' => 'required',
-            // 'jumlah_ps_lain_ts' => 'required',
-            // 'jumlah_ps_lain_average' => 'required',
-            // 'average' => 'required',
+            'nama' => 'required',
+            'jumlah_ps_akreditasi_ts2' => 'required',
+            'jumlah_ps_akreditasi_ts1' => 'required',
+            'jumlah_ps_akreditasi_ts' => 'required',
+            'jumlah_ps_lain_ts2' => 'required',
+            'jumlah_ps_lain_ts1' => 'required',
+            'jumlah_ps_lain_ts' => 'required',
         ];
         $this->validate($req, $rule);
 
@@ -63,12 +60,12 @@ class SdmDosenPembimbingTaController extends Controller
         $data->jumlah_ps_akreditasi_ts2 = (int) $req->input('jumlah_ps_akreditasi_ts2');
         $data->jumlah_ps_akreditasi_ts1 = (int) $req->input('jumlah_ps_akreditasi_ts1');
         $data->jumlah_ps_akreditasi_ts = (int) $req->input('jumlah_ps_akreditasi_ts');
-        $data->jumlah_ps_akreditasi_average = (int) ($req->jumlah_ps_akreditasi_ts2 + $req->jumlah_ps_akreditasi_ts2 + $req->jumlah_ps_akreditasi_ts2)/3;
+        $data->jumlah_ps_akreditasi_average = (float) ($req->jumlah_ps_akreditasi_ts2 + $req->jumlah_ps_akreditasi_ts1 + $req->jumlah_ps_akreditasi_ts)/3;
         $data->jumlah_ps_lain_ts2 = (int) $req->input('jumlah_ps_lain_ts2');
         $data->jumlah_ps_lain_ts1 = (int) $req->input('jumlah_ps_lain_ts1');
         $data->jumlah_ps_lain_ts = (int) $req->input('jumlah_ps_lain_ts');
-        $data->jumlah_ps_lain_average = (int) ($req->jumlah_ps_akreditasi_ts2 + $req->jumlah_ps_akreditasi_ts2 + $req->jumlah_ps_akreditasi_ts2)/3;;
-        $data->average = (int) ($req->jumlah_ps_akreditasi_average + $req->jumlah_ps_lain_average)/2;
+        $data->jumlah_ps_lain_average = (float) ($req->jumlah_ps_lain_ts2 + $req->jumlah_ps_lain_ts1 + $req->jumlah_ps_lain_ts)/3;;
+        $data->average = (float) ($data->jumlah_ps_lain_average + $data->jumlah_ps_akreditasi_average)/2;
         $data->tahun_laporan = 2022;
         $data->prodi = auth()->user()->prodi;
         $data->created_by = auth()->user()->name;
@@ -120,35 +117,32 @@ class SdmDosenPembimbingTaController extends Controller
         $connection = 'mysql';
         $rule = [
             'nama' => 'required',
-            'jumlah_ps_akreditasi_ts2' => 'required',
-            'jumlah_ps_akreditasi_ts1' => 'required',
-            'jumlah_ps_akreditasi_ts' => 'required',
-            'jumlah_ps_akreditasi_average' => 'required',
-            'jumlah_ps_lain_ts2' => 'required',
-            'jumlah_ps_lain_ts1' => 'required',
-            'jumlah_ps_lain_ts' => 'required',
-            'jumlah_ps_lain_average' => 'required',
-            'average' => 'required',
+            'jumlah_ps_akreditasi_ts2' => 'integer|required',
+            'jumlah_ps_akreditasi_ts1' => 'integer|required',
+            'jumlah_ps_akreditasi_ts' => 'integer|required',
+            'jumlah_ps_lain_ts2' => 'integer|required',
+            'jumlah_ps_lain_ts1' => 'integer|required',
+            'jumlah_ps_lain_ts' => 'integer|required',
         ];
         $this->validate($req, $rule);
 
     try{
         $data = SdmDosenPembimbingTa::find($id);
         $data->nama = $req->input('nama');
-        $data->jumlah_ps_akreditasi_ts2 = $req->input('jumlah_ps_akreditasi_ts2');
-        $data->jumlah_ps_akreditasi_ts1 = $req->input('jumlah_ps_akreditasi_ts1');
-        $data->jumlah_ps_akreditasi_ts = $req->input('jumlah_ps_akreditasi_ts');
-        $data->jumlah_ps_akreditasi_average = $req->input('jumlah_ps_akreditasi_average');
-        $data->jumlah_ps_lain_ts2 = $req->input('jumlah_ps_lain_ts2');
-        $data->jumlah_ps_lain_ts1 = $req->input('jumlah_ps_lain_ts1');
-        $data->jumlah_ps_lain_ts = $req->input('jumlah_ps_lain_ts');
-        $data->jumlah_ps_lain_average = $req->input('jumlah_ps_lain_average');
-        $data->average = $req->input('average');
-        $data->tahun_laporan = '2022';
+        $data->jumlah_ps_akreditasi_ts2 = (int) $req->input('jumlah_ps_akreditasi_ts2');
+        $data->jumlah_ps_akreditasi_ts1 = (int) $req->input('jumlah_ps_akreditasi_ts1');
+        $data->jumlah_ps_akreditasi_ts = (int) $req->input('jumlah_ps_akreditasi_ts');
+        $data->jumlah_ps_akreditasi_average = (float) ($req->jumlah_ps_akreditasi_ts2 + $req->jumlah_ps_akreditasi_ts1 + $req->jumlah_ps_akreditasi_ts)/3;
+        $data->jumlah_ps_lain_ts2 = (int) $req->input('jumlah_ps_lain_ts2');
+        $data->jumlah_ps_lain_ts1 = (int) $req->input('jumlah_ps_lain_ts1');
+        $data->jumlah_ps_lain_ts = (int) $req->input('jumlah_ps_lain_ts');
+        $data->jumlah_ps_lain_average = (float) ($req->jumlah_ps_lain_ts2 + $req->jumlah_ps_lain_ts1 + $req->jumlah_ps_lain_ts)/3;;
+        $data->average = (float) ($data->jumlah_ps_lain_average + $data->jumlah_ps_akreditasi_average)/2;
+        $data->tahun_laporan = 2022;
         $data->prodi = auth()->user()->prodi;
-        $data->created_by = auth()->user()->name;
+        $data->updated_by = auth()->user()->name;
         $data->updated_at = Carbon::now();
-        $data->save();
+        $data->update();
 
         return back()->with('success', 'Data berhasil diubah.');
 

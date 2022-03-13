@@ -48,7 +48,7 @@
     {{-- TABLE HERE --}}
     @include('tab.profildosentab.dosentidaktetaptable')
         
-    @foreach ($dosentidaktetap as $sdm)
+    @foreach ($dosentidaktetap['dosen'] as $sdm)
     <!-- Modal Edit Data TA -->
     <div class="modal fade" id="modaldosentidaktetapedit-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentidaktetapedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">

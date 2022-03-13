@@ -44,14 +44,6 @@
                 <div class="input-group input-group-sm mb-3">
                     <input type="text" name="penunjang" value="{{ $ewmp->penunjang }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                 </div>
-                <label for="dosenewmp"> Jumlah (sks) :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="sks" value="{{ $ewmp->sks }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
-                <label for="dosenewmp"> Rata-rata per Semester (sks) :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="average_per_sks" value="{{ $ewmp->average_per_sks }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                </div>
                {{-- coding modal insert akhir --}}
 
             </div>
@@ -60,6 +52,6 @@
     </div>
     <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-    <button type="submit" class="btn btn-primary">Update</button>
+    <button type="submit" class="btn btn-primary">Simpan</button>
     </div>
 </form>

@@ -41,7 +41,7 @@
     {{-- TABLE HERE --}}
     @include('tab.profildosentab.ewmptable')
         
-    @foreach ($dosenewmp as $ewmp)
+    @foreach ($dosenewmp['dosen'] as $ewmp)
     <!-- Modal Edit Data EWMP -->
     <div class="modal fade" id="modaldosenewmpedit-{{ $ewmp->id }}" tabindex="-1" aria-labelledby="modaldosenewmpeditt" aria-hidden="true">
         <div class="modal-dialog modal-lg">

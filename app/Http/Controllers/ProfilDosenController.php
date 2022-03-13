@@ -7,6 +7,7 @@ use App\Models\SdmDosen;
 use Illuminate\Http\Request;
 use App\Exports\DosenTetapExport;
 use App\Models\SdmDosenTidakTetap;
+use Illuminate\Support\Facades\DB;
 use App\Models\SdmDosenPembimbingTa;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\SdmEkuivalenWaktuMengajarPenuhDosenTetap;
@@ -16,10 +17,11 @@ class ProfilDosenController extends Controller
     public function index()
     {
         $dosen = (new SdmDosenController)->index();
-        $dosenta = SdmDosenPembimbingTa::all();
-        $dosentidaktetap = SdmDosenTidakTetap::all();
-        $dosenewmp = SdmEkuivalenWaktuMengajarPenuhDosenTetap::all();
-
+        
+        $dosenta = (new SdmDosenPembimbingTaController)->index();
+        $dosentidaktetap = (new SdmDosenTidakTetapController)->index();
+        $dosenewmp = (new SdmEkuivalenWaktuMengajarPenuhDosenTetapController)->index();
+        // ddd($dosenewmp);
         return view('tab.profildosentab.profilDosen', [
             'title' => 'Profil Dosen',
             'dosen' => $dosen,
@@ -31,6 +33,8 @@ class ProfilDosenController extends Controller
 
     public function store(Request $req)
     {
+        $connection = 'mysql';
+
         $this->validate($req, [
             'nama_dosen' => 'required',
             'nidn_nidk' => 'required',
@@ -46,6 +50,7 @@ class ProfilDosenController extends Controller
             'mata_kuliah_diampu_ps_lain' => 'required',
         ]);
 
+    try{
         $dosen = new SdmDosen;
         $dosen->nama_dosen = $req->input('nama_dosen');
         $dosen->nidn_nidk = $req->input('nidn_nidk');
@@ -60,17 +65,26 @@ class ProfilDosenController extends Controller
         $dosen->kesesuaian_mata_kuliah_diampu = $req->input('kesesuaian_mata_kuliah_diampu');
         $dosen->mata_kuliah_diampu_ps_lain = $req->input('mata_kuliah_diampu_ps_lain');
         $dosen->slug = 'dosen-tetap';
-        $dosen->tahun_laporan = '2022';
+        $dosen->tahun_laporan = 2022;
         $dosen->prodi = auth()->user()->prodi;
         $dosen->created_by = auth()->user()->name;
         $dosen->created_at = Carbon::now();
         $dosen->save();
 
-        return redirect('/profil-dosen')->with('success', 'New Dosen Tetap has been created.');
+        return back()->with('success', 'Data berhasil ditambahkan.');
+
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
     }
 
     public function update(Request $req, $id)
     {
+        $connection = 'mysql';
         $this->validate($req, [
             'nama_dosen' => 'required',
             'nidn_nidk' => 'required',
@@ -86,6 +100,8 @@ class ProfilDosenController extends Controller
             'mata_kuliah_diampu_ps_lain' => 'required',
         ]);
 
+    try{
+
         $dosen = SdmDosen::find($id);
         $dosen->nama_dosen = $req->input('nama_dosen');
         $dosen->nidn_nidk = $req->input('nidn_nidk');
@@ -99,18 +115,40 @@ class ProfilDosenController extends Controller
         $dosen->mata_kuliah_akreditasi_diampu = $req->input('mata_kuliah_akreditasi_diampu');
         $dosen->kesesuaian_mata_kuliah_diampu = $req->input('kesesuaian_mata_kuliah_diampu');
         $dosen->mata_kuliah_diampu_ps_lain = $req->input('mata_kuliah_diampu_ps_lain');
-        $dosen->tahun_laporan = '2022';
+        $dosen->tahun_laporan = 2022;
         $dosen->prodi = auth()->user()->prodi;
+        $dosen->updated_by = auth()->user()->name;
         $dosen->updated_at = Carbon::now();
         $dosen->update();
 
-        return redirect('/profil-dosen')->with('success', 'Dosen Tetap has been updated.');
+        return back()->with('success', 'Data berhasil diubah.');
+
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
     }
 
     public function destroy($id)
     {
+
+        $connection = 'mysql';
+
+    try{
         SdmDosen::find($id)->delete();
-        return back()->with('error', 'Dosen Tetap has been deleted.');
+        
+        return back()->with('success', 'Data berhasil dihapus.');
+
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
     }
 
     public function exportToExcel()

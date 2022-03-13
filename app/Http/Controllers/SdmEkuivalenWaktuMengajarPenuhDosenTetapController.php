@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Exports\DosenEwmpExport;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\SdmEkuivalenWaktuMengajarPenuhDosenTetap;
 
@@ -17,7 +18,27 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
      */
     public function index()
     {
-        //
+        $dosen = SdmEkuivalenWaktuMengajarPenuhDosenTetap::all();
+
+        // dt
+        $dt = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where('dtps', 0)->orWhere('dtps',1)->count();
+        $average_dt_jumlah = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where('dtps', 0)->orWhere('dtps',1)->avg('sks');
+        $average_dt_average = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where('dtps', 0)->orWhere('dtps',1)->avg('average_per_sks');
+
+        // dtps
+        $dtps = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where('dtps', 1)->count();
+        $average_dtps_jumlah = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where('dtps', 1)->avg('sks');
+        $average_dtps_average = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where('dtps', 1)->avg('average_per_sks');
+
+        return [
+            'dosen' => $dosen,
+            'dt' => $dt,
+            'average_dt_jumlah' => $average_dt_jumlah,
+            'average_dt_average' => $average_dt_average,
+            'dtps' => $dtps,
+            'average_dtps_jumlah' => $average_dtps_jumlah,
+            'average_dtps_average' => $average_dtps_average,
+        ];
     }
 
     /**
@@ -38,38 +59,47 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
      */
     public function store(Request $req)
     {
+        $connection  = 'mysql';
         $this->validate($req, [
             'nama' => 'required',
             'dtps' => 'required',
-            'ps_akreditasi' => 'required',
-            'ps_lain_dalam_pt' => 'required',
-            'ps_lain_luar_pt' => 'required',
-            'penelitian' => 'required',
-            'pkm' => 'required',
-            'penunjang' => 'required',
-            'sks' => 'required',
-            'average_per_sks' => 'required',
+            'ps_akreditasi' => 'integer|required',
+            'ps_lain_dalam_pt' => 'integer|required',
+            'ps_lain_luar_pt' => 'integer|required',
+            'penelitian' => 'integer|required',
+            'pkm' => 'integer|required',
+            'penunjang' => 'integer|required',
         ]);
 
+    try{
         $dosen = new SdmEkuivalenWaktuMengajarPenuhDosenTetap;
         $dosen->nama = $req->input('nama');
         $dosen->dtps = $req->input('dtps');
-        $dosen->ps_akreditasi = $req->input('ps_akreditasi');
-        $dosen->ps_lain_dalam_pt = $req->input('ps_lain_dalam_pt');
-        $dosen->ps_lain_luar_pt = $req->input('ps_lain_luar_pt');
-        $dosen->penelitian = $req->input('penelitian');
-        $dosen->pkm = $req->input('pkm');
-        $dosen->penunjang = $req->input('penunjang');
-        $dosen->sks = $req->input('sks');
-        $dosen->average_per_sks = $req->input('average_per_sks');
+        $dosen->ps_akreditasi = (int) $req->input('ps_akreditasi');
+        $dosen->ps_lain_dalam_pt = (int) $req->input('ps_lain_dalam_pt');
+        $dosen->ps_lain_luar_pt = (int) $req->input('ps_lain_luar_pt');
+        $dosen->penelitian = (int) $req->input('penelitian');
+        $dosen->pkm = (int) $req->input('pkm');
+        $dosen->penunjang = (int) $req->input('penunjang');
+        $dosen->sks = (int) ($dosen->ps_akreditasi + $dosen->ps_lain_dalam_pt + $dosen->ps_lain_luar_pt + $dosen->penelitian + $dosen->pkm + $dosen->penunjang);
+        $dosen->average_per_sks = (float) $dosen->sks / 6;
         $dosen->slug = 'dosen-ewmp';
-        $dosen->tahun_laporan = '2022';
+        $dosen->tahun_laporan = 2022;
         $dosen->prodi = auth()->user()->prodi;
         $dosen->created_by = auth()->user()->name;
         $dosen->created_at = Carbon::now();
+        // ddd($dosen);
         $dosen->save();
 
-        return back()->with('success', 'New SDM EWMP has been created.');
+        return back()->with('success', 'Data berhasil ditambahkan.');
+
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
     }
 
     /**
@@ -103,38 +133,46 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $connection = 'mysql';
         $this->validate($req, [
             'nama' => 'required',
             'dtps' => 'required',
-            'ps_akreditasi' => 'required',
-            'ps_lain_dalam_pt' => 'required',
-            'ps_lain_luar_pt' => 'required',
-            'penelitian' => 'required',
-            'pkm' => 'required',
-            'penunjang' => 'required',
-            'sks' => 'required',
-            'average_per_sks' => 'required',
+            'ps_akreditasi' => 'integer|required',
+            'ps_lain_dalam_pt' => 'integer|required',
+            'ps_lain_luar_pt' => 'integer|required',
+            'penelitian' => 'integer|required',
+            'pkm' => 'integer|required',
+            'penunjang' => 'integer|required',
         ]);
 
+    try{
         $dosen = SdmEkuivalenWaktuMengajarPenuhDosenTetap::find($id);
         $dosen->nama = $req->input('nama');
         $dosen->dtps = $req->input('dtps');
-        $dosen->ps_akreditasi = $req->input('ps_akreditasi');
-        $dosen->ps_lain_dalam_pt = $req->input('ps_lain_dalam_pt');
-        $dosen->ps_lain_luar_pt = $req->input('ps_lain_luar_pt');
-        $dosen->penelitian = $req->input('penelitian');
-        $dosen->pkm = $req->input('pkm');
-        $dosen->penunjang = $req->input('penunjang');
-        $dosen->sks = $req->input('sks');
-        $dosen->average_per_sks = $req->input('average_per_sks');
+        $dosen->ps_akreditasi = (int) $req->input('ps_akreditasi');
+        $dosen->ps_lain_dalam_pt = (int) $req->input('ps_lain_dalam_pt');
+        $dosen->ps_lain_luar_pt = (int) $req->input('ps_lain_luar_pt');
+        $dosen->penelitian = (int) $req->input('penelitian');
+        $dosen->pkm = (int) $req->input('pkm');
+        $dosen->penunjang = (int) $req->input('penunjang');
+        $dosen->sks = (int) ($dosen->ps_akreditasi + $dosen->ps_lain_dalam_pt + $dosen->ps_lain_luar_pt + $dosen->penelitian + $dosen->pkm + $dosen->penunjang);
+        $dosen->average_per_sks = (float) $dosen->sks / 6;
         $dosen->slug = 'dosen-ewmp';
-        $dosen->tahun_laporan = '2022';
+        $dosen->tahun_laporan = 2022;
         $dosen->prodi = auth()->user()->prodi;
-        $dosen->created_by = auth()->user()->name;
+        $dosen->updated_by = auth()->user()->name;
         $dosen->updated_at = Carbon::now();
         $dosen->update();
 
-        return back()->with('success', 'SDM EWMP has been updated.');
+        return back()->with('success', 'Data berhasil diubah.');
+
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
     }
 
     /**
@@ -145,8 +183,21 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
      */
     public function destroy($id)
     {
+        $connection = 'mysql';
+
+    try{
+
         SdmEkuivalenWaktuMengajarPenuhDosenTetap::find($id)->delete();
-        return back()->with('error', 'SDM EWMP has been deleted.');
+        
+        return back()->with('success', 'Data berhasil diubah.');
+
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return response()->json(['message' => $ex->getMessage()], 500);
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return response(['message' => $ex->getMessage()],500);
+    }
 
     }
 

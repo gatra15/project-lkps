@@ -18,6 +18,17 @@
     
     <tbody class="text-dark">
         {{-- CONTENT TABLE  --}}
+        @foreach ($identitas as $identity)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $identity->jenis_program }}</td>
+                <td>{{ $identity->prodi }}</td>
+                <td></td>
+                <td>{{ $identity->no_sk1 }} & {{ $identity->tanggal_sk_pendirian }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+        @endforeach
     </tbody>
     </table> 
 </div>

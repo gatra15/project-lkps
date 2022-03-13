@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\SdmDosenTidakTetap;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\DosenTidakTetapExport;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class SdmDosenTidakTetapController extends Controller
 {
@@ -18,7 +20,11 @@ class SdmDosenTidakTetapController extends Controller
     public function index()
     {
         $dosenttetap = SdmDosenTidakTetap::all();
-        return view('tab.profildosentab.dosentidaktetap', ['dosenttetap' => $dosenttetap]);
+        $ndtt = SdmDosenTidakTetap::select('nama')->count();
+        return [
+            'dosen' => $dosenttetap,
+            'ndtt' => $ndtt,
+        ];
     }
 
     /**
@@ -39,6 +45,7 @@ class SdmDosenTidakTetapController extends Controller
      */
     public function store(Request $req)
     {
+        $connection = 'mysql';
         $this->validate($req, [
             'nama' => 'required',
             'no_id' => 'required',
@@ -51,6 +58,7 @@ class SdmDosenTidakTetapController extends Controller
             'kesesuaian_mata_kuliah_diampu' => 'required',
         ]);
 
+    try{
         $dosen = new SdmDosenTidakTetap;
         $dosen->nama = $req->input('nama');
         $dosen->no_id = $req->input('no_id');
@@ -68,7 +76,10 @@ class SdmDosenTidakTetapController extends Controller
         $dosen->created_at = Carbon::now();
         $dosen->save();
 
-        return back()->with('success', 'New Dosen Tidak Tetap has been created.');
+        return back()->with('success', 'Data Dosen Tidak Tetap berhasil ditambahkan.');
+    } catch (ModelNotFoundException $exception) {
+        return back()->withError($exception->getMessage())->withInput();
+    }
     }
 
     /**
@@ -102,6 +113,8 @@ class SdmDosenTidakTetapController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $connection = 'mysql';
+
         $this->validate($req, [
             'nama' => 'required',
             'no_id' => 'required',
@@ -114,6 +127,7 @@ class SdmDosenTidakTetapController extends Controller
             'kesesuaian_mata_kuliah_diampu' => 'required',
         ]);
 
+    try{
         $dosen = SdmDosenTidakTetap::find($id);
         $dosen->nama = $req->input('nama');
         $dosen->no_id = $req->input('no_id');
@@ -130,7 +144,10 @@ class SdmDosenTidakTetapController extends Controller
         $dosen->created_at = Carbon::now();
         $dosen->save();
 
-        return back()->with('success', 'Dosen Tidak Tetap has been updated.');
+        return back()->with('success', 'Data Dosen Tidak Tetap berhasil diubah.');
+    } catch (ModelNotFoundException $exception) {
+        return back()->withError($exception->getMessage());
+    }
     }
 
     /**
@@ -141,8 +158,20 @@ class SdmDosenTidakTetapController extends Controller
      */
     public function destroy($id)
     {
+
+        $connection = 'mysql';
+
+    try{
         SdmDosenTidakTetap::find($id)->delete();
-        return back()->with('error', 'Dosen Tidak Tetap has been deleted.');
+        
+        return back()->with('success', 'Data Dosen Tidak Tetap berhasil dihapus.');
+    } catch(\Exception $ex) {
+        DB::connection($connection)->rollBack();
+        return back()->with('error', $ex->getMessage());
+    } catch(\Throwable $ex) {
+        DB::connection($connection)->rollBack();
+        return back()->with('error', $ex->getMessage());
+    }
     }
 
     public function exportToExcel()
