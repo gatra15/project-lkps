@@ -34,8 +34,9 @@
         </div>
         </div>
 
-        {{-- foreach --}}
+        {{-- foreach ($kinerjaLulusan['data'] as $data)--}}
       <!-- Modal Tambah Edit Kinerja -->
+      {{-- bagian id ditambahkan retrieve data caranya kasi tanda - kemudian kasi {{ $data->id }} --}}
       <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">

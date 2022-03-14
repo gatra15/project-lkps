@@ -49,6 +49,7 @@ class PrestasiMahasiswaController extends Controller
     {
         $connection = 'mysql';
         $this->validate($req, [
+            'jenis_prestasi' => 'required',
             'nama_kegiatan' => 'required',
             'tahun_perolehan' => 'required',
             'tingkat' => 'required',
@@ -56,6 +57,7 @@ class PrestasiMahasiswaController extends Controller
         ]);
     try{
         $prestasi = new PrestasiMahasiswa;
+        $prestasi->jenis_prestasi = $req->input('jenis_prestasi');
         $prestasi->nama_kegiatan = $req->input('nama_kegiatan');
         $prestasi->tahun_perolehan = $req->input('tahun_perolehan');
         $prestasi->tingkat = $req->input('tingkat');
@@ -110,6 +112,7 @@ class PrestasiMahasiswaController extends Controller
     {
         $connection = 'mysql';
         $this->validate($req, [
+            'jenis_prestasi' => 'required',
             'nama_kegiatan' => 'required',
             'tahun_perolehan' => 'required',
             'tingkat' => 'required',
@@ -117,6 +120,7 @@ class PrestasiMahasiswaController extends Controller
         ]);
     try {
         $prestasi = PrestasiMahasiswa::find($id);
+        $prestasi->jenis_prestasi = $req->input('jenis_prestasi');
         $prestasi->nama_kegiatan = $req->input('nama_kegiatan');
         $prestasi->tahun_perolehan = $req->input('tahun_perolehan');
         $prestasi->tingkat = $req->input('tingkat');

@@ -15,6 +15,7 @@
         </div> 
     </div>
     <!-- Modal Tambah Data Luaran -->
+
     <div class="modal fade" id="modalluarantambah" tabindex="-1" aria-labelledby="modalluarantambah" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -31,8 +32,9 @@
 
         @include('tab.luarantab.luarantable')
 
-        {{-- foreach --}}
+        {{-- foreach ($luaran['data'] as $data) --}}
       <!-- Modal Tambah Edit Luaran -->
+      {{-- id ditambahi -{{ $data->id }} contoh modaledit-{{ $data->id }} --}}
       <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -48,6 +50,7 @@
         </div>
 
       <!-- Modal Tambah Delete Luaran -->
+      {{-- id ditambahi -{{ $data->id }} contoh modaldelete-{{ $data->id }} --}}
       <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">

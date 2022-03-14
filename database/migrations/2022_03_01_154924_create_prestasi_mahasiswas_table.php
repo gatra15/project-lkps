@@ -15,6 +15,7 @@ class CreatePrestasiMahasiswasTable extends Migration
     {
         Schema::create('prestasi_mahasiswas', function (Blueprint $table) {
             $table->id();
+            $table->string('jenis_prestasi');
             $table->string('nama_kegiatan');
             $table->string('tahun_perolehan');
             $table->string('tingkat');

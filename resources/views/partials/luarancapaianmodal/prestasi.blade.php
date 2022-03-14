@@ -6,7 +6,14 @@
             <div class="row">
                
                 {{-- MASUK KE TABEL SDM DOSENS --}}
-
+                <label for="pengkuan"> Jenis Prestasi :</label>
+                <div class="input-group mb-3">
+                    <select class="custom-select" name="jenis_prestasi" id="inputGroupSelect01">
+                        <option selected>pilih...</option>
+                        <option value="Akademik">Akademik</option>
+                        <option value="Non Akademik">Non Akademik</option>
+                    </select>
+                </div>
                 <label for="pengkuan"> Nama Kegiatan :</label>
                 <div class="input-group input-group-sm mb-3">
                     <input type="text" name="nama_kegiatan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>

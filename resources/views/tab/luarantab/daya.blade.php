@@ -32,7 +32,7 @@
         </div>
         </div>
 
-        {{-- foreach --}}
+        {{-- foreach ($dayasaing['wakti'] as $data) --}}
       <!-- Modal Tambah Edit Daya -->
       <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
         <div class="modal-dialog modal-lg">

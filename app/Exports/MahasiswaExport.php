@@ -20,7 +20,7 @@ class MahasiswaExport implements FromCollection, WithHeadings
     public function collection()
     {
         $array = [
-            'tahun_akademik',
+            'tahun.*',
             'daya_tampung',
             'c_pendaftar',
             'c_lulus_seleksi',

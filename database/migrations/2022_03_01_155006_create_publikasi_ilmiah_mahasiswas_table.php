@@ -15,15 +15,17 @@ class CreatePublikasiIlmiahMahasiswasTable extends Migration
     {
         Schema::create('publikasi_ilmiah_mahasiswas', function (Blueprint $table) {
             $table->id();
-            $table->string('media_publikasi');
-            $table->string('jumlah_ts2');
-            $table->string('jumlah_ts1');
-            $table->string('jumlah_ts');
-            $table->string('jumlah');
-            $table->string('tahun_laporan');
+            $table->foreignId('media_id');
+            $table->integer('jumlah_ts2')->nullable(true);
+            $table->integer('jumlah_ts1')->nullable(true);
+            $table->integer('jumlah_ts')->nullable(true);
+            $table->integer('jumlah')->nullable(true);
+            $table->integer('tahun_laporan');
             $table->string('prodi');
-            $table->string('created_by');
-            $table->timestamps();
+            $table->string('created_by')->nullable(true);
+            $table->string('updated_by')->nullable(true);
+            $table->timestamp('created_at')->nullable(true);
+            $table->timestamp('updated_at')->nullable(true);
         });
     }
 

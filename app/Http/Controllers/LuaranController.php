@@ -29,9 +29,9 @@ class LuaranController extends Controller
         $kepuasanPengguna = (new KepuasanPenggunaController)->index();
 
         // Publikasi Ilmiah Mahasiswa
-
+        $publikasi = (new PublikasiIlmiahMahasiswaController)->index();
         // Luaran
-        // $luaranPenelitian = 
+        $luaran = (new LuaranPkmMahasiswaController)->index(); 
 
         return view('tab.luaran', [
             'title' => 'Luaran',
@@ -40,6 +40,10 @@ class LuaranController extends Controller
             'kesesuaianBidang' => $kesesuaianBidang,
             'kinerjaLulusan' => $kinerjaLulusan,
             'kepuasanPengguna' => $kepuasanPengguna,
+            'capaianPembelajaran' => $capaianPembelajaran,
+            'efektifitasPrestasi' => $efektifitasPrestasi,
+            'publikasi' => $publikasi,
+            'luaran' => $luaran,
         ]);
     }
 }

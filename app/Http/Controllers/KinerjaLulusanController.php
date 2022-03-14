@@ -16,7 +16,8 @@ class KinerjaLulusanController extends Controller
      */
     public function index()
     {
-        //
+        $data = KinerjaLulusan::with('tahun')->get();
+        return ['data' => $data];
     }
 
     /**
