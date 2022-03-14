@@ -29,7 +29,7 @@
         <!-- Brand Logo -->
             <!-- Brand Logo -->
             <a href="/" class="brand-link">
-              <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+              <img src="{{ asset('dist/img/undip.png') }}" alt="Undip" class="brand-image img-circle elevation-3" style="opacity: .8">
               <span class="brand-text font-weight-light">S I A P S - F T</span>
             </a>
     
@@ -54,7 +54,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <!-- Add icons to the links using the .nav-icon class
                    with font-awesome or any other icon font library -->
-              <li class="nav-item menu-open">
+              <li class="nav-item">
                 <a href="/user" class="nav-link {{ ($title === "User") ? 'active' : '' }}">
                   <i class="nav-icon fas fa-home"></i>
                   <p>
@@ -63,7 +63,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/data-prodi" class="nav-link {{ ($title === "Prodi") ? 'active' : '' }}">
+                <a href="/prodi" class="nav-link {{ ($title === "Prodi") ? 'active' : '' }}">
                     <i class="nav-icon fas fa-user-edit"></i>
                   <p>
                     Data Program Studi

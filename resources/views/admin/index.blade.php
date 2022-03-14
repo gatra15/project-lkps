@@ -14,6 +14,10 @@
         border:1px solid black;
     }
     
+    table thead tr th.putih {
+        background-color: white;
+        border-bottom: 3px solid black;
+    }
     </style> 
     
     
@@ -30,7 +34,7 @@
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link active" id="kualitas-tab" data-toggle="tab" href="#kualitas" role="tab" aria-controls="kualitas" aria-selected="true">List User</a>
+              <a class="nav-link  active" id="kualitas-tab" data-toggle="tab" href="#kualitas" role="tab" aria-controls="kualitas" aria-selected="true">List User</a>
             </li>
           </ul>
           
@@ -39,17 +43,25 @@
         <div class="tab-content mt-3">
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="kualitas" role="tabpanel" aria-labelledby="kualitas-tab">
-                    <a href="#" class="btn btn-primary">Tambah Data</a>
+                <p class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalcapaian">
+                        Tambah Data
+                    </button>
+                </p>
+                <div class="input-group input-group-sm rounded align-right" style = "padding: 1px 1px 1px 600px;">
+                    <input  width="20%" type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                    <button type="button" class="btn btn-outline-primary">search</button>
+                  </div>
     {{-- CONTENT --}}
         
         <table class="table text-center table-bordered">
-            <thead class="thead-dark">
+            <thead class="align-middle">
                 <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Role</th>
-                    <th scope="col">Action</th>
+                    <th class="putih" scope="col" width="1%">#</th>
+                    <th class="putih" scope="col" width="35%">Nama</th>
+                    <th class="putih" scope="col" width="30%">Email</th>
+                    <th class="putih" scope="col" width="20%">Role</th>
+                    <th class="putih" scope="col" width="24%">Action</th>
                 </tr>
        
             </thead>
@@ -67,4 +79,6 @@
               </div>
         </div>
     </div>
+
 @endsection
+
