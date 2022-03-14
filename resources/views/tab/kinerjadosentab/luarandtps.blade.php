@@ -32,6 +32,51 @@
         </div>
     </div>
 
+    <!-- Modal Tambah Data Luaran DTPS -->
+    <div class="modal fade" id="modalluarantambah2" tabindex="-1" aria-labelledby="modalluarantambah" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.kinerjadosenmodal.luaran2')
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Data Luaran DTPS -->
+    <div class="modal fade" id="modalluarantambah3" tabindex="-1" aria-labelledby="modalluarantambah2" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.kinerjadosenmodal.luaran3')
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Data Luaran DTPS -->
+    <div class="modal fade" id="modalluarantambah4" tabindex="-1" aria-labelledby="modalluarantambah" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.kinerjadosenmodal.luaran4')
+        </div>
+        </div>
+    </div>
+
 {{-- TABLE HERE  --}}
 @include('tab.kinerjadosentab.luarantable')
 
