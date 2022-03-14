@@ -15,19 +15,22 @@ class CreateSaranaDanasTable extends Migration
     {
         Schema::create('sarana_danas', function (Blueprint $table) {
             $table->id();
-            $table->string('jenis_penggunaan');
-            $table->string('unit_pengelola_ts2');
-            $table->string('unit_pengelola_ts1');
-            $table->string('unit_pengelola_ts');
-            $table->string('unit_pengelola_average');
-            $table->string('ps_ts2');
-            $table->string('ps_ts1');
-            $table->string('ps_ts');
-            $table->string('ps_average');
+            $table->foreignId('sarana_id');
+            $table->foreignId('biaya_id')->nullable(true);
+            $table->integer('unit_pengelola_ts2')->nullable(true);
+            $table->integer('unit_pengelola_ts1')->nullable(true);
+            $table->integer('unit_pengelola_ts')->nullable(true);
+            $table->float('unit_pengelola_average')->nullable(true);
+            $table->integer('ps_ts2')->nullable(true);
+            $table->integer('ps_ts1')->nullable(true);
+            $table->integer('ps_ts')->nullable(true);
+            $table->float('ps_average')->nullable(true);
             $table->string('tahun_laporan');
             $table->string('prodi');
-            $table->string('created_by');
-            $table->timestamps();
+            $table->string('created_by')->nullable(true);
+            $table->string('updated_by')->nullable(true);
+            $table->timestamp('created_at')->nullable(true);
+            $table->timestamp('updated_at')->nullable(true);
         });
     }
 

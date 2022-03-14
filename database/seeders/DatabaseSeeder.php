@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             TsSeeder::class,
             JenisLuaranSeeder::class,
             JenisKemampuanSeeder::class,
+            JenisPenggunaanSeeder::class,
         ]);
 
     }

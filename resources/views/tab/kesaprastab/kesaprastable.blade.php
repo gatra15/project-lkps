@@ -29,235 +29,290 @@
             </thead>
         
             <tbody class="text-dark">
-                
-                {{-- @foreach ($kerjasama as $indikator)
-                @if ($indikator->tridharma == 'Pendidikan') --}} 
-                {{-- nama dari indikator pertama  --}}
-                {{-- ISI SEEDER 1 
-                    a. Biaya Dosen (Gaji, Honor) <br>
-                    b. Biaya Tenaga Kependidikan (Gaji, <br>
-                    Honor)
-                    c. Biaya Operasional Pembelajaran <br>
-                    (Bahan dan Peralatan Habis Pakai) <br>
-                    d. Biaya Operasional Tidak Langsung <br>
-                    (Listrik, Gas, Air, Pemeliharaan <br>
-                    Gedung, Pemeliharaan Sarana, <br>
-                    Uang Lembur, Telekomunikasi, <br>
-                    Konsumsi, Transport Lokal, Pajak, <br>
-                    Asuransi, dll.) 
-                --}}
-                <tr>
-                    {{-- <td>jenis penggunaan</td> --}}
-                    {{-- <td> TS-2 </td> --}}
-                    {{-- <td> TS-1 </td> --}}
-                    {{-- <td> TS </td> --}}
-                    {{-- <td> TS-2 </td> --}}
-                    {{-- <td> TS-1 </td> --}}
-                    {{-- <td> TS </td> --}}
-                    {{-- <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit"><i class="fas fa-edit"></i></a></li>
-                        <li>
-                            <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td> --}}
-                </tr>
+                @foreach ($keuangan as $data)
+                {{-- @foreach ($kerjasama as $indikator)--}}
+                 @if ($data->sarana_id == 1 && $data->biaya_id == 1)
+                    
+                    <tr>
+                        <td></td>
+                        <td style="text-align: left">{{ $data->biaya->text }}</td>
+                        <td>{{ $data->unit_pengelola_ts2 }}</td>
+                        <td>{{ $data->unit_pengelola_ts1 }}</td>
+                        <td>{{ $data->unit_pengelola_ts }}</td>
+                        <td>{{ $data->unit_pengelola_average }}</td>
+                        <td>{{ $data->ps_ts2 }}</td>
+                        <td>{{ $data->ps_ts1 }}</td>
+                        <td>{{ $data->ps_ts }}</td>
+                        <td>{{ $data->ps_average }}</td>
+                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                    </tr>
+                    
+              
+                    @endif
+                @endforeach
+                @foreach ($keuangan as $data)
+                {{-- @foreach ($kerjasama as $indikator)--}}
+                 @if ($data->sarana_id == 1 && $data->biaya_id == 2)
+                    
+                    <tr>
+                        <td></td>
+                        <td style="text-align: left">{{ $data->biaya->text }}</td>
+                        <td>{{ $data->unit_pengelola_ts2 }}</td>
+                        <td>{{ $data->unit_pengelola_ts1 }}</td>
+                        <td>{{ $data->unit_pengelola_ts }}</td>
+                        <td>{{ $data->unit_pengelola_average }}</td>
+                        <td>{{ $data->ps_ts2 }}</td>
+                        <td>{{ $data->ps_ts1 }}</td>
+                        <td>{{ $data->ps_ts }}</td>
+                        <td>{{ $data->ps_average }}</td>
+                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                    </tr>
+                    
+              
+                    @endif
+                @endforeach
+                @foreach ($keuangan as $data)
+                {{-- @foreach ($kerjasama as $indikator)--}}
+                 @if ($data->sarana_id == 1 && $data->biaya_id == 3)
+                    
+                    <tr>
+                        <td></td>
+                        <td style="text-align: left">{{ $data->biaya->text }}</td>
+                        <td>{{ $data->unit_pengelola_ts2 }}</td>
+                        <td>{{ $data->unit_pengelola_ts1 }}</td>
+                        <td>{{ $data->unit_pengelola_ts }}</td>
+                        <td>{{ $data->unit_pengelola_average }}</td>
+                        <td>{{ $data->ps_ts2 }}</td>
+                        <td>{{ $data->ps_ts1 }}</td>
+                        <td>{{ $data->ps_ts }}</td>
+                        <td>{{ $data->ps_average }}</td>
+                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                    </tr>
+                    
+              
+                    @endif
+                @endforeach
+                @foreach ($keuangan as $data)
+                {{-- @foreach ($kerjasama as $indikator)--}}
+                 @if ($data->sarana_id == 1 && $data->biaya_id == 4)
+                    
+                    <tr>
+                        <td></td>
+                        <td style="text-align: left">{{ $data->biaya->text }}</td>
+                        <td>{{ $data->unit_pengelola_ts2 }}</td>
+                        <td>{{ $data->unit_pengelola_ts1 }}</td>
+                        <td>{{ $data->unit_pengelola_ts }}</td>
+                        <td>{{ $data->unit_pengelola_average }}</td>
+                        <td>{{ $data->ps_ts2 }}</td>
+                        <td>{{ $data->ps_ts1 }}</td>
+                        <td>{{ $data->ps_ts }}</td>
+                        <td>{{ $data->ps_average }}</td>
+                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                    </tr>
+                    
+              
+                    @endif
+                @endforeach
 
-                {{-- @endif
-                @endforeach --}}
-
-                {{-- @foreach ($kerjasama as $indikator)
-                @if ($indikator->tridharma == 'Pendidikan') --}} 
-                {{-- nama dari indikator pertama  --}}
-                {{-- ISI SEEDER 2
-                    Biaya operasional kemahasiswaan <br>
-                    (penalaran, minat, bakat, dan <br>
-                    kesejahteraan) <br>
-                --}}
-                <tr>
-                    <td> 2 </td>
-                    {{-- <td>jenis penggunaan</td> --}}
-                    {{-- <td> TS-2 </td> --}}
-                    {{-- <td> TS-1 </td> --}}
-                    {{-- <td> TS </td> --}}
-                    {{-- <td> TS-2 </td> --}}
-                    {{-- <td> TS-1 </td> --}}
-                    {{-- <td> TS </td> --}}
-                    {{-- <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit"><i class="fas fa-edit"></i></a></li>
+                @foreach ($keuangan as $data)
+                @if ($data->sarana_id == 2)
+                    <td>2</td>
+                    <td style="text-align: left">{{ $data->sarana->text }}</td>
+                    <td>{{ $data->unit_pengelola_ts2 }}</td>
+                    <td>{{ $data->unit_pengelola_ts1 }}</td>
+                    <td>{{ $data->unit_pengelola_ts }}</td>
+                    <td>{{ $data->unit_pengelola_average }}</td>
+                    <td>{{ $data->ps_ts2 }}</td>
+                    <td>{{ $data->ps_ts1 }}</td>
+                    <td>{{ $data->ps_ts }}</td>
+                    <td>{{ $data->ps_average }}</td>
+                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
-                            <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td> --}}
-                </tr>
-                {{-- @endif
-                @endforeach --}}
+                            <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                    </ul></td>
+                @endif
+                @endforeach
 
                 <tr>
                     <td colspan="2" class="text-left"><b>Jumlah :</b> </td>
-                    <td> jml ts-2</td>
-                    <td> jml ts-1</td>
-                    <td> jml ts</td>
-                    <td> rata-rata</td>
-                    <td> jml ts-2</td>
-                    <td> jml ts-1</td>
-                    <td> jml ts</td>
-                    <td> rata-rata</td>
+                    <td> {{ $jumlah1['ts2'] }}</td>
+                    <td> {{ $jumlah1['ts1'] }}</td>
+                    <td> {{ $jumlah1['ts'] }}</td>
+                    <td> {{ $jumlah1['average'] }}</td>
+                    <td> {{ $jumlah1['ps_ts2'] }}</td>
+                    <td> {{ $jumlah1['ps_ts1'] }}</td>
+                    <td> {{ $jumlah1['ps_ts'] }}</td>
+                    <td> {{ $jumlah1['ps_average'] }}</td>
                     <td></td>
                 </tr>
 
-                {{-- @foreach ($kerjasama as $indikator)
-                @if ($indikator->tridharma == 'Pendidikan') --}} 
-                {{-- nama dari indikator pertama  --}}
-                {{-- ISI SEEDER 3
-                    Biaya Penelitian
-                --}}
+                @foreach ($keuangan as $data)
+                @if ($data->sarana_id == 3) 
+                
                 <tr>
                     <td> 3 </td>
-                    {{-- <td>jenis penggunaan</td> --}}
-                    {{-- <td> TS-2 </td> --}}
-                    {{-- <td> TS-1 </td> --}}
-                    {{-- <td> TS </td> --}}
-                    {{-- <td> TS-2 </td> --}}
-                    {{-- <td> TS-1 </td> --}}
-                    {{-- <td> TS </td> --}}
-                    {{-- <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit"><i class="fas fa-edit"></i></a></li>
+                    <td style="text-align: left">{{ $data->sarana->text }}</td>
+                    <td>{{ $data->unit_pengelola_ts2 }}</td>
+                    <td>{{ $data->unit_pengelola_ts1 }}</td>
+                    <td>{{ $data->unit_pengelola_ts }}</td>
+                    <td>{{ $data->unit_pengelola_average }}</td>
+                    <td>{{ $data->ps_ts2 }}</td>
+                    <td>{{ $data->ps_ts1 }}</td>
+                    <td>{{ $data->ps_ts }}</td>
+                    <td>{{ $data->ps_average }}</td>
+                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
-                            <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td> --}}
+                            <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                    </ul></td>
                 </tr>
-                {{-- @endif
-                @endforeach --}}
+                @endif
+                @endforeach
                 
-                {{-- @foreach ($kerjasama as $indikator)
-                @if ($indikator->tridharma == 'Pendidikan') --}} 
-                {{-- nama dari indikator pertama  --}}
-                {{-- ISI SEEDER 4
-                    Biaya PkM
-                --}}
+                @foreach ($keuangan as $data)
+                @if ($data->sarana_id == 4) 
                 <tr>
                     <td> 4 </td>
-                    {{-- <td>jenis penggunaan</td> --}}
-                    {{-- <td> TS-2 </td> --}}
-                    {{-- <td> TS-1 </td> --}}
-                    {{-- <td> TS </td> --}}
-                    {{-- <td> TS-2 </td> --}}
-                    {{-- <td> TS-1 </td> --}}
-                    {{-- <td> TS </td> --}}
-                    {{-- <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit"><i class="fas fa-edit"></i></a></li>
+                    <td style="text-align: left">{{ $data->sarana->text }}</td>
+                    <td>{{ $data->unit_pengelola_ts2 }}</td>
+                        <td>{{ $data->unit_pengelola_ts1 }}</td>
+                        <td>{{ $data->unit_pengelola_ts }}</td>
+                        <td>{{ $data->unit_pengelola_average }}</td>
+                        <td>{{ $data->ps_ts2 }}</td>
+                        <td>{{ $data->ps_ts1 }}</td>
+                        <td>{{ $data->ps_ts }}</td>
+                        <td>{{ $data->ps_average }}</td>
+                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
-                            <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td> --}}
+                            <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                    </ul></td>
                 </tr>
-                {{-- @endif
-                @endforeach --}}
+                @endif
+                @endforeach
 
                 <tr>
                     <td colspan="2" class="text-left"><b>Jumlah :</b> </td>
-                    <td> jml ts-2</td>
-                    <td> jml ts-1</td>
-                    <td> jml ts</td>
-                    <td> rata-rata</td>
-                    <td> jml ts-2</td>
-                    <td> jml ts-1</td>
-                    <td> jml ts</td>
-                    <td> rata-rata</td>
+                    <td> {{ $jumlah2['ts2'] }}</td>
+                    <td> {{ $jumlah2['ts1'] }}</td>
+                    <td> {{ $jumlah2['ts'] }}</td>
+                    <td> {{ $jumlah2['average'] }}</td>
+                    <td> {{ $jumlah2['ps_ts2'] }}</td>
+                    <td> {{ $jumlah2['ps_ts1'] }}</td>
+                    <td> {{ $jumlah2['ps_ts'] }}</td>
+                    <td> {{ $jumlah2['ps_average'] }}</td>
                     <td></td>
                 </tr>
 
-                {{-- @foreach ($kerjasama as $indikator)
-                @if ($indikator->tridharma == 'Pendidikan') --}} 
-                {{-- nama dari indikator pertama  --}}
-                {{-- ISI SEEDER 5
-                    Biaya Investasi SDM
-                --}}
+                @foreach ($keuangan as $data)
+                @if ($data->sarana_id == 5) 
                 <tr>
                     <td> 5 </td>
-                    {{-- <td>jenis penggunaan</td> --}}
-                    {{-- <td> TS-2 </td> --}}
-                    {{-- <td> TS-1 </td> --}}
-                    {{-- <td> TS </td> --}}
-                    {{-- <td> TS-2 </td> --}}
-                    {{-- <td> TS-1 </td> --}}
-                    {{-- <td> TS </td> --}}
-                    {{-- <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit"><i class="fas fa-edit"></i></a></li>
+                    <td style="text-align: left">{{ $data->sarana->text }}</td>
+                    <td>{{ $data->unit_pengelola_ts2 }}</td>
+                        <td>{{ $data->unit_pengelola_ts1 }}</td>
+                        <td>{{ $data->unit_pengelola_ts }}</td>
+                        <td>{{ $data->unit_pengelola_average }}</td>
+                        <td>{{ $data->ps_ts2 }}</td>
+                        <td>{{ $data->ps_ts1 }}</td>
+                        <td>{{ $data->ps_ts }}</td>
+                        <td>{{ $data->ps_average }}</td>
+                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
-                            <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td> --}}
+                            <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                    </ul></td>
                 </tr>
-                {{-- @endif
-                @endforeach --}}
-                {{-- @foreach ($kerjasama as $indikator)
-                @if ($indikator->tridharma == 'Pendidikan') --}} 
-                {{-- nama dari indikator pertama  --}}
-                {{-- ISI SEEDER 6
-                    Biaya Investasi Sarana
-                --}}
+                @endif
+                @endforeach
+
+                @foreach ($keuangan as $data)
+                @if ($data->sarana_id == 6) 
                 <tr>
                     <td> 6 </td>
-                    {{-- <td>jenis penggunaan</td> --}}
-                    {{-- <td> TS-2 </td> --}}
-                    {{-- <td> TS-1 </td> --}}
-                    {{-- <td> TS </td> --}}
-                    {{-- <td> TS-2 </td> --}}
-                    {{-- <td> TS-1 </td> --}}
-                    {{-- <td> TS </td> --}}
-                    {{-- <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit"><i class="fas fa-edit"></i></a></li>
+                    <td style="text-align: left">{{ $data->sarana->text }}</td>
+                    <td>{{ $data->unit_pengelola_ts2 }}</td>
+                        <td>{{ $data->unit_pengelola_ts1 }}</td>
+                        <td>{{ $data->unit_pengelola_ts }}</td>
+                        <td>{{ $data->unit_pengelola_average }}</td>
+                        <td>{{ $data->ps_ts2 }}</td>
+                        <td>{{ $data->ps_ts1 }}</td>
+                        <td>{{ $data->ps_ts }}</td>
+                        <td>{{ $data->ps_average }}</td>
+                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
-                            <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td> --}}
+                            <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                    </ul></td>
                 </tr>
-                {{-- @endif
-                @endforeach --}}
-                {{-- @foreach ($kerjasama as $indikator)
-                @if ($indikator->tridharma == 'Pendidikan') --}} 
-                {{-- nama dari indikator pertama  --}}
-                {{-- ISI SEEDER 7
-                    Biaya Investasi Prasarana
-                --}}
+                @endif
+                @endforeach
+
+                @foreach ($keuangan as $data)
+                @if ($data->sarana_id == 7) 
                 <tr>
                     <td> 7 </td>
-                    {{-- <td>jenis penggunaan</td> --}}
-                    {{-- <td> TS-2 </td> --}}
-                    {{-- <td> TS-1 </td> --}}
-                    {{-- <td> TS </td> --}}
-                    {{-- <td> TS-2 </td> --}}
-                    {{-- <td> TS-1 </td> --}}
-                    {{-- <td> TS </td> --}}
-                    {{-- <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit"><i class="fas fa-edit"></i></a></li>
+                    <td style="text-align: left">{{ $data->sarana->text }}</td>
+                    <td>{{ $data->unit_pengelola_ts2 }}</td>
+                        <td>{{ $data->unit_pengelola_ts1 }}</td>
+                        <td>{{ $data->unit_pengelola_ts }}</td>
+                        <td>{{ $data->unit_pengelola_average }}</td>
+                        <td>{{ $data->ps_ts2 }}</td>
+                        <td>{{ $data->ps_ts1 }}</td>
+                        <td>{{ $data->ps_ts }}</td>
+                        <td>{{ $data->ps_average }}</td>
+                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
-                            <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td> --}}
+                            <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                    </ul></td>
                 </tr>
-                {{-- @endif
-                @endforeach --}}
+                @endif
+                @endforeach
+                
 
                 <tr>
                     <td colspan="2" class="text-left"><b>Jumlah :</b> </td>
-                    <td> jml ts-2</td>
-                    <td> jml ts-1</td>
-                    <td> jml ts</td>
-                    <td> rata-rata</td>
-                    <td> jml ts-2</td>
-                    <td> jml ts-1</td>
-                    <td> jml ts</td>
-                    <td> rata-rata</td>
+                    <td> {{ $jumlah3['ts2'] }}</td>
+                    <td> {{ $jumlah3['ts1'] }}</td>
+                    <td> {{ $jumlah3['ts'] }}</td>
+                    <td> {{ $jumlah3['average'] }}</td>
+                    <td> {{ $jumlah3['ps_ts2'] }}</td>
+                    <td> {{ $jumlah3['ps_ts1'] }}</td>
+                    <td> {{ $jumlah3['ps_ts'] }}</td>
+                    <td> {{ $jumlah3['ps_average'] }}</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="text-left"><b>TOTAL :</b> </td>
-                    <td> jml ts-2</td>
-                    <td> jml ts-1</td>
-                    <td> jml ts</td>
-                    <td> rata-rata</td>
-                    <td> jml ts-2</td>
-                    <td> jml ts-1</td>
-                    <td> jml ts</td>
-                    <td> rata-rata</td>
+                    <td> {{ $total['ts2'] }}</td>
+                    <td> {{ $total['ts1'] }}</td>
+                    <td> {{ $total['ts'] }}</td>
+                    <td> {{ $total['average'] }}</td>
+                    <td> {{ $total['ps_ts2'] }}</td>
+                    <td> {{ $total['ps_ts1'] }}</td>
+                    <td> {{ $total['ps_ts'] }}</td>
+                    <td> {{ $total['ps_average'] }}</td>
                     <td></td>
                 </tr>
+
             </tbody>
         </table> 
     
