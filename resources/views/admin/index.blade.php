@@ -72,7 +72,7 @@
         <table class="table text-center table-bordered">
             <thead class="align-middle">
                 <tr>
-                    <th class="putih" scope="col" width="1%">#</th>
+                    <th class="putih" scope="col" width="1%">No</th>
                     <th class="putih" scope="col" width="35%">Nama</th>
                     <th class="putih" scope="col" width="30%">Email</th>
                     <th class="putih" scope="col" width="20%">Role</th>
@@ -82,8 +82,12 @@
             </thead>
     
             <tbody class="text-dark">
-    
+                @foreach ($user as $users)
                 <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $users->name }}</td>
+                    <td>{{ $users->email }}</td>
+                    <td>{{ $users->role->name }}</td>
                     
                 </tr>
     
@@ -116,6 +120,7 @@
             </div>
             </div>
         </div>     
+                @endforeach
             </tbody>
         </table> 
     

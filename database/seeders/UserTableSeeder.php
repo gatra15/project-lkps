@@ -60,6 +60,7 @@ class UserTableSeeder extends Seeder
         $user = User::create([
             'name' => 'Galih Saputra',
             'prodi' => 'Teknik Komputer',
+            'role_id' => 1,
             'email' => 'gatra@admin.web.id',
             'password' => Hash::make('gatra090'),
         ]);
@@ -68,6 +69,7 @@ class UserTableSeeder extends Seeder
         $user = User::create([
             'name' => 'Teknik Industri',
             'prodi' => 'Teknik Industri',
+            'role_id' => 2,
             'email' => 'teknik.industri@undip.ac.id',
             'password' => Hash::make('industri123'),
         ]);
@@ -76,6 +78,7 @@ class UserTableSeeder extends Seeder
         $user = User::create([
             'name' => 'Dekanat Fakultas Teknik',
             'prodi' => 'Fakultas Teknik',
+            'role_id' => 3,
             'email' => 'dekan.tekni@undip.ac.id',
             'password' => Hash::make('dekan123'),
         ]);
@@ -84,6 +87,7 @@ class UserTableSeeder extends Seeder
         $user = User::create([
             'name' => 'Wakil Dekanat Fakultas Teknik',
             'prodi' => 'Fakultas Teknik',
+            'role_id' => 3,
             'email' => 'wadek.teknik@undip.ac.id',
             'password' => Hash::make('wadek123'),
         ]);
@@ -92,6 +96,7 @@ class UserTableSeeder extends Seeder
         $user = User::create([
             'name' => 'Tim Penjaminan Mutu Fakultas Teknik',
             'prodi' => 'Fakultas Teknik',
+            'role_id' => 3,
             'email' => 'tim.teknik@undip.ac.id',
             'password' => Hash::make('mutu123'),
         ]);
@@ -101,6 +106,7 @@ class UserTableSeeder extends Seeder
             'name' => 'Asesor',
             'prodi' => 'Universitas Diponegoro',
             'email' => 'asesor@undip.ac.id',
+            'role_id' => 4,
             'password' => Hash::make('audit123'),
         ]);
         $user->assignRole($auditor);
@@ -108,6 +114,7 @@ class UserTableSeeder extends Seeder
         $user = User::create([
             'name' => 'Pasyah Vegananda',
             'prodi' => 'Teknik Informatika Stekom',
+            'role_id' => 1,
             'email' => 'pasyah@admin.web.id',
             'password' => Hash::make('pasyah069'),
         ]);

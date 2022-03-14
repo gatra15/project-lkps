@@ -77,8 +77,8 @@ class KesesuaianBidangKerjaController extends Controller
             'jumlah_lulusan' => 'required',
             'jumlah_lulusan_terlacak' => 'required',
             'kesesuaian_rendah' => 'required',
-            'waktu_tunggu_6_18' => 'required',
-            'waktu_tunggu_18' => 'required',
+            'kesesuaian_sedang' => 'required',
+            'kesesuaian_tinggi' => 'required',
         ]);
 
         $connection = 'mysql';
@@ -87,13 +87,14 @@ class KesesuaianBidangKerjaController extends Controller
             $data->tahun_id = $request->input('tahun_id');
             $data->jumlah_lulusan = (int) $request->input('jumlah_lulusan');
             $data->jumlah_lulusan_terlacak = (int) $request->input('jumlah_lulusan_terlacak');
-            $data->kesesuaian_rendah = $request->input('kesesuaian_rendah');
-            $data->kesesuaian_sedang = $request->input('kesesuaian_sedang');
-            $data->kesesuaian_tinggi = $request->input('kesesuaian_tinggi');
+            $data->kesesuaian_rendah = (int) $request->input('kesesuaian_rendah');
+            $data->kesesuaian_sedang = (int) $request->input('kesesuaian_sedang');
+            $data->kesesuaian_tinggi = (int) $request->input('kesesuaian_tinggi');
             $data->tahun_laporan = 2022;
             $data->prodi = auth()->user()->prodi;
             $data->created_by = auth()->user()->name;
             $data->created_at = Carbon::now();
+            // ddd($data);
             $data->update();
 
             return back()->with('success', 'Data Kinerja Bidang Kerja berhasil ditambahkan.');

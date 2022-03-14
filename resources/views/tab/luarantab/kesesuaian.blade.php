@@ -18,13 +18,13 @@
 
         @include('tab.luarantab.kesesuaiantable')
 
-        {{-- foreach --}}
+        @foreach($kesesuaianBidang['bidang'] as $kesesuaian)
       <!-- Modal Tambah Edit Luaran -->
-      <div class="modal fade" id="modalkesesuaianedit-{{--  --}}" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+      <div class="modal fade" id="modalkesesuaianedit-{{ $kesesuaian->id }}" tabindex="-1" aria-labelledby="modalkesesuaianedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Edit Data Kesesuaian </h5>
+            <h5 class="modal-title" id="modalkesesuaianedit">Edit Data Kesesuaian </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -35,11 +35,11 @@
         </div>
 
       <!-- Modal Tambah Delete Luaran -->
-      <div class="modal fade" id="modalkesesuaiandelete-{{--  --}}" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+      <div class="modal fade" id="modalkesesuaiandelete-{{ $kesesuaian->id }}" tabindex="-1" aria-labelledby="modalkesesuaiandelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Delete Data Kesesuaian </h5>
+            <h5 class="modal-title" id="modalkesesuaiandelete">Hapus Data Kesesuaian </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -48,6 +48,7 @@
         </div>
         </div>
         </div>
+        @endforeach
 
 
 </div>
