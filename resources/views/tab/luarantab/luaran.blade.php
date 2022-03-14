@@ -14,13 +14,13 @@
             </p>
         </div> 
     </div>
-    <!-- Modal Tambah Data Luaran -->
 
+    <!-- Modal Tambah Data Luaran DTPS -->
     <div class="modal fade" id="modalluarantambah" tabindex="-1" aria-labelledby="modalluarantambah" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluarantambah">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -28,42 +28,89 @@
             @include('partials.luarancapaianmodal.luaran')
         </div>
         </div>
-        </div>
+    </div>
 
-        @include('tab.luarantab.luarantable')
-
-        {{-- foreach ($luaran['data'] as $data) --}}
-      <!-- Modal Tambah Edit Luaran -->
-      {{-- id ditambahi -{{ $data->id }} contoh modaledit-{{ $data->id }} --}}
-      <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+    <!-- Modal Tambah Data Luaran DTPS -->
+    <div class="modal fade" id="modalluarantambah2" tabindex="-1" aria-labelledby="modalluarantambah" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.luarancapaianmodal.luaran2')
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Data Luaran DTPS -->
+    <div class="modal fade" id="modalluarantambah3" tabindex="-1" aria-labelledby="modalluarantambah2" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.luarancapaianmodal.luaran3')
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Data Luaran DTPS -->
+    <div class="modal fade" id="modalluarantambah4" tabindex="-1" aria-labelledby="modalluarantambah" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.luarancapaianmodal.luaran4')
+        </div>
+        </div>
+    </div>
+
+        @include('tab.luarantab.luarantable')
+
+        @foreach ($luaran['data'] as $data)
+      <!-- Modal Tambah Edit Luaran -->
+
+      <div class="modal fade" id="modaldosenluaranedit-{{ $data->id }}" tabindex="-1" aria-labelledby="modaldosenluaranedit" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modaldosenluaranedit">Edit Data Luaran </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.luarancapaianmodal.luaranedit')
         </div>
         </div>
         </div>
 
       <!-- Modal Tambah Delete Luaran -->
-      {{-- id ditambahi -{{ $data->id }} contoh modaldelete-{{ $data->id }} --}}
-      <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+
+      <div class="modal fade" id="modaldosenluarandelete-{{ $data->id }}" tabindex="-1" aria-labelledby="modaldosenluarandelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modaldosenindustri">Hapus Data Luaran </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.luarancapaianmodal.luarandelete')
         </div>
         </div>
         </div>
+
+        @endforeach
 
     
 </div>

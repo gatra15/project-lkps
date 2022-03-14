@@ -29,6 +29,7 @@ use App\Http\Controllers\PendidikanKepuasanMahasiswaController;
 use App\Http\Controllers\PendidikanKurikulumController;
 use App\Http\Controllers\PrestasiMahasiswaController;
 use App\Http\Controllers\PrestasiNonAkademikMahasiswaController;
+use App\Http\Controllers\PublikasiIlmiahMahasiswaController;
 use App\Http\Controllers\SdmDosenIndustriPraktisiController;
 use App\Http\Controllers\SdmDosenPembimbingTaController;
 use App\Http\Controllers\SdmDosenTidakTetapController;
@@ -43,6 +44,7 @@ use App\Http\Controllers\WaktuTungguLulusanController;
 use App\Models\KepuasanPengguna;
 use App\Models\MahasiswaAsing;
 use App\Models\PendidikanKurikulum;
+use App\Models\PublikasiIlmiahMahasiswa;
 use App\Models\SdmDosenIndustriPraktisi;
 use App\Models\SdmDosenTidakTetap;
 use App\Models\SdmKinerjaDosenKaryaIlmiahDtps;
@@ -230,6 +232,9 @@ Route::group(['middleware' => 'auth:web'], function() {
 
         Route::put('/luaran-capaian-tridharma/kepuasan-pengguna/{id}', [KepuasanPenggunaController::class, 'update']);
         Route::post('/luaran-capaian-tridharma/kepuasan-pengguna/{id}', [KepuasanPenggunaController::class, 'destroy']);
+
+        Route::put('/luaran-capaian-tridharma/publikasi-ilmiah/{id}', [PublikasiIlmiahMahasiswaController::class, 'update']);
+        Route::post('/luaran-capaian-tridharma/kepuasan-pengguna/{id}', [PublikasiIlmiahMahasiswaController::class, 'destroy']);
 
         Route::get('/luaran-capaian-tridharma/luaran-mahasiswa', [LuaranPkmMahasiswaController::class, 'index']);
         Route::post('/luaran-capaian-tridharma/luaran-mahasiswa', [LuaranPkmMahasiswaController::class, 'store']);

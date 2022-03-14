@@ -17,7 +17,6 @@ class KepuasanPenggunaController extends Controller
     public function index()
     {
         $kepuasan = KepuasanPengguna::with('kemampuan')->get();
-
         return ['kepuasan' => $kepuasan];
     }
 

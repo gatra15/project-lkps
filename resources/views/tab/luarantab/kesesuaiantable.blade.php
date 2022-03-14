@@ -17,26 +17,21 @@
     </thead>
     
     <tbody class="text-dark">
-    <tr>
-    <td>Eko</td>
-    <td>Eko</td>
-    <td>Eko</td>
-    <td>Eko</td>
-    <td>Eko</td>
-    </tr>
-    {{-- @foreach ($mahasiswa_asing as $mhs)
-    <tr>
-        @for ($i = 0; $i < $count; $i++)
-        <td>{{ $i }}</td>
-        @endfor
-       <td>{{ $mhs->daya_tampung }}</td> 
-       <td>{{ $mhs->c_pendaftar }}</td> 
-       <td>{{ $mhs->c_lulus_seleksi }}</td> 
-       <td>{{ $mhs->mahasiswa_reguler }}</td> 
-       <td>{{ $mhs->mahasiswa_transfer }}</td> 
-       <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-       <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-    </tr>
-    @endforeach --}}
+        {{-- @foreach($dayasaing['waktu'] as $data)
+        <tr>
+            <td>{{ $data->tahun->name }}</td>
+            <td>{{ $data->jumlah_lulusan }}</td>
+            <td>{{ $data->jumlah_lulusan_terlacak }}</td>
+            <td>{{ $data->kesesuaian_rendah}}</td>
+            <td>{{ $data->kesesuaian_sedang }}</td>
+            <td>{{ $data->kesesuaian_tinggi }}</td>
+            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalkesesuaianedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                <li>
+                    <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/{{ $data->id }}" data-toggle="modal" data-target="#modalkesesuaiandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+            </ul></td>
+        </tr>
+        @endforeach --}}
+
     </table> 
     </div>

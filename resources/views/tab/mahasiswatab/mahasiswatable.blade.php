@@ -47,6 +47,7 @@
             <td class="align-middle text-center"><b>N<sub>C</sub> = </b>{{ $mahasiswa['reguler'] }}</td>
             <td class="align-middle text-center"><b>N<sub>D</sub> = </b>{{ $mahasiswa['transfer'] }}</td>
             <td class="align-middle text-center" colspan="2"><b>N<sub>M</sub> = </b>{{ $mahasiswa['total'] }}</td>
+            <td></td>
         </tr>
     
     </tbody>

@@ -95,7 +95,7 @@ class PublikasiIlmiahMahasiswaController extends Controller
         $data->jumlah_ts2 = $request->input('jumlah_ts2');
         $data->jumlah_ts1 = $request->input('jumlah_ts1');
         $data->jumlah_ts = $request->input('jumlah_ts');
-        $data->jumlah = $request->jumlah_ts + $request->jumlah_ts + $request->jumlah_ts;
+        $data->jumlah = $request->jumlah_ts + $request->jumlah_ts1 + $request->jumlah_ts2;
         $data->tahun_laporan = 2022;
         $data->prodi = auth()->user()->prodi;
         $data->created_by = auth()->user()->name;

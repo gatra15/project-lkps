@@ -7,7 +7,7 @@
                
                 {{-- MASUK KE TABEL SDM DOSENS --}}
                 <div class="input-group input-group-sm mb-3">
-                    <input type="hidden" name="type_luaran" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="I" required>
+                    <input type="hidden" name="type_luaran" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="II" required>
                 </div>
                 <label for="pengkuan"> Judul :</label>
                 <div class="input-group input-group-sm mb-3">
@@ -39,6 +39,6 @@
     </div>
     <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-    <button type="submit" class="btn btn-primary" >Tambah</button>
+    <button type="submit" class="btn btn-primary "  >Tambah</button>
     </div>
 </form>

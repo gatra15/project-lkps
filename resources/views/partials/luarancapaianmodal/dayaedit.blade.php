@@ -1,4 +1,5 @@
-{{-- <form action="/kinerja-dosen" method="post"> --}}
+<form action="/luaran-capaian-tridharma/daya-saing/{{ $data->id }}" method="post">
+    @method('put')
     @csrf
     <div class="modal-body">
         
@@ -6,32 +7,40 @@
             <div class="row">
                
                 {{-- MASUK KE TABEL SDM DOSENS --}}
-
-                <label for="pengkuan"> Nama Dosen :</label>
+                <label>@php echo $data->tahun->name @endphp</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="nama" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
-                <label for="pengkuan"> Bidang Keahlian :</label>
+                  <input type="hidden" name="tahun_id" class="form-control" value="{{ $data->tahun_id }}"  required>
+              </div>
+                
+                <div class="form-row justify-content-center">
+                <div class="form-group col-md-6 align-middle">
+                <label for="pengkuan"> Jumlah Lulusan :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="bidang_keahlian" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="number" name="jumlah_lulusan" class="form-control" value="{{ $data->jumlah_lulusan }}"  required>
                 </div>
-                <label for="pengkuan"> Rekognisi dan Bukti Pendukung :</label>
+                </div>
+                <div class="form-group col-md-6 align-middle">
+                <label for="pengkuan"> Jumlah Lulusan yang Terlacak :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="bukti_pendukung" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="number" name="jumlah_lulusan_terlacak" value="{{ $data->jumlah_lulusan_terlacak }}" class="form-control" required>
                 </div>
-                <label for="pengkuan"> Tingkat :</label>
-                <div class="input-group mb-3">
-                    <select class="custom-select" name="tingkat" id="inputGroupSelect01">
-                        <option selected>pilih...</option>
-                        <option value="Wilayah">Wilayah</option>
-                        <option value="Nasional">Nasional</option>
-                        <option value="Internasional">Internsional</option>
-                    </select>
                 </div>
-                <label for="pengkuan"> Tahun:</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="tahun" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
+                <label for="pengkuan"> Jumlah Lulusan Terlacak dengan Waktu Tunggu Mendapatkan Pekerjaan : </label>
+                <div class="form-row justify-content-center">
+                    <div class="form-group col-md-4 align-middle">
+                      <label for="#">WT < 6 bulan</label>
+                      <input type="number" name="waktu_tunggu_6" class="form-control" value="{{ $data->waktu_tunggu_6 }}" required>
+                    </div>
+                    <div class="form-group col-md-4 align-middle">
+                      <label for="#">6 ≤ WT ≤ 18 bulan</label>
+                      <input type="number" name="waktu_tunggu_6_18" class="form-control" value="{{ $data->waktu_tunggu_6_18 }}"  required>
+                    </div>
+                    <div class="form-group col-md-4 align-middle">
+                      <label for="#">WT > 18 bulan</label>
+                      <input type="number" name="waktu_tunggu_18" class="form-control" value="{{ $data->waktu_tunggu_18 }}"  required>
+                    </div>
+                  </div>
                 
                 
 
@@ -43,6 +52,6 @@
     </div>
     <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-    <button type="submit" class="btn btn-primary">Tambah</button>
+    <button type="submit" class="btn btn-primary">Update</button>
     </div>
 </form>

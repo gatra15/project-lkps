@@ -19,22 +19,22 @@
     <tbody class="text-dark">
     <tr>
         {{-- foreachnya diganti $publikasi['data'] as $data isinya sesuaikan --}}
-        {{-- @foreach ($prestasi['prestasi'] as $prest)
+        @foreach ($publikasi['data'] as $data)
                 <tr>
+                    
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $prest->nama_kegiatan }}</td>
-                    <td>{{ $prest->tahun_perolehan }}</td>
-                    <td>{{ $prest->tingkat == 'Lokal/Wilayah' ? 'V' : '' }}</td>
-                    <td>{{ $prest->tingkat == 'Nasional' ? 'V' : '' }}</td>
-                    <td>{{ $prest->tingkat == 'Internasional' ? 'V' : '' }}</td>
-                    <td>{{ $prest->type_prestasi }}</td>
+                    <td>{{ $data->media->media }}</td>
+                    <td>{{ $data->jumlah_ts2 }}</td>
+                    <td>{{ $data->jumlah_ts1 }}</td>
+                    <td>{{ $data->jumlah_ts }}</td>
+                    <td>{{ $data->jumlah }}</td>
                     <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                        <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalluaranprestasiedit-{{ $prest->id }}"><i class="fas fa-edit"></i></a></li>
+                        <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalpublikasiedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
-                            <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/prestasi-mahasiswa/{{ $prest->id }}" data-toggle="modal" data-target="#modalluaranprestasidelete-{{ $prest->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                            <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/prestasi-mahasiswa/{{ $data->id }}" data-toggle="modal" data-target="#modalpublikasidelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                     </ul></td>
                 </tr>
-            @endforeach --}}
+            @endforeach
     </tr>
     {{-- <td>{{ $prestasi['wilayah'] }}</td>
     <td>{{ $prestasi['nasional'] }}</td>
@@ -42,10 +42,10 @@
     <tr>
         <td class="text-center align-middle" colspan="2"><b>Jumlah</b></td> 
         {{-- jumlah dikasi $publikasi['jumlah_ts2'] berikutnya menyesuaikan untuk yang jumlah total pakenya $publikasi['jumlah']--}}
-        <td>jumlah ts-2</td>
-        <td>jumlah ts-1</td>
-        <td>jumlah ts</td>
-        <td>jumlah total</td>
+        <td>{{ $publikasi['jumlah_ts2'] }}</td>
+        <td>{{ $publikasi['jumlah_ts1'] }}</td>
+        <td>{{ $publikasi['jumlah_ts'] }}</td>
+        <td>{{ $publikasi['jumlah'] }}</td>
     </tr>
     </table> 
     </div>

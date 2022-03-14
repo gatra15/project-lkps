@@ -55,6 +55,7 @@
          <td>{{ $mahasiswa_asing['part_ts2'] }}</td>
          <td>{{ $mahasiswa_asing['part_ts1'] }}</td>
          <td>{{ $mahasiswa_asing['part_ts'] }}</td>
+         <td></td>
      </tr>
     </tbody>
     </table> 
