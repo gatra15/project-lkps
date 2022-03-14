@@ -11,7 +11,11 @@
                     <th class="align-middle" scope="col" rowspan="2">Manfaat Bagi PS yang Diakreditasi</th>
                     <th class="align-middle" scope="col" rowspan="2" >Waktu dan Durasi</th>  
                     <th class="align-middle" scope="col" rowspan="2" >Bukti Kerjasama</th>  
-                    <th class="align-middle" scope="col" rowspan="2" >Opsi</th>  
+                    @hasrole('perwakilan')
+                        <th class="align-middle" scope="col" rowspan="2" >Opsi</th>  
+                    @else
+                        
+                    @endhasrole
                 </tr>
                 <tr>
                     <th class="align-middle text-center" scope="col">Internasional</th>
@@ -49,11 +53,17 @@
                             File <i class="fas fa-file-archive"></i>
                         </a>
                         @endif
-                    <td class="align-middle"><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
-                        <li>
-                            <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
+                    </td>
+
+                        @hasrole('perwakilan')
+                        <td class="align-middle">
+                            
+                        <ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li><a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                        @else
+                        @endhasrole
                 </tr>
                 @endif
                 @endforeach
@@ -86,11 +96,13 @@
                             <a class="btn btn-success" href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}"> File <i class="fas fa-file-archive"></i></a>
                         </td>
                         </td>
+                        @hasrole('perwakilan')
                         <td class="align-middle"><ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
                             <li>
                                 <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                         </ul></td>
+                        @endhasrole
                     </tr>
                     @endif
                     @endforeach
@@ -121,11 +133,13 @@
                         <td class="align-middle">
                             <a class="btn btn-success" href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}"> File <i class="fas fa-file-archive"></i></a>
                         </td>
+                        @hasrole('perwakilan')
                         <td class="align-middle"><ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
                             <li>
                                 <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                         </ul></td>
+                        @endhasrole
                     </tr>
                     @endif
                     @endforeach
