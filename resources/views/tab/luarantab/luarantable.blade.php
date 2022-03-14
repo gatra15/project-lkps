@@ -32,6 +32,7 @@
         <tbody class="text-dark">
             {{-- TABLE CONTENT --}}
             {{-- foreach --}}
+            {{-- sesuaikan yang ada pada kinerja dosen --}}
             {{-- if --}}
             <tr>
                 <td>1</td>

@@ -34,7 +34,8 @@
 
         @include('tab.luarantab.kepuasantable')
 
-        {{-- foreach --}}
+        {{-- foreach ($kepuasanPengguna['kepuasan'] as $data)--}}
+        {{-- bagian id tambahin tanda - dan {{ $data->id }} --}}
       <!-- Modal Tambah Edit Luaran -->
       <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -51,6 +52,7 @@
         </div>
 
       <!-- Modal Tambah Delete Luaran -->
+        {{-- bagian id tambahin tanda - dan {{ $data->id }} contoh modaldelet-{{ $data->id }} --}}
       <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">

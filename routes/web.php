@@ -22,6 +22,7 @@ use App\Http\Controllers\KepuasanPenggunaController;
 use App\Http\Controllers\KesesuaianBidangKerjaController;
 use App\Http\Controllers\KeuanganSaranaPrasaranaController;
 use App\Http\Controllers\KinerjaLulusanController;
+use App\Http\Controllers\LuaranPkmMahasiswaController;
 use App\Http\Controllers\MahasiswaAsingController;
 use App\Http\Controllers\PendidikanIntegrasiKegiatanPenelitianController;
 use App\Http\Controllers\PendidikanKepuasanMahasiswaController;
@@ -212,7 +213,7 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('/luaran-capaian-tridharma/prestasi-mahasiswa', [PrestasiMahasiswaController::class, 'index']);
         Route::post('/luaran-capaian-tridharma/prestasi-mahasiswa', [PrestasiMahasiswaController::class, 'store']);
         Route::put('/luaran-capaian-tridharma/prestasi-mahasiswa/{id}', [PrestasiMahasiswaController::class, 'update']);
-        Route::post('/luaran-capaian-tridharma/prestasi-mahasiswa/{id}', [PrestasiMahasiswaController::class, 'destroy']);
+        Route::get('/luaran-capaian-tridharma/prestasi-mahasiswa/{id}', [PrestasiMahasiswaController::class, 'destroy']);
 
         Route::get('/luaran-capaian-tridharma/efektifitas', [EfektifitasProduktifitasPendidikanController::class, 'index']);
         Route::post('/luaran-capaian-tridharma/efektifitas', [EfektifitasProduktifitasPendidikanController::class, 'store']);
@@ -230,6 +231,11 @@ Route::group(['middleware' => 'auth:web'], function() {
 
         Route::put('/luaran-capaian-tridharma/kepuasan-pengguna/{id}', [KepuasanPenggunaController::class, 'update']);
         Route::post('/luaran-capaian-tridharma/kepuasan-pengguna/{id}', [KepuasanPenggunaController::class, 'destroy']);
+
+        Route::get('/luaran-capaian-tridharma/luaran-mahasiswa', [LuaranPkmMahasiswaController::class, 'index']);
+        Route::post('/luaran-capaian-tridharma/luaran-mahasiswa', [LuaranPkmMahasiswaController::class, 'store']);
+        Route::put('/luaran-capaian-tridharma/luaran-mahasiswa/{id}', [LuaranPkmMahasiswaController::class, 'update']);
+        Route::get('/luaran-capaian-tridharma/luaran-mahasiswa/{id}', [LuaranPkmMahasiswaController::class, 'destroy']);
         // End Luaran
 
         Route::get('/simulasi', [SimulasiController::class, 'index']);
@@ -239,9 +245,9 @@ Route::group(['middleware' => 'auth:web'], function() {
     {
         
         // Route to Tata Pamong
-        Route::get('tata-pamong/download-excel', [TataPamongController::class, 'exportToExcel']);
-        Route::get('tata-pamong/download-csv', [TataPamongController::class, 'exportToCSV']);
-        Route::get('tata-pamong/download-pdf', [TataPamongController::class, 'generate']);
+        Route::get('tata-pamong/download/excel', [TataPamongController::class, 'exportToExcel']);
+        Route::get('tata-pamong/download/csv', [TataPamongController::class, 'exportToCSV']);
+        Route::get('tata-pamong/download/pdf', [TataPamongController::class, 'generate']);
         // End Route
         
         // Route to Mahasiswa

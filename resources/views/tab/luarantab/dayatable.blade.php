@@ -17,6 +17,7 @@
     </thead>
     
     <tbody class="text-dark">
+        {{-- foreach($dayasaing['waktu'] as $data) --}}
     <tr>
     <td>Eko</td>
     <td>Eko</td>

@@ -22,6 +22,7 @@
     </thead>
     
     <tbody class="text-dark">
+        {{-- foreach ($kinerjaLulusan['data'] as $data) --}}
     <tr>
     <td>Eko</td>
     <td>Eko</td>

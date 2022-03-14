@@ -3,6 +3,7 @@
     <thead>
     <tr>
     <th class="align-middle" scope="col" rowspan="2">No</th>
+    <th class="align-middle" scope="col" rowspan="2">Jenis Prestasi</th>
     <th class="align-middle" scope="col" rowspan="2">Nama Kegiatan</th>
     <th class="align-middle" scope="col" rowspan="2">Tahun Perolehan</th>
     <th  scope="col" colspan="3">Tingkat</th>
@@ -22,6 +23,7 @@
         @foreach ($prestasi['prestasi'] as $prest)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
+                    <td>{{ $prest->jenis_prestasi }}</td>
                     <td>{{ $prest->nama_kegiatan }}</td>
                     <td>{{ $prest->tahun_perolehan }}</td>
                     <td>{{ $prest->tingkat == 'Lokal/Wilayah' ? 'V' : '' }}</td>

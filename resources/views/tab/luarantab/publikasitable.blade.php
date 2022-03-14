@@ -18,6 +18,7 @@
     
     <tbody class="text-dark">
     <tr>
+        {{-- foreachnya diganti $publikasi['data'] as $data isinya sesuaikan --}}
         {{-- @foreach ($prestasi['prestasi'] as $prest)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
@@ -40,6 +41,7 @@
     <td>{{ $prestasi['internasional'] }}</td> --}}
     <tr>
         <td class="text-center align-middle" colspan="2"><b>Jumlah</b></td> 
+        {{-- jumlah dikasi $publikasi['jumlah_ts2'] berikutnya menyesuaikan untuk yang jumlah total pakenya $publikasi['jumlah']--}}
         <td>jumlah ts-2</td>
         <td>jumlah ts-1</td>
         <td>jumlah ts</td>

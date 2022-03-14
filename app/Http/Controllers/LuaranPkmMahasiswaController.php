@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\LuaranPkmMahasiswa;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\LuaranPkmMahasiswa;
 
 class LuaranPkmMahasiswaController extends Controller
 {
@@ -14,7 +15,8 @@ class LuaranPkmMahasiswaController extends Controller
      */
     public function index()
     {
-        //
+        $data = LuaranPkmMahasiswa::all();
+        return ['data' => $data];
     }
 
     /**
@@ -35,7 +37,26 @@ class LuaranPkmMahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'type_luaran' => 'required',
+            'judul' => 'required',
+            'tahun' => 'required',
+            'keterangan' => 'required',
+        ]);
+
+        $luaran = new LuaranPkmMahasiswa;
+        $luaran->type_luaran = $request->input('type_luaran');
+        $luaran->judul = $request->input('judul');
+        $luaran->tahun = $request->input('tahun');
+        $luaran->keterangan = $request->input('keterangan');
+        $luaran->tahun_laporan = 2022;
+        $luaran->prodi = auth()->user()->prodi;
+        $luaran->created_by = auth()->user()->name;
+        $luaran->created_at = Carbon::now();
+        // dd($luaran);
+        $luaran->save();
+
+        return back()->with('success', 'Data Luaran Pkm Mahasiswa berhasil ditambahkan.');
     }
 
     /**
@@ -67,9 +88,27 @@ class LuaranPkmMahasiswaController extends Controller
      * @param  \App\Models\LuaranPkmMahasiswa  $luaranPkmMahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LuaranPkmMahasiswa $luaranPkmMahasiswa)
+    public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'type_luaran' => 'required',
+            'judul' => 'required',
+            'tahun' => 'required',
+            'keterangan' => 'required',
+        ]);
+
+        $luaran = new LuaranPkmMahasiswa;
+        $luaran->type_luaran = $request->input('type_luaran');
+        $luaran->judul = $request->input('judul');
+        $luaran->tahun = $request->input('tahun');
+        $luaran->keterangan = $request->input('keterangan');
+        $luaran->tahun_laporan = 2022;
+        $luaran->prodi = auth()->user()->prodi;
+        $luaran->created_by = auth()->user()->name;
+        $luaran->updated_at = Carbon::now();
+        $luaran->update();
+
+        return back()->with('success', 'Data Luaran Pkm Mahasiswa berhasil diubah.');
     }
 
     /**
@@ -78,8 +117,9 @@ class LuaranPkmMahasiswaController extends Controller
      * @param  \App\Models\LuaranPkmMahasiswa  $luaranPkmMahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LuaranPkmMahasiswa $luaranPkmMahasiswa)
+    public function destroy($id)
     {
-        //
+        LuaranPkmMahasiswa::find($id)->delete();
+        return back()->with('error', 'Data Luaran Pkm Mahasiswa berhasil dihapus.');
     }
 }
