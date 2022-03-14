@@ -16,4 +16,10 @@ class AdminController extends Controller
             'title' => 'User'
         ]);
     }
+
+    public function prodi(){
+        return view('admin.prodi', [
+            'title' => 'Prodi'
+        ]);
+    }
 }

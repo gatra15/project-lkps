@@ -1,14 +1,8 @@
-{{-- 
-    MANUSIA TS - INI MAKHLUK TS ! INI ALIEN TS !! NOMER E MASUK NING DATA TABEL NGGARAI NGELU TOK 
---}}
-<div class="tab-pane fade" id="pengabdian" role="tabpanel" aria-labelledby="pengabdian-tab">
+<div class="tab-pane fade show" id="pengabdian" role="tabpanel" aria-labelledby="pengabdian-tab">
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#des3" role="button" aria-expanded="false" aria-controls="des3">
             Deskripsi
         </a>
-        {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-            Tambah data
-        </button> --}}
     </p>
     <a href="/kinerja-dosen/karya-ilmiah/download/excel" class="btn btn-success">Excel</a>
     <a href="/kinerja-dosen/karya-ilmiah/download/csv" class="btn btn-success">CSV</a>
