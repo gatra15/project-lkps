@@ -20,7 +20,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran Pkm Mahasiswa</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -35,7 +35,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran Pkm Mahasiswa</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -50,7 +50,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran Pkm Mahasiswa</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -65,7 +65,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran Pkm Mahasiswa</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -80,11 +80,11 @@
         @foreach ($luaran['data'] as $data)
       <!-- Modal Tambah Edit Luaran -->
 
-      <div class="modal fade" id="modaldosenluaranedit-{{ $data->id }}" tabindex="-1" aria-labelledby="modaldosenluaranedit" aria-hidden="true">
+      <div class="modal fade" id="modalluaranedit-{{ $data->id }}" tabindex="-1" aria-labelledby="modalluaranedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenluaranedit">Edit Data Luaran </h5>
+            <h5 class="modal-title" id="modalluaranedit">Edit Data Luaran Pkm Mahasiswa </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -96,11 +96,11 @@
 
       <!-- Modal Tambah Delete Luaran -->
 
-      <div class="modal fade" id="modaldosenluarandelete-{{ $data->id }}" tabindex="-1" aria-labelledby="modaldosenluarandelete" aria-hidden="true">
+      <div class="modal fade" id="modalluarandelete-{{ $data->id }}" tabindex="-1" aria-labelledby="modalluarandelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Hapus Data Luaran </h5>
+            <h5 class="modal-title" id="modalluarandelete">Hapus Data Pkm Mahasiswa </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

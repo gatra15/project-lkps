@@ -97,14 +97,14 @@ class LuaranPkmMahasiswaController extends Controller
             'keterangan' => 'required',
         ]);
 
-        $luaran = new LuaranPkmMahasiswa;
+        $luaran = LuaranPkmMahasiswa::find($id);
         $luaran->type_luaran = $request->input('type_luaran');
         $luaran->judul = $request->input('judul');
         $luaran->tahun = $request->input('tahun');
         $luaran->keterangan = $request->input('keterangan');
         $luaran->tahun_laporan = 2022;
         $luaran->prodi = auth()->user()->prodi;
-        $luaran->created_by = auth()->user()->name;
+        $luaran->updated_by = auth()->user()->name;
         $luaran->updated_at = Carbon::now();
         $luaran->update();
 
