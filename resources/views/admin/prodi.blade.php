@@ -44,7 +44,7 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="prodi" role="tabpanel" aria-labelledby="prodi-tab">
                 <p class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalcapaian">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalprodi">
                         Tambah Data
                     </button>
                 </p>
@@ -53,7 +53,22 @@
                     <button type="button" class="btn btn-outline-primary">search</button>
                   </div>
     {{-- CONTENT --}}
-        
+
+    <!-- Modal Tambah Data -->
+    <div class="modal fade" id="modalprodi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Prodi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        @include('partials.modaladmin.prodi')
+        </div>
+        </div>
+    </div>  
+
         <table class="table text-center table-bordered">
             <thead class="align-middle">
                 <tr>
@@ -70,7 +85,37 @@
                 <tr>
                     
                 </tr>
-    
+
+     <!-- Modal Edit Data -->
+     <div class="modal fade" id="modalprodiedit-{{--  --}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        @include('partials.modaladmin.prodiedit')
+        </div>
+        </div>
+    </div>  
+
+    <!-- Modal Hapus Data -->
+    <div class="modal fade" id="modalprodidelete-{{--  --}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Hapus User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        @include('partials.modaladmin.prodidelete')
+        </div>
+        </div>
+    </div>     
+
             </tbody>
         </table> 
     

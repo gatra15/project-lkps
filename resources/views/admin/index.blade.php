@@ -44,7 +44,7 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="kualitas" role="tabpanel" aria-labelledby="kualitas-tab">
                 <p class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalcapaian">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaluser">
                         Tambah Data
                     </button>
                 </p>
@@ -53,7 +53,22 @@
                     <button type="button" class="btn btn-outline-primary">search</button>
                   </div>
     {{-- CONTENT --}}
-        
+
+      <!-- Modal Tambah Data -->
+        <div class="modal fade" id="modaluser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Tambah User</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.modaladmin.user')
+            </div>
+            </div>
+        </div>  
+
         <table class="table text-center table-bordered">
             <thead class="align-middle">
                 <tr>
@@ -72,6 +87,35 @@
                     
                 </tr>
     
+             <!-- Modal Edit Data -->
+        <div class="modal fade" id="modaluseredit-{{--  --}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.modaladmin.useredit')
+            </div>
+            </div>
+        </div>  
+
+        <!-- Modal Hapus Data -->
+        <div class="modal fade" id="modaluserdelete-{{--  --}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Hapus User</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.modaladmin.userdelete')
+            </div>
+            </div>
+        </div>     
             </tbody>
         </table> 
     
