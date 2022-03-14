@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\JenisLuaran;
 use App\Models\User;
 use App\Models\MediaPublikasi;
 use Database\Seeders\TsSeeder;
@@ -24,6 +25,8 @@ class DatabaseSeeder extends Seeder
             MediaPublikasiSeeder::class,
             AspekSeeder::class,
             TsSeeder::class,
+            JenisLuaranSeeder::class,
+            JenisKemampuanSeeder::class,
         ]);
 
     }
