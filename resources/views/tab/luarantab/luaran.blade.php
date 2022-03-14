@@ -1,26 +1,28 @@
-<div class="tab-pane fade show" id="luaran" role="tabpanel" aria-labelledby="luaran-tab">
+<div class="tab-pane fade" id="luaran" role="tabpanel" aria-labelledby="luaran-tab">
     <p class="d-flex justify-content-between">
-        <a class="btn btn-primary" data-toggle="collapse" href="#des6" role="button" aria-expanded="false" aria-controls="des6">
+        <a class="btn btn-primary" data-toggle="collapse" href="#des7" role="button" aria-expanded="false" aria-controls="des7">
             Deskripsi
         </a>
     </p>
-    <div class="collapse" id="des6">
-        <div class="card card-body">
-            <p>
-                Tuliskan jumlah publikasi ilmiah mahasiswa, yang dihasilkan secara mandiri atau
-                bersama DTPS, <b>dalam 3 tahun terakhir</b>  dengan mengikuti format Tabel berikut
-                ini. Judul publikasi harus relevan dengan bidang program studi.
-
-            </p>
-        </div> 
-    </div>
-
+    {{-- <a href="/kinerja-dosen/luaran/download/excel" class="btn btn-success">Excel</a>
+    <a href="/kinerja-dosen/luaran/download/csv" class="btn btn-success">CSV</a> --}}
+    <input type="button" class="btn btn-primary" onclick="printDiv('print-table2')" value="Print Document" />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
+        Cara Download PDF
+    </button>
+<div class="collapse" id="des7">
+    <div class="card card-body">
+        <p>
+            Luaran Penelitian/PkM Lainnya oleh DTPS
+        </p>
+    </div> 
+</div>
     <!-- Modal Tambah Data Luaran DTPS -->
     <div class="modal fade" id="modalluarantambah" tabindex="-1" aria-labelledby="modalluarantambah" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran Pkm Mahasiswa</h5>
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -35,7 +37,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran Pkm Mahasiswa</h5>
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -50,7 +52,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran Pkm Mahasiswa</h5>
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -65,7 +67,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran Pkm Mahasiswa</h5>
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -75,16 +77,17 @@
         </div>
     </div>
 
-        @include('tab.luarantab.luarantable')
+{{-- TABLE HERE  --}}
+@include('tab.luarantab.luarantable')
 
-    @foreach ($luaran['data'] as $data)
-      <!-- Modal Tambah Edit Luaran -->
+@foreach ($luaran['data'] as $data)
 
-      <div class="modal fade" id="modalluaranedit-{{ $data->id }}" tabindex="-1" aria-labelledby="modalluaranedit" aria-hidden="true">
+    <!-- Modal Edit Data Luaran DTPS -->
+    <div class="modal fade" id="modaldosenluaranedit-{{ $data->id }}" tabindex="-1" aria-labelledby="modaldosenluaranedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluaranedit">Edit Data Luaran Pkm Mahasiswa </h5>
+            <h5 class="modal-title" id="modaldosenluaranedit">Tambah Data Dosen Tetap</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -92,15 +95,14 @@
             @include('partials.luarancapaianmodal.luaranedit')
         </div>
         </div>
-        </div>
+    </div>
 
-      <!-- Modal Tambah Delete Luaran -->
-
-      <div class="modal fade" id="modalluarandelete-{{ $data->id }}" tabindex="-1" aria-labelledby="modalluarandelete" aria-hidden="true">
+    <!-- Modal Delete Data Luaran DTPS -->
+    <div class="modal fade" id="modaldosenluarandelete-{{ $data->id }}" tabindex="-1" aria-labelledby="modaldosenluarandelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluarandelete">Hapus Data Luaran Pkm Mahasiswa </h5>
+            <h5 class="modal-title" id="modaldosenluarandelete">Tambah Data Dosen Tetap</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -108,14 +110,8 @@
             @include('partials.luarancapaianmodal.luarandelete')
         </div>
         </div>
-        </div>
-
-      
-
-    @endforeach
-
-    
+    </div>
+        
+@endforeach
 </div>
-<script>
-    $('#myModal').modal('show');
-</script>
+@include('layouts.table')
