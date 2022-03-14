@@ -67,7 +67,7 @@ Route::group(['middleware' => 'auth:web'], function() {
     Route::get('/', function() {
         if(Auth::user()->roles->pluck('name')[0] == 'admin') {
             return redirect('/user');
-        } else if(Auth::user()->roles->pluck('name')[0] == 'auditor') {
+        } else if(Auth::user()->roles->pluck('name')[0] == 'asesor') {
             return redirect('/audit');
         } else {
             return redirect('/dashboard');
@@ -83,33 +83,28 @@ Route::group(['middleware' => 'auth:web'], function() {
     });
 
     Route::group(['middleware' => ['role:perwakilan']], function () {
-        Route::get('/dashboard', [HomeController::class, 'index']);
 
         // Route to Identitas Pengusul
-        Route::get('/identitas-pengusul', [IdentitasPengusulController::class, 'index']);
         Route::post('/identitas-pengusul', [IdentitasPengusulController::class, 'store']);
         Route::get('/identitas-pengusul/{id}', [IdentitasPengusulController::class, 'show']);
 
-        Route::get('/identitas-pengusul/tim-penyusun', [TimPenyusunController::class, 'index']);
         Route::post('/identitas-pengusul/tim-penyusun', [TimPenyusunController::class, 'store']);
         Route::put('/identitas-pengusul/tim-penyusun/{id}', [TimPenyusunController::class, 'update']);
         Route::post('/identitas-pengusul/tim-penyusun/{id}', [TimPenyusunController::class, 'delete']);
         // End Route Identitas Pengusul
 
         // Route to Tata Pamong
-        Route::get('/tata-pamong-tata-kelola-kerjasama', [TataPamongController::class, 'index']);
+        
         Route::post('/tata-pamong-tata-kelola-kerjasama', [TataPamongController::class, 'store']);
         Route::put('/tata-pamong-tata-kelola-kerjasama/{id}', [TataPamongController::class, 'update']);
         Route::get('/tata-pamong-tata-kelola-kerjasama/{id}', [TataPamongController::class, 'destroy']);
         // End Tata Pamong
 
         // Route to Mahasiswa
-        Route::get('/mahasiswa', [TabMahasiswaController::class, 'index']);
         Route::post('/mahasiswa', [TabMahasiswaController::class, 'store']);
         Route::put('/mahasiswa/{id}', [TabMahasiswaController::class, 'update']);
         Route::post('/mahasiswa/delete/{id}', [TabMahasiswaController::class, 'destroy']);
 
-        Route::get('/mahasiswa/mahasiswa-asing', [MahasiswaAsingController::class, 'index']);
         Route::post('/mahasiswa/mahasiswa-asing', [MahasiswaAsingController::class, 'store']);
         Route::put('/mahasiswa/mahasiswa-asing/{id}', [MahasiswaAsingController::class, 'update']);
         Route::get('/mahasiswa/mahasiswa-asing/{id}', [MahasiswaAsingController::class, 'destroy']);
@@ -119,49 +114,40 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('/sdm', [SdmController::class, 'index']);
 
         // Route to Profil Dosen
-        Route::get('/profil-dosen', [ProfilDosenController::class, 'index']);
         Route::post('/profil-dosen', [ProfilDosenController::class, 'store']);
         Route::put('/profil-dosen/{id}', [ProfilDosenController::class, 'update']);
         Route::get('/profil-dosen/{id}', [ProfilDosenController::class, 'destroy']);
 
-        Route::get('/profil-dosen/pembimbing-ta', [SdmDosenPembimbingTaController::class, 'index']);
         Route::post('/profil-dosen/pembimbing-ta', [SdmDosenPembimbingTaController::class, 'store']);
         Route::put('/profil-dosen/pembimbing-ta/{id}', [SdmDosenPembimbingTaController::class, 'update']);
         Route::get('/profil-dosen/pembimbing-ta/{id}', [SdmDosenPembimbingTaController::class, 'destroy']);
 
-        Route::get('/profil-dosen/dosen-ewmp', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'index']);
         Route::post('/profil-dosen/dosen-ewmp', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'store']);
         Route::put('/profil-dosen/dosen-ewmp/{id}', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'update']);
         Route::get('/profil-dosen/dosen-ewmp/{id}', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'destroy']);
 
-        Route::get('/profil-dosen/dosen-tidak-tetap', [SdmDosenTidakTetapController::class, 'index']);
         Route::post('/profil-dosen/dosen-tidak-tetap', [SdmDosenTidakTetapController::class, 'store']);
         Route::put('/profil-dosen/dosen-tidak-tetap/{id}', [SdmDosenTidakTetapController::class, 'update']);
         Route::get('/profil-dosen/dosen-tidak-tetap/{id}', [SdmDosenTidakTetapController::class, 'destroy']);
         //End Profil Dosen
 
         // Route to Kinerja Dosen
-        Route::get('/kinerja-dosen', [KinerjaDosenController::class, 'index']);
         Route::post('/kinerja-dosen', [KinerjaDosenController::class, 'store']);
         Route::put('/kinerja-dosen/{id}', [KinerjaDosenController::class, 'update']);
         Route::get('/kinerja-dosen/{id}', [KinerjaDosenController::class, 'destroy']);
 
-        Route::get('/kinerja-dosen/karya-ilmiah', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'index']);
         Route::post('/kinerja-dosen/karya-ilmiah', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'store']);
         Route::put('/kinerja-dosen/karya-ilmiah/{id}', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'update']);
         Route::get('/kinerja-dosen/karya-ilmiah/{id}', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'destroy']);
 
-        Route::get('/kinerja-dosen/penelitian-dtps', [SdmKinerjaDosenPenelitianDtpsController::class, 'index']);
         Route::post('/kinerja-dosen/penelitian-dtps', [SdmKinerjaDosenPenelitianDtpsController::class, 'store']);
         Route::put('/kinerja-dosen/penelitian-dtps/{id}', [SdmKinerjaDosenPenelitianDtpsController::class, 'update']);
         Route::post('/kinerja-dosen/penelitian-dtps/{id}', [SdmKinerjaDosenPenelitianDtpsController::class, 'destroy']);
 
-        Route::get('/kinerja-dosen/pkm-dtps', [SdmKinerjaDosenPkmDtpsController::class, 'index']);
         Route::post('/kinerja-dosen/pkm-dtps', [SdmKinerjaDosenPkmDtpsController::class, 'store']);
         Route::put('/kinerja-dosen/pkm-dtps/{id}', [SdmKinerjaDosenPkmDtpsController::class, 'update']);
         Route::post('/kinerja-dosen/pkm-dtps/{id}', [SdmKinerjaDosenPkmDtpsController::class, 'destroy']);
 
-        Route::get('/kinerja-dosen/publikasi-dtps', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'index']);
         Route::post('/kinerja-dosen/publikasi-dtps', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'store']);
         Route::put('/kinerja-dosen/publikasi-dtps/{id}', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'update']);
         Route::post('/kinerja-dosen/publikasi-dtps/{id}', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'destroy']);
@@ -173,53 +159,44 @@ Route::group(['middleware' => 'auth:web'], function() {
         // End Kinerja Dosen
 
         // Route to Keuangan dan Sarpras
-        Route::get('/keuangan-sarana-prasarana', [KeuanganSaranaPrasaranaController::class, 'index']);
         Route::put('/keuangan-sarana-prasarana/{id}', [KeuanganSaranaPrasaranaController::class, 'update']);
         Route::post('/keuangan-sarana-prasarana/{id}', [KeuanganSaranaPrasaranaController::class, 'destroy']);
         // End Keuangan Sarpras
 
         // Route to Pendidikan
-        Route::get('/pendidikan', [PendidikanController::class, 'index']);
         Route::post('/pendidikan', [PendidikanController::class, 'store']);
         Route::put('/pendidikan/{id}', [PendidikanController::class, 'update']);
         Route::get('/pendidikan/{id}', [PendidikanController::class, 'destroy']);
 
-        Route::get('/pendidikan/integrasi', [PendidikanIntegrasiKegiatanPenelitianController::class, 'index']);
         Route::post('/pendidikan/integrasi', [PendidikanIntegrasiKegiatanPenelitianController::class, 'store']);
         Route::put('/pendidikan/integrasi/{id}', [PendidikanIntegrasiKegiatanPenelitianController::class, 'update']);
         Route::get('/pendidikan/integrasi/{id}', [PendidikanIntegrasiKegiatanPenelitianController::class, 'destroy']);
 
-        Route::get('/pendidikan/kepuasan-mahasiswa', [PendidikanKepuasanMahasiswaController::class, 'index']);
         Route::post('/pendidikan/kepuasan-mahasiswa', [PendidikanKepuasanMahasiswaController::class, 'store']);
         Route::put('/pendidikan/kepuasan-mahasiswa/{id}', [PendidikanKepuasanMahasiswaController::class, 'update']);
         Route::post('/pendidikan/kepuasan-mahasiswa/{id}', [PendidikanKepuasanMahasiswaController::class, 'destroy']);
         // End Pendidikan
 
         // Route to Penelitian
-        Route::get('/penelitian', [PenelitianController::class, 'index']);
         Route::post('/penelitian', [PenelitianController::class, 'store']);
         Route::put('/penelitian/{id}', [PenelitianController::class, 'update']);
         Route::get('/penelitian/{id}', [PenelitianController::class, 'destroy']);
         // End Penelitian
 
         // Route to PKM
-        Route::get('/pkm', [PengabdianController::class, 'index']);
         Route::post('/pkm', [PengabdianController::class, 'store']);
         Route::put('/pkm/{id}', [PengabdianController::class, 'update']);
         Route::get('/pkm/{id}', [PengabdianController::class, 'destroy']);
         // End PKM
 
         // Route to Luaran
-        Route::get('/luaran-capaian-tridharma', [LuaranController::class, 'index']);
         Route::put('/luaran-capaian-tridharma/capaian/{id}', [CapaianPembelajaranController::class, 'update']);
         Route::post('/luaran-capaian-tridharma/capaian/{id}', [CapaianPembelajaranController::class, 'destroy']);
 
-        Route::get('/luaran-capaian-tridharma/prestasi-mahasiswa', [PrestasiMahasiswaController::class, 'index']);
         Route::post('/luaran-capaian-tridharma/prestasi-mahasiswa', [PrestasiMahasiswaController::class, 'store']);
         Route::put('/luaran-capaian-tridharma/prestasi-mahasiswa/{id}', [PrestasiMahasiswaController::class, 'update']);
         Route::get('/luaran-capaian-tridharma/prestasi-mahasiswa/{id}', [PrestasiMahasiswaController::class, 'destroy']);
 
-        Route::get('/luaran-capaian-tridharma/efektifitas', [EfektifitasProduktifitasPendidikanController::class, 'index']);
         Route::post('/luaran-capaian-tridharma/efektifitas', [EfektifitasProduktifitasPendidikanController::class, 'store']);
         Route::put('/luaran-capaian-tridharma/efektifitas/{id}', [EfektifitasProduktifitasPendidikanController::class, 'update']);
         Route::post('/luaran-capaian-tridharma/efektifitas/{id}', [EfektifitasProduktifitasPendidikanController::class, 'destroy']);
@@ -239,37 +216,50 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::put('/luaran-capaian-tridharma/publikasi-ilmiah/{id}', [PublikasiIlmiahMahasiswaController::class, 'update']);
         Route::post('/luaran-capaian-tridharma/kepuasan-pengguna/{id}', [PublikasiIlmiahMahasiswaController::class, 'destroy']);
 
-        Route::get('/luaran-capaian-tridharma/luaran-mahasiswa', [LuaranPkmMahasiswaController::class, 'index']);
         Route::post('/luaran-capaian-tridharma/luaran-mahasiswa', [LuaranPkmMahasiswaController::class, 'store']);
         Route::put('/luaran-capaian-tridharma/luaran-mahasiswa/{id}', [LuaranPkmMahasiswaController::class, 'update']);
         Route::get('/luaran-capaian-tridharma/luaran-mahasiswa/{id}', [LuaranPkmMahasiswaController::class, 'destroy']);
         // End Luaran
 
-        Route::get('/simulasi', [SimulasiController::class, 'index']);
     });
 
     Route::group(['middleware' => ['role:perwakilan|dekan|asesor']], function ()
     {
-        
+        Route::get('/dashboard', [HomeController::class, 'index']);
+
+        // Identitas Pengusul
+        Route::get('/identitas-pengusul', [IdentitasPengusulController::class, 'index']);
+        Route::get('/identitas-pengusul/tim-penyusun', [TimPenyusunController::class, 'index']);
+        // End Route
+
         // Route to Tata Pamong
+        Route::get('/tata-pamong-tata-kelola-kerjasama', [TataPamongController::class, 'index']);
         Route::get('tata-pamong/download/excel', [TataPamongController::class, 'exportToExcel']);
         Route::get('tata-pamong/download/csv', [TataPamongController::class, 'exportToCSV']);
         Route::get('tata-pamong/download/pdf', [TataPamongController::class, 'generate']);
         // End Route
-        
+
         // Route to Mahasiswa
+        Route::get('/mahasiswa', [TabMahasiswaController::class, 'index']);
         Route::get('mahasiswa/download/excel', [TabMahasiswaController::class, 'exportToExcel']);
         Route::get('mahasiswa/download/excel', [TabMahasiswaController::class, 'exportToCSV']);
         Route::get('mahasiswa/download/pdf', [TabMahasiswaController::class, 'generate']);
+
+        Route::get('/mahasiswa/mahasiswa-asing', [MahasiswaAsingController::class, 'index']);
         Route::get('mahasiswa/asing/download/excel', [MahasiswaAsingController::class, 'exportToExcel']);
         Route::get('mahasiswa/asing/download/excel', [MahasiswaAsingController::class, 'exportToCSV']);
         Route::get('mahasiswa/asing/download/pdf', [MahasiswaAsingController::class, 'generate']);
         // End Route
 
         // Route to Profil Dosen
+        Route::get('/profil-dosen', [ProfilDosenController::class, 'index']);
         Route::get('profil-dosen/download/excel', [ProfilDosenController::class, 'exportToExcel']);
         Route::get('profil-dosen/download/csv', [ProfilDosenController::class, 'exportToCSV']);
         Route::get('profil-dosen/download/pdf', [ProfilDosenController::class, 'generate']);
+
+        Route::get('/profil-dosen/pembimbing-ta', [SdmDosenPembimbingTaController::class, 'index']);
+        Route::get('/profil-dosen/dosen-ewmp', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'index']);
+        Route::get('/profil-dosen/dosen-tidak-tetap', [SdmDosenTidakTetapController::class, 'index']);
 
         Route::get('profil-dosen/dosen-pembimbing-ta/download/excel', [SdmDosenPembimbingTaController::class, 'exportToExcel']);
         Route::get('profil-dosen/dosen-pembimbing-ta/download/csv', [SdmDosenPembimbingTaController::class, 'exportToCSV']);
@@ -285,6 +275,12 @@ Route::group(['middleware' => 'auth:web'], function() {
         // End Route
 
         // Route to Kinerja Dosen
+        Route::get('/kinerja-dosen', [KinerjaDosenController::class, 'index']);
+        Route::get('/kinerja-dosen/karya-ilmiah', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'index']);
+        Route::get('/kinerja-dosen/penelitian-dtps', [SdmKinerjaDosenPenelitianDtpsController::class, 'index']);
+        Route::get('/kinerja-dosen/pkm-dtps', [SdmKinerjaDosenPkmDtpsController::class, 'index']);
+        Route::get('/kinerja-dosen/publikasi-dtps', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'index']);
+
         Route::get('kinerja-dosen/download/excel', [KinerjaDosenController::class, 'exportToExcel']);
         Route::get('kinerja-dosen/download/csv', [KinerjaDosenController::class, 'exportToCSV']);
         Route::get('kinerja-dosen/download/pdf', [KinerjaDosenController::class, 'generate']);
@@ -311,12 +307,18 @@ Route::group(['middleware' => 'auth:web'], function() {
         // End Route
 
         // Route to Keuangan Sarpras
+        Route::get('/keuangan-sarana-prasarana', [KeuanganSaranaPrasaranaController::class, 'index']);
+
         Route::get('/keuangan-sarana-prasarana/download/excel', [KeuanganSaranaPrasaranaController::class, 'exportToExcel']);
         Route::get('/keuangan-sarana-prasarana/download/csv', [KeuanganSaranaPrasaranaController::class, 'exportToCSV']);
         Route::get('/keuangan-sarana-prasarana/download/pdf', [KeuanganSaranaPrasaranaController::class, 'generate']);
         // End Route
         
         // Route to Pendidikan
+        Route::get('/pendidikan', [PendidikanController::class, 'index']);
+        Route::get('/pendidikan/integrasi', [PendidikanIntegrasiKegiatanPenelitianController::class, 'index']);
+        Route::get('/pendidikan/kepuasan-mahasiswa', [PendidikanKepuasanMahasiswaController::class, 'index']);
+
         Route::get('pendidikan/download/excel', [PendidikanController::class, 'exportToExcel']);
         Route::get('pendidikan/download/csv', [PendidikanController::class, 'exportToCSV']);
         Route::get('pendidikan/download/pdf', [PendidikanController::class, 'generate']);
@@ -331,15 +333,32 @@ Route::group(['middleware' => 'auth:web'], function() {
         // End Route
 
         // Route to Penelitian
+        Route::get('/penelitian', [PenelitianController::class, 'index']);
+
         Route::get('penelitian/download/excel', [PenelitianController::class, 'exportToExcel']);
         Route::get('penelitian/download/csv', [PenelitianController::class, 'exportToCSV']);
         Route::get('penelitian/download/pdf', [PenelitianController::class, 'generate']);
         // End Route
 
+        // Pkm
+        Route::get('/pkm', [PengabdianController::class, 'index']);
+
+        // End Route
+
         // Route to Luaran
+        Route::get('/luaran-capaian-tridharma', [LuaranController::class, 'index']);
+        Route::get('/luaran-capaian-tridharma/prestasi-mahasiswa', [PrestasiMahasiswaController::class, 'index']);
+        Route::get('/luaran-capaian-tridharma/efektifitas', [EfektifitasProduktifitasPendidikanController::class, 'index']);
+        Route::get('/luaran-capaian-tridharma/luaran-mahasiswa', [LuaranPkmMahasiswaController::class, 'index']);
+
         Route::get('luaran/download/excel', [LuaranController::class, 'exportToExcel']);
         Route::get('luaran/download/csv', [LuaranController::class, 'exportToCSV']);
         Route::get('luaran/download/pdf', [LuaranController::class, 'generate']);
         // End Route
+
+        // Simulasi
+        Route::get('/simulasi', [SimulasiController::class, 'index']);
+
+        // End Simulasi
     });
 });

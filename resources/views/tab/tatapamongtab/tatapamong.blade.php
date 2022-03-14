@@ -3,12 +3,17 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#des1" role="button" aria-expanded="false" aria-controls="des1">
             Deskripsi
         </a>
+        @hasrole('perwakilan')
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikan">
             Tambah data
         </button>
+        @endhasrole
     </p>
-    <a href="{{ url('tata-pamong/download-excel') }}" class="btn btn-success">Excel</a>
-    <a href="{{ url('tata-pamong/download-csv') }}" class="btn btn-success">CSV</a>
+    @can('download file')
+        <a href="{{ url('tata-pamong/download-excel') }}" class="btn btn-success">Excel</a>
+        <a href="{{ url('tata-pamong/download-csv') }}" class="btn btn-success">CSV</a>
+    @endcan
+    
     <input type="button" class="btn btn-primary" onclick="printDiv('print-table')" value="Print Document" />
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
         Cara Download PDF
