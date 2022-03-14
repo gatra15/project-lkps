@@ -77,6 +77,9 @@ Route::group(['middleware' => 'auth:web'], function() {
     Route::group(['middleware' => ['role:admin']], function () {
         Route::get('/user', [AdminController::class, 'index']);
         Route::get('/prodi', [AdminController::class, 'prodi']);
+        Route::post('/user', [AdminController::class, 'store']);
+        Route::put('/user/{id}', [AdminController::class, 'update']);
+        Route::get('/user/{id}', [AdminController::class, 'destroy']);
     });
 
     Route::group(['middleware' => ['role:perwakilan']], function () {

@@ -40,11 +40,11 @@
         @endforeach
         <tr>
             <td class="align-middle text-center" colspan="1"><b>Jumlah</b></td>
-            <td>Jumlah Lulusan</td>
-            <td>Jumlah Lulusan Terlacak</td>
-            <td>Jumlah Lokal</td>
-            <td>Jumlah Nasional</td>
-            <td>Jumlah Internasional</td>
+            <td>{{ $kinerjaLulusan['jumlah'] }}</td>
+            <td>{{ $kinerjaLulusan['jumlah2'] }}</td>
+            <td>{{ $kinerjaLulusan['wilayah'] }}</td>
+            <td>{{ $kinerjaLulusan['nasional'] }}</td>
+            <td>{{ $kinerjaLulusan['internasional'] }}</td>
         </tr>
     </table> 
     </div>
