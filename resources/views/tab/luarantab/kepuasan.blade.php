@@ -3,9 +3,7 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#des6" role="button" aria-expanded="false" aria-controls="des6">
             Deskripsi
         </a>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalkepuasan">
-            Tambah data
-        </button>
+
     </p>
     <div class="collapse" id="des6">
         <div class="card card-body">
@@ -17,55 +15,41 @@
             </p>
         </div> 
     </div>
-    <!-- Modal Tambah Data Luaran -->
-    <div class="modal fade" id="modalkepuasan" tabindex="-1" aria-labelledby="modalkepuasan" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="modalkepuasan">Tambah Data Dosen Industri </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            @include('partials.luarancapaianmodal.kepuasan')
-        </div>
-        </div>
-        </div>
-
+    
         @include('tab.luarantab.kepuasantable')
 
-        {{-- foreach ($kepuasanPengguna['kepuasan'] as $data)--}}
+        @foreach ($kepuasanPengguna['kepuasan'] as $data)
         {{-- bagian id tambahin tanda - dan {{ $data->id }} --}}
       <!-- Modal Tambah Edit Luaran -->
-      <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+      <div class="modal fade" id="modalkepuasanedit-{{ $data->id }}" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modaldosenindustri">Edit Data Kepuasan </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.luarancapaianmodal.kepuasandelete')
         </div>
         </div>
         </div>
 
       <!-- Modal Tambah Delete Luaran -->
         {{-- bagian id tambahin tanda - dan {{ $data->id }} contoh modaldelet-{{ $data->id }} --}}
-      <div class="modal fade" id="modaldosenindustri" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
+      <div class="modal fade" id="modalkepuasandelete-{{ $data->id }}" tabindex="-1" aria-labelledby="modaldosenindustri" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenindustri">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modaldosenindustri">Delete Data Kepuasan </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.luarancapaianmodal.kepuasanedit')
         </div>
         </div>
         </div>
-
+        @endforeach
     
 </div>

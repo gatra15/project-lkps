@@ -10,6 +10,7 @@ class LuaranController extends Controller
 {
     public function index()
     {
+
         $prestasi = (new PrestasiMahasiswaController)->index();
         // capaian
         $capaianPembelajaran = (new CapaianPembelajaranController)->index();

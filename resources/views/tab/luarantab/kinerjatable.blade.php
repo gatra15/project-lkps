@@ -6,6 +6,7 @@
     <th class="align-middle" scope="col" rowspan="2">Jumlah Lulusan</th>
     <th class="align-middle" scope="col" rowspan="2">Jumlah Lulusan yang Terlacak</th>
     <th scope="col" colspan="3">Jumlah Lulusan Terlacak yang Bekerja berdasarkan Tingkat/Ukuran Tempat Kerja/Berwirausaha</th>
+    <th class="align-middle" scope="col" rowspan="2">Opsi</th>
     </tr>
     <tr>
     <th scope="col">Lokal/
@@ -22,27 +23,28 @@
     </thead>
     
     <tbody class="text-dark">
-        {{-- foreach ($kinerjaLulusan['data'] as $data) --}}
-    <tr>
-    <td>Eko</td>
-    <td>Eko</td>
-    <td>Eko</td>
-    <td>Eko</td>
-    <td>Eko</td>
-    </tr>
-    {{-- @foreach ($mahasiswa_asing as $mhs)
-    <tr>
-        @for ($i = 0; $i < $count; $i++)
-        <td>{{ $i }}</td>
-        @endfor
-       <td>{{ $mhs->daya_tampung }}</td> 
-       <td>{{ $mhs->c_pendaftar }}</td> 
-       <td>{{ $mhs->c_lulus_seleksi }}</td> 
-       <td>{{ $mhs->mahasiswa_reguler }}</td> 
-       <td>{{ $mhs->mahasiswa_transfer }}</td> 
-       <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
-       <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
-    </tr>
-    @endforeach --}}
+        @foreach ($kinerjaLulusan['data'] as $data)
+        <tr>
+            <td>{{ $data->tahun->name }}</td>
+            <td>{{ $data->jumlah_lulusan }}</td>
+            <td>{{ $data->jumlah_lulusan_terlacak }}</td>
+            <td>{{ $data->tempat_wilayah_tidak_berizin}}</td>
+            <td>{{ $data->tempat_nasional_berizin}}</td>
+            <td>{{ $data->internasional}}</td>
+            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalkinerjaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                <li>
+                    <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/{{ $data->id }}" data-toggle="modal" data-target="#modalkinerjadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+            </ul></td>
+        </tr>
+        @endforeach
+        <tr>
+            <td class="align-middle text-center" colspan="1"><b>Jumlah</b></td>
+            <td>Jumlah Lulusan</td>
+            <td>Jumlah Lulusan Terlacak</td>
+            <td>Jumlah Lokal</td>
+            <td>Jumlah Nasional</td>
+            <td>Jumlah Internasional</td>
+        </tr>
     </table> 
     </div>
