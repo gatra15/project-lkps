@@ -30,12 +30,16 @@
         <tbody class="text-dark">
             {{-- TABLE CONTENT --}}
             @foreach($luaran['data'] as $data)
+
             @if( $data->type_luaran == 'I')
+
             <tr>
+                
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $data->judul }}</td>
+                <td>{{ $data->judul }} </td>
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
+                
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
@@ -81,6 +85,7 @@
                 {{-- TABLE CONTENT --}}
                 {{-- TABLE CONTENT --}}
             @foreach($luaran['data'] as $data)
+            {{ $data }}
             @if( $data->type_luaran == 'II')
             <tr>
                 <td>{{ $loop->iteration }}</td>

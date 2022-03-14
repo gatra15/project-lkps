@@ -77,7 +77,7 @@
 
         @include('tab.luarantab.luarantable')
 
-        @foreach ($luaran['data'] as $data)
+    @foreach ($luaran['data'] as $data)
       <!-- Modal Tambah Edit Luaran -->
 
       <div class="modal fade" id="modalluaranedit-{{ $data->id }}" tabindex="-1" aria-labelledby="modalluaranedit" aria-hidden="true">
@@ -100,7 +100,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluarandelete">Hapus Data Pkm Mahasiswa </h5>
+            <h5 class="modal-title" id="modalluarandelete">Hapus Data Luaran Pkm Mahasiswa </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -110,7 +110,12 @@
         </div>
         </div>
 
-        @endforeach
+      
+
+    @endforeach
 
     
 </div>
+<script>
+    $('#myModal').modal('show');
+</script>

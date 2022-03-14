@@ -7,7 +7,6 @@
             <div class="row">
                
                 {{-- MASUK KE TABEL SDM DOSENS --}}
-                Ini Luaran Edit
                 <div class="input-group input-group-sm mb-3">
                     <input type="hidden" name="type_luaran" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="{{ $data->type_luaran }}" required>
                 </div>
