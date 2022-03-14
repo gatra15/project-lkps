@@ -1,4 +1,4 @@
-<form action="/luaran-capaian-tridharma/daya-saing/{{ $data->id }}" method="post">
+<form action="/luaran-capaian-tridharma/luran-mahasiswa/{{ $data->id }}" method="get">
     <div class="modal-body">
         @csrf
         <h5 class="text-center">Yakin Ingin Menghapus Data ? </h5>

@@ -37,9 +37,9 @@
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/luaran-dtps/{{ $data->id }}" data-toggle="modal" data-target="#modaldosenluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/luaran-mahasiswa/{{ $data->id }}" data-toggle="modal" data-target="#modalluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
             </tr>
             @endif
@@ -88,9 +88,9 @@
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/luaran-dtps/{{ $data->id }}" data-toggle="modal" data-target="#modaldosenluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/luaran-mahasiswa/{{ $data->id }}" data-toggle="modal" data-target="#modalluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
             </tr>
             @endif
@@ -132,9 +132,9 @@
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/luaran-dtps/{{ $data->id }}" data-toggle="modal" data-target="#modaldosenluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/luaran-mahasiswa/{{ $data->id }}" data-toggle="modal" data-target="#modalluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
             </tr>
             @endif
@@ -172,9 +172,9 @@
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/luaran-dtps/{{ $data->id }}" data-toggle="modal" data-target="#modaldosenluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/luaran-mahasiswa/{{ $data->id }}" data-toggle="modal" data-target="#modalluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
             </tr>
             @endif
