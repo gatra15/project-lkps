@@ -17,7 +17,7 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
      */
     public function index()
     {
-        $data = SdmKinerjaDosenLuaranPkmDtps::all();
+        $data = SdmKinerjaDosenLuaranPkmDtps::with('jenis')->get();
         return ['data' => $data];
     }
 
@@ -99,7 +99,7 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
             'keterangan' => 'required',
         ]);
 
-        $luaran = new SdmKinerjaDosenLuaranPkmDtps;
+        $luaran = SdmKinerjaDosenLuaranPkmDtps::find($id);
         $luaran->type_luaran = $req->input('type_luaran');
         $luaran->judul = $req->input('judul');
         $luaran->tahun = $req->input('tahun');

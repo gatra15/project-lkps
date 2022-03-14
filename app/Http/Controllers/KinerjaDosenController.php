@@ -42,7 +42,7 @@ class KinerjaDosenController extends Controller
         // karya ilmiah
         $karyailmiah = (new SdmKinerjaDosenKaryaIlmiahDtpsController)->index();
 
-
+        // ddd($luaran);
         return view('tab.kinerjadosentab.kinerjaDosen', [
             'title' => 'Kinerja Dosen',
             'pengakuans' => $pengakuan,
