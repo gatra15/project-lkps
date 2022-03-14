@@ -24,7 +24,7 @@
             </p>
         </div> 
     </div>
-
+    
     <!-- Modal Tambah Data Karya Ilmiah DTPS -->
     <div class="modal fade" id="modalkaryailmiah" tabindex="-1" aria-labelledby="modalkaryailmiah" aria-hidden="true">
         <div class="modal-dialog modal-lg">
