@@ -16,7 +16,6 @@ class CreateJenisPenggunaansTable extends Migration
         Schema::create('jenis_penggunaans', function (Blueprint $table) {
             $table->id();
             $table->string('text');
-            $table->foreignId('biaya_id')->nullable(true);
             $table->timestamps();
         });
     }

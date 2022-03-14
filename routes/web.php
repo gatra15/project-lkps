@@ -169,9 +169,8 @@ Route::group(['middleware' => 'auth:web'], function() {
 
         // Route to Keuangan dan Sarpras
         Route::get('/keuangan-sarana-prasarana', [KeuanganSaranaPrasaranaController::class, 'index']);
-        Route::post('/keuangan-sarana-prasarana', [KeuanganSaranaPrasaranaController::class, 'store']);
         Route::put('/keuangan-sarana-prasarana/{id}', [KeuanganSaranaPrasaranaController::class, 'update']);
-        Route::get('/keuangan-sarana-prasarana/{id}', [KeuanganSaranaPrasaranaController::class, 'destroy']);
+        Route::post('/keuangan-sarana-prasarana/{id}', [KeuanganSaranaPrasaranaController::class, 'destroy']);
         // End Keuangan Sarpras
 
         // Route to Pendidikan
@@ -254,6 +253,9 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('mahasiswa/download/excel', [TabMahasiswaController::class, 'exportToExcel']);
         Route::get('mahasiswa/download/excel', [TabMahasiswaController::class, 'exportToCSV']);
         Route::get('mahasiswa/download/pdf', [TabMahasiswaController::class, 'generate']);
+        Route::get('mahasiswa/asing/download/excel', [MahasiswaAsingController::class, 'exportToExcel']);
+        Route::get('mahasiswa/asing/download/excel', [MahasiswaAsingController::class, 'exportToCSV']);
+        Route::get('mahasiswa/asing/download/pdf', [MahasiswaAsingController::class, 'generate']);
         // End Route
 
         // Route to Profil Dosen

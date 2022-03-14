@@ -19,18 +19,7 @@ class MahasiswaExport implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        $array = [
-            'tahun.*',
-            'daya_tampung',
-            'c_pendaftar',
-            'c_lulus_seleksi',
-            'mahasiswa_reguler',
-            'mahasiswa_transfer',
-            'mahasiswa_aktif_reguler',
-           'mahasiswa_aktif_transfer',
-           'tahun_laporan',
-           'prodi',
-        ];
-        return collect(Mahasiswa::select($array));
+    
+        return (Mahasiswa::with('tahun')->get());
     }
 }

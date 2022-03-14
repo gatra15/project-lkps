@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\MahasiswaAsingExport;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\MahasiswaAsing;
-use Database\Seeders\MahasiswaSeeder;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
+use Database\Seeders\MahasiswaSeeder;
 
 class MahasiswaAsingController extends Controller
 {
@@ -199,5 +201,14 @@ class MahasiswaAsingController extends Controller
         DB::connection($connection)->rollBack();
         return response(['message' => $ex->getMessage()],500);
     }
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new MahasiswaAsingExport, 'mahasiswa-asing.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new MahasiswaAsingExport, 'mahasiswa-asing.csv');
     }
 }

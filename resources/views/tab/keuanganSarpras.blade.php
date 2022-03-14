@@ -13,6 +13,17 @@
 <div class="content">
     <div class="container-fluid">
             <div class="card">
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
+
+                @if ($message = Session::get('error'))
+                <div class="alert alert-danger">
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
 
 {{-- CARD HEAD & TAB LINK --}}
     <div class="card-header">
@@ -69,6 +80,39 @@
 </div>
 
 {{-- AKHIR CONTENT --}}
+
+@foreach ($keuangan as $data)
+     
+        <!-- Modal Edit -->
+        <div class="modal fade" id="modalsaranaedit-{{ $data->id }}" tabindex="-1" aria-labelledby="modalsaranaedit" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalsaranaedit">Edit Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.keuangansaprasmodal.kesaprasedit')
+            </div>
+            </div>
+        </div>
+        <!-- Modal De;ete -->
+        <div class="modal fade" id="modalmahasiswadelete-{{ $data->id }}" tabindex="-1" aria-labelledby="modalmahasiswadelete" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalmahasiswadelete">Hapus Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.keuangansaprasmodal.kesaprasdelete')
+            </div>
+            </div>
+        </div>
+        
+@endforeach
     </div>
     </div>
     </div>
