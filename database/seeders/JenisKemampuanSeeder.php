@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\JenisKemampuan;
+use App\Models\KepuasanPengguna;
 use Illuminate\Database\Seeder;
 
 class JenisKemampuanSeeder extends Seeder
@@ -35,5 +36,44 @@ class JenisKemampuanSeeder extends Seeder
         JenisKemampuan::create([
             'text' => 'Pengembangan diri',
         ]);
+
+        // kepuasan
+        KepuasanPengguna::create([
+            'kemampuan_id' => 1, 
+            'tahun_laporan' => 2022,
+            'prodi' => 'Teknik',
+        ]);
+        KepuasanPengguna::create([
+            'kemampuan_id' => 2, 
+            'tahun_laporan' => 2022,
+            'prodi' => 'Teknik',
+        ]);
+        KepuasanPengguna::create([
+            'kemampuan_id' => 3, 
+            'tahun_laporan' => 2022,
+            'prodi' => 'Teknik',
+        ]);
+        KepuasanPengguna::create([
+            'kemampuan_id' => 4, 
+            'tahun_laporan' => 2022,
+            'prodi' => 'Teknik',
+        ]);
+        KepuasanPengguna::create([
+            'kemampuan_id' => 5, 
+            'tahun_laporan' => 2022,
+            'prodi' => 'Teknik',
+        ]);
+        KepuasanPengguna::create([
+            'kemampuan_id' => 6, 
+            'tahun_laporan' => 2022,
+            'prodi' => 'Teknik',
+        ]);
+        KepuasanPengguna::create([
+            'kemampuan_id' => 7, 
+            'tahun_laporan' => 2022,
+            'prodi' => 'Teknik',
+        ]);
     }
+
+
 }

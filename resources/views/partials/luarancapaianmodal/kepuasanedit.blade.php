@@ -14,7 +14,7 @@
           <td>{{ $data->kurang }}</td>
           <td>{{ $data->rencana_tindak_lanjut }}</td> --}}
 
-          <label>@php echo $data->kemampuan->text @endphp</label>
+          <label class="text-center mb-2">@php echo $data->kemampuan->text @endphp</label>
               <input type="hidden" name="kemampuan_id" class="form-control" value="{{ $data->kemampuan->text }}"  required>
 
               <label for="pengkuan"> Tingkat Kepuasan Pengguna (%) :</label>

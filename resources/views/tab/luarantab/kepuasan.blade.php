@@ -30,7 +30,7 @@
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            @include('partials.luarancapaianmodal.kepuasandelete')
+            @include('partials.luarancapaianmodal.kepuasanedit')
         </div>
         </div>
         </div>
@@ -46,7 +46,7 @@
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            @include('partials.luarancapaianmodal.kepuasanedit')
+            @include('partials.luarancapaianmodal.kepuasandelete')
         </div>
         </div>
         </div>
