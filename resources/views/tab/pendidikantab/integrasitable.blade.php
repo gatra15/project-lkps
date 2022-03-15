@@ -1,4 +1,4 @@
-<div>
+<div id="print-table">
     <table class="table table-bordered table-condensed">
     <thead>
     

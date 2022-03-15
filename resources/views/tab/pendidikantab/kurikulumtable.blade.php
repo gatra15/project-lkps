@@ -14,7 +14,7 @@ th span {
 
 
 </style>
-<div>
+<div id="print-table3">
     <table class="table table-bordered table-condensed">
     <thead>
     
