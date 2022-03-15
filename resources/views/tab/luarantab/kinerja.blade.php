@@ -4,6 +4,10 @@
             Deskripsi
         </a>
     </p>
+    <input type="button" class="btn btn-primary" onclick="printDiv('print-table7')" value="Print Document" />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
+        Cara Download PDF
+    </button>
     <div class="collapse" id="des5">
         <div class="card card-body">
             <p>
@@ -57,3 +61,4 @@
 
 
 </div>
+@include('layouts.table')

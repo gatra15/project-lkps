@@ -1,4 +1,4 @@
-<div id="printElement container-fluid">
+<div id="print-table5">
     <table id='form-print' class="table text-center table-bordered table-condensed">
     <thead>
     <tr>
@@ -44,7 +44,7 @@
             <td>Jumlah B</td>
             <td>Jumlah C</td>
             <td>Jumlah K</td>
-            <td colspan="2"></td>
+            <td colspan="2" style="background-color: grey"></td>
         </tr>
     </table> 
     </div>

@@ -38,6 +38,7 @@
                       </div>
                     <div class="form-row justify-content-center">
                         <div class="form-group col-md-4 align-middle">
+                            
                           <label for="#">Kuliah/ Responsi/ Tutorial : <br> <br> </label>
                           <input type="number" class="form-control form-control-sm mb-3" name="bobot_kuliah" id="#" required>
                         </div>

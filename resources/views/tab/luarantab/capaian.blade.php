@@ -4,6 +4,10 @@
             Deskripsi
         </a>
     </p>
+    <input type="button" class="btn btn-primary" onclick="printDiv('print-table2')" value="Print Document" />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
+        Cara Download PDF
+    </button>
     <div class="collapse" id="des1">
         <div class="card card-body">
             <p>
@@ -14,30 +18,17 @@
         </div> 
     </div>
 
-    <!-- Modal Tambah Data Capaian -->
-    <div class="modal fade" id="modalcapaian" tabindex="-1" aria-labelledby="modalcapaian" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="modalcapaian">Tambah Data </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            @include('partials.luarancapaianmodal.capaian')
-        </div>
-        </div>
-        </div>
+
             {{-- TABLE --}}
             @include('tab.luarantab.capaiantable')  
 
         @foreach($capaianPembelajaran['capaian'] as $capaian)
       <!-- Modal Tambah Edit Capaian -->
       <div class="modal fade" id="modalcapaianedit-{{ $capaian->id }}" tabindex="-1" aria-labelledby="modalcapaianedit" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalcapaianedit">Edit Data </h5>
+            <h5 class="modal-title" id="modalcapaianedit">Edit Data {{ $capaian->tahun->name }} </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -52,7 +43,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalcapaiandelete">Hapus Data </h5>
+            <h5 class="modal-title" id="modalcapaiandelete">Hapus Data {{ $capaian->tahun->name }} </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -64,3 +55,4 @@
         @endforeach
 
 </div>
+@include('layouts.table')

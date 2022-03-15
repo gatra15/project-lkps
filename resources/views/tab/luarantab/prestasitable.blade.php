@@ -1,4 +1,4 @@
-<div id="printElement container-fluid">
+<div id="print-table8">
     <table id='form-print' class="table text-center table-bordered table-condensed">
     <thead>
     <tr>
@@ -38,8 +38,10 @@
                 </tr>
             @endforeach
     </tr>
-    {{-- <td>{{ $prestasi['wilayah'] }}</td>
+    <td colspan="4" class="text-center"><b>Jumlah</b></td>
+    <td>{{ $prestasi['wilayah'] }}</td>
     <td>{{ $prestasi['nasional'] }}</td>
-    <td>{{ $prestasi['internasional'] }}</td> --}}
+    <td>{{ $prestasi['internasional'] }}</td>
+    <td colspan="2" style="background-color: grey"></td>
     </table> 
     </div>

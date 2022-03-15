@@ -3,8 +3,11 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#des6" role="button" aria-expanded="false" aria-controls="des6">
             Deskripsi
         </a>
-
     </p>
+    <input type="button" class="btn btn-primary" onclick="printDiv('print-table5')" value="Print Document" />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
+        Cara Download PDF
+    </button>
     <div class="collapse" id="des6">
         <div class="card card-body">
             <p>
@@ -53,3 +56,4 @@
         @endforeach
     
 </div>
+@include('layouts.table')
