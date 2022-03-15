@@ -29,14 +29,31 @@
                 <td>{{ $efektifitas->tahun->name }}</td>
                 <td>{{ $efektifitas->jumlah_mahasiswa }}</td>
                 <td style="background-color: grey"></td>
-                <td></td>
-                <td></td>
+                <td style="background-color: grey"></td>
+                <td style="background-color: grey"></td>
+
+                @if ($efektifitas->id == 1)
                 <td>{{ $efektifitas->ts3 }}</td>
+                @else
+                <td style="background-color: grey"></td>
+                @endif
+
+                @if ($efektifitas->id == 1 || $efektifitas->id == 2 )
                 <td>{{ $efektifitas->ts2 }}</td>
+                @else
+                <td style="background-color: grey"></td>
+                @endif
+
+                @if ($efektifitas->id == 4 )
+                <td style="background-color: grey"></td>
+                @else
                 <td>{{ $efektifitas->ts1 }}</td>
+                @endif
+
                 <td>{{ $efektifitas->ts }}</td>
                 <td>{{ $efektifitas->jumlah }}</td>
                 <td>{{ $efektifitas->average }}</td>
+
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalefekedit-{{ $efektifitas->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
