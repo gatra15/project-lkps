@@ -6,7 +6,7 @@
 
 <div class="content-header">
     <div class="container-fluid">
-            <h1>MAHASISWA</h1>
+            <h1>TAB MAHASISWA</h1>
     </div>
 </div>
 

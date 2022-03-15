@@ -3,9 +3,6 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#des3" role="button" aria-expanded="false" aria-controls="des3">
             Deskripsi
         </a>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalefek">
-            Tambah data
-        </button>
     </p>
     <div class="collapse" id="des3">
         <div class="card card-body">
@@ -18,20 +15,6 @@
         </div> 
     </div>
 
-     <!-- Modal Tambah Data Efektivitas -->
-     <div class="modal fade" id="modalefek" tabindex="-1" aria-labelledby="modalefek" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="modalefek">Tambah Data Efektivitas </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            @include('partials.luarancapaianmodal.efektivitas')
-        </div>
-        </div>
-        </div>
 
         {{-- PRESTASI AWAL --}}
         @include('tab.luarantab.efektivitastable')
@@ -43,7 +26,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalefekedit">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalefekedit">Edit Data {{ $efektifitas->tahun->name }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -58,12 +41,12 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalefekdelete">Tambah Data Dosen Industri </h5>
+            <h5 class="modal-title" id="modalefekdelete">Hapus Data {{ $efektifitas->tahun->name }} </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{-- @include('partials.profildosenmodal.dosenindustri') --}}
+            @include('partials.luarancapaianmodal.efektivitasdelete')
         </div>
         </div>
         </div>

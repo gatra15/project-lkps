@@ -31,7 +31,7 @@
           <div class="modal-dialog">
           <div class="modal-content">
               <div class="modal-header">
-              <h5 class="modal-title" id="modaldosenewmp">Tambah Data EWMP Dosen</h5>
+              <h5 class="modal-title" id="modaldosenewmp">Tambah Data </h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
               </button>
@@ -51,7 +51,7 @@
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenewmpedit">Edit Data EWMP Dosen</h5>
+            <h5 class="modal-title" id="modaldosenewmpedit">Edit Data {{ $ewmp->nama }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -66,7 +66,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenewmpdelete">Yakin?</h5>
+            <h5 class="modal-title" id="modaldosenewmpdelete">Hapus Data {{ $ewmp->nama }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

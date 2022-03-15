@@ -22,7 +22,7 @@
         <table class="table table-bordered text-center align-middle table-condensed">
             <thead>
                 <tr>
-                    <th style="width: 1%">No</th>
+                    <th style="width: 2%" class="text-center">No</th>
                     <th style="width: 20%">Perguruan Tinggi</th>
                     <th style="width: 30%">Unit Pengelola Prodi</th>
                     <th style="width: 20%">Jenis Prodi</th>

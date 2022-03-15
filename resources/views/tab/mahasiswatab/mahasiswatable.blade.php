@@ -30,8 +30,18 @@
            <td>{{ $mhs->c_lulus_seleksi }}</td> 
            <td>{{ $mhs->mahasiswa_reguler }}</td> 
            <td>{{ $mhs->mahasiswa_transfer }}</td> 
-           <td>{{ $mhs->mahasiswa_aktif_reguler }}</td> 
+           @if ($mhs->id == 5)
+           <td class="text-left"> <b>N <sub>RTS =</sub></b>  {{ $mhs->mahasiswa_aktif_reguler }} </td> 
+           @else
+           <td>{{ $mhs->mahasiswa_aktif_reguler }}</td>
+           @endif
+
+           @if ($mhs->id == 5)
+           <td class="text-left"> <b>N <sub>TTS =</sub></b>  {{ $mhs->mahasiswa_aktif_transfer }} </td> 
+           @else
            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+           @endif
+
             <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                 <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalmahasiswaedit-{{ $mhs->id }}"><i class="fas fa-edit"></i></a></li>
                 <li>
