@@ -12,7 +12,9 @@
                 <th class="align-middle" scope="col" rowspan="2" >Sertifikat Kompetensi /Profesi/ Industri <sup>5)</sup></th>  
                 <th class="align-middle" scope="col" rowspan="2" >Mata Kuliah yang Diampu pada PS yang Diakreditasi <sup>6)</sup></th>  
                 <th class="align-middle" scope="col" rowspan="2" >Kesesuaian Bidang Keahlian dengan Mata Kuliah yang Diampu <sup>7)</sup></th>
+                @hasrole('perwakilan')
                 <th class="align-middle" scope="col" rowspan="2" >Opsi</th>  
+                @endhasrole
             </tr>
         </thead>
 
@@ -31,11 +33,13 @@
                 <td>{{ $sdm->sertifikat_profesi }}</td>
                 <td>{{ $sdm->mata_kuliah_diampu_ps_akreditasi }}</td>
                 <td>{{ $sdm->kesesuaian_mata_kuliah_diampu == '1' ? 'V' : '' }}</td>
+                @hasrole('perwakilan')
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosentidaktetapedit-{{ $sdm->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
                         <a type="button" class="btn btn-danger" href="/profil-dosen/{{ $sdm->id }}" data-toggle="modal" data-target="#modaldosentidaktetapdelete-{{ $sdm->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
+                @endhasrole
             </tr>
           
           
