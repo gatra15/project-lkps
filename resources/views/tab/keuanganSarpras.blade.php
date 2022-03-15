@@ -45,26 +45,10 @@
                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Deskripsi
                     </a>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalsapras">
-                        Tambah data
-                    </button>
                 </p>
                 <a href="/keuangan-sarana-prasarana/download/excel" class="btn btn-success">Excel</a>
                 <a href="/keuangan-sarana-prasarana/download/csv" class="btn btn-success">CSV</a>
-                <!-- Modal Tambah Data Sarana dan Prasarana-->
-                <div class="modal fade" id="modalsapras" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Keuangan Sarana dan Prasarana </h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        @include('partials.keuangansaprasmodal.kesapras')
-                    </div>
-                    </div>
-                </div>
+                
             
                 <div class="collapse" id="collapseExample">
                 <div class="card card-body">
@@ -74,10 +58,11 @@
                 </div>
                 </div>
 {{-- CONTENT --}}
+
 {{-- AWAL TABLE --}}
 @include('tab.kesaprastab.kesaprastable')
 {{-- AKHIR TABLE --}}
-</div>
+
 
 {{-- AKHIR CONTENT --}}
 
@@ -85,7 +70,7 @@
      
         <!-- Modal Edit -->
         <div class="modal fade" id="modalsaranaedit-{{ $data->id }}" tabindex="-1" aria-labelledby="modalsaranaedit" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                 <h5 class="modal-title" id="modalsaranaedit">Edit Data</h5>
@@ -98,7 +83,7 @@
             </div>
         </div>
         <!-- Modal De;ete -->
-        <div class="modal fade" id="modalmahasiswadelete-{{ $data->id }}" tabindex="-1" aria-labelledby="modalmahasiswadelete" aria-hidden="true">
+        <div class="modal fade" id="modalsaranadelete-{{ $data->id }}" tabindex="-1" aria-labelledby="modalmahasiswadelete" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
