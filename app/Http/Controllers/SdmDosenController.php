@@ -15,7 +15,7 @@ class SdmDosenController extends Controller
     public function index()
     {
         $dosen = SdmDosen::all();
-        $ndt = SdmDosen::where('kesesuaian_ps', 0 | 1)->count();
+        $ndt = SdmDosen::where('kesesuaian_ps', 0)->orWhere('kesesuaian_ps', 1)->count();
         $ndts = SdmDosen::where('kesesuaian_ps', 1)->count();
 
         return [

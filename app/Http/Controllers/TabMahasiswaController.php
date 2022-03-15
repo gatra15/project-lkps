@@ -15,6 +15,7 @@ class TabMahasiswaController extends Controller
 {
     public function index()
     {
+        
         $mahasiswa = (new MahasiswaController)->index();
         $mahasiswa_asing = (new MahasiswaAsingController)->index();
         $count = Mahasiswa::count();
@@ -30,7 +31,7 @@ class TabMahasiswaController extends Controller
 
     public function store(Request $req)
     {
-        
+        $tahun = session('tahun_laporan');
         $this->validate($req, [
             'tahun_id' => 'required',
         ]);
@@ -44,8 +45,8 @@ class TabMahasiswaController extends Controller
         $mahasiswa->mahasiswa_transfer = $req->input('mahasiswa_transfer');
         $mahasiswa->mahasiswa_aktif_reguler = $req->input('mahasiswa_aktif_reguler');
         $mahasiswa->mahasiswa_aktif_transfer = $req->input('mahasiswa_aktif_transfer');
-        $mahasiswa->tahun_laporan = '2022';
-        $mahasiswa->prodi = auth()->user()->prodi;
+        $mahasiswa->tahun_laporan = $tahun;
+        $mahasiswa->prodi = auth()->user()->prodi->name;
         $mahasiswa->created_by = auth()->user()->name;
         $mahasiswa->created_at = Carbon::now();
         $mahasiswa->save();
@@ -55,6 +56,7 @@ class TabMahasiswaController extends Controller
 
     public function update(Request $req, $id)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'tahun_id' => 'integer|required',
@@ -76,8 +78,8 @@ class TabMahasiswaController extends Controller
         $mahasiswa->mahasiswa_transfer = (int) $req->input('mahasiswa_transfer');
         $mahasiswa->mahasiswa_aktif_reguler = (int) $req->input('mahasiswa_aktif_reguler');
         $mahasiswa->mahasiswa_aktif_transfer = (int) $req->input('mahasiswa_aktif_transfer');
-        $mahasiswa->tahun_laporan = 2022;
-        $mahasiswa->prodi = auth()->user()->prodi;
+        $mahasiswa->tahun_laporan = $tahun;
+        $mahasiswa->prodi = auth()->user()->prodi->name;
         $mahasiswa->created_by = auth()->user()->name;
         $mahasiswa->created_at = Carbon::now();
         // ddd($mahasiswa);
@@ -96,7 +98,7 @@ class TabMahasiswaController extends Controller
 
     public function destroy(Request $req, $id)
     {
-    
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
     try{
         $mahasiswa = Mahasiswa::find($id);
@@ -108,8 +110,8 @@ class TabMahasiswaController extends Controller
         $mahasiswa->mahasiswa_transfer = null;
         $mahasiswa->mahasiswa_aktif_reguler = null;
         $mahasiswa->mahasiswa_aktif_transfer = null;
-        $mahasiswa->tahun_laporan = 2022;
-        $mahasiswa->prodi = auth()->user()->prodi;
+        $mahasiswa->tahun_laporan = $tahun;
+        $mahasiswa->prodi = auth()->user()->prodi->name;
         $mahasiswa->updated_by = auth()->user()->name;
         $mahasiswa->updated_at = Carbon::now();
         $mahasiswa->update();

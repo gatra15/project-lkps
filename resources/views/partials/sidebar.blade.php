@@ -69,7 +69,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/identitas-pengusul" class="nav-link {{ ($title === "Identitas Pengusul") ? 'active' : '' }}">
+                <a href="{{ session()->has('tahun_laporan') ? '/identitas-pengusul' : '/' }}" class="nav-link {{ ($title === "Identitas Pengusul") ? 'active' : '' }}">
                     <i class="nav-icon fas fa-user-edit"></i>
                   <p>
                     Identitas Pengusul

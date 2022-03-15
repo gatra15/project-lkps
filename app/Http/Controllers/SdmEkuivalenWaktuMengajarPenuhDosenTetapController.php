@@ -29,7 +29,6 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
         $dtps = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where('dtps', 1)->count();
         $average_dtps_jumlah = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where('dtps', 1)->avg('sks');
         $average_dtps_average = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where('dtps', 1)->avg('average_per_sks');
-
         return [
             'dosen' => $dosen,
             'dt' => $dt,
@@ -59,6 +58,7 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
      */
     public function store(Request $req)
     {
+        $tahun = session('tahun_laporan');
         $connection  = 'mysql';
         $this->validate($req, [
             'nama' => 'required',
@@ -84,8 +84,8 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
         $dosen->sks = (int) ($dosen->ps_akreditasi + $dosen->ps_lain_dalam_pt + $dosen->ps_lain_luar_pt + $dosen->penelitian + $dosen->pkm + $dosen->penunjang);
         $dosen->average_per_sks = (float) $dosen->sks / 6;
         $dosen->slug = 'dosen-ewmp';
-        $dosen->tahun_laporan = 2022;
-        $dosen->prodi = auth()->user()->prodi;
+        $dosen->tahun_laporan = $tahun;
+        $dosen->prodi = auth()->user()->prodi->name;
         $dosen->created_by = auth()->user()->name;
         $dosen->created_at = Carbon::now();
         // ddd($dosen);
@@ -133,6 +133,7 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'nama' => 'required',
@@ -158,8 +159,8 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
         $dosen->sks = (int) ($dosen->ps_akreditasi + $dosen->ps_lain_dalam_pt + $dosen->ps_lain_luar_pt + $dosen->penelitian + $dosen->pkm + $dosen->penunjang);
         $dosen->average_per_sks = (float) $dosen->sks / 6;
         $dosen->slug = 'dosen-ewmp';
-        $dosen->tahun_laporan = 2022;
-        $dosen->prodi = auth()->user()->prodi;
+        $dosen->tahun_laporan = $tahun;
+        $dosen->prodi = auth()->user()->prodi->name;
         $dosen->updated_by = auth()->user()->name;
         $dosen->updated_at = Carbon::now();
         $dosen->update();

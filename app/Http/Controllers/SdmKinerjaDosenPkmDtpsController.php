@@ -19,10 +19,11 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
      */
     public function index()
     {
-        $pkm = SdmKinerjaDosenPkmDtps::with('sumber_detail')->get();
-        $jumlah_ts2 = SdmKinerjaDosenPkmDtps::sum('jumlah_ts2');
-        $jumlah_ts1 = SdmKinerjaDosenPkmDtps::sum('jumlah_ts1');
-        $jumlah_ts = SdmKinerjaDosenPkmDtps::sum('jumlah_ts');
+        $tahun = session('tahun_laporan');
+        $pkm = SdmKinerjaDosenPkmDtps::with('sumber_detail')->where('tahun_laporan', $tahun)->get();
+        $jumlah_ts2 = SdmKinerjaDosenPkmDtps::where('tahun_laporan', $tahun-2)->sum('jumlah_ts2');
+        $jumlah_ts1 = SdmKinerjaDosenPkmDtps::where('tahun_laporan', $tahun-1)->sum('jumlah_ts1');
+        $jumlah_ts = SdmKinerjaDosenPkmDtps::sum('jumlah_ts')->where('tahun_laporan', $tahun);
         $jumlah = SdmKinerjaDosenPkmDtps::sum('jumlah');
         return [
             'pkm' => $pkm,
@@ -66,7 +67,7 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
         // $pkm->jumlah_ts = $req->input('jumlah_ts');
         // $pkm->sumber_id = Sumberdaya::all()->id;
         // $pkm->tahun_laporan = '2022';
-        // $pkm->prodi = auth()->user()->prodi;
+        // $pkm->prodi = auth()->user()->prodi->name;
         // $pkm->created_by = auth()->user()->name;
         // $pkm->created_at = Carbon::now();
         // dd($pkm);
@@ -104,6 +105,7 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'sumber_id' => 'required',
@@ -119,8 +121,8 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
         $pkm->jumlah_ts1 = (int) $req->input('jumlah_ts1');
         $pkm->jumlah_ts = (int) $req->input('jumlah_ts');
         $pkm->jumlah = $req->jumlah_ts + $req->jumlah_ts1 + $req->jumlah_ts2;
-        $pkm->tahun_laporan = 2022;
-        $pkm->prodi = auth()->user()->prodi;
+        $pkm->tahun_laporan = $tahun;
+        $pkm->prodi = auth()->user()->prodi->name;
         $pkm->created_by = auth()->user()->name;
         $pkm->created_at = Carbon::now();
         $pkm->update();
@@ -143,14 +145,15 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
      */
     public function destroy(Request $req,$id)
     {
+        $tahun = session('tahun_laporan');
         $pkm = SdmKinerjaDosenPkmDtps::find($id);
         $pkm->sumber_id = $req->input('sumber_id');
         $pkm->jumlah_ts2 = null;
         $pkm->jumlah_ts1 = null;
         $pkm->jumlah_ts = null;
         $pkm->jumlah = null;
-        $pkm->tahun_laporan = 2022;
-        $pkm->prodi = auth()->user()->prodi;
+        $pkm->tahun_laporan = $tahun;
+        $pkm->prodi = auth()->user()->prodi->name;
         $pkm->updated_by = auth()->user()->name;
         $pkm->updated_at = Carbon::now();
         $pkm->update();

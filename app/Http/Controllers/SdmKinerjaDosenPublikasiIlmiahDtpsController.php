@@ -18,6 +18,7 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
      */
     public function index()
     {
+        $tahun = session('tahun_laporan');
         $publikasi = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->get();
         $jumlah_ts2 = SdmKinerjaDosenPublikasiIlmiahDtps::sum('jumlah_ts2');
         $jumlah_ts1 = SdmKinerjaDosenPublikasiIlmiahDtps::sum('jumlah_ts1');
@@ -50,6 +51,7 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
      */
     public function store(Request $req)
     {
+        $tahun = session('tahun_laporan');
         $this->validate($req, [
             'media_publikasi' => 'required',
             'jumlah_ts2' => 'required',
@@ -63,8 +65,8 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
         $pengakuan->jumlah_ts1 = $req->input('jumlah_ts1');
         $pengakuan->jumlah_ts = $req->input('jumlah_ts');
         $pengakuan->jumlah = $req->jumlah_ts + $req->jumlah_ts1 + $req->jumlah_ts2;
-        $pengakuan->tahun_laporan = 2022;
-        $pengakuan->prodi = auth()->user()->prodi;
+        $pengakuan->tahun_laporan = $tahun;
+        $pengakuan->prodi = auth()->user()->prodi->name;
         $pengakuan->created_by = auth()->user()->name;
         $pengakuan->created_at = Carbon::now();
 
@@ -102,6 +104,7 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $tahun = session('tahun_laporan');
         $this->validate($req, [
             'media_id' => 'required',
             'jumlah_ts2' => 'required',
@@ -115,8 +118,8 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
         $data->jumlah_ts1 = $req->input('jumlah_ts1');
         $data->jumlah_ts = $req->input('jumlah_ts');
         $data->jumlah = $req->jumlah_ts + $req->jumlah_ts + $req->jumlah_ts;
-        $data->tahun_laporan = 2022;
-        $data->prodi = auth()->user()->prodi;
+        $data->tahun_laporan = $tahun;
+        $data->prodi = auth()->user()->prodi->name;
         $data->created_by = auth()->user()->name;
         $data->created_at = Carbon::now();
         $data->update();
@@ -131,14 +134,15 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
      */
     public function destroy(Request $req, $id)
     {
+        $tahun = session('tahun_laporan');
         $data = SdmKinerjaDosenPublikasiIlmiahDtps::find($id);
         $data->media_id = $req->input('media_id');
         $data->jumlah_ts2 = null;
         $data->jumlah_ts1 = null;
         $data->jumlah_ts = null;
         $data->jumlah = null;
-        $data->tahun_laporan = 2022;
-        $data->prodi = auth()->user()->prodi;
+        $data->tahun_laporan = $tahun;
+        $data->prodi = auth()->user()->prodi->name;
         $data->updated_by = auth()->user()->name;
         $data->updated_at = Carbon::now();
         $data->update();

@@ -45,7 +45,7 @@ class SdmDosenTidakTetapController extends Controller
      */
     public function store(Request $req)
     {
-        $connection = 'mysql';
+        $tahun = session('tahun_laporan');
         $this->validate($req, [
             'nama' => 'required',
             'no_id' => 'required',
@@ -70,8 +70,8 @@ class SdmDosenTidakTetapController extends Controller
         $dosen->mata_kuliah_diampu_ps_akreditasi = $req->input('mata_kuliah_diampu_ps_akreditasi');
         $dosen->kesesuaian_mata_kuliah_diampu = $req->input('kesesuaian_mata_kuliah_diampu');
         $dosen->slug = 'dosen-tidak-tetap';
-        $dosen->tahun_laporan = '2022';
-        $dosen->prodi = auth()->user()->prodi;
+        $dosen->tahun_laporan = $tahun;
+        $dosen->prodi = auth()->user()->prodi->name;
         $dosen->created_by = auth()->user()->name;
         $dosen->created_at = Carbon::now();
         $dosen->save();
@@ -113,7 +113,7 @@ class SdmDosenTidakTetapController extends Controller
      */
     public function update(Request $req, $id)
     {
-        $connection = 'mysql';
+        $tahun = session('tahun_laporan');
 
         $this->validate($req, [
             'nama' => 'required',
@@ -138,8 +138,8 @@ class SdmDosenTidakTetapController extends Controller
         $dosen->sertifikat_profesi = $req->input('sertifikat_profesi');
         $dosen->mata_kuliah_diampu_ps_akreditasi = $req->input('mata_kuliah_diampu_ps_akreditasi');
         $dosen->kesesuaian_mata_kuliah_diampu = $req->input('kesesuaian_mata_kuliah_diampu');
-        $dosen->tahun_laporan = '2022';
-        $dosen->prodi = auth()->user()->prodi;
+        $dosen->tahun_laporan = $tahun;
+        $dosen->prodi = auth()->user()->prodi->name;
         $dosen->created_by = auth()->user()->name;
         $dosen->created_at = Carbon::now();
         $dosen->save();

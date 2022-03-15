@@ -19,11 +19,12 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
      */
     public function index()
     {
-        $penelitian = SdmKinerjaDosenPenelitianDtps::with('sumber')->get();
-        $jumlah_ts2 = SdmKinerjaDosenPenelitianDtps::sum('jumlah_ts2');
-        $jumlah_ts1 = SdmKinerjaDosenPenelitianDtps::sum('jumlah_ts1');
-        $jumlah_ts = SdmKinerjaDosenPenelitianDtps::sum('jumlah_ts');
-        $jumlah = SdmKinerjaDosenPenelitianDtps::sum('jumlah');
+        $tahun = session('tahun_laporan');
+        $penelitian = SdmKinerjaDosenPenelitianDtps::with('sumber')->where('tahun_laporan', $tahun)->get();
+        $jumlah_ts2 = SdmKinerjaDosenPenelitianDtps::where('tahun_laporan', $tahun)->sum('jumlah_ts2');
+        $jumlah_ts1 = SdmKinerjaDosenPenelitianDtps::where('tahun_laporan', $tahun)->sum('jumlah_ts1');
+        $jumlah_ts = SdmKinerjaDosenPenelitianDtps::where('tahun_laporan', $tahun)->sum('jumlah_ts');
+        $jumlah = SdmKinerjaDosenPenelitianDtps::where('tahun_laporan', $tahun)->sum('jumlah');
         return [
             'penelitian' => $penelitian,
             'jumlah_ts2' => $jumlah_ts2,
@@ -51,6 +52,7 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
      */
     public function store(Request $req)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'sumber_pembiayaan' => 'required',
@@ -67,8 +69,8 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
         $pengakuan->jumlah_ts1 = $req->input('jumlah_ts1');
         $pengakuan->jumlah_ts = $req->input('jumlah_ts');
         $pengakuan->jumlah = $req->input('jumlah');
-        $pengakuan->tahun_laporan = 2022;
-        $pengakuan->prodi = auth()->user()->prodi;
+        $pengakuan->tahun_laporan = $tahun;
+        $pengakuan->prodi = auth()->user()->prodi->name;
         $pengakuan->created_by = auth()->user()->name;
         $pengakuan->created_at = Carbon::now();
         dd($pengakuan);
@@ -114,6 +116,7 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'sumber_id' => 'required',
@@ -130,8 +133,8 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
         $pengakuan->jumlah_ts2 = (int) $req->input('jumlah_ts2');
         $pengakuan->jumlah_ts = (int) $req->input('jumlah_ts');
         $pengakuan->jumlah = $req->jumlah_ts + $req->jumlah_ts1 + $req->jumlah_ts2;
-        $pengakuan->tahun_laporan = '2022';
-        $pengakuan->prodi = auth()->user()->prodi;
+        $pengakuan->tahun_laporan = $tahun;
+        $pengakuan->prodi = auth()->user()->prodi->name;
         $pengakuan->created_by = auth()->user()->name;
         $pengakuan->created_at = Carbon::now();
         $pengakuan->update();
@@ -155,14 +158,15 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
      */
     public function destroy(Request $req,$id)
     {
+        $tahun = session('tahun_laporan');
         $pengakuan = SdmKinerjaDosenPenelitianDtps::find($id);
         $pengakuan->sumber_id = $req->input('sumber_id');
         $pengakuan->jumlah_ts2 = null;
         $pengakuan->jumlah_ts1 = null;
         $pengakuan->jumlah_ts = null;
         $pengakuan->jumlah = null;
-        $pengakuan->tahun_laporan = 2022;
-        $pengakuan->prodi = auth()->user()->prodi;
+        $pengakuan->tahun_laporan = $tahun;
+        $pengakuan->prodi = auth()->user()->prodi->name;
         $pengakuan->updated_by = auth()->user()->name;
         $pengakuan->updated_at = Carbon::now();
         $pengakuan->update();

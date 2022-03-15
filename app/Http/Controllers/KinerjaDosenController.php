@@ -22,15 +22,16 @@ class KinerjaDosenController extends Controller
 {
     public function index()
     {
-        $pengakuan = SdmKinerjaDosenPengakuanDtps::all();
+        $tahun = session('tahun_laporan');
+        $pengakuan = SdmKinerjaDosenPengakuanDtps::where('tahun_laporan', $tahun);
         $luaran = (new SdmKinerjaDosenLuaranPkmDtpsController)->index();
-        $sumberdaya = Sumberdaya::all();
-        $mediapublikasi = MediaPublikasi::all();
+        $sumberdaya = Sumberdaya::where('tahun_laporan', $tahun);
+        $mediapublikasi = MediaPublikasi::where('tahun_laporan', $tahun);
 
         // Agregation
-        $countWilayah = SdmKinerjaDosenPengakuanDtps::where('tingkat', 'Wilayah')->count();
-        $countNasional = SdmKinerjaDosenPengakuanDtps::where('tingkat', 'Nasional')->count();
-        $countInternasional = SdmKinerjaDosenPengakuanDtps::where('tingkat', 'Internasional')->count();
+        $countWilayah = SdmKinerjaDosenPengakuanDtps::where('tingkat', 'Wilayah')->orWhere('tahun_laporan', $tahun)->count();
+        $countNasional = SdmKinerjaDosenPengakuanDtps::where('tingkat', 'Nasional')->orWhere('tahun_laporan', $tahun)->count();
+        $countInternasional = SdmKinerjaDosenPengakuanDtps::where('tingkat', 'Internasional')->orWhere('tahun_laporan', $tahun)->count();
         $sumPengakuan = $countWilayah + $countNasional + $countInternasional;
 
         // penelitian
@@ -89,7 +90,7 @@ class KinerjaDosenController extends Controller
         $pengakuan->tingkat = $req->input('tingkat');
         $pengakuan->tahun = $req->input('tahun');
         $pengakuan->tahun_laporan = '2022';
-        $pengakuan->prodi = auth()->user()->prodi;
+        $pengakuan->prodi = auth()->user()->prodi->name;
         $pengakuan->created_by = auth()->user()->name;
         $pengakuan->created_at = Carbon::now();
         
@@ -129,7 +130,7 @@ class KinerjaDosenController extends Controller
         $pengakuan->tingkat = $req->input('tingkat');
         $pengakuan->tahun = $req->input('tahun');
         $pengakuan->tahun_laporan = '2022';
-        $pengakuan->prodi = auth()->user()->prodi;
+        $pengakuan->prodi = auth()->user()->prodi->name;
         $pengakuan->created_by = auth()->user()->name;
         $pengakuan->updated_at = Carbon::now();
         $pengakuan->update();

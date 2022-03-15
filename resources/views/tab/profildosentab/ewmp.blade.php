@@ -3,16 +3,20 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#des3" role="button" aria-expanded="false" aria-controls="des3">
             Deskripsi
         </a>
+        @hasrole('perwakilan')
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenewmp">
             Tambah data
         </button>
+        @endhasrole
     </p>
+    @can('download file')
     <a href="/profil-dosen/dosen-ewmp/download/excel" class="btn btn-success">Excel</a>
     <a href="/profil-dosen/dosen-ewmp/download/csv" class="btn btn-success">CSV</a>
     <input type="button" class="btn btn-primary" onclick="printDiv('print-table4')" value="Print Document" />
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
         Cara Download PDF
     </button>
+    @endcan
 <div class="collapse" id="des3">
     <div class="card card-body">
         <p>

@@ -6,8 +6,10 @@
             <th class="align-middle" scope="col" rowspan="2">Program Studi</th>
             <th class="align-middle" scope="col" colspan="3">Jumlah Mahasiswa <br> Aktif</th>
             <th class="align-middle" scope="col" colspan="3" >Jumlah Mahasiswa <br> Asing Penuh <br> Waktu(Full-time)</th>
-            <th class="align-middle" scope="col" colspan="3">Jumlah Mahasiswa <br> Asing Paruh <br> Waktu(Part-time)</th>  
+            <th class="align-middle" scope="col" colspan="3">Jumlah Mahasiswa <br> Asing Paruh <br> Waktu(Part-time)</th>
+            @hasrole('perwakilan')  
             <th class="align-middle" scope="col" rowspan="2">Opsi</th>
+            @endhasrole
         </tr>
         <tr>
             <th scope="col">TS-2</th>
@@ -37,11 +39,13 @@
            <td>{{ $mhs->mahasiswa_asing_pt_ts_2 }}</td>
            <td>{{ $mhs->mahasiswa_asing_pt_ts_1 }}</td>
            <td>{{ $mhs->mahasiswa_asing_pt_ts }}</td>
+           @hasrole('perwakilan')
             <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                 <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalmahasiswaasingedit-{{ $mhs->id }}"><i class="fas fa-edit"></i></a></li>
                 <li>
                     <a type="button" class="btn btn-danger" href="/mahasiswa/mahasiswa-asing/{{ $mhs->id }}" data-toggle="modal" data-target="#modalmahasiswaasingdelete-{{ $mhs->id }}"><i class="fas fa-trash btn-del"></i></a></li>
             </ul></td>
+            @endhasrole
         </tr>
     @endforeach
      <tr>

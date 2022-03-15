@@ -3,16 +3,20 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
             Deskripsi
         </a>
+        @hasrole('perwakilan')
         <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalmahasiswaasing">
             Tambah Data
         </a>
+        @endrole
     </p>
+    @can('download file')
     <a href="/mahasiswa/asing/download/excel" class="btn btn-success">Excel</a>
     <a href="/mahasiswa/asing/download/csv" class="btn btn-success">CSV</a>
     <input type="button" class="btn btn-primary" onclick="printDiv('print-table2')" value="Print Document" />
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
         Cara Download PDF
     </button>
+    @endcan
     <div class="collapse" id="collapseExample">
         <div class="card card-body">
             <p>

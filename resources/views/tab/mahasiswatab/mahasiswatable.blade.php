@@ -7,7 +7,9 @@
         <th scope="col" colspan="2">Jumlah Calon Mahasiswa</th>
         <th scope="col" colspan="2">Jumlah Mahasiswa Baru</th>
         <th scope="col" colspan="2">Jumlah Mahasiswa Aktif</th>  
+        @hasrole('perwakilan')
         <th class="align-middle" scope="col" rowspan="2">Action</th>  
+        @endhasrole
     </tr>
     <tr>
         <th scope="col">Pendaftar</th>
@@ -42,11 +44,13 @@
            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
            @endif
 
+            @hasrole('perwakilan')
             <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                 <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalmahasiswaedit-{{ $mhs->id }}"><i class="fas fa-edit"></i></a></li>
                 <li>
                     <a type="button" class="btn btn-danger" href="/mahasiswa/delete/{{ $mhs->id }}" data-toggle="modal" data-target="#modalmahasiswadelete-{{ $mhs->id }}"><i class="fas fa-trash btn-del"></i></a></li>
             </ul></td>
+            @endhasrole
         </tr>
     @endforeach
         

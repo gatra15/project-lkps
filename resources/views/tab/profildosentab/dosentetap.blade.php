@@ -3,16 +3,20 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#des1" role="button" aria-expanded="false" aria-controls="des1">
             Deskripsi
         </a>
+        @hasrole('perwakilan')
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaldosentetap">
             Tambah data
         </button>
+        @endrole
     </p>  
+    @can('perwakilan')
     <a href="{{ url('profil-dosen/download/excel') }}" class="btn btn-success">Excel</a>
     <a href="{{ url('profil-dosen/download/csv') }}" class="btn btn-success">CSV</a>
     <input type="button" class="btn btn-primary" onclick="printDiv('print-table')" value="Print Document" />
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
         Cara Download PDF
     </button>
+    @endcan
 <div class="collapse" id="des1">
     <div class="card card-body">
         <p>

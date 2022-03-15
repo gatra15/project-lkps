@@ -34,7 +34,7 @@ class ProfilDosenController extends Controller
     public function store(Request $req)
     {
         $connection = 'mysql';
-
+        $tahun = session('tahun_laporan');
         $this->validate($req, [
             'nama_dosen' => 'required',
             'nidn_nidk' => 'required',
@@ -65,8 +65,8 @@ class ProfilDosenController extends Controller
         $dosen->kesesuaian_mata_kuliah_diampu = $req->input('kesesuaian_mata_kuliah_diampu');
         $dosen->mata_kuliah_diampu_ps_lain = $req->input('mata_kuliah_diampu_ps_lain');
         $dosen->slug = 'dosen-tetap';
-        $dosen->tahun_laporan = 2022;
-        $dosen->prodi = auth()->user()->prodi;
+        $dosen->tahun_laporan = $tahun;
+        $dosen->prodi = auth()->user()->prodi->name;
         $dosen->created_by = auth()->user()->name;
         $dosen->created_at = Carbon::now();
         $dosen->save();
@@ -84,6 +84,7 @@ class ProfilDosenController extends Controller
 
     public function update(Request $req, $id)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'nama_dosen' => 'required',
@@ -115,8 +116,8 @@ class ProfilDosenController extends Controller
         $dosen->mata_kuliah_akreditasi_diampu = $req->input('mata_kuliah_akreditasi_diampu');
         $dosen->kesesuaian_mata_kuliah_diampu = $req->input('kesesuaian_mata_kuliah_diampu');
         $dosen->mata_kuliah_diampu_ps_lain = $req->input('mata_kuliah_diampu_ps_lain');
-        $dosen->tahun_laporan = 2022;
-        $dosen->prodi = auth()->user()->prodi;
+        $dosen->tahun_laporan = $tahun;
+        $dosen->prodi = auth()->user()->prodi->name;
         $dosen->updated_by = auth()->user()->name;
         $dosen->updated_at = Carbon::now();
         $dosen->update();

@@ -19,16 +19,17 @@ class MahasiswaAsingController extends Controller
      */
     public function index()
     {
-        $mahasiswa = MahasiswaAsing::all();
-        $aktif_ts2 = MahasiswaAsing::sum('mahasiswa_aktif_ts_2');
-        $aktif_ts1 = MahasiswaAsing::sum('mahasiswa_aktif_ts_1');
-        $aktif_ts = MahasiswaAsing::sum('mahasiswa_aktif_ts');
-        $full_ts2 = MahasiswaAsing::sum('mahasiswa_asing_ft_ts_2');
-        $full_ts1 = MahasiswaAsing::sum('mahasiswa_asing_ft_ts_1');
-        $full_ts = MahasiswaAsing::sum('mahasiswa_asing_ft_ts');
-        $part_ts2 = MahasiswaAsing::sum('mahasiswa_asing_pt_ts_2');
-        $part_ts1 = MahasiswaAsing::sum('mahasiswa_asing_pt_ts_1');
-        $part_ts = MahasiswaAsing::sum('mahasiswa_asing_pt_ts');
+        $tahun = session('tahun_laporan');
+        $mahasiswa = MahasiswaAsing::where('tahun_laporan', $tahun)->get();
+        $aktif_ts2 = MahasiswaAsing::where('tahun_laporan', $tahun-2)->sum('mahasiswa_aktif_ts_2');
+        $aktif_ts1 = MahasiswaAsing::where('tahun_laporan', $tahun-1)->sum('mahasiswa_aktif_ts_1');
+        $aktif_ts = MahasiswaAsing::where('tahun_laporan', $tahun)->sum('mahasiswa_aktif_ts');
+        $full_ts2 = MahasiswaAsing::where('tahun_laporan', $tahun-2)->sum('mahasiswa_asing_ft_ts_2');
+        $full_ts1 = MahasiswaAsing::where('tahun_laporan', $tahun-1)->sum('mahasiswa_asing_ft_ts_1');
+        $full_ts = MahasiswaAsing::where('tahun_laporan', $tahun)->sum('mahasiswa_asing_ft_ts');
+        $part_ts2 = MahasiswaAsing::where('tahun_laporan', $tahun-2)->sum('mahasiswa_asing_pt_ts_2');
+        $part_ts1 = MahasiswaAsing::where('tahun_laporan', $tahun-1)->sum('mahasiswa_asing_pt_ts_1');
+        $part_ts = MahasiswaAsing::where('tahun_laporan', $tahun)->sum('mahasiswa_asing_pt_ts');
 
         return [
             'mahasiswa' => $mahasiswa,
@@ -62,6 +63,7 @@ class MahasiswaAsingController extends Controller
      */
     public function store(Request $request)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $rule = [
             'program_studi',
@@ -89,8 +91,8 @@ class MahasiswaAsingController extends Controller
         $data->mahasiswa_asing_pt_ts_2 = (int) $request->input('mahasiswa_asing_pt_ts_2');
         $data->mahasiswa_asing_pt_ts_1 = (int) $request->input('mahasiswa_asing_pt_ts_1');
         $data->mahasiswa_asing_pt_ts = (int) $request->input('mahasiswa_asing_pt_ts');
-        $data->tahun_laporan = 2022;
-        $data->prodi = auth()->user()->prodi;
+        $data->tahun_laporan = $tahun;
+        $data->prodi = auth()->user()->prodi->name;
         $data->created_by = auth()->user()->name;
         $data->created_at = Carbon::now();
         $data->save();
@@ -137,6 +139,7 @@ class MahasiswaAsingController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $rule = [
             'program_studi',
@@ -164,8 +167,8 @@ class MahasiswaAsingController extends Controller
         $data->mahasiswa_asing_pt_ts_2 = (int) $request->input('mahasiswa_asing_pt_ts_2');
         $data->mahasiswa_asing_pt_ts_1 = (int) $request->input('mahasiswa_asing_pt_ts_1');
         $data->mahasiswa_asing_pt_ts = (int) $request->input('mahasiswa_asing_pt_ts');
-        $data->tahun_laporan = 2022;
-        $data->prodi = auth()->user()->prodi;
+        $data->tahun_laporan = $tahun;
+        $data->prodi = auth()->user()->prodi->name;
         $data->updated_by = auth()->user()->name;
         $data->updated_at = Carbon::now();
         $data->update();

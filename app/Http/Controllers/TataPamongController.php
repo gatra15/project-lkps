@@ -15,8 +15,8 @@ class TataPamongController extends Controller
 {
     public function index()
     {
-        $tahun = session('tahun_laporan');
-        $kerjasama = IndikatorTataKerjasama::where('tahun_laporan', $tahun)->get();
+        
+        $kerjasama = IndikatorTataKerjasama::all();
         $jmlpendidikan = $kerjasama->where('tridharma', 'Pendidikan')->count();
         $jmlpenelitian = $kerjasama->where('tridharma', 'Penelitian')->count();
         $jmlpkm = $kerjasama->where('tridharma', 'Pengabdian Kepada Masyarakat')->count();
@@ -34,6 +34,7 @@ class TataPamongController extends Controller
 
     public function generate()
     {
+        $tahun = session('tahun_laporan');
         $kerjasama = IndikatorTataKerjasama::where('tahun_laporan', $tahun)->get();
         $jmlpendidikan = $kerjasama->where('tridharma', 'Pendidikan')->count();
         $jmlpenelitian = $kerjasama->where('tridharma', 'Penelitian')->count();
