@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ProgramStudi;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
@@ -53,13 +54,13 @@ class UserTableSeeder extends Seeder
         $dekan->givePermissionTo('download file');
         $dekan->givePermissionTo('upload file');
         
-        $auditor = Role::create(['name' => 'auditor']);
-        $auditor->givePermissionTo('download file');
-        $auditor->givePermissionTo('upload file');
+        $asesor = Role::create(['name' => 'asesor']);
+        $asesor->givePermissionTo('download file');
+        $asesor->givePermissionTo('upload file');
 
         $user = User::create([
             'name' => 'Galih Saputra',
-            'prodi' => 'Teknik Komputer',
+            'prodi_id' => 5,
             'role_id' => 1,
             'email' => 'gatra@admin.web.id',
             'password' => Hash::make('gatra090'),
@@ -68,7 +69,7 @@ class UserTableSeeder extends Seeder
 
         $user = User::create([
             'name' => 'Teknik Industri',
-            'prodi' => 'Teknik Industri',
+            'prodi_id' => 12,
             'role_id' => 2,
             'email' => 'teknik.industri@undip.ac.id',
             'password' => Hash::make('industri123'),
@@ -77,7 +78,6 @@ class UserTableSeeder extends Seeder
         
         $user = User::create([
             'name' => 'Dekanat Fakultas Teknik',
-            'prodi' => 'Fakultas Teknik',
             'role_id' => 3,
             'email' => 'dekan.tekni@undip.ac.id',
             'password' => Hash::make('dekan123'),
@@ -86,7 +86,6 @@ class UserTableSeeder extends Seeder
         
         $user = User::create([
             'name' => 'Wakil Dekanat Fakultas Teknik',
-            'prodi' => 'Fakultas Teknik',
             'role_id' => 3,
             'email' => 'wadek.teknik@undip.ac.id',
             'password' => Hash::make('wadek123'),
@@ -95,7 +94,6 @@ class UserTableSeeder extends Seeder
         
         $user = User::create([
             'name' => 'Tim Penjaminan Mutu Fakultas Teknik',
-            'prodi' => 'Fakultas Teknik',
             'role_id' => 3,
             'email' => 'tim.teknik@undip.ac.id',
             'password' => Hash::make('mutu123'),
@@ -104,20 +102,55 @@ class UserTableSeeder extends Seeder
 
         User::create([
             'name' => 'Asesor',
-            'prodi' => 'Universitas Diponegoro',
             'email' => 'asesor@undip.ac.id',
             'role_id' => 4,
-            'password' => Hash::make('audit123'),
+            'password' => Hash::make('asesor123'),
         ]);
-        $user->assignRole($auditor);
+        $user->assignRole($asesor);
 
         $user = User::create([
             'name' => 'Pasyah Vegananda',
-            'prodi' => 'Teknik Informatika Stekom',
             'role_id' => 1,
             'email' => 'pasyah@admin.web.id',
             'password' => Hash::make('pasyah069'),
         ]);
         $user->assignRole($admin);
+
+        ProgramStudi::create([
+            'prodi' => 'Teknik Sipil'
+        ]);
+        ProgramStudi::create([
+            'prodi' => 'Teknik Geologi'
+        ]);
+        ProgramStudi::create([
+            'prodi' => 'Teknik Arsitektur'
+        ]);
+        ProgramStudi::create([
+            'prodi' => 'Teknik Perencanaan Wilayah dan Kota'
+        ]);
+        ProgramStudi::create([
+            'prodi' => 'Teknik Komputer'
+        ]);
+        ProgramStudi::create([
+            'prodi' => 'Teknik Kimia'
+        ]);
+        ProgramStudi::create([
+            'prodi' => 'Teknik Geodesi'
+        ]);
+        ProgramStudi::create([
+            'prodi' => 'Teknik Lingkungan'
+        ]);
+        ProgramStudi::create([
+            'prodi' => 'Teknik Perkapalan'
+        ]);
+        ProgramStudi::create([
+            'prodi' => 'Teknik Elektro'
+        ]);
+        ProgramStudi::create([
+            'prodi' => 'Teknik Mesin'
+        ]);
+        ProgramStudi::create([
+            'prodi' => 'Teknik Industi'
+        ]);
     }
 }

@@ -27,4 +27,13 @@ class HomeController extends Controller
             'title' => 'Home'
         ]);
     }
+
+    public function tahun(Request $request)
+    {
+        session([
+            'tahun_laporan' => $request->tahun_laporan,
+            'prodi' => $request->prodi,
+        ]);
+        return redirect()->back();
+    }
 }

@@ -92,26 +92,26 @@
                 </tr>
     
              <!-- Modal Edit Data -->
-        <div class="modal fade" id="modaluseredit-{{--  --}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            @include('partials.modaladmin.useredit')
-            </div>
-            </div>
-        </div>  
+            <div class="modal fade" id="modaluseredit-{{ $users->id }}" tabindex="-1" aria-labelledby="modaluseredit" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modaluseredit">Edit User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.modaladmin.useredit')
+                </div>
+                </div>
+            </div>  
 
         <!-- Modal Hapus Data -->
-        <div class="modal fade" id="modaluserdelete-{{--  --}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modaluserdelete-{{ $users->id }}" tabindex="-1" aria-labelledby="modaluserdelete" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Hapus User</h5>
+            <h5 class="modal-title" id="modaluserdelete">Hapus User</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

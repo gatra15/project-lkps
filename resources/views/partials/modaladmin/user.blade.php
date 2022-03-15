@@ -1,4 +1,4 @@
-{{-- <form action="/kinerja-dosen" method="post"> --}}
+<form action="/user" method="post">
     @csrf
     <div class="modal-body">
         
@@ -9,7 +9,7 @@
 
                 <label for="pengkuan"> Nama : </label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="#" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                 <label for="pengkuan"> Email :</label>
                 <div class="input-group input-group-sm mb-3">
@@ -17,16 +17,25 @@
                 </div>
                 <label for="pengkuan"> Role :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <select id="role" class="form-control form-control-lg mb-3" aria-label=".form-control-lg">
-                        @php
-                            $roles = ['Admin','Dekan','Perwakilan','Audit']
-                        @endphp
-                        <option>Pilih Prodi</option>
-                        <?php foreach($roles as $role) : ?>
-                        <option value="<?php echo $role; ?>"><?php echo $role; ?></option>
-                        <?php endforeach; ?>
+                    <select id="role" name="role_id" class="form-control form-control-lg mb-3" aria-label=".form-control-lg">
+                        <option>Pilih Role</option>
+                        @foreach($role as $roles)
+                        <option value="{{ $roles->id }}">{{ $roles }}</option>
+                        @endforeach
                     </select>
                 </div>
+                <div class="input-group input-group-sm mb-3">
+                    <select id="role" name="prodi_id" class="form-control form-control-lg mb-3" aria-label=".form-control-lg">
+                        @php
+                            $roles = ['Admin','Dekan','Perwakilan','Asesor']
+                        @endphp
+                        <option>Pilih Role</option>
+                        @foreach($roles as $role)
+                        <option value="{{ $role }}">{{ $role }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                
                 
                {{-- coding modal insert akhir --}}
                
@@ -35,7 +44,7 @@
         </div>
     </div>
     <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
     <button type="submit" class="btn btn-primary">Tambah</button>
     </div>
 </form>

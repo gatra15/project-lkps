@@ -43,4 +43,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo('Spatie\Permission\Models\Role', 'role_id', 'id');
     }
+    public function prodi()
+    {
+        return $this->belongsTo('App\Models\ProgramStudi', 'prodi_id', 'id');
+    }
 }

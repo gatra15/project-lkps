@@ -226,6 +226,7 @@ Route::group(['middleware' => 'auth:web'], function() {
     Route::group(['middleware' => ['role:perwakilan|dekan|asesor']], function ()
     {
         Route::get('/dashboard', [HomeController::class, 'index']);
+        Route::post('/dashboard', [HomeController::class, 'tahun']);
 
         // Identitas Pengusul
         Route::get('/identitas-pengusul', [IdentitasPengusulController::class, 'index']);

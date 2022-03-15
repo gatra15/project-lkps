@@ -21,33 +21,40 @@
         <div class="tab-content mt-3">
             <div class="tab-pane active" id="dashboard" role="tabpanel">
                 
+                <form action="/dashboard" method="post">
+                    @csrf
                 <div class="mb-5 pb-2">
                     <label for="exampleInputEmail1" class="form-label h3">Pilih Tahun Laporan</label> 
                     <div id="emailHelp" class="form-text">Pilih tahun untuk melihat atau input data laporan.</div>
-                    <select id="thn_ajaran" class="form-control form-control-lg mb-3" aria-label=".form-control-lg">
+                    <select id="tahun_laporan" name="tahun_laporan" class="form-control form-control-lg mb-3" aria-label=".form-control-lg" onchange="this.form.submit()">
                     @php
                         $years = range(2000, strftime("%Y", time()));
                     @endphp
                     <option>Pilih Tahun</option>
                     <?php foreach($years as $year) : ?>
-                        <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                        <option {{ session('tahun_laporan') == $year ? 'selected' : '' }} value="{{ $year }}">{{ $year }}</option>
                     <?php endforeach; ?>
                     </select>
                 </div>
+            
+                @hasanyrole('dekan|asesor')
 
                 <div class="mb-5 pb-2">
                     <label for="exampleInputEmail1" class="form-label h3">Pilih Prodi</label> 
                     <div id="emailHelp" class="form-text">Pilih prodi untuk melihat atau input data laporan.</div>
-                    <select id="thn_ajaran" class="form-control form-control-lg mb-3" aria-label=".form-control-lg">
+                    <select id="prodi" name="prodi" class="form-control form-control-lg mb-3" aria-label=".form-control-lg" onchange="this.form.submit()">
                     @php
                         $prodis = ['Teknik Komputer','Teknik Elektro','Teknik']
                     @endphp
                     <option>Pilih Prodi</option>
                     <?php foreach($prodis as $prodi) : ?>
-                        <option value="<?php echo $prodi; ?>"><?php echo $prodi; ?></option>
+                        <option {{ session('prodi') == $prodi ? 'selected' : '' }} value="{{ $prodi }}">{{ $prodi }}</option>
                     <?php endforeach; ?>
                     </select>
                 </div>
+
+                @endhasanyrole
+            </form>
 
             </div>
         </div>

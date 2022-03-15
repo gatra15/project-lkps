@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ProgramStudi;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,12 +17,14 @@ class AdminController extends Controller
     }
     
     public function index(){
-        $user = User::with('role')->get();
+        $user = User::with('role', 'prodi')->get();
         $role = Role::all();
+        $prodi = ProgramStudi::all();
         return view('admin.index', [
             'title' => 'User',
             'user' => $user,
             'role' => $role,
+            'prodi' => $prodi,
         ]);
     }
 
@@ -33,6 +36,7 @@ class AdminController extends Controller
 
     public function store(Request $request)
     {
+        ddd($request);
         $request->validate([
             'name' => 'required',
             'role_id' => 'required',
@@ -68,7 +72,7 @@ class AdminController extends Controller
         $user->email = $request->input('email');
         $user->prodi_id = $request->input('prodi_id');
         $user->password = Hash::make($request->input('password'));
-        $user->created_at = Carbon::now();
+        $user->updated_at = Carbon::now();
         $user->update();
         return back()->with('success', 'User berhasil diubah.');
     }
