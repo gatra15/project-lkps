@@ -26,11 +26,13 @@
             <td>{{ $kesesuaian->kesesuaian_rendah}}</td>
             <td>{{ $kesesuaian->kesesuaian_sedang }}</td>
             <td>{{ $kesesuaian->kesesuaian_tinggi }}</td>
+            @hasrole ('perwakilan')
             <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                 <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalkesesuaianedit-{{ $kesesuaian->id }}"><i class="fas fa-edit"></i></a></li>
                 <li>
                     <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/kesesuaian-bidang/{{ $kesesuaian->id }}" data-toggle="modal" data-target="#modalkesesuaiandelete-{{ $kesesuaian->id }}"><i class="fas fa-trash btn-del"></i></a></li>
             </ul></td>
+            @endhasrole
         </tr>
         @endforeach
 

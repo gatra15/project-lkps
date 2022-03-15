@@ -28,11 +28,13 @@
                     <td>{{ $data->jumlah_ts1 }}</td>
                     <td>{{ $data->jumlah_ts }}</td>
                     <td>{{ $data->jumlah }}</td>
+                    @hasrole ('perwakilan')
                     <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                         <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalpublikasiedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
                             <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/prestasi-mahasiswa/{{ $data->id }}" data-toggle="modal" data-target="#modalpublikasidelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                     </ul></td>
+                    @endhasrole
                 </tr>
             @endforeach
     </tr>
@@ -46,7 +48,9 @@
         <td>{{ $publikasi['jumlah_ts1'] }}</td>
         <td>{{ $publikasi['jumlah_ts'] }}</td>
         <td>{{ $publikasi['jumlah'] }}</td>
+        @hasrole ('perwakilan')
         <td style="background-color: grey"></td>
+        @endhasrole
     </tr>
     </table> 
     </div>
