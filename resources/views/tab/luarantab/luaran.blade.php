@@ -4,16 +4,18 @@
             Deskripsi
         </a>
     </p>
-    {{-- <a href="/kinerja-dosen/luaran/download/excel" class="btn btn-success">Excel</a>
-    <a href="/kinerja-dosen/luaran/download/csv" class="btn btn-success">CSV</a> --}}
-    <input type="button" class="btn btn-primary" onclick="printDiv('print-table2')" value="Print Document" />
+    <a href="/kinerja-dosen/luaran/download/excel" class="btn btn-success">Excel</a>
+    <a href="/kinerja-dosen/luaran/download/csv" class="btn btn-success">CSV</a>
+    <input type="button" class="btn btn-primary" onclick="printDiv('print-table')" value="Print Document" />
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
         Cara Download PDF
     </button>
 <div class="collapse" id="des7">
     <div class="card card-body">
         <p>
-            Luaran Penelitian/PkM Lainnya oleh DTPS
+            Tuliskan luaran penelitian dan luaran PkM yang dihasilkan mahasiswa, baik secara
+            mandiri atau bersama DTPS, <b>dalam 3 tahun terakhir</b> dengan mengikuti format Tabel
+            berikut ini. Jenis dan judul luaran harus relevan dengan bidang program studi. <br>
         </p>
     </div> 
 </div>

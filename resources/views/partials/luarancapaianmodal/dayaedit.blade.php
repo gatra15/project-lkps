@@ -13,15 +13,15 @@
               </div>
                 
                 <div class="form-row justify-content-center">
-                <div class="form-group col-md-6 align-middle">
+                <div class="form-group col-md-5 align-middle">
                 <label for="pengkuan"> Jumlah Lulusan :</label>
-                <div class="input-group input-group-sm mb-3">
+                <div class="input-group mb-3">
                     <input type="number" name="jumlah_lulusan" class="form-control" value="{{ $data->jumlah_lulusan }}"  required>
                 </div>
                 </div>
-                <div class="form-group col-md-6 align-middle">
+                <div class="form-group col-md-5 align-middle">
                 <label for="pengkuan"> Jumlah Lulusan yang Terlacak :</label>
-                <div class="input-group input-group-sm mb-3">
+                <div class="input-group mb-3">
                     <input type="number" name="jumlah_lulusan_terlacak" value="{{ $data->jumlah_lulusan_terlacak }}" class="form-control" required>
                 </div>
                 </div>

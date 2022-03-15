@@ -4,6 +4,10 @@
             Deskripsi
         </a>
     </p>
+    <input type="button" class="btn btn-primary" onclick="printDiv('print-table4')" value="Print Document" />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
+        Cara Download PDF
+    </button>
     <div class="collapse" id="des3">
         <div class="card card-body">
             <p>
@@ -23,7 +27,7 @@
         @foreach($efektifitasPrestasi['efektifitas'] as $efektifitas)
       <!-- Modal Tambah Edit Efektivitas -->
       <div class="modal fade" id="modalefekedit-{{ $efektifitas->id }}" tabindex="-1" aria-labelledby="modalefekedit" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
             <h5 class="modal-title" id="modalefekedit">Edit Data {{ $efektifitas->tahun->name }}</h5>
@@ -54,3 +58,4 @@
         
 
 </div>
+@include('layouts.table')

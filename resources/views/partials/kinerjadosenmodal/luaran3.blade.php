@@ -29,6 +29,10 @@
                 <div class="form">
                     <textarea class="form-control" type="text" name="keterangan" placeholder="" id="floatingTextarea2" style="height: 200px" required>  </textarea>
                 </div>
+                <label for="lembaga" class="mt-3"> Bukti  :</label>
+                <div class="input-group input-group-sm mb-3">
+                <input type="file" name="bukti" class="form-control" id="customFile" required>
+                </div>
                 
 
                {{-- coding modal insert akhir --}}

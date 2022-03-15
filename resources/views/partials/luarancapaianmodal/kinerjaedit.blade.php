@@ -10,14 +10,21 @@
 
                 <label>@php echo $data->tahun->name @endphp</label>
                 <input type="hidden" name="tahun_id" class="form-control" value="{{ $data->tahun_id }}"  required>
-                <label for="pengkuan"> Jumlah Lulusan :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="number" name="jumlah_lulusan" value="{{ $data->jumlah_lulusan }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
-                <label for="pengkuan"> Jumlah Lulusan Yang Terlacak :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="number" name="jumlah_lulusan_terlacak" class="form-control" value="{{ $data->jumlah_lulusan_terlacak }}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div>
+                <div class="form-row justify-content-center">
+                  <div class="form-group col-md-5 align-middle">
+                  <label for="pengkuan"> Jumlah Lulusan :</label>
+                  <div class="input-group mb-3">
+                      <input type="number" name="jumlah_lulusan" value="{{ $data->jumlah_lulusan }}" class="form-control" required>
+                  </div>
+                  </div>
+                  <div class="form-group col-md-5 align-middle">
+                  <label for="pengkuan"> Jumlah Lulusan yang Terlacak :</label>
+                  <div class="input-group mb-3">
+                      <input type="number" name="jumlah_lulusan_terlacak" value="{{ $data->jumlah_lulusan_terlacak }}" class="form-control" required>
+                  </div>
+                  </div>
+                  </div>
+                  
                 <label for="pengkuan"> Jumlah Lulusan Terlacak yang Bekerja berdasarkan Tingkat/Ukuran Tempat Kerja/Berwirausaha </label>
                 <div class="form-row justify-content-center">
                     <div class="form-group col-md-4 align-middle">
@@ -33,6 +40,8 @@
                       <input type="number" class="form-control  form-control-sm mb-3" value="{{ $data->internasional}}" name="internasional" id="#">
                     </div>
                   </div>
+                
+                  
                 
                 
 

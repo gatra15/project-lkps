@@ -25,7 +25,7 @@
                       <label for="#">TS</label>
                       <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_aktif_ts" id="#" required>
                     </div>
-                  </div>
+                </div>
                 <div class="form-row justify-content-center text-center">
                   <label for="dosentetap" class="fs-6"> Jumlah Mahasiswa Asing Penuh Waktu <i>(Full-time)</i></label>
                 </div>

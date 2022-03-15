@@ -21,11 +21,15 @@
                 <div class="form-row justify-content-center">
                     <div class="form-group col-md-6 align-middle">
                       <label for="#">Min.</label>
+                      <div class="input-group input-group-sm mb-3">
                       <input type="text" class="form-control mb-3" value="{{ $capaian->ipk_min }}" name="ipk_min" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                      </div>
                     </div>
                     <div class="form-group col-md-6 align-middle">
                       <label for="#">Max.</label>
+                      <div class="input-group input-group-sm mb-3">
                       <input type="text" class="form-control mb-3" value="{{ $capaian->ipk_max }}" name="ipk_max" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                      </div>
                     </div>
                   </div>
                 <label for="capaianpembelajaran"> Rata-rata :</label>

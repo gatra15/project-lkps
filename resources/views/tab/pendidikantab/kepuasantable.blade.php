@@ -1,4 +1,4 @@
-<div>
+<div id="print-table2">
     <table class="table table-bordered table-condensed">
     <thead>
     
@@ -36,11 +36,12 @@
             </tr>
         @endforeach
         <tr>
-            <td rowspan="2" class="align-middle text-center"><b>Jumlah</b></td>
+            <td class="align-middle text-center"><b>Jumlah</b></td>
             <td class="putih"></td>
             <td class="putih"></td>
             <td class="putih"></td>
             <td class="putih"></td>
+            <td></td>
             <td></td>
             <td></td>
         </tr>

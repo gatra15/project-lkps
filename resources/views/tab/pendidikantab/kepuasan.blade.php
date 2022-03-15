@@ -4,13 +4,14 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
             Deskripsi
         </a>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalkepuasan">
-            Tambah data
-        </button>
         
     </p>
     <a href="/pendidikan/kepuasan-mahasiswa/download/excel" class="btn btn-success">Excel</a>
     <a href="/pendidikan/kepuasan-mahasiswa/download/csv" class="btn btn-success">CSV</a>
+    <input type="button" class="btn btn-primary" onclick="printDiv('print-table2')" value="Print Document" />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
+        Cara Download PDF
+    </button>
     <div class="collapse" id="collapseExample">
     <div class="card card-body">
         <p>
@@ -20,22 +21,6 @@
         </p>
     </div> 
     </div>
-    {{-- @foreach ($aspek as $aspeks) --}}
-    <!-- Modal Tambah Data Kepuasan -->
-    <div class="modal fade" id="modalkepuasan" tabindex="-1" aria-labelledby="modalkepuasan" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="modalkepuasan">Tambah Data Kepuasan Mahasiswa </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            @include('partials.pendidikanmodal.kepuasan')
-        </div>
-        </div>
-        </div>
-        {{-- @endforeach --}}
 
         {{-- TABLE AWAL --}}
         @include('tab.pendidikantab.kepuasantable')
@@ -76,3 +61,4 @@
 
 
 </div>
+@include('layouts.table')

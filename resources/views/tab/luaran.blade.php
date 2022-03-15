@@ -4,7 +4,7 @@
 @section('content')
 <div class="content-header">
     <div class="container-fluid">
-            <h1>LUARAN DAN CAPAIAN TRIDHARMA</h1>
+            <h1>TAB LUARAN DAN CAPAIAN TRIDHARMA</h1>
     </div>
 </div>
 

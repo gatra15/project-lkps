@@ -1,4 +1,4 @@
-<div id="#">
+<div id="print-table9">
     <table id='form-print' class="table text-center table-bordered table-condensed">
     <thead>
     <tr>
@@ -46,6 +46,7 @@
         <td>{{ $publikasi['jumlah_ts1'] }}</td>
         <td>{{ $publikasi['jumlah_ts'] }}</td>
         <td>{{ $publikasi['jumlah'] }}</td>
+        <td style="background-color: grey"></td>
     </tr>
     </table> 
     </div>

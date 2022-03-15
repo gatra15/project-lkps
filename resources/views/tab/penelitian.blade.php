@@ -5,7 +5,7 @@
 
 <div class="content-header">
     <div class="container-fluid">
-            <h1>PENELITIAN</h1>
+            <h1>TAB PENELITIAN</h1>
     </div>
 </div>
 

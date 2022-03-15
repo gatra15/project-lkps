@@ -14,7 +14,7 @@ th span {
 
 
 </style>
-<div>
+<div id="print-table3">
     <table class="table table-bordered table-condensed">
     <thead>
     
@@ -68,20 +68,20 @@ th span {
                     <a type="button" class="btn btn-danger" href="/pendidikan/{{ $kur->id }}" data-toggle="modal" data-target="#modalkurikulumdelete-{{ $kur->id }}"><i class="fas fa-trash btn-del"></i></a></li>
             </ul></td>
         </tr>
-        </tbody>
+        
         @endforeach
-        <thead>
+      
         <tr>
-        <th class="putih align-middle text-center" colspan="4"><b>Jumlah </b></th>
-        <th class="putih align-middle text-center">{{ $kurikulum['makul'] }}</th>
-        <th class="putih align-middle text-center">{{ $kurikulum['bobot_kuliah'] }}</th>
-        <th class="putih align-middle text-center">{{ $kurikulum['bobot_seminar'] }}</th>
-        <th class="putih align-middle text-center">{{ $kurikulum['bobot_praktikum'] }}</th>
-        <th class="putih align-middle text-center">{{ $kurikulum['konversi_kredit_jam'] }} Jam</th>
-        <th colspan="7"></th>
+        <td class="putih align-middle text-center" colspan="4"><b>Jumlah </b></td>
+        <td class="putih align-middle text-center">{{ $kurikulum['makul'] }}</td>
+        <td class="putih align-middle text-center">{{ $kurikulum['bobot_kuliah'] }}</td>
+        <td class="putih align-middle text-center">{{ $kurikulum['bobot_seminar'] }}</td>
+        <td class="putih align-middle text-center">{{ $kurikulum['bobot_praktikum'] }}</td>
+        <td class="putih align-middle text-center">{{ $kurikulum['konversi_kredit_jam'] }} <b>Jam</b> </td>
+        <td colspan="7"></td>
         </tr>
-        </thead>
-    
+       
+    </tbody>
     </table> 
 </div>
 

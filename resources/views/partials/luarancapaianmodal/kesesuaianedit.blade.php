@@ -13,13 +13,19 @@
                   <input type="hidden" name="tahun_id" class="form-control" value="{{ $kesesuaian->tahun_id }}"  required>
               </div>
 
+              <div class="form-row justify-content-center">
+                <div class="form-group col-md-5 align-middle">
                 <label for="pengkuan"> Jumlah Lulusan :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jumlah_lulusan" class="form-control" value="{{ $kesesuaian->jumlah_lulusan }}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                <div class="input-group mb-3">
+                    <input type="number" name="jumlah_lulusan" class="form-control" value="{{ $kesesuaian->jumlah_lulusan }}"  required>
                 </div>
+                </div>
+                <div class="form-group col-md-5 align-middle">
                 <label for="pengkuan"> Jumlah Lulusan yang Terlacak :</label>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jumlah_lulusan_terlacak"  value="{{ $kesesuaian->jumlah_lulusan_terlacak }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                <div class="input-group mb-3">
+                    <input type="number" name="jumlah_lulusan_terlacak" value="{{ $kesesuaian->jumlah_lulusan_terlacak }}" class="form-control" required>
+                </div>
+                </div>
                 </div>
                 <label for="pengkuan"> Jumlah Lulusan Terlacak dengan Tingkat Kesesuaian Bidang Kerja :</label>
                 <div class="form-row justify-content-center">

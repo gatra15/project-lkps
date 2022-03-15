@@ -4,11 +4,15 @@
             Deskripsi
         </a>
     </p>
+    <input type="button" class="btn btn-primary" onclick="printDiv('print-table9')" value="Print Document" />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
+        Cara Download PDF
+    </button>
     <div class="collapse" id="des2">
         <div class="card card-body">
             <p>
                 Tuliskan jumlah publikasi ilmiah mahasiswa, yang dihasilkan secara mandiri atau
-                bersama DTPS, dalam 3 tahun terakhir dengan mengikuti format Tabel berikut
+                bersama DTPS, <b>dalam 3 tahun terakhir</b>  dengan mengikuti format Tabel berikut
                 ini. Judul publikasi harus relevan dengan bidang program studi <br>
             </p>
         </div> 
@@ -52,3 +56,4 @@
         </div>
         @endforeach
 </div>
+@include('layouts.table')
