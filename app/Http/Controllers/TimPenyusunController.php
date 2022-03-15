@@ -17,7 +17,8 @@ class TimPenyusunController extends Controller
      */
     public function index()
     {
-        $timPenyusun = TimPenyusun::all();
+        $tahun = session('tahun_laporan');
+        $timPenyusun = TimPenyusun::where('tahun_laporan', $tahun)->get();
         return [
             'tim' => $timPenyusun,
         ];
@@ -41,6 +42,7 @@ class TimPenyusunController extends Controller
      */
     public function store(Request $request)
     {
+        
         $connection = 'mysql';
         $rule = [
             'nama' => 'required',
@@ -66,11 +68,10 @@ class TimPenyusunController extends Controller
             $data->jabatan = $request->input('jabatan');
             $data->tanggal_pengisian = $request->input('tanggal_pengisian');
             $data->ttd = $request->file('ttd')->storeAs('tanda-tangan', $filenameSimpan);
-            $data->tahun_laporan = 2022;
-            $data->prodi = auth()->user()->prodi;
+            $data->tahun_laporan = session('tahun_laporan');
+            $data->prodi = auth()->user()->prodi->name;
             $data->created_by = auth()->user()->name;
             $data->created_at = Carbon::now();
-            // 
             $data->save();
 
             return back()->with('success', 'Data berhasil ditambahkan.');
@@ -139,7 +140,7 @@ class TimPenyusunController extends Controller
             $data->jabatan = $request->input('jabatan');
             $data->tanggal_pengisian = $request->input('tanggal_pengisian');
             $data->ttd = $request->file('ttd')->storeAs('tanda-tangan', $filenameSimpan);
-            $data->tahun_laporan = 2022;
+            $data->tahun_laporan = session('tahun_laporan');
             $data->prodi = auth()->user()->prodi;
             $data->updated_by = auth()->user()->name;
             $data->updated_at = Carbon::now();

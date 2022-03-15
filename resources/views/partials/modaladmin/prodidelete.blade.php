@@ -1,6 +1,7 @@
-{{-- <form action="/kinerja-dosen/luaran-dtps/{{ $data->id }}" method="get"> --}}
+<form action="/prodi/{{ $data->id }}" method="get">
+    @csrf
     <div class="modal-body">
-        @csrf
+        
         <h5 class="text-center">Yakin Ingin Menghapus Data ? </h5>
     </div>
     <div class="modal-footer">

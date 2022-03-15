@@ -29,6 +29,7 @@ use App\Http\Controllers\PendidikanKepuasanMahasiswaController;
 use App\Http\Controllers\PendidikanKurikulumController;
 use App\Http\Controllers\PrestasiMahasiswaController;
 use App\Http\Controllers\PrestasiNonAkademikMahasiswaController;
+use App\Http\Controllers\ProgramStudiController;
 use App\Http\Controllers\PublikasiIlmiahMahasiswaController;
 use App\Http\Controllers\SdmDosenIndustriPraktisiController;
 use App\Http\Controllers\SdmDosenPembimbingTaController;
@@ -80,6 +81,11 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::post('/user', [AdminController::class, 'store']);
         Route::put('/user/{id}', [AdminController::class, 'update']);
         Route::get('/user/{id}', [AdminController::class, 'destroy']);
+
+        Route::get('/prodi', [ProgramStudiController::class, 'index']);
+        Route::post('/prodi', [ProgramStudiController::class, 'store']);
+        Route::put('/prodi/{id}', [ProgramStudiController::class, 'update']);
+        Route::get('/prodi/{id}', [ProgramStudiController::class, 'destroy']);
     });
 
     Route::group(['middleware' => ['role:perwakilan']], function () {

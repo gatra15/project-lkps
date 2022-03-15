@@ -31,6 +31,17 @@
     <div class="content">
     <div class="container-fluid">
             <div class="card">
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
+        
+                @if ($message = Session::get('error'))
+                <div class="alert alert-danger">
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
             <li class="nav-item">
@@ -82,16 +93,22 @@
             </thead>
     
             <tbody class="text-dark">
+               
                 @foreach ($user as $users)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $users->name }}</td>
                     <td>{{ $users->email }}</td>
                     <td>{{ $users->role->name }}</td>
-                    
+                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaluseredit-{{ $users->id }}"><i class="fas fa-edit"></i></a></li>
+                        <li>
+                            <a type="button" class="btn btn-danger" href="/user/{{ $users->id }}" data-toggle="modal" data-target="#modaluserdelete-{{ $users->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                    </ul></td>
                 </tr>
     
              <!-- Modal Edit Data -->
+             
             <div class="modal fade" id="modaluseredit-{{ $users->id }}" tabindex="-1" aria-labelledby="modaluseredit" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                 <div class="modal-content">

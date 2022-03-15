@@ -117,40 +117,40 @@ class UserTableSeeder extends Seeder
         $user->assignRole($admin);
 
         ProgramStudi::create([
-            'prodi' => 'Teknik Sipil'
+            'name' => 'Teknik Sipil'
         ]);
         ProgramStudi::create([
-            'prodi' => 'Teknik Geologi'
+            'name' => 'Teknik Geologi'
         ]);
         ProgramStudi::create([
-            'prodi' => 'Teknik Arsitektur'
+            'name' => 'Teknik Arsitektur'
         ]);
         ProgramStudi::create([
-            'prodi' => 'Teknik Perencanaan Wilayah dan Kota'
+            'name' => 'Teknik Perencanaan Wilayah dan Kota'
         ]);
         ProgramStudi::create([
-            'prodi' => 'Teknik Komputer'
+            'name' => 'Teknik Komputer'
         ]);
         ProgramStudi::create([
-            'prodi' => 'Teknik Kimia'
+            'name' => 'Teknik Kimia'
         ]);
         ProgramStudi::create([
-            'prodi' => 'Teknik Geodesi'
+            'name' => 'Teknik Geodesi'
         ]);
         ProgramStudi::create([
-            'prodi' => 'Teknik Lingkungan'
+            'name' => 'Teknik Lingkungan'
         ]);
         ProgramStudi::create([
-            'prodi' => 'Teknik Perkapalan'
+            'name' => 'Teknik Perkapalan'
         ]);
         ProgramStudi::create([
-            'prodi' => 'Teknik Elektro'
+            'name' => 'Teknik Elektro'
         ]);
         ProgramStudi::create([
-            'prodi' => 'Teknik Mesin'
+            'name' => 'Teknik Mesin'
         ]);
         ProgramStudi::create([
-            'prodi' => 'Teknik Industi'
+            'name' => 'Teknik Industi'
         ]);
     }
 }

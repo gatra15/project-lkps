@@ -15,7 +15,8 @@ class TataPamongController extends Controller
 {
     public function index()
     {
-        $kerjasama = IndikatorTataKerjasama::all();
+        $tahun = session('tahun_laporan');
+        $kerjasama = IndikatorTataKerjasama::where('tahun_laporan', $tahun)->get();
         $jmlpendidikan = $kerjasama->where('tridharma', 'Pendidikan')->count();
         $jmlpenelitian = $kerjasama->where('tridharma', 'Penelitian')->count();
         $jmlpkm = $kerjasama->where('tridharma', 'Pengabdian Kepada Masyarakat')->count();
@@ -33,7 +34,7 @@ class TataPamongController extends Controller
 
     public function generate()
     {
-        $kerjasama = IndikatorTataKerjasama::all();
+        $kerjasama = IndikatorTataKerjasama::where('tahun_laporan', $tahun)->get();
         $jmlpendidikan = $kerjasama->where('tridharma', 'Pendidikan')->count();
         $jmlpenelitian = $kerjasama->where('tridharma', 'Penelitian')->count();
         $jmlpkm = $kerjasama->where('tridharma', 'Pengabdian Kepada Masyarakat')->count();
@@ -84,8 +85,8 @@ class TataPamongController extends Controller
         $indikator->manfaat = $request->input('manfaat');
         $indikator->waktu_durasi = $request->input('waktu_durasi');
         $indikator->bukti_kerjasama = $request->file('bukti_kerjasama')->storeAs('bukti-kerjasama', $filenameSimpan);
-        $indikator->tahun_laporan = 2022;
-        $indikator->prodi = auth()->user()->prodi;
+        $indikator->tahun_laporan = session('tahun_laporan');
+        $indikator->prodi = auth()->user()->prodi->name;
         $indikator->created_by = auth()->user()->name;
         $indikator->created_at = Carbon::now();
         $indikator->save();
@@ -103,7 +104,8 @@ class TataPamongController extends Controller
 
     public function edit($id)
     {
-        $indikator = IndikatorTataKerjasama::find($id);
+        $tahun = session('tahun_laporan');
+        $indikator = IndikatorTataKerjasama::find($id)->where('tahun_laporan', $tahun);
         return view('tab.tataPamong', ['indikator' => $indikator]);
     }
 
@@ -111,7 +113,7 @@ class TataPamongController extends Controller
     {
         
         $connection = 'mysql';
-        
+        $tahun = session('tahun_laporan');
         $this->validate($request, [
             'tridharma'         => 'required',
             'lembaga_mitra'     => 'required',
@@ -140,7 +142,7 @@ class TataPamongController extends Controller
         $indikator->manfaat = $request->input('manfaat');
         $indikator->waktu_durasi = $request->input('waktu_durasi');
         $indikator->bukti_kerjasama = $request->file('bukti_kerjasmaa')->storeAs('/bukti-kerjasama', $filenameSimpan);
-        $indikator->tahun_laporan = 2022;
+        $indikator->tahun_laporan = $tahun;
         $indikator->prodi = auth()->user()->prodi;
         $indikator->created_by = auth()->user()->name;
         $indikator->created_at = Carbon::now();

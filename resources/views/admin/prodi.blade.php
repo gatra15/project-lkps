@@ -31,6 +31,17 @@
     <div class="content">
     <div class="container-fluid">
             <div class="card">
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
+        
+                @if ($message = Session::get('error'))
+                <div class="alert alert-danger">
+                    <strong>{{ $message }}</strong>
+                </div>
+                @endif
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
             <li class="nav-item">
@@ -73,25 +84,31 @@
             <thead class="align-middle">
                 <tr>
                     <th class="putih" scope="col" width="1%">#</th>
-                    <th class="putih" scope="col" width="40%">Nama</th>
-                    <th class="putih" scope="col" width="45%">Tingkat</th>
+                    <th class="putih" scope="col" width="40%">Departemen</th>
                     <th class="putih" scope="col" width="24%">Action</th>
                 </tr>
        
             </thead>
     
             <tbody class="text-dark">
-    
-                <tr>
-                    
-                </tr>
+                @foreach ($prodi as $data)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $data->name }}</td>
+                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalprodiedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/prodi/{{ $data->id }}" data-toggle="modal" data-target="#modalprodidelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                    </tr>
+                @endforeach
 
      <!-- Modal Edit Data -->
-     <div class="modal fade" id="modalprodiedit-{{--  --}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal fade" id="modalprodiedit-{{ $data->id }}" tabindex="-1" aria-labelledby="modalprodiedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+        <h5 class="modal-title" id="modalprodiedit">Edit Departemen</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -102,11 +119,11 @@
     </div>  
 
     <!-- Modal Hapus Data -->
-    <div class="modal fade" id="modalprodidelete-{{--  --}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalprodidelete-{{ $data->id }}" tabindex="-1" aria-labelledby="modalprodidelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Hapus User</h5>
+        <h5 class="modal-title" id="modalprodidelete">Hapus Departemen</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>

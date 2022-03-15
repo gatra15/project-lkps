@@ -17,7 +17,7 @@ class AdminController extends Controller
     }
     
     public function index(){
-        $user = User::with('role', 'prodi')->get();
+        $user = User::with(['role','prodi'])->get();
         $role = Role::all();
         $prodi = ProgramStudi::all();
         return view('admin.index', [
@@ -28,20 +28,14 @@ class AdminController extends Controller
         ]);
     }
 
-    public function prodi(){
-        return view('admin.prodi', [
-            'title' => 'Prodi'
-        ]);
-    }
-
     public function store(Request $request)
     {
-        ddd($request);
+        // ddd($request);
         $request->validate([
             'name' => 'required',
             'role_id' => 'required',
             'email' => 'required',
-            'prodi' => 'required',
+            'prodi_id' => 'required',
             'password' => 'required',
         ]);
 
@@ -52,6 +46,7 @@ class AdminController extends Controller
         $user->prodi_id = $request->input('prodi_id');
         $user->password = Hash::make($request->input('password'));
         $user->created_at = Carbon::now();
+        
         $user->save();
         return back()->with('success', 'User berhasil ditambahkan.');
     }
@@ -62,7 +57,7 @@ class AdminController extends Controller
             'name' => 'required',
             'role_id' => 'required',
             'email' => 'required',
-            'prodi' => 'required',
+            'prodi_id' => 'required',
             'password' => 'required',
         ]);
 
@@ -80,6 +75,6 @@ class AdminController extends Controller
     public function destroy($id)
     {
         User::find($id)->delete();
-        return back()->with('success', 'User berhasil dihapus.');
+        return back()->with('error', 'User berhasil dihapus.');
     }
 }

@@ -1,4 +1,4 @@
-{{-- <form action="/kinerja-dosen/luaran-dtps/{{ $data->id }}" method="get"> --}}
+<form action="/user/{{ $users->id }}" method="get">
     <div class="modal-body">
         @csrf
         <h5 class="text-center">Yakin Ingin Menghapus Data ? </h5>
