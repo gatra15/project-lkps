@@ -22,7 +22,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data I</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -37,7 +37,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data II</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -52,7 +52,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data III</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -67,7 +67,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalluarantambah">Tambah Data Luaran</h5>
+            <h5 class="modal-title" id="modalluarantambah">Tambah Data IV</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -87,7 +87,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenluaranedit">Tambah Data Dosen Tetap</h5>
+            <h5 class="modal-title" id="modaldosenluaranedit">Edit Data {{ $data->judul }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -102,7 +102,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosenluarandelete">Tambah Data Dosen Tetap</h5>
+            <h5 class="modal-title" id="modaldosenluarandelete">Hapus Data {{ $data->judul }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
