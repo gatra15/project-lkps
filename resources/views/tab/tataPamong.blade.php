@@ -6,7 +6,7 @@
 <body>
 <div class="content-header">
     <div class="container-fluid">
-            <h1>TATA PAMONG, TATA KELOLA, DAN KERJASAMA</h1>
+            <h1>TAB TATA PAMONG, TATA KELOLA, DAN KERJASAMA</h1>
     </div>
 </div>
 

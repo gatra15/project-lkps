@@ -2,25 +2,25 @@
     <table id='form-print' class="table text-center align-middle table-bordered table-condensed">
         <thead>
             <tr>
-                <th class="align-middle" scope="col" rowspan="3">No</th>
+                <th class="align-middle" scope="col" rowspan="3" width="1%">No</th>
                 <th class="align-middle" scope="col" rowspan="3">Nama Dosen (DT)</th>
                 <th class="align-middle" scope="col" rowspan="3">DTPS <sup>1)</sup></th>
-                <th scope="col" colspan="6" >Ekuivalen Waktu Mengajar Penuh(EWMP) pada saat TS dalam satuan kredit semester (sks)</th>
-                <th class="align-middle" scope="col" rowspan="3">Jumlah (SKS)</th>  
-                <th class="align-middle" scope="col" rowspan="3">Rata-tara per semester (SKS)</th>
+                <th scope="col" colspan="6" >Ekuivalen Waktu Mengajar <br> Penuh(EWMP) pada saat <br> TS dalam satuan <br> kredit semester (sks)</th>
+                <th class="align-middle" scope="col" rowspan="3">Jumlah <br> (SKS)</th>  
+                <th class="align-middle" scope="col" rowspan="3">Rata-tara <br> per semester <br> (SKS)</th>
                 <th class="align-middle" scope="col" rowspan="3" >Opsi</th>   
             </tr>
             <tr>
-                <th class="align-middle" scope="col" colspan="3">pada PS yang Diakreditasi</th>
-                <th class="align-middle" scope="col" rowspan="2">Penelitian</th>
+                <th class="align-middle" scope="col" colspan="3">pada PS <br> yang Diakreditasi</th>
+                <th class="align-middle" scope="col" rowspan="2">Pene- <br> litian</th>
                 <th class="align-middle" scope="col" rowspan="2">PkM</th> 
-                <th class="align-middle" scope="col" rowspan="2">Tugas Tambahan dan/atau Penunjang</th>        
+                <th class="align-middle" scope="col" rowspan="2">Tugas <br> Tamb- <br> ahan <br> dan/ <br> atau <br>  Penun- <br> jang</th>        
             </tr>
             
             <tr>
-                <th class="align-middle" scope="col" >PS yang Diakreditasi</th>
-                <th class="align-middle" scope="col" >PS Lain di dalam PT</th>
-                <th class="align-middle" scope="col" >PS Lain di luar PT</th> 
+                <th class="align-middle" scope="col" >PS <br> yang  <br> Diakre- <br> ditasi</th>
+                <th class="align-middle" scope="col" >PS <br> Lain <br> di <br> dalam <br> PT</th>
+                <th class="align-middle" scope="col" >PS <br> Lain <br> di <br> luar <br> PT</th> 
             </tr>
     
         </thead>

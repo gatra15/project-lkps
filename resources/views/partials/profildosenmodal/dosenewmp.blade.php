@@ -19,7 +19,9 @@
                         <option value="0">Tidak</option>
                     </select>
                 </div>
-                <label for="dosenewmp" class="fs-6 my-2"> Ekuivalen Waktu Mengajar Penuh(EWMP) pada saat TS dalam satuan kredit semester (sks) </label>
+                <div class="form-row justify-content-center text-center mb-4">
+                  <label for="dosentetap" class="fs-6"> Ekuivalen Waktu Mengajar Penuh(EWMP) pada saat TS dalam satuan kredit semester (sks) </label>
+                </div>
                 <div class="form-row justify-content-center text-center">
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">PS yang Diakreditasi :</label>

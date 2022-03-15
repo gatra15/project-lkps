@@ -31,10 +31,10 @@
       
       <!-- Modal Tambah Data Dosen TA -->
       <div class="modal fade" id="modaldosenta" tabindex="-1" aria-labelledby="modaldosenta" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
+          <div class="modal-dialog">
           <div class="modal-content">
               <div class="modal-header">
-              <h5 class="modal-title" id="modaldosenta">Tambah Data Dosen Pembimbing Utama TA </h5>
+              <h5 class="modal-title" id="modaldosenta">Tambah Data </h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
               </button>
@@ -52,10 +52,10 @@
  
     <!-- Modal Edit Data TA -->
     <div class="modal fade" id="modaldosentaedit-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentaedit" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog ">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosentaedit">Edit Data Dosen Pembimbing Utama TA</h5>
+            <h5 class="modal-title" id="modaldosentaedit">Edit Data {{ $sdm->nama }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -70,7 +70,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosentadelete">Hapus Data Dosen Pembimbing Utama TA</h5>
+            <h5 class="modal-title" id="modaldosentadelete">Hapus Data {{ $sdm->nama }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

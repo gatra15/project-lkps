@@ -9,11 +9,13 @@
                 {{-- MASUK KE TABEL SDM DOSENS --}}
 
                 <label for="dosentetap"> Nama Dosen :</label>
-                <div class="input-group input-group-sm mb-3">
+                <div class="input-group mb-3">
                     <input type="text" name="nama" value="{{ $sdm->nama }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
 
-                <label for="dosenewmp" class="fs-6 my-2"> Pada PS Yang Diakreditasi </label>
+                <div class="form-row justify-content-center text-center">
+                    <label for="dosentetap" class="fs-6"> Pada PS Yang Diakreditasi</label>
+                </div>
                 <div class="form-row justify-content-center text-center">
                     <div class="form-group col-md-4 align-middle">
                     <label for="dosentetap"> TS-2 :</label>
@@ -29,7 +31,9 @@
                     </div>
                 </div>
 
-                <label for="dosenewmp" class="fs-6 my-2"> Pada PS Lain di PT </label>
+                <div class="form-row justify-content-center text-center">
+                    <label for="dosentetap" class="fs-6"> Pada PS Lain di PT</label>
+                </div>
                 <div class="form-row justify-content-center text-center">
                     <div class="form-group col-md-4 align-middle">
                     <label for="dosentetap"> TS-2 :</label>

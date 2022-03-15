@@ -6,7 +6,7 @@
 {{-- TITLE --}}
 <div class="content-header">
     <div class="container-fluid">
-            <h1>KINERJA DOSEN</h1>
+            <h1>TAB KINERJA DOSEN</h1>
     </div>
 </div>
 
