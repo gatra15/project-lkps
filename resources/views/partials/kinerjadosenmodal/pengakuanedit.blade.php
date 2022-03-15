@@ -20,8 +20,8 @@
                 <div class="input-group input-group-sm mb-3">
                 <input type="file" class="form-control" name="bukti_pendukung" id="customFile" />
                 </div>
-                <small for=""><a href="{{ asset('storage/'.$pengakuan->bukti_pendukung) }}">{{ $pengakuan->bukti_pendukung }}</a></small>
-                <label for="pengkuan"> Tingkat :</label>
+                <small for=""> file sebelumnya : <a href="{{ asset('storage/'.$pengakuan->bukti_pendukung) }}">{{ $pengakuan->bukti_pendukung }}</a></small>
+                <label for="pengkuan" class="mt-3" > Tingkat :</label>
                 <div class="input-group mb-3">
                     <select class="custom-select" name="tingkat" id="inputGroupSelect01">
                         <option>pilih...</option>

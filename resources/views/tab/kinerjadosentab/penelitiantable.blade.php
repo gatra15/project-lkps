@@ -31,7 +31,7 @@
                 <td>{{ $penelitian->jumlah_ts1 }}</td> 
                 <td>{{ $penelitian->jumlah_ts }}</td> 
                 <td>{{ $penelitian->jumlah }}</td> 
-                <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $penelitian->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
                         <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $penelitian->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $penelitian->id }}"><i class="fas fa-trash btn-del"></i></a></li>

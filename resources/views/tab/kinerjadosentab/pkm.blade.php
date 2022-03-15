@@ -33,7 +33,7 @@
 
 <!-- Modal Edit Data PKM DTPS -->
 <div class="modal fade" id="modaldosenpkmedit-{{ $pkm->id }}" tabindex="-1" aria-labelledby="modaldosenpkmedit" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
         <h5 class="modal-title" id="modaldosenpkmedit">Edit Data Pengabdian Kepada Masyarakat DTPS</h5>
