@@ -4,7 +4,7 @@
 @section('content')
 <div class="content-header">
     <div class="container-fluid">
-            <h1>PENILAIAN</h1>
+            <h1>TAB PENILAIAN</h1>
     </div>
 </div>
 @endsection

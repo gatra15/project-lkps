@@ -27,8 +27,8 @@
             <tbody class="text-dark">
                 <tr>
                     <td class="text-center putih"> 1 </td>
-                    <td class="text-left putih" colspan="1"> <b>Biaya Operasional Pendidikan</b>  </td>
-                    <td colspan="9" style="background-color: #e7e7e7"> </td>
+                    <td class="text-left putih" colspan="5"> <b>Biaya Operasional Pendidikan</b>  </td>
+                    <td colspan="5" style="background-color: #e7e7e7"> </td>
                 </tr>
                 @foreach ($keuangan as $data)
                 {{-- @foreach ($kerjasama as $indikator)--}}

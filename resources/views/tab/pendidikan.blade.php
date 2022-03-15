@@ -5,7 +5,7 @@
 {{-- JUDUL --}}
 <div class="content-header">
     <div class="container-fluid">
-            <h1>PENDIDIKAN</h1>
+            <h1>TAB PENDIDIKAN</h1>
     </div>
 </div>
 

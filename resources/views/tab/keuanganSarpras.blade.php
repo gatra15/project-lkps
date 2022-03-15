@@ -5,7 +5,7 @@
 {{-- JUDUL --}}
 <div class="content-header">
     <div class="container-fluid">
-            <h1>KEUANGAN, SARANA, DAN PRASARANA</h1>
+            <h1>TAB KEUANGAN, SARANA, DAN PRASARANA</h1>
     </div>
 </div>
 

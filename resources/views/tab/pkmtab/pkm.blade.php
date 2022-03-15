@@ -7,6 +7,11 @@
                         Tambah data
                     </button>
                 </p>
+                {{-- CSV DISINI --}}
+                <input type="button" class="btn btn-primary" onclick="printDiv('print-table')" value="Print Document" />
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
+                Cara Download PDF
+                </button>
                 <div class="collapse" id="collapseExample">
                 <div class="card card-body">
                     <p>Tuliskan data pengabdian kepada masyarakat (PkM) DTPS yang dalam pelaksanaannya melibatkan mahasiswa Program Studi pada <b> TS-2 sampai dengan TS </b> dengan mengikuti format berikut ini. <br> <br>
@@ -72,3 +77,4 @@
     
 
 </div>
+@include('layouts.table')

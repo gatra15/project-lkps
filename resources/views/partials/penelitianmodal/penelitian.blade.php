@@ -25,7 +25,7 @@
                 </div>
                 <label for="lembaga"> Tahun :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="tahun" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="number" min="2000" max="2050" name="tahun" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
                {{-- coding modal insert akhir --}}
 
