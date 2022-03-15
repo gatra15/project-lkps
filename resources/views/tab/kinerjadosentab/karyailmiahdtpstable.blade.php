@@ -6,8 +6,10 @@
                 <th class="align-middle" scope="col" rowspan="2">No</th>
                 <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
                 <th class="align-middle" scope="col" rowspan="2">Judul Artikel yang Disitasi (Jurnal/Buku,Volume, Tahun, Nomor,Halaman)</th>
-                <th class="align-middle" scope="col" rowspan="2" >Jumlah Sitasi</th>                    
-                <th class="align-middle" scope="col" rowspan="2" >Opsi</th>                    
+                <th class="align-middle" scope="col" rowspan="2" >Jumlah Sitasi</th>       
+                @hasrole('perwakilan')             
+                <th class="align-middle" scope="col" rowspan="2" >Opsi</th>               
+                @endhasrole     
             </tr>
 
 
@@ -20,11 +22,13 @@
             <td>{{ $karil->nama_dosen }}</td> 
             <td>{{ $karil->judul }}</td> 
             <td>{{ $karil->jumlah_sitasi }}</td> 
+            @hasrole('perwakilan')
             <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                 <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalkaryailmiahedit-{{ $karil->id }}"><i class="fas fa-edit"></i></a></li>
                 <li>
                     <a type="button" class="btn btn-danger" href="/kinerja-dosen/karya-ilmiah/{{ $karil->id }}" data-toggle="modal" data-target="#modalkaryailmiahdelete-{{ $karil->id }}"><i class="fas fa-trash btn-del"></i></a></li>
             </ul></td>
+            @endhasrole
             </tr>
 
         

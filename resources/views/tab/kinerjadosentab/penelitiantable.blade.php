@@ -6,8 +6,10 @@
                 <th class="align-middle" scope="col" rowspan="2">No</th>
                 <th class="align-middle" scope="col" rowspan="2">Sumber Pembiayaan</th>
                 <th scope="col" colspan="3">Jumlah Judul</th>
-                <th class="align-middle" scope="col" rowspan="2" >Jumlah</th>                    
-                <th class="align-middle" scope="col" rowspan="2" >Opsi</th>                    
+                <th class="align-middle" scope="col" rowspan="2" >Jumlah</th>       
+                @hasrole('perwakilan')             
+                <th class="align-middle" scope="col" rowspan="2" >Opsi</th>       
+                @endhasrole             
             
             
             </tr>
@@ -31,11 +33,13 @@
                 <td>{{ $penelitian->jumlah_ts1 }}</td> 
                 <td>{{ $penelitian->jumlah_ts }}</td> 
                 <td>{{ $penelitian->jumlah }}</td> 
+                @hasrole('perwakilan')
                 <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $penelitian->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
                         <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $penelitian->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $penelitian->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
+                @endhasrole
                 </tr>
 
                 @endforeach

@@ -11,12 +11,14 @@
             </button> --}}
         
         </p>
+        @can('download file')
         <a href="/kinerja-dosen/karya-ilmiah/download/excel" class="btn btn-success">Excel</a>
         <a href="/kinerja-dosen/karya-ilmiah/download/csv" class="btn btn-success">CSV</a>
         <input type="button" class="btn btn-primary" onclick="printDiv('print-table3')" value="Print Document" />
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
             Cara Download PDF
         </button>
+        @endcan
     <div class="collapse" id="des2">
         <div class="card card-body">
             <p>

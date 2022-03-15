@@ -4,16 +4,21 @@
             <a class="btn btn-primary" data-toggle="collapse" href="#des5" role="button" aria-expanded="false" aria-controls="des5">
                 Deskripsi
             </a>
+            @hasrole('perwakilan')
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalkaryailmiah">
                 Tambah data
             </button>
+            @endhasrole
         </p>
+        @can('download file')
     <a href="/kinerja-dosen/karya-ilmiah/download/excel" class="btn btn-success">Excel</a>
     <a href="/kinerja-dosen/karya-ilmiah/download/csv" class="btn btn-success">CSV</a>
     <input type="button" class="btn btn-primary" onclick="printDiv('print-table')" value="Print Document" />
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
             Cara Download PDF
         </button>
+        @endcan
+
     {{-- DESKRIPSI --}}
     <div class="collapse" id="des5">
         <div class="card card-body">

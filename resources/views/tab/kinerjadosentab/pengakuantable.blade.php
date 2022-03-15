@@ -8,8 +8,10 @@
                 <th class="align-middle" scope="col" rowspan="2">Bidang Keahlian</th>
                 <th class="align-middle" scope="col" rowspan="2" >Rekognisi <br> dan Bukti <br> Pendukung <sup>1)</sup></th>
                 <th scope="col" colspan="3">Tingkat <sup>2)</sup></th>
-                <th class="align-middle" scope="col" rowspan="2" >Tahun</th>                    
-                <th class="align-middle" scope="col" rowspan="2" >Opsi</th>                    
+                <th class="align-middle" scope="col" rowspan="2" >Tahun</th>  
+                @hasrole('perwakilan')                  
+                <th class="align-middle" scope="col" rowspan="2" >Opsi</th>  
+                @endhasrole                  
             </tr>
             <tr>
                 <th scope="col">Wilayah</th>
@@ -42,11 +44,13 @@
                 <td>{{ $pengakuan->tingkat == 'Nasional' ? 'V' : '' }}</td> 
                 <td>{{ $pengakuan->tingkat == 'Internasional' ? 'V' : '' }}</td> 
                 <td>{{ $pengakuan->tahun }}</td> 
+                @hasrole('perwakilan')
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpengakuanedit-{{ $pengakuan->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
                         <a type="button" class="btn btn-danger" href="/kinerja-dosen/{{ $pengakuan->id }}" data-toggle="modal" data-target="#modalpengakuandelete-{{ $pengakuan->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
+                @endhasrole
                 </tr>
                 @endforeach 
             <tr>

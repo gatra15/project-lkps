@@ -29,7 +29,9 @@ th span {
     <th scope="col" class="align-middle text-center" colspan="4">Bukti Kredit <br> (sks)</th>
     <th scope="col" class="align-middle text-center" rowspan="2">Dokumen <br> Rencana <br> Pembela- <br> jaran <sup>3)</sup></th>
     <th scope="col" class="align-middle text-center" rowspan="2">Unit <br> Penye- <br> lenggara</th>
+    @hasrole('perwakilan')
     <th scope="col" class="align-middle text-center" rowspan="2">Opsi</th>
+    @endhasrole
     </tr>
     <tr>
         <th> <span class="text-center">Kuliah/ Responsi/ <br> Tutorial</span>  </th>
@@ -62,11 +64,13 @@ th span {
             <td>{{ $kur->capaian_ketrampilan_khusus == '1' ? 'V' : ''  }}</td>
             <td>{{ $kur->document_rencana_pembelajaran == '1' ? 'V' : ''  }}</td>
             <td>{{ $kur->unit_penyelenggara }}</td>
+            @hasrole('perwakilan')
             <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                 <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalkurikulumedit-{{ $kur->id }}"><i class="fas fa-edit"></i></a></li>
                 <li>
                     <a type="button" class="btn btn-danger" href="/pendidikan/{{ $kur->id }}" data-toggle="modal" data-target="#modalkurikulumdelete-{{ $kur->id }}"><i class="fas fa-trash btn-del"></i></a></li>
             </ul></td>
+            @endhasrole
         </tr>
         
         @endforeach
