@@ -10,8 +10,8 @@
                 <div class="form-row justify-content-center text-center mb-6">
                     <label for="dosentetap" class="fs-6"> {{ $data->sarana_id == 1 ? $data->biaya->text : $data->sarana->text }}</label>
                 </div>
-                <input type="hidden" name="sarana_id" value="{{ $data->sarana_id }}">
-                <input type="hidden" name="biaya_id" value="{{ $data->biaya_id }}">
+                <input type="hidden" name="sarana_id" value="{{ $data->sarana_id }}" >
+                <input type="hidden" name="biaya_id" value="{{ $data->biaya_id }}" >
                 <div class="form-row justify-content-center text-center mt-5">
                   <label for="dosentetap" class="fs-6"> Unit Pengelola Program Studi (Rp.)  :</label>
                 </div>

@@ -26,7 +26,7 @@
 {{-- CONTENT --}}
 {{-- Modal Tambah Data Kurikulum --}}
     <div class="modal fade" id="modalkurikulum" tabindex="-1" aria-labelledby="modalkurikulum" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
             <h5 class="modal-title" id="modalkurikulum">Tambah Data Dosen Tetap</h5>
@@ -47,10 +47,10 @@
             
 <!-- Modal Tambah Data Kurikulum -->
 <div class="modal fade" id="modalkurikulumedit-{{ $kur->id }}" tabindex="-1" aria-labelledby="modalkurikulumedit" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="modalkurikulumedit">Edit Data Dosen Tetap</h5>
+        <h5 class="modal-title" id="modalkurikulumedit">Edit Data {{ $kur->nama_mata_kuliah }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -65,7 +65,7 @@
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="modalkurikulumdelete">Yakin?</h5>
+        <h5 class="modal-title" id="modalkurikulumdelete">Hapus Data {{ $kur->nama_mata_kuliah }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>

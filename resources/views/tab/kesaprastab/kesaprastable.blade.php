@@ -1,7 +1,7 @@
 @include('layouts.table')
 <form action="{{ url('/tata-pamong-tata-kelola-kerjasama') }}" method="GET">
     <div id="print-table" class="container-fluid">
-        <table width="90%" id='form-print' class="table text-center table-bordered table-condensed table-responsive">
+        <table width="90%" id='form-print' class="table text-center table-bordered ">
             <thead>
                 <tr>
                     <th class="align-middle" scope="col" rowspan="2">NO</th>

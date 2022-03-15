@@ -43,6 +43,7 @@
             <td class="putih"></td>
             <td></td>
             <td></td>
+            <td></td>
         </tr>
     {{-- ISI TABEL DISINI BOSS --}}
     </tbody>
