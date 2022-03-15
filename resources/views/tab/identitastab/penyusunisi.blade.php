@@ -19,12 +19,12 @@
         <table class="table table-bordered text-center align-middle table-condensed">
             <thead>
                 <tr>
-                    <th style="width: 1%">No</th>
-                    <th style="width: 20%">Nama</th>
-                    <th style="width: 30%">NIDN</th>
-                    <th style="width: 20%">Jabatan</th>
-                    <th style="width: 16%" class="text-center">Tanggal Pengisian</th>
-                    <th style="width: 20%"> Tanda Tangan </th>
+                    <th style="width: 1%"  class="text-center align-middle">No</th>
+                    <th style="width: 20%" class="text-center align-middle">Nama</th>
+                    <th style="width: 10%" class="text-center align-middle">NIDN</th>
+                    <th style="width: 20%" class="text-center align-middle">Jabatan</th>
+                    <th style="width: 15%" class="text-center align-middle">Tanggal Pengisian</th>
+                    <th style="width: 25%" class="text-center align-middle"> TTD</th>
                 </tr>
             </thead>
             <tbody>

@@ -59,7 +59,7 @@
   }
 
   thead{
-    background-color: #d8d8d8;
+    background-color: #e7e7e7;
   }
   
   #action {

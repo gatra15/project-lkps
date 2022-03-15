@@ -16,13 +16,13 @@
     <div class="collapse" id="collapseExample">
         <div class="card card-body">
             <p>
-                Tuliskan data daya tampung, jumlah calon mahasiswa (pendaftar dan peserta yang lulus 
-                seleksi), jumlah mahasiswa baru (reguler dan transfer) dan jumlah mahasiswa aktif 
-                (reguler dan transfer) dalam 5 tahun terakhir di Program Studi yang diakreditasi dengan 
-                mengikuti format Tabel 2.a berikut ini.
+            Tuliskan jumlah mahasiswa asing yang terdaftar di seluruh program studi pada UPPS
+            dalam <b>3 tahun terakhir</b>  dengan mengikuti format Tabel berikut ini. <br> <br>
+            <b>Keterangan</b> <br>
+            Mahasiswa asing dapat terdaftar untuk mengikuti program pendidikan secara penuh
+            waktu <i>(full-time)</i>  atau paruh waktu <i>(part-time)</i>. Mahasiswa asing paruh waktu adalah mahasiswa yang terdaftar di Program Studi untuk mengikuti kegiatan pertukaran studi
+            <i>(student exchange), credit earning</i>, atau kegiatan sejenis yang relevan.
             </p>
-            Keterangan: <br>
-            TS = Tahun akademik penuh terakhir saat pengajuan usulan akreditasi.
         </div> 
     </div>
     {{-- Modal Tambah --}}
@@ -30,7 +30,7 @@
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalmahasiswaasing">Tambah Data</h5>
+            <h5 class="modal-title" id="modalmahasiswaasing">Tambah Data </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -51,7 +51,7 @@
     <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="modalmahasiswaasingedit">Edit Data</h5>
+        <h5 class="modal-title" id="modalmahasiswaasingedit">Edit Data {{ $mhs->program_studi }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -64,7 +64,7 @@
     <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="modalmahasiswaasingdelete">Hapus Data</h5>
+        <h5 class="modal-title" id="modalmahasiswaasingdelete">Hapus Data {{ $mhs->program_studi }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
