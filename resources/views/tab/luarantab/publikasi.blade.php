@@ -12,7 +12,7 @@
         <div class="card card-body">
             <p>
                 Tuliskan jumlah publikasi ilmiah mahasiswa, yang dihasilkan secara mandiri atau
-                bersama DTPS, dalam 3 tahun terakhir dengan mengikuti format Tabel berikut
+                bersama DTPS, <b>dalam 3 tahun terakhir</b>  dengan mengikuti format Tabel berikut
                 ini. Judul publikasi harus relevan dengan bidang program studi <br>
             </p>
         </div> 

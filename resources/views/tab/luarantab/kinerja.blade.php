@@ -11,10 +11,8 @@
     <div class="collapse" id="des5">
         <div class="card card-body">
             <p>
-                <u>Tabel 8.e.1) berikut ini diisi oleh pengusul dari Program Studi pada program Diploma Tiga/Sarjana/Sarjana Terapan.</u><br>
-                Tuliskan tingkat/ukuran tempat kerja/berwirausaha lulusan dalam 3 tahun, mulai TS-4 sampai dengan TS-2, dengan mengikuti format Tabel 8.e.1) berikut ini. Data diambil dari hasil studi penelusuran lulusan. <br><br>
-                <u>Tabel 8.e.2) berikut ini diisi oleh pengusul dari Program Studi pada program Diploma Tiga/Sarjana/Sarjana Terapan/Magister/Magister Terapan.</u><br>
-                Tuliskan hasil pengukuran kepuasan pengguna lulusan berdasarkan aspek-aspek: 1) etika, 2) keahlian pada bidang ilmu (kompetensi utama), 3) kemampuan berbahasa asing, 4) penggunaan teknologi informasi, 5) kemampuan berkomunikasi, 6) kerjasama dan 7) pengembangan diri, dengan mengikuti format Tabel 8.e.2) berikut ini. Data diambil dari hasil studi penelusuran lulusan.
+                Tuliskan tingkat/ukuran tempat kerja/berwirausaha lulusan <b>dalam 3 tahun,</b>  mulai TS-4 sampai dengan TS-2, dengan mengikuti format Tabel  berikut ini. Data diambil
+                dari hasil studi penelusuran lulusan. <br>
 
             </p>
         </div> 

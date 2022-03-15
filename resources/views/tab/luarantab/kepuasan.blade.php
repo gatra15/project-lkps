@@ -11,9 +11,15 @@
     <div class="collapse" id="des6">
         <div class="card card-body">
             <p>
-                Tuliskan jumlah publikasi ilmiah mahasiswa, yang dihasilkan secara mandiri atau
-                bersama DTPS, <b>dalam 3 tahun terakhir</b>  dengan mengikuti format Tabel berikut
-                ini. Judul publikasi harus relevan dengan bidang program studi.
+                Tuliskan hasil pengukuran kepuasan pengguna lulusan berdasarkan aspek-aspek: <br> 
+                1) etika, <br> 
+                2) keahlian pada bidang ilmu (kompetensi utama), <br> 
+                3) kemampuan berbahasa asing, <br> 
+                4) penggunaan teknologi informasi, <br> 
+                5) kemampuan berkomunikasi, <br> 
+                6) kerjasama dan <br> 
+                7) pengembangan diri, <br> 
+                dengan mengikuti format Tabel berikut ini. Data diambil dari hasil studi penelusuran lulusan. <br>
 
             </p>
         </div> 

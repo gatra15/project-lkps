@@ -17,8 +17,11 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
      */
     public function index()
     {
+        
         $data = SdmKinerjaDosenLuaranPkmDtps::with('jenis')->get();
         return ['data' => $data];
+
+        
     }
 
     /**

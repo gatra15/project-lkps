@@ -13,7 +13,9 @@
 <div class="collapse" id="des7">
     <div class="card card-body">
         <p>
-            Luaran Penelitian/PkM Lainnya oleh DTPS
+            Tuliskan luaran penelitian dan luaran PkM yang dihasilkan mahasiswa, baik secara
+            mandiri atau bersama DTPS, <b>dalam 3 tahun terakhir</b> dengan mengikuti format Tabel
+            berikut ini. Jenis dan judul luaran harus relevan dengan bidang program studi. <br>
         </p>
     </div> 
 </div>
