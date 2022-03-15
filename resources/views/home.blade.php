@@ -38,19 +38,16 @@
                 </div>
             
                 @hasanyrole('dekan|asesor')
-
+                
                 <div class="mb-5 pb-2">
                     <label for="exampleInputEmail1" class="form-label h3">Pilih Prodi</label> 
                     <div id="emailHelp" class="form-text">Pilih prodi untuk melihat atau input data laporan.</div>
                     <select id="prodi" name="prodi" class="form-control form-control-lg mb-3" aria-label=".form-control-lg" onchange="this.form.submit()">
-                    @php
-                        $prodis = ['Teknik Komputer','Teknik Elektro','Teknik']
-                    @endphp
-                    <option>Pilih Prodi</option>
-                    <?php foreach($prodis as $prodi) : ?>
-                        <option {{ session('prodi') == $prodi ? 'selected' : '' }} value="{{ $prodi }}">{{ $prodi }}</option>
-                    <?php endforeach; ?>
-                    </select>
+                    <option>Pilih Prodi</option> 
+                        @foreach($prodi as $prodis) 
+                     
+                    <option {{ session('prodi') == $prodis ? 'selected' : '' }}value="{{ $prodis->name }}">{{ $prodis->name }}</option>
+                       @endforeach
                 </div>
 
                 @endhasanyrole

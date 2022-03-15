@@ -9,10 +9,33 @@
           <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
           </li>
-           @if (session()->has('tahun_laporan'))
-           Tahun Laporan {{ session('tahun_laporan') }}
-           @endif
-           
+          
+            @if (session('tahun_laporan') == 'Pilih Tahun' || session()->missing('tahun_laporan'))
+            <li class="pt-2" >   <b style="color: red"> 
+               Belum Pilih Tahun Laporan <i class="fas fa-exclamation-triangle"></i>
+            </b>
+            </li>
+            @elseif (session()->has('tahun_laporan'))
+            <li class="pt-2 " > <b style="color: green"> 
+              Tahun Laporan : {{ session('tahun_laporan') }}
+            </b>
+            </li>
+            @endif
+            <li class="me-2 pt-2 ms-2"><b>||</b></li>
+            @hasanyrole('dekan|asesor')
+            @if (session('prodi') == 'Pilih Prodi' || session()->missing('tahun_laporan') )
+            <li class="pt-2" >   <b style="color: red"> 
+               Belum Pilih Prodi <i class="fas fa-exclamation-triangle"></i>
+            </b>
+            </li>
+            @elseif (session()->has('prodi'))
+            <li class="pt-2 " > <b style="color: green"> 
+              Prodi : {{ session('prodi') }}
+            </b>
+            </li>
+            @endif
+            @endhasanyrole
+
         </ul>
 
         
@@ -56,6 +79,7 @@
           </div> --}}
     
           <!-- Sidebar Menu -->
+          @hasrole('perwakilan')
           <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <!-- Add icons to the links using the .nav-icon class
@@ -69,7 +93,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ session()->has('tahun_laporan') ? '/identitas-pengusul' : '/' }}" class="nav-link {{ ($title === "Identitas Pengusul") ? 'active' : '' }}">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') ? '/identitas-pengusul' : '/' }}" class="nav-link {{ ($title === "Identitas Pengusul") ? 'active' : '' }}">
                     <i class="nav-icon fas fa-user-edit"></i>
                   <p>
                     Identitas Pengusul
@@ -77,7 +101,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/tata-pamong-tata-kelola-kerjasama" class="nav-link {{ ($title === "Tata Pamong") ? 'active' : '' }}">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') ? '/tata-pamong-tata-kelola-kerjasama' : '/' }}" class="nav-link {{ ($title === "Tata Pamong") ? 'active' : '' }}">
                     <i class="nav-icon fa-solid fa-landmark"></i>
                   <p>
                     Tata Pamong, Tata Kelola, dan Kerjasama
@@ -85,7 +109,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/mahasiswa" class="nav-link {{ ($title === "Mahasiswa") ? 'active' : '' }}">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') ? '/mahasiswa' : '/' }}" class="nav-link {{ ($title === "Mahasiswa") ? 'active' : '' }}">
                     <i class="nav-icon fa-regular fa-address-card"></i></i>
                   <p>
                     Mahasiswa
@@ -93,7 +117,7 @@
                 </a>
               </li>
               <li class="nav-item {{ ($title === "Profil Dosen") ? 'menu-open' : ($title === "Kinerja Dosen") ? 'menu-open' : ''}}">
-                <a href="/sdm" class="nav-link {{ ($title === "Sdm") ? 'active' : ($title === "Profil Dosen") ? 'active' : ($title === "Kinerja Dosen") ? 'active' : ''}} ">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') ? '/sdm' : '/' }}" class="nav-link {{ ($title === "Sdm") ? 'active' : ($title === "Profil Dosen") ? 'active' : ($title === "Kinerja Dosen") ? 'active' : ''}} ">
                   <i class="nav-icon fas fa-user-friends"></i>
                   <p>
                     Sumber Daya Manusia
@@ -102,13 +126,13 @@
                 </a>
                 <ul class="nav nav-treeview ml-3">
                   <li class="nav-item">
-                    <a href="/profil-dosen" class="nav-link {{ ($title === "Profil Dosen") ? 'active' : '' }}">
+                    <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') ? '/profil-dosen' : '/' }}" class="nav-link {{ ($title === "Profil Dosen") ? 'active' : '' }}">
                         <i class="nav-icon fas fa-angle-double-right"></i>
                       <p>Profil Dosen</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="/kinerja-dosen" class="nav-link {{ ($title === "Kinerja Dosen") ? 'active' : '' }}">
+                    <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') ? '/kinerja-dosen' : '/' }}" class="nav-link {{ ($title === "Kinerja Dosen") ? 'active' : '' }}">
                         <i class="nav-icon fas fa-angle-double-right"></i>
                       <p>Kinerja Dosen</p>
                     </a>
@@ -116,7 +140,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a href="/keuangan-sarana-prasarana" class="nav-link {{ ($title === "Keuangan Sarpras") ? 'active' : '' }}">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') ? '/keuangan-sarana-prasarana' : '/' }}" class="nav-link {{ ($title === "Keuangan Sarpras") ? 'active' : '' }}">
                     <i class="nav-icon fa-solid fa-circle-dollar-to-slot"></i>
                   <p>
                     Keuangan, Sarana, dan Prasarana
@@ -124,7 +148,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/pendidikan" class="nav-link {{ ($title === "Pendidikan") ? 'active' : '' }}">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') ? '/pendidikan' : '/' }}" class="nav-link {{ ($title === "Pendidikan") ? 'active' : '' }}">
                     <i class="nav-icon fas fa-user-graduate"></i>
                   <p>
                     Pendidikan
@@ -132,7 +156,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/penelitian" class="nav-link {{ ($title === "Penelitian") ? 'active' : '' }}">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') ? '/penelitian' : '/' }}" class="nav-link {{ ($title === "Penelitian") ? 'active' : '' }}">
                     <i class="nav-icon fas fa-search-location"></i>
                   <p>
                     Penelitian
@@ -140,7 +164,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/pkm" class="nav-link {{ ($title === "Pkm") ? 'active' : '' }}">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') ? '/pkm' : '/' }}" class="nav-link {{ ($title === "Pkm") ? 'active' : '' }}">
                     <i class="nav-icon fas fa-people-carry"></i>
                   <p>
                     Pengabdian Kepada Masyarakat (PKM)
@@ -148,7 +172,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/luaran-capaian-tridharma" class="nav-link {{ ($title === "Luaran") ? 'active' : '' }}">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') ? '/luaran-capaian-tridharma' : '/' }}" class="nav-link {{ ($title === "Luaran") ? 'active' : '' }}">
                     <i class="nav-icon fas fa-users"></i>
                   <p>
                     Luaran dan Capaian Tridharma
@@ -156,7 +180,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/simulasi" class="nav-link {{ ($title === "Simulasi") ? 'active' : '' }}">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') ? '/simulasi' : '/' }}" class="nav-link {{ ($title === "Simulasi") ? 'active' : '' }}">
                     <i class="nav-icon fas fa-stream"></i>
                   <p>
                     Simulasi Penilaian
@@ -166,6 +190,120 @@
 
             </ul>
           </nav>
+          @endhasrole
+
+          @hasanyrole('dekan|asesor')
+          <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <!-- Add icons to the links using the .nav-icon class
+                   with font-awesome or any other icon font library -->
+              <li class="nav-item menu-open">
+                <a href="/" class="nav-link {{ ($title === "Home") ? 'active' : '' }}">
+                  <i class="nav-icon fas fa-home"></i>
+                  <p>
+                    Dashboard
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun')  && (session('prodi') != 'Pilih Prodi') ? '/identitas-pengusul' : '/' }}" class="nav-link {{ ($title === "Identitas Pengusul") ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-user-edit"></i>
+                  <p>
+                    Identitas Pengusul
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') && (session('prodi') != 'Pilih Prodi') ? '/tata-pamong-tata-kelola-kerjasama' : '/'  }}" class="nav-link {{ ($title === "Tata Pamong") ? 'active' : '' }}">
+                    <i class="nav-icon fa-solid fa-landmark"></i>
+                  <p>
+                    Tata Pamong, Tata Kelola, dan Kerjasama
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') && (session('prodi') != 'Pilih Prodi') ? '/mahasiswa' : '/' }}" class="nav-link {{ ($title === "Mahasiswa") ? 'active' : '' }}">
+                    <i class="nav-icon fa-regular fa-address-card"></i></i>
+                  <p>
+                    Mahasiswa
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item {{ ($title === "Profil Dosen") ? 'menu-open' : ($title === "Kinerja Dosen") ? 'menu-open' : ''}}">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') && (session('prodi') != 'Pilih Prodi') ? '/sdm' : '/' }}" class="nav-link {{ ($title === "Sdm") ? 'active' : ($title === "Profil Dosen") ? 'active' : ($title === "Kinerja Dosen") ? 'active' : ''}} ">
+                  <i class="nav-icon fas fa-user-friends"></i>
+                  <p>
+                    Sumber Daya Manusia
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview ml-3">
+                  <li class="nav-item">
+                    <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') && (session('prodi') != 'Pilih Prodi') ? '/profil-dosen' : '/' }}" class="nav-link {{ ($title === "Profil Dosen") ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-angle-double-right"></i>
+                      <p>Profil Dosen</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') && (session('prodi') != 'Pilih Prodi') ? '/kinerja-dosen' : '/' }}" class="nav-link {{ ($title === "Kinerja Dosen") ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-angle-double-right"></i>
+                      <p>Kinerja Dosen</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') && (session('prodi') != 'Pilih Prodi') ? '/keuangan-sarana-prasarana' : '/' }}" class="nav-link {{ ($title === "Keuangan Sarpras") ? 'active' : '' }}">
+                    <i class="nav-icon fa-solid fa-circle-dollar-to-slot"></i>
+                  <p>
+                    Keuangan, Sarana, dan Prasarana
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') && (session('prodi') != 'Pilih Prodi') ? '/pendidikan' : '/' }}" class="nav-link {{ ($title === "Pendidikan") ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-user-graduate"></i>
+                  <p>
+                    Pendidikan
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') && (session('prodi') != 'Pilih Prodi') ? '/penelitian' : '/' }}" class="nav-link {{ ($title === "Penelitian") ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-search-location"></i>
+                  <p>
+                    Penelitian
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') && (session('prodi') != 'Pilih Prodi') ? '/pkm' : '/' }}" class="nav-link {{ ($title === "Pkm") ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-people-carry"></i>
+                  <p>
+                    Pengabdian Kepada Masyarakat (PKM)
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') && (session('prodi') != 'Pilih Prodi') ? '/luaran-capaian-tridharma' : '/' }}" class="nav-link {{ ($title === "Luaran") ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-users"></i>
+                  <p>
+                    Luaran dan Capaian Tridharma
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ session()->has('tahun_laporan') && (session('tahun_laporan') != 'Pilih Tahun') && (session('prodi') != 'Pilih Prodi') ? '/simulasi' : '/' }}" class="nav-link {{ ($title === "Simulasi") ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-stream"></i>
+                  <p>
+                    Simulasi Penilaian
+                  </p>
+                </a>
+              </li>
+
+            </ul>
+          </nav>
+          @endhasanyrole
           <!-- /.sidebar-menu -->
         </div>
         <!-- /.sidebar -->

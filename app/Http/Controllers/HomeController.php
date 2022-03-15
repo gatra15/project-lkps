@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ProgramStudi;
 
 class HomeController extends Controller
 {
@@ -23,8 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $prodi = ProgramStudi::all();
+
         return view('home',[
-            'title' => 'Home'
+            'title' => 'Home',
+            'prodi' => $prodi,
         ]);
     }
 
