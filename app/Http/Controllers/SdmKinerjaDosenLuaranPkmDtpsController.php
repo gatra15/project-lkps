@@ -17,8 +17,8 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
      */
     public function index()
     {
-        
-        $data = SdmKinerjaDosenLuaranPkmDtps::with('jenis')->get();
+        $tahun = session('tahun_laporan');
+        $data = SdmKinerjaDosenLuaranPkmDtps::with('jenis')->where('tahun_laporan', $tahun)->get();
         return ['data' => $data];
 
         

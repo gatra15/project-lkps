@@ -23,7 +23,7 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
         $pkm = SdmKinerjaDosenPkmDtps::with('sumber_detail')->where('tahun_laporan', $tahun)->get();
         $jumlah_ts2 = SdmKinerjaDosenPkmDtps::where('tahun_laporan', $tahun-2)->sum('jumlah_ts2');
         $jumlah_ts1 = SdmKinerjaDosenPkmDtps::where('tahun_laporan', $tahun-1)->sum('jumlah_ts1');
-        $jumlah_ts = SdmKinerjaDosenPkmDtps::sum('jumlah_ts')->where('tahun_laporan', $tahun);
+        $jumlah_ts = SdmKinerjaDosenPkmDtps::where('tahun_laporan', $tahun)->sum('jumlah_ts');
         $jumlah = SdmKinerjaDosenPkmDtps::sum('jumlah');
         return [
             'pkm' => $pkm,
