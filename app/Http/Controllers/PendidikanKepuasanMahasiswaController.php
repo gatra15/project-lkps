@@ -18,11 +18,12 @@ class PendidikanKepuasanMahasiswaController extends Controller
      */
     public function index()
     {
-        $kepuasan = PendidikanKepuasanMahasiswa::with('aspek')->get();
-        $sangat_baik = PendidikanKepuasanMahasiswa::sum('sangat_baik');
-        $baik = PendidikanKepuasanMahasiswa::sum('baik');
-        $cukup = PendidikanKepuasanMahasiswa::sum('cukup');
-        $kurang = PendidikanKepuasanMahasiswa::sum('kurang');
+        $tahun = session('tahun_laporan');
+        $kepuasan = PendidikanKepuasanMahasiswa::with('aspek')->where('tahun_laporan', $tahun)->get();
+        $sangat_baik = PendidikanKepuasanMahasiswa::where('tahun_laporan', $tahun)->sum('sangat_baik');
+        $baik = PendidikanKepuasanMahasiswa::where('tahun_laporan', $tahun)->sum('baik');
+        $cukup = PendidikanKepuasanMahasiswa::where('tahun_laporan', $tahun)->sum('cukup');
+        $kurang = PendidikanKepuasanMahasiswa::where('tahun_laporan', $tahun)->sum('kurang');
 
         return [
             'kepuasan' => $kepuasan,

@@ -86,6 +86,8 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::post('/prodi', [ProgramStudiController::class, 'store']);
         Route::put('/prodi/{id}', [ProgramStudiController::class, 'update']);
         Route::get('/prodi/{id}', [ProgramStudiController::class, 'destroy']);
+
+        Route::get('/logout', [AdminController::class, 'logout']);
     });
 
     Route::group(['middleware' => ['role:perwakilan']], function () {

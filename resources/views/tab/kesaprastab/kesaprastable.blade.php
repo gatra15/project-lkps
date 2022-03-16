@@ -33,7 +33,6 @@
                     <td colspan="5" style="background-color: #e7e7e7"> </td>
                 </tr>
                 @foreach ($keuangan as $data)
-                {{-- @foreach ($kerjasama as $indikator)--}}
                  @if ($data->sarana_id == 1 && $data->biaya_id == 1)
                     
                     <tr>
@@ -59,8 +58,8 @@
               
                     @endif
                 @endforeach
+
                 @foreach ($keuangan as $data)
-                {{-- @foreach ($kerjasama as $indikator)--}}
                  @if ($data->sarana_id == 1 && $data->biaya_id == 2)
                     
                     <tr>
@@ -86,8 +85,8 @@
               
                     @endif
                 @endforeach
+
                 @foreach ($keuangan as $data)
-                {{-- @foreach ($kerjasama as $indikator)--}}
                  @if ($data->sarana_id == 1 && $data->biaya_id == 3)
                     
                     <tr>
@@ -113,8 +112,8 @@
               
                     @endif
                 @endforeach
+
                 @foreach ($keuangan as $data)
-                {{-- @foreach ($kerjasama as $indikator)--}}
                  @if ($data->sarana_id == 1 && $data->biaya_id == 4)
                     
                     <tr>
@@ -142,7 +141,7 @@
                 @endforeach
 
                 @foreach ($keuangan as $data)
-                @if ($data->sarana_id == 2)
+                 @if ($data->sarana_id == 2)
                     <td>2</td>
                     <td style="text-align: left">{{ $data->sarana->text }}</td>
                     <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
@@ -160,7 +159,7 @@
                             <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                     </ul></td>
                     @endhasrole
-                @endif
+                 @endif
                 @endforeach
 
                 <tr>
@@ -177,36 +176,12 @@
                 </tr>
 
                 @foreach ($keuangan as $data)
-                @if ($data->sarana_id == 3) 
+                 @if ($data->sarana_id == 3) 
                 
-                <tr>
-                    <td> 3 </td>
-                    <td style="text-align: left">{{ $data->sarana->text }}</td>
-                    <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
-                    <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
-                    <td>Rp.{{ $data->unit_pengelola_ts }}</td>
-                    <td>Rp.{{ $data->unit_pengelola_average }}</td>
-                    <td>Rp.{{ $data->ps_ts2 }}</td>
-                    <td>Rp.{{ $data->ps_ts1 }}</td>
-                    <td>Rp.{{ $data->ps_ts }}</td>
-                    <td>Rp.{{ $data->ps_average }}</td>
-                    @hasrole('perwakilan')
-                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                        <li>
-                            <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
-                    @endhasarole
-                </tr>
-                @endif
-                @endforeach
-                
-                @foreach ($keuangan as $data)
-                @if ($data->sarana_id == 4) 
-                <tr>
-                    <td> 4 </td>
-                    <td style="text-align: left">{{ $data->sarana->text }}</td>
-                    <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
+                    <tr>
+                        <td> 3 </td>
+                        <td style="text-align: left">{{ $data->sarana->text }}</td>
+                        <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
                         <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
                         <td>Rp.{{ $data->unit_pengelola_ts }}</td>
                         <td>Rp.{{ $data->unit_pengelola_average }}</td>
@@ -215,14 +190,38 @@
                         <td>Rp.{{ $data->ps_ts }}</td>
                         <td>Rp.{{ $data->ps_average }}</td>
                         @hasrole('perwakilan')
-                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                        <li>
-                            <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
-                    @endhasrole
-                </tr>
-                @endif
+                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                        @endhasrole
+                    </tr>
+                 @endif
+                @endforeach
+                
+                @foreach ($keuangan as $data)
+                    @if ($data->sarana_id == 4) 
+                    <tr>
+                        <td> 4 </td>
+                        <td style="text-align: left">{{ $data->sarana->text }}</td>
+                        <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
+                            <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
+                            <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                            <td>Rp.{{ $data->unit_pengelola_average }}</td>
+                            <td>Rp.{{ $data->ps_ts2 }}</td>
+                            <td>Rp.{{ $data->ps_ts1 }}</td>
+                            <td>Rp.{{ $data->ps_ts }}</td>
+                            <td>Rp.{{ $data->ps_average }}</td>
+                            @hasrole('perwakilan')
+                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                        @endhasrole
+                    </tr>
+                    @endif
                 @endforeach
 
                 <tr>
@@ -239,75 +238,75 @@
                 </tr>
 
                 @foreach ($keuangan as $data)
-                @if ($data->sarana_id == 5) 
-                <tr>
-                    <td> 5 </td>
-                    <td style="text-align: left">{{ $data->sarana->text }}</td>
-                    <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_average }}</td>
-                        <td>Rp.{{ $data->ps_ts2 }}</td>
-                        <td>Rp.{{ $data->ps_ts1 }}</td>
-                        <td>Rp.{{ $data->ps_ts }}</td>
-                        <td>Rp.{{ $data->ps_average }}</td>
-                        @hasrole('perwakilan')
-                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                        <li>
-                            <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
-                    @endhasrole
-                </tr>
-                @endif
+                    @if ($data->sarana_id == 5) 
+                    <tr>
+                        <td> 5 </td>
+                        <td style="text-align: left">{{ $data->sarana->text }}</td>
+                        <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
+                            <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
+                            <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                            <td>Rp.{{ $data->unit_pengelola_average }}</td>
+                            <td>Rp.{{ $data->ps_ts2 }}</td>
+                            <td>Rp.{{ $data->ps_ts1 }}</td>
+                            <td>Rp.{{ $data->ps_ts }}</td>
+                            <td>Rp.{{ $data->ps_average }}</td>
+                            @hasrole('perwakilan')
+                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                        @endhasrole
+                    </tr>
+                    @endif
                 @endforeach
 
                 @foreach ($keuangan as $data)
-                @if ($data->sarana_id == 6) 
-                <tr>
-                    <td> 6 </td>
-                    <td style="text-align: left">{{ $data->sarana->text }}</td>
-                    <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_average }}</td>
-                        <td>Rp.{{ $data->ps_ts2 }}</td>
-                        <td>Rp.{{ $data->ps_ts1 }}</td>
-                        <td>Rp.{{ $data->ps_ts }}</td>
-                        <td>Rp.{{ $data->ps_average }}</td>
-                        @hasrole('perwakilan')
-                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                        <li>
-                            <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
-                    @endhasrole
-                </tr>
-                @endif
+                 @if ($data->sarana_id == 6) 
+                    <tr>
+                        <td> 6 </td>
+                        <td style="text-align: left">{{ $data->sarana->text }}</td>
+                        <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
+                            <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
+                            <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                            <td>Rp.{{ $data->unit_pengelola_average }}</td>
+                            <td>Rp.{{ $data->ps_ts2 }}</td>
+                            <td>Rp.{{ $data->ps_ts1 }}</td>
+                            <td>Rp.{{ $data->ps_ts }}</td>
+                            <td>Rp.{{ $data->ps_average }}</td>
+                            @hasrole('perwakilan')
+                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                        @endhasrole
+                    </tr>
+                 @endif
                 @endforeach
 
                 @foreach ($keuangan as $data)
-                @if ($data->sarana_id == 7) 
-                <tr>
-                    <td> 7 </td>
-                    <td style="text-align: left">{{ $data->sarana->text }}</td>
-                    <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_average }}</td>
-                        <td>Rp.{{ $data->ps_ts2 }}</td>
-                        <td>Rp.{{ $data->ps_ts1 }}</td>
-                        <td>Rp.{{ $data->ps_ts }}</td>
-                        <td>Rp.{{ $data->ps_average }}</td>
-                        @hasrole('perwakilan')
-                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                        <li>
-                            <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
-                    @endhasrole
-                </tr>
-                @endif
+                 @if ($data->sarana_id == 7) 
+                    <tr>
+                        <td> 7 </td>
+                        <td style="text-align: left">{{ $data->sarana->text }}</td>
+                        <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
+                            <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
+                            <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                            <td>Rp.{{ $data->unit_pengelola_average }}</td>
+                            <td>Rp.{{ $data->ps_ts2 }}</td>
+                            <td>Rp.{{ $data->ps_ts1 }}</td>
+                            <td>Rp.{{ $data->ps_ts }}</td>
+                            <td>Rp.{{ $data->ps_average }}</td>
+                            @hasrole('perwakilan')
+                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                        @endhasrole
+                    </tr>
+                 @endif
                 @endforeach
                 
 

@@ -15,8 +15,19 @@ class LuaranPkmMahasiswaController extends Controller
      */
     public function index()
     {
+        $tahun = session('tahun_laporan');
         $data = LuaranPkmMahasiswa::all();
-        return ['data' => $data];
+        $na = LuaranPkmMahasiswa::where('tahun_laporan', $tahun)->orWhere('type_luaran', 'I')->count('tahun');
+        $nb = LuaranPkmMahasiswa::where('tahun_laporan', $tahun)->orWhere('type_luaran', 'II')->count('tahun');
+        $nc = LuaranPkmMahasiswa::where('tahun_laporan', $tahun)->orWhere('type_luaran', 'III')->count('tahun');
+        $nd = LuaranPkmMahasiswa::where('tahun_laporan', $tahun)->orWhere('type_luaran', 'IV')->count('tahun');
+        return [
+            'data' => $data,
+            'na' => $na,
+            'nb' => $nb,
+            'nc' => $nc,
+            'nd' => $nd,
+        ];
     }
 
     /**

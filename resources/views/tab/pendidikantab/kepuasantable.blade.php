@@ -41,10 +41,11 @@
         @endforeach
         <tr>
             <td class="align-middle text-center"><b>Jumlah</b></td>
-            <td class="putih"></td>
-            <td class="putih"></td>
-            <td class="putih"></td>
-            <td class="putih"></td>
+            <td></td>
+            <td class="putih">{{ $kepuasanmahasiswa['sangat_baik'] }}</td>
+            <td class="putih">{{ $kepuasanmahasiswa['baik'] }}</td>
+            <td class="putih">{{ $kepuasanmahasiswa['cukup'] }}</td>
+            <td class="putih">{{ $kepuasanmahasiswa['kurang'] }}</td>
             <td></td>
             <td></td>
             <td></td>
