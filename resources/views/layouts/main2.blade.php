@@ -52,6 +52,14 @@ table.table-bordered > tbody > tr > td{
     border:1px solid rgb(70, 70, 70);
     text-align: left;
 }
+
+td.green {
+  color: green;
+}
+
+
+
+
   #action {
     margin: -5px -5px -5px -30px;
   }
