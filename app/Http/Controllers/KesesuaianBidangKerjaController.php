@@ -16,7 +16,11 @@ class KesesuaianBidangKerjaController extends Controller
      */
     public function index()
     {
-        $bidang = KesesuaianBidangKerja::with('tahun')->get();
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
+        $bidang = KesesuaianBidangKerja::with('tahun')->where($where)->get();
         return ['bidang' => $bidang];
     }
 
@@ -72,6 +76,7 @@ class KesesuaianBidangKerjaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $tahun = session('tahun_laporan');
         $request->validate([
             'tahun_id' => 'required',
             'jumlah_lulusan' => 'required',
@@ -90,8 +95,8 @@ class KesesuaianBidangKerjaController extends Controller
             $data->kesesuaian_rendah = (int) $request->input('kesesuaian_rendah');
             $data->kesesuaian_sedang = (int) $request->input('kesesuaian_sedang');
             $data->kesesuaian_tinggi = (int) $request->input('kesesuaian_tinggi');
-            $data->tahun_laporan = 2022;
-            $data->prodi = auth()->user()->prodi;
+            $data->tahun_laporan = $tahun;
+            $data->prodi = auth()->user()->prodi->name;
             $data->created_by = auth()->user()->name;
             $data->created_at = Carbon::now();
             // ddd($data);
@@ -115,6 +120,7 @@ class KesesuaianBidangKerjaController extends Controller
      */
     public function destroy(Request $request, $id)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         try{
             $data = KesesuaianBidangKerja::find($id);
@@ -124,8 +130,8 @@ class KesesuaianBidangKerjaController extends Controller
             $data->kesesuaian_rendah = null;
             $data->kesesuaian_sedang = null;
             $data->kesesuaian_tinggi = null;
-            $data->tahun_laporan = 2022;
-            $data->prodi = auth()->user()->prodi;
+            $data->tahun_laporan = $tahun;
+            $data->prodi = auth()->user()->prodi->name;
             $data->updated_by = auth()->user()->name;
             $data->updated_at = Carbon::now();
             $data->update();

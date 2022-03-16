@@ -20,16 +20,21 @@ class MahasiswaAsingController extends Controller
     public function index()
     {
         $tahun = session('tahun_laporan');
-        $mahasiswa = MahasiswaAsing::where('tahun_laporan', $tahun)->get();
-        $aktif_ts2 = MahasiswaAsing::where('tahun_laporan', $tahun-2)->sum('mahasiswa_aktif_ts_2');
-        $aktif_ts1 = MahasiswaAsing::where('tahun_laporan', $tahun-1)->sum('mahasiswa_aktif_ts_1');
-        $aktif_ts = MahasiswaAsing::where('tahun_laporan', $tahun)->sum('mahasiswa_aktif_ts');
-        $full_ts2 = MahasiswaAsing::where('tahun_laporan', $tahun-2)->sum('mahasiswa_asing_ft_ts_2');
-        $full_ts1 = MahasiswaAsing::where('tahun_laporan', $tahun-1)->sum('mahasiswa_asing_ft_ts_1');
-        $full_ts = MahasiswaAsing::where('tahun_laporan', $tahun)->sum('mahasiswa_asing_ft_ts');
-        $part_ts2 = MahasiswaAsing::where('tahun_laporan', $tahun-2)->sum('mahasiswa_asing_pt_ts_2');
-        $part_ts1 = MahasiswaAsing::where('tahun_laporan', $tahun-1)->sum('mahasiswa_asing_pt_ts_1');
-        $part_ts = MahasiswaAsing::where('tahun_laporan', $tahun)->sum('mahasiswa_asing_pt_ts');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $where1 = ['tahun_laporan' => $tahun - 1, 'prodi' => $prodi];
+        $where2 = ['tahun_laporan' => $tahun - 2, 'prodi' => $prodi];
+
+        $mahasiswa = MahasiswaAsing::where($where)->get();
+        $aktif_ts2 = MahasiswaAsing::where($where2)->sum('mahasiswa_aktif_ts_2');
+        $aktif_ts1 = MahasiswaAsing::where($where1)->sum('mahasiswa_aktif_ts_1');
+        $aktif_ts = MahasiswaAsing::where($where)->sum('mahasiswa_aktif_ts');
+        $full_ts2 = MahasiswaAsing::where($where2)->sum('mahasiswa_asing_ft_ts_2');
+        $full_ts1 = MahasiswaAsing::where($where1)->sum('mahasiswa_asing_ft_ts_1');
+        $full_ts = MahasiswaAsing::where($where)->sum('mahasiswa_asing_ft_ts');
+        $part_ts2 = MahasiswaAsing::where($where2)->sum('mahasiswa_asing_pt_ts_2');
+        $part_ts1 = MahasiswaAsing::where($where1)->sum('mahasiswa_asing_pt_ts_1');
+        $part_ts = MahasiswaAsing::where($where)->sum('mahasiswa_asing_pt_ts');
 
         return [
             'mahasiswa' => $mahasiswa,

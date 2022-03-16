@@ -10,7 +10,10 @@ class LuaranController extends Controller
 {
     public function index()
     {
-
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        
         $prestasi = (new PrestasiMahasiswaController)->index();
         // capaian
         $capaianPembelajaran = (new CapaianPembelajaranController)->index();

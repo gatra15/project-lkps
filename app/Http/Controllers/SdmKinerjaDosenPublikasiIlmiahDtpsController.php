@@ -19,11 +19,14 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
     public function index()
     {
         $tahun = session('tahun_laporan');
+        $prodi = auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
         $publikasi = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->get();
-        $jumlah_ts2 = SdmKinerjaDosenPublikasiIlmiahDtps::sum('jumlah_ts2');
-        $jumlah_ts1 = SdmKinerjaDosenPublikasiIlmiahDtps::sum('jumlah_ts1');
-        $jumlah_ts = SdmKinerjaDosenPublikasiIlmiahDtps::sum('jumlah_ts');
-        $jumlah = SdmKinerjaDosenPublikasiIlmiahDtps::sum('jumlah');
+        $jumlah_ts2 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->sum('jumlah_ts2');
+        $jumlah_ts1 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->sum('jumlah_ts1');
+        $jumlah_ts = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->sum('jumlah_ts');
+        $jumlah = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->sum('jumlah');
         return [
             'publikasi' => $publikasi,
             'jumlah_ts2' => $jumlah_ts2,

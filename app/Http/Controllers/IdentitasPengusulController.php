@@ -11,6 +11,10 @@ class IdentitasPengusulController extends Controller
 {
     public function index()
     {
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
         $identitas = IdentitasPengusul::all();
         // tim penyusun
         $tim = (new TimPenyusunController)->index();

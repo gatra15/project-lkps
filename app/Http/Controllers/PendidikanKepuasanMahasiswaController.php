@@ -19,11 +19,14 @@ class PendidikanKepuasanMahasiswaController extends Controller
     public function index()
     {
         $tahun = session('tahun_laporan');
-        $kepuasan = PendidikanKepuasanMahasiswa::with('aspek')->where('tahun_laporan', $tahun)->get();
-        $sangat_baik = PendidikanKepuasanMahasiswa::where('tahun_laporan', $tahun)->sum('sangat_baik');
-        $baik = PendidikanKepuasanMahasiswa::where('tahun_laporan', $tahun)->sum('baik');
-        $cukup = PendidikanKepuasanMahasiswa::where('tahun_laporan', $tahun)->sum('cukup');
-        $kurang = PendidikanKepuasanMahasiswa::where('tahun_laporan', $tahun)->sum('kurang');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        
+        $kepuasan = PendidikanKepuasanMahasiswa::with('aspek')->where($where)->get();
+        $sangat_baik = PendidikanKepuasanMahasiswa::where($where)->sum('sangat_baik');
+        $baik = PendidikanKepuasanMahasiswa::where($where)->sum('baik');
+        $cukup = PendidikanKepuasanMahasiswa::where($where)->sum('cukup');
+        $kurang = PendidikanKepuasanMahasiswa::where($where)->sum('kurang');
 
         return [
             'kepuasan' => $kepuasan,
@@ -52,6 +55,7 @@ class PendidikanKepuasanMahasiswaController extends Controller
      */
     public function store(Request $req)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'aspek_id' => 'required',
@@ -65,8 +69,8 @@ class PendidikanKepuasanMahasiswaController extends Controller
         $kepuasan->cukup = $req->input('cukup');
         $kepuasan->kurang = $req->input('kurang');
         $kepuasan->rencana_tindak_lanjut = $req->input('rencana_tindak_lanjut');
-        $kepuasan->tahun_laporan = '2022';
-        $kepuasan->prodi = auth()->user()->prodi;
+        $kepuasan->tahun_laporan = $tahun;
+        $kepuasan->prodi = auth()->user()->prodi->name;
         $kepuasan->created_by = auth()->user()->name;
         $kepuasan->created_at = Carbon::now();
         $kepuasan->save();
@@ -112,6 +116,7 @@ class PendidikanKepuasanMahasiswaController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'aspek_id' => 'required',
@@ -129,8 +134,8 @@ class PendidikanKepuasanMahasiswaController extends Controller
         $kepuasan->cukup = $req->input('cukup');
         $kepuasan->kurang = $req->input('kurang');
         $kepuasan->rencana_tindak_lanjut = $req->input('rencana_tindak_lanjut');
-        $kepuasan->tahun_laporan = 2022;
-        $kepuasan->prodi = auth()->user()->prodi;
+        $kepuasan->tahun_laporan = $tahun;
+        $kepuasan->prodi = auth()->user()->prodi->name;
         $kepuasan->created_by = auth()->user()->name;
         $kepuasan->created_at = Carbon::now();
         $kepuasan->update();
@@ -153,6 +158,7 @@ class PendidikanKepuasanMahasiswaController extends Controller
      */
     public function destroy(Request $req, $id)
     {
+        $tahun = session('tahun_laporan');
         $kepuasan = PendidikanKepuasanMahasiswa::find($id);
         $kepuasan->aspek_id = $req->input('aspek_id');
         $kepuasan->sangat_baik = null;
@@ -160,7 +166,7 @@ class PendidikanKepuasanMahasiswaController extends Controller
         $kepuasan->cukup = null;
         $kepuasan->kurang = null;
         $kepuasan->rencana_tindak_lanjut = null;
-        $kepuasan->prodi = auth()->user()->prodi;
+        $kepuasan->prodi = auth()->user()->prodi->name;
         $kepuasan->updated_by = auth()->user()->name;
         $kepuasan->updated_at = Carbon::now();
         $kepuasan->update();

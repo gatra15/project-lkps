@@ -19,12 +19,19 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
     public function index()
     {
         $tahun = session('tahun_laporan');
-        $data = SdmKinerjaDosenLuaranPkmDtps::with('jenis')->where('tahun_laporan', $tahun)->get();
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
 
-        $na = SdmKinerjaDosenLuaranPkmDtps::where('tahun_laporan', $tahun)->orWhere('type_luaran', 'I')->count('tahun');
-        $nb = SdmKinerjaDosenLuaranPkmDtps::where('tahun_laporan', $tahun)->orWhere('type_luaran', 'II')->count('tahun');
-        $nc = SdmKinerjaDosenLuaranPkmDtps::where('tahun_laporan', $tahun)->orWhere('type_luaran', 'III')->count('tahun');
-        $nd = SdmKinerjaDosenLuaranPkmDtps::where('tahun_laporan', $tahun)->orWhere('type_luaran', 'IV')->count('tahun');
+        $data = SdmKinerjaDosenLuaranPkmDtps::with('jenis')->where($where)->get();
+        $where1 = ['tahun_laporan' => $tahun, 'type_luaran' => 'I', 'prodi' => $prodi];
+        $where2 = ['tahun_laporan' => $tahun, 'type_luaran' => 'II', 'prodi' => $prodi];
+        $where3 = ['tahun_laporan' => $tahun, 'type_luaran' => 'III', 'prodi' => $prodi];
+        $where4 = ['tahun_laporan' => $tahun, 'type_luaran' => 'IV', 'prodi' => $prodi];
+
+        $na = SdmKinerjaDosenLuaranPkmDtps::where($where1)->count('tahun');
+        $nb = SdmKinerjaDosenLuaranPkmDtps::where($where2)->count('tahun');
+        $nc = SdmKinerjaDosenLuaranPkmDtps::where($where3)->count('tahun');
+        $nd = SdmKinerjaDosenLuaranPkmDtps::where($where4)->count('tahun');
         return [
             'data' => $data,
             'na' => $na,

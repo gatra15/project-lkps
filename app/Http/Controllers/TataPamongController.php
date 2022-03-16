@@ -15,11 +15,17 @@ class TataPamongController extends Controller
 {
     public function index()
     {
-        
-        $kerjasama = IndikatorTataKerjasama::all();
-        $jmlpendidikan = $kerjasama->where('tridharma', 'Pendidikan')->count();
-        $jmlpenelitian = $kerjasama->where('tridharma', 'Penelitian')->count();
-        $jmlpkm = $kerjasama->where('tridharma', 'Pengabdian Kepada Masyarakat')->count();
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $where1 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'tridharma' => 'Pendidikan'];
+        $where2 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'tridharma' => 'Penelitian'];
+        $where3 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'tridharma' => 'Pengabdian Kepada Masyarakat'];
+
+        $kerjasama = IndikatorTataKerjasama::where($where)->get();
+        $jmlpendidikan = $kerjasama->where($where1)->count();
+        $jmlpenelitian = $kerjasama->where($where2)->count();
+        $jmlpkm = $kerjasama->where($where3)->count();
 
         return view('tab.tataPamong',[
             'title' => 'Tata Pamong',
@@ -144,7 +150,7 @@ class TataPamongController extends Controller
         $indikator->waktu_durasi = $request->input('waktu_durasi');
         $indikator->bukti_kerjasama = $request->file('bukti_kerjasmaa')->storeAs('/bukti-kerjasama', $filenameSimpan);
         $indikator->tahun_laporan = $tahun;
-        $indikator->prodi = auth()->user()->prodi;
+        $indikator->prodi = auth()->user()->prodi->name;
         $indikator->created_by = auth()->user()->name;
         $indikator->created_at = Carbon::now();
         $indikator->update();

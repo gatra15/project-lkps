@@ -18,7 +18,10 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
      */
     public function index()
     {
-        $integrasi = PendidikanIntegrasiKegiatanPenelitian::all();
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $integrasi = PendidikanIntegrasiKegiatanPenelitian::where($where)->get();
         return [
             'integrasi' => $integrasi,
         ];
@@ -42,6 +45,7 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
      */
     public function store(Request $req)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'judul' => 'required',
@@ -56,8 +60,8 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
         $integrasi->nama_dosen = $req->input('nama_dosen');
         $integrasi->mata_kuliah = $req->input('mata_kuliah');
         $integrasi->bentuk_integrasi = $req->input('bentuk_integrasi');
-        $integrasi->tahun_laporan = 2022;
-        $integrasi->prodi = auth()->user()->prodi;
+        $integrasi->tahun_laporan = $tahun;
+        $integrasi->prodi = auth()->user()->prodi->name;
         $integrasi->created_by = auth()->user()->name;
         $integrasi->created_at = Carbon::now();
         $integrasi->save();
@@ -104,6 +108,7 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'judul' => 'required',
@@ -118,8 +123,8 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
         $integrasi->nama_dosen = $req->input('nama_dosen');
         $integrasi->mata_kuliah = $req->input('mata_kuliah');
         $integrasi->bentuk_integrasi = $req->input('bentuk_integrasi');
-        $integrasi->tahun_laporan = '2022';
-        $integrasi->prodi = auth()->user()->prodi;
+        $integrasi->tahun_laporan = $tahun;
+        $integrasi->prodi = auth()->user()->prodi->name;
         $integrasi->updated_by = auth()->user()->name;
         $integrasi->updated_at = Carbon::now();
         $integrasi->update();

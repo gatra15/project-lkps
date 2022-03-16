@@ -14,13 +14,17 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $mahasiswa = Mahasiswa::with('tahun')->get();
-        $pendaftar = Mahasiswa::sum('c_pendaftar');
-        $lulus_seleksi = Mahasiswa::sum('c_lulus_seleksi');
-        $reguler = Mahasiswa::sum('mahasiswa_reguler');
-        $transfer = Mahasiswa::sum('mahasiswa_transfer');
-        $aktif_reguler = Mahasiswa::sum('mahasiswa_aktif_reguler');
-        $aktif_transfer = Mahasiswa::sum('mahasiswa_aktif_transfer');
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
+        $mahasiswa = Mahasiswa::with('tahun')->where($where)->get();
+        $pendaftar = Mahasiswa::where($where)->sum('c_pendaftar');
+        $lulus_seleksi = Mahasiswa::where($where)->sum('c_lulus_seleksi');
+        $reguler = Mahasiswa::where($where)->sum('mahasiswa_reguler');
+        $transfer = Mahasiswa::where($where)->sum('mahasiswa_transfer');
+        $aktif_reguler = Mahasiswa::where($where)->sum('mahasiswa_aktif_reguler');
+        $aktif_transfer = Mahasiswa::where($where)->sum('mahasiswa_aktif_transfer');
         $total = $aktif_reguler + $aktif_transfer;
 
         return [

@@ -14,9 +14,16 @@ class SdmDosenController extends Controller
      */
     public function index()
     {
-        $dosen = SdmDosen::all();
-        $ndt = SdmDosen::where('kesesuaian_ps', 0)->orWhere('kesesuaian_ps', 1)->count();
-        $ndts = SdmDosen::where('kesesuaian_ps', 1)->count();
+        
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        
+        $where1 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'kesesuaian_ps' => 0, 'kesesuaian_ps' => 1];
+        $where2 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'kesesuaian_ps' => 1];
+        $dosen = SdmDosen::where($where)->get();
+        $ndt = SdmDosen::where($where1)->count();
+        $ndts = SdmDosen::where($where2)->count();
 
         return [
             'dosen' => $dosen,

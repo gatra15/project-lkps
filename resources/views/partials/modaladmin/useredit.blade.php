@@ -18,10 +18,10 @@
                 </div>
                 <label for="pengkuan"> Role :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <select id="role" name="role_id" class="form-control form-control-lg mb-3" aria-label=".form-control-lg">
+                    <select id="role" name="role" class="form-control form-control-lg mb-3" aria-label=".form-control-lg">
                         <option>Pilih Role</option>
                        @foreach($role as $roles)
-                        <option {{ $users->role->name == $roles->name ? 'selected' : '' }} value="{{ $roles->id }}">{{ $roles->name }}</option>
+                        <option {{ $users->role == $roles->name ? 'selected' : '' }} value="{{ $roles->name }}">{{ $roles->name }}</option>
                        @endforeach
                     </select>
                 </div>

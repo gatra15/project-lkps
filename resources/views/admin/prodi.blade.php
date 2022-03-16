@@ -101,7 +101,7 @@
                                 <a type="button" class="btn btn-danger" href="/prodi/{{ $data->id }}" data-toggle="modal" data-target="#modalprodidelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                         </ul></td>
                     </tr>
-                @endforeach
+                
 
      <!-- Modal Edit Data -->
      <div class="modal fade" id="modalprodiedit-{{ $data->id }}" tabindex="-1" aria-labelledby="modalprodiedit" aria-hidden="true">
@@ -132,7 +132,7 @@
         </div>
         </div>
     </div>     
-
+    @endforeach
             </tbody>
         </table> 
     

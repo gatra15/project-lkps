@@ -19,8 +19,12 @@ class SdmDosenTidakTetapController extends Controller
      */
     public function index()
     {
-        $dosenttetap = SdmDosenTidakTetap::all();
-        $ndtt = SdmDosenTidakTetap::select('nama')->count();
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
+        $dosenttetap = SdmDosenTidakTetap::where($where)->get();
+        $ndtt = SdmDosenTidakTetap::where($where)->count('nama');
         return [
             'dosen' => $dosenttetap,
             'ndtt' => $ndtt,

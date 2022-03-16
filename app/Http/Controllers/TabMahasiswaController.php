@@ -15,10 +15,13 @@ class TabMahasiswaController extends Controller
 {
     public function index()
     {
-        
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
         $mahasiswa = (new MahasiswaController)->index();
         $mahasiswa_asing = (new MahasiswaAsingController)->index();
-        $count = Mahasiswa::count();
+        $count = Mahasiswa::where($where)->count();
 
         
         return view('tab.mahasiswa', [

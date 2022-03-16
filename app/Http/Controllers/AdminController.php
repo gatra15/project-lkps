@@ -18,14 +18,16 @@ class AdminController extends Controller
     }
     
     public function index(){
-        $user = User::with(['role','prodi'])->get();
+        $user = User::with('prodi')->get();
         $role = Role::all();
+        $roles = Role::all()->toArray();
         $prodi = ProgramStudi::all();
         return view('admin.index', [
             'title' => 'User',
             'user' => $user,
             'role' => $role,
             'prodi' => $prodi,
+            'roles' => $roles,
         ]);
     }
 
@@ -34,7 +36,7 @@ class AdminController extends Controller
         // ddd($request);
         $request->validate([
             'name' => 'required',
-            'role_id' => 'required',
+            'role' => 'required',
             'email' => 'required',
             'prodi_id' => 'required',
             'password' => 'required',
@@ -42,32 +44,32 @@ class AdminController extends Controller
 
         $user = new User;
         $user->name = $request->input('name');
-        $user->role_id = $request->input('role_id');
+        $user->role = $request->input('role');
         $user->email = $request->input('email');
         $user->prodi_id = $request->input('prodi_id');
         $user->password = Hash::make($request->input('password'));
         $user->created_at = Carbon::now();
+        $user->assignRole($request->input('role'));
         $user->save();
         return back()->with('success', 'User berhasil ditambahkan.');
     }
 
     public function update(Request $request, $id)
     {
+        // dd($request);
         $request->validate([
             'name' => 'required',
-            'role_id' => 'required',
             'email' => 'required',
             'prodi_id' => 'required',
-            'password' => 'required',
         ]);
 
         $user = User::find($id);
         $user->name = $request->input('name');
-        $user->role_id = $request->input('role_id');
+        $user->role = $request->input('role');
         $user->email = $request->input('email');
         $user->prodi_id = $request->input('prodi_id');
-        $user->password = Hash::make($request->input('password'));
         $user->updated_at = Carbon::now();
+        $user->assignRole($request->input('role'));
         $user->update();
         return back()->with('success', 'User berhasil diubah.');
     }

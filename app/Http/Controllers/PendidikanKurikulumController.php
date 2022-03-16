@@ -14,13 +14,17 @@ class PendidikanKurikulumController extends Controller
      */
     public function index()
     {
-        $kurikulum = PendidikanKurikulum::all();
-        $makul = PendidikanKurikulum::select('mata_kuliah_kompetensial')->count();
-        $bobot_kuliah = PendidikanKurikulum::sum('bobot_kuliah');
-        $bobot_seminar = PendidikanKurikulum::sum('bobot_seminar');
-        $bobot_praktikum = PendidikanKurikulum::sum('bobot_praktikum');
-        $konversi_kredit_jam = PendidikanKurikulum::sum('konversi_kredit_jam');
-        $unit = PendidikanKurikulum::select('unit_penyelenggara')->count();
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
+        $kurikulum = PendidikanKurikulum::where($where)->get();
+        $makul = PendidikanKurikulum::select('mata_kuliah_kompetensial')->where($where)->count();
+        $bobot_kuliah = PendidikanKurikulum::where($where)->sum('bobot_kuliah');
+        $bobot_seminar = PendidikanKurikulum::where($where)->sum('bobot_seminar');
+        $bobot_praktikum = PendidikanKurikulum::where($where)->sum('bobot_praktikum');
+        $konversi_kredit_jam = PendidikanKurikulum::where($where)->sum('konversi_kredit_jam');
+        $unit = PendidikanKurikulum::select('unit_penyelenggara')->where($where)->count();
 
         return [
             'kurikulum' => $kurikulum,

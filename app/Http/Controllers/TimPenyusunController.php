@@ -18,7 +18,10 @@ class TimPenyusunController extends Controller
     public function index()
     {
         $tahun = session('tahun_laporan');
-        $timPenyusun = TimPenyusun::where('tahun_laporan', $tahun)->get();
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
+        $timPenyusun = TimPenyusun::where($where)->get();
         return [
             'tim' => $timPenyusun,
         ];

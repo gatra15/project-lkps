@@ -93,19 +93,21 @@
             </thead>
     
             <tbody class="text-dark">
-               
+              
+              
                 @foreach ($user as $users)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $users->name }}</td>
                     <td>{{ $users->email }}</td>
-                    <td>{{ $users->role->name }}</td>
+                    <td>{{ $users->role == '' ? $users->getRoleNames() : $users->role }} </td>         
                     <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                         <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaluseredit-{{ $users->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
                             <a type="button" class="btn btn-danger" href="/user/{{ $users->id }}" data-toggle="modal" data-target="#modaluserdelete-{{ $users->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                     </ul></td>
                 </tr>
+               
     
              <!-- Modal Edit Data -->
              

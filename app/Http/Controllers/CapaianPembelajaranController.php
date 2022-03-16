@@ -16,7 +16,11 @@ class CapaianPembelajaranController extends Controller
      */
     public function index()
     {
-        $capaian = CapaianPembelajaran::with('tahun')->get();
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
+        $capaian = CapaianPembelajaran::with('tahun')->where($where)->get();
         return ['capaian' => $capaian];
     }
 
@@ -89,7 +93,7 @@ class CapaianPembelajaranController extends Controller
         $data->ipk_avg = (float) $req->input('ipk_avg');
         $data->ipk_max = (float) $req->input('ipk_max');
         $data->tahun_laporan = 2022;
-        $data->prodi = auth()->user()->prodi;
+        $data->prodi = auth()->user()->prodi->name;
         $data->created_by = auth()->user()->name;
         $data->created_at = Carbon::now();
         $data->update();
@@ -122,7 +126,7 @@ class CapaianPembelajaranController extends Controller
         $data->ipk_avg = null;
         $data->ipk_max = null;
         $data->tahun_laporan = 2022;
-        $data->prodi = auth()->user()->prodi;
+        $data->prodi = auth()->user()->prodi->name;
         $data->updated_by = auth()->user()->name;
         $data->updated_at = Carbon::now();
         $data->update();

@@ -20,11 +20,16 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
     public function index()
     {
         $tahun = session('tahun_laporan');
-        $pkm = SdmKinerjaDosenPkmDtps::with('sumber_detail')->where('tahun_laporan', $tahun)->get();
-        $jumlah_ts2 = SdmKinerjaDosenPkmDtps::where('tahun_laporan', $tahun-2)->sum('jumlah_ts2');
-        $jumlah_ts1 = SdmKinerjaDosenPkmDtps::where('tahun_laporan', $tahun-1)->sum('jumlah_ts1');
-        $jumlah_ts = SdmKinerjaDosenPkmDtps::where('tahun_laporan', $tahun)->sum('jumlah_ts');
-        $jumlah = SdmKinerjaDosenPkmDtps::sum('jumlah');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $where2 = ['tahun_laporan' => $tahun-1, 'prodi' => $prodi];
+        $where3 = ['tahun_laporan' => $tahun-2, 'prodi' => $prodi];
+        
+        $pkm = SdmKinerjaDosenPkmDtps::with('sumber_detail')->where($where)->get();
+        $jumlah_ts2 = SdmKinerjaDosenPkmDtps::where($where3)->sum('jumlah_ts2');
+        $jumlah_ts1 = SdmKinerjaDosenPkmDtps::where($where2)->sum('jumlah_ts1');
+        $jumlah_ts = SdmKinerjaDosenPkmDtps::where($where)->sum('jumlah_ts');
+        $jumlah = SdmKinerjaDosenPkmDtps::where($where)->sum('jumlah');
         return [
             'pkm' => $pkm,
             'jumlah_ts2' => $jumlah_ts2,
