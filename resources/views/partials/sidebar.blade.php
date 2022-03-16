@@ -21,8 +21,8 @@
             </b>
             </li>
             @endif
-            <li class="me-2 pt-2 ms-2"><b>||</b></li>
             @hasanyrole('dekan|asesor')
+            <li class="me-2 pt-2 ms-2"><b>||</b></li>
             @if (session('prodi') == 'Pilih Prodi' || session()->missing('tahun_laporan') )
             <li class="pt-2" >   <b style="color: red"> 
                Belum Pilih Prodi <i class="fas fa-exclamation-triangle"></i>
