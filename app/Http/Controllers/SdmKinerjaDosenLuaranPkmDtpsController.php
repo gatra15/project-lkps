@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Exports\LuaranPkmDtpsExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\SdmKinerjaDosenLuaranPkmDtps;
+use App\Models\SdmKinerjaDosenPkmDtps;
 
 class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
 {
@@ -17,9 +18,20 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
      */
     public function index()
     {
-        
-        $data = SdmKinerjaDosenLuaranPkmDtps::with('jenis')->get();
-        return ['data' => $data];
+        $tahun = session('tahun_laporan');
+        $data = SdmKinerjaDosenLuaranPkmDtps::with('jenis')->where('tahun_laporan', $tahun)->get();
+
+        $na = SdmKinerjaDosenLuaranPkmDtps::where('tahun_laporan', $tahun)->orWhere('type_luaran', 'I')->count('tahun');
+        $nb = SdmKinerjaDosenLuaranPkmDtps::where('tahun_laporan', $tahun)->orWhere('type_luaran', 'II')->count('tahun');
+        $nc = SdmKinerjaDosenLuaranPkmDtps::where('tahun_laporan', $tahun)->orWhere('type_luaran', 'III')->count('tahun');
+        $nd = SdmKinerjaDosenLuaranPkmDtps::where('tahun_laporan', $tahun)->orWhere('type_luaran', 'IV')->count('tahun');
+        return [
+            'data' => $data,
+            'na' => $na,
+            'nb' => $nb,
+            'nc' => $nc,
+            'nd' => $nd,
+        ];
 
         
     }
@@ -42,6 +54,7 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
      */
     public function store(Request $req)
     {
+        // ddd($req);
         $tahun = session('tahun_laporan');
         $this->validate($req, [
             'type_luaran' => 'required',

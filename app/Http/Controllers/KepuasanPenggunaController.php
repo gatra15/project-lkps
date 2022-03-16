@@ -16,8 +16,19 @@ class KepuasanPenggunaController extends Controller
      */
     public function index()
     {
+        $tahun = session('tahun_laporan');
         $kepuasan = KepuasanPengguna::with('kemampuan')->get();
-        return ['kepuasan' => $kepuasan];
+        $sangat_baik = KepuasanPengguna::where('tahun_laporan', $tahun)->sum('sangat_baik');
+        $baik = KepuasanPengguna::where('tahun_laporan', $tahun)->sum('baik');
+        $cukup = KepuasanPengguna::where('tahun_laporan', $tahun)->sum('cukup');
+        $kurang = KepuasanPengguna::where('tahun_laporan', $tahun)->sum('kurang');
+        return [
+            'kepuasan' => $kepuasan,
+            'sangat_baik' => $sangat_baik,
+            'baik' => $baik,
+            'cukup' => $cukup,
+            'kurang' => $kurang,
+        ];
     }
 
     /**
@@ -72,6 +83,7 @@ class KepuasanPenggunaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $tahun = session('tahun_laporan');
         $request->validate([
             'kemampuan_id' => 'required',
             'sangat_baik' => 'required',
@@ -90,8 +102,8 @@ class KepuasanPenggunaController extends Controller
             $data->cukup = (int) $request->input('cukup');
             $data->kurang = (int) $request->input('kurang');
             $data->rencana_tindak_lanjut = $request->input('rencana_tindak_lanjut');
-            $data->tahun_laporan = 2022;
-            $data->prodi = auth()->user()->prodi;
+            $data->tahun_laporan = $tahun;
+            $data->prodi = auth()->user()->prodi->name;
             $data->created_by = auth()->user()->name;
             $data->created_at = Carbon::now();
             $data->update();
@@ -114,6 +126,7 @@ class KepuasanPenggunaController extends Controller
      */
     public function destroy(Request $request, $id)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         try{
             $data = KepuasanPengguna::find($id);
@@ -123,8 +136,8 @@ class KepuasanPenggunaController extends Controller
             $data->cukup = null;
             $data->kurang = null;
             $data->rencana_tindak_lanjut = null;
-            $data->tahun_laporan = 2022;
-            $data->prodi = auth()->user()->prodi;
+            $data->tahun_laporan = $tahun;
+            $data->prodi = auth()->user()->prodi->name;
             $data->created_by = auth()->user()->name;
             $data->created_at = Carbon::now();
             $data->update();

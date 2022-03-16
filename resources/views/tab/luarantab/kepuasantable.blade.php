@@ -44,10 +44,10 @@
 
         <tr>
             <td class="align-middle text-center" colspan="2"><b>Jumlah</b></td>
-            <td>Jumlah SB</td>
-            <td>Jumlah B</td>
-            <td>Jumlah C</td>
-            <td>Jumlah K</td>
+            <td>{{ $kepuasanPengguna['sangat_baik'] }}</td>
+            <td>{{ $kepuasanPengguna['baik'] }}</td>
+            <td>{{ $kepuasanPengguna['cukup'] }}</td>
+            <td>{{ $kepuasanPengguna['kurang'] }}</td>
             <td colspan="2" style="background-color: grey"></td>
         </tr>
     </table> 

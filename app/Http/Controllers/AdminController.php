@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProgramStudi;
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models\ProgramStudi;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
@@ -46,7 +47,6 @@ class AdminController extends Controller
         $user->prodi_id = $request->input('prodi_id');
         $user->password = Hash::make($request->input('password'));
         $user->created_at = Carbon::now();
-        
         $user->save();
         return back()->with('success', 'User berhasil ditambahkan.');
     }
@@ -76,5 +76,11 @@ class AdminController extends Controller
     {
         User::find($id)->delete();
         return back()->with('error', 'User berhasil dihapus.');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
     }
 }

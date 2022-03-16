@@ -41,7 +41,7 @@
         
         <ul class="navbar-nav text-right  ml-auto flex-nowrap">
           <li class="nav-item">
-            <form action="/logout" method="post"> 
+            <form action="/logout" method="POST"> 
                 @csrf
                 <button type="submit" class="form-control btn btn-secondary rounded submit px-3">Logout</button>
             </form>

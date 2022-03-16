@@ -59,7 +59,7 @@
 
             <tr>
                 <td class="bold text-center" rowspan="1" colspan="2"> <b>Jumlah</b></td>
-                <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>A</sub>=</b></td>
+                <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>A</sub>= {{ $luaran['na'] }}</b></td>
                 <td class="bold text-center" rowspan="1" colspan="1"></td>
                 <td></td>
                 <td></td>
@@ -115,7 +115,7 @@
 
             <tr>
                 <td class="bold text-center" rowspan="1" colspan="2"> <b>Jumlah</b></td>
-                <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>B</sub>=</b></td>
+                <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>B</sub>= {{ $luaran['nb'] }}</b></td>
                 <td class="bold text-center" rowspan="1" colspan="1"></td>
                 <td></td>
                 <td></td>
@@ -166,7 +166,7 @@
 
             <tr>
                 <td class="bold text-center" rowspan="1" colspan="2"> <b>Jumlah</b></td>
-                <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>B</sub>=</b></td>
+                <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>C</sub>= {{ $luaran['nc'] }}</b></td>
                 <td class="bold text-center" rowspan="1" colspan="1"></td>
                 <td></td>
                 <td></td>
@@ -213,7 +213,7 @@
 
             <tr>
                 <td class="bold text-center" rowspan="1" colspan="2"> <b>Jumlah</b></td>
-                <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>B</sub>=</b></td>
+                <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>D</sub>= {{ $luaran['nd'] }}</b></td>
                 <td class="bold text-center" rowspan="1" colspan="1"></td>
                 <td></td>
                 <td></td>
