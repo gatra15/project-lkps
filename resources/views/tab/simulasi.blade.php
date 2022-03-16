@@ -1169,21 +1169,19 @@
                         {{-- POINT 39 --}}
                         <tr>
                             <td>39</td>
-                            <td> <b>C. Kriteria</b>  <br>
-                                C.1. Visi, Misi,
-                                Tujuan dan
-                                Strategi <br>
-                                C.1.4. Indikator
-                                Kinerja Utama</td>
-                            <td>Kesesuaian Visi, Misi,
-                                Tujuan dan Strategi
-                                (VMTS) Unit Pengelola
-                                Program Studi (UPPS)
-                                terhadap VMTS
-                                Perguruan Tinggi (PT)
-                                dan visi keilmuan
-                                Program Studi (PS)
-                                yang dikelolanya</td>
+                            <td>C.6.4.b)
+                                Karakteristik
+                                Proses
+                                Pembelajaran</td>
+                            <td>Pemenuhan karakteristik
+                                proses pembelajaran,
+                                yang terdiri atas sifat: <br> 1)
+                                interaktif, <br> 2) holistik, <br> 3)
+                                integratif, <br> 4) saintifik, <br> 5)
+                                kontekstual, <br> 6) tematik, <br>
+                                7) efektif, <br> 8) kolaboratif,
+                                dan <br> 9) berpusat pada
+                                mahasiswa</td>
                             <td>
                             <div class="input-group input-group-sm">
                                 <input type="text" class="form-control" value="" name="#" required>
@@ -1198,22 +1196,31 @@
 
                         {{-- POINT 40 --}}
                         <tr>
-                            <td>40</td>
-                            <td> <b>C. Kriteria</b>  <br>
-                                C.1. Visi, Misi,
-                                Tujuan dan
-                                Strategi <br>
-                                C.1.4. Indikator
-                                Kinerja Utama</td>
-                            <td>Kesesuaian Visi, Misi,
-                                Tujuan dan Strategi
-                                (VMTS) Unit Pengelola
-                                Program Studi (UPPS)
-                                terhadap VMTS
-                                Perguruan Tinggi (PT)
-                                dan visi keilmuan
-                                Program Studi (PS)
-                                yang dikelolanya</td>
+                            <td rowspan="2">40</td>
+                            <td rowspan="2">C.6.4.c) Rencana
+                                Proses
+                                Pembelajaran</td>
+                            <td>A. Ketersediaan dan
+                                kelengkapan dokumen
+                                rencana pembelajaran
+                                semester (RPS)</td>
+                            <td>
+                            <div class="input-group input-group-sm">
+                                <input type="text" class="form-control" value="" name="#" required>
+                            </div>
+                            </td>
+                            <td>
+                                <div class="input-group input-group-sm">
+                                    <input type="text" class="form-control" value="akhir nilai" name="#" readonly>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>B. Kedalaman dan
+                                keluasan RPS sesuai
+                                dengan capaian
+                                pembelajaran lulusan. <br> <br>
+                                Skor = (A + (2 x B)) / 3</td>
                             <td>
                             <div class="input-group input-group-sm">
                                 <input type="text" class="form-control" value="" name="#" required>
