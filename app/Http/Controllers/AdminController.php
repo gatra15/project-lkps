@@ -47,7 +47,6 @@ class AdminController extends Controller
         $user->prodi_id = $request->input('prodi_id');
         $user->password = Hash::make($request->input('password'));
         $user->created_at = Carbon::now();
-        
         $user->save();
         return back()->with('success', 'User berhasil ditambahkan.');
     }
