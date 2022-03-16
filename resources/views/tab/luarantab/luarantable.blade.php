@@ -9,7 +9,9 @@
         <th class="align-middle" scope="col" rowspan="1">Tahun</th>
         <th class="align-middle" scope="col" rowspan="1">Keterangan</th>
         <th class="align-middle" scope="col" rowspan="1">Bukti</th>
-        <th class="align-middle" scope="col" rowspan="1"> Opsi </th>                                               
+        @hasrole ('perwakilan')
+        <th class="align-middle" scope="col" rowspan="1"> Opsi </th>    
+        @endhasrole                                           
         </tr>
         </thead>
 
@@ -23,8 +25,10 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                @hasrole ('perwakilan')
                 <th class="putih align-middle"><ul class="action-list align-middle" id="action">
                     <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah"><i class="fas fa-plus"></i></a></li></th>
+                @endhasrole
             </tr>
         </thead>
 
@@ -39,11 +43,13 @@
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
                 <td></td>
+                @hasrole ('perwakilan')
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
                         <a type="button" class="btn btn-danger" href="/kinerja-dosen/luaran-dtps/{{ $data->id }}" data-toggle="modal" data-target="#modaldosenluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
+                @endhasrole
             </tr>
             @endif
             @endforeach
@@ -55,7 +61,9 @@
                 <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>A</sub>= {{ $luaran['na'] }}</b></td>
                 <td class="bold text-center" rowspan="1" colspan="1"></td>
                 <td></td>
+                @hasrole ('perwakilan')
                 <td></td>
+                @endhasrole
             </tr>
         </tbody>
 
@@ -76,8 +84,10 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                @hasrole ('perwakilan')
                 <th class="putih align-middle"><ul class="action-list align-middle" id="action">
                     <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah2"><i class="fas fa-plus"></i></a></li></th>
+                @endhasrole
             </tr>
         </thead>
 
@@ -93,11 +103,13 @@
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
                 <td></td>
+                @hasrole ('perwakilan')
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
                         <a type="button" class="btn btn-danger" href="/kinerja-dosen/luaran-dtps/{{ $data->id }}" data-toggle="modal" data-target="#modaldosenluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
+                @endhasrole
             </tr>
             @endif
             @endforeach
@@ -106,7 +118,9 @@
                 <td class="bold text-center" rowspan="1" colspan="2"> <b>Jumlah</b></td>
                 <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>B</sub>= {{ $luaran['nb'] }}</b></td>
                 <td class="bold text-center" rowspan="1" colspan="1"></td>
+                @hasrole ('perwakilan')
                 <td></td>
+                @endhasrole
             </tr>
         </tbody>
 
@@ -123,8 +137,10 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                @hasrole ('perwakilan')
                 <th class="putih align-middle"><ul class="action-list align-middle" id="action">
                     <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah3"><i class="fas fa-plus"></i></a></li></th>
+                @endhasrole
             </tr>
         </thead>
 
@@ -139,11 +155,13 @@
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
                 <td></td>
+                @hasrole ('perwakilan')
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
                         <a type="button" class="btn btn-danger" href="/kinerja-dosen/luaran-dtps/{{ $data->id }}" data-toggle="modal" data-target="#modaldosenluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
+                @endhasrole
             </tr>
             @endif
             @endforeach
@@ -153,7 +171,9 @@
                 <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>C</sub>= {{ $luaran['nc'] }}</b></td>
                 <td class="bold text-center" rowspan="1" colspan="1"></td>
                 <td></td>
+                @hasrole ('perwakilan')
                 <td></td>
+                @endhasrole
             </tr>
         </tbody>
 
@@ -167,8 +187,10 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                @hasrole ('perwakilan')
                 <th class="putih align-middle"><ul class="action-list align-middle" id="action">
                     <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah4"><i class="fas fa-plus"></i></a></li></th>
+                @endhasrole
             </tr>
         </thead>
 
@@ -182,11 +204,13 @@
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
                 <td></td>
+                @hasrole ('perwakilan')
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
                         <a type="button" class="btn btn-danger" href="/kinerja-dosen/luaran-dtps/{{ $data->id }}" data-toggle="modal" data-target="#modaldosenluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
+                @endhasrole
             </tr>
             @endif
             @endforeach
@@ -196,7 +220,9 @@
                 <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>D</sub>= {{ $luaran['nd'] }}</b></td>
                 <td class="bold text-center" rowspan="1" colspan="1"></td>
                 <td></td>
+                @hasrole ('perwakilan')
                 <td></td>
+                @endhasrole
             </tr>
         </tbody>
      

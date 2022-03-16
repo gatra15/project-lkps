@@ -7,7 +7,9 @@
     <th class="align-middle text-center" scope="col" colspan="7">Jumlah Mahasiswa yang Lulus pada</th>
     <th class="align-middle text-center" scope="col" rowspan="2">Jumlah <br> Lulusan <br> s.d. <br> Akhir TS</th>
     <th class="align-middle text-center" scope="col" rowspan="2">Rata- <br> rata <br> Masa <br> Studi</th>
+    @hasrole ('perwakilan')
     <th class="align-middle text-center" scope="col" rowspan="2">Opsi</th>
+    @endhasrole
     
     </tr>
 
@@ -53,12 +55,14 @@
                 <td>{{ $efektifitas->ts }}</td>
                 <td>{{ $efektifitas->jumlah }}</td>
                 <td>{{ $efektifitas->average }}</td>
+                @hasrole ('perwakilan')
 
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalefekedit-{{ $efektifitas->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
                         <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/efektifitas/{{ $efektifitas->id }}" data-toggle="modal" data-target="#modalefekdelete-{{ $efektifitas->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
+                @endhasrole
             </tr>
         @endforeach
     </table> 

@@ -6,7 +6,9 @@
         <th class="align-middle text-center" scope="col" rowspan="2">Jumlah <br> Lulusan</th>
         <th class="align-middle text-center" scope="col" rowspan="2">Jumlah <br> Lulusan <br> yang <br> Terlacak </th>
         <th class="align-middle text-center" scope="col" colspan="3">Jumlah Lulusan Terlacak <br> dengan Waktu Tunggu <br> Mendapatkan Pekerjaan </th>
+        @hasrole ('perwakilan')
         <th class="align-middle text-center" scope="col" rowspan="2"> Opsi </th>
+        @endhasrole
     </tr>
 
     <tr>
@@ -26,11 +28,13 @@
             <td>{{ $data->waktu_tunggu_6}}</td>
             <td>{{ $data->waktu_tunggu_6_18 }}</td>
             <td>{{ $data->waktu_tunggu_18 }}</td>
+            @hasrole ('perwakilan')
             <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                 <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaldayaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                 <li>
                     <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/{{ $data->id }}" data-toggle="modal" data-target="#modaldayadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
             </ul></td>
+            @endhasrole
         </tr>
         @endforeach
     </table> 

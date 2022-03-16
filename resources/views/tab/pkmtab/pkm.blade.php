@@ -3,15 +3,19 @@
                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Deskripsi
                     </a>
+                    @hasrole ('perwakilan')
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalpkm">
                         Tambah data
                     </button>
+                    @endhasrole
                 </p>
                 {{-- CSV DISINI --}}
+                @can ('download_file')
                 <input type="button" class="btn btn-primary" onclick="printDiv('print-table')" value="Print Document" />
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
                 Cara Download PDF
                 </button>
+                @endcan
                 <div class="collapse" id="collapseExample">
                 <div class="card card-body">
                     <p>Tuliskan data pengabdian kepada masyarakat (PkM) DTPS yang dalam pelaksanaannya melibatkan mahasiswa Program Studi pada <b> TS-2 sampai dengan TS </b> dengan mengikuti format berikut ini. <br> <br>

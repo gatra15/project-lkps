@@ -4,10 +4,12 @@
             Deskripsi
         </a>
     </p>
+    @can ('download file')
     <input type="button" class="btn btn-primary" onclick="printDiv('print-table7')" value="Print Document" />
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
         Cara Download PDF
     </button>
+    @endcan
     <div class="collapse" id="des5">
         <div class="card card-body">
             <p>

@@ -8,7 +8,9 @@
     <th class="align-middle" scope="col" rowspan="2">Tahun Perolehan</th>
     <th  scope="col" colspan="3">Tingkat</th>
     <th class="align-middle" scope="col" rowspan="2">Prestasi yang Dicapai</th>
+    @hasrole ('perwakilan')
     <th class="align-middle" scope="col" rowspan="2">Opsi</th>
+    @endhasrole
     </tr>
     <tr>
     <th  scope="col">Lokal/ Wilayah</th>
@@ -30,11 +32,13 @@
                     <td>{{ $prest->tingkat == 'Nasional' ? 'V' : '' }}</td>
                     <td>{{ $prest->tingkat == 'Internasional' ? 'V' : '' }}</td>
                     <td>{{ $prest->type_prestasi }}</td>
+                    @hasrole ('perwakilan')
                     <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                         <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalluaranprestasiedit-{{ $prest->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
                             <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/prestasi-mahasiswa/{{ $prest->id }}" data-toggle="modal" data-target="#modalluaranprestasidelete-{{ $prest->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                     </ul></td>
+                    @endhasrole
                 </tr>
             @endforeach
     </tr>
