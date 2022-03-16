@@ -15,7 +15,18 @@ class CreateTahunsTable extends Migration
     {
         Schema::create('tahuns', function (Blueprint $table) {
             $table->id();
-            $table->string('tahun');
+            $table->string('relasi')->nullable(true);
+            $table->integer('ts')->nullable(true);
+            $table->integer('ts_1')->nullable(true);
+            $table->integer('ts_2')->nullable(true);
+            $table->integer('ts_3')->nullable(true);
+            $table->integer('ts_4')->nullable(true);
+            $table->integer('ts_5')->nullable(true);
+            $table->integer('ts_6')->nullable(true);
+            $table->integer('tahun_laporan');
+            $table->string('prodi');
+            $table->string('created_by')->nullable(true);
+            $table->string('updated_by')->nullable(true);
             $table->timestamps();
         });
     }

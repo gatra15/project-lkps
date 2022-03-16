@@ -14,11 +14,25 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        $tahun = session('tahun_laporan');
+        $tahun = (int) session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
-        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $cek = Mahasiswa::where('tahun_laporan', $tahun)->where('prodi', $prodi)->exists();
 
-        $mahasiswa = Mahasiswa::with('tahun')->where($where)->get();
+        if (!$cek){
+            Mahasiswa::create([
+                'tahun_laporan' => $tahun,
+                'prodi' => $prodi
+            ]);
+        }
+            
+        $where = [
+            ['prodi', '=', $prodi],
+            ['tahun_laporan', '<=', $tahun],
+            ['tahun_laporan', '>=', $tahun-4]
+        ];
+
+        $mahasiswa = Mahasiswa::where($where)->get();
+                    
         $pendaftar = Mahasiswa::where($where)->sum('c_pendaftar');
         $lulus_seleksi = Mahasiswa::where($where)->sum('c_lulus_seleksi');
         $reguler = Mahasiswa::where($where)->sum('mahasiswa_reguler');

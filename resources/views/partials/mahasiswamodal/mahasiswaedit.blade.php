@@ -8,9 +8,7 @@
                
                 {{-- MASUK KE TABEL SDM DOSENS --}}
 
-                <div class="input-group input-group-sm mb-3">
-                    <input type="hidden" name="tahun_id" value="{{ $mhs->tahun_id }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly>
-                </div>
+                
                 <div class="form-row justify-content-center text-center">
                 <label for="dosentetap" class=""> Daya Tampung :</label>
                 </div>

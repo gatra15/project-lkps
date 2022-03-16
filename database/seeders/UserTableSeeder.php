@@ -67,41 +67,41 @@ class UserTableSeeder extends Seeder
         ]);
         $user->assignRole($admin);
 
-        // $user = User::create([
-        //     'name' => 'Teknik Industri',
-        //     'prodi_id' => 12,
-        //     'email' => 'teknik.industri@undip.ac.id',
-        //     'password' => Hash::make('industri123'),
-        // ]);
-        // $user->assignRole($perwakilan);
+        $user = User::create([
+            'name' => 'Teknik Industri',
+            'prodi_id' => 12,
+            'email' => 'teknik.industri@undip.ac.id',
+            'password' => Hash::make('industri123'),
+        ]);
+        $user->assignRole($perwakilan);
 
-        // $user = User::create([
-        //     'name' => 'Asesor',
-        //     'email' => 'asesor@undip.ac.id',
-        //     'password' => Hash::make('asesor123'),
-        // ]);
-        // $user->assignRole($asesor);
+        $user = User::create([
+            'name' => 'Asesor',
+            'email' => 'asesor@undip.ac.id',
+            'password' => Hash::make('asesor123'),
+        ]);
+        $user->assignRole($asesor);
         
-        // $user = User::create([
-        //     'name' => 'Dekanat Fakultas Teknik',
-        //     'email' => 'dekan.tekni@undip.ac.id',
-        //     'password' => Hash::make('dekan123'),
-        // ]);
-        // $user->assignRole($dekan);
+        $user = User::create([
+            'name' => 'Dekanat Fakultas Teknik',
+            'email' => 'dekan.tekni@undip.ac.id',
+            'password' => Hash::make('dekan123'),
+        ]);
+        $user->assignRole($dekan);
         
-        // $user = User::create([
-        //     'name' => 'Wakil Dekanat Fakultas Teknik',
-        //     'email' => 'wadek.teknik@undip.ac.id',
-        //     'password' => Hash::make('wadek123'),
-        // ]);
-        // $user->assignRole($dekan);
+        $user = User::create([
+            'name' => 'Wakil Dekanat Fakultas Teknik',
+            'email' => 'wadek.teknik@undip.ac.id',
+            'password' => Hash::make('wadek123'),
+        ]);
+        $user->assignRole($dekan);
         
-        // $user = User::create([
-        //     'name' => 'Tim Penjaminan Mutu Fakultas Teknik',
-        //     'email' => 'tim.teknik@undip.ac.id',
-        //     'password' => Hash::make('mutu123'),
-        // ]);
-        // $user->assignRole($dekan);
+        $user = User::create([
+            'name' => 'Tim Penjaminan Mutu Fakultas Teknik',
+            'email' => 'tim.teknik@undip.ac.id',
+            'password' => Hash::make('mutu123'),
+        ]);
+        $user->assignRole($dekan);
 
         
 
@@ -146,7 +146,7 @@ class UserTableSeeder extends Seeder
             'name' => 'Teknik Mesin'
         ]);
         ProgramStudi::create([
-            'name' => 'Teknik Industi'
+            'name' => 'Teknik Industri'
         ]);
     }
 }

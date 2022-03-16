@@ -9,10 +9,6 @@
                 {{-- MASUK KE TABEL SDM DOSENS --}}
 
                 <label for="dosentetap"> Tahun Akademik :</label>
-                <p>@php echo $capaian->tahun->name @endphp</p>
-                <div class="input-group input-group-sm mb-3">
-                    <input type="hidden" name="tahun_id" value="{{ $capaian->tahun_id }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly>
-                </div>
                 <label for="capaianpembelajaran"> Jumlah Lulusan :</label>
                 <div class="input-group input-group-sm mb-3">
                     <input type="text" name="jumlah_lulusan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
