@@ -13,8 +13,12 @@ class PenelitianController extends Controller
 {
     public function index()
     {
-        $penelitian = PenelitianDtpsMelibatkanMahasiswa::all();
-        $jumlah_judul = PenelitianDtpsMelibatkanMahasiswa::select('judul')->count();
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
+        $penelitian = PenelitianDtpsMelibatkanMahasiswa::where($where)->get();
+        $jumlah_judul = PenelitianDtpsMelibatkanMahasiswa::select('judul')->where($where)->count();
         return view('tab.penelitian', [
             'title' => 'Penelitian',
             'penelitian' => $penelitian,
@@ -24,6 +28,7 @@ class PenelitianController extends Controller
 
     public function store(Request $req)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'nama_dosen' => 'required',
@@ -39,8 +44,8 @@ class PenelitianController extends Controller
         $penelitian->nama_mahasiswa = $req->input('nama_mahasiswa');
         $penelitian->judul = $req->input('judul');
         $penelitian->tahun = $req->input('tahun');
-        $penelitian->tahun_laporan = 2022;
-        $penelitian->prodi = auth()->user()->prodi;
+        $penelitian->tahun_laporan = $tahun;
+        $penelitian->prodi = auth()->user()->prodi->name;
         $penelitian->created_by = auth()->user()->name;
         $penelitian->created_at = Carbon::now();
         $penelitian->save();
@@ -57,6 +62,7 @@ class PenelitianController extends Controller
 
     public function update(Request $req, $id)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'nama_dosen' => 'required',
@@ -73,8 +79,8 @@ class PenelitianController extends Controller
         $penelitian->nama_mahasiswa = $req->input('nama_mahasiswa');
         $penelitian->judul = $req->input('judul');
         $penelitian->tahun = $req->input('tahun');
-        $penelitian->tahun_laporan = 2022;
-        $penelitian->prodi = auth()->user()->prodi;
+        $penelitian->tahun_laporan = $tahun;
+        $penelitian->prodi = auth()->user()->prodi->name;
         $penelitian->updated_by = auth()->user()->name;
         $penelitian->updated_at = Carbon::now();
         $penelitian->save();

@@ -19,9 +19,14 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
      */
     public function index()
     {
-        $karyailmiah = SdmKinerjaDosenKaryaIlmiahDtps::all();
-        $jumlah = SdmKinerjaDosenKaryaIlmiahDtps::sum('jumlah_sitasi');
-        $count = SdmKinerjaDosenKaryaIlmiahDtps::select('judul')->count();
+        // filter
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
+        $karyailmiah = SdmKinerjaDosenKaryaIlmiahDtps::where($where)->get();
+        $jumlah = SdmKinerjaDosenKaryaIlmiahDtps::where($where)->sum('jumlah_sitasi');
+        $count = SdmKinerjaDosenKaryaIlmiahDtps::where($where)->count('judul');
         return [
             'karyailmiah' => $karyailmiah,
             'jumlah' => $jumlah,
@@ -47,6 +52,7 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
      */
     public function store(Request $req)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'nama_dosen' => 'required',
@@ -60,8 +66,8 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
         $karil->nama_dosen = $req->input('nama_dosen');
         $karil->judul = $req->input('judul');
         $karil->jumlah_sitasi = $req->input('jumlah_sitasi');
-        $karil->tahun_laporan = 2022;
-        $karil->prodi = auth()->user()->prodi;
+        $karil->tahun_laporan = $tahun;
+        $karil->prodi = auth()->user()->prodi->name;
         $karil->created_by = auth()->user()->name;
         $karil->created_at = Carbon::now();
         $karil->save();
@@ -107,6 +113,7 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'nama_dosen' => 'required',
@@ -120,8 +127,8 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
         $karil->nama_dosen = $req->input('nama_dosen');
         $karil->judul = $req->input('judul');
         $karil->jumlah_sitasi = $req->input('jumlah_sitasi');
-        $karil->tahun_laporan = 2022;
-        $karil->prodi = auth()->user()->prodi;
+        $karil->tahun_laporan = $tahun;
+        $karil->prodi = auth()->user()->prodi->name;
         $karil->created_by = auth()->user()->name;
         $karil->created_at = Carbon::now();
         $karil->update();

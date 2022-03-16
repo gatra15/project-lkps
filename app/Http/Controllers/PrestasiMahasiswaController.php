@@ -16,10 +16,17 @@ class PrestasiMahasiswaController extends Controller
      */
     public function index()
     {
-        $prestasi = PrestasiMahasiswa::all();
-        $wilayah = PrestasiMahasiswa::where('tingkat', 'Lokal/Wilayah')->count();
-        $nasional = PrestasiMahasiswa::where('tingkat', 'Nasional')->count();
-        $internasional = PrestasiMahasiswa::where('tingkat', 'Internasional')->count();
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $where1 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'tingkat' => 'Lokal/Wilayah'];
+        $where2 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'tingkat' => 'Nasional'];
+        $where3 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'tingkat' => 'Internasional'];
+
+        $prestasi = PrestasiMahasiswa::where($where)->get();
+        $wilayah = PrestasiMahasiswa::where($where1)->count();
+        $nasional = PrestasiMahasiswa::where($where2)->count();
+        $internasional = PrestasiMahasiswa::where($where3)->count();
 
         return [
             'prestasi' => $prestasi,
@@ -47,6 +54,7 @@ class PrestasiMahasiswaController extends Controller
      */
     public function store(Request $req)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'jenis_prestasi' => 'required',
@@ -62,8 +70,8 @@ class PrestasiMahasiswaController extends Controller
         $prestasi->tahun_perolehan = $req->input('tahun_perolehan');
         $prestasi->tingkat = $req->input('tingkat');
         $prestasi->type_prestasi = $req->input('type_prestasi');
-        $prestasi->tahun_laporan = 2022;
-        $prestasi->prodi = auth()->user()->prodi;
+        $prestasi->tahun_laporan = $tahun;
+        $prestasi->prodi = auth()->user()->prodi->name;
         $prestasi->created_by = auth()->user()->name;
         $prestasi->created_at = Carbon::now();
         $prestasi->save();
@@ -110,6 +118,7 @@ class PrestasiMahasiswaController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'jenis_prestasi' => 'required',
@@ -125,8 +134,8 @@ class PrestasiMahasiswaController extends Controller
         $prestasi->tahun_perolehan = $req->input('tahun_perolehan');
         $prestasi->tingkat = $req->input('tingkat');
         $prestasi->type_prestasi = $req->input('type_prestasi');
-        $prestasi->tahun_laporan = 2022;
-        $prestasi->prodi = auth()->user()->prodi;
+        $prestasi->tahun_laporan = $tahun;
+        $prestasi->prodi = auth()->user()->prodi->name;
         $prestasi->updated_by = auth()->user()->name;
         $prestasi->updated_at = Carbon::now();
         $prestasi->update();

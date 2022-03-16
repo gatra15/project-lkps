@@ -24,21 +24,21 @@
     
     <tbody class="text-dark">
     
-    @foreach ($mahasiswa['mahasiswa'] as $mhs)
+    @foreach ($mahasiswa['mahasiswa'] as $key => $mhs)
         <tr>
-           <td>@php echo $mhs->tahun->name @endphp</td>
+           <td>{{ $key == sizeof($mahasiswa['mahasiswa'])-1 ? 'TS' : 'TS-'.(sizeof($mahasiswa['mahasiswa'])-1-$key) }}</td>
            <td>{{ $mhs->daya_tampung }}</td> 
            <td>{{ $mhs->c_pendaftar }}</td> 
            <td>{{ $mhs->c_lulus_seleksi }}</td> 
            <td>{{ $mhs->mahasiswa_reguler }}</td> 
            <td>{{ $mhs->mahasiswa_transfer }}</td> 
-           @if ($mhs->id == 5)
-           <td class="text-left"> <b>N <sub>RTS =</sub></b>  {{ $mhs->mahasiswa_aktif_reguler }} </td> 
+           @if ($key == sizeof($mahasiswa['mahasiswa'])-1)
+           <td class="text-left"> <b>N <sub>RTS =</sub> {{ $mahasiswa['aktif_reguler'] }}</b>   </td> 
            @else
            <td>{{ $mhs->mahasiswa_aktif_reguler }}</td>
            @endif
 
-           @if ($mhs->id == 5)
+           @if ($key == sizeof($mahasiswa['mahasiswa'])-1)
            <td class="text-left"> <b>N <sub>TTS =</sub></b>  {{ $mhs->mahasiswa_aktif_transfer }} </td> 
            @else
            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>

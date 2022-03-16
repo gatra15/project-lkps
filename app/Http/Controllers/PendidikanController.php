@@ -16,11 +16,15 @@ class PendidikanController extends Controller
 {
     public function index()
     {
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
         $kurikulum = (new PendidikanKurikulumController)->index();
         // ddd($kurikulum);
         $integrasi = (new PendidikanIntegrasiKegiatanPenelitianController)->index();
         $kepuasanmahasiswa = (new PendidikanKepuasanMahasiswaController)->index();
-        $aspek = Aspek::all();
+        $aspek = Aspek::where($where)->get();
         return view('tab.pendidikan', [
             'title' => 'Pendidikan',
             'kurikulum' => $kurikulum,
@@ -32,6 +36,7 @@ class PendidikanController extends Controller
 
     public function store(Request $req)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'semester' => 'required',
@@ -65,8 +70,8 @@ class PendidikanController extends Controller
         $kurikulum->capaian_ketrampilan_khusus = $req->input('capaian_ketrampilan_khusus');
         $kurikulum->document_rencana_pembelajaran = $req->input('document_rencana_pembelajaran');
         $kurikulum->unit_penyelenggara = $req->input('unit_penyelenggara');
-        $kurikulum->tahun_laporan = 2022;
-        $kurikulum->prodi = auth()->user()->prodi;
+        $kurikulum->tahun_laporan = $tahun;
+        $kurikulum->prodi = auth()->user()->prodi->name;
         $kurikulum->created_by = auth()->user()->name;
         $kurikulum->created_at = Carbon::now();
         $kurikulum->save();
@@ -83,6 +88,7 @@ class PendidikanController extends Controller
 
     public function update(Request $req, $id)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'semester' => 'required',
@@ -116,8 +122,8 @@ class PendidikanController extends Controller
         $kurikulum->capaian_ketrampilan_khusus = $req->input('capaian_ketrampilan_khusus');
         $kurikulum->document_rencana_pembelajaran = $req->input('document_rencana_pembelajaran');
         $kurikulum->unit_penyelenggara = $req->input('unit_penyelenggara');
-        $kurikulum->tahun_laporan = 2022;
-        $kurikulum->prodi = auth()->user()->prodi;
+        $kurikulum->tahun_laporan = $tahun;
+        $kurikulum->prodi = auth()->user()->prodi->name;
         $kurikulum->updated_by = auth()->user()->name;
         $kurikulum->updated_at = Carbon::now();
         $kurikulum->update();

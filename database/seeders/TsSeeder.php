@@ -44,28 +44,24 @@ class TsSeeder extends Seeder
 
         // mahasiswa
         Mahasiswa::create([
-            'tahun_id' => 3,
-            'tahun_laporan' => 2022,
+            'tahun_laporan' => 2016,
             'prodi' => 'Teknik Industri',
         ]);
         Mahasiswa::create([
-            'tahun_id' => 4,
-            'tahun_laporan' => 2022,
+            'tahun_laporan' => 2017,
             'prodi' => 'Teknik Industri',
         ]);
         Mahasiswa::create([
-            'tahun_id' => 5,
-            'tahun_laporan' => 2022,
+           
+            'tahun_laporan' => 2018,
             'prodi' => 'Teknik Industri',
         ]);
         Mahasiswa::create([
-            'tahun_id' => 6,
-            'tahun_laporan' => 2022,
+            'tahun_laporan' => 2019,
             'prodi' => 'Teknik Industri',
         ]);
         Mahasiswa::create([
-            'tahun_id' => 7,
-            'tahun_laporan' => 2022,
+            'tahun_laporan' => 2020,
             'prodi' => 'Teknik Industri',
         ]);
 
@@ -92,21 +88,19 @@ class TsSeeder extends Seeder
         ]);
 
         // capaian pembelajara
-        CapaianPembelajaran::create([
-            'tahun_id' => 5,
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik Industri',
-        ]);
-        CapaianPembelajaran::create([
-            'tahun_id' => 6,
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik Industri',
-        ]);
-        CapaianPembelajaran::create([
-            'tahun_id' => 7,
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik Industri',
-        ]);
+        // CapaianPembelajaran::create([
+            
+        //     'tahun_laporan' => 2022,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // CapaianPembelajaran::create([
+        //     'tahun_laporan' => 2022,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // CapaianPembelajaran::create([
+        //     'tahun_laporan' => 2020,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
 
         // Daya saing
         WaktuTungguLulusan::create([

@@ -16,12 +16,16 @@ class KinerjaLulusanController extends Controller
      */
     public function index()
     {
-        $data = KinerjaLulusan::with('tahun')->get();
-        $jumlah = KinerjaLulusan::sum('jumlah_lulusan');
-        $jumlah2 = KinerjaLulusan::sum('jumlah_lulusan_terlacak');
-        $wilayah = KinerjaLulusan::sum('tempat_wilayah_tidak_berizin');
-        $nasional = KinerjaLulusan::sum('tempat_nasional_berizin');
-        $internasional = KinerjaLulusan::sum('internasional');
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
+        $data = KinerjaLulusan::with('tahun')->where($where)->get();
+        $jumlah = KinerjaLulusan::where($where)->sum('jumlah_lulusan');
+        $jumlah2 = KinerjaLulusan::where($where)->sum('jumlah_lulusan_terlacak');
+        $wilayah = KinerjaLulusan::where($where)->sum('tempat_wilayah_tidak_berizin');
+        $nasional = KinerjaLulusan::where($where)->sum('tempat_nasional_berizin');
+        $internasional = KinerjaLulusan::where($where)->sum('internasional');
         return [
             'data' => $data,
             'jumlah' => $jumlah,
@@ -84,6 +88,7 @@ class KinerjaLulusanController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $tahun = session('tahun_laporan');
         $request->validate([
             'tahun_id'=> 'required',
             'jumlah_lulusan'=> 'required',
@@ -102,8 +107,8 @@ class KinerjaLulusanController extends Controller
             $data->tempat_wilayah_tidak_berizin = $request->input('tempat_wilayah_tidak_berizin');
             $data->tempat_nasional_berizin = $request->input('tempat_nasional_berizin');
             $data->internasional = $request->input('internasional');
-            $data->tahun_laporan = 2022;
-            $data->prodi = auth()->user()->prodi;
+            $data->tahun_laporan = $tahun;
+            $data->prodi = auth()->user()->prodi->name;
             $data->created_by = auth()->user()->name;
             $data->created_at = Carbon::now();
             $data->update();
@@ -126,6 +131,7 @@ class KinerjaLulusanController extends Controller
      */
     public function destroy(Request $request, $id)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         try{
             $data = KinerjaLulusan::find($id);
@@ -135,8 +141,8 @@ class KinerjaLulusanController extends Controller
             $data->tempat_wilayah_tidak_berizin = null;
             $data->tempat_nasional_berizin = null;
             $data->internasional = null;
-            $data->tahun_laporan = 2022;
-            $data->prodi = auth()->user()->prodi;
+            $data->tahun_laporan = $tahun;
+            $data->prodi = auth()->user()->prodi->name;
             $data->created_by = auth()->user()->name;
             $data->created_at = Carbon::now();
             $data->update();

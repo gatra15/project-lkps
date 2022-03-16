@@ -17,11 +17,15 @@ class PublikasiIlmiahMahasiswaController extends Controller
      */
     public function index()
     {
-        $data = PublikasiIlmiahMahasiswa::with('media')->get();
-        $jumlah_ts2 = PublikasiIlmiahMahasiswa::sum('jumlah_ts2');
-        $jumlah_ts1 = PublikasiIlmiahMahasiswa::sum('jumlah_ts1');
-        $jumlah_ts = PublikasiIlmiahMahasiswa::sum('jumlah_ts');
-        $jumlah = PublikasiIlmiahMahasiswa::sum('jumlah');
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
+        $data = PublikasiIlmiahMahasiswa::with('media')->where($where)->get();
+        $jumlah_ts2 = PublikasiIlmiahMahasiswa::where($where)->sum('jumlah_ts2');
+        $jumlah_ts1 = PublikasiIlmiahMahasiswa::where($where)->sum('jumlah_ts1');
+        $jumlah_ts = PublikasiIlmiahMahasiswa::where($where)->sum('jumlah_ts');
+        $jumlah = PublikasiIlmiahMahasiswa::where($where)->sum('jumlah');
         return [
             'data' => $data,
             'jumlah_ts2' => $jumlah_ts2,
@@ -83,6 +87,8 @@ class PublikasiIlmiahMahasiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $tahun = session('tahun_laporan');
+
         $this->validate($request, [
             'media_id' => 'required',
             'jumlah_ts2' => 'required',
@@ -96,8 +102,8 @@ class PublikasiIlmiahMahasiswaController extends Controller
         $data->jumlah_ts1 = $request->input('jumlah_ts1');
         $data->jumlah_ts = $request->input('jumlah_ts');
         $data->jumlah = $request->jumlah_ts + $request->jumlah_ts1 + $request->jumlah_ts2;
-        $data->tahun_laporan = 2022;
-        $data->prodi = auth()->user()->prodi;
+        $data->tahun_laporan = $tahun;
+        $data->prodi = auth()->user()->prodi->name;
         $data->created_by = auth()->user()->name;
         $data->created_at = Carbon::now();
         $data->update();
@@ -112,14 +118,16 @@ class PublikasiIlmiahMahasiswaController extends Controller
      */
     public function destroy(Request $request, $id)
     {
+        $tahun = session('tahun_laporan');
+
         $data = PublikasiIlmiahMahasiswa::find($id);
         $data->media_id = $request->input('media_id');
         $data->jumlah_ts2 = null;
         $data->jumlah_ts1 = null;
         $data->jumlah_ts = null;
         $data->jumlah = null;
-        $data->tahun_laporan = 2022;
-        $data->prodi = auth()->user()->prodi;
+        $data->tahun_laporan = $tahun;
+        $data->prodi = auth()->user()->prodi->name;
         $data->updated_by = auth()->user()->name;
         $data->updated_at = Carbon::now();
         $data->update();

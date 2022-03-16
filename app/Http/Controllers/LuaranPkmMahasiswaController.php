@@ -48,6 +48,7 @@ class LuaranPkmMahasiswaController extends Controller
      */
     public function store(Request $request)
     {
+        $tahun = session('tahun_laporan');
         $this->validate($request, [
             'type_luaran' => 'required',
             'judul' => 'required',
@@ -60,8 +61,8 @@ class LuaranPkmMahasiswaController extends Controller
         $luaran->judul = $request->input('judul');
         $luaran->tahun = $request->input('tahun');
         $luaran->keterangan = $request->input('keterangan');
-        $luaran->tahun_laporan = 2022;
-        $luaran->prodi = auth()->user()->prodi;
+        $luaran->tahun_laporan = $tahun;
+        $luaran->prodi = auth()->user()->prodi->name;
         $luaran->created_by = auth()->user()->name;
         $luaran->created_at = Carbon::now();
         // dd($luaran);
@@ -101,6 +102,7 @@ class LuaranPkmMahasiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $tahun = session('tahun_laporan');
         $this->validate($request, [
             'type_luaran' => 'required',
             'judul' => 'required',
@@ -113,8 +115,8 @@ class LuaranPkmMahasiswaController extends Controller
         $luaran->judul = $request->input('judul');
         $luaran->tahun = $request->input('tahun');
         $luaran->keterangan = $request->input('keterangan');
-        $luaran->tahun_laporan = 2022;
-        $luaran->prodi = auth()->user()->prodi;
+        $luaran->tahun_laporan = $tahun;
+        $luaran->prodi = auth()->user()->prodi->name;
         $luaran->updated_by = auth()->user()->name;
         $luaran->updated_at = Carbon::now();
         $luaran->update();

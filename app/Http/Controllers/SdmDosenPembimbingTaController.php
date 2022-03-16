@@ -19,7 +19,10 @@ class SdmDosenPembimbingTaController extends Controller
     public function index()
     {
         $tahun = session('tahun_laporan');
-        $dosenta = SdmDosenPembimbingTa::where('tahun_laporan', $tahun);
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
+        $dosenta = SdmDosenPembimbingTa::where($where);
         return [
             'dosen' => $dosenta,
         ];

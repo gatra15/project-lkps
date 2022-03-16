@@ -18,17 +18,23 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
      */
     public function index()
     {
-        $dosen = SdmEkuivalenWaktuMengajarPenuhDosenTetap::all();
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
 
+        $dosen = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where)->get();
+
+        $where1 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'dtps' => 0, 'dtps' => 1];
+        $where2 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'dtps' => 1];
         // dt
-        $dt = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where('dtps', 0)->orWhere('dtps',1)->count();
-        $average_dt_jumlah = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where('dtps', 0)->orWhere('dtps',1)->avg('sks');
-        $average_dt_average = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where('dtps', 0)->orWhere('dtps',1)->avg('average_per_sks');
+        $dt = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->count();
+        $average_dt_jumlah = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->avg('sks');
+        $average_dt_average = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->avg('average_per_sks');
 
         // dtps
-        $dtps = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where('dtps', 1)->count();
-        $average_dtps_jumlah = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where('dtps', 1)->avg('sks');
-        $average_dtps_average = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where('dtps', 1)->avg('average_per_sks');
+        $dtps = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where2)->count();
+        $average_dtps_jumlah = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where2)->avg('sks');
+        $average_dtps_average = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where2)->avg('average_per_sks');
         return [
             'dosen' => $dosen,
             'dt' => $dt,

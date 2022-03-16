@@ -19,9 +19,9 @@
     </thead>
     
     <tbody class="text-dark">
-    @foreach ($capaianPembelajaran['capaian'] as $capaian)
+    @foreach ($capaianPembelajaran['capaian'] as $key => $capaian)
         <tr>
-            <td>{{ $capaian->tahun->name }}</td>
+            <td>{{ $key == sizeof($capaianPembelajaran['capaian'])-1 ? 'TS' : 'TS-'.(sizeof($capaianPembelajaran['capaian'])-1-$key) }}</td>
             <td>{{ $capaian->jumlah_lulusan }}</td>
             <td>{{ $capaian->ipk_min }}</td>
             <td>{{ $capaian->ipk_avg }}</td>

@@ -16,7 +16,23 @@ class CapaianPembelajaranController extends Controller
      */
     public function index()
     {
-        $capaian = CapaianPembelajaran::with('tahun')->get();
+        $tahun = (int) session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $cek = CapaianPembelajaran::where('tahun_laporan', $tahun)->where('prodi', $prodi)->exists();
+
+        if (!$cek){
+            CapaianPembelajaran::create([
+                'tahun_laporan' => $tahun,
+                'prodi' => $prodi
+            ]);
+        }
+        $where = [
+            ['prodi', '=', $prodi],
+            ['tahun_laporan', '<=', $tahun],
+            ['tahun_laporan', '>=', $tahun-2]
+        ];
+
+        $capaian = CapaianPembelajaran::where($where)->get();
         return ['capaian' => $capaian];
     }
 
@@ -74,7 +90,6 @@ class CapaianPembelajaranController extends Controller
     {
         $connection = 'mysql';
         $this->validate($req, [
-            'tahun_id' => 'required',
             'jumlah_lulusan' => 'required',
             'ipk_min' => 'required',
             'ipk_avg' => 'required',
@@ -83,13 +98,12 @@ class CapaianPembelajaranController extends Controller
 
     try{
         $data = CapaianPembelajaran::find($id);
-        $data->tahun_id = $req->input('tahun_id');
         $data->jumlah_lulusan = (integer) $req->input('jumlah_lulusan');
         $data->ipk_min = (float) $req->input('ipk_min');
         $data->ipk_avg = (float) $req->input('ipk_avg');
         $data->ipk_max = (float) $req->input('ipk_max');
-        $data->tahun_laporan = 2022;
-        $data->prodi = auth()->user()->prodi;
+
+        $data->prodi = auth()->user()->prodi->name;
         $data->created_by = auth()->user()->name;
         $data->created_at = Carbon::now();
         $data->update();
@@ -116,13 +130,12 @@ class CapaianPembelajaranController extends Controller
 
     try{
         $data = CapaianPembelajaran::find($id);
-        $data->tahun_id = $req->input('tahun_id');
         $data->jumlah_lulusan = null;
         $data->ipk_min = null;
         $data->ipk_avg = null;
         $data->ipk_max = null;
-        $data->tahun_laporan = 2022;
-        $data->prodi = auth()->user()->prodi;
+
+        $data->prodi = auth()->user()->prodi->name;
         $data->updated_by = auth()->user()->name;
         $data->updated_at = Carbon::now();
         $data->update();

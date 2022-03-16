@@ -14,20 +14,6 @@ class TahunSeeder extends Seeder
      */
     public function run()
     {
-        Tahun::create([
-            'tahun' => 'TS-4'
-        ]);
-        Tahun::create([
-            'tahun' => 'TS-3'
-        ]);
-        Tahun::create([
-            'tahun' => 'TS-2'
-        ]);
-        Tahun::create([
-            'tahun' => 'TS-1'
-        ]);
-        Tahun::create([
-            'tahun' => 'TS'
-        ]);
+        // 
     }
 }

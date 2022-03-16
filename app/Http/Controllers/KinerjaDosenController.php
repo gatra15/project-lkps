@@ -23,15 +23,21 @@ class KinerjaDosenController extends Controller
     public function index()
     {
         $tahun = session('tahun_laporan');
-        $pengakuan = SdmKinerjaDosenPengakuanDtps::where('tahun_laporan', $tahun);
-        $luaran = (new SdmKinerjaDosenLuaranPkmDtpsController)->index();
-        $sumberdaya = Sumberdaya::where('tahun_laporan', $tahun);
-        $mediapublikasi = MediaPublikasi::where('tahun_laporan', $tahun);
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
 
+        $pengakuan = SdmKinerjaDosenPengakuanDtps::where($where);
+        $luaran = (new SdmKinerjaDosenLuaranPkmDtpsController)->index();
+        $sumberdaya = Sumberdaya::where($where);
+        $mediapublikasi = MediaPublikasi::where($where);
+
+        $wilayah = ['tahun_laporan' => $tahun, 'tingkat' => 'Wilayah', 'prodi' => $prodi];
+        $nasional = ['tahun_laporan' => $tahun, 'tingkat' => 'Nasional', 'prodi' => $prodi];
+        $internasional = ['tahun_laporan' => $tahun, 'tingkat' => 'Internasional', 'prodi' => $prodi];
         // Agregation
-        $countWilayah = SdmKinerjaDosenPengakuanDtps::where('tingkat', 'Wilayah')->orWhere('tahun_laporan', $tahun)->count();
-        $countNasional = SdmKinerjaDosenPengakuanDtps::where('tingkat', 'Nasional')->orWhere('tahun_laporan', $tahun)->count();
-        $countInternasional = SdmKinerjaDosenPengakuanDtps::where('tingkat', 'Internasional')->orWhere('tahun_laporan', $tahun)->count();
+        $countWilayah = SdmKinerjaDosenPengakuanDtps::where($wilayah)->count();
+        $countNasional = SdmKinerjaDosenPengakuanDtps::where($nasional)->count();
+        $countInternasional = SdmKinerjaDosenPengakuanDtps::where($internasional)->count();
         $sumPengakuan = $countWilayah + $countNasional + $countInternasional;
 
         // penelitian
@@ -64,6 +70,7 @@ class KinerjaDosenController extends Controller
 
     public function store(Request $req)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $this->validate($req, [
             'nama' => 'required',
@@ -89,7 +96,7 @@ class KinerjaDosenController extends Controller
         $pengakuan->bukti_pendukung = $req->file('bukti_pendukung')->storeAs('bukti-pendukung', $fileSave);
         $pengakuan->tingkat = $req->input('tingkat');
         $pengakuan->tahun = $req->input('tahun');
-        $pengakuan->tahun_laporan = '2022';
+        $pengakuan->tahun_laporan = $tahun;
         $pengakuan->prodi = auth()->user()->prodi->name;
         $pengakuan->created_by = auth()->user()->name;
         $pengakuan->created_at = Carbon::now();
@@ -108,6 +115,7 @@ class KinerjaDosenController extends Controller
 
     public function update(Request $req, $id)
     {
+        $tahun = session('tahun_laporan');
         $this->validate($req, [
             'nama' => 'required',
             'bidang_keahlian' => 'required',
@@ -129,7 +137,7 @@ class KinerjaDosenController extends Controller
         $pengakuan->bukti_pendukung = $req->file('bukti_pendukung')->storeAs('bukti-pendukung', $fileSave);
         $pengakuan->tingkat = $req->input('tingkat');
         $pengakuan->tahun = $req->input('tahun');
-        $pengakuan->tahun_laporan = '2022';
+        $pengakuan->tahun_laporan = $tahun;
         $pengakuan->prodi = auth()->user()->prodi->name;
         $pengakuan->created_by = auth()->user()->name;
         $pengakuan->updated_at = Carbon::now();

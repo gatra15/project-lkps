@@ -38,13 +38,13 @@
 @include('tab.mahasiswatab.mahasiswatable')
 {{-- End Table --}}
 
-@foreach ($mahasiswa['mahasiswa'] as $mhs)
+@foreach ($mahasiswa['mahasiswa'] as $key => $mhs)
     <!-- Modal Edit -->
     <div class="modal fade" id="modalmahasiswaedit-{{ $mhs->id }}" tabindex="-1" aria-labelledby="modalmahasiswaedit" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalmahasiswaedit">Edit Data {{ $mhs->tahun->name }}</h5>
+            <h5 class="modal-title" id="modalmahasiswaedit">Edit Data Mahasiswa</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -58,7 +58,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalmahasiswadelete">Hapus Data {{ $mhs->tahun->name }}</h5>
+            <h5 class="modal-title" id="modalmahasiswadelete">Hapus Data Mahasiswa</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

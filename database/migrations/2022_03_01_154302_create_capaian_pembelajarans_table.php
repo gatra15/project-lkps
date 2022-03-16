@@ -15,12 +15,11 @@ class CreateCapaianPembelajaransTable extends Migration
     {
         Schema::create('capaian_pembelajarans', function (Blueprint $table) {
             $table->id();
-            $table->integer('tahun_id');
             $table->integer('jumlah_lulusan')->nullable(true);
             $table->float('ipk_min')->nullable(true);
             $table->float('ipk_avg')->nullable(true);
             $table->float('ipk_max')->nullable(true);
-            $table->float('tahun_laporan');
+            $table->integer('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by')->nullable(true);
             $table->string('updated_by')->nullable(true);

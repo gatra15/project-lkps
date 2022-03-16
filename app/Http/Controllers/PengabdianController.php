@@ -11,8 +11,12 @@ class PengabdianController extends Controller
 {
     public function index()
     {
-        $pengabdian = PkmDtps::all();
-        $jumlah_judul = PkmDtps::select('judul_kegiatan')->count();
+        $tahun = session('tahun_laporan');
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
+        $pengabdian = PkmDtps::where($where)->get();
+        $jumlah_judul = PkmDtps::select('judul_kegiatan')->where($where)->count();
         return view('tab.pkm', [
             'title' => 'Pkm',
             'pengabdian' => $pengabdian,
@@ -22,6 +26,7 @@ class PengabdianController extends Controller
 
     public function store(Request $req)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $rule = [
             'nama_dosen' => 'required',
@@ -40,7 +45,8 @@ class PengabdianController extends Controller
         $data->nama_mahasiswa = $req->input('nama_mahasiswa');
         $data->judul_kegiatan = $req->input('judul_kegiatan');
         $data->tahun = $req->input('tahun');
-        $data->tahun_laporan = 2022;
+        $data->tahun_laporan = $tahun;
+        $data->prodi = auth()->user()->prodi->name;
         $data->created_by = auth()->user()->name;
         $data->created_at = Carbon::now();
         $data->save();
@@ -57,6 +63,7 @@ class PengabdianController extends Controller
 
     public function update(Request $req, $id)
     {
+        $tahun = session('tahun_laporan');
         $connection = 'mysql';
         $rule = [
             'nama_dosen' => 'required',
@@ -75,7 +82,8 @@ class PengabdianController extends Controller
         $data->nama_mahasiswa = $req->input('nama_mahasiswa');
         $data->judul_kegiatan = $req->input('judul_kegiatan');
         $data->tahun = $req->input('tahun');
-        $data->tahun_laporan = 2021;
+        $data->tahun_laporan = $tahun;
+        $data->prodi = auth()->user()->prodi->name;
         $data->updated_by = auth()->user()->name;
         $data->updated_at = Carbon::now();
         $data->update();

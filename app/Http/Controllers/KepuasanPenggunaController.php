@@ -17,7 +17,7 @@ class KepuasanPenggunaController extends Controller
     public function index()
     {
         $tahun = session('tahun_laporan');
-        $kepuasan = KepuasanPengguna::with('kemampuan')->get();
+        $kepuasan = KepuasanPengguna::with('kemampuan')->where('tahun_laporan', $tahun)->get();
         $sangat_baik = KepuasanPengguna::where('tahun_laporan', $tahun)->sum('sangat_baik');
         $baik = KepuasanPengguna::where('tahun_laporan', $tahun)->sum('baik');
         $cukup = KepuasanPengguna::where('tahun_laporan', $tahun)->sum('cukup');
