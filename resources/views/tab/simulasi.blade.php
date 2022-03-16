@@ -1,6 +1,9 @@
 @extends('partials.sidebar')
 @extends('layouts.main2')
 
+
+
+
 @section('content')
 <div class="content-header">
     <div class="container-fluid">
@@ -26,14 +29,40 @@
                 <div class="tab-content mt-3">
                     <div class="tab-content" id="myTabContent">
 
-                    <div>
-                        
-                    </div>
+            <div id="print-table" class="container-fluid col-md-12 col-sm-6">
+                <table class="table table-hover table-bordered">
+                    <thead class="text-center" >
+                        <tr >
+                            <th width="1%">No</th>
+                            <th width="10%">Indikator</th>
+                            <th width="15%">Rumus</th>
+                            <th width="5%">Faktor</th>
+                            <th width="5%">Nilai Akreditasi
+                            </th>
+                        </tr>
+                
+                    </thead>
+                
+                    <tbody class="text-dark align-middle">
+                        <tr>
+                            
+                        </tr>
 
-                    </div>
-                </div>
+                        <tr>
+
+                        </tr>
+                        
+                    </tbody>
+                </table>
             </div>
-        </div>
+
+            
+            
+            
     </div>
+    </div>
+    </div>
+</div>
+</div>
 </div>
 @endsection
