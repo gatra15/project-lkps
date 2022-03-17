@@ -15,13 +15,13 @@ class CreateMahasiswasTable extends Migration
     {
         Schema::create('mahasiswas', function (Blueprint $table) {
             $table->id();
-            $table->string('daya_tampung')->nullable(true);
-            $table->string('c_pendaftar')->nullable(true);
-            $table->string('c_lulus_seleksi')->nullable(true);
-            $table->string('mahasiswa_reguler')->nullable(true);
-            $table->string('mahasiswa_transfer')->nullable(true);
-            $table->string('mahasiswa_aktif_reguler')->nullable(true);
-            $table->string('mahasiswa_aktif_transfer')->nullable(true);
+            $table->integer('daya_tampung')->nullable(true);
+            $table->integer('c_pendaftar')->nullable(true);
+            $table->integer('c_lulus_seleksi')->nullable(true);
+            $table->integer('mahasiswa_reguler')->nullable(true);
+            $table->integer('mahasiswa_transfer')->nullable(true);
+            $table->integer('mahasiswa_aktif_reguler')->nullable(true);
+            $table->integer('mahasiswa_aktif_transfer')->nullable(true);
             $table->integer('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by')->nullable(true);

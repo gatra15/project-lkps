@@ -29,7 +29,8 @@
         @foreach ($mahasiswa_asing['mahasiswa'] as $key => $mhs)
         <tr>
            <td>{{ $loop->iteration }}</td>
-           <td>{{ $mhs['program_studi'] }}</td>   
+           <td></td>
+           {{-- <td>{{ $mhs['program_studi'] }}</td>    --}}
            <td>{{ $mhs['mahasiswa_aktif_ts2'] }}</td> 
            <td>{{ $mhs['mahasiswa_aktif_ts1'] }}</td> 
            <td>{{ $mhs['mahasiswa_aktif_ts'] }}</td> 

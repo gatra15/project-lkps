@@ -19,22 +19,80 @@ class MahasiswaAsingController extends Controller
      */
     public function index()
     {
-        $tahun = session('tahun_laporan');
+        $tahun = (int) session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
-        $where = [
-            ['prodi', '=', $prodi],
-            ['tahun_laporan', '<=', $tahun],
-            // ['tahun_laporan', '<=', $tahun-2],
-        ];
+        $cek = MahasiswaAsing::where('tahun_laporan', $tahun)->where('prodi', $prodi)->exists();
+        // dd($cek);
+
+        if (!$cek){
+            MahasiswaAsing::create([
+                'program_studi' => 'S1 ' + $prodi,
+                'tahun_laporan' => $tahun - 2,
+                'prodi' => $prodi
+            ]);
+            MahasiswaAsing::create([
+                'program_studi' => 'S1 ' + $prodi,
+                'tahun_laporan' => $tahun - 1,
+                'prodi' => $prodi
+            ]);
+            MahasiswaAsing::create([
+                'program_studi' => 'S1 ' + $prodi,
+                'tahun_laporan' => $tahun,
+                'prodi' => $prodi
+            ]);
+        }
+
+        
+        
 
         $a = $tahun;
         $b = $tahun-1;
         $c = $tahun-2;
         
-        $mahasiswa  = MahasiswaAsing::where($where)->get();
+        $mahasiswa  = DB::select(DB::raw("
+        
+        SELECT A.id as id, B.id as id1, C.id as id2, A.mahasiswa_aktif_ts, B.mahasiswa_aktif_ts AS mahasiswa_aktif_ts1, C.mahasiswa_aktif_ts AS mahasiswa_aktif_ts2,
+        A.mahasiswa_asing_pt_ts, B.mahasiswa_asing_pt_ts AS mahasiswa_asing_pt_ts1, C.mahasiswa_asing_pt_ts AS mahasiswa_asing_pt_ts2,
+        A.mahasiswa_asing_ft_ts, B.mahasiswa_asing_ft_ts AS mahasiswa_asing_ft_ts1, C.mahasiswa_asing_ft_ts AS mahasiswa_asing_ft_ts2
+         FROM (
+        
+        SELECT
+        sum(ma.id) AS id,
+        sum(ma.program_studi) AS program_studi,
+        sum(ma.mahasiswa_aktif_ts) AS mahasiswa_aktif_ts,
+        sum(ma.mahasiswa_asing_ft_ts) AS mahasiswa_asing_ft_ts,
+        sum(ma.mahasiswa_asing_pt_ts) AS mahasiswa_asing_pt_ts
+         FROM mahasiswa_asings ma WHERE tahun_laporan = $a
+         
+        GROUP BY 
+        ma.program_studi) AS A LEFT JOIN (
+        
+        SELECT 
+        sum(ma_1.id) AS id,
+        sum(ma_1.program_studi) AS program_studi,
+        sum(ma_1.mahasiswa_aktif_ts) AS mahasiswa_aktif_ts,
+        sum(ma_1.mahasiswa_asing_ft_ts) AS mahasiswa_asing_ft_ts,
+        sum(ma_1.mahasiswa_asing_pt_ts) AS mahasiswa_asing_pt_ts
+        FROM mahasiswa_asings ma_1 WHERE tahun_laporan = $b
+         
+        GROUP BY 
+        ma_1.program_studi) AS B ON A.program_studi = B.program_studi LEFT JOIN (
+        
+        SELECT 
+        sum(ma_2.id) AS id,
+        sum(ma_2.program_studi) AS program_studi,
+        sum(ma_2.mahasiswa_aktif_ts) AS mahasiswa_aktif_ts,
+        sum(ma_2.mahasiswa_asing_ft_ts) AS mahasiswa_asing_ft_ts,
+        sum(ma_2.mahasiswa_asing_pt_ts) AS mahasiswa_asing_pt_ts
+        FROM mahasiswa_asings ma_2 WHERE tahun_laporan = $c
+         
+        GROUP BY 
+        ma_2.program_studi) AS C ON A.program_studi = C.program_studi;
+        
+        "));;
         // dd($mahasiswa);
 
-        // $mahasiswa = json_decode(json_encode($mahasiswa),true); 
+        $mahasiswa = json_decode(json_encode($mahasiswa),true); 
         // dd($mahasiswa);
 
         // dd($mahasiswa);
@@ -191,7 +249,7 @@ class MahasiswaAsingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        ddd($request);
+        // dd($request);
         $tahun = session('tahun_laporan');
         $connection = 'mysql';
         // $rule = [
@@ -201,22 +259,45 @@ class MahasiswaAsingController extends Controller
         //     'mahasiswa_asing_pt_ts',
         // ];
         // $this->validate($request, $rule);
-        $mahasiswa_aktif = $request->input('mahasiswa_aktif');
-        $mahasiswa_asing_ft_ts = $request->input('mahasiswa_asing_ft_ts');
-        $mahasiswa_asing_pt_ts = $request->input('mahasiswa_asing_pt_ts');
-
+        // $mahasiswa = $request->input('mahasiswa');
     try{
-        $data = MahasiswaAsing::find($id);
-        $data->program_studi = 'S1 Teknik Industri';
-        $data->mahasiswa_aktif_ts = (int) $request->input('mahasiswa_aktif_ts');
-        $data->mahasiswa_asing_ft_ts = (int) $request->input('mahasiswa_asing_ft_ts');
-        $data->mahasiswa_asing_pt_ts = (int) $request->input('mahasiswa_asing_pt_ts');
-        $data->tahun_laporan = $tahun;
-        $data->prodi = auth()->user()->prodi->name;
-        $data->updated_by = auth()->user()->name;
-        $data->updated_at = Carbon::now();
-        $data->save();
+        $value = [
+            'program_studi' => 'S1 ' + auth()->user()->prodi->name,
+            'mahasiswa_aktif_ts' => $request->input('mahasiswa_aktif_ts2'),
+            'mahasiswa_asing_pt_ts' => $request->input('mahasiswa_asing_pt_ts2'),
+            'mahasiswa_asing_ft_ts' => $request->input('mahasiswa_asing_ft_ts2'),
+            'tahun_laporan' => $tahun-2,
+            'prodi' => auth()->user()->prodi->name,
+            'updated_at' => Carbon::now(),
+            'updated_by' => auth()->user()->name
+        ];
+        MahasiswaAsing::find($id)->update($value);
+        $value = [
+            'program_studi' => 'S1 ' + auth()->user()->prodi->name,
+            'mahasiswa_aktif_ts' => $request->input('mahasiswa_aktif_ts1'),
+            'mahasiswa_asing_pt_ts' => $request->input('mahasiswa_asing_pt_ts1'),
+            'mahasiswa_asing_ft_ts' => $request->input('mahasiswa_asing_ft_ts1'),
+            'tahun_laporan' => $tahun-1,
+            'prodi' => auth()->user()->prodi->name,
+            'updated_at' => Carbon::now(),
+            'updated_by' => auth()->user()->name
+        ];
+        MahasiswaAsing::find($id-1)->update($value);
+        $value = [
+            'program_studi' => 'S1 ' + auth()->user()->prodi->name,
+            'mahasiswa_aktif_ts' => $request->input('mahasiswa_aktif_ts'),
+            'mahasiswa_asing_pt_ts' => $request->input('mahasiswa_asing_pt_ts'),
+            'mahasiswa_asing_ft_ts' => $request->input('mahasiswa_asing_ft_ts'),
+            'tahun_laporan' => $tahun-1,
+            'prodi' => auth()->user()->prodi->name,
+            'updated_at' => Carbon::now(),
+            'updated_by' => auth()->user()->name
+        ];
+        MahasiswaAsing::find($id-2)->update($value);
+
         // dd($data);
+        
+        
 
         return back()->with('success', 'Data berhasil diubah.');
     } catch(\Exception $ex) {

@@ -67,22 +67,22 @@ class TsSeeder extends Seeder
 
         // Efektifitas
         EfektifitasProduktifitasPendidikan::create([
-            'tahun_id' => 1,
+
             'tahun_laporan' => 2022,
             'prodi' => 'Teknik Industri',
         ]);
         EfektifitasProduktifitasPendidikan::create([
-            'tahun_id' => 2,
+
             'tahun_laporan' => 2022,
             'prodi' => 'Teknik Industri',
         ]);
         EfektifitasProduktifitasPendidikan::create([
-            'tahun_id' => 3,
+
             'tahun_laporan' => 2022,
             'prodi' => 'Teknik Industri',
         ]);
         EfektifitasProduktifitasPendidikan::create([
-            'tahun_id' => 4,
+
             'tahun_laporan' => 2022,
             'prodi' => 'Teknik Industri',
         ]);
@@ -119,34 +119,34 @@ class TsSeeder extends Seeder
         //     'prodi' => 'Teknik Industri',
         // ]);
         KesesuaianBidangKerja::create([
-            'tahun_id' => 3,
+
             'tahun_laporan' => 2022,
             'prodi' => 'Teknik Industri',
         ]);
         KesesuaianBidangKerja::create([
-            'tahun_id' => 4,
+
             'tahun_laporan' => 2022,
             'prodi' => 'Teknik Industri',
         ]);
         KesesuaianBidangKerja::create([
-            'tahun_id' => 5,
+
             'tahun_laporan' => 2022,
             'prodi' => 'Teknik Industri',
         ]);
 
         // Kinerja Lulusan
         KinerjaLulusan::create([
-            'tahun_id' => 3,
+
             'tahun_laporan' => 2022,
             'prodi' => 'Teknik Industri',
         ]);
         KinerjaLulusan::create([
-            'tahun_id' => 4,
+
             'tahun_laporan' => 2022,
             'prodi' => 'Teknik Industri',
         ]);
         KinerjaLulusan::create([
-            'tahun_id' => 5,
+    
             'tahun_laporan' => 2022,
             'prodi' => 'Teknik Industri',
         ]);
