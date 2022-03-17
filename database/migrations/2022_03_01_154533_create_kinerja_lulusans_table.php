@@ -15,7 +15,6 @@ class CreateKinerjaLulusansTable extends Migration
     {
         Schema::create('kinerja_lulusans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tahun_id');
             $table->integer('jumlah_lulusan')->nullable(true);
             $table->integer('jumlah_lulusan_terlacak')->nullable(true);
             $table->string('tempat_wilayah_tidak_berizin')->nullable(true);

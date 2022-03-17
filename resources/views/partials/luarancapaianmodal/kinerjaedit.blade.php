@@ -8,8 +8,6 @@
                
                 {{-- MASUK KE TABEL SDM DOSENS --}}
 
-                <label>@php echo $data->tahun->name @endphp</label>
-                <input type="hidden" name="tahun_id" class="form-control" value="{{ $data->tahun_id }}"  required>
                 <div class="form-row justify-content-center">
                   <div class="form-group col-md-5 align-middle">
                   <label for="pengkuan"> Jumlah Lulusan :</label>

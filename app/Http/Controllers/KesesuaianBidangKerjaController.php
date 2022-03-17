@@ -16,9 +16,24 @@ class KesesuaianBidangKerjaController extends Controller
      */
     public function index()
     {
-        $tahun = session('tahun_laporan');
+        $tahun = (int) session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
-        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $cek = KesesuaianBidangKerja::where('tahun_laporan', $tahun)->where('prodi', $prodi)->exists();
+
+        if (!$cek){
+            KesesuaianBidangKerja::create([
+                'tahun_laporan' => $tahun,
+                'prodi' => $prodi
+            ]);
+        }
+            
+        $where = [
+            ['prodi', '=', $prodi],
+            ['tahun_laporan', '<=', $tahun-2],
+            ['tahun_laporan', '>=', $tahun-4]
+        ];
+
+
 
         $bidang = KesesuaianBidangKerja::with('tahun')->where($where)->get();
         return ['bidang' => $bidang];
@@ -78,7 +93,6 @@ class KesesuaianBidangKerjaController extends Controller
     {
         $tahun = session('tahun_laporan');
         $request->validate([
-            'tahun_id' => 'required',
             'jumlah_lulusan' => 'required',
             'jumlah_lulusan_terlacak' => 'required',
             'kesesuaian_rendah' => 'required',
@@ -89,7 +103,6 @@ class KesesuaianBidangKerjaController extends Controller
         $connection = 'mysql';
         try{
             $data = KesesuaianBidangKerja::find($id);
-            $data->tahun_id = $request->input('tahun_id');
             $data->jumlah_lulusan = (int) $request->input('jumlah_lulusan');
             $data->jumlah_lulusan_terlacak = (int) $request->input('jumlah_lulusan_terlacak');
             $data->kesesuaian_rendah = (int) $request->input('kesesuaian_rendah');
@@ -124,7 +137,6 @@ class KesesuaianBidangKerjaController extends Controller
         $connection = 'mysql';
         try{
             $data = KesesuaianBidangKerja::find($id);
-            $data->tahun_id = $request->input('tahun_id');
             $data->jumlah_lulusan = null;
             $data->jumlah_lulusan_terlacak = null;
             $data->kesesuaian_rendah = null;

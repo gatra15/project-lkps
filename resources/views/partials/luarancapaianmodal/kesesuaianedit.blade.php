@@ -8,10 +8,6 @@
                
                 {{-- Comment AGAR tidak ERROR --}}
 
-                <label>@php echo $kesesuaian->tahun->name @endphp</label>
-                <div class="input-group input-group-sm mb-3">
-                  <input type="hidden" name="tahun_id" class="form-control" value="{{ $kesesuaian->tahun_id }}"  required>
-              </div>
 
               <div class="form-row justify-content-center">
                 <div class="form-group col-md-5 align-middle">
