@@ -17,11 +17,24 @@ class WaktuTungguLulusanController extends Controller
      */
     public function index()
     {
-        $tahun = session('tahun_laporan');
+        $tahun = (int) session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
-        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $cek = WaktuTungguLulusan::where('tahun_laporan', $tahun)->where('prodi', $prodi)->exists();
 
-        $waktu = WaktuTungguLulusan::with('tahun')->where($where)->get();
+        if (!$cek){
+            WaktuTungguLulusan::create([
+                'tahun_laporan' => $tahun,
+                'prodi' => $prodi
+            ]);
+        }
+            
+        $where = [
+            ['prodi', '=', $prodi],
+            ['tahun_laporan', '<=', $tahun-2],
+            ['tahun_laporan', '>=', $tahun-4]
+        ];
+
+        $waktu = WaktuTungguLulusan::where($where)->get();
         return ['waktu' => $waktu];
     }
 
@@ -79,7 +92,6 @@ class WaktuTungguLulusanController extends Controller
     {
         $tahun = session('tahun_laporan');
         $request->validate([
-            'tahun_id' => 'required',
             'jumlah_lulusan' => 'required',
             'jumlah_lulusan_terlacak' => 'required',
             'waktu_tunggu_6' => 'required',
@@ -90,7 +102,6 @@ class WaktuTungguLulusanController extends Controller
         $connection = 'mysql';
         try{
             $data = WaktuTungguLulusan::find($id);
-            $data->tahun_id = $request->input('tahun_id');
             $data->jumlah_lulusan = (int) $request->input('jumlah_lulusan');
             $data->jumlah_lulusan_terlacak = (int) $request->input('jumlah_lulusan_terlacak');
             $data->waktu_tunggu_6 = (int) $request->input('waktu_tunggu_6');
@@ -124,7 +135,6 @@ class WaktuTungguLulusanController extends Controller
         $connection = 'mysql';
         try{
             $data = WaktuTungguLulusan::find($id);
-            $data->tahun_id = $request->input('tahun_id');
             $data->jumlah_lulusan = null;
             $data->jumlah_lulusan_terlacak = null;
             $data->waktu_tunggu_6 = null;

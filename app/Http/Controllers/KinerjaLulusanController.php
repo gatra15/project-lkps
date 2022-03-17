@@ -16,10 +16,22 @@ class KinerjaLulusanController extends Controller
      */
     public function index()
     {
-        $tahun = session('tahun_laporan');
+        $tahun = (int) session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
-        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $cek = KinerjaLulusan::where('tahun_laporan', $tahun)->where('prodi', $prodi)->exists();
 
+        if (!$cek){
+            KinerjaLulusan::create([
+                'tahun_laporan' => $tahun,
+                'prodi' => $prodi
+            ]);
+        }
+            
+        $where = [
+            ['prodi', '=', $prodi],
+            ['tahun_laporan', '<=', $tahun-2],
+            ['tahun_laporan', '>=', $tahun-4]
+        ];
         $data = KinerjaLulusan::with('tahun')->where($where)->get();
         $jumlah = KinerjaLulusan::where($where)->sum('jumlah_lulusan');
         $jumlah2 = KinerjaLulusan::where($where)->sum('jumlah_lulusan_terlacak');
@@ -90,7 +102,6 @@ class KinerjaLulusanController extends Controller
     {
         $tahun = session('tahun_laporan');
         $request->validate([
-            'tahun_id'=> 'required',
             'jumlah_lulusan'=> 'required',
             'jumlah_lulusan_terlacak'=> 'required',
             'tempat_wilayah_tidak_berizin'=> 'required',
@@ -101,7 +112,6 @@ class KinerjaLulusanController extends Controller
         $connection = 'mysql';
         try{
             $data = KinerjaLulusan::find($id);
-            $data->tahun_id = $request->input('tahun_id');
             $data->jumlah_lulusan = (int) $request->input('jumlah_lulusan');
             $data->jumlah_lulusan_terlacak = (int) $request->input('jumlah_lulusan_terlacak');
             $data->tempat_wilayah_tidak_berizin = $request->input('tempat_wilayah_tidak_berizin');
@@ -135,7 +145,6 @@ class KinerjaLulusanController extends Controller
         $connection = 'mysql';
         try{
             $data = KinerjaLulusan::find($id);
-            $data->tahun_id = $request->input('tahun_id');
             $data->jumlah_lulusan = null;
             $data->jumlah_lulusan_terlacak = null;
             $data->tempat_wilayah_tidak_berizin = null;

@@ -103,21 +103,21 @@ class TsSeeder extends Seeder
         // ]);
 
         // Daya saing
-        WaktuTungguLulusan::create([
-            'tahun_id' => 3,
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik Industri',
-        ]);
-        WaktuTungguLulusan::create([
-            'tahun_id' => 4,
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik Industri',
-        ]);
-        WaktuTungguLulusan::create([
-            'tahun_id' => 5,
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik Industri',
-        ]);
+        // WaktuTungguLulusan::create([
+        //     'tahun_id' => 3,
+        //     'tahun_laporan' => 2022,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // WaktuTungguLulusan::create([
+        //     'tahun_id' => 4,
+        //     'tahun_laporan' => 2022,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // WaktuTungguLulusan::create([
+        //     'tahun_id' => 5,
+        //     'tahun_laporan' => 2022,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
         KesesuaianBidangKerja::create([
             'tahun_id' => 3,
             'tahun_laporan' => 2022,

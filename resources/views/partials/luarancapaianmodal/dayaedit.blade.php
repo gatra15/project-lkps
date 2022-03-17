@@ -5,12 +5,8 @@
         
         <div class="card-body px-20 pb-20">
             <div class="row">
-               
-                {{-- MASUK KE TABEL SDM DOSENS --}}
-                <label>@php echo $data->tahun->name @endphp</label>
-                <div class="input-group input-group-sm mb-3">
-                  <input type="hidden" name="tahun_id" class="form-control" value="{{ $data->tahun_id }}"  required>
-              </div>
+
+             
                 
                 <div class="form-row justify-content-center">
                 <div class="form-group col-md-5 align-middle">
