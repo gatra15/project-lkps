@@ -15,11 +15,11 @@
                 <div class="form-row justify-content-center">
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS-2</label>
-                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_aktif_ts_2" id="#" required>
+                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_aktif_ts2" id="#" required>
                     </div>
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS-1</label>
-                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_aktif_ts_1" id="#" required>
+                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_aktif_ts1" id="#" required>
                     </div>
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS</label>
@@ -33,11 +33,11 @@
                 <div class="form-row justify-content-center">
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS-2</label>
-                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_asing_ft_ts_2" id="#"  required>
+                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_asing_ft_ts2" id="#"  required>
                     </div>
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS-1</label>
-                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_asing_ft_ts_1" id="#" required>
+                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_asing_ft_ts1" id="#" required>
                     </div>
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS</label>
@@ -50,11 +50,11 @@
                 <div class="form-row justify-content-center">
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS-2</label>
-                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_asing_pt_ts_2" id="#"  required>
+                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_asing_pt_ts2" id="#"  required>
                     </div>
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS-1</label>
-                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_asing_pt_ts_1" id="#" required>
+                      <input type="number" class="form-control form-control-sm mb-3" name="mahasiswa_asing_pt_ts1" id="#" required>
                     </div>
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS</label>

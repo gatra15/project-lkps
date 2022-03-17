@@ -26,31 +26,31 @@
     </thead>
     
     <tbody class="text-dark">
-        @foreach ($mahasiswa_asing['mahasiswa'] as $mhs)
+        @foreach ($mahasiswa_asing['mahasiswa'] as $key => $mhs)
         <tr>
            <td>{{ $loop->iteration }}</td>
-           <td>{{ $mhs->program_studi }}</td> 
-           <td>{{ $mhs->mahasiswa_aktif_ts_2 }}</td> 
-           <td>{{ $mhs->mahasiswa_aktif_ts_1 }}</td> 
-           <td>{{ $mhs->mahasiswa_aktif_ts }}</td> 
-           <td>{{ $mhs->mahasiswa_asing_ft_ts_2 }}</td> 
-           <td>{{ $mhs->mahasiswa_asing_ft_ts_1 }}</td> 
-           <td>{{ $mhs->mahasiswa_asing_ft_ts }}</td>
-           <td>{{ $mhs->mahasiswa_asing_pt_ts_2 }}</td>
-           <td>{{ $mhs->mahasiswa_asing_pt_ts_1 }}</td>
-           <td>{{ $mhs->mahasiswa_asing_pt_ts }}</td>
+           <td>{{ $mhs['program_studi'] }}</td>   
+           <td>{{ $mhs['mahasiswa_aktif_ts2'] }}</td> 
+           <td>{{ $mhs['mahasiswa_aktif_ts1'] }}</td> 
+           <td>{{ $mhs['mahasiswa_aktif_ts'] }}</td> 
+           <td>{{ $mhs['mahasiswa_asing_ft_ts2'] }}</td> 
+           <td>{{ $mhs['mahasiswa_asing_ft_ts1'] }}</td> 
+           <td>{{ $mhs['mahasiswa_asing_ft_ts'] }}</td>
+           <td>{{ $mhs['mahasiswa_asing_pt_ts2'] }}</td>
+           <td>{{ $mhs['mahasiswa_asing_pt_ts1'] }}</td>
+           <td>{{ $mhs['mahasiswa_asing_pt_ts'] }}</td>
            @hasrole('perwakilan')
             <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalmahasiswaasingedit-{{ $mhs->id }}"><i class="fas fa-edit"></i></a></li>
+                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalmahasiswaasingedit"><i class="fas fa-edit"></i></a></li>
                 <li>
-                    <a type="button" class="btn btn-danger" href="/mahasiswa/mahasiswa-asing/{{ $mhs->id }}" data-toggle="modal" data-target="#modalmahasiswaasingdelete-{{ $mhs->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                    <a type="button" class="btn btn-danger" href="/mahasiswa/mahasiswa-asing/{{ $mhs['id'] }}" data-toggle="modal" data-target="#modalmahasiswaasingdelete-{{ $mhs['id'] }}"><i class="fas fa-trash btn-del"></i></a></li>
             </ul></td>
             @endhasrole
         </tr>
     @endforeach
      <tr>
          <td class="align-middle text-center" colspan="2"><b>Jumlah</b></td>
-         <td>{{ $mahasiswa_asing['aktif_ts2'] }}</td>
+         {{-- <td>{{ $mahasiswa_asing['aktif_ts2'] }}</td>
          <td>{{ $mahasiswa_asing['aktif_ts1'] }}</td>
          <td>{{ $mahasiswa_asing['aktif_ts'] }}</td>
          <td>{{ $mahasiswa_asing['full_ts2'] }}</td>
@@ -58,7 +58,7 @@
          <td>{{ $mahasiswa_asing['full_ts'] }}</td>
          <td>{{ $mahasiswa_asing['part_ts2'] }}</td>
          <td>{{ $mahasiswa_asing['part_ts1'] }}</td>
-         <td>{{ $mahasiswa_asing['part_ts'] }}</td>
+         <td>{{ $mahasiswa_asing['part_ts'] }}</td> --}}
          <td></td>
      </tr>
     </tbody>

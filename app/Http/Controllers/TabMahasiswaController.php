@@ -21,6 +21,7 @@ class TabMahasiswaController extends Controller
 
         $mahasiswa = (new MahasiswaController)->index();
         $mahasiswa_asing = (new MahasiswaAsingController)->index();
+        $mahasiswaAsing = (new MahasiswaAsingController)->edit();
         $count = Mahasiswa::where($where)->count();
 
         
@@ -28,6 +29,7 @@ class TabMahasiswaController extends Controller
             'title' => 'Mahasiswa',
             'mahasiswa' => $mahasiswa,
             'mahasiswa_asing' => $mahasiswa_asing,
+            'mahasiswaAsing' => $mahasiswaAsing,
             'count' => $count,
         ]);
     }

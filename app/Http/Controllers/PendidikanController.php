@@ -24,7 +24,7 @@ class PendidikanController extends Controller
         // ddd($kurikulum);
         $integrasi = (new PendidikanIntegrasiKegiatanPenelitianController)->index();
         $kepuasanmahasiswa = (new PendidikanKepuasanMahasiswaController)->index();
-        $aspek = Aspek::where($where)->get();
+        $aspek = Aspek::all();
         return view('tab.pendidikan', [
             'title' => 'Pendidikan',
             'kurikulum' => $kurikulum,

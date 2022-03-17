@@ -21,9 +21,11 @@ class CreatePkmDtpsTable extends Migration
             $table->string('judul_kegiatan');
             $table->integer('tahun');
             $table->integer('tahun_laporan');
+            $table->string('prodi');
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

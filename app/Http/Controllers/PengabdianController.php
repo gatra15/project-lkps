@@ -16,6 +16,7 @@ class PengabdianController extends Controller
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
 
         $pengabdian = PkmDtps::where($where)->get();
+        // dd($pengabdian);
         $jumlah_judul = PkmDtps::select('judul_kegiatan')->where($where)->count();
         return view('tab.pkm', [
             'title' => 'Pkm',

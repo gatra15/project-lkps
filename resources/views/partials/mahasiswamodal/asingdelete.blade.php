@@ -1,4 +1,4 @@
-<form action="/mahasiswa/mahasiswa-asing/{{ $mhs->id }}" method="get">
+<form action="/mahasiswa/mahasiswa-asing/{{ $mhs['id'] }}" method="get">
     <div class="modal-body">
         @csrf
         <h5 class="text-center">Yakin Ingin Menghapus Data Mahasiswa Asing ? </h5>

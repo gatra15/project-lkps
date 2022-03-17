@@ -3,11 +3,7 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
             Deskripsi
         </a>
-        @hasrole('perwakilan')
-        <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalmahasiswaasing">
-            Tambah Data
-        </a>
-        @endrole
+        
     </p>
     @can('download file')
     <a href="/mahasiswa/asing/download/excel" class="btn btn-success">Excel</a>
@@ -30,7 +26,7 @@
         </div> 
     </div>
     {{-- Modal Tambah --}}
-    <div class="modal fade" id="modalmahasiswaasing" tabindex="-1" aria-labelledby="modalmahasiswaasing" aria-hidden="true">
+    {{-- <div class="modal fade" id="modalmahasiswaasing" tabindex="-1" aria-labelledby="modalmahasiswaasing" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -42,20 +38,20 @@
             @include('partials.mahasiswamodal.asing')
         </div>
         </div>
-    </div>
+    </div> --}}
 
 {{-- TABLE --}}
 
 @include('tab.mahasiswatab.asingtable')
 {{-- End --}}
 
-@foreach ($mahasiswa_asing['mahasiswa'] as $mhs)
+@foreach ($mahasiswa_asing['mahasiswa'] as $key => $mhs)
 
-<div class="modal fade" id="modalmahasiswaasingedit-{{ $mhs->id }}" tabindex="-1" aria-labelledby="modalmahasiswaasingedit" aria-hidden="true">
+<div class="modal fade" id="modalmahasiswaasingedit" tabindex="-1" aria-labelledby="modalmahasiswaasingedit" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="modalmahasiswaasingedit">Edit Data {{ $mhs->program_studi }}</h5>
+        <h5 class="modal-title" id="modalmahasiswaasingedit">Edit Data</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -64,11 +60,11 @@
     </div>
     </div>
 </div>
-<div class="modal fade" id="modalmahasiswaasingdelete-{{ $mhs->id }}" tabindex="-1" aria-labelledby="modalmahasiswaasingdelete" aria-hidden="true">
+<div class="modal fade" id="modalmahasiswaasingdelete-{{ $mhs['id'] }}" tabindex="-1" aria-labelledby="modalmahasiswaasingdelete" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="modalmahasiswaasingdelete">Hapus Data {{ $mhs->program_studi }}</h5>
+        <h5 class="modal-title" id="modalmahasiswaasingdelete">Hapus Data</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
