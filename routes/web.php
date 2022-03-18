@@ -157,8 +157,8 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::post('/kinerja-dosen/pkm-dtps/{year}/{sumber}', [SdmKinerjaDosenPkmDtpsController::class, 'destroy']);
 
         Route::post('/kinerja-dosen/publikasi-dtps', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'store']);
-        Route::put('/kinerja-dosen/publikasi-dtps/{id}', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'update']);
-        Route::post('/kinerja-dosen/publikasi-dtps/{id}', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'destroy']);
+        Route::put('/kinerja-dosen/publikasi-dtps/{year}/{media}', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'update']);
+        Route::post('/kinerja-dosen/publikasi-dtps/{year}/{media}', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'destroy']);
 
         Route::get('/kinerja-dosen/luaran-dtps', [SdmKinerjaDosenLuaranPkmDtpsController::class, 'index']);
         Route::post('/kinerja-dosen/luaran-dtps', [SdmKinerjaDosenLuaranPkmDtpsController::class, 'store']);

@@ -25,11 +25,11 @@
 {{-- TABLE HERE --}}
 @include('tab.kinerjadosentab.publikasitable')
   
-@foreach ($publikasi['publikasi'] as $publikasis)
-    
+@foreach ($publikasi['ts_all'] as $ts)
+   
 
         <!-- Modal Edit Data Publikasi DTPS -->
-        <div class="modal fade" id="modalpublikasiedit-{{ $publikasis->id }}" tabindex="-1" aria-labelledby="modalpublikasiedit" aria-hidden="true">
+        <div class="modal fade" id="modalpublikasiedit-{{ $ts->id }}" tabindex="-1" aria-labelledby="modalpublikasiedit" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -44,7 +44,7 @@
         </div>
 
             <!-- Modal Delete Data Publikasi DTPS -->
-        <div class="modal fade" id="modalpublikasidelete-{{ $publikasis->id }}" tabindex="-1" aria-labelledby="modalpublikasidelete" aria-hidden="true">
+        <div class="modal fade" id="modalpublikasidelete-{{ $ts->id }}" tabindex="-1" aria-labelledby="modalpublikasidelete" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
