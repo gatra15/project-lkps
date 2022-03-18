@@ -40,7 +40,7 @@
 
 @foreach ($pkms['ts_all'] as $ts)
 <!-- Modal Edit Data Penelitian DTPS -->
-<div class="modal fade" id="modaldosenpkmedit-{{ $ts->id }}" tabindex="-1" aria-labelledby="modaldosenpkmedit" aria-hidden="true">
+<div class="modal fade" id="modalpkmedit-{{ $ts->id }}" tabindex="-1" aria-labelledby="modaldosenpkmedit" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">

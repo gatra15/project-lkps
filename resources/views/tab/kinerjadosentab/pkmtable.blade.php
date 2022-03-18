@@ -41,9 +41,9 @@
                 <td>{{ $ts->jumlah }}</td> 
                 @hasrole('perwakilan')
                 <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpkmedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpkmdelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
                 @endhasrole
                 </tr>
@@ -56,57 +56,57 @@
                 <td>
                     @php echo $ts->sumber->sumberdaya @endphp
                 </td>
-                @endforeach 
+            @endforeach 
 
-                @foreach ($pkms['ts2_sumber2'] as $ts2)
+            @foreach ($pkms['ts2_sumber2'] as $ts2)
                 <td>{{ $ts2->jumlah_ts }}</td> 
-                @endforeach
+            @endforeach
 
-                @foreach ($pkms['ts1_sumber2'] as $ts1)
+            @foreach ($pkms['ts1_sumber2'] as $ts1)
                 <td>{{ $ts1->jumlah_ts }}</td> 
-                @endforeach
+            @endforeach
 
-                @foreach ($pkms['ts_sumber2'] as $ts)
+            @foreach ($pkms['ts_sumber2'] as $ts)
                 <td>{{ $ts->jumlah_ts }}</td> 
                 <td>{{ $ts->jumlah }}</td> 
                 @hasrole('perwakilan')
                 <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpkmedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpkmdelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
-                @endhasrole
+            @endhasrole
                 </tr>
             @endforeach 
 
             {{-- Sumberdaya 3 --}}
             @foreach ($pkms['ts_sumber3'] as $ts)
-                <tr>
-                <td>3</td>
-                <td>
-                    @php echo $ts->sumber->sumberdaya @endphp
-                </td>
+                    <tr>
+                    <td>3</td>
+                    <td>
+                        @php echo $ts->sumber->sumberdaya @endphp
+                    </td>
                 @endforeach 
 
                 @foreach ($pkms['ts2_sumber3'] as $ts2)
-                <td>{{ $ts2->jumlah_ts }}</td> 
+                    <td>{{ $ts2->jumlah_ts }}</td> 
                 @endforeach
 
                 @foreach ($pkms['ts1_sumber3'] as $ts1)
-                <td>{{ $ts1->jumlah_ts }}</td> 
+                    <td>{{ $ts1->jumlah_ts }}</td> 
                 @endforeach
 
                 @foreach ($pkms['ts_sumber3'] as $ts)
-                <td>{{ $ts->jumlah_ts }}</td> 
-                <td>{{ $ts->jumlah }}</td> 
-                @hasrole('perwakilan')
-                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
-                    <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                </ul></td>
+                    <td>{{ $ts->jumlah_ts }}</td> 
+                    <td>{{ $ts->jumlah }}</td> 
+                    @hasrole('perwakilan')
+                    <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpkmedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                        <li>
+                            <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpkmdelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                    </ul></td>
                 @endhasrole
-                </tr>
+                    </tr>
             @endforeach 
             
                 {{-- <tr>

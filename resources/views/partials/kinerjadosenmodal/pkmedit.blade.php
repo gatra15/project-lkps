@@ -13,7 +13,7 @@
                     <input type="hidden" name="sumber_id" value="{{ $ts->sumber_id }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly>
                 </div>
 
-                <label for="penelitian" class="fs-6 my-2"> Pada PS Yang Diakreditasi </label>
+                <label for="penelitian" class="fs-6 my-2"> Jumlah Judul </label>
                 <div class="form-row justify-content-center text-center">
                     <div class="form-group col-md-4 align-middle">
                     <label for="dosentetap"> TS-2 :</label>
@@ -72,7 +72,6 @@
 
             </div>
         </div>
-    
     </div>
     <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
