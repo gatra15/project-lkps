@@ -116,10 +116,10 @@ div.shadow-sm {
             <p class="font-italic text-dark text-center">File Tanda Tangan :</p>
             <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
         </div>
-            <div class="modal-footer">
+            {{-- <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                 <button type="submit"  class="btn btn-primary">Simpan</button>
-            </div>
+            </div> --}}
             
     </form>
 </div>
