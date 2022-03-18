@@ -26,13 +26,13 @@
         @include('tab.luarantab.efektivitastable')
         {{-- PRESTASI AKHIR --}}
 
-        @foreach($efektifitasPrestasi['efektifitas'] as $efektifitas)
+        @foreach($efektifitasPrestasi['ts_all'] as $efektifitas)
       <!-- Modal Tambah Edit Efektivitas -->
       <div class="modal fade" id="modalefekedit-{{ $efektifitas->id }}" tabindex="-1" aria-labelledby="modalefekedit" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalefekedit">Edit Data {{ $efektifitas->tahun->name }}</h5>
+            <h5 class="modal-title" id="modalefekedit">Edit Data {{ $efektifitas }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -47,7 +47,7 @@
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modalefekdelete">Hapus Data {{ $efektifitas->tahun->name }} </h5>
+            <h5 class="modal-title" id="modalefekdelete">Hapus Data {{ $efektifitas }} </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

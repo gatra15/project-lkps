@@ -18,11 +18,25 @@ class KesesuaianBidangKerjaController extends Controller
     {
         $tahun = (int) session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
-        $cek = KesesuaianBidangKerja::where('tahun_laporan', $tahun)->where('prodi', $prodi)->exists();
+        $cek2 = KesesuaianBidangKerja::where('tahun_laporan', $tahun - 2)->where('prodi', $prodi)->exists();
+        $cek3 = KesesuaianBidangKerja::where('tahun_laporan', $tahun - 3)->where('prodi', $prodi)->exists();
+        $cek4 = KesesuaianBidangKerja::where('tahun_laporan', $tahun - 4)->where('prodi', $prodi)->exists();
 
-        if (!$cek){
+        if (!$cek4){
             KesesuaianBidangKerja::create([
-                'tahun_laporan' => $tahun,
+                'tahun_laporan' => $tahun - 4,
+                'prodi' => $prodi
+            ]);
+        }
+        if (!$cek3){
+            KesesuaianBidangKerja::create([
+                'tahun_laporan' => $tahun - 3,
+                'prodi' => $prodi
+            ]);
+        }
+        if (!$cek2){
+            KesesuaianBidangKerja::create([
+                'tahun_laporan' => $tahun - 2,
                 'prodi' => $prodi
             ]);
         }
@@ -35,7 +49,7 @@ class KesesuaianBidangKerjaController extends Controller
 
 
 
-        $bidang = KesesuaianBidangKerja::with('tahun')->where($where)->get();
+        $bidang = KesesuaianBidangKerja::where($where)->get();
         return ['bidang' => $bidang];
     }
 
@@ -108,7 +122,7 @@ class KesesuaianBidangKerjaController extends Controller
             $data->kesesuaian_rendah = (int) $request->input('kesesuaian_rendah');
             $data->kesesuaian_sedang = (int) $request->input('kesesuaian_sedang');
             $data->kesesuaian_tinggi = (int) $request->input('kesesuaian_tinggi');
-            $data->tahun_laporan = $tahun;
+            // $data->tahun_laporan = $tahun;
             $data->prodi = auth()->user()->prodi->name;
             $data->created_by = auth()->user()->name;
             $data->created_at = Carbon::now();
@@ -142,7 +156,7 @@ class KesesuaianBidangKerjaController extends Controller
             $data->kesesuaian_rendah = null;
             $data->kesesuaian_sedang = null;
             $data->kesesuaian_tinggi = null;
-            $data->tahun_laporan = $tahun;
+            // $data->tahun_laporan = $tahun;
             $data->prodi = auth()->user()->prodi->name;
             $data->updated_by = auth()->user()->name;
             $data->updated_at = Carbon::now();

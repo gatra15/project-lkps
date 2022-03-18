@@ -7,7 +7,7 @@
             <div class="row">
                
                 {{-- MASUK KE TABEL SDM DOSENS --}}
-
+{{ $data->id }}
                 <div class="form-row justify-content-center">
                   <div class="form-group col-md-5 align-middle">
                   <label for="pengkuan"> Jumlah Lulusan :</label>

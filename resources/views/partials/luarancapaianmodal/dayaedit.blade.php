@@ -6,7 +6,7 @@
         <div class="card-body px-20 pb-20">
             <div class="row">
 
-             
+             {{ $data->id }}
                 
                 <div class="form-row justify-content-center">
                 <div class="form-group col-md-5 align-middle">

@@ -23,8 +23,9 @@
     <tbody class="text-dark">
         @foreach ($kepuasanPengguna['kepuasan'] as $data)
         <tr>
+            {{-- {{ $data }} --}}
             <td>{{ $loop->iteration }}</td>
-            <td>@php
+            <td style="text-align: left">@php
                 echo  $data->kemampuan->text
             @endphp</td>
             <td>{{ $data->sangat_baik }}</td>

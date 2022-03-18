@@ -497,10 +497,11 @@ class KeuanganSaranaPrasaranaController extends Controller
             'sarana_id' => $req->input('sarana_id'),
             'biaya_id' => $req->input('biaya_id'),
             'unit_pengelola_ts' => null,
+            'ps_ts' => null,
             'tahun_laporan' => $tahun - 2,
             'prodi' => auth()->user()->prodi->name,
-            'created_by' => auth()->user()->name,
-            'created_at' => Carbon::now(),
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
         ]);
 
         // TS-1
@@ -508,11 +509,12 @@ class KeuanganSaranaPrasaranaController extends Controller
         ->update([
             'sarana_id' => $req->input('sarana_id'),
             'biaya_id' => $req->input('biaya_id'),
-            'unit_pengelola_ts' => $req->input('unit_pengelola_ts1'),
+            'unit_pengelola_ts' => null,
+            'ps_ts' => null,
             'tahun_laporan' => $tahun - 1,
             'prodi' => auth()->user()->prodi->name,
-            'created_by' => auth()->user()->name,
-            'created_at' => Carbon::now(),
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
         ]);
 
         // TS-1
@@ -520,11 +522,12 @@ class KeuanganSaranaPrasaranaController extends Controller
         ->update([
             'sarana_id' => $req->input('sarana_id'),
             'biaya_id' => $req->input('biaya_id'),
-            'unit_pengelola_ts' => $req->input('unit_pengelola_ts'),
+            'unit_pengelola_ts' => null,
+            'ps_ts' => null,
             'tahun_laporan' => $tahun,
             'prodi' => auth()->user()->prodi->name,
-            'created_by' => auth()->user()->name,
-            'created_at' => Carbon::now(),
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
         ]);
         return back()->with('error', 'Data Keuangan Sarana Prasarana berhasil dihapus.');
 

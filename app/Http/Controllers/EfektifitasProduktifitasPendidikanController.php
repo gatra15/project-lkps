@@ -19,9 +19,29 @@ class EfektifitasProduktifitasPendidikanController extends Controller
         $tahun = session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $where3 = ['tahun_laporan' => $tahun - 3, 'prodi' => $prodi];
+        $where4 = ['tahun_laporan' => $tahun - 4, 'prodi' => $prodi];
+        $where5 = ['tahun_laporan' => $tahun - 5, 'prodi' => $prodi];
+    
+    // Cek
+        // $cek3 = EfektifitasProduktifitasPendidikan::where($where3)->exists();
+        // $cek4 = EfektifitasProduktifitasPendidikan::where($where4)->exists();
+        // $cek5 = EfektifitasProduktifitasPendidikan::where($where5)->exists();
+        // $cek6 = EfektifitasProduktifitasPendidikan::where($where6)->exists();
+    // End Cek
 
-        $efektifitas = EfektifitasProduktifitasPendidikan::with('tahun')->where($where)->get();
-        return ['efektifitas' => $efektifitas];
+        $ts_all = EfektifitasProduktifitasPendidikan::where($where)->get();
+        $ts3 = EfektifitasProduktifitasPendidikan::where($where3)->get();
+        // $ts4 = EfektifitasProduktifitasPendidikan::with('tahun')->where($where4)->get();
+        // $ts5 = EfektifitasProduktifitasPendidikan::with('tahun')->where($where5)->get();
+        // $ts6 = EfektifitasProduktifitasPendidikan::with('tahun')->where($where6)->get();
+        return [
+            'ts_all' => $ts_all,
+            'ts3' => $ts3,
+            // 'ts4' => $ts4,
+            // 'ts5' => $ts5,
+            // 'ts6' => $ts6,
+        ];
     }
 
     /**

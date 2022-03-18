@@ -15,10 +15,11 @@ class CreateEfektifitasProduktifitasPendidikansTable extends Migration
     {
         Schema::create('efektifitas_produktifitas_pendidikans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tahun_id');
             $table->integer('jumlah_mahasiswa')->nullable(true);
-            $table->integer('ts3')->nullable(true);
-            $table->integer('ts2')->nullable(true);
-            $table->integer('ts1')->nullable(true);
+            // $table->integer('ts3')->nullable(true);
+            // $table->integer('ts2')->nullable(true);
+            // $table->integer('ts1')->nullable(true);
             $table->integer('ts')->nullable(true);
             $table->integer('jumlah')->nullable(true);
             $table->integer('average')->nullable(true);

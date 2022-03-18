@@ -19,7 +19,21 @@ class CapaianPembelajaranController extends Controller
         $tahun = (int) session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
         $cek = CapaianPembelajaran::where('tahun_laporan', $tahun)->where('prodi', $prodi)->exists();
+        $cek1 = CapaianPembelajaran::where('tahun_laporan', $tahun - 1)->where('prodi', $prodi)->exists();
+        $cek2 = CapaianPembelajaran::where('tahun_laporan', $tahun - 2)->where('prodi', $prodi)->exists();
 
+        if (!$cek2){
+            CapaianPembelajaran::create([
+                'tahun_laporan' => $tahun - 2,
+                'prodi' => $prodi
+            ]);
+        }
+        if (!$cek1){
+            CapaianPembelajaran::create([
+                'tahun_laporan' => $tahun - 1,
+                'prodi' => $prodi
+            ]);
+        }
         if (!$cek){
             CapaianPembelajaran::create([
                 'tahun_laporan' => $tahun,

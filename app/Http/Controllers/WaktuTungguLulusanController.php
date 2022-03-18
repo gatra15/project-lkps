@@ -19,11 +19,25 @@ class WaktuTungguLulusanController extends Controller
     {
         $tahun = (int) session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
-        $cek = WaktuTungguLulusan::where('tahun_laporan', $tahun)->where('prodi', $prodi)->exists();
+        $cek2 = WaktuTungguLulusan::where('tahun_laporan', $tahun - 2)->where('prodi', $prodi)->exists();
+        $cek3 = WaktuTungguLulusan::where('tahun_laporan', $tahun - 3)->where('prodi', $prodi)->exists();
+        $cek4 = WaktuTungguLulusan::where('tahun_laporan', $tahun - 4)->where('prodi', $prodi)->exists();
 
-        if (!$cek){
+        if (!$cek4){
             WaktuTungguLulusan::create([
-                'tahun_laporan' => $tahun,
+                'tahun_laporan' => $tahun - 4,
+                'prodi' => $prodi
+            ]);
+        }
+        if (!$cek3){
+            WaktuTungguLulusan::create([
+                'tahun_laporan' => $tahun - 3,
+                'prodi' => $prodi
+            ]);
+        }
+        if (!$cek2){
+            WaktuTungguLulusan::create([
+                'tahun_laporan' => $tahun - 2,
                 'prodi' => $prodi
             ]);
         }
@@ -107,7 +121,7 @@ class WaktuTungguLulusanController extends Controller
             $data->waktu_tunggu_6 = (int) $request->input('waktu_tunggu_6');
             $data->waktu_tunggu_6_18 = (int) $request->input('waktu_tunggu_6_18');
             $data->waktu_tunggu_18 = (int) $request->input('waktu_tunggu_18');
-            $data->tahun_laporan = $tahun;
+            // $data->tahun_laporan = $tahun;
             $data->prodi = auth()->user()->prodi->name;
             $data->created_by = auth()->user()->name;
             $data->created_at = Carbon::now();

@@ -27,7 +27,8 @@
     <tbody class="text-dark">
         @foreach ($kinerjaLulusan['data'] as $key => $data)
         <tr>
-            <td>{{ $key == sizeof($kinerjaLulusan['data'])-1 ? 'TS' : 'TS-'.(sizeof($kinerjaLulusan['data'])-1-$key) }}</td>
+           
+            <td>{{ $key == sizeof($kinerjaLulusan['data'])-1 ? 'TS-2' : 'TS-'.(sizeof($kinerjaLulusan['data'])+1-$key) }}</td>
             <td>{{ $data->jumlah_lulusan }}</td>
             <td>{{ $data->jumlah_lulusan_terlacak }}</td>
             <td>{{ $data->tempat_wilayah_tidak_berizin}}</td>

@@ -38,41 +38,7 @@ class JenisKemampuanSeeder extends Seeder
         ]);
 
         // kepuasan
-        KepuasanPengguna::create([
-            'kemampuan_id' => 1, 
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik',
-        ]);
-        KepuasanPengguna::create([
-            'kemampuan_id' => 2, 
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik',
-        ]);
-        KepuasanPengguna::create([
-            'kemampuan_id' => 3, 
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik',
-        ]);
-        KepuasanPengguna::create([
-            'kemampuan_id' => 4, 
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik',
-        ]);
-        KepuasanPengguna::create([
-            'kemampuan_id' => 5, 
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik',
-        ]);
-        KepuasanPengguna::create([
-            'kemampuan_id' => 6, 
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik',
-        ]);
-        KepuasanPengguna::create([
-            'kemampuan_id' => 7, 
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik',
-        ]);
+        
     }
 
 

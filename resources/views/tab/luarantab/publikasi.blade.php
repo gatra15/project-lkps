@@ -24,10 +24,10 @@
         @include('tab.luarantab.publikasitable')
         {{-- End Luaran Prestasi --}}
 
-        @foreach($publikasi['data'] as $data)
+        @foreach($publikasi['data'] as $ts)
       <!-- Modal Tambah Edit Prestasi -->
-      {{-- Tabahin id -{{ $data->id }} contoh modaledit-{{ $data->id }} --}}
-      <div class="modal fade" id="modalpublikasiedit-{{ $data->id }}" tabindex="-1" aria-labelledby="modalluaranprestasiedit" aria-hidden="true">
+      
+      <div class="modal fade" id="modalpublikasiedit-{{ $ts->id }}" tabindex="-1" aria-labelledby="modalpublikasiedit" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -43,7 +43,7 @@
 
       <!-- Modal Tambah Delete Prestasi -->
       {{-- Tabahin id -{{ $data->id }} contoh modaldelete-{{ $data->id }} --}}
-      <div class="modal fade" id="modalpublikasidelete-{{ $data->id }}" tabindex="-1" aria-labelledby="modalpublikasidelete" aria-hidden="true">
+      <div class="modal fade" id="modalpublikasidelete-{{ $ts->id }}" tabindex="-1" aria-labelledby="modalpublikasidelete" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

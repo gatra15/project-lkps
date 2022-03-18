@@ -26,41 +26,29 @@
     </thead>
     
     <tbody class="text-dark">
-        @foreach ($efektifitasPrestasi['efektifitas'] as $efektifitas)
+        @foreach ($efektifitasPrestasi['ts3'] as $key => $ts3)
             <tr>
-                <td>{{ $efektifitas->tahun->name }}</td>
-                <td>{{ $efektifitas->jumlah_mahasiswa }}</td>
-                <td style="background-color: grey"></td>
-                <td style="background-color: grey"></td>
-                <td style="background-color: grey"></td>
-
-                @if ($efektifitas->id == 1)
-                <td>{{ $efektifitas->ts3 }}</td>
-                @else
-                <td style="background-color: grey"></td>
-                @endif
-
-                @if ($efektifitas->id == 1 || $efektifitas->id == 2 )
-                <td>{{ $efektifitas->ts2 }}</td>
-                @else
-                <td style="background-color: grey"></td>
-                @endif
-
-                @if ($efektifitas->id == 4 )
-                <td style="background-color: grey"></td>
-                @else
-                <td>{{ $efektifitas->ts1 }}</td>
-                @endif
-
-                <td>{{ $efektifitas->ts }}</td>
-                <td>{{ $efektifitas->jumlah }}</td>
-                <td>{{ $efektifitas->average }}</td>
+                {{ $ts3 }}
+            <td>{{ $key == sizeof($efektifitasPrestasi['ts3'])-1 ? 'TS-3': 'TS-'.(sizeof($efektifitasPrestasi['ts3'])-1-$key) }}</td>
+            <td>{{ $ts3->jumlah_mahasiswa }}</td>
+        @endforeach
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+               
+        @foreach ($efektifitasPrestasi['ts_all'] as $ts)
+            <td>{{ $ts->ts }}</td>
+            <td></td>
+            <td></td>
                 @hasrole ('perwakilan')
 
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalefekedit-{{ $efektifitas->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalefekedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
-                        <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/efektifitas/{{ $efektifitas->id }}" data-toggle="modal" data-target="#modalefekdelete-{{ $efektifitas->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        <a type="button" class="btn btn-danger" href="/luaran-capaian-tridharma/efektifitas/{{ $ts->id }}" data-toggle="modal" data-target="#modalefekdelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
                 @endhasrole
             </tr>

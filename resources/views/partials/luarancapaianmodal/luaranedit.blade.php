@@ -1,4 +1,4 @@
-<form action="/luaran-capaian-tridharma/luaran-mahasiswa/{{ $data->id }}" method="post">
+<form action="/luaran-capaian-tridharma/luaran-mahasiswa/{{ $data->id }}" method="post" enctype="multipart/form-data">
     @method('put')
     @csrf
     <div class="modal-body">
@@ -32,7 +32,7 @@
                 </div>
                 <label for="lembaga" class="mt-3"> Bukti  :</label>
                 <div class="input-group input-group-sm mb-3">
-                <input type="file" name="bukti" value="{{--  --}}" class="form-control" id="customFile" required>
+                <input type="file" name="bukti" value="{{ $data->bukti }}" class="form-control" id="bukti" >
                 </div>
                 
 

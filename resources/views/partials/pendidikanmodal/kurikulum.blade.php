@@ -23,7 +23,7 @@
                     <div class="form-group col-md-6 align-middle">
                       <label for="#" class="text-center">Kode Mata Kuliah : <br> <br> </label>
                       <div class="input-group input-group-sm mb-3">
-                        <input type="number" name="kode_mata_kuliah" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                        <input type="text" name="kode_mata_kuliah" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                     </div>
                     </div>
                 </div>

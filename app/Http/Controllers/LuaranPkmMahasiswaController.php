@@ -76,7 +76,6 @@ class LuaranPkmMahasiswaController extends Controller
         $luaran->prodi = auth()->user()->prodi->name;
         $luaran->created_by = auth()->user()->name;
         $luaran->created_at = Carbon::now();
-        // dd($luaran);
         $luaran->save();
 
         return back()->with('success', 'Data Luaran Pkm Mahasiswa berhasil ditambahkan.');
@@ -114,13 +113,13 @@ class LuaranPkmMahasiswaController extends Controller
     public function update(Request $request, $id)
     {
         $tahun = session('tahun_laporan');
-        $this->validate($request, [
-            'type_luaran' => 'required',
-            'judul' => 'required',
-            'tahun' => 'required',
-            'keterangan' => 'required',
-            'bukti' => 'required|max:4096'
-        ]);
+        // $this->validate($request, [
+        //     'type_luaran' => 'required',
+        //     'judul' => 'required',
+        //     'tahun' => 'required',
+        //     'keterangan' => 'required',
+        //     'bukti' => 'required|max:4096'
+        // ]);
 
         if($request->file('bukti')) {
             $filenameWithExt = $request->file('bukti')->getClientOriginalName();
@@ -128,7 +127,7 @@ class LuaranPkmMahasiswaController extends Controller
             $extension = $request->file('bukti')->getClientOriginalExtension();
             $filenameSimpan = $filename.'_'.time().'.'.$extension;
         } else {
-            $filenameSimpan = 'Tidak Ada File yang disisipkan';
+            
         }
 
         $luaran = LuaranPkmMahasiswa::find($id);
