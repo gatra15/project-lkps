@@ -53,59 +53,59 @@ class JenisPenggunaanSeeder extends Seeder
         ]);
 
         // Sarana Dana
-        SaranaDana::create([
-            'sarana_id' => 1,
-            'biaya_id'=> 1,
-            'tahun_laporan' => 2020,
-            'prodi' => 'Teknik Industri',
-        ]);
-        SaranaDana::create([
-            'sarana_id' => 1,
-            'biaya_id'=> 2,
-            'tahun_laporan' => 2020,
-            'prodi' => 'Teknik Industri',
-        ]);
-        SaranaDana::create([
-            'sarana_id' => 1,
-            'biaya_id'=> 3,
-            'tahun_laporan' => 2020,
-            'prodi' => 'Teknik Industri',
-        ]);
-        SaranaDana::create([
-            'sarana_id' => 1,
-            'biaya_id'=> 4,
-            'tahun_laporan' => 2020,
-            'prodi' => 'Teknik Industri',
-        ]);
-        SaranaDana::create([
-            'sarana_id' => 2,
-            'tahun_laporan' => 2020,
-            'prodi' => 'Teknik Industri',
-        ]);
-        SaranaDana::create([
-            'sarana_id' => 3,
-            'tahun_laporan' => 2020,
-            'prodi' => 'Teknik Industri',
-        ]);
-        SaranaDana::create([
-            'sarana_id' => 4,
-            'tahun_laporan' => 2020,
-            'prodi' => 'Teknik Industri',
-        ]);
-        SaranaDana::create([
-            'sarana_id' => 5,
-            'tahun_laporan' => 2020,
-            'prodi' => 'Teknik Industri',
-        ]);
-        SaranaDana::create([
-            'sarana_id' => 6,
-            'tahun_laporan' => 2020,
-            'prodi' => 'Teknik Industri',
-        ]);
-        SaranaDana::create([
-            'sarana_id' => 7,
-            'tahun_laporan' => 2020,
-            'prodi' => 'Teknik Industri',
-        ]);
+        // SaranaDana::create([
+        //     'sarana_id' => 1,
+        //     'biaya_id'=> 1,
+        //     'tahun_laporan' => 2020,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // SaranaDana::create([
+        //     'sarana_id' => 1,
+        //     'biaya_id'=> 2,
+        //     'tahun_laporan' => 2020,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // SaranaDana::create([
+        //     'sarana_id' => 1,
+        //     'biaya_id'=> 3,
+        //     'tahun_laporan' => 2020,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // SaranaDana::create([
+        //     'sarana_id' => 1,
+        //     'biaya_id'=> 4,
+        //     'tahun_laporan' => 2020,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // SaranaDana::create([
+        //     'sarana_id' => 2,
+        //     'tahun_laporan' => 2020,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // SaranaDana::create([
+        //     'sarana_id' => 3,
+        //     'tahun_laporan' => 2020,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // SaranaDana::create([
+        //     'sarana_id' => 4,
+        //     'tahun_laporan' => 2020,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // SaranaDana::create([
+        //     'sarana_id' => 5,
+        //     'tahun_laporan' => 2020,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // SaranaDana::create([
+        //     'sarana_id' => 6,
+        //     'tahun_laporan' => 2020,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // SaranaDana::create([
+        //     'sarana_id' => 7,
+        //     'tahun_laporan' => 2020,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
     }
 }

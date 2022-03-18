@@ -32,20 +32,31 @@
                     <td class="text-left putih" colspan="5"> <b>Biaya Operasional Pendidikan</b>  </td>
                     <td colspan="5" style="background-color: #e7e7e7"> </td>
                 </tr>
-                @foreach ($keuangan as $data)
-                 @if ($data->sarana_id == 1 && $data->biaya_id == 1)
-                    
+                @foreach ($ts as $data)
                     <tr>
                         <td></td>
                         <td style="text-align: left">{{ $data->biaya->text }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
+                    @endforeach
+                    @foreach ($ts2 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts as $data)
                         <td>Rp.{{ $data->unit_pengelola_ts }}</td>
                         <td>Rp.{{ $data->unit_pengelola_average }}</td>
-                        <td>Rp.{{ $data->ps_ts2 }}</td>
-                        <td>Rp.{{ $data->ps_ts1 }}</td>
+                    @endforeach
+                    @foreach ($ts2 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts as $data)
                         <td>Rp.{{ $data->ps_ts }}</td>
                         <td>Rp.{{ $data->ps_average }}</td>
+                    
                         @hasrole('perwakilan')
                         <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
@@ -55,24 +66,33 @@
                         @endhasrole
                     </tr>
                     
-              
-                    @endif
                 @endforeach
 
-                @foreach ($keuangan as $data)
-                 @if ($data->sarana_id == 1 && $data->biaya_id == 2)
-                    
+                @foreach ($ts_sarana14 as $data)
                     <tr>
                         <td></td>
                         <td style="text-align: left">{{ $data->biaya->text }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
+                    @endforeach
+                    @foreach ($ts2_sarana12 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana12 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana12 as $data)
                         <td>Rp.{{ $data->unit_pengelola_ts }}</td>
                         <td>Rp.{{ $data->unit_pengelola_average }}</td>
-                        <td>Rp.{{ $data->ps_ts2 }}</td>
-                        <td>Rp.{{ $data->ps_ts1 }}</td>
+                    @endforeach
+                    @foreach ($ts2_sarana12 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana12 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana12 as $data)
                         <td>Rp.{{ $data->ps_ts }}</td>
                         <td>Rp.{{ $data->ps_average }}</td>
+                    
                         @hasrole('perwakilan')
                         <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
@@ -82,24 +102,33 @@
                         @endhasrole
                     </tr>
                     
-              
-                    @endif
                 @endforeach
 
-                @foreach ($keuangan as $data)
-                 @if ($data->sarana_id == 1 && $data->biaya_id == 3)
-                    
+                @foreach ($ts_sarana13 as $data)
                     <tr>
                         <td></td>
                         <td style="text-align: left">{{ $data->biaya->text }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
+                    @endforeach
+                    @foreach ($ts2_sarana13 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana13 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana13 as $data)
                         <td>Rp.{{ $data->unit_pengelola_ts }}</td>
                         <td>Rp.{{ $data->unit_pengelola_average }}</td>
-                        <td>Rp.{{ $data->ps_ts2 }}</td>
-                        <td>Rp.{{ $data->ps_ts1 }}</td>
+                    @endforeach
+                    @foreach ($ts2_sarana13 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana13 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana13 as $data)
                         <td>Rp.{{ $data->ps_ts }}</td>
                         <td>Rp.{{ $data->ps_average }}</td>
+                    
                         @hasrole('perwakilan')
                         <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
@@ -109,24 +138,33 @@
                         @endhasrole
                     </tr>
                     
-              
-                    @endif
                 @endforeach
 
-                @foreach ($keuangan as $data)
-                 @if ($data->sarana_id == 1 && $data->biaya_id == 4)
-                    
+                @foreach ($ts_sarana14 as $data)
                     <tr>
                         <td></td>
                         <td style="text-align: left">{{ $data->biaya->text }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
+                    @endforeach
+                    @foreach ($ts2_sarana14 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana14 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana14 as $data)
                         <td>Rp.{{ $data->unit_pengelola_ts }}</td>
                         <td>Rp.{{ $data->unit_pengelola_average }}</td>
-                        <td>Rp.{{ $data->ps_ts2 }}</td>
-                        <td>Rp.{{ $data->ps_ts1 }}</td>
+                    @endforeach
+                    @foreach ($ts2_sarana14 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana14 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana14 as $data)
                         <td>Rp.{{ $data->ps_ts }}</td>
                         <td>Rp.{{ $data->ps_average }}</td>
+                    
                         @hasrole('perwakilan')
                         <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
@@ -136,30 +174,43 @@
                         @endhasrole
                     </tr>
                     
-              
-                    @endif
                 @endforeach
 
-                @foreach ($keuangan as $data)
-                 @if ($data->sarana_id == 2)
-                    <td>2</td>
-                    <td style="text-align: left">{{ $data->sarana->text }}</td>
-                    <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
-                    <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
-                    <td>Rp.{{ $data->unit_pengelola_ts }}</td>
-                    <td>Rp.{{ $data->unit_pengelola_average }}</td>
-                    <td>Rp.{{ $data->ps_ts2 }}</td>
-                    <td>Rp.{{ $data->ps_ts1 }}</td>
-                    <td>Rp.{{ $data->ps_ts }}</td>
-                    <td>Rp.{{ $data->ps_average }}</td>
-                    @hasrole('perwakilan')
-                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                        <li>
-                            <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
-                    @endhasrole
-                 @endif
+                @foreach ($ts_sarana2 as $data)
+                    <tr>
+                        
+                        <td></td>
+                        <td style="text-align: left">{{ $data->sarana->text }}</td>
+                    @endforeach
+                    @foreach ($ts2_sarana2 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana2 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana2 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                        <td>Rp.{{ $data->unit_pengelola_average }}</td>
+                    @endforeach
+                    @foreach ($ts2_sarana2 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana2 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana2 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                        <td>Rp.{{ $data->ps_average }}</td>
+                    
+                        @hasrole('perwakilan')
+                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                        @endhasrole
+                    </tr>
+                    
                 @endforeach
 
                 <tr>
@@ -175,20 +226,31 @@
                     <td></td>
                 </tr>
 
-                @foreach ($keuangan as $data)
-                 @if ($data->sarana_id == 3) 
-                
+                @foreach ($ts_sarana3 as $data)
                     <tr>
-                        <td> 3 </td>
+                        <td></td>
                         <td style="text-align: left">{{ $data->sarana->text }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
+                    @endforeach
+                    @foreach ($ts2_sarana3 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana3 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana3 as $data)
                         <td>Rp.{{ $data->unit_pengelola_ts }}</td>
                         <td>Rp.{{ $data->unit_pengelola_average }}</td>
-                        <td>Rp.{{ $data->ps_ts2 }}</td>
-                        <td>Rp.{{ $data->ps_ts1 }}</td>
+                    @endforeach
+                    @foreach ($ts2_sarana3 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana3 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana3 as $data)
                         <td>Rp.{{ $data->ps_ts }}</td>
                         <td>Rp.{{ $data->ps_average }}</td>
+                    
                         @hasrole('perwakilan')
                         <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
@@ -197,23 +259,35 @@
                         </ul></td>
                         @endhasrole
                     </tr>
-                 @endif
+                    
                 @endforeach
                 
-                @foreach ($keuangan as $data)
-                    @if ($data->sarana_id == 4) 
+                @foreach ($ts_sarana4 as $data)
                     <tr>
-                        <td> 4 </td>
+                        <td></td>
                         <td style="text-align: left">{{ $data->sarana->text }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
-                            <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
-                            <td>Rp.{{ $data->unit_pengelola_ts }}</td>
-                            <td>Rp.{{ $data->unit_pengelola_average }}</td>
-                            <td>Rp.{{ $data->ps_ts2 }}</td>
-                            <td>Rp.{{ $data->ps_ts1 }}</td>
-                            <td>Rp.{{ $data->ps_ts }}</td>
-                            <td>Rp.{{ $data->ps_average }}</td>
-                            @hasrole('perwakilan')
+                    @endforeach
+                    @foreach ($ts2_sarana4 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana4 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana4 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                        <td>Rp.{{ $data->unit_pengelola_average }}</td>
+                    @endforeach
+                    @foreach ($ts2_sarana4 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana4 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana4 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                        <td>Rp.{{ $data->ps_average }}</td>
+                    
+                        @hasrole('perwakilan')
                         <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                             <li>
@@ -221,7 +295,7 @@
                         </ul></td>
                         @endhasrole
                     </tr>
-                    @endif
+                    
                 @endforeach
 
                 <tr>
@@ -237,20 +311,32 @@
                     <td></td>
                 </tr>
 
-                @foreach ($keuangan as $data)
-                    @if ($data->sarana_id == 5) 
+                @foreach ($ts_sarana5 as $data)
                     <tr>
-                        <td> 5 </td>
+                        <td></td>
                         <td style="text-align: left">{{ $data->sarana->text }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
-                            <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
-                            <td>Rp.{{ $data->unit_pengelola_ts }}</td>
-                            <td>Rp.{{ $data->unit_pengelola_average }}</td>
-                            <td>Rp.{{ $data->ps_ts2 }}</td>
-                            <td>Rp.{{ $data->ps_ts1 }}</td>
-                            <td>Rp.{{ $data->ps_ts }}</td>
-                            <td>Rp.{{ $data->ps_average }}</td>
-                            @hasrole('perwakilan')
+                    @endforeach
+                    @foreach ($ts2_sarana5 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana5 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana5 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                        <td>Rp.{{ $data->unit_pengelola_average }}</td>
+                    @endforeach
+                    @foreach ($ts2_sarana5 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana5 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana5 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                        <td>Rp.{{ $data->ps_average }}</td>
+                    
+                        @hasrole('perwakilan')
                         <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                             <li>
@@ -258,23 +344,35 @@
                         </ul></td>
                         @endhasrole
                     </tr>
-                    @endif
+                    
                 @endforeach
 
-                @foreach ($keuangan as $data)
-                 @if ($data->sarana_id == 6) 
+                @foreach ($ts_sarana6 as $data)
                     <tr>
-                        <td> 6 </td>
+                        <td></td>
                         <td style="text-align: left">{{ $data->sarana->text }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
-                            <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
-                            <td>Rp.{{ $data->unit_pengelola_ts }}</td>
-                            <td>Rp.{{ $data->unit_pengelola_average }}</td>
-                            <td>Rp.{{ $data->ps_ts2 }}</td>
-                            <td>Rp.{{ $data->ps_ts1 }}</td>
-                            <td>Rp.{{ $data->ps_ts }}</td>
-                            <td>Rp.{{ $data->ps_average }}</td>
-                            @hasrole('perwakilan')
+                    @endforeach
+                    @foreach ($ts2_sarana6 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana6 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana6 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                        <td>Rp.{{ $data->unit_pengelola_average }}</td>
+                    @endforeach
+                    @foreach ($ts2_sarana6 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana6 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana6 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                        <td>Rp.{{ $data->ps_average }}</td>
+                    
+                        @hasrole('perwakilan')
                         <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                             <li>
@@ -282,23 +380,35 @@
                         </ul></td>
                         @endhasrole
                     </tr>
-                 @endif
+                    
                 @endforeach
 
-                @foreach ($keuangan as $data)
-                 @if ($data->sarana_id == 7) 
+                @foreach ($ts_sarana7 as $data)
                     <tr>
-                        <td> 7 </td>
+                        <td></td>
                         <td style="text-align: left">{{ $data->sarana->text }}</td>
-                        <td>Rp.{{ $data->unit_pengelola_ts2 }}</td>
-                            <td>Rp.{{ $data->unit_pengelola_ts1 }}</td>
-                            <td>Rp.{{ $data->unit_pengelola_ts }}</td>
-                            <td>Rp.{{ $data->unit_pengelola_average }}</td>
-                            <td>Rp.{{ $data->ps_ts2 }}</td>
-                            <td>Rp.{{ $data->ps_ts1 }}</td>
-                            <td>Rp.{{ $data->ps_ts }}</td>
-                            <td>Rp.{{ $data->ps_average }}</td>
-                            @hasrole('perwakilan')
+                    @endforeach
+                    @foreach ($ts2_sarana7 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana7 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana7 as $data)
+                        <td>Rp.{{ $data->unit_pengelola_ts }}</td>
+                        <td>Rp.{{ $data->unit_pengelola_average }}</td>
+                    @endforeach
+                    @foreach ($ts2_sarana7 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts1_sarana7 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                    @endforeach
+                    @foreach ($ts_sarana7 as $data)
+                        <td>Rp.{{ $data->ps_ts }}</td>
+                        <td>Rp.{{ $data->ps_average }}</td>
+                    
+                        @hasrole('perwakilan')
                         <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
                             <li>
@@ -306,7 +416,7 @@
                         </ul></td>
                         @endhasrole
                     </tr>
-                 @endif
+                    
                 @endforeach
                 
 

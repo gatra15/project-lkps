@@ -1,4 +1,4 @@
-<form action="/luaran-capaian-tridharma/luaran-mahasiswa/" method="post">
+<form action="/luaran-capaian-tridharma/luaran-mahasiswa/" method="post" enctype="multipart/form-data">
     @csrf
     <div class="modal-body">
         

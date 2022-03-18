@@ -54,13 +54,24 @@ class LuaranPkmMahasiswaController extends Controller
             'judul' => 'required',
             'tahun' => 'required',
             'keterangan' => 'required',
+            'bukti' => 'file|max:4096'
         ]);
+
+        if($request->file('bukti')) {
+            $filenameWithExt = $request->file('bukti')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('bukti')->getClientOriginalExtension();
+            $filenameSimpan = $filename.'_'.time().'.'.$extension;
+        } else {
+            $filenameSimpan = 'Tidak Ada File yang disisipkan';
+        }
 
         $luaran = new LuaranPkmMahasiswa;
         $luaran->type_luaran = $request->input('type_luaran');
         $luaran->judul = $request->input('judul');
         $luaran->tahun = $request->input('tahun');
         $luaran->keterangan = $request->input('keterangan');
+        $luaran->bukti = $request->file('bukti')->storeAs('/bukti-luaran', $filenameSimpan);
         $luaran->tahun_laporan = $tahun;
         $luaran->prodi = auth()->user()->prodi->name;
         $luaran->created_by = auth()->user()->name;
@@ -108,13 +119,24 @@ class LuaranPkmMahasiswaController extends Controller
             'judul' => 'required',
             'tahun' => 'required',
             'keterangan' => 'required',
+            'bukti' => 'required|max:4096'
         ]);
+
+        if($request->file('bukti')) {
+            $filenameWithExt = $request->file('bukti')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('bukti')->getClientOriginalExtension();
+            $filenameSimpan = $filename.'_'.time().'.'.$extension;
+        } else {
+            $filenameSimpan = 'Tidak Ada File yang disisipkan';
+        }
 
         $luaran = LuaranPkmMahasiswa::find($id);
         $luaran->type_luaran = $request->input('type_luaran');
         $luaran->judul = $request->input('judul');
         $luaran->tahun = $request->input('tahun');
         $luaran->keterangan = $request->input('keterangan');
+        $luaran->bukti = $request->file('bukti')->storeAs('/bukti-luaran', $filenameSimpan);
         $luaran->tahun_laporan = $tahun;
         $luaran->prodi = auth()->user()->prodi->name;
         $luaran->updated_by = auth()->user()->name;

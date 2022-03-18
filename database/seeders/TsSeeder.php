@@ -68,22 +68,27 @@ class TsSeeder extends Seeder
         // Efektifitas
         EfektifitasProduktifitasPendidikan::create([
 
-            'tahun_laporan' => 2022,
+            'tahun_laporan' => 2016,
             'prodi' => 'Teknik Industri',
         ]);
         EfektifitasProduktifitasPendidikan::create([
 
-            'tahun_laporan' => 2022,
+            'tahun_laporan' => 2017,
             'prodi' => 'Teknik Industri',
         ]);
         EfektifitasProduktifitasPendidikan::create([
 
-            'tahun_laporan' => 2022,
+            'tahun_laporan' => 2018,
             'prodi' => 'Teknik Industri',
         ]);
         EfektifitasProduktifitasPendidikan::create([
 
-            'tahun_laporan' => 2022,
+            'tahun_laporan' => 2019,
+            'prodi' => 'Teknik Industri',
+        ]);
+        EfektifitasProduktifitasPendidikan::create([
+
+            'tahun_laporan' => 2020,
             'prodi' => 'Teknik Industri',
         ]);
 
