@@ -17,12 +17,8 @@ class CreateSaranaDanasTable extends Migration
             $table->id();
             $table->foreignId('sarana_id');
             $table->foreignId('biaya_id')->nullable(true);
-            // $table->integer('unit_pengelola_ts2')->nullable(true);
-            // $table->integer('unit_pengelola_ts1')->nullable(true);
             $table->integer('unit_pengelola_ts')->nullable(true);
             $table->float('unit_pengelola_average')->nullable(true);
-            // $table->integer('ps_ts2')->nullable(true);
-            // $table->integer('ps_ts1')->nullable(true);
             $table->integer('ps_ts')->nullable(true);
             $table->float('ps_average')->nullable(true);
             $table->string('tahun_laporan');

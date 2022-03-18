@@ -21,6 +21,37 @@ class PendidikanKepuasanMahasiswaController extends Controller
         $tahun = session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $cek = PendidikanKepuasanMahasiswa::where($where)->exists();
+
+        if(!$cek)
+        {
+            PendidikanKepuasanMahasiswa::create([
+                'aspek_id' => 1,
+                'tahun_laporan' => $tahun,
+                'prodi' => $prodi,
+            ]);
+            PendidikanKepuasanMahasiswa::create([
+                'aspek_id' => 2,
+                'tahun_laporan' => $tahun,
+                'prodi' => $prodi,
+            ]);
+            PendidikanKepuasanMahasiswa::create([
+                'aspek_id' => 3,
+                'tahun_laporan' => $tahun,
+                'prodi' => $prodi,
+            ]);
+            PendidikanKepuasanMahasiswa::create([
+                'aspek_id' => 4,
+                'tahun_laporan' => $tahun,
+                'prodi' => $prodi,
+            ]);
+            PendidikanKepuasanMahasiswa::create([
+                'aspek_id' => 5,
+                'tahun_laporan' => $tahun,
+                'prodi' => $prodi,
+            ]);
+            
+        }
         
         $kepuasan = PendidikanKepuasanMahasiswa::with('aspek')->where($where)->get();
         $sangat_baik = PendidikanKepuasanMahasiswa::where($where)->sum('sangat_baik');

@@ -12,18 +12,16 @@
                 </div>
                 <input type="hidden" name="sarana_id" value="{{ $data->sarana_id }}" >
                 <input type="hidden" name="biaya_id" value="{{ $data->biaya_id }}" >
-
-                Sarana : {{ $data->sarana_id }} <br>
-                Biaya : {{ $data->biaya_id }}
+                
                 <div class="form-row justify-content-center text-center mt-5">
                   <label for="dosentetap" class="fs-6"> Unit Pengelola Program Studi (Rp.)  :</label>
                 </div>
                 <div class="form-row justify-content-center">
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS-2</label>
-                      @if ($data->biaya_id == 1 && $data->sarana_id == 1)
-                        @foreach ($ts2 as $ts)
-                          <input type="number" name="unit_pengelola_ts2" class="form-control" value="{{ $ts->unit_pengelola_ts }}" id="#"  required>
+                      @if ($data->sarana_id == 1 && $data->biaya_id == 1)
+                        @foreach ($ts2 as $value)
+                          <input type="number" name="unit_pengelola_ts2" class="form-control" value="{{ $value->unit_pengelola_ts }}" id="#"  required>
                         @endforeach
                       @endif
                       @if ($data->biaya_id == 1 && $data->sarana_id == 2)
@@ -76,9 +74,9 @@
                     </div>
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS-1</label>
-                      @if ($data->biaya_id == 1 && $data->sarana_id == 1)
-                        @foreach ($ts1 as $data)
-                          <input type="number" name="unit_pengelola_ts1" class="form-control" value="{{ $data->unit_pengelola_ts }}" id="#"  required>
+                      @if ($data->sarana_id == 1 && $data->biaya_id == 1)
+                        @foreach ($ts1 as $value)
+                          <input type="number" name="unit_pengelola_ts1" class="form-control" value="{{ $value->unit_pengelola_ts }}" id="#"  required>
                         @endforeach
                       @endif
                       @if ($data->biaya_id == 1 && $data->sarana_id == 2)
@@ -129,9 +127,9 @@
                     </div>
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS</label>
-                      @if ($data->biaya_id == 1 && $data->sarana_id == 1)
-                        @foreach ($ts as $data)
-                          <input type="number" name="unit_pengelola_ts" class="form-control" value="{{ $data->unit_pengelola_ts }}" id="#"  required>
+                      @if ($data->sarana_id == 1 && $data->biaya_id == 1)
+                        @foreach ($ts as $value)
+                          <input type="number" name="unit_pengelola_ts" class="form-control" value="{{ $value->unit_pengelola_ts }}" id="#"  required>
                         @endforeach
                       @endif
                       @if ($data->biaya_id == 1 && $data->sarana_id == 2)
@@ -189,8 +187,8 @@
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS-2</label>
                       @if ($data->biaya_id == 1 && $data->sarana_id == 1)
-                        @foreach ($ts2 as $data)
-                          <input type="number" name="ps_ts2" class="form-control" value="{{ $data->ps_ts }}" id="#"  required>
+                        @foreach ($ts2 as $value)
+                          <input type="number" name="ps_ts2" class="form-control" value="{{ $value->ps_ts }}" id="#"  required>
                         @endforeach
                       @endif
                       @if ($data->biaya_id == 1 && $data->sarana_id == 2)
@@ -242,8 +240,8 @@
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS-1</label>
                       @if ($data->biaya_id == 1 && $data->sarana_id == 1)
-                        @foreach ($ts1 as $data)
-                          <input type="number" name="ps_ts1" class="form-control" value="{{ $data->ps_ts }}" id="#"  required>
+                        @foreach ($ts1 as $value)
+                          <input type="number" name="ps_ts1" class="form-control" value="{{ $value->ps_ts }}" id="#"  required>
                         @endforeach
                       @endif
                       @if ($data->biaya_id == 1 && $data->sarana_id == 2)
@@ -295,8 +293,8 @@
                     <div class="form-group col-md-4 align-middle">
                       <label for="#">TS</label>
                       @if ($data->biaya_id == 1 && $data->sarana_id == 1)
-                        @foreach ($ts as $data)
-                          <input type="number" name="ps_ts" class="form-control" value="{{ $data->ps_ts }}" id="#"  required>
+                        @foreach ($ts as $value)
+                          <input type="number" name="ps_ts" class="form-control" value="{{ $value->unit_pengelola_ts }}" id="#"  required>
                         @endforeach
                       @endif
                       @if ($data->biaya_id == 1 && $data->sarana_id == 2)
