@@ -215,12 +215,12 @@
 
                 <tr>
                     <td colspan="2" class="text-left"><b>Jumlah :</b> </td>
-                    <td>Rp. {{ $jumlah1['ts2'] }}</td>
-                    <td>Rp. {{ $jumlah1['ts1'] }}</td>
+                    <td>Rp. {{-- $jumlah1['ts2'] --}}</td>
+                    <td>Rp. {{-- $jumlah1['ts1'] --}}</td>
                     <td>Rp. {{ $jumlah1['ts'] }}</td>
                     <td>Rp. {{ $jumlah1['average'] }}</td>
-                    <td>Rp. {{ $jumlah1['ps_ts2'] }}</td>
-                    <td>Rp. {{ $jumlah1['ps_ts1'] }}</td>
+                    <td>Rp. {{-- $jumlah1['ps_ts2'] --}}</td>
+                    <td>Rp. {{-- $jumlah1['ps_ts1'] --}}</td>
                     <td>Rp. {{ $jumlah1['ps_ts'] }}</td>
                     <td>Rp. {{ $jumlah1['ps_average'] }}</td>
                     <td></td>
@@ -300,12 +300,12 @@
 
                 <tr>
                     <td colspan="2" class="text-left"><b>Jumlah :</b> </td>
-                    <td>Rp. {{ $jumlah2['ts2'] }}</td>
-                    <td>Rp. {{ $jumlah2['ts1'] }}</td>
+                    <td>Rp. {{-- $jumlah2['ts2'] --}}</td>
+                    <td>Rp. {{-- $jumlah2['ts1'] --}}</td>
                     <td>Rp. {{ $jumlah2['ts'] }}</td>
                     <td>Rp. {{ $jumlah2['average'] }}</td>
-                    <td>Rp. {{ $jumlah2['ps_ts2'] }}</td>
-                    <td>Rp. {{ $jumlah2['ps_ts1'] }}</td>
+                    <td>Rp. {{-- $jumlah2['ps_ts2'] --}}</td>
+                    <td>Rp. {{-- $jumlah2['ps_ts1'] --}}</td>
                     <td>Rp. {{ $jumlah2['ps_ts'] }}</td>
                     <td>Rp. {{ $jumlah2['ps_average'] }}</td>
                     <td></td>
@@ -422,24 +422,24 @@
 
                 <tr>
                     <td colspan="2" class="text-left"><b>Jumlah :</b> </td>
-                    <td>Rp. {{ $jumlah3['ts2'] }}</td>
-                    <td>Rp. {{ $jumlah3['ts1'] }}</td>
+                    <td>Rp. {{-- $jumlah3['ts2'] --}}</td>
+                    <td>Rp. {{-- $jumlah3['ts1'] --}}</td>
                     <td>Rp. {{ $jumlah3['ts'] }}</td>
                     <td>Rp. {{ $jumlah3['average'] }}</td>
-                    <td>Rp. {{ $jumlah3['ps_ts2'] }}</td>
-                    <td>Rp. {{ $jumlah3['ps_ts1'] }}</td>
+                    <td>Rp. {{-- $jumlah3['ps_ts2'] --}}</td>
+                    <td>Rp. {{-- $jumlah3['ps_ts1'] --}}</td>
                     <td>Rp. {{ $jumlah3['ps_ts'] }}</td>
                     <td>Rp. {{ $jumlah3['ps_average'] }}</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="text-left"><b>Total :</b> </td>
-                    <td>Rp. {{ $total['ts2'] }}</td>
-                    <td>Rp. {{ $total['ts1'] }}</td>
+                    <td>Rp. {{-- $total['ts2'] --}}</td>
+                    <td>Rp. {{-- $total['ts1'] --}}</td>
                     <td>Rp. {{ $total['ts'] }}</td>
                     <td>Rp. {{ $total['average'] }}</td>
-                    <td>Rp. {{ $total['ps_ts2'] }}</td>
-                    <td>Rp. {{ $total['ps_ts1'] }}</td>
+                    <td>Rp. {{-- $total['ps_ts2'] --}}</td>
+                    <td>Rp. {{-- $total['ps_ts1'] --}}</td>
                     <td>Rp. {{ $total['ps_ts'] }}</td>
                     <td>Rp. {{ $total['ps_average'] }}</td>
                     <td></td>
