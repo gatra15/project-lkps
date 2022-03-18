@@ -26,7 +26,15 @@
                 </div>
                 <label for="lembaga"> Tahun :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="tahun" value="{{ $pkm->tahun }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <select id="tahun_laporan" name="tahun" class="form-control form-control-sm mb-3" aria-label=".form-control-lg" onchange="this.form.submit()">
+                        @php
+                            $years = range(2014, strftime("%Y", time()));
+                        @endphp
+                        <option>{{ $pkm->tahun }}</option>
+                        <?php foreach($years as $year) : ?>
+                            <option value="{{ $year }}">{{ $year }}</option>
+                        <?php endforeach; ?>
+                        </select>
                 </div>
                {{-- coding modal insert akhir --}}
 
