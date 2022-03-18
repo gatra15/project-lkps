@@ -500,8 +500,8 @@ class KeuanganSaranaPrasaranaController extends Controller
             'ps_ts' => null,
             'tahun_laporan' => $tahun - 2,
             'prodi' => auth()->user()->prodi->name,
-            'created_by' => auth()->user()->name,
-            'created_at' => Carbon::now(),
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
         ]);
 
         // TS-1
@@ -513,8 +513,8 @@ class KeuanganSaranaPrasaranaController extends Controller
             'ps_ts' => null,
             'tahun_laporan' => $tahun - 1,
             'prodi' => auth()->user()->prodi->name,
-            'created_by' => auth()->user()->name,
-            'created_at' => Carbon::now(),
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
         ]);
 
         // TS-1
@@ -526,8 +526,8 @@ class KeuanganSaranaPrasaranaController extends Controller
             'ps_ts' => null,
             'tahun_laporan' => $tahun,
             'prodi' => auth()->user()->prodi->name,
-            'created_by' => auth()->user()->name,
-            'created_at' => Carbon::now(),
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
         ]);
         return back()->with('error', 'Data Keuangan Sarana Prasarana berhasil dihapus.');
 

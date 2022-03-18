@@ -91,7 +91,7 @@ class TataPamongController extends Controller
         $indikator->judul_kegiatan = $request->input('judul_kegiatan');
         $indikator->manfaat = $request->input('manfaat');
         $indikator->waktu_durasi = $request->input('waktu_durasi');
-        $indikator->bukti_kerjasama = $request->file('bukti_kerjasama')->storeAs('bukti-kerjasama', $filenameSimpan);
+        $indikator->bukti_kerjasama = $request->file('bukti_kerjasama')->storeAs('/bukti-kerjasama', $filenameSimpan);
         $indikator->tahun_laporan = session('tahun_laporan');
         $indikator->prodi = auth()->user()->prodi->name;
         $indikator->created_by = auth()->user()->name;

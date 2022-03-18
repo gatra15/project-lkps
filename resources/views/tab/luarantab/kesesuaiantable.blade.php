@@ -18,9 +18,9 @@
     </thead>
     
     <tbody class="text-dark">
-        @foreach($kesesuaianBidang['bidang'] as $kesesuaian => $key)
+        @foreach($kesesuaianBidang['bidang'] as $key => $kesesuaian)
         <tr>
-            <td>{{ $key == sizeof($kesesuaianBidang['bidang'])-1 ? 'TS-2' : 'TS-'.(sizeof($kesesuaianBidang['bidang'])-1-$key) }}</td>
+            <td>{{ $key == sizeof($kesesuaianBidang['bidang'])-1 ? 'TS-2' : 'TS-'.(sizeof($kesesuaianBidang['bidang'])+1-$key) }}</td>
             <td>{{ $kesesuaian->jumlah_lulusan }}</td>
             <td>{{ $kesesuaian->jumlah_lulusan_terlacak }}</td>
             <td>{{ $kesesuaian->kesesuaian_rendah}}</td>

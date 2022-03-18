@@ -66,31 +66,31 @@ class TsSeeder extends Seeder
         ]);
 
         // Efektifitas
-        EfektifitasProduktifitasPendidikan::create([
+        // EfektifitasProduktifitasPendidikan::create([
 
-            'tahun_laporan' => 2016,
-            'prodi' => 'Teknik Industri',
-        ]);
-        EfektifitasProduktifitasPendidikan::create([
+        //     'tahun_laporan' => 2016,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // EfektifitasProduktifitasPendidikan::create([
 
-            'tahun_laporan' => 2017,
-            'prodi' => 'Teknik Industri',
-        ]);
-        EfektifitasProduktifitasPendidikan::create([
+        //     'tahun_laporan' => 2017,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // EfektifitasProduktifitasPendidikan::create([
 
-            'tahun_laporan' => 2018,
-            'prodi' => 'Teknik Industri',
-        ]);
-        EfektifitasProduktifitasPendidikan::create([
+        //     'tahun_laporan' => 2018,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // EfektifitasProduktifitasPendidikan::create([
 
-            'tahun_laporan' => 2019,
-            'prodi' => 'Teknik Industri',
-        ]);
-        EfektifitasProduktifitasPendidikan::create([
+        //     'tahun_laporan' => 2019,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
+        // EfektifitasProduktifitasPendidikan::create([
 
-            'tahun_laporan' => 2020,
-            'prodi' => 'Teknik Industri',
-        ]);
+        //     'tahun_laporan' => 2020,
+        //     'prodi' => 'Teknik Industri',
+        // ]);
 
         // capaian pembelajara
         // CapaianPembelajaran::create([

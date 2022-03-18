@@ -498,20 +498,43 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
      * @param  \App\Models\SdmKinerjaDosenPublikasiIlmiahDtps  $sdmKinerjaDosenPublikasiIlmiahDtps
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $req, $id)
+    public function destroy(Request $req, $year, $media)
     {
         $tahun = session('tahun_laporan');
-        $data = SdmKinerjaDosenPublikasiIlmiahDtps::find($id);
-        $data->media_id = $req->input('media_id');
-        $data->jumlah_ts2 = null;
-        $data->jumlah_ts1 = null;
-        $data->jumlah_ts = null;
-        $data->jumlah = null;
-        $data->tahun_laporan = $tahun;
-        $data->prodi = auth()->user()->prodi->name;
-        $data->updated_by = auth()->user()->name;
-        $data->updated_at = Carbon::now();
-        $data->update();
+        SdmKinerjaDosenPublikasiIlmiahDtps::where('tahun_laporan', $year-2)->where('media_id', $media)
+            ->update([
+                'media_id' => $req->input('media_id'),
+                'jumlah_ts' => null,
+                'jumlah' => null,
+                'tahun_laporan' => $tahun - 2,
+                'prodi' => auth()->user()->prodi->name,
+                'created_by' => auth()->user()->name,
+                'created_at' => Carbon::now(),
+            ]);
+    
+            // TS-1
+            SdmKinerjaDosenPublikasiIlmiahDtps::where('tahun_laporan', $year-1)->where('media_id', $media)
+            ->update([
+                'media_id' => $req->input('media_id'),
+                'jumlah_ts' => null,
+                'jumlah' => null,
+                'tahun_laporan' => $tahun - 1,
+                'prodi' => auth()->user()->prodi->name,
+                'created_by' => auth()->user()->name,
+                'created_at' => Carbon::now(),
+            ]);
+    
+            // TS
+            SdmKinerjaDosenPublikasiIlmiahDtps::where('tahun_laporan', $year)->where('media_id', $media)
+            ->update([
+                'media_id' => $req->input('media_id'),
+                'jumlah_ts' => null,
+                'jumlah' => null,
+                'tahun_laporan' => $tahun,
+                'prodi' => auth()->user()->prodi->name,
+                'created_by' => auth()->user()->name,
+                'created_at' => Carbon::now(),
+            ]);
         return back()->with('success', 'Sdm Publikasi Ilmiah Dtps berhasil dihapus.');
     }
 

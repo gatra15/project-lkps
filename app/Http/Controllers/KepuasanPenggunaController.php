@@ -17,6 +17,48 @@ class KepuasanPenggunaController extends Controller
     public function index()
     {
         $tahun = session('tahun_laporan');
+       
+
+        $cek = KepuasanPengguna::with('kemampuan')->where('tahun_laporan', $tahun)->exists();
+
+        if(!$cek)
+        {
+            KepuasanPengguna::create([
+                'kemampuan_id' => 1, 
+                'tahun_laporan' => $tahun,
+                'prodi' => 'Teknik',
+            ]);
+            KepuasanPengguna::create([
+                'kemampuan_id' => 2, 
+                'tahun_laporan' => $tahun,
+                'prodi' => 'Teknik',
+            ]);
+            KepuasanPengguna::create([
+                'kemampuan_id' => 3, 
+                'tahun_laporan' => $tahun,
+                'prodi' => 'Teknik',
+            ]);
+            KepuasanPengguna::create([
+                'kemampuan_id' => 4, 
+                'tahun_laporan' => $tahun,
+                'prodi' => 'Teknik',
+            ]);
+            KepuasanPengguna::create([
+                'kemampuan_id' => 5, 
+                'tahun_laporan' => $tahun,
+                'prodi' => 'Teknik',
+            ]);
+            KepuasanPengguna::create([
+                'kemampuan_id' => 6, 
+                'tahun_laporan' => $tahun,
+                'prodi' => 'Teknik',
+            ]);
+            KepuasanPengguna::create([
+                'kemampuan_id' => 7, 
+                'tahun_laporan' => $tahun,
+                'prodi' => 'Teknik',
+            ]);
+        }
         $kepuasan = KepuasanPengguna::with('kemampuan')->where('tahun_laporan', $tahun)->get();
         $sangat_baik = KepuasanPengguna::where('tahun_laporan', $tahun)->sum('sangat_baik');
         $baik = KepuasanPengguna::where('tahun_laporan', $tahun)->sum('baik');
@@ -84,14 +126,14 @@ class KepuasanPenggunaController extends Controller
     public function update(Request $request, $id)
     {
         $tahun = session('tahun_laporan');
-        $request->validate([
-            'kemampuan_id' => 'required',
-            'sangat_baik' => 'required',
-            'baik' => 'required',
-            'cukup' => 'required',
-            'kurang' => 'required',
-            'rencana_tindak_lanjut' => 'required',
-        ]);
+        // $request->validate([
+        //     'kemampuan_id' => 'required',
+        //     'sangat_baik' => 'required',
+        //     'baik' => 'required',
+        //     'cukup' => 'required',
+        //     'kurang' => 'required',
+        //     'rencana_tindak_lanjut' => 'required',
+        // ]);
 
         $connection = 'mysql';
         try{

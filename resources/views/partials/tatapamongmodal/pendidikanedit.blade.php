@@ -37,7 +37,7 @@
                 </div>
                 <label for="lembaga"> Bukti Kerjasama :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="file" class="form-control" name="bukti_kerjasama" id="customFile" required />
+                    <input type="file" class="form-control" name="bukti_kerjasama" id="customFile" />
                 </div>
                 <small for="">File Sebelumnya : <a href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}">{{ $indikator->bukti_kerjasama }}</a> </small>
                {{-- coding modal insert akhir --}}

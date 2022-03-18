@@ -22,7 +22,7 @@
     <tbody class="text-dark">
         @foreach($dayasaing['waktu'] as $key => $data)
         <tr>
-            <td>{{ $key == sizeof($dayasaing['waktu'])-1 ? 'TS-2' : 'TS-'.(sizeof($dayasaing['waktu'])-1-$key) }}</td>
+            <td>{{ $key == sizeof($dayasaing['waktu'])-1 ? 'TS-2' : 'TS-'.(sizeof($dayasaing['waktu'])+1-$key) }}</td>
             <td>{{ $data->jumlah_lulusan }}</td>
             <td>{{ $data->jumlah_lulusan_terlacak }}</td>
             <td>{{ $data->waktu_tunggu_6}}</td>

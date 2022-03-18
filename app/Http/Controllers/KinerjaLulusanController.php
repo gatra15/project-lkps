@@ -18,11 +18,25 @@ class KinerjaLulusanController extends Controller
     {
         $tahun = (int) session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
-        $cek = KinerjaLulusan::where('tahun_laporan', $tahun)->where('prodi', $prodi)->exists();
+        $cek2 = KinerjaLulusan::where('tahun_laporan', $tahun-2)->where('prodi', $prodi)->exists();
+        $cek3 = KinerjaLulusan::where('tahun_laporan', $tahun-3)->where('prodi', $prodi)->exists();
+        $cek4 = KinerjaLulusan::where('tahun_laporan', $tahun-4)->where('prodi', $prodi)->exists();
 
-        if (!$cek){
+        if (!$cek4){
             KinerjaLulusan::create([
-                'tahun_laporan' => $tahun,
+                'tahun_laporan' => $tahun - 4,
+                'prodi' => $prodi
+            ]);
+        }
+        if (!$cek3){
+            KinerjaLulusan::create([
+                'tahun_laporan' => $tahun - 3,
+                'prodi' => $prodi
+            ]);
+        }
+        if (!$cek2){
+            KinerjaLulusan::create([
+                'tahun_laporan' => $tahun - 2,
                 'prodi' => $prodi
             ]);
         }
@@ -117,7 +131,7 @@ class KinerjaLulusanController extends Controller
             $data->tempat_wilayah_tidak_berizin = $request->input('tempat_wilayah_tidak_berizin');
             $data->tempat_nasional_berizin = $request->input('tempat_nasional_berizin');
             $data->internasional = $request->input('internasional');
-            $data->tahun_laporan = $tahun;
+            // $data->tahun_laporan = $tahun;
             $data->prodi = auth()->user()->prodi->name;
             $data->created_by = auth()->user()->name;
             $data->created_at = Carbon::now();

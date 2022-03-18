@@ -221,8 +221,8 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::put('/luaran-capaian-tridharma/kepuasan-pengguna/{id}', [KepuasanPenggunaController::class, 'update']);
         Route::post('/luaran-capaian-tridharma/kepuasan-pengguna/{id}', [KepuasanPenggunaController::class, 'destroy']);
 
-        Route::put('/luaran-capaian-tridharma/publikasi-ilmiah/{id}', [PublikasiIlmiahMahasiswaController::class, 'update']);
-        Route::post('/luaran-capaian-tridharma/kepuasan-pengguna/{id}', [PublikasiIlmiahMahasiswaController::class, 'destroy']);
+        Route::put('/luaran-capaian-tridharma/publikasi-ilmiah/{year}/{media}', [PublikasiIlmiahMahasiswaController::class, 'update']);
+        Route::post('/luaran-capaian-tridharma/publikasi-ilmiah/{year}/{media}', [PublikasiIlmiahMahasiswaController::class, 'destroy']);
 
         Route::post('/luaran-capaian-tridharma/luaran-mahasiswa', [LuaranPkmMahasiswaController::class, 'store']);
         Route::put('/luaran-capaian-tridharma/luaran-mahasiswa/{id}', [LuaranPkmMahasiswaController::class, 'update']);
