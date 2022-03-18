@@ -26,6 +26,8 @@ class SumberdayaSeeder extends Seeder
         Sumberdaya::create([
             'sumberdaya' => 'Lembaga Luar Negeri ',
         ]);
-        
     }
+        
+        
+    
 }

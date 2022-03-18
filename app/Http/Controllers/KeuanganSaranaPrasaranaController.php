@@ -340,43 +340,43 @@ class KeuanganSaranaPrasaranaController extends Controller
         // $keuangan = SaranaDana::with('sarana', 'biaya')->get();
         // ddd($keuangan);
         $jumlah1 = [
-          'ts2'         => SaranaDana::where($where)->sum('unit_pengelola_ts2'), 
-          'ts1'         => SaranaDana::where($where)->sum('unit_pengelola_ts1'), 
+        //   'ts2'         => SaranaDana::where($where)->sum('unit_pengelola_ts2'), 
+        //   'ts1'         => SaranaDana::where($where)->sum('unit_pengelola_ts1'), 
           'ts'          => SaranaDana::where($where)->sum('unit_pengelola_ts'), 
           'average'     => SaranaDana::where($where)->sum('unit_pengelola_average'), 
-          'ps_ts2'      => SaranaDana::where($where)->sum('ps_ts2'), 
-          'ps_ts1'      => SaranaDana::where($where)->sum('ps_ts1'), 
+        //   'ps_ts2'      => SaranaDana::where($where)->sum('ps_ts2'), 
+        //   'ps_ts1'      => SaranaDana::where($where)->sum('ps_ts1'), 
           'ps_ts'       => SaranaDana::where($where)->sum('ps_ts'),
           'ps_average'  => SaranaDana::where($where)->sum('ps_average'),
         ];
         
         $jumlah2 = [
-            'ts2'         => SaranaDana::where($where2)->sum('unit_pengelola_ts2'), 
-            'ts1'         => SaranaDana::where($where2)->sum('unit_pengelola_ts1'), 
+            // 'ts2'         => SaranaDana::where($where2)->sum('unit_pengelola_ts2'), 
+            // 'ts1'         => SaranaDana::where($where2)->sum('unit_pengelola_ts1'), 
             'ts'          => SaranaDana::where($where2)->sum('unit_pengelola_ts'), 
             'average'     => SaranaDana::where($where2)->sum('unit_pengelola_average'), 
-            'ps_ts2'      => SaranaDana::where($where2)->sum('ps_ts2'), 
-            'ps_ts1'      => SaranaDana::where($where2)->sum('ps_ts1'), 
+            // 'ps_ts2'      => SaranaDana::where($where2)->sum('ps_ts2'), 
+            // 'ps_ts1'      => SaranaDana::where($where2)->sum('ps_ts1'), 
             'ps_ts'       => SaranaDana::where($where2)->sum('ps_ts'),
             'ps_average'  => SaranaDana::where($where2)->sum('ps_average'),
         ];
         $jumlah3 = [
-            'ts2'         => SaranaDana::where($where3)->sum('unit_pengelola_ts2'), 
-            'ts1'         => SaranaDana::where($where3)->sum('unit_pengelola_ts1'), 
+            // 'ts2'         => SaranaDana::where($where3)->sum('unit_pengelola_ts2'), 
+            // 'ts1'         => SaranaDana::where($where3)->sum('unit_pengelola_ts1'), 
             'ts'          => SaranaDana::where($where3)->sum('unit_pengelola_ts'), 
             'average'     => SaranaDana::where($where3)->sum('unit_pengelola_average'), 
-            'ps_ts2'      => SaranaDana::where($where3)->sum('ps_ts2'), 
-            'ps_ts1'      => SaranaDana::where($where3)->sum('ps_ts1'), 
+            // 'ps_ts2'      => SaranaDana::where($where3)->sum('ps_ts2'), 
+            // 'ps_ts1'      => SaranaDana::where($where3)->sum('ps_ts1'), 
             'ps_ts'       => SaranaDana::where($where3)->sum('ps_ts'),
             'ps_average'  => SaranaDana::where($where3)->sum('ps_average'),
         ];
         $total = [
-            'ts2'         => $jumlah1['ts2'] +  $jumlah2['ts2'] +  $jumlah3['ts2'],
-            'ts1'         => $jumlah1['ts1'] +  $jumlah2['ts1'] +  $jumlah3['ts1'],
+            // 'ts2'         => $jumlah1['ts2'] +  $jumlah2['ts2'] +  $jumlah3['ts2'],
+            // 'ts1'         => $jumlah1['ts1'] +  $jumlah2['ts1'] +  $jumlah3['ts1'],
             'ts'          => $jumlah1['ts'] +  $jumlah2['ts'] +  $jumlah3['ts'],
             'average'     => $jumlah1['average'] +  $jumlah2['average'] +  $jumlah3['average'],
-            'ps_ts2'      => $jumlah1['ps_ts2'] +  $jumlah2['ps_ts2'] +  $jumlah3['ps_ts2'],
-            'ps_ts1'      => $jumlah1['ps_ts1'] +  $jumlah2['ps_ts1'] +  $jumlah3['ps_ts1'],
+            // 'ps_ts2'      => $jumlah1['ps_ts2'] +  $jumlah2['ps_ts2'] +  $jumlah3['ps_ts2'],
+            // 'ps_ts1'      => $jumlah1['ps_ts1'] +  $jumlah2['ps_ts1'] +  $jumlah3['ps_ts1'],
             'ps_ts'       => $jumlah1['ps_ts'] +  $jumlah2['ps_ts'] +  $jumlah3['ps_ts'],
             'ps_average'  => $jumlah1['ps_average'] +  $jumlah2['ps_average'] +  $jumlah3['ps_average'],
         ];
@@ -435,6 +435,7 @@ class KeuanganSaranaPrasaranaController extends Controller
 
     public function update(Request $req, $year, $sarana, $biaya)
     {
+        dd($req);
         $tahun = session('tahun_laporan');
         $req->validate([
            'unit_pengelola_ts2',

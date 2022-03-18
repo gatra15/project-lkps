@@ -28,7 +28,7 @@
                     <div id="emailHelp" class="form-text">Pilih tahun untuk melihat atau input data laporan.</div>
                     <select id="tahun_laporan" name="tahun_laporan" class="form-control form-control-lg mb-3" aria-label=".form-control-lg" onchange="this.form.submit()">
                     @php
-                        $years = range(2000, strftime("%Y", time()));
+                        $years = range(2014, strftime("%Y", time()));
                     @endphp
                     <option>Pilih Tahun</option>
                     <?php foreach($years as $year) : ?>
