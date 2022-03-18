@@ -30,16 +30,13 @@
                             <i class="fas fa-eye"></i>
                             View
                         </a>
-                        {{-- <a class="btn btn-info btn-sm" href="#">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Edit
-                        </a>
-                        <a class="btn btn-danger btn-sm" href="#">
-                            <i class="fas fa-trash">
-                            </i>
-                            Delete
-                        </a> --}}
+                        @hasrole('perwakilan')
+                        <ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaledit-{{ $mhs->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaldelete-{{ $mhs->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul>
+                        @endhasrole
                     </td>
                 </tr>
                 @endforeach
@@ -55,7 +52,7 @@
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-            <h5 class="modal-title" id="modallihat">Data dari {{--  --}}</h5>
+            <h5 class="modal-title" id="modallihat">Data dari </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
