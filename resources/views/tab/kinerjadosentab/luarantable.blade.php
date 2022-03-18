@@ -43,7 +43,7 @@
                 <td>{{ $data->judul }}</td>
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
-                <td></td>
+                <td>{{ $data->bukti }}</td>
                 @hasrole('perwakilan')
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
@@ -101,7 +101,7 @@
                 <td>{{ $data->judul }}</td>
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
-                <td></td>
+                <td>{{ $data->bukti }}</td>
                 @hasrole('perwakilan')
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
@@ -152,7 +152,7 @@
                 <td>{{ $data->judul }}</td>
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
-                <td></td>
+                <td>{{ $data->bukti }}</td>
                 @hasrole('perwakilan')
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
@@ -199,7 +199,7 @@
                 <td>{{ $data->judul }}</td>
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
-                <td></td>
+                <td>{{ $data->bukti }}</td>
                 @hasrole('perwakilan')
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>

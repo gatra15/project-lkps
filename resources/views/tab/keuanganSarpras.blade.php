@@ -71,7 +71,7 @@
 
 {{-- AKHIR CONTENT --}}
 
-@foreach ($keuangan as $data)
+@foreach ($ts_all as $data)
      
         <!-- Modal Edit -->
         <div class="modal fade" id="modalsaranaedit-{{ $data->id }}" tabindex="-1" aria-labelledby="modalsaranaedit" aria-hidden="true">

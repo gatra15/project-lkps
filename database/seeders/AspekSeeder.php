@@ -37,30 +37,6 @@ class AspekSeeder extends Seeder
         ]);
 
         // Kepuasan Mahasiswa
-        PendidikanKepuasanMahasiswa::create([
-            'aspek_id' => 1,
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik Industri',
-        ]);
-        PendidikanKepuasanMahasiswa::create([
-            'aspek_id' => 2,
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik Industri',
-        ]);
-        PendidikanKepuasanMahasiswa::create([
-            'aspek_id' => 3,
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik Industri',
-        ]);
-        PendidikanKepuasanMahasiswa::create([
-            'aspek_id' => 4,
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik Industri',
-        ]);
-        PendidikanKepuasanMahasiswa::create([
-            'aspek_id' => 5,
-            'tahun_laporan' => 2022,
-            'prodi' => 'Teknik Industri',
-        ]);
+        
     }
 }
