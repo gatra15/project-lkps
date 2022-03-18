@@ -29,8 +29,7 @@
         @foreach ($mahasiswa_asing['mahasiswa'] as $key => $mhs)
         <tr>
            <td>{{ $loop->iteration }}</td>
-           <td></td>
-           {{-- <td>{{ $mhs['program_studi'] }}</td>    --}}
+           <td>{{ 'S1 '.auth()->user()->prodi->name }}</td>   
            <td>{{ $mhs['mahasiswa_aktif_ts2'] }}</td> 
            <td>{{ $mhs['mahasiswa_aktif_ts1'] }}</td> 
            <td>{{ $mhs['mahasiswa_aktif_ts'] }}</td> 
@@ -42,7 +41,7 @@
            <td>{{ $mhs['mahasiswa_asing_pt_ts'] }}</td>
            @hasrole('perwakilan')
             <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalmahasiswaasingedit"><i class="fas fa-edit"></i></a></li>
+                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalmahasiswaasingedit-{{ $mhs['id'] }}"><i class="fas fa-edit"></i></a></li>
                 <li>
                     <a type="button" class="btn btn-danger" href="/mahasiswa/mahasiswa-asing/{{ $mhs['id'] }}" data-toggle="modal" data-target="#modalmahasiswaasingdelete-{{ $mhs['id'] }}"><i class="fas fa-trash btn-del"></i></a></li>
             </ul></td>

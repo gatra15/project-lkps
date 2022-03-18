@@ -6,12 +6,12 @@
             <div class="row">
 
                 {{-- coding modal insert --}}
-                {{-- <label for="lembaga"> Program Studi : </label>
+                <label for="lembaga"> Program Studi : </label>
                 <div class="input-group mb-3">
-                    <input type="text" name="program_studi" value="{{ $mhs['program_studi'] }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                </div> --}}
-                <input type="hidden" name="id_2" value="{{ $mhs['id2'] }}">
-                <input type="hidden" name="id_1" value="{{ $mhs['id1'] }}">
+                    <input type="" name="program_studi" value="{{ 'S1 '.auth()->user()->prodi->name }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required readonly>
+                </div>
+                {{-- <input type="hidden" name="id_2" value="{{ $mhs['id2'] }}">
+                <input type="hidden" name="id_1" value="{{ $mhs['id1'] }}"> --}}
                 <input type="hidden" name="id" value="{{ $mhs['id'] }}">
                 <div class="form-row justify-content-center text-center">
                   <label for="dosentetap" class="fs-6"> Jumlah Mahasiswa Aktif</label>

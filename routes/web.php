@@ -149,12 +149,12 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('/kinerja-dosen/karya-ilmiah/{id}', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'destroy']);
 
         Route::post('/kinerja-dosen/penelitian-dtps', [SdmKinerjaDosenPenelitianDtpsController::class, 'store']);
-        Route::put('/kinerja-dosen/penelitian-dtps/{id}', [SdmKinerjaDosenPenelitianDtpsController::class, 'update']);
-        Route::post('/kinerja-dosen/penelitian-dtps/{id}', [SdmKinerjaDosenPenelitianDtpsController::class, 'destroy']);
+        Route::put('/kinerja-dosen/penelitian-dtps/{year}/{sumber}', [SdmKinerjaDosenPenelitianDtpsController::class, 'update']);
+        Route::post('/kinerja-dosen/penelitian-dtps/{year}/{sumber}', [SdmKinerjaDosenPenelitianDtpsController::class, 'destroy']);
 
         Route::post('/kinerja-dosen/pkm-dtps', [SdmKinerjaDosenPkmDtpsController::class, 'store']);
-        Route::put('/kinerja-dosen/pkm-dtps/{id}', [SdmKinerjaDosenPkmDtpsController::class, 'update']);
-        Route::post('/kinerja-dosen/pkm-dtps/{id}', [SdmKinerjaDosenPkmDtpsController::class, 'destroy']);
+        Route::put('/kinerja-dosen/pkm-dtps/{year}/{sumber}', [SdmKinerjaDosenPkmDtpsController::class, 'update']);
+        Route::post('/kinerja-dosen/pkm-dtps/{year}/{sumber}', [SdmKinerjaDosenPkmDtpsController::class, 'destroy']);
 
         Route::post('/kinerja-dosen/publikasi-dtps', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'store']);
         Route::put('/kinerja-dosen/publikasi-dtps/{id}', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'update']);

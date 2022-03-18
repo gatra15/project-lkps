@@ -21,21 +21,122 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
     {
         $tahun = session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
+        $cek = SdmKinerjaDosenPkmDtps::where('tahun_laporan', $tahun)->where('prodi', $prodi)->exists();
+        $cek1 = SdmKinerjaDosenPkmDtps::where('tahun_laporan', $tahun - 1)->where('prodi', $prodi)->exists();
+        $cek2 = SdmKinerjaDosenPkmDtps::where('tahun_laporan', $tahun - 2)->where('prodi', $prodi)->exists();
+
+        // cek sumber
+        $sumber = SdmKinerjaDosenPkmDtps::where('sumber_id', 1)->exists();
+        $sumber2 = SdmKinerjaDosenPkmDtps::where('sumber_id', 2)->exists();
+        $sumber3 = SdmKinerjaDosenPkmDtps::where('sumber_id', 3)->exists();
+
+        // dd($sumber2);
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
-        $where2 = ['tahun_laporan' => $tahun-1, 'prodi' => $prodi];
-        $where3 = ['tahun_laporan' => $tahun-2, 'prodi' => $prodi];
+        $where1 = ['tahun_laporan' => $tahun - 1, 'prodi' => $prodi];
+        $where2 = ['tahun_laporan' => $tahun - 2, 'prodi' => $prodi];
+
+        if(!($cek2 && $sumber)){
+            SdmKinerjaDosenPkmDtps::create([
+                'sumber_id' => 1,
+                'tahun_laporan' => $tahun - 2,
+                'prodi' => $prodi
+            ]);
+        } 
+        if (!($cek1 && $sumber)) {
+            SdmKinerjaDosenPkmDtps::create([
+                'sumber_id' => 1,
+                'tahun_laporan' => $tahun - 1,
+                'prodi' => $prodi
+            ]);
+        }
+        if (!($cek && $sumber)) {
+            SdmKinerjaDosenPkmDtps::create([
+                'sumber_id' => 1,
+                'tahun_laporan' => $tahun,
+                'prodi' => $prodi
+            ]);
+        }
+
+        // Kedua
+        if(!($cek2 && $sumber2)){
+            SdmKinerjaDosenPkmDtps::create([
+                'sumber_id' => 2,
+                'tahun_laporan' => $tahun - 2,
+                'prodi' => $prodi
+            ]);
+        } 
+        if (!($cek1 && $sumber2)) {
+            SdmKinerjaDosenPkmDtps::create([
+                'sumber_id' => 2,
+                'tahun_laporan' => $tahun - 1,
+                'prodi' => $prodi
+            ]);
+        }
+        if (!($cek && $sumber2)) {
+            SdmKinerjaDosenPkmDtps::create([
+                'sumber_id' => 2,
+                'tahun_laporan' => $tahun,
+                'prodi' => $prodi
+            ]);
+        }
+
+        // Sumber 3
+        if(!($cek2 && $sumber3)){
+            SdmKinerjaDosenPkmDtps::create([
+                'sumber_id' => 3,
+                'tahun_laporan' => $tahun - 2,
+                'prodi' => $prodi
+            ]);
+        } 
+        if (!($cek1 && $sumber3)) {
+            SdmKinerjaDosenPkmDtps::create([
+                'sumber_id' => 3,
+                'tahun_laporan' => $tahun - 1,
+                'prodi' => $prodi
+            ]);
+        }
+        if (!($cek && $sumber3)) {
+            SdmKinerjaDosenPkmDtps::create([
+                'sumber_id' => 3,
+                'tahun_laporan' => $tahun,
+                'prodi' => $prodi
+            ]);
+        }
+
+        $ts_all = SdmKinerjaDosenPkmDtps::with('sumber')->where($where)->get();
+        $ts = SdmKinerjaDosenPkmDtps::with('sumber')->where($where)->where('sumber_id', 1)->get();
+        $ts1 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where1)->where('sumber_id', 1)->get();
+        $ts2 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where2)->where('sumber_id', 1)->get();
         
-        $pkm = SdmKinerjaDosenPkmDtps::with('sumber_detail')->where($where)->get();
-        $jumlah_ts2 = SdmKinerjaDosenPkmDtps::where($where3)->sum('jumlah_ts2');
-        $jumlah_ts1 = SdmKinerjaDosenPkmDtps::where($where2)->sum('jumlah_ts1');
+        // sumber 2
+        $ts_sumber2 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where)->where('sumber_id', 2)->get();
+        $ts1_sumber2 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where1)->where('sumber_id', 2)->get();
+        $ts2_sumber2 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where2)->where('sumber_id', 2)->get();
+
+        // sumber 3
+        $ts_sumber3 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where)->where('sumber_id', 3)->get();
+        $ts1_sumber3 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where1)->where('sumber_id', 3)->get();
+        $ts2_sumber3 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where2)->where('sumber_id', 3)->get();
+
+        $jumlah_ts2 = SdmKinerjaDosenPkmDtps::where($where2)->sum('jumlah_ts');
+        $jumlah_ts1 = SdmKinerjaDosenPkmDtps::where($where1)->sum('jumlah_ts');
         $jumlah_ts = SdmKinerjaDosenPkmDtps::where($where)->sum('jumlah_ts');
         $jumlah = SdmKinerjaDosenPkmDtps::where($where)->sum('jumlah');
         return [
-            'pkm' => $pkm,
+            'ts_all' => $ts_all,
+            'ts' => $ts,
+            'ts1' => $ts1,
+            'ts2' => $ts2,
+            'ts_sumber2' => $ts_sumber2,
+            'ts1_sumber2' => $ts1_sumber2,
+            'ts2_sumber2' => $ts2_sumber2,
+            'ts_sumber3' => $ts_sumber3,
+            'ts1_sumber3' => $ts1_sumber3,
+            'ts2_sumber3' => $ts2_sumber3,
             'jumlah_ts2' => $jumlah_ts2,
             'jumlah_ts1' => $jumlah_ts1,
             'jumlah_ts' => $jumlah_ts,
-            'jumlah' => $jumlah
+            'jumlah' => $jumlah,
         ];
     }
 
@@ -108,7 +209,7 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
      * @param  \App\Models\SdmKinerjaDosenPkmDtps  $sdmKinerjaDosenPkmDtps
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $req, $id)
+    public function update(Request $req, $year, $sumber)
     {
         $tahun = session('tahun_laporan');
         $connection = 'mysql';
@@ -120,17 +221,39 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
         ]);
 
         try {
-        $pkm = SdmKinerjaDosenPkmDtps::find($id);
-        $pkm->sumber_id = $req->input('sumber_id');
-        $pkm->jumlah_ts2 = (int) $req->input('jumlah_ts2');
-        $pkm->jumlah_ts1 = (int) $req->input('jumlah_ts1');
-        $pkm->jumlah_ts = (int) $req->input('jumlah_ts');
-        $pkm->jumlah = $req->jumlah_ts + $req->jumlah_ts1 + $req->jumlah_ts2;
-        $pkm->tahun_laporan = $tahun;
-        $pkm->prodi = auth()->user()->prodi->name;
-        $pkm->created_by = auth()->user()->name;
-        $pkm->created_at = Carbon::now();
-        $pkm->update();
+            $jumlah = $req->input('jumlah_ts2') + $req->input('jumlah_ts1') + $req->input('jumlah_ts');
+            SdmKinerjaDosenPkmDtps::where('tahun_laporan', $year-2)->where('sumber_id', $sumber)
+            ->update([
+                'sumber_id' => $req->input('sumber_id'),
+                'jumlah_ts' => (int) $req->input('jumlah_ts2'),
+                'tahun_laporan' => $tahun - 2,
+                'prodi' => auth()->user()->prodi->name,
+                'created_by' => auth()->user()->name,
+                'created_at' => Carbon::now(),
+            ]);
+    
+            // TS-1
+            SdmKinerjaDosenPkmDtps::where('tahun_laporan', $year-1)->where('sumber_id', $sumber)
+            ->update([
+                'sumber_id' => $req->input('sumber_id'),
+                'jumlah_ts' => (int) $req->input('jumlah_ts1'),
+                'tahun_laporan' => $tahun - 1,
+                'prodi' => auth()->user()->prodi->name,
+                'created_by' => auth()->user()->name,
+                'created_at' => Carbon::now(),
+            ]);
+    
+            // TS
+            SdmKinerjaDosenPkmDtps::where('tahun_laporan', $year)->where('sumber_id', $sumber)
+            ->update([
+                'sumber_id' => $req->input('sumber_id'),
+                'jumlah_ts' => (int) $req->input('jumlah_ts'),
+                'jumlah' => $jumlah,
+                'tahun_laporan' => $tahun,
+                'prodi' => auth()->user()->prodi->name,
+                'created_by' => auth()->user()->name,
+                'created_at' => Carbon::now(),
+            ]);
 
         return back()->with('success', 'Data  Pkm Dtps berhasil ditambahkan.');
         } catch(\Exception $ex) {
@@ -148,20 +271,42 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
      * @param  \App\Models\SdmKinerjaDosenPkmDtps  $sdmKinerjaDosenPkmDtps
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $req,$id)
+    public function destroy(Request $req, $year, $sumber)
     {
         $tahun = session('tahun_laporan');
-        $pkm = SdmKinerjaDosenPkmDtps::find($id);
-        $pkm->sumber_id = $req->input('sumber_id');
-        $pkm->jumlah_ts2 = null;
-        $pkm->jumlah_ts1 = null;
-        $pkm->jumlah_ts = null;
-        $pkm->jumlah = null;
-        $pkm->tahun_laporan = $tahun;
-        $pkm->prodi = auth()->user()->prodi->name;
-        $pkm->updated_by = auth()->user()->name;
-        $pkm->updated_at = Carbon::now();
-        $pkm->update();
+        $jumlah = $req->input('jumlah_ts2') + $req->input('jumlah_ts1') + $req->input('jumlah_ts');
+        SdmKinerjaDosenPkmDtps::where('tahun_laporan', $year-2)->where('sumber_id', $sumber)
+        ->update([
+            'sumber_id' => $req->input('sumber_id'),
+            'jumlah_ts' => (int) $req->input('jumlah_ts2'),
+            'tahun_laporan' => $tahun - 2,
+            'prodi' => auth()->user()->prodi->name,
+            'created_by' => auth()->user()->name,
+            'created_at' => Carbon::now(),
+        ]);
+
+        // TS-1
+        SdmKinerjaDosenPkmDtps::where('tahun_laporan', $year-1)->where('sumber_id', $sumber)
+        ->update([
+            'sumber_id' => $req->input('sumber_id'),
+            'jumlah_ts' => (int) $req->input('jumlah_ts1'),
+            'tahun_laporan' => $tahun - 1,
+            'prodi' => auth()->user()->prodi->name,
+            'created_by' => auth()->user()->name,
+            'created_at' => Carbon::now(),
+        ]);
+
+        // TS
+        SdmKinerjaDosenPkmDtps::where('tahun_laporan', $year)->where('sumber_id', $sumber)
+        ->update([
+            'sumber_id' => $req->input('sumber_id'),
+            'jumlah_ts' => (int) $req->input('jumlah_ts'),
+            'jumlah' => $jumlah,
+            'tahun_laporan' => $tahun,
+            'prodi' => auth()->user()->prodi->name,
+            'created_by' => auth()->user()->name,
+            'created_at' => Carbon::now(),
+        ]);
         return back()->with('error', 'Data Pkm Dtps berhasil dihapus.');
     }
 

@@ -38,9 +38,9 @@
 {{-- TABLE HERE --}}
 @include('tab.kinerjadosentab.penelitiantable')
 
-@foreach ($penelitians['penelitian'] as $penelitian)
+@foreach ($penelitians['ts_all'] as $ts)
     <!-- Modal Edit Data Penelitian DTPS -->
-    <div class="modal fade" id="modaldosenpenelitianedit-{{ $penelitian->id }}" tabindex="-1" aria-labelledby="modaldosenpenelitianedit" aria-hidden="true">
+    <div class="modal fade" id="modaldosenpenelitianedit-{{ $ts->id }}" tabindex="-1" aria-labelledby="modaldosenpenelitianedit" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -55,7 +55,7 @@
         </div>
 
         <!-- Modal Delete Data Penelitian DTPS -->
-        <div class="modal fade" id="modalpenelitiandelete-{{ $penelitian->id }}" tabindex="-1" aria-labelledby="modaldosenpenelitiandelete" aria-hidden="true">
+        <div class="modal fade" id="modalpenelitiandelete-{{ $ts->id }}" tabindex="-1" aria-labelledby="modaldosenpenelitiandelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">

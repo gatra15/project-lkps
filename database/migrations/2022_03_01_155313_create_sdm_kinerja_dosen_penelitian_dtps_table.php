@@ -16,8 +16,6 @@ class CreateSdmKinerjaDosenPenelitianDtpsTable extends Migration
         Schema::create('sdm_kinerja_dosen_penelitian_dtps', function (Blueprint $table) {
             $table->id();
             $table->foreignId('sumber_id');
-            $table->integer('jumlah_ts2')->nullable(true);
-            $table->integer('jumlah_ts1')->nullable(true);
             $table->integer('jumlah_ts')->nullable(true);
             $table->integer('jumlah')->nullable(true);
             $table->integer('tahun_laporan');

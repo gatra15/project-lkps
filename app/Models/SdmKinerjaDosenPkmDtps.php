@@ -12,7 +12,7 @@ class SdmKinerjaDosenPkmDtps extends Model
     protected $table = 'sdm_kinerja_dosen_pkm_dtps';
     protected $guarded = ['id'];
 
-    public function sumber_detail()
+    public function sumber()
     {
        return $this->belongsTo('\App\Models\Sumberdaya', 'sumber_id', 'id');
     }

@@ -1,4 +1,4 @@
-<form action="/kinerja-dosen/penelitian-dtps/{{ $penelitian->id }}" method="POST">
+<form action="/kinerja-dosen/penelitian-dtps/{{ $ts->tahun_laporan }}/{{ $ts->sumber_id }}" method="POST">
     @method('put')
     @csrf
     <div class="modal-body">
@@ -8,24 +8,62 @@
                
                 {{-- MASUK KE TABEL SDM DOSENS --}}
                 <label for="dosentetap"> Sumber Daya Pembiyaan :</label>
-                <p>@php echo $penelitian->sumber->sumberdaya @endphp</p>
+                <p>@php echo $ts->sumber->sumberdaya @endphp</p>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="hidden" name="sumber_id" value="{{ $penelitian->sumber_id }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly>
+                    <input type="hidden" name="sumber_id" value="{{ $ts->sumber_id }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" readonly>
                 </div>
 
                 <label for="penelitian" class="fs-6 my-2"> Pada PS Yang Diakreditasi </label>
                 <div class="form-row justify-content-center text-center">
                     <div class="form-group col-md-4 align-middle">
                     <label for="dosentetap"> TS-2 :</label>
-                      <input name="jumlah_ts2" value="{{ $penelitian->jumlah_ts2 }}" class="form-control form-control-sm mb-3" type="number" min="1" required>
+                    @if ($ts->sumber_id == 1)
+                        @foreach ($penelitians['ts2'] as $ts2)
+                            <input name="jumlah_ts2" value="{{ $ts2->jumlah_ts }}" class="form-control form-control-sm mb-3" type="number" min="1" required>
+                        @endforeach
+                    @elseif ($ts->sumber_id == 2)
+                        @foreach ($penelitians['ts2_sumber2'] as $ts2)
+                            <input name="jumlah_ts2" value="{{ $ts2->jumlah_ts }}" class="form-control form-control-sm mb-3" type="number" min="1" required>
+                        @endforeach
+                    @else
+                        @foreach ($penelitians['ts2_sumber3'] as $ts2)
+                            <input name="jumlah_ts2" value="{{ $ts2->jumlah_ts }}" class="form-control form-control-sm mb-3" type="number" min="1" required>
+                        @endforeach
+                    @endif
+                       
                     </div>
                     <div class="form-group col-md-4 align-middle">
                         <label for="dosentetap"> TS-1 :</label>
-                        <input name="jumlah_ts1" value="{{ $penelitian->jumlah_ts1 }}"  class="form-control form-control-sm mb-3" type="number" min="1" required>
+                        @if ($ts->sumber_id == 1)
+                            @foreach ($penelitians['ts1'] as $ts1)
+                                <input name="jumlah_ts1" value="{{ $ts1->jumlah_ts }}" class="form-control form-control-sm mb-3" type="number" min="1" required>
+                            @endforeach
+                        @elseif ($ts->sumber_id == 2)
+                            @foreach ($penelitians['ts1_sumber2'] as $ts1)
+                                <input name="jumlah_ts1" value="{{ $ts1->jumlah_ts }}" class="form-control form-control-sm mb-3" type="number" min="1" required>
+                            @endforeach
+                        @else
+                            @foreach ($penelitians['ts1_sumber3'] as $ts1)
+                                <input name="jumlah_ts1" value="{{ $ts1->jumlah_ts }}" class="form-control form-control-sm mb-3" type="number" min="1" required>
+                            @endforeach
+                        @endif
                       </div>
                     <div class="form-group col-md-4 align-middle">
                         <label for="dosentetap"> TS :</label>
-                        <input name="jumlah_ts" value="{{ $penelitian->jumlah_ts2 }}" class="form-control form-control-sm mb-3" type="number" min="1" required>
+                        @if ($ts->sumber_id == 1)
+                            @foreach ($penelitians['ts'] as $ts)
+                                <input name="jumlah_ts" value="{{ $ts->jumlah_ts }}" class="form-control form-control-sm mb-3" type="number" min="1" required>
+                            @endforeach
+                        @elseif ($ts->sumber_id == 2)
+                            @foreach ($penelitians['ts_sumber2'] as $ts)
+                                <input name="jumlah_ts" value="{{ $ts->jumlah_ts }}" class="form-control form-control-sm mb-3" type="number" min="1" required>
+                            @endforeach
+                        @else
+                            @foreach ($penelitians['ts_sumber3'] as $ts)
+                                <input name="jumlah_ts" value="{{ $ts->jumlah_ts }}" class="form-control form-control-sm mb-3" type="number" min="1" required>
+                            @endforeach
+                        @endif
+                        
                     </div>
                 </div>
 

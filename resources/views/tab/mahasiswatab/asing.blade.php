@@ -47,7 +47,7 @@
 
 @foreach ($mahasiswa_asing['mahasiswa'] as $key => $mhs)
 
-<div class="modal fade" id="modalmahasiswaasingedit" tabindex="-1" aria-labelledby="modalmahasiswaasingedit" aria-hidden="true">
+<div class="modal fade" id="modalmahasiswaasingedit-{{ $mhs['id'] }}" tabindex="-1" aria-labelledby="modalmahasiswaasingedit" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">

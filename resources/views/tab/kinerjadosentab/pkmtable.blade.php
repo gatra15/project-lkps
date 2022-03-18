@@ -20,26 +20,94 @@
         </thead>
 
         <tbody class="text-dark">
-            @foreach ($pkms['pkm'] as $pkm)
+            @foreach ($pkms['ts'] as $ts)
                 <tr>
-                <td>{{ $loop->iteration }}</td>
-                <td>@php
-                   echo $pkm->sumber_detail->sumberdaya
-                @endphp</td> 
-                <td>{{ $pkm->jumlah_ts2 }}</td> 
-                <td>{{ $pkm->jumlah_ts1 }}</td> 
-                <td>{{ $pkm->jumlah_ts }}</td> 
-                <td>{{ $pkm->jumlah }}</td> 
+                <td>1</td>
+                <td>
+                    @php echo $ts->sumber->sumberdaya @endphp
+                </td>
+                @endforeach 
+
+                @foreach ($pkms['ts2'] as $ts2)
+                <td>{{ $ts2->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($pkms['ts1'] as $ts1)
+                <td>{{ $ts1->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($pkms['ts'] as $ts)
+                <td>{{ $ts->jumlah_ts }}</td> 
+                <td>{{ $ts->jumlah }}</td> 
                 @hasrole('perwakilan')
-                <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpkmedit-{{ $pkm->id }}"><i class="fas fa-edit"></i></a></li>
+                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/pkm-dtps/{{ $pkm->id }}" data-toggle="modal" data-target="#modaldosenpkmdelete-{{ $pkm->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
                 @endhasrole
                 </tr>
+                @endforeach 
 
+            {{-- Sumberdaya 2 --}}
+            @foreach ($pkms['ts_sumber2'] as $ts)
+                <tr>
+                <td>2</td>
+                <td>
+                    @php echo $ts->sumber->sumberdaya @endphp
+                </td>
+                @endforeach 
+
+                @foreach ($pkms['ts2_sumber2'] as $ts2)
+                <td>{{ $ts2->jumlah_ts }}</td> 
                 @endforeach
+
+                @foreach ($pkms['ts1_sumber2'] as $ts1)
+                <td>{{ $ts1->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($pkms['ts_sumber2'] as $ts)
+                <td>{{ $ts->jumlah_ts }}</td> 
+                <td>{{ $ts->jumlah }}</td> 
+                @hasrole('perwakilan')
+                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                </ul></td>
+                @endhasrole
+                </tr>
+            @endforeach 
+
+            {{-- Sumberdaya 3 --}}
+            @foreach ($pkms['ts_sumber3'] as $ts)
+                <tr>
+                <td>3</td>
+                <td>
+                    @php echo $ts->sumber->sumberdaya @endphp
+                </td>
+                @endforeach 
+
+                @foreach ($pkms['ts2_sumber3'] as $ts2)
+                <td>{{ $ts2->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($pkms['ts1_sumber3'] as $ts1)
+                <td>{{ $ts1->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($pkms['ts_sumber3'] as $ts)
+                <td>{{ $ts->jumlah_ts }}</td> 
+                <td>{{ $ts->jumlah }}</td> 
+                @hasrole('perwakilan')
+                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                </ul></td>
+                @endhasrole
+                </tr>
+            @endforeach 
             
                 {{-- <tr>
                     <td colspan="2" class="text-center"> <b>Total</b> </td>
