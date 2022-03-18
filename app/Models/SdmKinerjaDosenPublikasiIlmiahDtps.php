@@ -9,6 +9,7 @@ class SdmKinerjaDosenPublikasiIlmiahDtps extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
+    protected $table = 'sdm_kinerja_dosen_publikasi_ilmiah_dtps';
 
     public function media()
     {

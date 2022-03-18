@@ -19,25 +19,296 @@
 
         </thead>
         <tbody>
-            @foreach ($publikasi['publikasi'] as $publikasis)
-            <tr>
-                <td>{{ $loop->iteration }}</td>
-                <td>@php
-                   echo $publikasis->media->media
-                @endphp</td> 
-                <td>{{ $publikasis->jumlah_ts2 }}</td> 
-                <td>{{ $publikasis->jumlah_ts1 }}</td> 
-                <td>{{ $publikasis->jumlah_ts }}</td> 
-                <td>{{ $publikasis->jumlah }}</td> 
+            @foreach ($publikasi['ts'] as $ts)
+                <tr>
+                <td>1</td>
+                <td>
+                    @php echo $ts->media->media @endphp
+                </td>
+                @endforeach 
+
+                @foreach ($publikasi['ts2'] as $ts2)
+                <td>{{ $ts2->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts1'] as $ts1)
+                <td>{{ $ts1->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts'] as $ts)
+                <td>{{ $ts->jumlah_ts }}</td> 
+                <td>{{ $ts->jumlah }}</td> 
                 @hasrole('perwakilan')
-                <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpublikasiedit-{{ $publikasis->id }}"><i class="fas fa-edit"></i></a></li>
+                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/publikasi-dtps/{{ $publikasis->id }}" data-toggle="modal" data-target="#modalpublikasidelete-{{ $publikasis->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
                 @endhasrole
                 </tr>
-            @endforeach
+            @endforeach 
+        
+            @foreach ($publikasi['ts_media2'] as $ts)
+                <tr>
+                <td>1</td>
+                <td>
+                    @php echo $ts->media->media @endphp
+                </td>
+                @endforeach 
+
+                @foreach ($publikasi['ts2_media2'] as $ts2)
+                <td>{{ $ts2->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts1_media2'] as $ts1)
+                <td>{{ $ts1->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts_media2'] as $ts)
+                <td>{{ $ts->jumlah_ts }}</td> 
+                <td>{{ $ts->jumlah }}</td> 
+                @hasrole('perwakilan')
+                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                </ul></td>
+                @endhasrole
+                </tr>
+            @endforeach 
+        
+            @foreach ($publikasi['ts_media3'] as $ts)
+                <tr>
+                <td>1</td>
+                <td>
+                    @php echo $ts->media->media @endphp
+                </td>
+                @endforeach 
+
+                @foreach ($publikasi['ts2_media3'] as $ts2)
+                <td>{{ $ts2->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts1_media3'] as $ts1)
+                <td>{{ $ts1->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts_media3'] as $ts)
+                <td>{{ $ts->jumlah_ts }}</td> 
+                <td>{{ $ts->jumlah }}</td> 
+                @hasrole('perwakilan')
+                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                </ul></td>
+                @endhasrole
+                </tr>
+            @endforeach 
+        
+            @foreach ($publikasi['ts_media4'] as $ts)
+                <tr>
+                <td>1</td>
+                <td>
+                    @php echo $ts->media->media @endphp
+                </td>
+                @endforeach 
+
+                @foreach ($publikasi['ts2_media4'] as $ts2)
+                <td>{{ $ts2->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts1_media4'] as $ts1)
+                <td>{{ $ts1->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts_media4'] as $ts)
+                <td>{{ $ts->jumlah_ts }}</td> 
+                <td>{{ $ts->jumlah }}</td> 
+                @hasrole('perwakilan')
+                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                </ul></td>
+                @endhasrole
+                </tr>
+            @endforeach 
+        
+            @foreach ($publikasi['ts_media5'] as $ts)
+                <tr>
+                <td>1</td>
+                <td>
+                    @php echo $ts->media->media @endphp
+                </td>
+                @endforeach 
+
+                @foreach ($publikasi['ts2_media5'] as $ts2)
+                <td>{{ $ts2->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts1_media5'] as $ts1)
+                <td>{{ $ts1->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts_media5'] as $ts)
+                <td>{{ $ts->jumlah_ts }}</td> 
+                <td>{{ $ts->jumlah }}</td> 
+                @hasrole('perwakilan')
+                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                </ul></td>
+                @endhasrole
+                </tr>
+            @endforeach 
+        
+            @foreach ($publikasi['ts_media6'] as $ts)
+                <tr>
+                <td>1</td>
+                <td>
+                    @php echo $ts->media->media @endphp
+                </td>
+                @endforeach 
+
+                @foreach ($publikasi['ts2_media6'] as $ts2)
+                <td>{{ $ts2->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts1_media6'] as $ts1)
+                <td>{{ $ts1->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts_media6'] as $ts)
+                <td>{{ $ts->jumlah_ts }}</td> 
+                <td>{{ $ts->jumlah }}</td> 
+                @hasrole('perwakilan')
+                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                </ul></td>
+                @endhasrole
+                </tr>
+            @endforeach 
+        
+            @foreach ($publikasi['ts_media7'] as $ts)
+                <tr>
+                <td>1</td>
+                <td>
+                    @php echo $ts->media->media @endphp
+                </td>
+                @endforeach 
+
+                @foreach ($publikasi['ts2_media7'] as $ts2)
+                <td>{{ $ts2->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts1_media7'] as $ts1)
+                <td>{{ $ts1->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts_media7'] as $ts)
+                <td>{{ $ts->jumlah_ts }}</td> 
+                <td>{{ $ts->jumlah }}</td> 
+                @hasrole('perwakilan')
+                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                </ul></td>
+                @endhasrole
+                </tr>
+            @endforeach 
+        
+            @foreach ($publikasi['ts_media8'] as $ts)
+                <tr>
+                <td>1</td>
+                <td>
+                    @php echo $ts->media->media @endphp
+                </td>
+                @endforeach 
+
+                @foreach ($publikasi['ts2_media8'] as $ts2)
+                <td>{{ $ts2->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts1_media8'] as $ts1)
+                <td>{{ $ts1->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts_media8'] as $ts)
+                <td>{{ $ts->jumlah_ts }}</td> 
+                <td>{{ $ts->jumlah }}</td> 
+                @hasrole('perwakilan')
+                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                </ul></td>
+                @endhasrole
+                </tr>
+            @endforeach 
+        
+            @foreach ($publikasi['ts_media9'] as $ts)
+                <tr>
+                <td>1</td>
+                <td>
+                    @php echo $ts->media->media @endphp
+                </td>
+                @endforeach 
+
+                @foreach ($publikasi['ts2_media9'] as $ts2)
+                <td>{{ $ts2->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts1_media9'] as $ts1)
+                <td>{{ $ts1->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts_media9'] as $ts)
+                <td>{{ $ts->jumlah_ts }}</td> 
+                <td>{{ $ts->jumlah }}</td> 
+                @hasrole('perwakilan')
+                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                </ul></td>
+                @endhasrole
+                </tr>
+            @endforeach 
+        
+            @foreach ($publikasi['ts_media10'] as $ts)
+                <tr>
+                <td>1</td>
+                <td>
+                    @php echo $ts->media->media @endphp
+                </td>
+                @endforeach 
+
+                @foreach ($publikasi['ts2_media10'] as $ts2)
+                <td>{{ $ts2->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts1_media10'] as $ts1)
+                <td>{{ $ts1->jumlah_ts }}</td> 
+                @endforeach
+
+                @foreach ($publikasi['ts_media10'] as $ts)
+                <td>{{ $ts->jumlah_ts }}</td> 
+                <td>{{ $ts->jumlah }}</td> 
+                @hasrole('perwakilan')
+                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li>
+                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                </ul></td>
+                @endhasrole
+                </tr>
+            @endforeach 
+        
         
         <tr>
             <td colspan="2" class="text-center"><b>Total</b></td>
