@@ -19,12 +19,13 @@
         <table class="table table-bordered text-center align-middle table-condensed">
             <thead>
                 <tr>
-                    <th style="width: 1%"  class="text-center align-middle">No</th>
-                    <th style="width: 20%" class="text-center align-middle">Nama</th>
-                    <th style="width: 10%" class="text-center align-middle">NIDN</th>
-                    <th style="width: 20%" class="text-center align-middle">Jabatan</th>
-                    <th style="width: 15%" class="text-center align-middle">Tanggal Pengisian</th>
-                    <th style="width: 25%" class="text-center align-middle"> TTD</th>
+                    <th  class="text-center align-middle" width="1%">No</th>
+                    <th  class="text-center align-middle" width="20%">Nama</th>
+                    <th  class="text-center align-middle" width="20%">NIDN</th>
+                    <th  class="text-center align-middle" width="15%">Jabatan</th>
+                    <th  class="text-center align-middle" width="10%">Tanggal Pengisian</th>
+                    <th  class="text-center align-middle" width="24%"> TTD</th>
+                    <th  class="text-center align-middle" width="10%"> Opsi</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,17 +39,17 @@
                     <td>{{ $tim->jabatan }}</td>
                     <td>{{ $tim->tanggal_pengisian }}</td>
                     <td><img width="100" height="115" src="{{ asset('storage/'.$tim->ttd) }}" alt="ttd"></td>
-                        {{-- <a class="btn btn-info btn-sm" href="#">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Edit
-                        </a>
-                        <a class="btn btn-danger btn-sm" href="#">
-                            <i class="fas fa-trash">
-                            </i>
-                            Delete
-                        </a> --}}
-                    </td>
+                    @hasrole('perwakilan')
+                    <td class="project-actions text-right ms-1 ps-1">
+                      <ul class="action-list d-flex justify-content-center " id="action">
+                      
+                          <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaledit"><i class="fas fa-edit"></i></a></li>
+                          <li>
+                              <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaldelete"><i class="fas fa-trash btn-del"></i></a></li>
+                      @endhasrole
+                      </ul>
+                  </td>
+
                 </tr>
                                   
                 @endforeach

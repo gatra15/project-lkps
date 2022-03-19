@@ -25,18 +25,18 @@
                     <td>{{ $identity->unit_pengelola }}</td>
                     <td>{{ $identity->jenis_program }}</td>
                     <td>{{ $identity->prodi }}</td>
-                    <td class="project-actions text-right">
-                        <a class="btn btn-warning btn-sm" type="button" href="#" data-toggle="modal" data-target="#modallihat-{{ $identity->id }}">
+                    <td class="project-actions text-right ms-1 ps-1">
+                        <ul class="action-list d-flex justify-content-center " id="action">
+                        <li><a class="btn btn-warning" type="button" href="#" data-toggle="modal" data-target="#modallihat-{{ $identity->id }}">
                             <i class="fas fa-eye"></i>
-                            View
-                        </a>
+                        </a></li>
                         @hasrole('perwakilan')
-                        <ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaledit-{{ $identity->id }}"><i class="fas fa-edit"></i></a></li>
                             <li>
                                 <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaldelete-{{ $identity->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                        </ul>
+                        
                         @endhasrole
+                        </ul>
                     </td>
                 </tr>
                 @endforeach
