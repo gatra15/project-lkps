@@ -26,23 +26,19 @@
     </thead>
     
     <tbody class="text-dark">
-        @foreach ($efektifitasPrestasi['ts3'] as $key => $ts3)
+        @foreach ($efektifitasPrestasi['data'] as $key => $ts)
             <tr>
-                {{ $ts3 }}
-            <td>{{ $key == sizeof($efektifitasPrestasi['ts3'])-1 ? 'TS-3': 'TS-'.(sizeof($efektifitasPrestasi['ts3'])-1-$key) }}</td>
-            <td>{{ $ts3->jumlah_mahasiswa }}</td>
-        @endforeach
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-               
-        @foreach ($efektifitasPrestasi['ts_all'] as $ts)
-            <td>{{ $ts->ts }}</td>
-            <td></td>
-            <td></td>
+                <td>{{ $key == sizeof($efektifitasPrestasi['data'])-1 ? 'TS-3' : 'TS-'.(sizeof($efektifitasPrestasi['data'])+2-$key) }}</td>
+                <td>{{ $ts->jumlah_mahasiswa }}</td>
+                <td style="background-color: grey"></td>
+                <td style="background-color: grey"></td>
+                <td style="background-color: grey"></td>
+                <td>{{ $ts->ts3 }}</td>
+                <td>{{ $ts->ts2 }}</td>
+                <td>{{ $ts->ts1 }}</td>
+                <td>{{ $ts->ts }}</td>
+                <td>{{ $ts->jumlah }}</td>
+                <td>{{ $ts->average }}</td>
                 @hasrole ('perwakilan')
 
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">

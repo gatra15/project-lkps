@@ -95,6 +95,8 @@ Route::group(['middleware' => 'auth:web'], function() {
         // Route to Identitas Pengusul
         Route::post('/identitas-pengusul', [IdentitasPengusulController::class, 'store']);
         Route::get('/identitas-pengusul/{id}', [IdentitasPengusulController::class, 'show']);
+        Route::put('/identitas-pengusul/{id}', [IdentitasPengusulController::class, 'update']);
+        Route::get('/identitas-pengusul/delete/{id}', [IdentitasPengusulController::class, 'destroy']);
 
         Route::post('/identitas-pengusul/tim-penyusun', [TimPenyusunController::class, 'store']);
         Route::put('/identitas-pengusul/tim-penyusun/{id}', [TimPenyusunController::class, 'update']);

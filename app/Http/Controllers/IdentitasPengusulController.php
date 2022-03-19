@@ -50,7 +50,7 @@ class IdentitasPengusulController extends Controller
         $pengusul->created_by = auth()->user()->name;
         $pengusul->created_at = Carbon::now();
         $pengusul->save();
-        return redirect('/identitas-pengusul')->with('success', 'New Identitas Pengusul has been created');
+        return redirect('/identitas-pengusul')->with('success', 'Data Identitas Pengusul berhasil ditambahkan.');
         
     } catch(\Exception $ex) {
         DB::connection($connection)->rollBack();
@@ -92,8 +92,8 @@ class IdentitasPengusulController extends Controller
         $pengusul->nomor_sk_banpt = $req->input('nomor_sk_banpt');        
         $pengusul->created_by = auth()->user()->name;
         $pengusul->created_at = Carbon::now();
-        $pengusul->save();
-        return redirect('/identitas-pengusul')->with('success', 'New Identitas Pengusul has been created'); 
+        $pengusul->update();
+        return redirect('/identitas-pengusul')->with('success', 'Data Identitas Pengusul berhasil diubah.'); 
         
     } catch(\Exception $ex) {
         DB::connection($connection)->rollBack();
@@ -102,5 +102,11 @@ class IdentitasPengusulController extends Controller
         DB::connection($connection)->rollBack();
         return response(['message' => $ex->getMessage()],500);
     }
+    }
+
+    public function destroy($id)
+    {
+        IdentitasPengusul::find($id)->delete();
+        return back()->with('success', 'Data Identitas Pengusul berhasil dihapus.');
     }
 }

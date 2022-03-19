@@ -67,27 +67,27 @@ class TsSeeder extends Seeder
 
         // Efektifitas
         // EfektifitasProduktifitasPendidikan::create([
-
+        //     'tahun_id' => 4,
         //     'tahun_laporan' => 2016,
         //     'prodi' => 'Teknik Industri',
         // ]);
         // EfektifitasProduktifitasPendidikan::create([
-
+        //     'tahun_id' => 5,
         //     'tahun_laporan' => 2017,
         //     'prodi' => 'Teknik Industri',
         // ]);
         // EfektifitasProduktifitasPendidikan::create([
-
+        //     'tahun_id' => 6,
         //     'tahun_laporan' => 2018,
         //     'prodi' => 'Teknik Industri',
         // ]);
         // EfektifitasProduktifitasPendidikan::create([
-
+        //     'tahun_id' => 7,
         //     'tahun_laporan' => 2019,
         //     'prodi' => 'Teknik Industri',
         // ]);
         // EfektifitasProduktifitasPendidikan::create([
-
+        //     'tahun_id' => 8,
         //     'tahun_laporan' => 2020,
         //     'prodi' => 'Teknik Industri',
         // ]);

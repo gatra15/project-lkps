@@ -30,16 +30,13 @@
                             <i class="fas fa-eye"></i>
                             View
                         </a>
-                        {{-- <a class="btn btn-info btn-sm" href="#">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Edit
-                        </a>
-                        <a class="btn btn-danger btn-sm" href="#">
-                            <i class="fas fa-trash">
-                            </i>
-                            Delete
-                        </a> --}}
+                        @hasrole('perwakilan')
+                        <ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaledit-{{ $identity->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaldelete-{{ $identity->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul>
+                        @endhasrole
                     </td>
                 </tr>
                 @endforeach
@@ -55,12 +52,38 @@
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-            <h5 class="modal-title" id="modallihat">Data dari {{--  --}}</h5>
+            <h5 class="modal-title" id="modallihat">Data dari </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>
                 @include('partials.identitasmodal.identitas')
+            </div>
+            </div>
+        </div>
+          <div class="modal fade" id="modaledit-{{ $identity->id }}" tabindex="-1" aria-labelledby="modaledit" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+            <h5 class="modal-title" id="modaledit">Edit Data Identitas Pengusul </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.identitasmodal.identitasedit')
+            </div>
+            </div>
+        </div>
+          <div class="modal fade" id="modaldelete-{{ $identity->id }}" tabindex="-1" aria-labelledby="modaldelete" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+            <h5 class="modal-title" id="modaldelete">Hapus Data Identitas Pengusul </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.identitasmodal.identitasdelete')
             </div>
             </div>
         </div>

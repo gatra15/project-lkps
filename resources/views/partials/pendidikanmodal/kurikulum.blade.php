@@ -53,19 +53,13 @@
                     </div>
 
                     <div class="form-row justify-content-center">
-                        <div class="form-group col-md-6 align-middle">
+                        <div class="form-group col-md-12 align-middle">
                             <label for="#">Mata Kuliah Kompetensi : <br> <br></label>
                             <select class="custom-select custom-select-sm" name="mata_kuliah_kompetensial" id="inputGroupSelect01" required>
                               <option selected>pilih...</option>
                               <option value="1">Iya</option>
                               <option value="0">Tidak</option>
                           </select>
-                        </div>
-                        <div class="form-group col-md-6 align-middle">
-                        <label for="kurikulum"> Konversi Kredit ke Jam : <br> <br></label>
-                        <div class="input-group input-group-sm mb-3">
-                            <input type="number" name="konversi_kredit_jam" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
-                        </div>
                         </div>
                     </div>
 
