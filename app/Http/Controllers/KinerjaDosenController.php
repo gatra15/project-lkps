@@ -26,7 +26,7 @@ class KinerjaDosenController extends Controller
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
 
-        $pengakuan = SdmKinerjaDosenPengakuanDtps::where($where);
+        $pengakuan = SdmKinerjaDosenPengakuanDtps::where($where)->get();
         $luaran = (new SdmKinerjaDosenLuaranPkmDtpsController)->index();
         $sumberdaya = Sumberdaya::where($where);
         $mediapublikasi = MediaPublikasi::where($where);
