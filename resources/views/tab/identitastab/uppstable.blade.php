@@ -6,7 +6,7 @@
             <th class="align-middle" scope="col" rowspan="2" width="10%">Jenis <br> Program</th>
             <th class="align-middle" scope="col" rowspan="2" width="10%">Nama <br> Program Studi</th>
             <th class="align-middle" scope="col" colspan="3" width="10%">Akreditasi Program Studi</th>
-            <th class="align-middle" scope="col" rowspan="2" width="3%">Jumlah <br> Mahasiswa <br> saat TS </th> 
+            <th class="align-middle" scope="col" rowspan="2" width="3%">Jumlah <br> Mahasiswa <br> saat TS <sup>4)</sup> </th> 
             <th class="align-middle" scope="col" rowspan="2" width="3%"> Opsi </th> 
         </tr>
         <tr>

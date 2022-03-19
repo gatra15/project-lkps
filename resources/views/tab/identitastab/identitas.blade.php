@@ -126,33 +126,4 @@
         </div>
     </form>
 
-    @foreach ($identitas as $identity)
-
-          <div class="modal fade" id="modaledit-{{ $identity->id }}" tabindex="-1" aria-labelledby="modaledit" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-            <h5 class="modal-title" id="modaledit">Edit Data</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                @include('partials.identitasmodal.identitasedit')
-            </div>
-            </div>
-        </div>
-          <div class="modal fade" id="modaldelete-{{ $identity->id }}" tabindex="-1" aria-labelledby="modaldelete" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-            <h5 class="modal-title" id="modaldelete">Hapus Data </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                @include('partials.identitasmodal.identitasdelete')
-            </div>
-            </div>
-        </div>
-        @endforeach
 </div>
