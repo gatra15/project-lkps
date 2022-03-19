@@ -26,6 +26,7 @@
                     <td>{{ $tim->tanggal_pengisian }}</td>
                     <td><img width="100" height="115" src="{{ asset('storage/'.$tim->ttd) }}" alt="ttd"></td>
                     @hasrole('perwakilan')
+                    {{ $tim->id }}
                     <td class="project-actions text-right ms-1 ps-1">
                       <ul class="action-list d-flex justify-content-center " id="action">
                       
@@ -43,6 +44,7 @@
         </table>
       </div>
       <!-- /.card-body -->
+
       {{-- MODAL LIHAT DATA --}}
       @foreach ($timpenyusun['tim'] as $tim)              
           <div class="modal fade" id="modaledit-{{ $tim->id }}" tabindex="-1" aria-labelledby="modaledit" aria-hidden="true">

@@ -29,6 +29,7 @@
                 <div class="tab-content mt-3">
                     <div class="tab-content" id="myTabContent">
 
+        <form>
             <div id="print-table" class="container-fluid col-md-12 col-sm-6">
                 <table class="table table-hover table-bordered">
                     <thead class="text-center" >
@@ -2203,10 +2204,30 @@
                         
                     </tbody>
                 </table>
-            </div>
+            
 
+        <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalhitung">
+            Hitung Nilai
+        </button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+    </div>
+    </form>
             
-            
+    <div class="modal fade" id="modalhitung" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+        <h5 class="modal-title" id="modallihat"> Hasil  </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.simulasi.hitungnilai')
+        </div>
+        </div>
+    </div>       
             
     </div>
     </div>

@@ -58,10 +58,15 @@
                         <label class="kanan"> Email dan Website </label>
                         <input type="text" name="email_website" class="form-control lebar"  >
                     </div>
-    
+                    
                     <div class="input-group input-group-sm mb-3">
-                        <label class="kanan"> Nomor SK Pendirian PT <sup>1)</sup> </label>
-                        <input type="file" name="no_sk1" class="form-control lebar" id="customFile" required>
+                        <label class="kanan"> Nomor SK Pendirian PT </label>
+                        <input type="text" name="np_sk1" class="form-control lebar"  >
+                    </div>
+
+                    <div class="input-group input-group-sm mb-3">
+                        <label class="kanan"> File SK Pendirian PT 1) </label>
+                        <input type="file" name="no_sk1_berkas" class="form-control lebar" id="customFile" required>
                     </div>
     
                     <div class="input-group input-group-sm mb-3">
@@ -73,10 +78,15 @@
                         <label class="kanan"> Pejabat Penandatangan SK Pendirian PT </label>
                         <input type="text" name="pejabat_penandatanganan" class="form-control lebar" >
                     </div>
-    
+                    
                     <div class="input-group input-group-sm mb-3">
-                        <label class="kanan"> Nomor SK Pembukaan PS <sup>2)</sup> </label>
-                        <input type="file" name="no_sk2" class="form-control lebar" id="customFile" required>
+                        <label class="kanan"> Nomor SK Pembukaan PS </label>
+                        <input type="text" name="no_sk2" class="form-control lebar"  >
+                    </div>
+
+                    <div class="input-group input-group-sm mb-3">
+                        <label class="kanan"> File SK Pembukaan PS 2) </label>
+                        <input type="file" name="no_sk2_berkas" class="form-control lebar" id="customFile" required>
                     </div>
     
                     <div class="input-group input-group-sm mb-3">
@@ -97,10 +107,15 @@
                         <label class="kanan"> Tahun Pertama Kali Menerima Mahasiswa </label>
                         <input type="text" name="tahun_pertama" class="form-control lebar"  >
                     </div>
+
+                    <div class="input-group input-group-sm mb-3">
+                        <label class="kanan"> Akreditasi PS </label>
+                        <input type="text" name="peningkatan_terbaru" class="form-control lebar"  >
+                    </div>
     
                     <div class="input-group input-group-sm mb-3">
-                        <label class="kanan"> Akreditasi PS <sup>3)</sup> </label>
-                        <input type="file" name="peningkatan_terbaru" class="form-control lebar" id="customFile" required>
+                        <label class="kanan"> File Akreditasi PS 3) </label>
+                        <input type="file" name="peningkatan_terbaru_berkas" class="form-control lebar" id="customFile" required>
                     </div>
     
                     <div class="input-group input-group-sm mb-3">
