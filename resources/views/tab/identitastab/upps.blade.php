@@ -21,15 +21,12 @@
         </div>
         </div>
     </div>
-
+    
     <div class="collapse" id="collapseExample">
         <div class="card card-body">
             <p>
                 Daftar Program Studi di Unit Pengelola Program Studi (UPPS) <br> <br>
                 <b>Keterangan</b> <br>
-                1) Lampirkan salinan Surat Keputusan Pendirian Perguruan Tinggi. <br>
-                2) Lampirkan salinan Surat Keputusan Pembukaan Program Studi. <br>
-                3) Lampirkan salinan Surat Keputusan Akreditasi Program Studi terbaru. <br>
                 4) Diisi dengan jumlah mahasiswa aktif di masing-masing PS saat TS. <br>
             </p>
         </div> 
@@ -37,6 +34,8 @@
     @include('tab.identitastab.uppstable')
 
     @foreach ($upps['data'] as $upps)
+
+            
               
           <div class="modal fade" id="modaledit-{{ $upps->id }}" tabindex="-1" aria-labelledby="modaledit" aria-hidden="true">
             <div class="modal-dialog modal-lg">

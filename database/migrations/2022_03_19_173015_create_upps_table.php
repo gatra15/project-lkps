@@ -23,10 +23,9 @@ class CreateUppsTable extends Migration
             $table->string('jumlah_mahasiswa');
             $table->integer('tahun_laporan');
             $table->string('prodi');
-            $table->string('created_by');
-            $table->string('updated_by');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->string('created_by')->nullable(true);
+            $table->string('updated_by')->nullable(true);
+            $table->timestamps();
         });
     }
 

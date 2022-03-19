@@ -51,7 +51,8 @@ div.shadow-sm {
     <div class="collapse" id="collapseExample">
         <div class="card card-body">
         <p>
-            Di isi oleh tim penyusun
+            <b>IDENTITAS TIM PENYUSUN</b> <br>
+            <b>LAPORAN KINERJA PROGRAM STUDI</b> <br>
         </p>
         </div> 
     </div>

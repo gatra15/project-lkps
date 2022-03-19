@@ -102,11 +102,11 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('/identitas-pengusul/upps', [UppsController::class, 'index']);
         Route::post('/identitas-pengusul/upps', [UppsController::class, 'store']);
         Route::put('/identitas-pengusul/upps/{id}', [UppsController::class, 'update']);
-        Route::get('/identitas-pengusul/upps/{id}', [UppsController::class, 'delete']);
+        Route::get('/identitas-pengusul/upps/{id}', [UppsController::class, 'destroy']);
 
         Route::post('/identitas-pengusul/tim-penyusun', [TimPenyusunController::class, 'store']);
         Route::put('/identitas-pengusul/tim-penyusun/{id}', [TimPenyusunController::class, 'update']);
-        Route::post('/identitas-pengusul/tim-penyusun/{id}', [TimPenyusunController::class, 'delete']);
+        Route::post('/identitas-pengusul/tim-penyusun/{id}', [TimPenyusunController::class, 'destroy']);
         // End Route Identitas Pengusul
 
         // Route to Tata Pamong
