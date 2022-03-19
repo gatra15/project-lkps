@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\ProgramStudi;
 use Illuminate\Http\Request;
 use App\Models\IdentitasPengusul;
 use Illuminate\Support\Facades\DB;
@@ -16,12 +17,16 @@ class IdentitasPengusulController extends Controller
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
 
         $identitas = IdentitasPengusul::all();
+        $prodi = ProgramStudi::all();
+        $upps = (new UppsController)->index();
         // tim penyusun
         $tim = (new TimPenyusunController)->index();
         return view('tab.identitasPengusul', [
             'title' => 'Identitas Pengusul',
             'identitas' => $identitas,
             'timpenyusun' => $tim,
+            'prodi' => $prodi,
+            'upps' => $upps,
         ]);
     }
 

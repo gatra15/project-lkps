@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\IndikatorTataKerjasama;
+use Illuminate\Support\Facades\Storage;
 
 class TataPamongController extends Controller
 {
@@ -61,6 +62,7 @@ class TataPamongController extends Controller
 
     public function store(Request $request)
     {
+        dd($request);
         
         $connection = 'mysql';
         
@@ -118,7 +120,6 @@ class TataPamongController extends Controller
 
     public function update(Request $request, $id)
     {
-        
         $connection = 'mysql';
         $tahun = session('tahun_laporan');
         $this->validate($request, [
@@ -131,14 +132,7 @@ class TataPamongController extends Controller
             'bukti_kerjasama'   => 'file|max:4096',
         ]);
         
-        if($request->file('bukti_kerjasama')) {
-            $filenameWithExt = $request->file('bukti_kerjasama')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('bukti_kerjasama')->getClientOriginalExtension();
-            $filenameSimpan = $filename.'_'.time().'.'.$extension;
-        } else {
-            $filenameSimpan = 'Tidak Ada File yang disisipkan';
-        }
+        
         
         try{
         $indikator = IndikatorTataKerjasama::find($id);
@@ -148,11 +142,26 @@ class TataPamongController extends Controller
         $indikator->judul_kegiatan = $request->input('judul_kegiatan');
         $indikator->manfaat = $request->input('manfaat');
         $indikator->waktu_durasi = $request->input('waktu_durasi');
-        $indikator->bukti_kerjasama = $request->file('bukti_kerjasmaa')->storeAs('/bukti-kerjasama', $filenameSimpan);
+
+        if(Storage::exists(asset('storage/'.$indikator->bukti_kerjasama))) {
+            Storage::delete(asset('storage/'.$indikator->bukti_kerjasama));
+        }
+        // file
+        if($request->file('bukti_kerjasama')) {
+            $filenameWithExt = $request->file('bukti_kerjasama')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('bukti_kerjasama')->getClientOriginalExtension();
+            $filenameSimpan = $filename.'.'.$extension;
+            $indikator->bukti_kerjasama = $request->file('bukti_kerjasama')->storeAs('/bukti-kerjasama', $filenameSimpan);
+        } else {
+        
+        }
+       
         $indikator->tahun_laporan = $tahun;
         $indikator->prodi = auth()->user()->prodi->name;
-        $indikator->created_by = auth()->user()->name;
-        $indikator->created_at = Carbon::now();
+        $indikator->updated_by = auth()->user()->name;
+        $indikator->updated_at = Carbon::now();
+        // dd($indikator);
         $indikator->update();
 
         return back()->with('success', 'Data berhasil diubah.');
