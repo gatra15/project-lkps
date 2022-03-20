@@ -40,154 +40,163 @@ class SimulasiPenilaianController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $request->validate([
             'point_1' => 'required' ,
-            'point_1_akhir' => 'required' ,
             'point_2' => 'required' ,
-            'point_2_akhir' => 'required' ,
             'point_3' => 'required' ,
-            'point_3_akhir' => 'required' ,
             'point_4' => 'required' ,
-            'point_4_akhir' => 'required' ,
             'point_5' => 'required' ,
-            'point_5_akhir' => 'required' ,
             'point_6' => 'required' ,
-            'point_6_akhir' => 'required' ,
             'point_7' => 'required' ,
-            'point_7_akhir' => 'required' ,
             'point_8' => 'required' ,
-            'point_8_akhir' => 'required' ,
             'point_9' => 'required' ,
-            'point_9_akhir' => 'required' ,
             'point_10' => 'required' ,
-            'point_10_akhir' => 'required' ,
 
             'point_11' => 'required' ,
-            'point_11_akhir' => 'required' ,
             'point_12' => 'required' ,
-            'point_12_akhir' => 'required' ,
             'point_13' => 'required' ,
-            'point_13_akhir' => 'required' ,
             'point_14' => 'required' ,
-            'point_14_akhir' => 'required' ,
             'point_15' => 'required' ,
-            'point_15_akhir' => 'required' ,
             'point_16' => 'required' ,
-            'point_16_akhir' => 'required' ,
             'point_17' => 'required' ,
-            'point_17_akhir' => 'required' ,
             'point_18' => 'required' ,
-            'point_18_akhir' => 'required' ,
             'point_19' => 'required' ,
-            'point_19_akhir' => 'required' ,
             'point_20' => 'required' ,
-            'point_20_akhir' => 'required' ,
             
             'point_21' => 'required' ,
-            'point_21_akhir' => 'required' ,
             'point_22' => 'required' ,
-            'point_22_akhir' => 'required' ,
             'point_23' => 'required' ,
-            'point_23_akhir' => 'required' ,
             'point_24' => 'required' ,
-            'point_24_akhir' => 'required' ,
             'point_25' => 'required' ,
-            'point_25_akhir' => 'required' ,
             'point_26' => 'required' ,
-            'point_26_akhir' => 'required' ,
             'point_27' => 'required' ,
-            'point_27_akhir' => 'required' ,
             'point_28' => 'required' ,
-            'point_28_akhir' => 'required' ,
             'point_29' => 'required' ,
-            'point_29_akhir' => 'required' ,
             'point_30' => 'required' ,
-            'point_30_akhir' => 'required' ,
 
             'point_31' => 'required' ,
-            'point_31_akhir' => 'required' ,
             'point_32' => 'required' ,
-            'point_32_akhir' => 'required' ,
             'point_33' => 'required' ,
-            'point_33_akhir' => 'required' ,
             'point_34' => 'required' ,
-            'point_34_akhir' => 'required' ,
             'point_35' => 'required' ,
-            'point_35_akhir' => 'required' ,
             'point_36' => 'required' ,
-            'point_36_akhir' => 'required' ,
             'point_37' => 'required' ,
-            'point_37_akhir' => 'required' ,
             'point_38' => 'required' ,
-            'point_38_akhir' => 'required' ,
             'point_39' => 'required' ,
-            'point_39_akhir' => 'required' ,
             'point_40' => 'required' ,
-            'point_40_akhir' => 'required' ,
 
             'point_41' => 'required' ,
-            'point_41_akhir' => 'required' ,
             'point_42' => 'required' ,
-            'point_42_akhir' => 'required' ,
             'point_43' => 'required' ,
-            'point_43_akhir' => 'required' ,
             'point_44' => 'required' ,
-            'point_44_akhir' => 'required' ,
             'point_45' => 'required' ,
-            'point_45_akhir' => 'required' ,
             'point_46' => 'required' ,
-            'point_46_akhir' => 'required' ,
             'point_47' => 'required' ,
-            'point_47_akhir' => 'required' ,
             'point_48' => 'required' ,
-            'point_48_akhir' => 'required' ,
             'point_49' => 'required' ,
-            'point_49_akhir' => 'required' ,
             'point_50' => 'required' ,
-            'point_50_akhir' => 'required' ,
 
             'point_51' => 'required' ,
-            'point_51_akhir' => 'required' ,
             'point_52' => 'required' ,
-            'point_52_akhir' => 'required' ,
             'point_53' => 'required' ,
-            'point_53_akhir' => 'required' ,
             'point_54' => 'required' ,
-            'point_54_akhir' => 'required' ,
             'point_55' => 'required' ,
-            'point_55_akhir' => 'required' ,
             'point_56' => 'required' ,
-            'point_56_akhir' => 'required' ,
             'point_57' => 'required' ,
-            'point_57_akhir' => 'required' ,
             'point_58' => 'required' ,
-            'point_58_akhir' => 'required' ,
             'point_59' => 'required' ,
-            'point_59_akhir' => 'required' ,
             'point_60' => 'required' ,
-            'point_60_akhir' => 'required' ,
 
             'point_61' => 'required' ,
-            'point_61_akhir' => 'required' ,
             'point_62' => 'required' ,
-            'point_62_akhir' => 'required' ,
             'point_63' => 'required' ,
-            'point_63_akhir' => 'required' ,
             'point_64' => 'required' ,
-            'point_64_akhir' => 'required' ,
             'point_65' => 'required' ,
-            'point_65_akhir' => 'required' ,
             'point_66' => 'required' ,
-            'point_66_akhir' => 'required' ,
             'point_67' => 'required' ,
-            'point_67_akhir' => 'required' ,
             'point_68' => 'required' ,
-            'point_68_akhir' => 'required' ,
             'point_69' => 'required' ,
-            'point_69_akhir' => 'required' ,
         ]);
 
+        $data = new SimulasiPenilaian();
+        $data->point_1 = $request->input('point_1');
+        $data->point_2 = $request->input('point_2');
+        $data->point_3 = $request->input('point_3');
+        $data->point_4 = $request->input('point_4');
+        $data->point_5 = $request->input('point_5');
+        $data->point_6 = $request->input('point_6');
+        $data->point_7 = $request->input('point_7');
+        $data->point_8 = $request->input('point_8');
+        $data->point_9 = $request->input('point_9');
+        $data->point_10 = $request->input('point_10');
+
+        $data->point_11 = $request->input('point_11');
+        $data->point_12 = $request->input('point_12');
+        $data->point_13 = $request->input('point_13');
+        $data->point_14 = $request->input('point_14');
+        $data->point_15 = $request->input('point_15');
+        $data->point_16 = $request->input('point_16');
+        $data->point_17 = $request->input('point_17');
+        $data->point_18 = $request->input('point_18');
+        $data->point_19 = $request->input('point_19');
+        $data->point_20 = $request->input('point_20');
+
+        $data->point_21 = $request->input('point_21');
+        $data->point_22 = $request->input('point_22');
+        $data->point_23 = $request->input('point_23');
+        $data->point_24 = $request->input('point_24');
+        $data->point_25 = $request->input('point_25');
+        $data->point_26 = $request->input('point_26');
+        $data->point_27 = $request->input('point_27');
+        $data->point_28 = $request->input('point_28');
+        $data->point_29 = $request->input('point_29');
+        $data->point_30 = $request->input('point_30');
+
+        $data->point_31 = $request->input('point_31');
+        $data->point_32 = $request->input('point_32');
+        $data->point_33 = $request->input('point_33');
+        $data->point_34 = $request->input('point_34');
+        $data->point_35 = $request->input('point_35');
+        $data->point_36 = $request->input('point_36');
+        $data->point_37 = $request->input('point_37');
+        $data->point_38 = $request->input('point_38');
+        $data->point_39 = $request->input('point_39');
+        $data->point_40 = $request->input('point_40');
+
+        $data->point_41 = $request->input('point_41');
+        $data->point_42 = $request->input('point_42');
+        $data->point_43 = $request->input('point_43');
+        $data->point_44 = $request->input('point_44');
+        $data->point_45 = $request->input('point_45');
+        $data->point_46 = $request->input('point_46');
+        $data->point_47 = $request->input('point_47');
+        $data->point_48 = $request->input('point_48');
+        $data->point_49 = $request->input('point_49');
+        $data->point_50 = $request->input('point_50');
+
+        $data->point_51 = $request->input('point_51');
+        $data->point_52 = $request->input('point_52');
+        $data->point_53 = $request->input('point_53');
+        $data->point_54 = $request->input('point_54');
+        $data->point_55 = $request->input('point_55');
+        $data->point_56 = $request->input('point_56');
+        $data->point_57 = $request->input('point_57');
+        $data->point_58 = $request->input('point_58');
+        $data->point_59 = $request->input('point_59');
+        $data->point_60 = $request->input('point_60');
+
+        $data->point_61 = $request->input('point_61');
+        $data->point_62 = $request->input('point_62');
+        $data->point_63 = $request->input('point_63');
+        $data->point_64 = $request->input('point_64');
+        $data->point_65 = $request->input('point_65');
+        $data->point_66 = $request->input('point_66');
+        $data->point_67 = $request->input('point_67');
+        $data->point_68 = $request->input('point_68');
+        $data->point_69 = $request->input('point_69');   
         
+        $data->save();
     }
 
     /**
