@@ -34,10 +34,10 @@
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaledit-{{ $identity->id }}"><i class="fas fa-edit"></i></a></li>
                             <li>
                                 <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaldelete-{{ $identity->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                        
+                            
                         @endhasrole
-                        </ul>
-                    </td>
+                    </ul>
+                </td>
                 </tr>
                 @endforeach
             </tbody>
@@ -61,6 +61,7 @@
             </div>
             </div>
         </div>
+
           <div class="modal fade" id="modaledit-{{ $identity->id }}" tabindex="-1" aria-labelledby="modaledit" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -74,6 +75,7 @@
             </div>
             </div>
         </div>
+        
           <div class="modal fade" id="modaldelete-{{ $identity->id }}" tabindex="-1" aria-labelledby="modaldelete" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">

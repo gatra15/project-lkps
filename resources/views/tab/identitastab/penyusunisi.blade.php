@@ -35,7 +35,7 @@
                             <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaldelete-{{ $tim->id }}"><i class="fas fa-trash btn-del"></i></a>
                         </li>
                         </ul>
-                        </td>
+                    </td>
                       @endhasrole
                       
 
@@ -48,7 +48,8 @@
       <!-- /.card-body -->
 
       {{-- MODAL LIHAT DATA --}}
-      @foreach ($timpenyusun['tim'] as $tim)              
+      @foreach ($timpenyusun['tim'] as $tim)        
+            
           <div class="modal fade" id="modaledit-{{ $tim->id }}" tabindex="-1" aria-labelledby="modaledit" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">

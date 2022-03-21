@@ -1,9 +1,7 @@
-<form  method="post" action="/identitas-pengusul/tim-penyusun/{{ $tim->id }}" enctype="multipart/form-data">
+<form  action="/identitas-pengusul/tim-penyusun/{{ $tim->id }}" enctype="multipart/form-data" method="post">
     @method('put')
     @csrf
     <div class="modal-body">
-        
-        <input type="hidden" name="id" class="form-control" value="">
             
             <div class="input-group input-group-sm mb-3">
                 <label class="kanan"> Nama </label>

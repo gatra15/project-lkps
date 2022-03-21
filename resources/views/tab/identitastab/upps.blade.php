@@ -35,9 +35,7 @@
 
     @foreach ($upps['data'] as $upps)
 
-            
-              
-          <div class="modal fade" id="modaledit-{{ $upps->id }}" tabindex="-1" aria-labelledby="modaledit" aria-hidden="true">
+          <div class="modal fade" id="modaleditupps-{{ $upps->id }}" tabindex="-1" aria-labelledby="modaledit" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -50,7 +48,8 @@
             </div>
             </div>
         </div>
-          <div class="modal fade" id="modaldelete-{{ $upps->id }}" tabindex="-1" aria-labelledby="modaldelete" aria-hidden="true">
+        
+          <div class="modal fade" id="modaldeleteupps-{{ $upps->id }}" tabindex="-1" aria-labelledby="modaldelete" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
