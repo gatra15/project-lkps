@@ -53,6 +53,7 @@ use App\Http\Controllers\SdmKinerjaDosenPublikasiIlmiahDtpsController;
 use App\Http\Controllers\PendidikanIntegrasiKegiatanPenelitianController;
 use App\Http\Controllers\SdmEkuivalenWaktuMengajarPenuhDosenTetapController;
 use App\Http\Controllers\SimulasiPenilaianController;
+use App\Models\SimulasiPenilaian;
 
 /*
 |--------------------------------------------------------------------------
@@ -239,7 +240,6 @@ Route::group(['middleware' => 'auth:web'], function() {
         // End Luaran
 
         // Simulasi
-        Route::get('/simulasi', [SimulasiPenilaianController::class, 'index']);
         Route::post('/simulasi', [SimulasiPenilaianController::class, 'store']);
         Route::put('/simulasi/{id}', [SimulasiPenilaianController::class, 'update']);
         Route::delete('/simulasi/{id}', [SimulasiPenilaianController::class, 'destroy']);
@@ -382,7 +382,7 @@ Route::group(['middleware' => 'auth:web'], function() {
         // End Route
 
         // Simulasi
-        Route::get('/simulasi', [SimulasiController::class, 'index']);
+        Route::get('/simulasi', [SimulasiPenilaianController::class, 'index']);
 
         // End Simulasi
     });
