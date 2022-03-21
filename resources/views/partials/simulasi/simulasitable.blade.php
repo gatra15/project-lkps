@@ -22,7 +22,7 @@
                     <td>Konsistensi dengan hasil analisis SWOT dan\atau analisis lain serta rencana pengembangan ke depan</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" value="" name="point_1" required>
                     </div>
                     </td>
                     <td>
@@ -2180,7 +2180,6 @@
     Hitung Nilai
 </button>
 <button type="submit" class="btn btn-primary">Simpan</button>
-<button type="submit" class="btn btn-danger" href="#" data-toggle="modal" data-target="#modaldel">Kosongkan Data</button>
 </div>
 </div>
 </form>
