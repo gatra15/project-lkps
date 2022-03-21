@@ -20,7 +20,10 @@ class SimulasiPenilaianController extends Controller
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
 
         $simulasi = SimulasiPenilaian::where($where)->get();
-        return ['simulasi' => $simulasi];
+        return view('tab.simulasi', [
+            'simulasi' => $simulasi,
+            'title' => 'Simulasi',
+        ]);
     }
 
     /**
@@ -41,7 +44,7 @@ class SimulasiPenilaianController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
+        dd($request);
         $tahun = session('tahun_laporan');
         $request->validate([
             'point_1' => 'required' ,
@@ -138,11 +141,23 @@ class SimulasiPenilaianController extends Controller
 
         $data = new SimulasiPenilaian();
         $data->point_1 = $request->input('point_1');
+        $data->point_1_akhir = $request->point_1 * 1;
+
         $data->point_2 = $request->input('point_2');
+        $data->point_2_akhir = $request->point_2 * 1;
+
         $data->point_3 = $request->input('point_3');
+        $data->point_3_akhir = $request->point_3 * 1.033;
+
         $data->point_4 = $request->input('point_4');
+        $data->point_4_akhir = $request->point_4 * 1.033;
+
         $data->point_5 = $request->input('point_5');
+        $data->point_5_akhir = $request->point_5 * 1.033;
+
         $data->point_6a = $request->input('point_6a');
+        $data->point_6a_akhir = $request->input('point_6a');
+
         $data->point_6b = $request->input('point_6b');
         $data->point_7a = $request->input('point_7a');
         $data->point_7b = $request->input('point_7b');
@@ -453,7 +468,7 @@ class SimulasiPenilaianController extends Controller
         $data->updated_by = auth()->user()->name;
         $data->updated_at = Carbon::now();
         $data->update();
-        
+
         return back()->with('success', 'Data Simulasi Penilaian berhasi dihapus.');
     }
 
