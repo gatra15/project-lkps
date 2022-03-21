@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\ProgramStudi;
 use Illuminate\Http\Request;
 use App\Models\IdentitasPengusul;
+use App\Models\SimulasiPenilaian;
 use Illuminate\Support\Facades\DB;
 
 class IdentitasPengusulController extends Controller
@@ -15,6 +16,15 @@ class IdentitasPengusulController extends Controller
         $tahun = session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $cek = SimulasiPenilaian::where($where)->exists();
+
+        if(!$cek)
+        {
+            SimulasiPenilaian::create([
+                'tahun_laporan' => $tahun,
+                'prodi' => $prodi,
+            ]);
+        }
 
         $identitas = IdentitasPengusul::all();
         $prodi = ProgramStudi::all();

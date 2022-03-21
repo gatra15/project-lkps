@@ -14,11 +14,11 @@
 <div class="content">
     <div class="container-fluid">
         <div class="card">
-
+            @foreach ($simulasi as $sim)
             <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                      <a class="nav-link active" id="simulasi-tab" data-toggle="tab" href="#simulasi" role="tab" aria-controls="simulasi" aria-selected="true"> Simulasi Penilaian </a>
+                      <a class="nav-link active" id="simulasi-tab" data-toggle="tab" href="#simulasi-{{ $sim->id }}" role="tab" aria-controls="simulasi" aria-selected="true"> Simulasi Penilaian </a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" id="simpan-tab" data-toggle="tab" href="#simpan" role="tab" aria-controls="simpan" aria-selected="true"> Data Penilaian </a>
@@ -32,7 +32,7 @@
                 <div class="tab-content mt-3">
                     <div class="tab-content" id="myTabContent">
                     
-                    <div class="tab-pane fade show active" id="simulasi" role="tabpanel" aria-labelledby="simulasi-tab" >
+                    <div class="tab-pane fade show active" id="simulasi-{{ $sim->id }}" role="tabpanel" aria-labelledby="simulasi-tab" >
                         <p class="d-flex justify-content-between">
                             <a class="btn btn-primary" data-toggle="collapse" href="#des1" role="button" aria-expanded="false" aria-controls="des1">
                                     Deskripsi
@@ -93,7 +93,8 @@
         </div>
         </div>
     </div>       
-            
+    @endforeach
+
     </div>
     </div>
     </div>
