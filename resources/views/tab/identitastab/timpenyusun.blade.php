@@ -59,8 +59,7 @@ div.shadow-sm {
 
         @csrf
     <div class="modal-body">
-        <input type="hidden" name="id" class="form-control" value="">
-            
+        <input type="hidden" name="id" class="form-control" value=""> 
             <div class="input-group input-group-sm mb-3">
                 <label class="kanan"> Nama </label>
                 <input type="text" name="nama" class="form-control lebar @error('nama') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required value="{{ old('nama') }}">
