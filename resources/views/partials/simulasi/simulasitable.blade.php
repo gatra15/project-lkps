@@ -1,4 +1,5 @@
-<form>
+<form action="/simulasi" method="post">
+    @csrf
     <div id="print-table" class="container-fluid col-md-12 col-sm-6">
         <table class="table table-hover table-bordered">
             <thead class="text-center" >

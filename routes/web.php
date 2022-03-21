@@ -52,6 +52,7 @@ use App\Http\Controllers\EfektifitasProduktifitasPendidikanController;
 use App\Http\Controllers\SdmKinerjaDosenPublikasiIlmiahDtpsController;
 use App\Http\Controllers\PendidikanIntegrasiKegiatanPenelitianController;
 use App\Http\Controllers\SdmEkuivalenWaktuMengajarPenuhDosenTetapController;
+use App\Http\Controllers\SimulasiPenilaianController;
 
 /*
 |--------------------------------------------------------------------------
@@ -236,6 +237,13 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::put('/luaran-capaian-tridharma/luaran-mahasiswa/{id}', [LuaranPkmMahasiswaController::class, 'update']);
         Route::get('/luaran-capaian-tridharma/luaran-mahasiswa/{id}', [LuaranPkmMahasiswaController::class, 'destroy']);
         // End Luaran
+
+        // Simulasi
+        Route::get('/simulasi', [SimulasiPenilaianController::class, 'index']);
+        Route::post('/simulasi', [SimulasiPenilaianController::class, 'store']);
+        Route::put('/simulasi/{id}', [SimulasiPenilaianController::class, 'update']);
+        Route::delete('/simulasi/{id}', [SimulasiPenilaianController::class, 'destroy']);
+        // End Simulasi
 
     });
 
