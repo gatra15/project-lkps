@@ -46,7 +46,7 @@
 
                     <div class="input-group input-group-sm mb-3">
                         <label class="kanan"> Alamat </label>
-                        <input type="text" name="prodi" class="form-control lebar" >
+                        <input type="text" name="alamat" class="form-control lebar" >
                     </div>
                     
                     <div class="input-group input-group-sm mb-3">
@@ -61,7 +61,7 @@
                     
                     <div class="input-group input-group-sm mb-3">
                         <label class="kanan"> Nomor SK Pendirian PT </label>
-                        <input type="text" name="np_sk1" class="form-control lebar"  >
+                        <input type="text" name="no_sk1" class="form-control lebar"  >
                     </div>
 
                     <div class="input-group input-group-sm mb-3">
@@ -137,7 +137,7 @@
         </div>
         <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Tambah</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
         </div>
     </form>
 

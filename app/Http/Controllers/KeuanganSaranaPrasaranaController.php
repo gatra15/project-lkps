@@ -349,6 +349,7 @@ class KeuanganSaranaPrasaranaController extends Controller
           'ps_ts'       => SaranaDana::where($where)->sum('ps_ts'),
           'ps_average'  => SaranaDana::where($where)->sum('ps_average'),
         ];
+        // dd($jumlah1);
         
         $jumlah2 = [
             'ts2'         => SaranaDana::where($where2)->where($w2)->sum('unit_pengelola_ts'), 
@@ -453,7 +454,6 @@ class KeuanganSaranaPrasaranaController extends Controller
             'biaya_id' => $req->input('biaya_id'),
             'unit_pengelola_ts' => $req->input('unit_pengelola_ts2'),
             'ps_ts' => $req->input('ps_ts2'),
-            'tahun_laporan' => $tahun - 2,
             'prodi' => auth()->user()->prodi->name,
             'created_by' => auth()->user()->name,
             'created_at' => Carbon::now(),
@@ -466,7 +466,6 @@ class KeuanganSaranaPrasaranaController extends Controller
             'biaya_id' => $req->input('biaya_id'),
             'unit_pengelola_ts' => $req->input('unit_pengelola_ts1'),
             'ps_ts' => $req->input('ps_ts1'),
-            'tahun_laporan' => $tahun - 1,
             'prodi' => auth()->user()->prodi->name,
             'created_by' => auth()->user()->name,
             'created_at' => Carbon::now(),
@@ -479,7 +478,6 @@ class KeuanganSaranaPrasaranaController extends Controller
             'biaya_id' => $req->input('biaya_id'),
             'unit_pengelola_ts' => $req->input('unit_pengelola_ts'),
             'ps_ts' => $req->input('ps_ts'),
-            'tahun_laporan' => $tahun,
             'prodi' => auth()->user()->prodi->name,
             'created_by' => auth()->user()->name,
             'created_at' => Carbon::now(),
@@ -498,7 +496,6 @@ class KeuanganSaranaPrasaranaController extends Controller
             'biaya_id' => $req->input('biaya_id'),
             'unit_pengelola_ts' => null,
             'ps_ts' => null,
-            'tahun_laporan' => $tahun - 2,
             'prodi' => auth()->user()->prodi->name,
             'updated_by' => auth()->user()->name,
             'updated_at' => Carbon::now(),
@@ -511,7 +508,6 @@ class KeuanganSaranaPrasaranaController extends Controller
             'biaya_id' => $req->input('biaya_id'),
             'unit_pengelola_ts' => null,
             'ps_ts' => null,
-            'tahun_laporan' => $tahun - 1,
             'prodi' => auth()->user()->prodi->name,
             'updated_by' => auth()->user()->name,
             'updated_at' => Carbon::now(),
@@ -524,7 +520,6 @@ class KeuanganSaranaPrasaranaController extends Controller
             'biaya_id' => $req->input('biaya_id'),
             'unit_pengelola_ts' => null,
             'ps_ts' => null,
-            'tahun_laporan' => $tahun,
             'prodi' => auth()->user()->prodi->name,
             'updated_by' => auth()->user()->name,
             'updated_at' => Carbon::now(),

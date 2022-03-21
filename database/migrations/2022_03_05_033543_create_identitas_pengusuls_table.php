@@ -23,14 +23,17 @@ class CreateIdentitasPengusulsTable extends Migration
             $table->string('no_telepon');
             $table->string('email_website');
             $table->string('no_sk1');
+            $table->string('no_sk1_berkas')->nullable(true);
             $table->string('tanggal_sk_pendirian');
             $table->string('pejabat_penandatanganan');
             $table->string('no_sk2');
+            $table->string('no_sk2_berkas')->nullable(true);
             $table->string('tanggal_sk_pembukaan');
             $table->string('pejabat_pembukaan');
             $table->string('sk_pembukaan');
             $table->string('tahun_pertama');
             $table->string('peningkatan_terbaru');
+            $table->string('peningkatan_terbaru_berkas')->nullable(true);
             $table->string('nomor_sk_banpt');
             // $table->integer('jumlah_mahasiswa_ts');
             $table->string('created_by')->nullable(true);
