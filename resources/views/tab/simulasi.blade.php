@@ -61,7 +61,9 @@
                                     </p>
                                 </div> 
                             </div>
+                            @foreach ($simulasi as $sim)
                         @include('partials.simulasi.nilaitable')
+                            @endforeach
                     </div>
             
     <div class="modal fade" id="modalhitung" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">

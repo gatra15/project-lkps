@@ -1,4 +1,3 @@
-@foreach ($simulasi as $sim)
 <form method="get">
     @csrf
     <div id="print-table" class="container-fluid col-md-12 col-sm-6">
@@ -287,7 +286,7 @@
                         Tabel 1 LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" name="point_9a"  readonly readonly>
+                        <input type="number" max="4" class="form-control" name="point_9a" readonly>
                     </div>
                     </td>
                     <td>
@@ -2183,4 +2182,3 @@
 </div>
 </div>
 </form>
-@endforeach
