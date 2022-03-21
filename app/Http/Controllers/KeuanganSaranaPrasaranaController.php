@@ -16,9 +16,6 @@ class KeuanganSaranaPrasaranaController extends Controller
     {
         $tahun = session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
-        $where = ['sarana_id' => 1, 'sarana_id' => 2];
-        $where2 = ['sarana_id' => 3, 'sarana_id' => 4];
-        $where3 = ['sarana_id' => 5, 'sarana_id' => 6];
 
         $tahun = session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
@@ -340,36 +337,36 @@ class KeuanganSaranaPrasaranaController extends Controller
         // $keuangan = SaranaDana::with('sarana', 'biaya')->get();
         // ddd($keuangan);
         $jumlah1 = [
-          'ts2'         => SaranaDana::where($where)->where($w2)->sum('unit_pengelola_ts'), 
-          'ts1'         => SaranaDana::where($where)->where($w1)->sum('unit_pengelola_ts'), 
-          'ts'          => SaranaDana::where($where)->sum('unit_pengelola_ts'), 
-          'average'     => SaranaDana::where($where)->sum('unit_pengelola_average'), 
-          'ps_ts2'      => SaranaDana::where($where)->where($w2)->sum('ps_ts'), 
-          'ps_ts1'      => SaranaDana::where($where)->where($w1)->sum('ps_ts'), 
-          'ps_ts'       => SaranaDana::where($where)->sum('ps_ts'),
-          'ps_average'  => SaranaDana::where($where)->sum('ps_average'),
+          'ts2'         => SaranaDana::where('sarana_id', 1)->orWhere('sarana_id', 2)->where($w2)->sum('unit_pengelola_ts'), 
+          'ts1'         => SaranaDana::where('sarana_id', 1)->orWhere('sarana_id', 2)->sum('unit_pengelola_ts'), 
+          'ts'          => SaranaDana::where('sarana_id', 1)->orWhere('sarana_id', 2)->sum('unit_pengelola_ts'), 
+          'average'     => SaranaDana::where('sarana_id', 1)->orWhere('sarana_id', 2)->sum('unit_pengelola_average'), 
+          'ps_ts2'      => SaranaDana::where('sarana_id', 1)->orWhere('sarana_id', 2)->where($w2)->sum('ps_ts'), 
+          'ps_ts1'      => SaranaDana::where('sarana_id', 1)->orWhere('sarana_id', 2)->where($w1)->sum('ps_ts'), 
+          'ps_ts'       => SaranaDana::where('sarana_id', 1)->orWhere('sarana_id', 2)->sum('ps_ts'),
+          'ps_average'  => SaranaDana::where('sarana_id', 1)->orWhere('sarana_id', 2)->sum('ps_average'),
         ];
         // dd($jumlah1);
         
         $jumlah2 = [
-            'ts2'         => SaranaDana::where($where2)->where($w2)->sum('unit_pengelola_ts'), 
-            'ts1'         => SaranaDana::where($where2)->where($w1)->sum('unit_pengelola_ts'), 
-            'ts'          => SaranaDana::where($where2)->sum('unit_pengelola_ts'), 
-            'average'     => SaranaDana::where($where2)->sum('unit_pengelola_average'), 
-            'ps_ts2'      => SaranaDana::where($where2)->where($w2)->sum('ps_ts'), 
-            'ps_ts1'      => SaranaDana::where($where2)->where($w1)->sum('ps_ts'), 
-            'ps_ts'       => SaranaDana::where($where2)->sum('ps_ts'),
-            'ps_average'  => SaranaDana::where($where2)->sum('ps_average'),
+            'ts2'         => SaranaDana::where('sarana_id', 3)->orWhere('sarana_id', 4)->where($w2)->sum('unit_pengelola_ts'), 
+            'ts1'         => SaranaDana::where('sarana_id', 3)->orWhere('sarana_id', 4)->where($w1)->sum('unit_pengelola_ts'), 
+            'ts'          => SaranaDana::where('sarana_id', 3)->orWhere('sarana_id', 4)->sum('unit_pengelola_ts'), 
+            'average'     => SaranaDana::where('sarana_id', 3)->orWhere('sarana_id', 4)->sum('unit_pengelola_average'), 
+            'ps_ts2'      => SaranaDana::where('sarana_id', 3)->orWhere('sarana_id', 4)->where($w2)->sum('ps_ts'), 
+            'ps_ts1'      => SaranaDana::where('sarana_id', 3)->orWhere('sarana_id', 4)->where($w1)->sum('ps_ts'), 
+            'ps_ts'       => SaranaDana::where('sarana_id', 3)->orWhere('sarana_id', 4)->sum('ps_ts'),
+            'ps_average'  => SaranaDana::where('sarana_id', 3)->orWhere('sarana_id', 4)->sum('ps_average'),
         ];
         $jumlah3 = [
-            'ts2'         => SaranaDana::where($where3)->where($w2)->sum('unit_pengelola_ts'), 
-            'ts1'         => SaranaDana::where($where3)->where($w1)->sum('unit_pengelola_ts'), 
-            'ts'          => SaranaDana::where($where3)->sum('unit_pengelola_ts'), 
-            'average'     => SaranaDana::where($where3)->sum('unit_pengelola_average'), 
-            'ps_ts2'      => SaranaDana::where($where3)->where($w2)->sum('ps_ts'), 
-            'ps_ts1'      => SaranaDana::where($where3)->where($w1)->sum('ps_ts'), 
-            'ps_ts'       => SaranaDana::where($where3)->sum('ps_ts'),
-            'ps_average'  => SaranaDana::where($where3)->sum('ps_average'),
+            'ts2'         => SaranaDana::where('sarana_id', 4)->orWhere('sarana_id', 5)->where($w2)->sum('unit_pengelola_ts'), 
+            'ts1'         => SaranaDana::where('sarana_id', 4)->orWhere('sarana_id', 5)->where($w1)->sum('unit_pengelola_ts'), 
+            'ts'          => SaranaDana::where('sarana_id', 4)->orWhere('sarana_id', 5)->sum('unit_pengelola_ts'), 
+            'average'     => SaranaDana::where('sarana_id', 4)->orWhere('sarana_id', 5)->sum('unit_pengelola_average'), 
+            'ps_ts2'      => SaranaDana::where('sarana_id', 4)->orWhere('sarana_id', 5)->where($w2)->sum('ps_ts'), 
+            'ps_ts1'      => SaranaDana::where('sarana_id', 4)->orWhere('sarana_id', 5)->where($w1)->sum('ps_ts'), 
+            'ps_ts'       => SaranaDana::where('sarana_id', 4)->orWhere('sarana_id', 5)->sum('ps_ts'),
+            'ps_average'  => SaranaDana::where('sarana_id', 4)->orWhere('sarana_id', 5)->sum('ps_average'),
         ];
         $total = [
             'ts2'         => $jumlah1['ts2'] +  $jumlah2['ts2'] +  $jumlah3['ts2'],
@@ -437,6 +434,9 @@ class KeuanganSaranaPrasaranaController extends Controller
     public function update(Request $req, $year, $sarana, $biaya)
     {
         // dd($req);
+
+        $unit_average = ($req->unit_pengelola_ts2 + $req->unit_pengelola_ts1 + $req->unit_pengelola_ts)/3;
+        $ps_average = ($req->ps_ts2 + $req->ps_ts1 + $req->ps_ts)/3;
         $tahun = session('tahun_laporan');
         $req->validate([
            'unit_pengelola_ts2',
@@ -477,7 +477,9 @@ class KeuanganSaranaPrasaranaController extends Controller
             'sarana_id' => $req->input('sarana_id'),
             'biaya_id' => $req->input('biaya_id'),
             'unit_pengelola_ts' => $req->input('unit_pengelola_ts'),
+            'unit_pengelola_average' => $unit_average,    
             'ps_ts' => $req->input('ps_ts'),
+            'ps_average' => $ps_average,
             'prodi' => auth()->user()->prodi->name,
             'created_by' => auth()->user()->name,
             'created_at' => Carbon::now(),
