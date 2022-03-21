@@ -5,11 +5,11 @@
             <thead class="text-center" >
                 <tr >
                     <th width="1%">No</th>
-                    <th width="10%">Elemen</th>
-                    <th width="15%">Indikator</th>
+                    <th width="15%">Elemen</th>
+                    <th width="20%">Indikator</th>
                     <th width="5%">Nilai</th>
-                    <th width="5%">Nilai Final
-                    </th>
+                    {{-- <th width="5%">Nilai Final
+                    </th> --}}
                 </tr>
         
             </thead>
@@ -26,11 +26,11 @@
                         <input type="number" max="4" class="form-control" value="" name="point_1" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_1_akhir" value="point_1_akhir" readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 2 --}}
@@ -51,14 +51,14 @@
                         di bidang keilmuannya.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" value="" name="point_2" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_2_akhir" value="point_2_akhir" readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 3 --}}
@@ -81,14 +81,14 @@
                         yang dikelolanya</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" value="" name="point_3" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_3_akhir" value="point_3_akhir" readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
                     
                 {{-- POINT 4 --}}
@@ -102,14 +102,14 @@
                         UPPS.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" value="" name="point_4" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_4_akhir" value="point_4_akhir" readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 5 --}}
@@ -126,14 +126,14 @@
                         ditindaklanjuti.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" value="" name="point_5" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_5_akhir" value="point_5_akhir" readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 6 --}}
@@ -155,14 +155,14 @@
                         organisasi.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" value="" name="point_6a" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" value="point_6a_akhir" name="point_6a_akhir" readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 <tr>
@@ -179,14 +179,14 @@
                         Skor = (A + (2 x B)) / 3</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" min="1" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" min="1" class="form-control" value="point_6b"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_6b_akhir" value="point_6b_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
                 
                 {{-- POINT 7 --}}
@@ -200,14 +200,14 @@
                         UPPS.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" min="2" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" min="2" class="form-control" name="point_7a"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4"  class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4"  class="form-control" name="point_7a_akhir" value="point_7a_akhir" readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
                 <tr>
                     <td>B. Kapabilitas pimpinan
@@ -225,11 +225,8 @@
                         Skor = (A + (2 x B)) / 3</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" min="1" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" min="1" class="form-control" name="point_7b"  required>
                     </div>
-                    </td>
-                    <td>
-
                     </td>
                 </tr>
 
@@ -266,18 +263,18 @@
                         kerjasama dan hasilnya.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" min="1" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" min="1" class="form-control" name="point_8"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control"name="point_8_akhir" value="point_8_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 9 --}}
-                <tr>
+                {{-- <tr>
                     <td rowspan="2">9</td>
                     <td rowspan="2"></td>
                     <td>A. Kerjasama
@@ -288,12 +285,12 @@
                         Tabel 1 LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required readonly>
+                        <input type="number" max="4" class="form-control" name="point_9a"  required readonly>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_9a_akhir" value="point_9a_akhir"  readonly>
                         </div>
                     </td>
                 </tr>
@@ -309,13 +306,13 @@
                         Skor = ((2 x A) + B) / 3</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required readonly>
+                        <input type="number" max="4" class="form-control" name="point_9b" required readonly>
                     </div>
                     </td>
                     <td>
 
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 10 --}}
                 <tr>
@@ -334,14 +331,14 @@
                         tiap kriteria.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_10"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_10_akhir" value="point_10_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
                 
                 {{-- POINT 11 --}}
@@ -374,14 +371,14 @@
                         dilakukan.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_11" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_11_akhir" value="point_11_akhir" readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 12 --}}
@@ -415,14 +412,14 @@
                         peningkatan mutu.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_12"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_12_akhir" value="point_12_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 13 --}}
@@ -472,18 +469,18 @@
                         dosen dan mahasiswa.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_13"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_13_akhir" value="point_13_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 14 --}}
-                <tr>
+                {{-- <tr>
                     <td>14</td>
                     <td> <b>C.3. Mahasiswa</b>  <br>
                         C.3.4. Indikator
@@ -495,18 +492,18 @@
                         Tabel 2.a LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required readonly>
+                        <input type="number" max="4" class="form-control" name="point_14"  required readonly>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_14_akhir" value="point_14_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 15 --}}
-                <tr>
+                {{-- <tr>
                     <td rowspan="2">15</td>
                     <td rowspan="2">C.3.4.b) Daya
                         Tarik Program
@@ -516,12 +513,12 @@
                         Tabel 2.a LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_15a"  required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_15a_akhir" value="point_15a_akhir"  readonly>
                         </div>
                     </td>
                 </tr>
@@ -532,15 +529,15 @@
                         Skor = ((2 x A) + B) / 3</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_15b" required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_15b_akhir" value="point_15b_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 16 --}}
                 <tr>
@@ -561,14 +558,14 @@
                         kewirausahaan.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_16a" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control"name="point_16a_akhir" value="point_16a_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
                 <tr>
                     <td>B. Akses dan mutu
@@ -577,18 +574,18 @@
                         Skor = (A + (2 x B)) / 3.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_16b" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_16b_akhir" value="point_16b_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 17 --}}
-                <tr>
+                {{-- <tr>
                     <td>17</td>
                     <td> <b>C.4. Sumber
                         Daya Manusia</b> <br>
@@ -601,18 +598,18 @@
                         Tabel 3.a.1) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_17"  required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_17_akhir" value="point_17_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 18 --}}
-                <tr>
+                {{-- <tr>
                     <td>18</td>
                     <td></td>
                     <td>Kualifikasi akademik
@@ -620,15 +617,15 @@
                         Tabel 3.a.1) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_18" required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_18_akhir" value="point_18_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 19 --}}
                 <tr>
@@ -639,18 +636,18 @@
                         Tabel 3.a.1) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_19"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_19_akhir" value="point_19_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 20 --}}
-                <tr>
+                {{-- <tr>
                     <td>20</td>
                     <td></td>
                     <td>Rasio jumlah
@@ -661,18 +658,18 @@
                         Tabel 3.a.1) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_20"  required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_20_akhir" value="point_20_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 21 --}}
-                <tr>
+                {{-- <tr>
                     <td>21</td>
                     <td></td>
                     <td>Penugasan DTPS
@@ -682,15 +679,15 @@
                         Tabel 3.a.2) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_21" required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_21_akhir" value="point_21_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 22 --}}
                 <tr>
@@ -701,36 +698,36 @@
                         Tabel 3.a.3) LKPS </td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_22"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_22_akhir" value="point_22_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 23 --}}
-                <tr>
+                {{-- <tr>
                     <td>23</td>
                     <td></td>
                     <td>Dosen tidak tetap. <br> <br>
                         Tabel 3.a.4) LKPS </td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_23" required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_23_akhir" value="point_23_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 24 --}}
-                <tr>
+                {{-- <tr>
                     <td>24</td>
                     <td>C.4.4.b) Kinerja
                         Dosen</td>
@@ -741,18 +738,18 @@
                         Tabel 3.b.1) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_24"  required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_24_akhir" value="point_24_akhir" readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 25 --}}
-                <tr>
+                {{-- <tr>
                     <td>25</td>
                     <td></td>
                     <td>Kesesuaian Visi, Misi,
@@ -766,18 +763,18 @@
                         yang dikelolanya</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_25"  required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_25_akhir" value="point_25_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 26 --}}
-                <tr>
+                {{-- <tr>
                     <td>26</td>
                     <td></td>
                     <td>Kegiatan PkM DTPS
@@ -787,18 +784,18 @@
                         Tabel 3.b.3) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_26"  required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_26_akhir" value="point_26_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 27 --}}
-                <tr>
+                {{-- <tr>
                     <td>27</td>
                     <td> </td>
                     <td>Publikasi ilmiah dengan
@@ -810,18 +807,18 @@
                         Tabel 3.b.4) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_27"  required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_27_akhir" value="point_27_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 28 --}}
-                <tr>
+                {{-- <tr>
                     <td>28</td>
                     <td></td>
                     <td>Artikel karya ilmiah
@@ -830,18 +827,18 @@
                         Tabel 3.b.5) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_28"  required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_28_akhir" value="point_28_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 29 --}}
-                <tr>
+                {{-- <tr>
                     <td>29</td>
                     <td> </td>
                     <td>Luaran penelitian dan
@@ -851,15 +848,15 @@
                         Tabel 3.b.7) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_29"  required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_29_akhir" value="point_29_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 30 --}}
                 <tr>
@@ -874,14 +871,14 @@
                         maka Skor = 4.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_30" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_30_akhir" value="point_30_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 31 --}}
@@ -912,14 +909,14 @@
                         kependidikan.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_31a" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_31a_akhir" value="point_31a_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 <tr>
@@ -933,18 +930,18 @@
                         Skor = (A + B) / 2</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_31b" value="point_3_akhir"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_31b_akhir" value="point_31b_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 32 --}}
-                <tr>
+                {{-- <tr>
                     <td>32</td>
                     <td><b>C.5. Keuangan,
                         Sarana dan
@@ -957,36 +954,36 @@
                         Tabel 4 LKPS</td>
                         <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_32" required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_32_akhir" value="point_32_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 33 --}}
-                <tr>
+                {{-- <tr>
                     <td>33</td>
                     <td></td>
                     <td>Dana penelitian DTPS. <br> <br>
                         Tabel 4 LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_33"  required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_33_akhir" value="point_33_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 34 --}}
-                <tr>
+                {{-- <tr>
                     <td>34</td>
                     <td></td>
                     <td> Dana pengabdian
@@ -995,15 +992,15 @@
                         Tabel 4 LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_34"  required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_34_akhir" value="point_34_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 35 --}}
                 <tr>
@@ -1022,14 +1019,14 @@
                         ini = 4.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_35"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_35_akhir" value="point_35_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 36 --}}
@@ -1041,14 +1038,14 @@
                         capaian pembelajaran</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_36" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_36_akhir" value="point_36_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 37 --}}
@@ -1065,14 +1062,14 @@
                         suasana akademik</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_37"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_37_akhir" value="point_37_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 38 --}}
@@ -1089,14 +1086,14 @@
                         kurikulum</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_38a"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_38a_akhir" value="point_38a_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
                 <tr>
                     <td>B. Kesesuaian capaian
@@ -1105,14 +1102,14 @@
                         jenjang KKNI/SKKNI.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_38b" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_38b_akhir" value="point_38b_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
                 <tr>
                     <td>C. Ketepatan struktur
@@ -1123,14 +1120,14 @@
                         x C)) / 5</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_38c"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_38c_akhir" value="point_38c_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 39 --}}
@@ -1151,14 +1148,14 @@
                         mahasiswa</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_39"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_39_akhir" value="point_39_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 40 --}}
@@ -1173,14 +1170,14 @@
                         semester (RPS)</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_40a"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_40a_akhir" value="point_40a_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
                 <tr>
                     <td>B. Kedalaman dan
@@ -1190,14 +1187,14 @@
                         Skor = (A + (2 x B)) / 3</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_40b"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_40b_akhir" value="point_40b_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 41 --}}
@@ -1213,14 +1210,14 @@
                         belajar</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_41a"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_41a_akhir" value="point_41a_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
                 <tr>
                     <td>B. Pemantauan
@@ -1229,14 +1226,14 @@
                         pembelajaran</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_41b"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_41b_akhir" value="point_41b_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
                 <tr>
                     <td>C. Proses pembelajaran
@@ -1267,14 +1264,14 @@
                         transparan.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_41c" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_41c_akhir" value="point_41c_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
                 <tr>
                     <td>D. Proses pembelajaran
@@ -1304,14 +1301,14 @@
                         transparan.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_41d"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_41d_akhir" value="point_41d_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
                 <tr>
                     <td>E. Kesesuaian metode
@@ -1327,14 +1324,14 @@
                         9</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_41e"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_41e_akhir" value="point_41e_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 42 --}}
@@ -1350,14 +1347,14 @@
                         Tabel 5.a LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_42" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_42_akhir" value="point_42_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 43 --}}
@@ -1380,14 +1377,14 @@
                         pembelajaran lulusan.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_43" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_43_akhir" value="point_43_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 44 --}}
@@ -1413,14 +1410,14 @@
                         terintegrasi.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_44a" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_44a_akhir" value="point_44a_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
                 <tr>
                     <td>B. Pelaksanaan
@@ -1445,14 +1442,14 @@
                     </td>
                 <td>
                 <div class="input-group input-group-sm">
-                    <input type="number" max="4" class="form-control" value="" name="#" required>
+                    <input type="number" max="4" class="form-control" name="point_44b" required>
                 </div>
                 </td>
-                <td>
+                {{-- <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                        <input type="number" max="4" class="form-control" name="point_44b_akhir" value="point_44b_akhir"  readonly>
                     </div>
-                </td>
+                </td> --}}
             </tr>
             <tr>
                 <td>C. Pelaksanaan
@@ -1495,14 +1492,14 @@
                     x C)) / 5</td>
                 <td>
                 <div class="input-group input-group-sm">
-                    <input type="number" max="4" class="form-control" value="" name="#" required>
+                    <input type="number" max="4" class="form-control" name="point_44c"  required>
                 </div>
                 </td>
-                <td>
+                {{-- <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                        <input type="number" max="4" class="form-control" name="point_44c_akhir" value="point_44c_akhir" readonly>
                     </div>
-                </td>
+                </td> --}}
             </tr>
 
                 {{-- POINT 45 --}}
@@ -1517,14 +1514,14 @@
                         Tabel 5.b LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_45"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_45_akhir" value="point_45_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 46 --}}
@@ -1546,14 +1543,14 @@
                         ilmiah, bedah buku.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_46"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_46_akhir" value="point_46_akhir" readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 47 --}}
@@ -1567,14 +1564,14 @@
                         Tabel 5.c LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_47a" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_47a_akhir" value="point_47a_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
                 <tr>
                     <td>B. Analisis dan tindak
@@ -1584,14 +1581,14 @@
                         Skor = (A + (2 x B)) / 3</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_47b"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_47b_akhir" value="point_47b_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 48 --}}
@@ -1629,14 +1626,14 @@
                         keilmuan program studi.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_48" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_48_akhir" value="point_48_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 49 --}}
@@ -1653,14 +1650,14 @@
                         Tabel 6.a LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_49"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_49_akhir" value="point_49_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 50 --}}
@@ -1698,14 +1695,14 @@
                         keilmuan program studi.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_50"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_50_akhir" value="point_50_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 51 --}}
@@ -1722,14 +1719,14 @@
                         Tabel 7 LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_51"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_51_akhir" value="point_51_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 52 --}}
@@ -1759,14 +1756,14 @@
                         tahun terakhir.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_52" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_52_akhir" value="point_52_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 53 --}}
@@ -1780,14 +1777,14 @@
                         Tabel 8.a LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_53" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_53_akhir" value="point_53_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 54 --}}
@@ -1800,14 +1797,14 @@
                         Tabel 8.b.1) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_54"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_54_akhir" value="point_54_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 55 --}}
@@ -1820,14 +1817,14 @@
                         Tabel 8.b.2) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_55"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_55_akhir" value="point_55_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 56 --}}
@@ -1840,14 +1837,14 @@
                         Tabel 8.c LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_56"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_56_akhir" value="point_56_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 57 --}}
@@ -1860,14 +1857,14 @@
                         Tabel 8.c LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_57" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_57_akhir" value="point_57_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 58 --}}
@@ -1881,14 +1878,14 @@
                      </td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_58"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_58_akhir" value="point_58_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 59 --}}
@@ -1921,18 +1918,18 @@
                     </td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_59" required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_59_akhir" value="point_59_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 60 --}}
-                <tr>
+                {{-- <tr>
                     <td>60</td>
                     <td></td>
                     <td>Waktu tunggu. <br> <br>
@@ -1944,18 +1941,18 @@
                         Tabel 8.d.1) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_60"  required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control"name="point_60_akhir" value="point_60_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 61 --}}
-                <tr>
+                {{-- <tr>
                     <td>61</td>
                     <td></td>
                     <td>Kesesuaian bidang
@@ -1969,18 +1966,18 @@
                         Tabel 8.d.2) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_61"  required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_61_akhir" value="point_61_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 62 --}}
-                <tr>
+                {{-- <tr>
                     <td>62</td>
                     <td></td>
                     <td>Tingkat dan ukuran
@@ -1988,18 +1985,18 @@
                         Tabel 8.e.1) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_62"  required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_62_akhir" value="point_62_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 63 --}}
-                <tr>
+                {{-- <tr>
                     <td>63</td>
                     <td> </td>
                     <td>Tingkat kepuasan
@@ -2007,18 +2004,18 @@
                         Tabel 8.e.2) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_63" required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_63_akhir" value="point_63_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 64 --}}
-                <tr>
+                {{-- <tr>
                     <td>64</td>
                     <td>C.9.4.b) Luaran
                         Dharma Penelitian
@@ -2034,18 +2031,18 @@
                         Tabel 8.f.1) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_64"  required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_64_akhir" value="point_64_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 65 --}}
-                <tr>
+                {{-- <tr>
                     <td>65</td>
                     <td></td>
                     <td>Luaran penelitian dan
@@ -2057,15 +2054,15 @@
                         Tabel 8.f.4) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_65"  required>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_65_akhir" value="point_65_akhir"  readonly>
                         </div>
                     </td>
-                </tr>
+                </tr> --}}
 
                 {{-- POINT 66 --}}
                 <tr>
@@ -2088,14 +2085,14 @@
                         setiap kriteria.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_66"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_66_akhir" value="point_66_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 67 --}}
@@ -2114,14 +2111,14 @@
                     </td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_67"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_67_akhir" value="point_67_akhir" readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 68 --}}
@@ -2136,14 +2133,14 @@
                         pengembangan.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_68"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_68_akhir" value="point_68_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
                 {{-- POINT 69 --}}
@@ -2160,14 +2157,14 @@
                         kerealistikan program.</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" max="4" class="form-control" value="" name="#" required>
+                        <input type="number" max="4" class="form-control" name="point_69"  required>
                     </div>
                     </td>
-                    <td>
+                    {{-- <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" value="akhir nilai" name="#" readonly>
+                            <input type="number" max="4" class="form-control" name="point_69_akhir" value="point_69_akhir"  readonly>
                         </div>
-                    </td>
+                    </td> --}}
                 </tr>
 
 
@@ -2177,9 +2174,6 @@
     
 
 <div class="modal-footer">
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalhitung">
-    Hitung Nilai
-</button>
 <button type="submit" class="btn btn-primary">Simpan</button>
 </div>
 </div>

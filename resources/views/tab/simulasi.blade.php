@@ -57,7 +57,7 @@
                         <div class="collapse" id="des1">
                                 <div class="card card-body">
                                     <p>
-                                    Isi form yang berwarna putih sesuai panduan dari PDF
+                                    Hasil Penilaian Akhir
                                     </p>
                                 </div> 
                             </div>
