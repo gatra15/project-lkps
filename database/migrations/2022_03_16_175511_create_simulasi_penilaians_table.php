@@ -193,6 +193,7 @@ class CreateSimulasiPenilaiansTable extends Migration
             $table->float('point_69_akhir');
 
             $table->integer('tahun_laporan');
+            $table->boolean('is_approved')->default(false);
             $table->string('prodi');
             $table->string('created_by')->nullable(true);
             $table->string('updated_by')->nullable(true);
