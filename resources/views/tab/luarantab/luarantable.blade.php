@@ -42,7 +42,17 @@
                 <td>{{ $data->judul }}</td>
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
-                <td>{{ $data->bukti }}</td>
+                <td>
+                    @if ($data->bukti == 'Tidak ada file yang ditambahkan' )
+                    <a class="btn btn-warning" href="{{ asset('storage/'.$data->bukti) }}"> 
+                        Belum ada File <i class="fas fa-exclamation-triangle"></i>
+                    </a>     
+                    @else
+                    <a class="btn btn-success" href="{{ asset('storage/'.$data->bukti) }}"> 
+                        File <i class="fas fa-file-archive"></i>
+                    </a>
+                    @endif
+                </td>
                 @hasrole ('perwakilan')
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
@@ -102,7 +112,17 @@
                 <td>{{ $data->judul }}</td>
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
-                <td>{{ $data->bukti }}</td>
+                <td>
+                    @if ($data->bukti == 'Tidak ada file yang ditambahkan' )
+                    <a class="btn btn-warning" href="{{ asset('storage/'.$data->bukti) }}"> 
+                        Belum ada File <i class="fas fa-exclamation-triangle"></i>
+                    </a>     
+                    @else
+                    <a class="btn btn-success" href="{{ asset('storage/'.$data->bukti) }}"> 
+                        File <i class="fas fa-file-archive"></i>
+                    </a>
+                    @endif
+                </td>
                 @hasrole ('perwakilan')
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
@@ -154,7 +174,17 @@
                 <td>{{ $data->judul }}</td>
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
-                <td>{{ $data->bukti }}</td>
+                <td>
+                    @if ($data->bukti == 'Tidak ada file yang ditambahkan' )
+                    <a class="btn btn-warning" href="{{ asset('storage/'.$data->bukti) }}"> 
+                        Belum ada File <i class="fas fa-exclamation-triangle"></i>
+                    </a>     
+                    @else
+                    <a class="btn btn-success" href="{{ asset('storage/'.$data->bukti) }}"> 
+                        File <i class="fas fa-file-archive"></i>
+                    </a>
+                    @endif
+                </td>
                 @hasrole ('perwakilan')
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
@@ -203,7 +233,17 @@
                 <td>{{ $data->judul }}</td>
                 <td>{{ $data->tahun }}</td>
                 <td>{{ $data->keterangan }}</td>
-                <td>{{ $data->bukti }}</td>
+                <td>
+                    @if ($data->bukti == 'Tidak ada file yang ditambahkan' )
+                    <a class="btn btn-warning" href="{{ asset('storage/'.$data->bukti) }}"> 
+                        Belum ada File <i class="fas fa-exclamation-triangle"></i>
+                    </a>     
+                    @else
+                    <a class="btn btn-success" href="{{ asset('storage/'.$data->bukti) }}"> 
+                        File <i class="fas fa-file-archive"></i>
+                    </a>
+                    @endif
+                </td>
                 @hasrole ('perwakilan')
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>

@@ -26,16 +26,18 @@
                     <td>{{ $tim->tanggal_pengisian }}</td>
                     <td><img width="100" height="115" src="{{ asset('storage/'.$tim->ttd) }}" alt="ttd"></td>
                     @hasrole('perwakilan')
-                    {{ $tim->id }}
                     <td class="project-actions text-right ms-1 ps-1">
-                      <ul class="action-list d-flex justify-content-center " id="action">
-                      
-                          <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaledit-{{ $tim->id }}"><i class="fas fa-edit"></i></a></li>
-                          <li>
-                              <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaldelete-{{ $tim->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                      <ul class="action-list d-flex justify-content-center" id="action">
+                        <li>
+                            <a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaledit-{{ $tim->id }}"><i class="fas fa-edit"></i></a>
+                        </li>
+                        <li>
+                            <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaldelete-{{ $tim->id }}"><i class="fas fa-trash btn-del"></i></a>
+                        </li>
+                        </ul>
+                        </td>
                       @endhasrole
-                      </ul>
-                  </td>
+                      
 
                 </tr>
                                   
@@ -51,7 +53,7 @@
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-            <h5 class="modal-title" id="modaledit">Edit Data Identitas Pengusul </h5>
+                <h5 class="modal-title" id="modaledit">Edit Data Tim Penyusun </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -60,11 +62,12 @@
             </div>
             </div>
         </div>
-          <div class="modal fade" id="modaldelete-{{ $tim->id }}" tabindex="-1" aria-labelledby="modaldelete" aria-hidden="true">
+        
+        <div class="modal fade" id="modaldelete-{{ $tim->id }}" tabindex="-1" aria-labelledby="modaldelete" aria-hidden="true">
             <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-            <h5 class="modal-title" id="modaldelete">Hapus Data Identitas Pengusul </h5>
+            <h5 class="modal-title" id="modaldelete">Hapus Data Tim Penyusun </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

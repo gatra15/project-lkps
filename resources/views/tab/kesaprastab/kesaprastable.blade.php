@@ -4,23 +4,23 @@
         <table width="90%" id='form-print' class="table text-center table-bordered ">
             <thead>
                 <tr>
-                    <th class="align-middle" scope="col" rowspan="2">NO</th>
-                    <th class="align-middle" scope="col" rowspan="2">Jenis Penggunaan</th>
-                    <th scope="col" colspan="4">Unit Pengelola Program Studi (Rp.)</th>
-                    <th scope="col" colspan="4">Program Studi (Rp.)</th>
+                    <th class="align-middle" scope="col" rowspan="2" width="2%">NO</th>
+                    <th class="align-middle" scope="col" rowspan="2" width="15%">Jenis Penggunaan</th>
+                    <th scope="col" colspan="4" width="39%">Unit Pengelola Program Studi (Rp.)</th>
+                    <th scope="col" colspan="4" width="39%">Program Studi (Rp.)</th>
                     @hasrole('perwakilan')
-                    <th class="align-middle" scope="col" rowspan="2">Opsi</th>
+                    <th class="align-middle" scope="col" rowspan="2" width="10%">Opsi</th>
                     @endhasrole
                 </tr>
                 <tr>
-                    <th scope="col">TS-2</th>
-                    <th scope="col">TS-1</th>
-                    <th scope="col">TS</th>
-                    <th scope="col">Rata-rata</th>
-                    <th scope="col">TS-2</th>
-                    <th scope="col">TS-1</th>
-                    <th scope="col">TS</th>
-                    <th scope="col">Rata-rata</th>
+                    <th scope="col" width="9%">TS-2</th>
+                    <th scope="col" width="9%">TS-1</th>
+                    <th scope="col" width="9%">TS</th>
+                    <th scope="col" width="9%">Rata-rata</th>
+                    <th scope="col" width="9%">TS-2</th>
+                    <th scope="col" width="9%">TS-1</th>
+                    <th scope="col" width="9%">TS</th>
+                    <th scope="col" width="9%">Rata-rata</th>
                 </tr>
                 
         

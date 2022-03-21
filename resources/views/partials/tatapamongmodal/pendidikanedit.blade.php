@@ -39,7 +39,7 @@
                 <div class="input-group input-group-sm mb-3">
                     <input type="file" class="form-control" name="bukti_kerjasama" id="customFile" />
                 </div>
-                <small for="">File Sebelumnya : <a href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}">{{ $indikator->bukti_kerjasama }}</a> </small>
+                <div class="form-text" style="color: red">Ganti File, Atau Kosongkan bila tidak perlu di ganti</div>
                {{-- coding modal insert akhir --}}
 
             {{-- script modal insert --}}

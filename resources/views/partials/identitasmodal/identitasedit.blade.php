@@ -43,9 +43,15 @@
                 </div>
 
                 <div class="input-group input-group-sm mb-3">
-                    <label class="kanan"> Nomor SK Pendirian PT </label>
+                    <label class="kanan"> Nomor SK Pendirian PT 1) </label>
                     <input type="text" name="no_sk1" class="form-control lebar" value="{{ $identity->no_sk1 }}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="{{-- DI ISI VALUE DARI DATA YANG ADA --}}">
                 </div>
+
+                <div class="input-group input-group-sm mb-3">
+                    <label for="lembaga" class="kanan"> File SK Pendirian PT 1)</label>
+                    <input type="file" class="form-control lebar" name="no_sk1_berkas" id="customFile" />
+                </div>
+                <div class="form-text" style="color: red">Ganti File, Atau Kosongkan bila tidak perlu di ganti</div>
 
                 <div class="input-group input-group-sm mb-3">
                     <label class="kanan"> Tanggal SK Pendirian PT </label>
@@ -58,9 +64,15 @@
                 </div>
 
                 <div class="input-group input-group-sm mb-3">
-                    <label class="kanan"> Nomor SK Pembukaan PS </label>
+                    <label class="kanan"> Nomor SK Pembukaan PS 2) </label>
                     <input type="text" name="no_sk2" class="form-control lebar" value="{{ $identity->no_sk2 }}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="{{-- DI ISI VALUE DARI DATA YANG ADA --}}">
                 </div>
+
+                <div class="input-group input-group-sm mb-3">
+                    <label for="lembaga" class="kanan"> File SK Pembukaan PS 2)</label>
+                    <input type="file" class="form-control lebar" name="no_sk2_berkas" id="customFile" />
+                </div>
+                <div class="form-text" style="color: red">Ganti File, Atau Kosongkan bila tidak perlu di ganti</div>
 
                 <div class="input-group input-group-sm mb-3">
                     <label class="kanan"> Tanggal SK Pembukaan PS </label>
@@ -82,9 +94,15 @@
                 </div>
 
                 <div class="input-group input-group-sm mb-3">
-                    <label class="kanan"> Akreditasi PS </label>
+                    <label class="kanan"> Akreditasi PS 3) </label>
                     <input type="text" name="peningkatan_terbaru" class="form-control lebar" value="{{ $identity->peningkatan_terbaru }}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" placeholder="{{-- DI ISI VALUE DARI DATA YANG ADA --}}">
                 </div>
+
+                <div class="input-group input-group-sm mb-3">
+                    <label for="lembaga" class="kanan"> File Akreditasi PS 3)</label>
+                    <input type="file" class="form-control lebar" name="peningkatan_terbaru_berkas" id="customFile" />
+                </div>
+                <div class="form-text" style="color: red">Ganti File, Atau Kosongkan bila tidak perlu di ganti</div>
 
                 <div class="input-group input-group-sm mb-3">
                     <label class="kanan"> Nomor SK BAN-PT </label>

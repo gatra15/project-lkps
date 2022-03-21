@@ -70,7 +70,6 @@
 
 
 {{-- AKHIR CONTENT --}}
-{{ $ts }}
 @foreach ($ts_all as $data)
      
         <!-- Modal Edit -->

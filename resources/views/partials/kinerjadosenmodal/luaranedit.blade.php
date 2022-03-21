@@ -34,6 +34,7 @@
                 <div class="input-group input-group-sm mb-3">
                 <input type="file" name="bukti" value="{{--  --}}" class="form-control" id="customFile" required>
                 </div>
+                <div class="form-text" style="color: red">Ganti File, Atau Kosongkan bila tidak perlu di ganti</div>
                 
 
                {{-- coding modal insert akhir --}}

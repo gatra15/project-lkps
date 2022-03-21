@@ -2,6 +2,7 @@
     @method('put')
     @csrf
     <div class="modal-body">
+        
         <input type="hidden" name="id" class="form-control" value="">
             
             <div class="input-group input-group-sm mb-3">
@@ -27,7 +28,7 @@
             </div>
             <div class="input-group input-group-sm mb-3 mt-4">
                 <label class="kanan"> File Tanda Tangan  </label>
-                <input type="file" name="ttd" class="form-control lebar" id="customFile" required>
+                <input type="file" name="ttd" class="form-control lebar" id="customFile" >
             </div>
 
         </div>

@@ -39,30 +39,29 @@ class TataPamongController extends Controller
 
 
 
-    public function generate()
-    {
-        $tahun = session('tahun_laporan');
-        $kerjasama = IndikatorTataKerjasama::where('tahun_laporan', $tahun)->get();
-        $jmlpendidikan = $kerjasama->where('tridharma', 'Pendidikan')->count();
-        $jmlpenelitian = $kerjasama->where('tridharma', 'Penelitian')->count();
-        $jmlpkm = $kerjasama->where('tridharma', 'Pengabdian Kepada Masyarakat')->count();
+    // public function generate()
+    // {
+    //     $tahun = session('tahun_laporan');
+    //     $kerjasama = IndikatorTataKerjasama::where('tahun_laporan', $tahun)->get();
+    //     $jmlpendidikan = $kerjasama->where('tridharma', 'Pendidikan')->count();
+    //     $jmlpenelitian = $kerjasama->where('tridharma', 'Penelitian')->count();
+    //     $jmlpkm = $kerjasama->where('tridharma', 'Pengabdian Kepada Masyarakat')->count();
 
-        $pdf = PDF::loadView('tab.tatapamongtab.tatapamongtable',[
-            'title' => 'Tata Pamong',
-            'kerjasama' => $kerjasama,
-            'jmlpendidikan' => $jmlpendidikan,
-            'jmlpenelitian' => $jmlpenelitian,
-            'jmlpkm' => $jmlpkm,
-        ])->setPaper('a4','landscape')->setWarnings(false)->save('tatakerjasama.pdf');
+    //     $pdf = PDF::loadView('tab.tatapamongtab.tatapamongtable',[
+    //         'title' => 'Tata Pamong',
+    //         'kerjasama' => $kerjasama,
+    //         'jmlpendidikan' => $jmlpendidikan,
+    //         'jmlpenelitian' => $jmlpenelitian,
+    //         'jmlpkm' => $jmlpkm,
+    //     ])->setPaper('a4','landscape')->setWarnings(false)->save('tatakerjasama.pdf');
 
 
-        return $pdf->stream('tatakerjasama.pdf');
+    //     return $pdf->stream('tatakerjasama.pdf');
 
-    }
+    // }
 
     public function store(Request $request)
     {
-        dd($request);
         
         $connection = 'mysql';
         
