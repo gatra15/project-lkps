@@ -287,16 +287,12 @@
                         Tabel 1 LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-<<<<<<< HEAD
-                        <input type="number" max="4" class="form-control" name="point_9a"   readonly>
-=======
                         <input type="number" class="form-control" value="{{ $sim->point_9a }}" readonly>
                     </div>
                     </td>
                     <td>
                     <div class="input-group input-group-sm">
                         <input type="number" class="form-control" value="{{ $sim->point_9a_akhir }}"  readonly>
->>>>>>> 3ba56904a5658e7f1399cdd86566b83d5cd5ab20
                     </div>
                     </td>
                 </tr>
@@ -312,11 +308,7 @@
                         Skor = ((2 x A) + B) / 3</td>
                     <td>
                     <div class="input-group input-group-sm">
-<<<<<<< HEAD
-                        <input type="number" max="4" class="form-control" name="point_9b"  readonly>
-=======
                         <input type="number" class="form-control" value="{{ $sim->point_9b_akhir }}"  readonly>
->>>>>>> 3ba56904a5658e7f1399cdd86566b83d5cd5ab20
                     </div>
                     </td>
                 </tr>
@@ -1864,11 +1856,7 @@
                         Tabel 8.c LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-<<<<<<< HEAD
-                        <input type="number" max="4" class="form-control" name="point_57" >
-=======
                         <input type="number"  class="form-control" name="point_57" readonly>
->>>>>>> 3ba56904a5658e7f1399cdd86566b83d5cd5ab20
                     </div>
                     </td>
                     <td>

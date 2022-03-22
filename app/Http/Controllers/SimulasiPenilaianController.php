@@ -551,7 +551,8 @@ class SimulasiPenilaianController extends Controller
 // EWMP
     private function EWMP()
     {
-        
+        $dosenewmp = (new SdmEkuivalenWaktuMengajarPenuhDosenTetapController)->index();
+        $EWMP = $dosenewmp['average_dtps_average'];
     }
 // End EWMP
 
