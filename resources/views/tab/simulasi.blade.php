@@ -20,9 +20,9 @@
                     <li class="nav-item">
                       <a class="nav-link active" id="simulasi-tab" data-toggle="tab" href="#simulasi-{{ $sim->id }}" role="tab" aria-controls="simulasi" aria-selected="true"> Simulasi Penilaian </a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                       <a class="nav-link" id="simpan-tab" data-toggle="tab" href="#simpan" role="tab" aria-controls="simpan" aria-selected="true"> Data Penilaian </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
             {{-- End Card Header --}}
@@ -48,7 +48,7 @@
                         @include('partials.simulasi.simulasitable')
                     </div>
 
-                    <div class="tab-pane fade show" id="simpan" role="tabpanel" aria-labelledby="simpan-tab" >
+                    {{-- <div class="tab-pane fade show" id="simpan" role="tabpanel" aria-labelledby="simpan-tab" >
                         <p class="d-flex justify-content-between">
                             <a class="btn btn-primary" data-toggle="collapse" href="#des1" role="button" aria-expanded="false" aria-controls="des1">
                                     Deskripsi
@@ -61,12 +61,11 @@
                                     </p>
                                 </div> 
                             </div>
-                            @foreach ($simulasi as $sim)
                         @include('partials.simulasi.nilaitable')
-                            @endforeach
-                    </div>
+                           
+                    </div> --}}
             
-    <div class="modal fade" id="modalhitung" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">
+    <div class="modal fade" id="modalhitung-{{ $sim->id }}" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -80,7 +79,7 @@
         </div>
     </div>       
 
-    <div class="modal fade" id="modaldel" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">
+    <div class="modal fade" id="modaldel-{{ $sim->id }}" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
