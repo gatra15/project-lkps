@@ -58,7 +58,7 @@
             <tr>
                 <td><b>Jumlah</b></td>
                 <td colspan="5" class="text-left"><b>NDT : {{ $dosen['ndt'] }}</b></td>
-                <td colspan="7" class="text-left"><b>NDTS : {{ $dosen['ndts'] }}</b></td>
+                <td colspan="7" class="text-left"><b>NDTPS : {{ $dosen['ndtps'] }}</b></td>
                 <td></td>
 
             </tr>

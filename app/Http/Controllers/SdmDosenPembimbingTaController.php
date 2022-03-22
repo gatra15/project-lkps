@@ -22,9 +22,15 @@ class SdmDosenPembimbingTaController extends Controller
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
 
-        $dosenta = SdmDosenPembimbingTa::where($where);
+        $dosenta = SdmDosenPembimbingTa::where($where)->get();
+        $average1 = SdmDosenPembimbingTa::select('jumlah_ps_akreditasi_ts2', 'jumlah_ps_akreditasi_ts1', 'jumlah_ps_akreditasi_ts')->where($where)->avg();
+        $average2 = SdmDosenPembimbingTa::select('jumlah_ps_lain_ts2', 'jumlah_ps_lain_ts1', 'jumlah_ps_lain_ts')->where($where)->avg();
+        $average = ($average1 + $average2) /2;
         return [
             'dosen' => $dosenta,
+            'average1' => $average1,
+            'average2' => $average2,
+            'average' => $average,
         ];
     }
 
