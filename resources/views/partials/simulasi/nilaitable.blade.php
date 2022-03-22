@@ -86,7 +86,7 @@
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" max="4" class="form-control" name="point_3_akhir" value="{{ $sim->point_1_akhir }}" readonly>
+                            <input type="number" max="4" class="form-control" name="point_3_akhir" value="{{ $sim->point_3_akhir }}" readonly>
                         </div>
                     </td>
                 </tr>
