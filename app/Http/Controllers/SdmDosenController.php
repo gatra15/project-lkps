@@ -23,12 +23,14 @@ class SdmDosenController extends Controller
         $where2 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'kesesuaian_ps' => 1];
         $dosen = SdmDosen::where($where)->get();
         $ndt = SdmDosen::where($where1)->count();
-        $ndts = SdmDosen::where($where2)->count();
+        $ndtps = SdmDosen::where($where2)->count();
+        $nds3 = SdmDosen::where($where)->count('pendidikan_pasca_sarjana_doktor');
 
         return [
             'dosen' => $dosen,
             'ndt' => $ndt,
-            'ndts' => $ndts,
+            'ndtps' => $ndtps,
+            'nds3' => $nds3,
         ];
     }
 

@@ -287,12 +287,12 @@
                         Tabel 1 LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" class="form-control" value="{{ $sim->point_9a }}" readonly>
+                        <input type="number" class="form-control" value="{{ $sim->point_9a != null ? $sim->point_9a : $RK }}" readonly>
                     </div>
                     </td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" class="form-control" value="{{ $sim->point_9a_akhir }}"  readonly>
+                        <input type="number" class="form-control" value="{{ $sim->point_9_akhir }}"  readonly>
                     </div>
                     </td>
                 </tr>

@@ -21,9 +21,13 @@ class MahasiswaAsingController extends Controller
     {
         $tahun = (int) session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
-        $cek = MahasiswaAsing::where('tahun_laporan', $tahun)->where('prodi', $prodi)->exists();
-        $cek1 = MahasiswaAsing::where('tahun_laporan', $tahun - 1)->where('prodi', $prodi)->exists();
-        $cek2 = MahasiswaAsing::where('tahun_laporan', $tahun - 2)->where('prodi', $prodi)->exists();
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $where1 = ['tahun_laporan' => $tahun -1, 'prodi' => $prodi];
+        $where2 = ['tahun_laporan' => $tahun -2, 'prodi' => $prodi];
+
+        $cek = MahasiswaAsing::where($where)->exists();
+        $cek1 = MahasiswaAsing::where($where1)->exists();
+        $cek2 = MahasiswaAsing::where($where2)->exists();
         // dd($cek);
         if(!$cek2){
             MahasiswaAsing::create([
@@ -98,27 +102,31 @@ class MahasiswaAsingController extends Controller
         // dd($mahasiswa);
 
         // dd($mahasiswa);
-        // $aktif_ts2 = MahasiswaAsing::where($where)->sum('mahasiswa_aktif_ts_2');
-        // $aktif_ts1 = MahasiswaAsing::where($where)->sum('mahasiswa_aktif_ts_1');
-        // $aktif_ts = MahasiswaAsing::where($where)->sum('mahasiswa_aktif_ts');
-        // $full_ts2 = MahasiswaAsing::where($where)->sum('mahasiswa_asing_ft_ts_2');
-        // $full_ts1 = MahasiswaAsing::where($where)->sum('mahasiswa_asing_ft_ts_1');
-        // $full_ts = MahasiswaAsing::where($where)->sum('mahasiswa_asing_ft_ts');
-        // $part_ts2 = MahasiswaAsing::where($where)->sum('mahasiswa_asing_pt_ts_2');
-        // $part_ts1 = MahasiswaAsing::where($where)->sum('mahasiswa_asing_pt_ts_1');
-        // $part_ts = MahasiswaAsing::where($where)->sum('mahasiswa_asing_pt_ts');
+        $aktif_ts2 = MahasiswaAsing::where($where2)->sum('mahasiswa_aktif_ts');
+        $aktif_ts1 = MahasiswaAsing::where($where1)->sum('mahasiswa_aktif_ts');
+        $aktif_ts = MahasiswaAsing::where($where)->sum('mahasiswa_aktif_ts');
+        $full_ts2 = MahasiswaAsing::where($where2)->sum('mahasiswa_asing_ft_ts');
+        $full_ts1 = MahasiswaAsing::where($where1)->sum('mahasiswa_asing_ft_ts');
+        $full_ts = MahasiswaAsing::where($where)->sum('mahasiswa_asing_ft_ts');
+        $part_ts2 = MahasiswaAsing::where($where2)->sum('mahasiswa_asing_pt_ts');
+        $part_ts1 = MahasiswaAsing::where($where1)->sum('mahasiswa_asing_pt_ts');
+        $part_ts = MahasiswaAsing::where($where)->sum('mahasiswa_asing_pt_ts');
+        $jumlah = $full_ts + $full_ts1 + $full_ts2 + $part_ts + $part_ts1 + $part_ts2;
+        $jumlahMhs = $aktif_ts + $aktif_ts1 + $aktif_ts2;
 
         return [
             'mahasiswa' => $mahasiswa,
-            // 'aktif_ts2' => $aktif_ts2,
-            // 'aktif_ts1' => $aktif_ts1,
-            // 'aktif_ts' => $aktif_ts,
-            // 'full_ts2' => $full_ts2,
-            // 'full_ts1' => $full_ts1,
-            // 'full_ts' => $full_ts,
-            // 'part_ts2' => $part_ts2,
-            // 'part_ts1' => $part_ts1,
-            // 'part_ts' => $part_ts,
+            'aktif_ts2' => $aktif_ts2,
+            'aktif_ts1' => $aktif_ts1,
+            'aktif_ts' => $aktif_ts,
+            'full_ts2' => $full_ts2,
+            'full_ts1' => $full_ts1,
+            'full_ts' => $full_ts,
+            'part_ts2' => $part_ts2,
+            'part_ts1' => $part_ts1,
+            'part_ts' => $part_ts,
+            'jumlah' => $jumlah,
+            'jumlahMhs' => $jumlahMhs,
         ];
     }
 

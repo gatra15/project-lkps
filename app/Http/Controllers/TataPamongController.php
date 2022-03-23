@@ -24,9 +24,9 @@ class TataPamongController extends Controller
         $where3 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'tridharma' => 'Pengabdian Kepada Masyarakat'];
 
         $kerjasama = IndikatorTataKerjasama::where($where)->get();
-        $jmlpendidikan = $kerjasama->where($where1)->count();
-        $jmlpenelitian = $kerjasama->where($where2)->count();
-        $jmlpkm = $kerjasama->where($where3)->count();
+        $jmlpendidikan = IndikatorTataKerjasama::where($where1)->count();
+        $jmlpenelitian = IndikatorTataKerjasama::where($where2)->count();
+        $jmlpkm = IndikatorTataKerjasama::where($where3)->count();
 
         return view('tab.tataPamong',[
             'title' => 'Tata Pamong',
