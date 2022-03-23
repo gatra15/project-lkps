@@ -23,8 +23,10 @@ class SdmDosenPembimbingTaController extends Controller
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
 
         $dosenta = SdmDosenPembimbingTa::where($where)->get();
-        $average1 = SdmDosenPembimbingTa::select('jumlah_ps_akreditasi_ts2', 'jumlah_ps_akreditasi_ts1', 'jumlah_ps_akreditasi_ts')->where($where)->avg();
-        $average2 = SdmDosenPembimbingTa::select('jumlah_ps_lain_ts2', 'jumlah_ps_lain_ts1', 'jumlah_ps_lain_ts')->where($where)->avg();
+        $average1 = SdmDosenPembimbingTa::where($where)->sum('jumlah_ps_akreditasi_ts2', 'jumlah_ps_akreditasi_ts1', 'jumlah_ps_akreditasi_ts');
+        $average1 = $average1 / 3;
+        $average2 = SdmDosenPembimbingTa::where($where)->sum('jumlah_ps_lain_ts2', 'jumlah_ps_lain_ts1', 'jumlah_ps_lain_ts');
+        $average2 = $average2 / 3;
         $average = ($average1 + $average2) /2;
         return [
             'dosen' => $dosenta,

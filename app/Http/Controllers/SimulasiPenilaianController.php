@@ -63,6 +63,12 @@ class SimulasiPenilaianController extends Controller
             'title' => 'Simulasi',
             'RK' => $RK,
             'PMA' => $PMA,
+            'Rasio' => $Rasio,
+            'NDTPS' => $NDTPS,
+            'PDS3' => $PDS3,
+            'RMD' => $RMD,
+            'RDPU' => $RDPU,
+            'EWMP' => $EWMP,
         ]);
     }
 
