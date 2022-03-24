@@ -65,64 +65,7 @@ class TsSeeder extends Seeder
             'prodi' => 'Teknik Industri',
         ]);
 
-        // Efektifitas
-        // EfektifitasProduktifitasPendidikan::create([
-        //     'tahun_id' => 4,
-        //     'tahun_laporan' => 2016,
-        //     'prodi' => 'Teknik Industri',
-        // ]);
-        // EfektifitasProduktifitasPendidikan::create([
-        //     'tahun_id' => 5,
-        //     'tahun_laporan' => 2017,
-        //     'prodi' => 'Teknik Industri',
-        // ]);
-        // EfektifitasProduktifitasPendidikan::create([
-        //     'tahun_id' => 6,
-        //     'tahun_laporan' => 2018,
-        //     'prodi' => 'Teknik Industri',
-        // ]);
-        // EfektifitasProduktifitasPendidikan::create([
-        //     'tahun_id' => 7,
-        //     'tahun_laporan' => 2019,
-        //     'prodi' => 'Teknik Industri',
-        // ]);
-        // EfektifitasProduktifitasPendidikan::create([
-        //     'tahun_id' => 8,
-        //     'tahun_laporan' => 2020,
-        //     'prodi' => 'Teknik Industri',
-        // ]);
-
-        // capaian pembelajara
-        // CapaianPembelajaran::create([
-            
-        //     'tahun_laporan' => 2022,
-        //     'prodi' => 'Teknik Industri',
-        // ]);
-        // CapaianPembelajaran::create([
-        //     'tahun_laporan' => 2022,
-        //     'prodi' => 'Teknik Industri',
-        // ]);
-        // CapaianPembelajaran::create([
-        //     'tahun_laporan' => 2020,
-        //     'prodi' => 'Teknik Industri',
-        // ]);
-
-        // Daya saing
-        // WaktuTungguLulusan::create([
-        //     'tahun_id' => 3,
-        //     'tahun_laporan' => 2022,
-        //     'prodi' => 'Teknik Industri',
-        // ]);
-        // WaktuTungguLulusan::create([
-        //     'tahun_id' => 4,
-        //     'tahun_laporan' => 2022,
-        //     'prodi' => 'Teknik Industri',
-        // ]);
-        // WaktuTungguLulusan::create([
-        //     'tahun_id' => 5,
-        //     'tahun_laporan' => 2022,
-        //     'prodi' => 'Teknik Industri',
-        // ]);
+        
         KesesuaianBidangKerja::create([
 
             'tahun_laporan' => 2022,

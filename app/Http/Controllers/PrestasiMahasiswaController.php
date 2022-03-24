@@ -18,21 +18,36 @@ class PrestasiMahasiswaController extends Controller
     {
         $tahun = session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
-        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
-        $where1 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'tingkat' => 'Lokal/Wilayah'];
-        $where2 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'tingkat' => 'Nasional'];
-        $where3 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'tingkat' => 'Internasional'];
+        $w = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $w1 = ['tahun_laporan' => $tahun-1, 'prodi' => $prodi];
+        $w2 = ['tahun_laporan' => $tahun-2, 'prodi' => $prodi];
+        $where1 = ['tingkat' => 'Lokal/Wilayah'];
+        $where2 = ['tingkat' => 'Nasional'];
+        $where3 = ['tingkat' => 'Internasional'];
 
-        $prestasi = PrestasiMahasiswa::where($where)->get();
-        $wilayah = PrestasiMahasiswa::where($where1)->count();
-        $nasional = PrestasiMahasiswa::where($where2)->count();
-        $internasional = PrestasiMahasiswa::where($where3)->count();
+        $prestasi = PrestasiMahasiswa::where($w)->get();
+        $wilayah = PrestasiMahasiswa::where($w)->where($where1)->count();
+        $nasional = PrestasiMahasiswa::where($w)->where($where2)->count();
+        $internasional = PrestasiMahasiswa::where($w)->where($where3)->count();
+
+        $akademik = [
+            'wilayah' => PrestasiMahasiswa::where($w)->where($where1)->where('jenis_prestasi', 'Akademik')->count(),
+            'nasional' => PrestasiMahasiswa::where($w)->where($where2)->where('jenis_prestasi', 'Akademik')->count(),
+            'internasional' => PrestasiMahasiswa::where($w)->where($where3)->where('jenis_prestasi', 'Akademik')->count(),
+        ];
+        $nonakademik = [
+            'wilayah' => PrestasiMahasiswa::where($w)->where($where1)->where('jenis_prestasi', 'Non Akademik')->count(),
+            'nasional' => PrestasiMahasiswa::where($w)->where($where2)->where('jenis_prestasi', 'Non Akademik')->count(),
+            'internasional' => PrestasiMahasiswa::where($w)->where($where3)->where('jenis_prestasi', 'Non Akademik')->count(),
+        ];
 
         return [
             'prestasi' => $prestasi,
             'wilayah' => $wilayah,
             'nasional' => $nasional,
             'internasional' => $internasional,
+            'akademik' => $akademik,
+            'nonakademik' => $nonakademik,
         ];
     }
 

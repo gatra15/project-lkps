@@ -47,7 +47,11 @@ class CapaianPembelajaranController extends Controller
         ];
 
         $capaian = CapaianPembelajaran::where($where)->get();
-        return ['capaian' => $capaian];
+        $ripk = CapaianPembelajaran::where($where)->sum('ipk_avg');
+        return [
+            'capaian' => $capaian,
+            'ripk' => $ripk,
+        ];
     }
 
     /**

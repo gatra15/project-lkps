@@ -14,14 +14,18 @@ class PengabdianController extends Controller
         $tahun = session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $where1 = ['tahun_laporan' => $tahun-1, 'prodi' => $prodi];
+        $where2 = ['tahun_laporan' => $tahun-2, 'prodi' => $prodi];
 
         $pengabdian = PkmDtps::where($where)->get();
         // dd($pengabdian);
         $jumlah_judul = PkmDtps::select('judul_kegiatan')->where($where)->count();
+        $NPkm = PkmDtps::where($where)->orWhere($where1)->orWhere($where2)->count('judul_kegiatan');
         return view('tab.pkm', [
             'title' => 'Pkm',
             'pengabdian' => $pengabdian,
             'jumlah_judul' => $jumlah_judul,
+            'npkm' => $NPkm,
         ]);
     }
 

@@ -17,7 +17,7 @@ class KepuasanPenggunaController extends Controller
     public function index()
     {
         $tahun = session('tahun_laporan');
-       
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
 
         $cek = KepuasanPengguna::with('kemampuan')->where('tahun_laporan', $tahun)->exists();
 
@@ -64,12 +64,63 @@ class KepuasanPenggunaController extends Controller
         $baik = KepuasanPengguna::where('tahun_laporan', $tahun)->sum('baik');
         $cukup = KepuasanPengguna::where('tahun_laporan', $tahun)->sum('cukup');
         $kurang = KepuasanPengguna::where('tahun_laporan', $tahun)->sum('kurang');
+        $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+
+        $tkp1 = [
+            'a1' => KepuasanPengguna::where($where)->where('kemampuan_id', 1)->sum('sangat_baik'),
+            'b1' => KepuasanPengguna::where($where)->where('kemampuan_id', 1)->sum('baik'),
+            'c1' => KepuasanPengguna::where($where)->where('kemampuan_id', 1)->sum('cukup'),
+            'd1' => KepuasanPengguna::where($where)->where('kemampuan_id', 1)->sum('kurang')
+        ];
+        $tkp2 = [
+            'a2' => KepuasanPengguna::where($where)->where('kemampuan_id', 2)->sum('sangat_baik'),
+            'b2' => KepuasanPengguna::where($where)->where('kemampuan_id', 2)->sum('baik'),
+            'c2' => KepuasanPengguna::where($where)->where('kemampuan_id', 2)->sum('cukup'),
+            'd2' => KepuasanPengguna::where($where)->where('kemampuan_id', 2)->sum('kurang')
+        ];
+        $tkp3 = [
+            'a3' => KepuasanPengguna::where($where)->where('kemampuan_id', 3)->sum('sangat_baik'),
+            'b3' => KepuasanPengguna::where($where)->where('kemampuan_id', 3)->sum('baik'),
+            'c3' => KepuasanPengguna::where($where)->where('kemampuan_id', 3)->sum('cukup'),
+            'd3' => KepuasanPengguna::where($where)->where('kemampuan_id', 3)->sum('kurang')
+        ];
+        $tkp4 = [
+            'a4' => KepuasanPengguna::where($where)->where('kemampuan_id', 4)->sum('sangat_baik'),
+            'b4' => KepuasanPengguna::where($where)->where('kemampuan_id', 4)->sum('baik'),
+            'c4' => KepuasanPengguna::where($where)->where('kemampuan_id', 4)->sum('cukup'),
+            'd4' => KepuasanPengguna::where($where)->where('kemampuan_id', 4)->sum('kurang')
+        ];
+        $tkp5 = [
+            'a5' => KepuasanPengguna::where($where)->where('kemampuan_id', 5)->sum('sangat_baik'),
+            'b5' => KepuasanPengguna::where($where)->where('kemampuan_id', 5)->sum('baik'),
+            'c5' => KepuasanPengguna::where($where)->where('kemampuan_id', 5)->sum('cukup'),
+            'd5' => KepuasanPengguna::where($where)->where('kemampuan_id', 5)->sum('kurang')
+        ];
+        $tkp6 = [
+            'a6' => KepuasanPengguna::where($where)->where('kemampuan_id', 6)->sum('sangat_baik'),
+            'b6' => KepuasanPengguna::where($where)->where('kemampuan_id', 6)->sum('baik'),
+            'c6' => KepuasanPengguna::where($where)->where('kemampuan_id', 6)->sum('cukup'),
+            'd6' => KepuasanPengguna::where($where)->where('kemampuan_id', 6)->sum('kurang')
+        ];
+        $tkp7 = [
+            'a7' => KepuasanPengguna::where($where)->where('kemampuan_id', 7)->sum('sangat_baik'),
+            'b7' => KepuasanPengguna::where($where)->where('kemampuan_id', 7)->sum('baik'),
+            'c7' => KepuasanPengguna::where($where)->where('kemampuan_id', 7)->sum('cukup'),
+            'd7' => KepuasanPengguna::where($where)->where('kemampuan_id', 7)->sum('kurang')
+        ];
         return [
             'kepuasan' => $kepuasan,
             'sangat_baik' => $sangat_baik,
             'baik' => $baik,
             'cukup' => $cukup,
             'kurang' => $kurang,
+            'tkp1' => $tkp1,
+            'tkp2' => $tkp2,
+            'tkp3' => $tkp3,
+            'tkp4' => $tkp4,
+            'tkp5' => $tkp5,
+            'tkp6' => $tkp6,
+            'tkp7' => $tkp7,
         ];
     }
 

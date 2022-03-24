@@ -72,12 +72,43 @@ class EfektifitasProduktifitasPendidikanController extends Controller
 
         $ts_all = EfektifitasProduktifitasPendidikan::where($where)->get();
         $ts3 = EfektifitasProduktifitasPendidikan::where($where3)->get();
+        $average6 = EfektifitasProduktifitasPendidikan::where($where6)->sum('average');
+        $jumlah6 = EfektifitasProduktifitasPendidikan::where($where6)->sum('jumlah');
+        $average5 = EfektifitasProduktifitasPendidikan::where($where5)->sum('average');
+        $jumlah5 = EfektifitasProduktifitasPendidikan::where($where5)->sum('jumlah');
+        $average4 = EfektifitasProduktifitasPendidikan::where($where4)->sum('average');
+        $jumlah4 = EfektifitasProduktifitasPendidikan::where($where4)->sum('jumlah');
+        $average3 = EfektifitasProduktifitasPendidikan::where($where3)->sum('average');
+        $jumlah3 = EfektifitasProduktifitasPendidikan::where($where3)->sum('jumlah');
+        $jumlah = EfektifitasProduktifitasPendidikan::where($where)->sum('jumlah');
+
+        $jumlah_mahasiswa = EfektifitasProduktifitasPendidikan::where($where)->sum('jumlah_mahasiswa');
+        $sumts3 = EfektifitasProduktifitasPendidikan::where($where)->sum('ts3');
+        $sumts2 = EfektifitasProduktifitasPendidikan::where($where)->sum('ts2');
+        $sumts1 = EfektifitasProduktifitasPendidikan::where($where)->sum('ts1');
+        $sumts = EfektifitasProduktifitasPendidikan::where($where)->sum('ts');
+        $totalts = $sumts3 + $sumts2 + $sumts1 + $sumts; 
         // $ts4 = EfektifitasProduktifitasPendidikan::with('tahun')->where($where4)->get();
         // $ts5 = EfektifitasProduktifitasPendidikan::with('tahun')->where($where5)->get();
         // $ts6 = EfektifitasProduktifitasPendidikan::with('tahun')->where($where6)->get();
         return [
             'data' => $ts_all,
             'ts3' => $ts3,
+            'average6' => $average6,
+            'jumlah6' => $jumlah6,
+            'average5' => $average5,
+            'jumlah5' => $jumlah5,
+            'average4' => $average4,
+            'jumlah4' => $jumlah4,
+            'average3' => $average3,
+            'jumlah3' => $jumlah3,
+            'jumlah' => $jumlah,
+            'jumlah_mahasiswa' => $jumlah_mahasiswa,
+            'sumts3' => $sumts3,
+            'sumts2' => $sumts2,
+            'sumts1' => $sumts1,
+            'sumts' => $sumts,
+            'totalts' => $totalts,
             // 'ts4' => $ts4,
             // 'ts5' => $ts5,
             // 'ts6' => $ts6,
