@@ -77,7 +77,7 @@
         </div>
     </div>       
 
-    <div class="modal fade" id="modaldel-{{ $sim->id }}" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">
+    {{-- <div class="modal fade" id="modaldel-{{ $sim->id }}" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -89,7 +89,7 @@
             @include('partials.simulasi.kosongkan')
         </div>
         </div>
-    </div>       
+    </div>        --}}
     @endforeach
 
     </div>
