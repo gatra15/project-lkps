@@ -328,6 +328,18 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
         $jumlah_ts1 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where1)->sum('jumlah_ts');
         $jumlah_ts = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->sum('jumlah_ts');
         $jumlah = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->sum('jumlah');
+
+        $na1 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->where('media_id', 1)->sum('jumlah');
+        $na2 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->where('media_id', 2)->sum('jumlah');
+        $na3 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->where('media_id', 3)->sum('jumlah');
+        $na4 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->where('media_id', 4)->sum('jumlah');
+        $nb1 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->where('media_id', 5)->sum('jumlah');
+        $nb2 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->where('media_id', 6)->sum('jumlah');
+        $nb3 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->where('media_id', 7)->sum('jumlah');
+        $nc1 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->where('media_id', 8)->sum('jumlah');
+        $nc2 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->where('media_id', 9)->sum('jumlah');
+        $nc3 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->where('media_id', 10)->sum('jumlah');
+
         return [
         // TS
             'ts_all' => $ts_all,
@@ -374,6 +386,16 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
             'jumlah_ts1' => $jumlah_ts1,
             'jumlah_ts' => $jumlah_ts,
             'jumlah' => $jumlah,
+            'na1' => $na1,
+            'na2' => $na2,
+            'na3' => $na3,
+            'na4' => $na4,
+            'nb1' => $nb1,
+            'nb2' => $nb2,
+            'nb3' => $nb3,
+            'nc1' => $nc1,
+            'nc2' => $nc2,
+            'nc3' => $nc3,
         ];
     }
 

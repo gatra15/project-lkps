@@ -119,6 +119,10 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
         $ts1_sumber3 = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where1)->where('sumber_id', 3)->get();
         $ts2_sumber3 = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where2)->where('sumber_id', 3)->get();
 
+        $NI = SdmKinerjaDosenPenelitianDtps::where($where)->where('sumber_id', 3)->sum('jumlah');
+        $NN = SdmKinerjaDosenPenelitianDtps::where($where)->where('sumber_id', 2)->sum('jumlah');
+        $NL = SdmKinerjaDosenPenelitianDtps::where($where)->where('sumber_id', 1)->sum('jumlah');
+
         $jumlah_ts2 = SdmKinerjaDosenPenelitianDtps::where($where2)->sum('jumlah_ts');
         $jumlah_ts1 = SdmKinerjaDosenPenelitianDtps::where($where1)->sum('jumlah_ts');
         $jumlah_ts = SdmKinerjaDosenPenelitianDtps::where($where)->sum('jumlah_ts');
@@ -138,6 +142,9 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
             'jumlah_ts1' => $jumlah_ts1,
             'jumlah_ts' => $jumlah_ts,
             'jumlah' => $jumlah,
+            'NI' => $NI,
+            'NN' => $NN,
+            'NL' => $NL,
         ];
     }
 

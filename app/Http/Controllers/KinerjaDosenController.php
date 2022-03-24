@@ -25,8 +25,11 @@ class KinerjaDosenController extends Controller
         $tahun = session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $where1 = ['tahun_laporan' => $tahun-1, 'prodi' => $prodi];
+        $where2 = ['tahun_laporan' => $tahun-2, 'prodi' => $prodi];
 
         $pengakuan = SdmKinerjaDosenPengakuanDtps::where($where)->get();
+        $nrd = SdmKinerjaDosenPkmDtps::select('nama')->where($where)->orWhere($where1)->orWhere($where2)->count();
         $luaran = (new SdmKinerjaDosenLuaranPkmDtpsController)->index();
         $sumberdaya = Sumberdaya::where($where);
         $mediapublikasi = MediaPublikasi::where($where);
@@ -64,7 +67,8 @@ class KinerjaDosenController extends Controller
             'countWilayah' => $countWilayah,
             'countNasional' => $countNasional,
             'countInternasional' => $countInternasional,
-            'sumPengakuan' => $sumPengakuan
+            'sumPengakuan' => $sumPengakuan,
+            'nrd' => $nrd,
         ]);
     }
 
@@ -115,26 +119,28 @@ class KinerjaDosenController extends Controller
 
     public function update(Request $req, $id)
     {
+        // dd($req);
         $tahun = session('tahun_laporan');
         $this->validate($req, [
             'nama' => 'required',
             'bidang_keahlian' => 'required',
-            'bukti_pendukung' => 'file|max:10240',
             'tingkat' => 'required',
+            // 'bukti_pendukung' => 'file|max: 10240',
             'tahun' => 'required',
         ]);
 
+        $pengakuan = SdmKinerjaDosenPengakuanDtps::find($id);
+        $pengakuan->nama = $req->input('nama');
+        $pengakuan->bidang_keahlian = $req->input('bidang_keahlian');
         if($req->file('bukti_pendukung')) {
             $filenameWithExt = $req->file('bukti_pendukung')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             $extension = $req->file('bukti_pendukung')->getClientOriginalExtension();
             $fileSave = $filename.'.'.$extension;
-        }
+            $pengakuan->bukti_pendukung = $req->file('bukti_pendukung')->storeAs('bukti-pendukung', $fileSave);
+        } else {
 
-        $pengakuan = SdmKinerjaDosenPengakuanDtps::find($id);
-        $pengakuan->nama = $req->input('nama');
-        $pengakuan->bidang_keahlian = $req->input('bidang_keahlian');
-        $pengakuan->bukti_pendukung = $req->file('bukti_pendukung')->storeAs('bukti-pendukung', $fileSave);
+        }
         $pengakuan->tingkat = $req->input('tingkat');
         $pengakuan->tahun = $req->input('tahun');
         $pengakuan->tahun_laporan = $tahun;

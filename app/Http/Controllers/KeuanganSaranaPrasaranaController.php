@@ -46,6 +46,7 @@ class KeuanganSaranaPrasaranaController extends Controller
             SaranaDana::create([
                 'sarana_id' => 1,
                 'biaya_id' => 1,
+                'code' => 'A',
                 'tahun_laporan' => $tahun - 2,
                 'prodi' => $prodi
             ]);
@@ -54,6 +55,7 @@ class KeuanganSaranaPrasaranaController extends Controller
             SaranaDana::create([
                 'sarana_id' => 1,
                 'biaya_id' => 1,
+                'code' => 'A',
                 'tahun_laporan' => $tahun - 1,
                 'prodi' => $prodi
             ]);
@@ -62,6 +64,7 @@ class KeuanganSaranaPrasaranaController extends Controller
             SaranaDana::create([
                 'sarana_id' => 1,
                 'biaya_id' => 1,
+                'code' => 'A',
                 'tahun_laporan' => $tahun,
                 'prodi' => $prodi
             ]);
@@ -72,6 +75,7 @@ class KeuanganSaranaPrasaranaController extends Controller
             SaranaDana::create([
                 'sarana_id' => 1,
                 'biaya_id' => 2,
+                'code' => 'B',
                 'tahun_laporan' => $tahun - 2,
                 'prodi' => $prodi
             ]);
@@ -80,6 +84,7 @@ class KeuanganSaranaPrasaranaController extends Controller
             SaranaDana::create([
                 'sarana_id' => 1,
                 'biaya_id' => 2,
+                'code' => 'B',
                 'tahun_laporan' => $tahun - 1,
                 'prodi' => $prodi
             ]);
@@ -88,6 +93,7 @@ class KeuanganSaranaPrasaranaController extends Controller
             SaranaDana::create([
                 'sarana_id' => 1,
                 'biaya_id' => 2,
+                'code' => 'B',
                 'tahun_laporan' => $tahun,
                 'prodi' => $prodi
             ]);
@@ -98,6 +104,7 @@ class KeuanganSaranaPrasaranaController extends Controller
             SaranaDana::create([
                 'sarana_id' => 1,
                 'biaya_id' => 3,
+                'code' => 'C',
                 'tahun_laporan' => $tahun - 2,
                 'prodi' => $prodi
             ]);
@@ -106,6 +113,7 @@ class KeuanganSaranaPrasaranaController extends Controller
             SaranaDana::create([
                 'sarana_id' => 1,
                 'biaya_id' => 3,
+                'code' => 'C',
                 'tahun_laporan' => $tahun - 1,
                 'prodi' => $prodi
             ]);
@@ -114,6 +122,7 @@ class KeuanganSaranaPrasaranaController extends Controller
             SaranaDana::create([
                 'sarana_id' => 1,
                 'biaya_id' => 3,
+                'code' => 'C',
                 'tahun_laporan' => $tahun,
                 'prodi' => $prodi
             ]);
@@ -124,6 +133,7 @@ class KeuanganSaranaPrasaranaController extends Controller
             SaranaDana::create([
                 'sarana_id' => 1,
                 'biaya_id' => 4,
+                'code' => 'D',
                 'tahun_laporan' => $tahun - 2,
                 'prodi' => $prodi
             ]);
@@ -132,6 +142,7 @@ class KeuanganSaranaPrasaranaController extends Controller
             SaranaDana::create([
                 'sarana_id' => 1,
                 'biaya_id' => 4,
+                'code' => 'D',
                 'tahun_laporan' => $tahun - 1,
                 'prodi' => $prodi
             ]);
@@ -140,6 +151,7 @@ class KeuanganSaranaPrasaranaController extends Controller
             SaranaDana::create([
                 'sarana_id' => 1,
                 'biaya_id' => 4,
+                'code' => 'D',
                 'tahun_laporan' => $tahun,
                 'prodi' => $prodi
             ]);
@@ -149,6 +161,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if(!($cek2 && $sarana2)){
             SaranaDana::create([
                 'sarana_id' => 2,
+                'code' => 'E',
                 'tahun_laporan' => $tahun - 2,
                 'prodi' => $prodi
             ]);
@@ -156,6 +169,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if (!($cek1 && $sarana2)) {
             SaranaDana::create([
                 'sarana_id' => 2,
+                'code' => 'E',
                 'tahun_laporan' => $tahun - 1,
                 'prodi' => $prodi
             ]);
@@ -163,6 +177,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if (!($cek && $sarana2)) {
             SaranaDana::create([
                 'sarana_id' => 2,
+                'code' => 'E',
                 'tahun_laporan' => $tahun,
                 'prodi' => $prodi
             ]);
@@ -172,6 +187,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if(!($cek2 && $sarana3)){
             SaranaDana::create([
                 'sarana_id' => 3,
+                'code' => 'E',
                 'tahun_laporan' => $tahun - 2,
                 'prodi' => $prodi
             ]);
@@ -179,6 +195,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if (!($cek1 && $sarana3)) {
             SaranaDana::create([
                 'sarana_id' => 3,
+                'code' => 'E',
                 'tahun_laporan' => $tahun - 1,
                 'prodi' => $prodi
             ]);
@@ -186,6 +203,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if (!($cek && $sarana3)) {
             SaranaDana::create([
                 'sarana_id' => 3,
+                'code' => 'E',
                 'tahun_laporan' => $tahun,
                 'prodi' => $prodi
             ]);
@@ -195,6 +213,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if(!($cek2 && $sarana4)){
             SaranaDana::create([
                 'sarana_id' => 4,
+                'code' => 'F',
                 'tahun_laporan' => $tahun - 2,
                 'prodi' => $prodi
             ]);
@@ -202,6 +221,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if (!($cek1 && $sarana4)) {
             SaranaDana::create([
                 'sarana_id' => 4,
+                'code' => 'F',
                 'tahun_laporan' => $tahun - 1,
                 'prodi' => $prodi
             ]);
@@ -209,6 +229,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if (!($cek && $sarana4)) {
             SaranaDana::create([
                 'sarana_id' => 4,
+                'code' => 'F',
                 'tahun_laporan' => $tahun,
                 'prodi' => $prodi
             ]);
@@ -218,6 +239,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if(!($cek2 && $sarana5)){
             SaranaDana::create([
                 'sarana_id' => 5,
+                'code' => 'G',
                 'tahun_laporan' => $tahun - 2,
                 'prodi' => $prodi
             ]);
@@ -225,6 +247,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if (!($cek1 && $sarana5)) {
             SaranaDana::create([
                 'sarana_id' => 5,
+                'code' => 'G',
                 'tahun_laporan' => $tahun - 1,
                 'prodi' => $prodi
             ]);
@@ -232,6 +255,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if (!($cek && $sarana5)) {
             SaranaDana::create([
                 'sarana_id' => 5,
+                'code' => 'G',
                 'tahun_laporan' => $tahun,
                 'prodi' => $prodi
             ]);
@@ -241,6 +265,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if(!($cek2 && $sarana6)){
             SaranaDana::create([
                 'sarana_id' => 6,
+                'code' => 'H',
                 'tahun_laporan' => $tahun - 2,
                 'prodi' => $prodi
             ]);
@@ -248,6 +273,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if (!($cek1 && $sarana6)) {
             SaranaDana::create([
                 'sarana_id' => 6,
+                'code' => 'H',
                 'tahun_laporan' => $tahun - 1,
                 'prodi' => $prodi
             ]);
@@ -255,6 +281,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if (!($cek && $sarana6)) {
             SaranaDana::create([
                 'sarana_id' => 6,
+                'code' => 'H',
                 'tahun_laporan' => $tahun,
                 'prodi' => $prodi
             ]);
@@ -263,6 +290,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if(!($cek2 && $sarana7)){
             SaranaDana::create([
                 'sarana_id' => 7,
+                'code' => 'I',
                 'tahun_laporan' => $tahun - 2,
                 'prodi' => $prodi
             ]);
@@ -270,6 +298,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if (!($cek1 && $sarana7)) {
             SaranaDana::create([
                 'sarana_id' => 7,
+                'code' => 'I',
                 'tahun_laporan' => $tahun - 1,
                 'prodi' => $prodi
             ]);
@@ -277,6 +306,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         if (!($cek && $sarana7)) {
             SaranaDana::create([
                 'sarana_id' => 7,
+                'code' => 'I',
                 'tahun_laporan' => $tahun,
                 'prodi' => $prodi
             ]);
@@ -378,6 +408,9 @@ class KeuanganSaranaPrasaranaController extends Controller
             'ps_ts'       => $jumlah1['ps_ts'] +  $jumlah2['ps_ts'] +  $jumlah3['ps_ts'],
             'ps_average'  => $jumlah1['ps_average'] +  $jumlah2['ps_average'] +  $jumlah3['ps_average'],
         ];
+        $dop = $jumlah1['average'] + $jumlah1['ps_average'];
+        $dpd = SaranaDana::where($w)->where('sarana_id', 3)->sum('unit_pengelola_average', 'ps_average');
+        $dpkmd = SaranaDana::where($w)->where('sarana_id', 4)->sum('unit_pengelola_average', 'ps_average');
 
         // ddd($keuangan);
         return view('tab.keuanganSarpras', [
@@ -428,10 +461,13 @@ class KeuanganSaranaPrasaranaController extends Controller
             'jumlah2' => $jumlah2,
             'jumlah3' => $jumlah3,
             'total' => $total,
+            'dop' => $dop,
+            'dpd' => $dpd,
+            'dpkmd' => $dpkmd,
         ]);
     }
 
-    public function update(Request $req, $year, $sarana, $biaya)
+    public function update(Request $req, $year, $sarana, $code)
     {
         // dd($req);
 
@@ -448,7 +484,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         ]);
 
         // TS-2
-        SaranaDana::where('tahun_laporan', $year - 2)->where('sarana_id', $sarana)->where('biaya_id', $biaya)
+        SaranaDana::where('tahun_laporan', $year - 2)->where('sarana_id', $sarana)->where('code', $code)
         ->update([
             'sarana_id' => $req->input('sarana_id'),
             'biaya_id' => $req->input('biaya_id'),
@@ -460,7 +496,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         ]);
 
         // TS-1
-        SaranaDana::where('tahun_laporan', $year - 1)->where('sarana_id', $sarana)->where('biaya_id', $biaya)
+        SaranaDana::where('tahun_laporan', $year - 1)->where('sarana_id', $sarana)->where('code', $code)
         ->update([
             'sarana_id' => $req->input('sarana_id'),
             'biaya_id' => $req->input('biaya_id'),
@@ -472,7 +508,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         ]);
 
         // TS-1
-        SaranaDana::where('tahun_laporan', $year)->where('sarana_id', $sarana)->where('biaya_id', $biaya)
+        SaranaDana::where('tahun_laporan', $year)->where('sarana_id', $sarana)->where('code', $code)
         ->update([
             'sarana_id' => $req->input('sarana_id'),
             'biaya_id' => $req->input('biaya_id'),
@@ -488,11 +524,11 @@ class KeuanganSaranaPrasaranaController extends Controller
         return back()->with('success', 'Data Keuangan Sarana Prasarana berhasil ditambahkan.');
     }
 
-    public function destroy(Request $req, $year, $sarana, $biaya)
+    public function destroy(Request $req, $year, $sarana, $code)
     {
         $tahun = session('tahun_laporan');
         // TS-2
-        SaranaDana::where('tahun_laporan', $year)->where('sarana_id', $sarana)->where('biaya_id', $biaya)
+        SaranaDana::where('tahun_laporan', $year - 2)->where('sarana_id', $sarana)->where('code', $code)
         ->update([
             'sarana_id' => $req->input('sarana_id'),
             'biaya_id' => $req->input('biaya_id'),
@@ -504,7 +540,7 @@ class KeuanganSaranaPrasaranaController extends Controller
         ]);
 
         // TS-1
-        SaranaDana::where('tahun_laporan', $year)->where('sarana_id', $sarana)->where('biaya_id', $biaya)
+        SaranaDana::where('tahun_laporan', $year - 1)->where('sarana_id', $sarana)->where('code', $code)
         ->update([
             'sarana_id' => $req->input('sarana_id'),
             'biaya_id' => $req->input('biaya_id'),
@@ -516,12 +552,14 @@ class KeuanganSaranaPrasaranaController extends Controller
         ]);
 
         // TS-1
-        SaranaDana::where('tahun_laporan', $year)->where('sarana_id', $sarana)->where('biaya_id', $biaya)
+        SaranaDana::where('tahun_laporan', $year)->where('sarana_id', $sarana)->where('code', $code)
         ->update([
             'sarana_id' => $req->input('sarana_id'),
             'biaya_id' => $req->input('biaya_id'),
             'unit_pengelola_ts' => null,
+            'unit_pengelola_average' => null,
             'ps_ts' => null,
+            'ps_average' => null,
             'prodi' => auth()->user()->prodi->name,
             'updated_by' => auth()->user()->name,
             'updated_at' => Carbon::now(),

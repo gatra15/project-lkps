@@ -177,8 +177,8 @@ Route::group(['middleware' => 'auth:web'], function() {
         // End Kinerja Dosen
 
         // Route to Keuangan dan Sarpras
-        Route::put('/keuangan-sarana-prasarana/{year}/{sarana}/{biaya}', [KeuanganSaranaPrasaranaController::class, 'update']);
-        Route::post('/keuangan-sarana-prasarana/{year}/{sarana}/{biaya}', [KeuanganSaranaPrasaranaController::class, 'destroy']);
+        Route::put('/keuangan-sarana-prasarana/{year}/{sarana}/{code}', [KeuanganSaranaPrasaranaController::class, 'update']);
+        Route::post('/keuangan-sarana-prasarana/{year}/{sarana}/{code}', [KeuanganSaranaPrasaranaController::class, 'destroy']);
         // End Keuangan Sarpras
 
         // Route to Pendidikan
