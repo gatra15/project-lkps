@@ -3,6 +3,9 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
             Deskripsi
         </a>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalchartmhs">
+            Chart Mahasiswa
+        </button> 
     </p>
     @can('download file')
     <a href="mahasiswa/download/excel" class="btn btn-success">Excel</a>
@@ -68,5 +71,22 @@
         </div>
     </div>
     @endforeach
+
+
+  
 </div>
 @include('layouts.table')
+
+<div class="modal fade" id="modalchartmhs" tabindex="-1" aria-labelledby=modalchartmhs aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id=modalchartmhs>Chart Mahasiswa</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        @include('partials.mahasiswamodal.chart')
+    </div>
+    </div>
+</div>

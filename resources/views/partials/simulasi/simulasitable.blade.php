@@ -715,7 +715,7 @@
                         Tabel 3.a.4) LKPS </td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_23 }}" readonly>
+                        <input type="number"  class="form-control" value="{{ $sim->point_23 != null ? $sim->point_22 : $PDTT }}" readonly>
                     </div>
                     </td>
                     <td>
@@ -737,7 +737,7 @@
                         Tabel 3.b.1) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_24 }}" readonly >
+                        <input type="number"  class="form-control" value="{{ $sim->point_24 != null ? $sim->point_24 : $RRD }}" readonly >
                     </div>
                     </td>
                     <td>
@@ -762,7 +762,7 @@
                         yang dikelolanya</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_25 }}" readonly>
+                        <input type="number"  class="form-control" value="{{ $sim->point_25 != null ? $sim->point_25 : $RI }}" readonly>
                     </div>
                     </td>
                     <td>
@@ -783,7 +783,7 @@
                         Tabel 3.b.3) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_26 }}" readonly >
+                        <input type="number"  class="form-control" value="{{ $sim->point_26 != null ? $sim->point_26 : $RIpkm  }}" readonly >
                     </div>
                     </td>
                     <td>
@@ -806,7 +806,7 @@
                         Tabel 3.b.4) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_27 }}" readonly>
+                        <input type="number"  class="form-control" value="{{ $sim->point_27 != null ? $sim->point_27 : $RW  }}" readonly>
                     </div>
                     </td>
                     <td>
@@ -826,7 +826,7 @@
                         Tabel 3.b.5) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_28 }}" readonly>
+                        <input type="number"  class="form-control" value="{{ $sim->point_28 != null ? $sim->point_28 : $RS  }}" readonly>
                     </div>
                     </td>
                     <td>
@@ -847,7 +847,7 @@
                         Tabel 3.b.7) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_29 }}" readonly >
+                        <input type="number"  class="form-control" value="{{ $sim->point_29 != null ? $sim->point_29 : $RLP  }}" readonly >
                     </div>
                     </td>
                     <td>
@@ -913,7 +913,7 @@
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number" class="form-control" value="{{ $sim->point_31a_akhir }}"  readonly>
+                            <input type="number" class="form-control" value="{{ $sim->point_31_akhir }}"  readonly>
                         </div>
                     </td>
                 </tr>
@@ -948,7 +948,7 @@
                         Tabel 4 LKPS</td>
                         <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_32 }}" readonly>
+                        <input type="number"  class="form-control" value="{{ $sim->point_32 != null ? $sim->point_32 : $DOP  }}" readonly>
                     </div>
                     </td>
                     <td>
@@ -966,7 +966,7 @@
                         Tabel 4 LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_33 }}" readonly >
+                        <input type="number"  class="form-control" value="{{ $sim->point_33 != null ? $sim->point_33 : $DPD  }}" readonly >
                     </div>
                     </td>
                     <td>
@@ -986,7 +986,7 @@
                         Tabel 4 LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_34 }}" readonly>
+                        <input type="number"  class="form-control" value="{{ $sim->point_34 != null ? $sim->point_34 : $DPD  }}" readonly>
                     </div>
                     </td>
                     <td>
@@ -1085,7 +1085,7 @@
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number"  class="form-control" value="{{ $sim->point_38a_akhir }}" readonly>
+                            <input type="number"  class="form-control" value="{{ $sim->point_38_akhir }}" readonly>
                         </div>
                     </td>
                 </tr>
@@ -1169,7 +1169,7 @@
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number"  class="form-control" value="{{ $sim->point_40a_akhir }}" readonly>
+                            <input type="number"  class="form-control" value="{{ $sim->point_40_akhir }}" readonly>
                         </div>
                     </td>
                 </tr>
@@ -1209,7 +1209,7 @@
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number"  class="form-control" value="{{ $sim->point_41a_akhir }}" readonly>
+                            <input type="number"  class="form-control" value="{{ $sim->point_41_akhir }}" readonly>
                         </div>
                     </td>
                 </tr>
@@ -1341,7 +1341,7 @@
                         Tabel 5.a LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_42 }}" readonly>
+                        <input type="number"  class="form-control" value="{{ $sim->point_42 != null ? $sim->point_42 : $PJP }}" readonly>
                     </div>
                     </td>
                     <td>
@@ -1409,7 +1409,7 @@
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number"  class="form-control" value="{{ $sim->point_44a_akhir }}"  readonly>
+                            <input type="number"  class="form-control" value="{{ $sim->point_44_akhir }}"  readonly>
                         </div>
                     </td>
                 </tr>
@@ -1558,12 +1558,12 @@
                         Tabel 5.c LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_47a }}" readonly>
+                        <input type="number"  class="form-control" value="{{ $sim->point_47a != null ? $sim->point_47a : $TKM }}" readonly>
                     </div>
                     </td>
                     <td>
                         <div class="input-group input-group-sm">
-                            <input type="number"  class="form-control" value="{{ $sim->point_47a_akhir }}"  readonly>
+                            <input type="number"  class="form-control" value="{{ $sim->point_47_akhir }}"  readonly>
                         </div>
                     </td>
                 </tr>
@@ -1644,7 +1644,7 @@
                         Tabel 6.a LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_49 }}" readonly >
+                        <input type="number"  class="form-control" value="{{ $sim->point_49 != null ? $sim->point_49 : $PPDM }}" readonly >
                     </div>
                     </td>
                     <td>
@@ -1713,7 +1713,7 @@
                         Tabel 7 LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_51 }}" readonly>
+                        <input type="number"  class="form-control" value="{{ $sim->point_51 != null ? $sim->point_51 : $PPkmDM }}" readonly>
                     </div>
                     </td>
                     <td>
@@ -1771,7 +1771,7 @@
                         Tabel 8.a LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" class="form-control" value="{{ $sim->point_53 }}" readonly>
+                        <input type="number" class="form-control" value="{{ $sim->point_53 != null ? $sim->point_53 : $RIPK }}" readonly>
                     </div>
                     </td>
                     <td>
@@ -1791,7 +1791,7 @@
                         Tabel 8.b.1) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_54 }}" readonly >
+                        <input type="number"  class="form-control" value="{{ $sim->point_54 != null ? $sim->point_54 : $RI54 }}" readonly >
                     </div>
                     </td>
                     <td>
@@ -1811,7 +1811,7 @@
                         Tabel 8.b.2) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_55 }}" readonly >
+                        <input type="number"  class="form-control" value="{{ $sim->point_56 != null ? $sim->point_56 : $RI55 }}" readonly >
                     </div>
                     </td>
                     <td>
@@ -1831,7 +1831,7 @@
                         Tabel 8.c LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_56 }}"  readonly >
+                        <input type="number"  class="form-control" value="{{ $sim->point_56 != null ? $sim->point_56 : $MS }}"  readonly >
                     </div>
                     </td>
                     <td>
@@ -1851,7 +1851,7 @@
                         Tabel 8.c LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_57 }}" readonly>
+                        <input type="number"  class="form-control" value="{{ $sim->point_57 != null ? $sim->point_57 : $PTW }}" readonly>
                     </div>
                     </td>
                     <td>
@@ -1872,7 +1872,7 @@
                      </td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" class="form-control" value="{{ $sim->point_58 }}" readonly>
+                        <input type="number" class="form-control" value="{{ $sim->point_58 != null ? $sim->point_58 : $PPS }}" readonly>
                     </div>
                     </td>
                     <td>
@@ -1935,7 +1935,7 @@
                         Tabel 8.d.1) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_60 }}" readonly>
+                        <input type="number"  class="form-control" value="{{ $sim->point_60 != null ? $sim->point_60 : $WT }}" readonly>
                     </div>
                     </td>
                     <td>
@@ -1960,7 +1960,7 @@
                         Tabel 8.d.2) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_61 }}" readonly>
+                        <input type="number"  class="form-control" value="{{ $sim->point_61 != null ? $sim->point_61 : $PBS }}" readonly>
                     </div>
                     </td>
                     <td>

@@ -30,29 +30,11 @@
             <tr>
                 <td>{{ $key == sizeof($efektifitasPrestasi['data'])-1 ? 'TS-3' : 'TS-'.(sizeof($efektifitasPrestasi['data'])+2-$key) }}</td>
                 <td>{{ $ts->jumlah_mahasiswa }}</td>
-                <td style="background-color: grey"></td>
-                <td style="background-color: grey"></td>
-                <td style="background-color: grey"></td>
-                {{-- @if ( $key=> $ts ->id == 1 )
+                <td ></td>
+                <td ></td>
+                <td ></td>
+                
                 <td>{{ $ts->ts3 }}</td>
-                @else
-                <td style="background-color: grey"></td>
-                @endif --}}
-
-                
-
-                {{-- @if ( $efektifitasPrestasi['data']->$id == 1 || $efektifitasPrestasi['data']->$id == 2 )
-                <td style="background-color: grey"></td>
-                @else
-                <td>{{ $ts->ts2 }}</td>
-                @endif
-
-                @if ( $efektifitasPrestasi['data']->$id == 1 || $efektifitasPrestasi['data']->$id == 2 )
-                <td style="background-color: grey"></td>
-                @else
-                <td>{{ $ts->ts2 }}</td>
-                @endif --}}
-                
                 <td>{{ $ts->ts2 }}</td>
                 <td>{{ $ts->ts1 }}</td>
                 <td>{{ $ts->ts }}</td>
