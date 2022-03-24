@@ -64,7 +64,7 @@
                     </div> --}}
             
     <div class="modal fade" id="modalhitung-{{ $sim->id }}" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal">
         <div class="modal-content">
             <div class="modal-header">
         <h5 class="modal-title" id="modallihat"> Hasil  </h5>
