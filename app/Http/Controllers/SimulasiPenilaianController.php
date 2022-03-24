@@ -39,8 +39,10 @@ class SimulasiPenilaianController extends Controller
         $pendaftar = Mahasiswa::where($mahasiswa)->sum('c_pendaftar');
     // End Mahasiswa
 
-    // Point 9
-        $RK = $this->RK();     
+    // Point 9a
+        $RK = $this->RK();   
+    // Point 9b
+        $NI = $this->NI();
     // Point 14
         $Rasio = $this->Rasio();
     // Point 15
@@ -55,6 +57,55 @@ class SimulasiPenilaianController extends Controller
         $RDPU = $this->RDPU();
     // Point 22
         $EWMP = $this->EWMP();
+    // Point 23
+        $PDTT = $this->PDTT();
+    // Point 24
+        $RRD = $this->RRD();
+    // Point 25
+        $RI = $this->RI();
+    // Point 26
+        $RIpkm = $this->RIpkm();
+    // Point 27
+        $RW = $this->RW();
+    // Point 28
+        $RS = $this->RS();
+    // Point 29
+        $RLP = $this->RLP();
+    // Point 32
+        $DOP = $this->DOP();
+    // Point 33
+        $DPD = $this->DPD();
+    // Point 34
+        $DPkmD = $this->DPkmD();
+    // Point 42
+        $PJP = $this->PJP();
+    // Point 45
+        $NMKI = $this->NMKI();
+    // Point 47
+        $TKM = $this->TKM();
+    // Point 49
+        $PPDM = $this->PPDM();
+    // Point 51
+        $PPkmDM = $this->PPkmDM();
+    // Point 53
+        $RIPK = $this->RIPK();
+    // Point 54
+        $RI54 = $this->RI54();
+    // Point 55
+        $RI55 = $this->RI55();
+    // POint 56
+        $MS = $this->MS();
+    // Point 57
+        $PTW = $this->PTW();
+    // Point 58
+        $PPS = $this->PPS();
+    // Point 60 
+        $WT = $this->WT();
+    // Point 61
+        $PBS = $this->PBS();
+
+        
+
 
         $simulasi = SimulasiPenilaian::where($where)->get();
         return view('tab.simulasi', [
@@ -69,6 +120,17 @@ class SimulasiPenilaianController extends Controller
             'RMD' => $RMD,
             'RDPU' => $RDPU,
             'EWMP' => $EWMP,
+            'NI' => $NI,
+            'PDTT' => $PDTT,
+            'RRD' => $RRD,
+            'RI' => $RI,
+            'RIpkm' => $RIpkm,
+            'RW' => $RW,
+            'RS' => $RS,
+            'RLP' => $RLP,
+            'DOP' => $DOP,
+            'DPD' => $DPD,
+            'DPkmD' => $DPkmD,
         ]);
     }
 
@@ -447,6 +509,34 @@ class SimulasiPenilaianController extends Controller
     }
 // End RK
 
+// NI
+    private function NI()
+    {
+        $tatapamong = (new TataPamongController)->index();
+        $a = 2; $b= 6; $c=9;
+        $NI = $tatapamong['internasional'];
+        $NN = $tatapamong['nasional'];
+        $NL = $tatapamong['lokal'];
+
+        if ($NI >= $a)
+        {
+            return 4;
+        } else if ($NI < $a && $NN >= $b)
+        {
+            return 3 + ($NI / $a);
+        } else if ($NI > 0 && $NI < $a && $NN > 0 && $NN < $b)
+        {
+            return  2 + (2 * ($NI/$a)) + ($NN/$b) - (($NI * $NN)/($a * $b));
+        } else if ($NI == 0 && $NN == 0 && $NL >= $c)
+        {
+            return 2;
+        } else 
+        {
+            return (2*$NL) / $c;
+        } 
+    }
+// End NI
+
 // PMA
     private function PMA()
     {
@@ -562,6 +652,251 @@ class SimulasiPenilaianController extends Controller
     }
 // End EWMP
 
+// PDTT
+    private function PDTT()
+    {
+        $dosen = (new SdmDosenController)->index();
+        $dosentidaktetap = (new SdmDosenTidakTetapController)->index();
+        $NDT = $dosen['ndt'];
+        $NDTT = $dosentidaktetap['ndtt'];
+        $PDTT = ($NDTT / ($NDT + $NDTT));
+
+        if($PDTT <= 0.1)
+        {
+            return 4;
+        } else if ($PDTT < 0.1 && $PDTT <= 0.4)
+        {
+            return (14 - (20 * $PDTT)) / 3;
+        } else {
+            return 0;
+        }
+    }
+// End PDTT
+
+// RRD
+    private function RRD()
+    {
+        $kinerjaDosen = (new KinerjaDosenController)->index();
+        $dosen = (new SdmDosenController)->index();
+        $NRD = $kinerjaDosen['nrd'];
+        $NDTPS = $dosen['ndtps'];
+
+        $RRD = $NRD/$NDTPS;
+
+        if($RRD >= 0.5 )
+        {
+            return 4;
+        } else
+        {
+            return 2 + (4 * $RRD);
+        }
+
+    }
+// End RRD
+
+// RI
+    private function RI()
+    {
+        $dosen = (new SdmDosenController)->index();
+        $penelitian = (new SdmKinerjaDosenPenelitianDtpsController)->index();
+        $NDTPS = $dosen['ndtps'];
+        $NI = $penelitian['ni'];
+        $NN = $penelitian['nn'];
+        $NL = $penelitian['nl'];
+        $RI =  $NI / 3 / $NDTPS;
+        $RN = $NN / 3 / $NDTPS;
+        $RL = $NL / 3 / $NDTPS;
+        $a = 0.05; $b = 0.3; $c = 1;
+
+        if ($RI >= $a)
+        {
+            return 4;
+        } else if ( $RI < $a && $RN >= $b)
+        {
+            return 3 + ($RI / $a);
+        } else if ($RI > 0 && $RI < $a && $RN > 0 && $RN < $b)
+        {
+            return 2 + (2 * ($RI/$a)) + ($RN/$b) - (($RI * $RN)/($a * $b));
+        } else if ($RI == 0 && $RN == 0 && $RL >= $c)
+        {
+            return 2;
+        } else {
+            return (2 * $RL) / $c;
+        }
+    }
+// End RI
+
+// RIpkm
+    private function RIpkm()
+    {
+        $dosen = (new SdmDosenController)->index();
+        $penelitian = (new SdmKinerjaDosenPkmDtpsController)->index();
+        $NDTPS = $dosen['ndtps'];
+        $NI = $penelitian['ni'];
+        $NN = $penelitian['nn'];
+        $NL = $penelitian['nl'];
+        $RI =  $NI / 3 / $NDTPS;
+        $RN = $NN / 3 / $NDTPS;
+        $RL = $NL / 3 / $NDTPS;
+        $a = 0.05; $b = 0.3; $c = 1;
+
+        if ($RI >= $a)
+        {
+            return 4;
+        } else if ( $RI < $a && $RN >= $b)
+        {
+            return 3 + ($RI / $a);
+        } else if ($RI > 0 && $RI < $a && $RN > 0 && $RN < $b)
+        {
+            return 2 + (2 * ($RI/$a)) + ($RN/$b) - (($RI * $RN)/($a * $b));
+        } else if ($RI == 0 && $RN == 0 && $RL >= $c)
+        {
+            return 2;
+        } else {
+            return (2 * $RL) / $c;
+        }
+    }
+// End RI
+
+// RW
+    private function RW()
+    {
+        $publikasi = (new SdmKinerjaDosenPublikasiIlmiahDtpsController)->index();
+        $NA1 = $publikasi['na1']; $NB1 = $publikasi['nb1']; $NC1 = $publikasi['nc1'];
+        $NA2 = $publikasi['na2']; $NB2 = $publikasi['nb2']; $NC2 = $publikasi['nc2'];
+        $NA3 = $publikasi['na3']; $NB3 = $publikasi['nb3']; $NC3 = $publikasi['nc3'];
+        $NA4 = $publikasi['na4'];
+        $dosen = (new SdmDosenController)->index();
+        $NDTPS = $dosen['ndtps'];
+
+        $RW = ($NA1 + $NB1 + $NC1) / $NDTPS; 
+        $RN = ($NA2 + $NA3 + $NB2 + $NC2) / $NDTPS; 
+        $RI = ($NA4 + $NB3 + $NC3) / $NDTPS;
+        $a = 0.1; $b = 1; $c = 2;
+
+        if($RI >= $a)
+        {
+            return 4;
+        } else if ($RI < $a && $RN >= $b)
+        {
+            return 3 + ($RI/$a);
+        } else if ($RI > 0 && $RI < $a && $RN > 0 && $RN < $b)
+        {
+            return 2 + (2 * ($RI/$a)) + ($RN/$b) - (($RI * $RN)/($a * $b));
+        } else if ($RI == 0 && $RN == 0 && $RW >= $c)
+        {
+            return 2;
+        } else {
+            return (2 * $RW) / $c;
+        }
+    }
+// End RW
+
+// RS
+    private function RS()
+    {
+        $karyailmiah = (new SdmKinerjaDosenKaryaIlmiahDtpsController)->index();
+        $NAS = $karyailmiah['count'];
+        $dosen = (new SdmDosenController)->index();
+        $NDTPS = $dosen['ndtps'];
+
+        $RS = $NAS / $NDTPS;
+
+        if($RS >= 0.5)
+        {
+            return 4;
+        } else
+        {
+            return 2 + (4 * $RS);
+        }
+    }
+// End RS
+
+// RLP
+    private function RLP()
+    {
+        $luaran = (new SdmKinerjaDosenLuaranPkmDtpsController)->index();
+        $NA = $luaran['na']; $NB = $luaran['nb']; $NC = $luaran['nc']; $ND = $luaran['nd'];
+        $dosen = (new SdmDosenController)->index();
+        $NDTPS = $dosen['ndtps'];
+        $RLP =  (2 * ($NA + $NB + $NC) + $ND) / $NDTPS;
+
+        if($RLP >= 1)
+        {
+            return 4;
+        } else {
+            return 2 + (2 * $RLP);
+        }
+
+    }
+// End RLP
+
+// DOP
+    private function DOP()
+    {
+        $keuangan = (new KeuanganSaranaPrasaranaController)->index();
+        $DOP = $keuangan['dop'];
+        if ($DOP >= 20)
+        {
+            return 4;
+        } else {
+            return $DOP / 5;
+        }
+    }
+// End DOP
+
+// DPD
+    private function DPD()
+    {
+        $keuangan = (new KeuanganSaranaPrasaranaController)->index();
+        $DPD = $keuangan['dpd'];
+        if($DPD >= 10)
+        {
+            return 4;
+        } else {
+            return (2 * $DPD) / 5;
+        }
+    }
+// End DPD
+
+// DPkmD
+    private function DpkmD()
+    {
+        $keuangan = (new KeuanganSaranaPrasaranaController)->index();
+        $DPkmD = $keuangan['dpkmd'];
+        if ($DPkmD >= 5)
+        {
+            return 4;
+        } else {
+            return (4 * $DPkmD) / 5;
+        }
+    }
+// End DPkmD
+
+// PJP
+    private function PJP()
+    {
+
+    }
+// End PJP
+
+// NMKI
+    private function NMKI()
+    {
+        $integrasi = (new PendidikanIntegrasiKegiatanPenelitianController)->index();
+        $NMKI = $integrasi['nmki'];
+
+        if($NMKI > 3)
+        {
+            return 4;
+        } else if ($NMKI <= 3 && $NMKI >=2 )
+        {
+            return 3;
+        } else {
+            return 2;
+        }
+    }
+// End NMKI
     /**
      * Update the specified resource in storage.
      *

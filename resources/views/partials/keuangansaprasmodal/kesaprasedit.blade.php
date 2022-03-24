@@ -1,4 +1,4 @@
-<form action="/keuangan-sarana-prasarana/{{ $data->tahun_laporan }}/{{ $data->sarana_id }}/{{ $data->biaya_id }}" method="POST">
+<form action="/keuangan-sarana-prasarana/{{ $data->tahun_laporan }}/{{ $data->sarana_id }}/{{ $data->code }}" method="POST">
     @method('put')
     @csrf
     <div class="modal-body">

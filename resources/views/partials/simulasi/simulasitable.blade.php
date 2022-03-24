@@ -308,7 +308,7 @@
                         Skor = ((2 x A) + B) / 3</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" class="form-control" value="{{ $sim->point_9b_akhir }}"  readonly>
+                        <input type="number" class="form-control" value="{{ $sim->point_9b }}"  readonly>
                     </div>
                     </td>
                 </tr>

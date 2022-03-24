@@ -1,4 +1,4 @@
-<form action="/keuangan-sarana-prasarana/{{ $data->tahun_laporan }}/{{ $data->sarana_id }}/{{ $data->biaya_id }}" method="post">
+<form action="/keuangan-sarana-prasarana/{{ $data->tahun_laporan }}/{{ $data->sarana_id }}/{{ $data->code }}" method="post">
     <div class="modal-body">
         @csrf
         <h5 class="text-center">Yakin Ingin Menghapus Data ? </h5>

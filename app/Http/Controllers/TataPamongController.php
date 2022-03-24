@@ -24,6 +24,9 @@ class TataPamongController extends Controller
         $where3 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'tridharma' => 'Pengabdian Kepada Masyarakat'];
 
         $kerjasama = IndikatorTataKerjasama::where($where)->get();
+        $internasional = IndikatorTataKerjasama::where($where)->where('tingkat', 'Internasional')->count();
+        $nasional = IndikatorTataKerjasama::where($where)->where('tingkat', 'Nasional')->count();
+        $lokal = IndikatorTataKerjasama::where($where)->where('tingkat', 'Wilayah/Lokal')->count();
         $jmlpendidikan = IndikatorTataKerjasama::where($where1)->count();
         $jmlpenelitian = IndikatorTataKerjasama::where($where2)->count();
         $jmlpkm = IndikatorTataKerjasama::where($where3)->count();
@@ -34,6 +37,9 @@ class TataPamongController extends Controller
             'jmlpendidikan' => $jmlpendidikan,
             'jmlpenelitian' => $jmlpenelitian,
             'jmlpkm' => $jmlpkm,
+            'internasional' => $internasional,
+            'nasional' => $nasional,
+            'lokal' => $lokal,
         ]);
     }
 
