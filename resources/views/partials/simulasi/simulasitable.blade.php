@@ -1771,7 +1771,7 @@
                         Tabel 8.a LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" class="form-control" value="{{ $sim->point_53 != null ? $sim->point_53 : $RIPK }}" name="point_53 readonly>
+                        <input type="number" class="form-control" value="{{ $sim->point_53 != null ? $sim->point_53 : $RIPK }}" name="point_53" readonly>
                     </div>
                     </td>
                     <td>
@@ -2172,7 +2172,9 @@
 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalhitung-{{ $sim->id }}">
     Hitung Nilai
 </button>
+
 {{-- <button type="submit" class="btn btn-danger" href="#" data-toggle="modal" data-target="#modaldel-{{ $sim->id }}">Kosongkan Data</button> --}}
+
 </div>
 </div>
 </form>
