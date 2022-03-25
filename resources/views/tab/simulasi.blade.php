@@ -46,28 +46,13 @@
                         @include('partials.simulasi.simulasitable')
                     </div>
 
-                    {{-- <div class="tab-pane fade show" id="simpan" role="tabpanel" aria-labelledby="simpan-tab" >
-                        <p class="d-flex justify-content-between">
-                            <a class="btn btn-primary" data-toggle="collapse" href="#des1" role="button" aria-expanded="false" aria-controls="des1">
-                                    Deskripsi
-                            </a>
-                        </p>
-                        <div class="collapse" id="des1">
-                                <div class="card card-body">
-                                    <p>
-                                    Hasil Penilaian Akhir
-                                    </p>
-                                </div> 
-                            </div>
-                        @include('partials.simulasi.nilaitable')
-                           
-                    </div> --}}
+                 
             
-    <div class="modal fade" id="modalhitung-{{ $sim->id }}" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">
-        <div class="modal-dialog modal">
+    <div class="modal fade" id="modalhitung-{{ $sim->id }}" tabindex="-1" aria-labelledby="modalhitung" aria-hidden="true">
+        <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-        <h5 class="modal-title" id="modallihat"> Hasil  </h5>
+        <h5 class="modal-title" id="modalhitung"> Hasil  </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -77,19 +62,7 @@
         </div>
     </div>       
 
-    {{-- <div class="modal fade" id="modaldel-{{ $sim->id }}" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-        <h5 class="modal-title" id="modallihat"> Hasil  </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            @include('partials.simulasi.kosongkan')
-        </div>
-        </div>
-    </div>        --}}
+  
     @endforeach
 
     </div>

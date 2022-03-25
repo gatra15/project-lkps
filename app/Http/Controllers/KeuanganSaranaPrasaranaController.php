@@ -469,7 +469,7 @@ class KeuanganSaranaPrasaranaController extends Controller
 
     public function update(Request $req, $year, $sarana, $code)
     {
-        dd($req);
+
 
         $unit_average = ($req->unit_pengelola_ts2 + $req->unit_pengelola_ts1 + $req->unit_pengelola_ts)/3;
         $ps_average = ($req->ps_ts2 + $req->ps_ts1 + $req->ps_ts)/3;
