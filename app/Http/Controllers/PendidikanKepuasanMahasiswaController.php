@@ -59,12 +59,49 @@ class PendidikanKepuasanMahasiswaController extends Controller
         $cukup = PendidikanKepuasanMahasiswa::where($where)->sum('cukup');
         $kurang = PendidikanKepuasanMahasiswa::where($where)->sum('kurang');
 
+        $tkm1 = [
+            'a1' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 1)->sum('sangat_baik'),
+            'b1' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 1)->sum('baik'),
+            'c1' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 1)->sum('cukup'),
+            'd1' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 1)->sum('kurang')
+        ];
+        $tkm2 = [
+            'a2' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 2)->sum('sangat_baik'),
+            'b2' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 2)->sum('baik'),
+            'c2' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 2)->sum('cukup'),
+            'd2' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 2)->sum('kurang')
+        ];
+        $tkm3 = [
+            'a3' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 3)->sum('sangat_baik'),
+            'b3' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 3)->sum('baik'),
+            'c3' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 3)->sum('cukup'),
+            'd3' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 3)->sum('kurang')
+        ];
+        $tkm4 = [
+            'a4' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 4)->sum('sangat_baik'),
+            'b4' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 4)->sum('baik'),
+            'c4' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 4)->sum('cukup'),
+            'd4' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 4)->sum('kurang')
+        ];
+        $tkm5 = [
+            'a5' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 5)->sum('sangat_baik'),
+            'b5' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 5)->sum('baik'),
+            'c5' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 5)->sum('cukup'),
+            'd5' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 5)->sum('kurang')
+        ];
+        
+
         return [
             'kepuasan' => $kepuasan,
             'sangat_baik' => $sangat_baik,
             'baik' => $baik,
             'cukup' => $cukup,
             'kurang' => $kurang,
+            'tkm1' => $tkm1,
+            'tkm2' => $tkm2,
+            'tkm3' => $tkm3,
+            'tkm4' => $tkm4,
+            'tkm5' => $tkm5,
         ];
     }
 

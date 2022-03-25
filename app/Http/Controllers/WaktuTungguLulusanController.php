@@ -49,7 +49,22 @@ class WaktuTungguLulusanController extends Controller
         ];
 
         $waktu = WaktuTungguLulusan::where($where)->get();
-        return ['waktu' => $waktu];
+        $jl4 = WaktuTungguLulusan::where($where)->where('tahun_laporan', $tahun-4)->sum('waktu_tunggu_6', 'waktu_tunggu_6_18', 'waktu_tunggu_18');
+        $jl3 = WaktuTungguLulusan::where($where)->where('tahun_laporan', $tahun-3)->sum('waktu_tunggu_6', 'waktu_tunggu_6_18', 'waktu_tunggu_18');
+        $jl2 = WaktuTungguLulusan::where($where)->where('tahun_laporan', $tahun-2)->sum('waktu_tunggu_6', 'waktu_tunggu_6_18', 'waktu_tunggu_18');
+        $jl = WaktuTungguLulusan::where($where)->sum('waktu_tunggu_6', 'waktu_tunggu_6_18', 'waktu_tunggu_18');
+        $nl = WaktuTungguLulusan::where($where)->sum('jumlah_lulusan');
+        $nj = WaktuTungguLulusan::where($where)->sum('jumlah_lulusan_terlacak');
+
+        return [
+            'waktu' => $waktu,
+            'nl' => $nl,
+            'nj' => $nj,
+            'jl' => $jl,
+            'jl4' => $jl4,
+            'jl3' => $jl3,
+            'jl2' => $jl2,
+        ];
     }
 
     /**

@@ -308,7 +308,7 @@
                         Skor = ((2 x A) + B) / 3</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" class="form-control" value="{{ $sim->point_9b }}"  readonly>
+                        <input type="number" class="form-control" value="{{ $sim->point_9b != null ? $sim->point_9b : $NI }}"  readonly>
                     </div>
                     </td>
                 </tr>
@@ -528,7 +528,7 @@
                         Skor = ((2 x A) + B) / 3</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" name="{{ $sim->point_15b != null ? $sim->point_15b : $PMA }}" readonly >
+                        <input type="number"  class="form-control" name="point_15b" value="{{ $sim->point_15b != null ? $sim->point_15b : $PMA }}" readonly >
                     </div>
                     </td>
                     {{-- <td>
@@ -678,7 +678,7 @@
                         Tabel 3.a.2) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_21 != null ? $sim->point_21 : $RDPU }}" readonly>
+                        <input type="number"  class="form-control" name="point_21" value="{{ $sim->point_21 != null ? $sim->point_21 : $RDPU }}" readonly>
                     </div>
                     </td>
                     <td>
@@ -697,7 +697,7 @@
                         Tabel 3.a.3) LKPS </td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_22 != null ? $sim->point_22 : $EWMP }}" readonly >
+                        <input type="number"  class="form-control" name="point_22" value="{{ $sim->point_22 != null ? $sim->point_22 : $EWMP }}" readonly >
                     </div>
                     </td>
                     <td>

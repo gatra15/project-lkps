@@ -22,7 +22,7 @@ class PendidikanKurikulumController extends Controller
         $makul = PendidikanKurikulum::select('mata_kuliah_kompetensial')->where($where)->count();
         $bobot_kuliah = PendidikanKurikulum::where($where)->sum('bobot_kuliah');
         $bobot_seminar = PendidikanKurikulum::where($where)->sum('bobot_seminar');
-        $bobot_praktikum = PendidikanKurikulum::where($where)->sum('bobot_praktikum');
+        $bobot_praktikum = PendidikanKurikulum::where($where)->sum('bobot_praktikum'); 
         $konversi_kredit_jam = PendidikanKurikulum::where($where)->sum('konversi_kredit_jam');
         $unit = PendidikanKurikulum::select('unit_penyelenggara')->where($where)->count();
 

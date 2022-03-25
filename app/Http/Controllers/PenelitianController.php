@@ -16,13 +16,17 @@ class PenelitianController extends Controller
         $tahun = session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $where1 = ['tahun_laporan' => $tahun-1, 'prodi' => $prodi];
+        $where2 = ['tahun_laporan' => $tahun-2, 'prodi' => $prodi];
 
         $penelitian = PenelitianDtpsMelibatkanMahasiswa::where($where)->get();
         $jumlah_judul = PenelitianDtpsMelibatkanMahasiswa::select('judul')->where($where)->count();
+        $NPM = PenelitianDtpsMelibatkanMahasiswa::where($where)->orWhere($where1)->orWhere($where2)->count('judul');
         return view('tab.penelitian', [
             'title' => 'Penelitian',
             'penelitian' => $penelitian,
             'jumlah_judul' => $jumlah_judul,
+            'npm' =>  $NPM,
         ]);
     }
 

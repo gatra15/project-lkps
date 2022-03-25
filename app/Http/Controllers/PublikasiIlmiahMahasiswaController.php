@@ -276,51 +276,62 @@ class PublikasiIlmiahMahasiswaController extends Controller
         $ts = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 1)->get();
         $ts1 = PublikasiIlmiahMahasiswa::with('media')->where($where1)->where('media_id', 1)->get();
         $ts2 = PublikasiIlmiahMahasiswa::with('media')->where($where2)->where('media_id', 1)->get();
+        $na1 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 1)->sum('jumlah');
         
     // media 2
         $ts_media2 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 2)->get();
         $ts1_media2 = PublikasiIlmiahMahasiswa::with('media')->where($where1)->where('media_id', 2)->get();
         $ts2_media2 = PublikasiIlmiahMahasiswa::with('media')->where($where2)->where('media_id', 2)->get();
+        $na2 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 2)->sum('jumlah');
 
     // media 3
         $ts_media3 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 3)->get();
         $ts1_media3 = PublikasiIlmiahMahasiswa::with('media')->where($where1)->where('media_id', 3)->get();
         $ts2_media3 = PublikasiIlmiahMahasiswa::with('media')->where($where2)->where('media_id', 3)->get();
+        $na3 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 3)->sum('jumlah');
         
     // media 4
         $ts_media4 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 4)->get();
         $ts1_media4 = PublikasiIlmiahMahasiswa::with('media')->where($where1)->where('media_id', 4)->get();
         $ts2_media4 = PublikasiIlmiahMahasiswa::with('media')->where($where2)->where('media_id', 4)->get();
+        $na4 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 4)->sum('jumlah');
 
     // media 5
         $ts_media5 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 5)->get();
         $ts1_media5 = PublikasiIlmiahMahasiswa::with('media')->where($where1)->where('media_id', 5)->get();
         $ts2_media5 = PublikasiIlmiahMahasiswa::with('media')->where($where2)->where('media_id', 5)->get();
+        $na5 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 5)->sum('jumlah');
 
     // media 6
         $ts_media6 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 6)->get();
         $ts1_media6 = PublikasiIlmiahMahasiswa::with('media')->where($where1)->where('media_id', 6)->get();
         $ts2_media6 = PublikasiIlmiahMahasiswa::with('media')->where($where2)->where('media_id', 6)->get();
+        $na6 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 6)->sum('jumlah');
 
     // media 7
         $ts_media7 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 7)->get();
         $ts1_media7 = PublikasiIlmiahMahasiswa::with('media')->where($where1)->where('media_id', 7)->get();
         $ts2_media7 = PublikasiIlmiahMahasiswa::with('media')->where($where2)->where('media_id', 7)->get();
+        $na7 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 7)->sum('jumlah');
 
     // media 8
         $ts_media8 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 8)->get();
         $ts1_media8 = PublikasiIlmiahMahasiswa::with('media')->where($where1)->where('media_id', 8)->get();
         $ts2_media8 = PublikasiIlmiahMahasiswa::with('media')->where($where2)->where('media_id', 8)->get();
+        $na8 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 8)->sum('jumlah');
 
     // media 9
         $ts_media9 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 9)->get();
         $ts1_media9 = PublikasiIlmiahMahasiswa::with('media')->where($where1)->where('media_id', 9)->get();
         $ts2_media9 = PublikasiIlmiahMahasiswa::with('media')->where($where2)->where('media_id', 9)->get();
+        $na9 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 9)->sum('jumlah');
 
     // media 10
         $ts_media10 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 10)->get();
         $ts1_media10 = PublikasiIlmiahMahasiswa::with('media')->where($where1)->where('media_id', 10)->get();
         $ts2_media10 = PublikasiIlmiahMahasiswa::with('media')->where($where2)->where('media_id', 10)->get();
+        $na10 = PublikasiIlmiahMahasiswa::with('media')->where($where)->where('media_id', 10)->sum('jumlah');
+
     // End media
 
         $jumlah_ts2 = PublikasiIlmiahMahasiswa::where($where2)->sum('jumlah_ts');
@@ -333,41 +344,52 @@ class PublikasiIlmiahMahasiswaController extends Controller
             'ts' => $ts,
             'ts1' => $ts1,
             'ts2' => $ts2,
+            'na1' => $na1,
+
             'ts_media2' => $ts_media2,
             'ts1_media2' => $ts1_media2,
             'ts2_media2' => $ts2_media2,
+            'na2' => $na2,
 
             'ts_media3' => $ts_media3,
             'ts1_media3' => $ts1_media3,
             'ts2_media3' => $ts2_media3,
+            'na3' => $na3,
 
             'ts_media4' => $ts_media4,
             'ts1_media4' => $ts1_media4,
             'ts2_media4' => $ts2_media4,
+            'na4' => $na4,
 
             'ts_media5' => $ts_media5,
             'ts1_media5' => $ts1_media5,
             'ts2_media5' => $ts2_media5,
+            'nb1' => $na5,
 
             'ts_media6' => $ts_media6,
             'ts1_media6' => $ts1_media6,
             'ts2_media6' => $ts2_media6,
+            'nb2' => $na6,
 
             'ts_media7' => $ts_media7,
             'ts1_media7' => $ts1_media7,
             'ts2_media7' => $ts2_media7,
+            'nb3' => $na7,
 
             'ts_media8' => $ts_media8,
             'ts1_media8' => $ts1_media8,
             'ts2_media8' => $ts2_media8,
+            'nc1' => $na8,
 
             'ts_media9' => $ts_media9,
             'ts1_media9' => $ts1_media9,
             'ts2_media9' => $ts2_media9,
+            'nc2' => $na9,
 
             'ts_media10' => $ts_media10,
             'ts1_media10' => $ts1_media10,
             'ts2_media10' => $ts2_media10,
+            'nc3' => $na10,
         // End TS
             'jumlah_ts2' => $jumlah_ts2,
             'jumlah_ts1' => $jumlah_ts1,
