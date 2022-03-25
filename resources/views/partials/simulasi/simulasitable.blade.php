@@ -2168,7 +2168,9 @@
     
 
 <div class="modal-footer">
+    @hasrole('perwakilan')
 <button type="submit" class="btn btn-primary">Simpan</button> 
+    @endhasrole
 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalhitung-{{ $sim->id }}">
     Hitung Nilai
 </button>
