@@ -69,21 +69,22 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
         //     'bukti' => 'file|max:4096',
         // ]);
 
-        if($req->file('bukti')) {
-            $filenameWithExt = $req->file('bukti')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $req->file('bukti')->getClientOriginalExtension();
-            $filenameSimpan = $filename.'.'.$extension;
-        } else {
-            $filenameSimpan = 'Tidak Ada File yang disisipkan';
-        }
+        
 
         $luaran = new SdmKinerjaDosenLuaranPkmDtps;
         $luaran->type_luaran = $req->input('type_luaran');
         $luaran->judul = $req->input('judul');
         $luaran->tahun = $req->input('tahun');
         $luaran->keterangan = $req->input('keterangan');
-        $luaran->bukti = $req->file('bukti')->storeAs('/bukti-kinerjaDosen', $filenameSimpan);
+        if($req->file('bukti')) {
+            $filenameWithExt = $req->file('bukti')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $req->file('bukti')->getClientOriginalExtension();
+            $filenameSimpan = $filename.'.'.$extension;
+            $luaran->bukti = $req->file('bukti')->storeAs('/bukti-kinerjaDosen', $filenameSimpan);
+
+        } else {
+        }
         $luaran->tahun_laporan = $tahun;
         $luaran->prodi = auth()->user()->prodi->name;
         $luaran->created_by = auth()->user()->name;

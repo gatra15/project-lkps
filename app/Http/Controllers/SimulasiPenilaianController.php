@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use App\Models\SimulasiPenilaian;
+use Illuminate\Support\Collection;
 use App\Models\CapaianPembelajaran;
 use App\Models\IndikatorTataKerjasama;
 use App\Http\Controllers\MahasiswaController;
@@ -120,7 +121,80 @@ class SimulasiPenilaianController extends Controller
 
 
         
-
+        // Hitung
+        $collection = new Collection([
+            ['na1' => 'point_1_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_1_akhir')],
+            ['na2' => 'point_2_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_2_akhir')],
+            ['na3' => 'point_3_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_3_akhir')],
+            ['na4' => 'point_4_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_4_akhir')],
+            ['na5' => 'point_5_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_5_akhir')],
+            ['na6' => 'point_6_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_6_akhir')],
+            ['na7' => 'point_7_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_7_akhir')],
+            ['na8' => 'point_8_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_8_akhir')],
+            ['na9' => 'point_9_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_9_akhir')],
+            ['na10' => 'point_10_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_10_akhir')],
+            ['na11' => 'point_11_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_11_akhir')],
+            ['na12' => 'point_12_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_12_akhir')],
+            ['na13' => 'point_13_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_13_akhir')],
+            ['na14' => 'point_14_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_14_akhir')],
+            ['na15' => 'point_15_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_15_akhir')],
+            ['na16' => 'point_16_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_16_akhir')],
+            ['na17' => 'point_17_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_17_akhir')],
+            ['na18' => 'point_18_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_18_akhir')],
+            ['na19' => 'point_19_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_19_akhir')],
+            ['na20' => 'point_20_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_20_akhir')],
+            ['na21' => 'point_21_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_21_akhir')],
+            ['na22' => 'point_22_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_22_akhir')],
+            ['na23' => 'point_23_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_23_akhir')],
+            ['na24' => 'point_24_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_24_akhir')],
+            ['na25' => 'point_25_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_25_akhir')],
+            ['na26' => 'point_26_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_26_akhir')],
+            ['na27' => 'point_27_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_27_akhir')],
+            ['na28' => 'point_28_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_28_akhir')],
+            ['na29' => 'point_29_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_29_akhir')],
+            ['na30' => 'point_30_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_30_akhir')],
+            ['na31' => 'point_31_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_31_akhir')],
+            ['na32' => 'point_32_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_32_akhir')],
+            ['na33' => 'point_33_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_33_akhir')],
+            ['na34' => 'point_34_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_34_akhir')],
+            ['na35' => 'point_35_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_35_akhir')],
+            ['na36' => 'point_36_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_36_akhir')],
+            ['na37' => 'point_37_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_37_akhir')],
+            ['na38' => 'point_38_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_38_akhir')],
+            ['na39' => 'point_39_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_39_akhir')],
+            ['na40' => 'point_40_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_40_akhir')],
+            ['na41' => 'point_41_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_41_akhir')],
+            ['na42' => 'point_42_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_42_akhir')],
+            ['na43' => 'point_43_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_43_akhir')],
+            ['na44' => 'point_44_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_44_akhir')],
+            ['na45' => 'point_45_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_45_akhir')],
+            ['na46' => 'point_46_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_46_akhir')],
+            ['na47' => 'point_47_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_47_akhir')],
+            ['na48' => 'point_48_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_48_akhir')],
+            ['na49' => 'point_49_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_49_akhir')],
+            ['na50' => 'point_50_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_50_akhir')],
+            ['na51' => 'point_51_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_51_akhir')],
+            ['na52' => 'point_52_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_52_akhir')],
+            ['na53' => 'point_53_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_53_akhir')],
+            ['na54' => 'point_54_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_54_akhir')],
+            ['na55' => 'point_55_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_55_akhir')],
+            ['na56' => 'point_56_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_56_akhir')],
+            ['na57' => 'point_57_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_57_akhir')],
+            ['na58' => 'point_58_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_58_akhir')],
+            ['na59' => 'point_59_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_59_akhir')],
+            ['na60' => 'point_60_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_60_akhir')],
+            ['na61' => 'point_61_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_61_akhir')],
+            ['na62' => 'point_62_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_62_akhir')],
+            ['na63' => 'point_63_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_63_akhir')],
+            ['na64' => 'point_64_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_64_akhir')],
+            ['na65' => 'point_65_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_65_akhir')],
+            ['na66' => 'point_66_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_66_akhir')],
+            ['na67' => 'point_67_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_67_akhir')],
+            ['na68' => 'point_68_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_68_akhir')],
+            ['na69' => 'point_69_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_69_akhir')],
+            
+        ]);
+        $sum_nilai_akhir = $collection->sum('na');
 
         $simulasi = SimulasiPenilaian::where($where)->get();
         return view('tab.simulasi', [
@@ -163,6 +237,7 @@ class SimulasiPenilaianController extends Controller
             'STK' => $STK,
             'RI64' => $RI64,
             'NLP' => $NLP,
+            'sum_nilai_akhir' => $sum_nilai_akhir,
         ]);
     }
 
@@ -680,7 +755,6 @@ class SimulasiPenilaianController extends Controller
     private function EWMP()
     {
         $dosenewmp = (new SdmEkuivalenWaktuMengajarPenuhDosenTetapController)->index();
-
         $EWMP = $dosenewmp['average_dtps_average'];
         if($EWMP >= 12 && $EWMP <= 16)
         {
@@ -941,6 +1015,7 @@ class SimulasiPenilaianController extends Controller
     {
         $integrasi = (new PendidikanIntegrasiKegiatanPenelitianController)->index();
         $NMKI = $integrasi['nmki'];
+        // dd($NMKI);
 
         if($NMKI > 3)
         {
@@ -1607,5 +1682,14 @@ class SimulasiPenilaianController extends Controller
         SimulasiPenilaian::find($id)->delete();
 
         return back()->with('success', 'Data Simulasi Penilaian berhasi dihapus.');
+    }
+
+    public function approve($id)
+    {
+        $data = SimulasiPenilaian::find($id);
+        $data->is_approved = true;
+        $data->update();
+
+        return back()->with('success', 'Data Telah di Approve.');
     }
 }
