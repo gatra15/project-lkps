@@ -237,6 +237,7 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::post('/luaran-capaian-tridharma/luaran-mahasiswa', [LuaranPkmMahasiswaController::class, 'store']);
         Route::put('/luaran-capaian-tridharma/luaran-mahasiswa/{id}', [LuaranPkmMahasiswaController::class, 'update']);
         Route::get('/luaran-capaian-tridharma/luaran-mahasiswa/{id}', [LuaranPkmMahasiswaController::class, 'destroy']);
+        Route::put('/luaran-capaian-tridharma/luaran-mahasiswa/approve/{id}', [LuaranPkmMahasiswaController::class, 'approve']);
         // End Luaran
 
         // Simulasi

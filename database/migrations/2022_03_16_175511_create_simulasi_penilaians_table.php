@@ -45,7 +45,8 @@ class CreateSimulasiPenilaiansTable extends Migration
             $table->float('point_12_akhir')->nullable(true);
             $table->float('point_13')->nullable(true);
             $table->float('point_13_akhir')->nullable(true);
-            $table->float('point_14')->nullable(true);
+            $table->float('point_14a')->nullable(true);
+            $table->float('point_14b')->nullable(true);
             $table->float('point_14_akhir')->nullable(true);
             $table->float('point_15a')->nullable(true);
             $table->float('point_15b')->nullable(true);
