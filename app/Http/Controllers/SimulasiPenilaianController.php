@@ -680,7 +680,7 @@ class SimulasiPenilaianController extends Controller
     private function EWMP()
     {
         $dosenewmp = (new SdmEkuivalenWaktuMengajarPenuhDosenTetapController)->index();
-        dd($dosenewmp);
+        // dd($dosenewmp);
         $EWMP = $dosenewmp['average_dtps_average'];
         if($EWMP >= 12 && $EWMP <= 16)
         {
@@ -941,6 +941,7 @@ class SimulasiPenilaianController extends Controller
     {
         $integrasi = (new PendidikanIntegrasiKegiatanPenelitianController)->index();
         $NMKI = $integrasi['nmki'];
+        // dd($NMKI);
 
         if($NMKI > 3)
         {

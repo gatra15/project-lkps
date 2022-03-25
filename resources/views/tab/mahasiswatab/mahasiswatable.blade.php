@@ -33,13 +33,13 @@
            <td>{{ $mhs->mahasiswa_reguler }}</td> 
            <td>{{ $mhs->mahasiswa_transfer }}</td> 
            @if ($key == sizeof($mahasiswa['mahasiswa'])-1)
-           <td class="text-left"> <b>N <sub>RTS =</sub> {{ $mahasiswa['aktif_reguler'] }}</b>   </td> 
+           <td class="text-left"> <b>N <sub>RTS =</sub> </b>{{ $mahasiswa['aktif_reguler'] }}   </td> 
            @else
            <td>{{ $mhs->mahasiswa_aktif_reguler }}</td>
            @endif
 
            @if ($key == sizeof($mahasiswa['mahasiswa'])-1)
-           <td class="text-left"> <b>N <sub>TTS =</sub></b>  {{ $mhs->mahasiswa_aktif_transfer }} </td> 
+           <td class="text-left"> <b>N <sub>TTS =</sub></b>  {{ $mahasiswa['aktif_transfer'] }} </td> 
            @else
            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
            @endif

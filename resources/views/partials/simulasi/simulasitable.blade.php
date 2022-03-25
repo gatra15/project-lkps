@@ -1508,7 +1508,7 @@
                         Tabel 5.b LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number" class="form-control" value="{{ $sim->point_45 }}" readonly >
+                        <input type="number" class="form-control" value="{{ $sim->point_45 != null ? $sim->point_45 : $NMKI }}" readonly >
                     </div>
                     </td>
                     <td>
