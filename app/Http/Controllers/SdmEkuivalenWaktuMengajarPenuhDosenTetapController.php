@@ -24,12 +24,16 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
 
         $dosen = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where)->get();
 
-        $where1 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'dtps' => 0, 'dtps' => 1];
+        $where1 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'dtps' => 0];
         $where2 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'dtps' => 1];
         // dt
-        $dt = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->count();
-        $average_dt_jumlah = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->avg('sks');
-        $average_dt_average = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->avg('average_per_sks');
+        $dt = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->count();
+        $average_dt_jumlah = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->avg('sks');
+        $count = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->count('sks');
+        $sum = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->sum('sks');
+        $average_dt_average = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->avg('average_per_sks');
+        $count2 = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->count('average_per_sks');
+        $sum2 = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->sum('average_per_sks');
 
         // dtps
         $dtps = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where2)->count();
@@ -43,6 +47,10 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
             'dtps' => $dtps,
             'average_dtps_jumlah' => $average_dtps_jumlah,
             'average_dtps_average' => $average_dtps_average,
+            'count' => $count,
+            'count2' => $count2,
+            'sum' => $sum,
+            'sum2' => $sum2,
         ];
     }
 

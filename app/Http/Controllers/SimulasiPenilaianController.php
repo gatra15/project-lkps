@@ -52,6 +52,7 @@ class SimulasiPenilaianController extends Controller
         $Rasio = $this->Rasio();
     // Point 15
         $PMA = $this->PMA();
+        // dd($PMA);
     // Point 17
         $NDTPS = $this->NDTPS();
     // Point 18
@@ -679,7 +680,20 @@ class SimulasiPenilaianController extends Controller
     private function EWMP()
     {
         $dosenewmp = (new SdmEkuivalenWaktuMengajarPenuhDosenTetapController)->index();
+        dd($dosenewmp);
         $EWMP = $dosenewmp['average_dtps_average'];
+        if($EWMP >= 12 && $EWMP <= 16)
+        {
+            return 4;
+        } else if ($EWMP >= 6 && $EWMP < 12 )
+        {
+            return ((2 * $EWMP) - 12) / 3;
+        } else if ($EWMP > 16 && $EWMP <= 18)
+        {
+            return 36 - (2 * $EWMP);
+        } else {
+            return 0;
+        }
     }
 // End EWMP
 
@@ -731,9 +745,9 @@ class SimulasiPenilaianController extends Controller
         $dosen = (new SdmDosenController)->index();
         $penelitian = (new SdmKinerjaDosenPenelitianDtpsController)->index();
         $NDTPS = $dosen['ndtps'];
-        $NI = $penelitian['ni'];
-        $NN = $penelitian['nn'];
-        $NL = $penelitian['nl'];
+        $NI = $penelitian['NI'];
+        $NN = $penelitian['NN'];
+        $NL = $penelitian['NL'];
         $RI =  $NI / 3 / $NDTPS;
         $RN = $NN / 3 / $NDTPS;
         $RL = $NL / 3 / $NDTPS;
@@ -763,9 +777,9 @@ class SimulasiPenilaianController extends Controller
         $dosen = (new SdmDosenController)->index();
         $penelitian = (new SdmKinerjaDosenPkmDtpsController)->index();
         $NDTPS = $dosen['ndtps'];
-        $NI = $penelitian['ni'];
-        $NN = $penelitian['nn'];
-        $NL = $penelitian['nl'];
+        $NI = $penelitian['NI'];
+        $NN = $penelitian['NN'];
+        $NL = $penelitian['NL'];
         $RI =  $NI / 3 / $NDTPS;
         $RN = $NN / 3 / $NDTPS;
         $RL = $NL / 3 / $NDTPS;
@@ -1135,9 +1149,54 @@ class SimulasiPenilaianController extends Controller
 // End PPS
 
 // WT
+    private function WT()
+    {
+        $dayasaing = (new WaktuTungguLulusanController)->index();
+        $NL = $dayasaing['nl'];
+        $NJ = $dayasaing['nj'];
+        $kategori = $NL >= 300 ? 1 : 2;
+        $PRL = $NL/$NJ;
+        $Prmin = $kategori == 1 ? 0.3 : 0.5 - ($NL / (300*0.2));
+        $a = 3; $b = 12; $c = 21;
+        $JL = $dayasaing['jl'];
+        $JL2 = $dayasaing['jl2'];
+        $JL3 = $dayasaing['jl3'];
+        $JL4 = $dayasaing['jl4'];
+
+        $WT = (($JL4 * $a) + ($JL3 *$b) + ($JL2 * $c)) / $JL;
+
+        if($WT < 6)
+        {
+            return 4;
+        } else if($WT >= 6 && $WT <= 18)
+        {
+            return (18 - $WT) /3; 
+        } else {
+            return 0;
+        }
+        // dd($dayasaing);
+    }
 // End WT
 
 // PBS
+    private function PBS()
+    {
+        $kesesuaian = (new KesesuaianBidangKerjaController)->index();
+        $rendah = $kesesuaian['rendah'];
+        $sedang = $kesesuaian['sedang'];
+        $tinggi = $kesesuaian['tinggi'];
+        $jumlah = $kesesuaian['jumlah'];
+        $a = 0.3; $b = 0.75; $c = 1;
+        $PBS = (($rendah * $a) + ($sedang * $b) + ($tinggi * $c)) / $jumlah;
+
+        if($PBS >= 0.6)
+        {
+            return 4;
+        } else {
+            return (20 * $PBS) / 3;
+        }
+
+    }
 // End PBS
 
 // RI62
