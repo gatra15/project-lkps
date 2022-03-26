@@ -25,16 +25,16 @@
           <div class="description-block">
             <h5 class="description-header">HASIL NILAI</h5>
             
-            {{-- @if ($sum_nilai_akhir >= 360 && $sum_nilai_akhir <= 400 )
-            <span class="description-text">A</span>
-            @elseif ($sum_nilai_akhir >= 340 && $sum_nilai_akhir <= 360 )
-            <span class="description-text">B</span>   
-            @elseif ($sum_nilai_akhir >= 310 && $sum_nilai_akhir <= 340 )
-             <span class="description-text">C</span>   
-            @elseif ($sum_nilai_akhir >= 250 && $sum_nilai_akhir <= 310 )
-            <span class="description-text">D</span>    
+            {{-- @if ($sum_nilai_akhir > 361 && $sum_nilai_akhir <= 400 )
+            <span class="description-text">Unggul</span>
+            @elseif ($sum_nilai_akhir > 301 && $sum_nilai_akhir <= 361 )
+            <span class="description-text">Baik Sekali</span>   
+            @elseif ($sum_nilai_akhir > 200 && $sum_nilai_akhir <= 301 )
+             <span class="description-text">Baik</span>   
+            @elseif ($sum_nilai_akhir < 200 )
+            <span class="description-text">Tidak Terakreditasi</span>    
             @else
-            <span class="description-text">E</span>
+            <span class="description-text">Tidak Di Ketahui</span>
             @endif --}}
 
           </div>
@@ -45,9 +45,14 @@
     </div>
 
     <div class="modal-footer">
-    <button type="button" class="btn btn-success btn-sm">
+
+    <form action="/simulasi/approve/{{ $sim->id }}" method="post">
+      @method('put')
+      @csrf
+    <button type="submit" class="btn btn-success btn-sm">
       Approve 
     </button>
+    </form>
 
     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modaltolak-{{ $sim->id }}">
       Tolak

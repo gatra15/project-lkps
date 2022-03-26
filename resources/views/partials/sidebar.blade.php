@@ -39,6 +39,33 @@
         </ul>
 
         
+        @hasrole('perwakilan')
+        @foreach
+          @if (session('alert') == 'success')
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('comment') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @elseif (session('alert') == 'warning')
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ session('comment') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @else
+          @endif
+            
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        @endforeach
+        @endhasrole
+
+        
         <ul class="navbar-nav text-right  ml-auto flex-nowrap">
           <li class="nav-item">
             <form action="/logout" method="POST"> 

@@ -1,4 +1,4 @@
-<form action="/simulasi/tolak/{{ $sim->id }}" method="post">
+<form action="#" method="post">
     @method('put')
     @csrf
     <div class="modal-body">     

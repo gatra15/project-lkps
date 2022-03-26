@@ -2175,7 +2175,8 @@
     Hitung Nilai
 </button>
 
-{{-- <button type="submit" class="btn btn-danger" href="#" data-toggle="modal" data-target="#modaldel-{{ $sim->id }}">Kosongkan Data</button> --}}
+
+<button type="submit" class="btn btn-danger" href="#" data-toggle="modal" data-target="#modaldel-{{ $sim->id }}">Kosongkan Data</button>
 
 </div>
 </div>

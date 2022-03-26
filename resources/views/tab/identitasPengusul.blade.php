@@ -39,6 +39,9 @@
         <li class="nav-item">
             <a class="nav-link" id="daftar-tab" data-toggle="tab" href="#daftar" role="tab" aria-controls="daftar" aria-selected="false">Daftar Tim Penyusun</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" id="evaluasi-tab" data-toggle="tab" href="#evaluasi" role="tab" aria-controls="evaluasi" aria-selected="false">Evaluasi Diri</a>
+        </li>
     </ul>
 </div>
 
@@ -58,7 +61,7 @@
             
             @include('tab.identitastab.penyusunisi')
 
-            
+            @include('tab.identitastab.evaluasi')
         </div>  
     </div>
 </div>
