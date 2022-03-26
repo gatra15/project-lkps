@@ -195,42 +195,42 @@
                       {{-- Sarana 2 --}}
                       @if ($data->sarana_id == 2)
                         @foreach ($ts_sarana2 as $value)
-                          <input type="number" name="unit_pengelola_ts1" class="form-control" value="{{ $value->unit_pengelola_ts }}" id="#"  required>
+                          <input type="number" name="unit_pengelola_ts" class="form-control" value="{{ $value->unit_pengelola_ts }}" id="#"  required>
                         @endforeach
                       @endif
 
                       {{-- Sarana 3 --}}
                       @if ($data->sarana_id == 3)
                         @foreach ($ts_sarana3 as $value)
-                          <input type="number" name="unit_pengelola_ts1" class="form-control" value="{{ $value->unit_pengelola_ts }}" id="#"  required>
+                          <input type="number" name="unit_pengelola_ts" class="form-control" value="{{ $value->unit_pengelola_ts }}" id="#"  required>
                         @endforeach
                       @endif
 
                       {{-- Sarana 4 --}}
                       @if ($data->sarana_id == 4)
                         @foreach ($ts_sarana4 as $value)
-                          <input type="number" name="unit_pengelola_ts1" class="form-control" value="{{ $value->unit_pengelola_ts }}" id="#"  required>
+                          <input type="number" name="unit_pengelola_ts" class="form-control" value="{{ $value->unit_pengelola_ts }}" id="#"  required>
                         @endforeach
                       @endif
 
                       {{-- Sarana 5 --}}
                       @if ($data->sarana_id == 5)
                         @foreach ($ts_sarana5 as $value)
-                          <input type="number" name="unit_pengelola_ts1" class="form-control" value="{{ $value->unit_pengelola_ts }}" id="#"  required>
+                          <input type="number" name="unit_pengelola_ts" class="form-control" value="{{ $value->unit_pengelola_ts }}" id="#"  required>
                         @endforeach
                       @endif
 
                       {{-- Sarana 6 --}}
                       @if ($data->sarana_id == 6)
                         @foreach ($ts_sarana6 as $value)
-                          <input type="number" name="unit_pengelola_ts1" class="form-control" value="{{ $value->unit_pengelola_ts }}" id="#"  required>
+                          <input type="number" name="unit_pengelola_ts" class="form-control" value="{{ $value->unit_pengelola_ts }}" id="#"  required>
                         @endforeach
                       @endif
 
                       {{-- Sarana 7 --}}
                       @if ($data->sarana_id == 7)
                         @foreach ($ts_sarana7 as $value)
-                          <input type="number" name="unit_pengelola_ts1" class="form-control" value="{{ $value->unit_pengelola_ts }}" id="#"  required>
+                          <input type="number" name="unit_pengelola_ts" class="form-control" value="{{ $value->unit_pengelola_ts }}" id="#"  required>
                         @endforeach
                       @endif
                       

@@ -41,6 +41,19 @@ class MahasiswaController extends Controller
         $aktif_transfer = Mahasiswa::where($where)->sum('mahasiswa_aktif_transfer');
         $total = $aktif_reguler + $aktif_transfer;
 
+        $data = [];
+
+        foreach ($mahasiswa as $key => $mhs){
+            $data['label'][] = $mhs['tahun_laporan'];
+            $data['daya_tampung'][] = $mhs['daya_tampung'];
+            $data['pendaftar'][] = $mhs['c_pendaftar'];
+            $data['lulus_seleksi'][] = $mhs['c_lulus_seleksi'];
+            $data['mahasiswa_reguler'][] = $mhs['mahasiswa_reguler'];
+            $data['mahasiswa_transfer'][] = $mhs['mahasiswa_transfer'];
+            $data['mahasiswa_aktif_reguler'][] = $mhs['mahasiswa_aktif_reguler'];
+            $data['mahasiswa_aktif_transfer'][] = $mhs['mahasiswa_aktif_transfer'];
+        }
+        $data['chart_data'] = json_encode($data); 
         return [
             'mahasiswa' => $mahasiswa,
             'pendaftar' => $pendaftar,
@@ -50,6 +63,7 @@ class MahasiswaController extends Controller
             'aktif_reguler' => $aktif_reguler,
             'aktif_transfer' => $aktif_transfer,
             'total' => $total,
+            'data' => $data,
         ];
     }
 

@@ -136,7 +136,6 @@ class WaktuTungguLulusanController extends Controller
             $data->waktu_tunggu_6 = (int) $request->input('waktu_tunggu_6');
             $data->waktu_tunggu_6_18 = (int) $request->input('waktu_tunggu_6_18');
             $data->waktu_tunggu_18 = (int) $request->input('waktu_tunggu_18');
-            // $data->tahun_laporan = $tahun;
             $data->prodi = auth()->user()->prodi->name;
             $data->created_by = auth()->user()->name;
             $data->created_at = Carbon::now();

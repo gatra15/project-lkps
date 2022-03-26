@@ -30,16 +30,28 @@
         <tbody class="text-dark">
              {{-- Coding Tabel Disini --}}
              <tr>
-            @foreach ($dosenta['dosen'] as $sdm)
+            @foreach ($dosenta['dosen']['a1'] as $sdm)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $sdm->nama }}</td>
-                <td>{{ $sdm->jumlah_ps_akreditasi_ts2 }}</td>
-                <td>{{ $sdm->jumlah_ps_akreditasi_ts1 }}</td>
+            @endforeach
+            @foreach ($dosenta['dosen']['a3'] as $sdm)
+                <td>{{ $sdm->jumlah_ps_akreditasi_ts }}</td>
+            @endforeach
+            @foreach ($dosenta['dosen']['a2'] as $sdm)
+                <td>{{ $sdm->jumlah_ps_akreditasi_ts }}</td>
+            @endforeach
+            @foreach ($dosenta['dosen']['a1'] as $sdm)
                 <td>{{ $sdm->jumlah_ps_akreditasi_ts }}</td>
                 <td>{{ $sdm->jumlah_ps_akreditasi_average }}</td>
-                <td>{{ $sdm->jumlah_ps_lain_ts2 }}</td>
-                <td>{{ $sdm->jumlah_ps_lain_ts1 }}</td>
+            @endforeach
+            @foreach ($dosenta['dosen']['a3'] as $sdm)
+                <td>{{ $sdm->jumlah_ps_lain_ts }}</td>
+            @endforeach
+            @foreach ($dosenta['dosen']['a2'] as $sdm)
+                <td>{{ $sdm->jumlah_ps_lain_ts }}</td>
+            @endforeach
+            @foreach ($dosenta['dosen']['a1'] as $sdm)
                 <td>{{ $sdm->jumlah_ps_lain_ts }}</td>
                 <td>{{ $sdm->jumlah_ps_lain_average }}</td>
                 <td>{{ $sdm->average }}</td>

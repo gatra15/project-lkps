@@ -49,6 +49,7 @@ use App\Http\Controllers\SdmKinerjaDosenLuaranPkmDtpsController;
 use App\Http\Controllers\SdmKinerjaDosenPenelitianDtpsController;
 use App\Http\Controllers\SdmKinerjaDosenKaryaIlmiahDtpsController;
 use App\Http\Controllers\EfektifitasProduktifitasPendidikanController;
+use App\Http\Controllers\LembarEvaluasiDiriController;
 use App\Http\Controllers\SdmKinerjaDosenPublikasiIlmiahDtpsController;
 use App\Http\Controllers\PendidikanIntegrasiKegiatanPenelitianController;
 use App\Http\Controllers\SdmEkuivalenWaktuMengajarPenuhDosenTetapController;
@@ -109,6 +110,11 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::post('/identitas-pengusul/tim-penyusun', [TimPenyusunController::class, 'store']);
         Route::put('/identitas-pengusul/tim-penyusun/{id}', [TimPenyusunController::class, 'update']);
         Route::post('/identitas-pengusul/tim-penyusun/{id}', [TimPenyusunController::class, 'destroy']);
+
+        Route::get('/identitas-pengusul/lembar-evaluasi', [LembarEvaluasiDiriController::class, 'index']);
+        Route::post('/identitas-pengusul/lembar-evaluasi', [LembarEvaluasiDiriController::class, 'store']);
+        Route::put('/identitas-pengusul/lembar-evaluasi/{id}', [LembarEvaluasiDiriController::class, 'update']);
+        Route::get('/identitas-pengusul/lembar-evaluasi/{id}', [LembarEvaluasiDiriController::class, 'destroy']);
         // End Route Identitas Pengusul
 
         // Route to Tata Pamong
@@ -137,8 +143,8 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('/profil-dosen/{id}', [ProfilDosenController::class, 'destroy']);
 
         Route::post('/profil-dosen/pembimbing-ta', [SdmDosenPembimbingTaController::class, 'store']);
-        Route::put('/profil-dosen/pembimbing-ta/{id}', [SdmDosenPembimbingTaController::class, 'update']);
-        Route::get('/profil-dosen/pembimbing-ta/{id}', [SdmDosenPembimbingTaController::class, 'destroy']);
+        Route::put('/profil-dosen/pembimbing-ta/{year}', [SdmDosenPembimbingTaController::class, 'update']);
+        Route::get('/profil-dosen/pembimbing-ta/{nama}', [SdmDosenPembimbingTaController::class, 'destroy']);
 
         Route::post('/profil-dosen/dosen-ewmp', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'store']);
         Route::put('/profil-dosen/dosen-ewmp/{id}', [SdmEkuivalenWaktuMengajarPenuhDosenTetapController::class, 'update']);

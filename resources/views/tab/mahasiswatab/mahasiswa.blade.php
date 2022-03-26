@@ -73,6 +73,7 @@
     @endforeach
 
 
+      
   
 </div>
 @include('layouts.table')
@@ -90,3 +91,4 @@
     </div>
     </div>
 </div>
+

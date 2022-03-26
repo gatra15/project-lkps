@@ -68,7 +68,7 @@
                     
                 @endforeach
 
-                @foreach ($ts_sarana14 as $data)
+                @foreach ($ts_sarana12 as $data)
                     <tr>
                         <td></td>
                         <td style="text-align: left">{{ $data->biaya->text }}</td>

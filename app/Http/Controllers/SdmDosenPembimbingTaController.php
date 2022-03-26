@@ -21,17 +21,17 @@ class SdmDosenPembimbingTaController extends Controller
         $tahun = session('tahun_laporan');
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
+        $where1 = ['tahun_laporan' => $tahun-1, 'prodi' => $prodi];
+        $where2 = ['tahun_laporan' => $tahun-2, 'prodi' => $prodi];
 
-        $dosenta = SdmDosenPembimbingTa::where($where)->get();
-        $average1 = SdmDosenPembimbingTa::where($where)->sum('jumlah_ps_akreditasi_ts2', 'jumlah_ps_akreditasi_ts1', 'jumlah_ps_akreditasi_ts');
-        $average1 = $average1 / 3;
-        $average2 = SdmDosenPembimbingTa::where($where)->sum('jumlah_ps_lain_ts2', 'jumlah_ps_lain_ts1', 'jumlah_ps_lain_ts');
-        $average2 = $average2 / 3;
-        $average = ($average1 + $average2) /2;
+        $dosenta = [
+            'a1' => SdmDosenPembimbingTa::where($where)->get(),
+            'a2' => SdmDosenPembimbingTa::where($where1)->get(),
+            'a3' => SdmDosenPembimbingTa::where($where2)->get(),
+        ];
+        $average = SdmDosenPembimbingTa::where($where)->sum('average');
         return [
             'dosen' => $dosenta,
-            'average1' => $average1,
-            'average2' => $average2,
             'average' => $average,
         ];
     }
@@ -68,22 +68,40 @@ class SdmDosenPembimbingTaController extends Controller
         $this->validate($req, $rule);
 
     try{
-        $data = new SdmDosenPembimbingTa;
-        $data->nama = $req->input('nama');
-        $data->jumlah_ps_akreditasi_ts2 = (int) $req->input('jumlah_ps_akreditasi_ts2');
-        $data->jumlah_ps_akreditasi_ts1 = (int) $req->input('jumlah_ps_akreditasi_ts1');
-        $data->jumlah_ps_akreditasi_ts = (int) $req->input('jumlah_ps_akreditasi_ts');
-        $data->jumlah_ps_akreditasi_average = (float) ($req->jumlah_ps_akreditasi_ts2 + $req->jumlah_ps_akreditasi_ts1 + $req->jumlah_ps_akreditasi_ts)/3;
-        $data->jumlah_ps_lain_ts2 = (int) $req->input('jumlah_ps_lain_ts2');
-        $data->jumlah_ps_lain_ts1 = (int) $req->input('jumlah_ps_lain_ts1');
-        $data->jumlah_ps_lain_ts = (int) $req->input('jumlah_ps_lain_ts');
-        $data->jumlah_ps_lain_average = (float) ($req->jumlah_ps_lain_ts2 + $req->jumlah_ps_lain_ts1 + $req->jumlah_ps_lain_ts)/3;;
-        $data->average = (float) ($data->jumlah_ps_lain_average + $data->jumlah_ps_akreditasi_average)/2;
-        $data->tahun_laporan = $tahun;
-        $data->prodi = auth()->user()->prodi->name;
-        $data->created_by = auth()->user()->name;
-        $data->created_at = Carbon::now();
-        $data->save();
+
+        $jumlah_ps_akreditasi_average = (float) ($req->jumlah_ps_akreditasi_ts2 + $req->jumlah_ps_akreditasi_ts1 + $req->jumlah_ps_akreditasi_ts)/3;
+        $jumlah_ps_lain_average = (float) ($req->jumlah_ps_lain_ts2 + $req->jumlah_ps_lain_ts1 + $req->jumlah_ps_lain_ts)/3;
+        $average = (float) ($jumlah_ps_lain_average + $jumlah_ps_akreditasi_average)/2;
+        SdmDosenPembimbingTa::create([
+            'nama' => $req->nama,
+            'jumlah_ps_akreditasi_ts' => (int) $req->jumlah_ps_akreditasi_ts2,
+            'jumlah_ps_lain_ts' => (int) $req->jumlah_ps_lain_ts2,
+            'tahun_laporan' => $tahun - 2,
+            'prodi' => auth()->user()->prodi->name,
+            'created_by' => auth()->user()->name,
+            'created_at' => Carbon::now(),
+        ]);
+        SdmDosenPembimbingTa::create([
+            'nama' => $req->nama,
+            'jumlah_ps_akreditasi_ts' => (int) $req->jumlah_ps_akreditasi_ts1,
+            'jumlah_ps_lain_ts' => (int) $req->jumlah_ps_lain_ts1,
+            'tahun_laporan' => $tahun - 1,
+            'prodi' => auth()->user()->prodi->name,
+            'created_by' => auth()->user()->name,
+            'created_at' => Carbon::now(),
+        ]);
+        SdmDosenPembimbingTa::create([
+            'nama' => $req->nama,
+            'jumlah_ps_akreditasi_ts' => (int) $req->jumlah_ps_akreditasi_ts,
+            'jumlah_ps_akreditasi_average' => $jumlah_ps_akreditasi_average,
+            'jumlah_ps_lain_ts' => (int) $req->jumlah_ps_lain_ts,
+            'jumlah_ps_lain_average' => $jumlah_ps_lain_average,
+            'average' => $average,
+            'tahun_laporan' => $tahun,
+            'prodi' => auth()->user()->prodi->name,
+            'created_by' => auth()->user()->name,
+            'created_at' => Carbon::now(),
+        ]);
 
         return back()->with('success', 'Data berhasi ditambahkan.');
         
@@ -125,7 +143,7 @@ class SdmDosenPembimbingTaController extends Controller
      * @param  \App\Models\SdmDosenPembimbingTa  $sdmDosenPembimbingTa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $req, $id)
+    public function update(Request $req, $year)
     {
         $tahun = session('tahun_laporan');
         $connection = 'mysql';
@@ -141,22 +159,31 @@ class SdmDosenPembimbingTaController extends Controller
         $this->validate($req, $rule);
 
     try{
-        $data = SdmDosenPembimbingTa::find($id);
-        $data->nama = $req->input('nama');
-        $data->jumlah_ps_akreditasi_ts2 = (int) $req->input('jumlah_ps_akreditasi_ts2');
-        $data->jumlah_ps_akreditasi_ts1 = (int) $req->input('jumlah_ps_akreditasi_ts1');
-        $data->jumlah_ps_akreditasi_ts = (int) $req->input('jumlah_ps_akreditasi_ts');
-        $data->jumlah_ps_akreditasi_average = (float) ($req->jumlah_ps_akreditasi_ts2 + $req->jumlah_ps_akreditasi_ts1 + $req->jumlah_ps_akreditasi_ts)/3;
-        $data->jumlah_ps_lain_ts2 = (int) $req->input('jumlah_ps_lain_ts2');
-        $data->jumlah_ps_lain_ts1 = (int) $req->input('jumlah_ps_lain_ts1');
-        $data->jumlah_ps_lain_ts = (int) $req->input('jumlah_ps_lain_ts');
-        $data->jumlah_ps_lain_average = (float) ($req->jumlah_ps_lain_ts2 + $req->jumlah_ps_lain_ts1 + $req->jumlah_ps_lain_ts)/3;;
-        $data->average = (float) ($data->jumlah_ps_lain_average + $data->jumlah_ps_akreditasi_average)/2;
-        $data->tahun_laporan = $tahun;
-        $data->prodi = auth()->user()->prodi->name;
-        $data->updated_by = auth()->user()->name;
-        $data->updated_at = Carbon::now();
-        $data->update();
+        
+        SdmDosenPembimbingTa::where('tahun_laporan', $year - 2)->where('nama', $req->nama)->update([
+            'nama' => $req->nama,
+            'jumlah_ps_akreditasi_ts' => (int) $req->jumlah_ps_akreditasi_ts2,
+            'jumlah_ps_lain_ts' => (int) $req->jumlah_ps_lain_ts2,
+            'prodi' => auth()->user()->prodi->name,
+            'created_by' => auth()->user()->name,
+            'created_at' => Carbon::now(),
+        ]);
+        SdmDosenPembimbingTa::where('tahun_laporan', $year - 1)->where('nama', $req->nama)->update([
+            'nama' => $req->nama,
+            'jumlah_ps_akreditasi_ts' => (int) $req->jumlah_ps_akreditasi_ts1,
+            'jumlah_ps_lain_ts' => (int) $req->jumlah_ps_lain_ts1,
+            'prodi' => auth()->user()->prodi->name,
+            'created_by' => auth()->user()->name,
+            'created_at' => Carbon::now(),
+        ]);
+        SdmDosenPembimbingTa::where('tahun_laporan', $year)->where('nama', $req->nama)->update([
+            'nama' => $req->nama,
+            'jumlah_ps_akreditasi_ts' => (int) $req->jumlah_ps_akreditasi_ts,
+            'jumlah_ps_lain_ts' => (int) $req->jumlah_ps_lain_ts,
+            'prodi' => auth()->user()->prodi->name,
+            'created_by' => auth()->user()->name,
+            'created_at' => Carbon::now(),
+        ]);
 
         return back()->with('success', 'Data berhasil diubah.');
 
@@ -175,9 +202,32 @@ class SdmDosenPembimbingTaController extends Controller
      * @param  \App\Models\SdmDosenPembimbingTa  $sdmDosenPembimbingTa
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $req, $nama)
     {
-        SdmDosenPembimbingTa::find($id)->delete();
+        SdmDosenPembimbingTa::where('nama', $nama)->update([
+            'nama' => $req->nama,
+            'jumlah_ps_akreditasi_ts' => (int) $req->jumlah_ps_akreditasi_ts2,
+            'jumlah_ps_lain_ts' => (int) $req->jumlah_ps_lain_ts2,
+            'prodi' => auth()->user()->prodi->name,
+            'created_by' => auth()->user()->name,
+            'created_at' => Carbon::now(),
+        ]);
+        SdmDosenPembimbingTa::where('nama', $nama)->update([
+            'nama' => $req->nama,
+            'jumlah_ps_akreditasi_ts' => (int) $req->jumlah_ps_akreditasi_ts1,
+            'jumlah_ps_lain_ts' => (int) $req->jumlah_ps_lain_ts1,
+            'prodi' => auth()->user()->prodi->name,
+            'created_by' => auth()->user()->name,
+            'created_at' => Carbon::now(),
+        ]);
+        SdmDosenPembimbingTa::where('nama', $nama)->update([
+            'nama' => $req->nama,
+            'jumlah_ps_akreditasi_ts' => (int) $req->jumlah_ps_akreditasi_ts,
+            'jumlah_ps_lain_ts' => (int) $req->jumlah_ps_lain_ts,
+            'prodi' => auth()->user()->prodi->name,
+            'created_by' => auth()->user()->name,
+            'created_at' => Carbon::now(),
+        ]);
         return back()->with('success', 'Data berhasil dihapus.');
     }
 
