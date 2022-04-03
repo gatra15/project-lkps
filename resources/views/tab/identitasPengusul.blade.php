@@ -79,8 +79,10 @@
             @include('tab.identitastab.timpenyusun')
             
             @include('tab.identitastab.penyusunisi')
-
-            @include('tab.identitastab.evaluasi')
+            @foreach ($lembar['data'] as $data)
+                @include('tab.identitastab.evaluasi')
+            @endforeach
+           
         </div>  
     </div>
 </div>

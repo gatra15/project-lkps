@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\SdmDosenPembimbingTa;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\DosenPembimbingTAExport;
+use App\Models\SdmDosen;
 
 class SdmDosenPembimbingTaController extends Controller
 {
@@ -23,15 +24,78 @@ class SdmDosenPembimbingTaController extends Controller
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
         $where1 = ['tahun_laporan' => $tahun-1, 'prodi' => $prodi];
         $where2 = ['tahun_laporan' => $tahun-2, 'prodi' => $prodi];
+        $nama = SdmDosenPembimbingTa::select('nama')->exists();
+        $cek = SdmDosenPembimbingTa::where($where)->exists();
+        $cek1 = SdmDosenPembimbingTa::where($where1)->exists();
+        $cek2 = SdmDosenPembimbingTa::where($where2)->exists();
+        $getnama = SdmDosenPembimbingTa::select('nama')->where($where1)->get();
+        $data = [];
 
-        $dosenta = [
-            'a1' => SdmDosenPembimbingTa::where($where)->get(),
-            'a2' => SdmDosenPembimbingTa::where($where1)->get(),
-            'a3' => SdmDosenPembimbingTa::where($where2)->get(),
-        ];
+        foreach ($getnama as $key => $name)
+        {
+            $data[] = $name['nama'];
+        }
+
+        if(!$cek2 && $nama)
+        {
+            foreach ($data as $d)
+            {
+                SdmDosenPembimbingTa::create([
+                    'nama' => $d,
+                    'tahun_laporan' => $tahun - 2,
+                    'prodi' => $prodi
+                ]);
+            }
+        }
+        if(!$cek1 && $nama)
+        {
+            foreach ($data as $d)
+            {
+                SdmDosenPembimbingTa::create([
+                    'nama' => $d,
+                    'tahun_laporan' => $tahun - 1,
+                    'prodi' => $prodi
+                ]);
+            }
+        }
+        if(!$cek && $nama)
+        {
+            foreach ($data as $d)
+            {
+                SdmDosenPembimbingTa::create([
+                    'nama' => $d,
+                    'tahun_laporan' => $tahun,
+                    'prodi' => $prodi
+                ]);
+            }
+        }
+        $dosen_all = SdmDosenPembimbingTa::all();
+        $dosenta = DB::table('sdm_dosen_pembimbing_tas as a')
+                    ->join('sdm_dosen_pembimbing_tas as b', 'a.nama', 'b.nama')
+                    ->join('sdm_dosen_pembimbing_tas as c', 'a.nama', 'c.nama')
+                    ->where('a.tahun_laporan', $tahun)
+                    ->where('b.tahun_laporan', $tahun-1)
+                    ->where('c.tahun_laporan', $tahun-2)
+                    ->select(
+                        'a.id as id',
+                        'a.nama as nama',
+                        'c.jumlah_ps_akreditasi_ts as jumlah_ps_akreditasi_ts2',
+                        'b.jumlah_ps_akreditasi_ts as jumlah_ps_akreditasi_ts1',
+                        'a.jumlah_ps_akreditasi_ts',
+                        'a.jumlah_ps_akreditasi_average',
+                        'c.jumlah_ps_lain_ts as jumlah_ps_lain_ts2',
+                        'b.jumlah_ps_lain_ts as jumlah_ps_lain_ts1',
+                        'a.jumlah_ps_lain_ts',
+                        'a.jumlah_ps_lain_average',
+                        'a.average',
+                        'a.tahun_laporan',
+                    )
+                    ->get();
+                    $dosenta = json_decode(json_encode($dosenta), true);
         $average = SdmDosenPembimbingTa::where($where)->sum('average');
         return [
             'dosen' => $dosenta,
+            'dosen_all' => $dosen_all,
             'average' => $average,
         ];
     }
@@ -159,6 +223,9 @@ class SdmDosenPembimbingTaController extends Controller
         $this->validate($req, $rule);
 
     try{
+        $jumlah_ps_akreditasi_average = (float) ($req->jumlah_ps_akreditasi_ts2 + $req->jumlah_ps_akreditasi_ts1 + $req->jumlah_ps_akreditasi_ts)/3;
+        $jumlah_ps_lain_average = (float) ($req->jumlah_ps_lain_ts2 + $req->jumlah_ps_lain_ts1 + $req->jumlah_ps_lain_ts)/3;
+        $average = (float) ($jumlah_ps_lain_average + $jumlah_ps_akreditasi_average)/2;
         
         SdmDosenPembimbingTa::where('tahun_laporan', $year - 2)->where('nama', $req->nama)->update([
             'nama' => $req->nama,
@@ -179,7 +246,10 @@ class SdmDosenPembimbingTaController extends Controller
         SdmDosenPembimbingTa::where('tahun_laporan', $year)->where('nama', $req->nama)->update([
             'nama' => $req->nama,
             'jumlah_ps_akreditasi_ts' => (int) $req->jumlah_ps_akreditasi_ts,
+            'jumlah_ps_akreditasi_average' => $jumlah_ps_akreditasi_average,
             'jumlah_ps_lain_ts' => (int) $req->jumlah_ps_lain_ts,
+            'jumlah_ps_lain_average' => $jumlah_ps_lain_average,
+            'average' => $average,
             'prodi' => auth()->user()->prodi->name,
             'created_by' => auth()->user()->name,
             'created_at' => Carbon::now(),
@@ -202,9 +272,9 @@ class SdmDosenPembimbingTaController extends Controller
      * @param  \App\Models\SdmDosenPembimbingTa  $sdmDosenPembimbingTa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $req, $nama)
+    public function destroy(Request $req, $year)
     {
-        SdmDosenPembimbingTa::where('nama', $nama)->update([
+        SdmDosenPembimbingTa::where('tahun_laporan', $year - 2)->update([
             'nama' => $req->nama,
             'jumlah_ps_akreditasi_ts' => (int) $req->jumlah_ps_akreditasi_ts2,
             'jumlah_ps_lain_ts' => (int) $req->jumlah_ps_lain_ts2,
@@ -212,7 +282,7 @@ class SdmDosenPembimbingTaController extends Controller
             'created_by' => auth()->user()->name,
             'created_at' => Carbon::now(),
         ]);
-        SdmDosenPembimbingTa::where('nama', $nama)->update([
+        SdmDosenPembimbingTa::where('tahun_laporan', $year - 1)->update([
             'nama' => $req->nama,
             'jumlah_ps_akreditasi_ts' => (int) $req->jumlah_ps_akreditasi_ts1,
             'jumlah_ps_lain_ts' => (int) $req->jumlah_ps_lain_ts1,
@@ -220,7 +290,7 @@ class SdmDosenPembimbingTaController extends Controller
             'created_by' => auth()->user()->name,
             'created_at' => Carbon::now(),
         ]);
-        SdmDosenPembimbingTa::where('nama', $nama)->update([
+        SdmDosenPembimbingTa::where('tahun_laporan', $year)->update([
             'nama' => $req->nama,
             'jumlah_ps_akreditasi_ts' => (int) $req->jumlah_ps_akreditasi_ts,
             'jumlah_ps_lain_ts' => (int) $req->jumlah_ps_lain_ts,
@@ -238,5 +308,25 @@ class SdmDosenPembimbingTaController extends Controller
     public function exportToCSV()
     {
         return Excel::download(new DosenPembimbingTAExport, 'dosen-pembimbing-ta.csv');
+    }
+
+    public function approve($id)
+    {
+        $data = SdmDosenPembimbingTa::find($id);
+        $data->is_approved = true;
+        $data->comment = 'Data Dosen Pembimbing Utama TA telah disetujui.';
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
+    public function tolak(Request $req, $id)
+    {
+        $data = SdmDosenPembimbingTa::find($id);
+        $data->is_approved = false;
+        $data->comment = $req->comment;
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
     }
 }

@@ -367,36 +367,59 @@ class KeuanganSaranaPrasaranaController extends Controller
         // $keuangan = SaranaDana::with('sarana', 'biaya')->get();
         // ddd($keuangan);
         $jumlah1 = [
-          'ts2'         => SaranaDana::where('sarana_id', 1)->orWhere('sarana_id', 2)->where($w2)->sum('unit_pengelola_ts'), 
-          'ts1'         => SaranaDana::where('sarana_id', 1)->orWhere('sarana_id', 2)->sum('unit_pengelola_ts'), 
-          'ts'          => SaranaDana::where('sarana_id', 1)->orWhere('sarana_id', 2)->sum('unit_pengelola_ts'), 
-          'average'     => SaranaDana::where('sarana_id', 1)->orWhere('sarana_id', 2)->sum('unit_pengelola_average'), 
-          'ps_ts2'      => SaranaDana::where('sarana_id', 1)->orWhere('sarana_id', 2)->where($w2)->sum('ps_ts'), 
-          'ps_ts1'      => SaranaDana::where('sarana_id', 1)->orWhere('sarana_id', 2)->where($w1)->sum('ps_ts'), 
-          'ps_ts'       => SaranaDana::where('sarana_id', 1)->orWhere('sarana_id', 2)->sum('ps_ts'),
-          'ps_average'  => SaranaDana::where('sarana_id', 1)->orWhere('sarana_id', 2)->sum('ps_average'),
+            'ts2'         => SaranaDana::where('sarana_id', 1)->where($w2)->sum('unit_pengelola_ts') + 
+                             SaranaDana::where('sarana_id', 2)->where($w2)->sum('unit_pengelola_ts'),
+            'ts1'         => SaranaDana::where('sarana_id', 1)->where($w1)->sum('unit_pengelola_ts') + 
+                             SaranaDana::where('sarana_id', 2)->where($w1)->sum('unit_pengelola_ts'), 
+            'ts'          => SaranaDana::where('sarana_id', 1)->where($w)->sum('unit_pengelola_ts') + 
+                             SaranaDana::where('sarana_id', 2)->where($w)->sum('unit_pengelola_ts'), 
+            'average'     => SaranaDana::where('sarana_id', 1)->where($w)->sum('unit_pengelola_average') + 
+                             SaranaDana::where('sarana_id', 2)->where($w)->sum('unit_pengelola_average'), 
+            'ps_ts2'      => SaranaDana::where('sarana_id', 1)->where($w2)->sum('ps_ts') + 
+                             SaranaDana::where('sarana_id', 2)->where($w2)->sum('ps_ts'),  
+            'ps_ts1'      => SaranaDana::where('sarana_id', 1)->where($w1)->sum('ps_ts') + 
+                             SaranaDana::where('sarana_id', 2)->where($w1)->sum('ps_ts'),  
+            'ps_ts'       => SaranaDana::where('sarana_id', 1)->where($w)->sum('ps_ts') + 
+                             SaranaDana::where('sarana_id', 2)->where($w)->sum('ps_ts'),  
+            'ps_average'  => SaranaDana::where('sarana_id', 1)->where($w)->sum('ps_average') + 
+                             SaranaDana::where('sarana_id', 2)->where($w)->sum('ps_average'),  
         ];
-        // dd($jumlah1);
         
         $jumlah2 = [
-            'ts2'         => SaranaDana::where('sarana_id', 3)->orWhere('sarana_id', 4)->where($w2)->sum('unit_pengelola_ts'), 
-            'ts1'         => SaranaDana::where('sarana_id', 3)->orWhere('sarana_id', 4)->where($w1)->sum('unit_pengelola_ts'), 
-            'ts'          => SaranaDana::where('sarana_id', 3)->orWhere('sarana_id', 4)->sum('unit_pengelola_ts'), 
-            'average'     => SaranaDana::where('sarana_id', 3)->orWhere('sarana_id', 4)->sum('unit_pengelola_average'), 
-            'ps_ts2'      => SaranaDana::where('sarana_id', 3)->orWhere('sarana_id', 4)->where($w2)->sum('ps_ts'), 
-            'ps_ts1'      => SaranaDana::where('sarana_id', 3)->orWhere('sarana_id', 4)->where($w1)->sum('ps_ts'), 
-            'ps_ts'       => SaranaDana::where('sarana_id', 3)->orWhere('sarana_id', 4)->sum('ps_ts'),
-            'ps_average'  => SaranaDana::where('sarana_id', 3)->orWhere('sarana_id', 4)->sum('ps_average'),
+            'ts2'         => SaranaDana::where('sarana_id', 3)->where($w2)->sum('unit_pengelola_ts') + 
+                             SaranaDana::where('sarana_id', 4)->where($w2)->sum('unit_pengelola_ts'),
+            'ts1'         => SaranaDana::where('sarana_id', 3)->where($w1)->sum('unit_pengelola_ts') + 
+                             SaranaDana::where('sarana_id', 4)->where($w1)->sum('unit_pengelola_ts'), 
+            'ts'          => SaranaDana::where('sarana_id', 3)->where($w)->sum('unit_pengelola_ts') + 
+                             SaranaDana::where('sarana_id', 4)->where($w)->sum('unit_pengelola_ts'), 
+            'average'     => SaranaDana::where('sarana_id', 3)->where($w)->sum('unit_pengelola_average') + 
+                             SaranaDana::where('sarana_id', 4)->where($w)->sum('unit_pengelola_average'), 
+            'ps_ts2'      => SaranaDana::where('sarana_id', 3)->where($w2)->sum('ps_ts') + 
+                             SaranaDana::where('sarana_id', 4)->where($w2)->sum('ps_ts'),  
+            'ps_ts1'      => SaranaDana::where('sarana_id', 3)->where($w1)->sum('ps_ts') + 
+                             SaranaDana::where('sarana_id', 4)->where($w1)->sum('ps_ts'),  
+            'ps_ts'       => SaranaDana::where('sarana_id', 3)->where($w)->sum('ps_ts') + 
+                             SaranaDana::where('sarana_id', 4)->where($w)->sum('ps_ts'),  
+            'ps_average'  => SaranaDana::where('sarana_id', 3)->where($w)->sum('ps_average') + 
+                             SaranaDana::where('sarana_id', 4)->where($w)->sum('ps_average'),  
         ];
         $jumlah3 = [
-            'ts2'         => SaranaDana::where('sarana_id', 4)->orWhere('sarana_id', 5)->where($w2)->sum('unit_pengelola_ts'), 
-            'ts1'         => SaranaDana::where('sarana_id', 4)->orWhere('sarana_id', 5)->where($w1)->sum('unit_pengelola_ts'), 
-            'ts'          => SaranaDana::where('sarana_id', 4)->orWhere('sarana_id', 5)->sum('unit_pengelola_ts'), 
-            'average'     => SaranaDana::where('sarana_id', 4)->orWhere('sarana_id', 5)->sum('unit_pengelola_average'), 
-            'ps_ts2'      => SaranaDana::where('sarana_id', 4)->orWhere('sarana_id', 5)->where($w2)->sum('ps_ts'), 
-            'ps_ts1'      => SaranaDana::where('sarana_id', 4)->orWhere('sarana_id', 5)->where($w1)->sum('ps_ts'), 
-            'ps_ts'       => SaranaDana::where('sarana_id', 4)->orWhere('sarana_id', 5)->sum('ps_ts'),
-            'ps_average'  => SaranaDana::where('sarana_id', 4)->orWhere('sarana_id', 5)->sum('ps_average'),
+            'ts2'         => SaranaDana::where('sarana_id', 5)->where($w2)->sum('unit_pengelola_ts') + 
+                             SaranaDana::where('sarana_id', 6)->where($w2)->sum('unit_pengelola_ts'),
+            'ts1'         => SaranaDana::where('sarana_id', 5)->where($w1)->sum('unit_pengelola_ts') + 
+                             SaranaDana::where('sarana_id', 6)->where($w1)->sum('unit_pengelola_ts'), 
+            'ts'          => SaranaDana::where('sarana_id', 5)->where($w)->sum('unit_pengelola_ts') + 
+                             SaranaDana::where('sarana_id', 6)->where($w)->sum('unit_pengelola_ts'), 
+            'average'     => SaranaDana::where('sarana_id', 5)->where($w)->sum('unit_pengelola_average') + 
+                             SaranaDana::where('sarana_id', 6)->where($w)->sum('unit_pengelola_average'), 
+            'ps_ts2'      => SaranaDana::where('sarana_id', 5)->where($w2)->sum('ps_ts') + 
+                             SaranaDana::where('sarana_id', 6)->where($w2)->sum('ps_ts'),  
+            'ps_ts1'      => SaranaDana::where('sarana_id', 5)->where($w1)->sum('ps_ts') + 
+                             SaranaDana::where('sarana_id', 6)->where($w1)->sum('ps_ts'),  
+            'ps_ts'       => SaranaDana::where('sarana_id', 5)->where($w)->sum('ps_ts') + 
+                             SaranaDana::where('sarana_id', 6)->where($w)->sum('ps_ts'),  
+            'ps_average'  => SaranaDana::where('sarana_id', 5)->where($w)->sum('ps_average') + 
+                             SaranaDana::where('sarana_id', 6)->where($w)->sum('ps_average'), 
         ];
         $total = [
             'ts2'         => $jumlah1['ts2'] +  $jumlah2['ts2'] +  $jumlah3['ts2'],
@@ -575,5 +598,25 @@ class KeuanganSaranaPrasaranaController extends Controller
     public function exportToCSV()
     {
         return Excel::download(new SaranaDanaExport, 'sarana-dana.csv');
+    }
+
+    public function approve($id)
+    {
+        $data = SaranaDana::find($id);
+        $data->is_approved = true;
+        $data->comment = 'Data Keuangan Sarana Prasarana telah disetujui.';
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
+    public function tolak(Request $req, $id)
+    {
+        $data = SaranaDana::find($id);
+        $data->is_approved = false;
+        $data->comment = $req->comment;
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
     }
 }

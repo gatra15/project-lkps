@@ -16,7 +16,9 @@ class LembarEvaluasiDiriController extends Controller
     public function index()
     {
         $data = LembarEvaluasiDiri::all();
-        return $data;
+        return [
+            'data' => $data,
+        ];
     }
 
     /**
@@ -123,5 +125,25 @@ class LembarEvaluasiDiriController extends Controller
     public function destroy(LembarEvaluasiDiri $lembarEvaluasiDiri)
     {
         //
+    }
+
+    public function approve($id)
+    {
+        $data = LembarEvaluasiDiri::find($id);
+        $data->is_approved = true;
+        $data->comment = 'Data Lembar Evaluasi Diri telah disetujui.';
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
+    public function tolak(Request $req, $id)
+    {
+        $data = LembarEvaluasiDiri::find($id);
+        $data->is_approved = false;
+        $data->comment = $req->comment;
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
     }
 }

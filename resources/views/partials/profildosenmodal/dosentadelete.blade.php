@@ -1,8 +1,8 @@
-<form action="/profil-dosen/pembimbing-ta/{{ $sdm->id }}" method="get">
+<form action="/profil-dosen/pembimbing-ta/{{ $sdm['tahun_laporan'] }}" method="get">
     <div class="modal-body">
         @csrf
         {{-- @method('get') --}}
-        <h5 class="text-center">Yakin Ingin Menghapus {{ $sdm->nama }} ? </h5>
+        <h5 class="text-center">Yakin Ingin Menghapus {{ $sdm['nama'] }} ? </h5>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

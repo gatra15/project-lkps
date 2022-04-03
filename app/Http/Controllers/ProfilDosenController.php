@@ -165,4 +165,24 @@ class ProfilDosenController extends Controller
         return Excel::download(new DosenTetapExport, 'dosen-tetap.csv');
     }
 
+    public function approve($id)
+    {
+        $data = SdmDosen::find($id);
+        $data->is_approved = true;
+        $data->comment = 'Data Sdm Dosen Tetap telah disetujui.';
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
+    public function tolak(Request $req, $id)
+    {
+        $data = SdmDosen::find($id);
+        $data->is_approved = false;
+        $data->comment = $req->comment;
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
 }

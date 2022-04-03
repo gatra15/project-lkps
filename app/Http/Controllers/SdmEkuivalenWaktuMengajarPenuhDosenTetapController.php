@@ -224,4 +224,24 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
     {
         return Excel::download(new DosenEwmpExport, 'ewmp-dosen.csv');
     }
+
+    public function approve($id)
+    {
+        $data = SdmEkuivalenWaktuMengajarPenuhDosenTetap::find($id);
+        $data->is_approved = true;
+        $data->comment = 'Data EWMP Dosen Tetap telah disetujui.';
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
+    public function tolak(Request $req, $id)
+    {
+        $data = SdmEkuivalenWaktuMengajarPenuhDosenTetap::find($id);
+        $data->is_approved = false;
+        $data->comment = $req->comment;
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
 }

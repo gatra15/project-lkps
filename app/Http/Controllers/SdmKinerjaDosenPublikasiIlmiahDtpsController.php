@@ -568,4 +568,24 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
     {
         return Excel::download(new KinerjaDosenPublikasiExport, 'kinerja-dosen-publikasi-ilmiah-dtps.csv');
     }
+
+    public function approve($id)
+    {
+        $data = SdmKinerjaDosenPublikasiIlmiahDtps::find($id);
+        $data->is_approved = true;
+        $data->comment = 'Data Kinerja Dosen Publikasi Ilmiah Dtps telah disetujui.';
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
+    public function tolak(Request $req, $id)
+    {
+        $data = SdmKinerjaDosenPublikasiIlmiahDtps::find($id);
+        $data->is_approved = false;
+        $data->comment = $req->comment;
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
 }

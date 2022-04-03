@@ -35,7 +35,7 @@ class CreateIdentitasPengusulsTable extends Migration
             $table->string('peningkatan_terbaru');
             $table->string('peningkatan_terbaru_berkas')->nullable(true);
             $table->string('nomor_sk_banpt');
-            // $table->integer('jumlah_mahasiswa_ts');
+            $table->boolean('is_approved')->default(false);
             $table->string('created_by')->nullable(true);
             $table->timestamp('updated_by')->nullable(true);
             $table->timestamp('created_at')->nullable(true);

@@ -195,4 +195,24 @@ class TataPamongController extends Controller
     {
         return Excel::download(new TataPamongExport, 'indikator-tata-kerjasama.csv');
     }
+
+    public function approve($id)
+    {
+        $data = IndikatorTataKerjasama::find($id);
+        $data->is_approved = true;
+        $data->comment = 'Data Indikator Tata Kerjasama telah disetujui.';
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
+    public function tolak(Request $req, $id)
+    {
+        $data = IndikatorTataKerjasama::find($id);
+        $data->is_approved = false;
+        $data->comment = $req->comment;
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
 }

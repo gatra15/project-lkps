@@ -29,37 +29,24 @@
 
         <tbody class="text-dark">
              {{-- Coding Tabel Disini --}}
-             <tr>
-            @foreach ($dosenta['dosen']['a1'] as $sdm)
+            @foreach ($dosenta['dosen'] as $key => $sdm)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $sdm->nama }}</td>
-            @endforeach
-            @foreach ($dosenta['dosen']['a3'] as $sdm)
-                <td>{{ $sdm->jumlah_ps_akreditasi_ts }}</td>
-            @endforeach
-            @foreach ($dosenta['dosen']['a2'] as $sdm)
-                <td>{{ $sdm->jumlah_ps_akreditasi_ts }}</td>
-            @endforeach
-            @foreach ($dosenta['dosen']['a1'] as $sdm)
-                <td>{{ $sdm->jumlah_ps_akreditasi_ts }}</td>
-                <td>{{ $sdm->jumlah_ps_akreditasi_average }}</td>
-            @endforeach
-            @foreach ($dosenta['dosen']['a3'] as $sdm)
-                <td>{{ $sdm->jumlah_ps_lain_ts }}</td>
-            @endforeach
-            @foreach ($dosenta['dosen']['a2'] as $sdm)
-                <td>{{ $sdm->jumlah_ps_lain_ts }}</td>
-            @endforeach
-            @foreach ($dosenta['dosen']['a1'] as $sdm)
-                <td>{{ $sdm->jumlah_ps_lain_ts }}</td>
-                <td>{{ $sdm->jumlah_ps_lain_average }}</td>
-                <td>{{ $sdm->average }}</td>
+                <td>{{ $sdm['nama'] }}</td>
+                <td>{{ $sdm['jumlah_ps_akreditasi_ts2'] }}</td>
+                <td>{{ $sdm['jumlah_ps_akreditasi_ts1'] }}</td>
+                <td>{{ $sdm['jumlah_ps_akreditasi_ts'] }}</td>
+                <td>{{ $sdm['jumlah_ps_akreditasi_average'] }}</td>
+                <td>{{ $sdm['jumlah_ps_lain_ts2'] }}</td>
+                <td>{{ $sdm['jumlah_ps_lain_ts1'] }}</td>
+                <td>{{ $sdm['jumlah_ps_lain_ts'] }}</td>
+                <td>{{ $sdm['jumlah_ps_lain_average'] }}</td>
+                <td>{{ $sdm['average'] }}</td>
                 @hasrole('perwakilan')
                 <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosentaedit-{{ $sdm->id }}"><i class="fas fa-edit"></i></a></li>
+                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosentaedit-{{ $sdm['id'] }}"><i class="fas fa-edit"></i></a></li>
                     <li>
-                        <a type="button" class="btn btn-danger" href="/profil-dosen/pembimbing-ta/{{ $sdm->id }}" data-toggle="modal" data-target="#modaldosentadelete-{{ $sdm->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        <a type="button" class="btn btn-danger" href="/profil-dosen/pembimbing-ta/{{ $sdm['id'] }}" data-toggle="modal" data-target="#modaldosentadelete-{{ $sdm['id'] }}"><i class="fas fa-trash btn-del"></i></a></li>
                 </ul></td>
                 @endhasrole
             </tr>

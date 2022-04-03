@@ -249,4 +249,24 @@ class PendidikanKepuasanMahasiswaController extends Controller
     {
         return Excel::download(new PendidikanKepuasanMahasiswaExport, 'pendidikan-kepuasan-mahasiswa.csv');
     }
+
+    public function approve($id)
+    {
+        $data = PendidikanKepuasanMahasiswa::find($id);
+        $data->is_approved = true;
+        $data->comment = 'Data Pendidikan Kepuasan Mahasiswa telah disetujui.';
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
+    public function tolak(Request $req, $id)
+    {
+        $data = PendidikanKepuasanMahasiswa::find($id);
+        $data->is_approved = false;
+        $data->comment = $req->comment;
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
 }
