@@ -14,6 +14,6 @@ class WaktuTungguLulusan extends Model
 
     public function tahun()
     {
-        return $this->belongsTo('App\Models\Ts', 'tahun_id', 'id');
+        return $this->belongsTo('App\Models\TS', 'tahun_id', 'id');
     }
 }

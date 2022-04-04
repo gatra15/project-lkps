@@ -136,7 +136,6 @@ class WaktuTungguLulusanController extends Controller
             $data->waktu_tunggu_6 = (int) $request->input('waktu_tunggu_6');
             $data->waktu_tunggu_6_18 = (int) $request->input('waktu_tunggu_6_18');
             $data->waktu_tunggu_18 = (int) $request->input('waktu_tunggu_18');
-            // $data->tahun_laporan = $tahun;
             $data->prodi = auth()->user()->prodi->name;
             $data->created_by = auth()->user()->name;
             $data->created_at = Carbon::now();
@@ -183,5 +182,25 @@ class WaktuTungguLulusanController extends Controller
             DB::connection($connection)->rollBack();
             return response(['message' => $ex->getMessage()],500);
         }
+    }
+
+    public function approve($id)
+    {
+        $data = WaktuTungguLulusan::find($id);
+        $data->is_approved = true;
+        $data->comment = 'Data Luaran Daya Saing Lulusan telah disetujui.';
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
+    public function tolak(Request $req, $id)
+    {
+        $data = WaktuTungguLulusan::find($id);
+        $data->is_approved = false;
+        $data->comment = $req->comment;
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
     }
 }

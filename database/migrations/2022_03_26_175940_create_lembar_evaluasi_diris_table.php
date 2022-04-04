@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSdmDosenPembimbingTasTable extends Migration
+class CreateLembarEvaluasiDirisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreateSdmDosenPembimbingTasTable extends Migration
      */
     public function up()
     {
-        Schema::create('sdm_dosen_pembimbing_tas', function (Blueprint $table) {
+        Schema::create('lembar_evaluasi_diris', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->integer('jumlah_ps_akreditasi_ts');
-            $table->float('jumlah_ps_akreditasi_average');
-            $table->integer('jumlah_ps_lain_ts');
-            $table->float('jumlah_ps_lain_average');
-            $table->float('average');
-            $table->integer('tahun_laporan');
+            $table->string('attachment')->nullable(true);
+            $table->string('tahun_laporan');
             $table->string('prodi');
             $table->string('created_by')->nullable(true);
             $table->string('updated_by')->nullable(true);
@@ -37,6 +32,6 @@ class CreateSdmDosenPembimbingTasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sdm_dosen_pembimbing_tas');
+        Schema::dropIfExists('lembar_evaluasi_diris');
     }
 }

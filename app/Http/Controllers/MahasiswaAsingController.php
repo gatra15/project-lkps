@@ -343,4 +343,24 @@ class MahasiswaAsingController extends Controller
     {
         return Excel::download(new MahasiswaAsingExport, 'mahasiswa-asing.csv');
     }
+
+    public function approve($id)
+    {
+        $data = MahasiswaAsing::find($id);
+        $data->is_approved = true;
+        $data->comment = 'Data Mahasiswa Asing telah disetujui.';
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
+    public function tolak(Request $req, $id)
+    {
+        $data = MahasiswaAsing::find($id);
+        $data->is_approved = false;
+        $data->comment = $req->comment;
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
 }

@@ -54,12 +54,16 @@ class KesesuaianBidangKerjaController extends Controller
         $sedang = KesesuaianBidangKerja::where($where)->sum('kesesuaian_sedang');
         $tinggi = KesesuaianBidangKerja::where($where)->sum('kesesuaian_tinggi');
         $jumlah = KesesuaianBidangKerja::where($where)->sum('kesesuaian_rendah', 'kesesuaian_sedang', 'kesesuaian_tinggi');
+        $nl = KesesuaianBidangKerja::where($where)->sum('jumlah_lulusan');
+        $nj = KesesuaianBidangKerja::where($where)->sum('jumlah_lulusan_terlacak');
         return [
             'bidang' => $bidang,
             'rendah' => $rendah,
             'sedang' => $sedang,
             'tinggi' => $tinggi,
             'jumlah' => $jumlah,
+            'nl' => $nl,
+            'nj' => $nj,
         ];
     }
 
@@ -180,5 +184,25 @@ class KesesuaianBidangKerjaController extends Controller
             DB::connection($connection)->rollBack();
             return response(['message' => $ex->getMessage()],500);
         }
+    }
+
+    public function approve($id)
+    {
+        $data = KesesuaianBidangKerja::find($id);
+        $data->is_approved = true;
+        $data->comment = 'Data Luaran Kesesuaian Bidang Kerja telah disetujui.';
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
+    public function tolak(Request $req, $id)
+    {
+        $data = KesesuaianBidangKerja::find($id);
+        $data->is_approved = false;
+        $data->comment = $req->comment;
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
     }
 }

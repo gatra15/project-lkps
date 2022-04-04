@@ -136,4 +136,24 @@ class UppsController extends Controller
 
         return back()->with('success', 'Data Upps berhasil dihapus.');
     }
+
+    public function approve($id)
+    {
+        $data = Upps::find($id);
+        $data->is_approved = true;
+        $data->comment = 'Data Upps telah disetujui.';
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
+    public function tolak(Request $req, $id)
+    {
+        $data = Upps::find($id);
+        $data->is_approved = false;
+        $data->comment = $req->comment;
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
 }

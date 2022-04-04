@@ -235,4 +235,24 @@ class EfektifitasProduktifitasPendidikanController extends Controller
             return response(['message' => $ex->getMessage()],500);
         }
     }
+
+    public function approve($id)
+    {
+        $data = EfektifitasProduktifitasPendidikan::find($id);
+        $data->is_approved = true;
+        $data->comment = 'Data Luaran Efektifitas Produktifitas Pendidikan telah disetujui.';
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
+    public function tolak(Request $req, $id)
+    {
+        $data = EfektifitasProduktifitasPendidikan::find($id);
+        $data->is_approved = false;
+        $data->comment = $req->comment;
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
 }

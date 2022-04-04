@@ -181,4 +181,24 @@ class TimPenyusunController extends Controller
             return response(['message' => $ex->getMessage()],500);
         }
     }
+
+    public function approve($id)
+    {
+        $data = TimPenyusun::find($id);
+        $data->is_approved = true;
+        $data->comment = 'Data Tim Penyusun telah disetujui.';
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
+    public function tolak(Request $req, $id)
+    {
+        $data = TimPenyusun::find($id);
+        $data->is_approved = false;
+        $data->comment = $req->comment;
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
 }

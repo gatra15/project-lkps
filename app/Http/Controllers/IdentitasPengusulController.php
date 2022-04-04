@@ -31,12 +31,14 @@ class IdentitasPengusulController extends Controller
         $upps = (new UppsController)->index();
         // tim penyusun
         $tim = (new TimPenyusunController)->index();
+        $lembar = (new LembarEvaluasiDiriController)->index();
         return view('tab.identitasPengusul', [
             'title' => 'Identitas Pengusul',
             'identitas' => $identitas,
             'timpenyusun' => $tim,
             'prodi' => $prodi,
             'upps' => $upps,
+            'lembar' => $lembar,
         ]);
     }
 
@@ -204,5 +206,25 @@ class IdentitasPengusulController extends Controller
     {
         IdentitasPengusul::find($id)->delete();
         return back()->with('success', 'Data Identitas Pengusul berhasil dihapus.');
+    }
+
+    public function approve($id)
+    {
+        $data = IdentitasPengusul::find($id);
+        $data->is_approved = true;
+        $data->comment = 'Data Identitas Pengusul telah disetujui.';
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
+    public function tolak(Request $req, $id)
+    {
+        $data = IdentitasPengusul::find($id);
+        $data->is_approved = false;
+        $data->comment = $req->comment;
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
     }
 }

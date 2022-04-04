@@ -6,13 +6,13 @@ use Carbon\Carbon;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use App\Models\SimulasiPenilaian;
-use Illuminate\Support\Collection;
 use App\Models\CapaianPembelajaran;
 use App\Models\IndikatorTataKerjasama;
 use App\Http\Controllers\MahasiswaController;
 use App\Models\SdmKinerjaDosenPenelitianDtps;
 use App\Http\Controllers\PenelitianController;
 use App\Http\Controllers\SdmKinerjaDosenPenelitianDtpsController;
+use Illuminate\Support\Collection;
 
 class SimulasiPenilaianController extends Controller
 {
@@ -120,7 +120,6 @@ class SimulasiPenilaianController extends Controller
         $NLP = $this->NLP();
 
 
-        
         // Hitung
         $collection = new Collection([
             ['na1' => 'point_1_akhir', 'na' => SimulasiPenilaian::where('tahun_laporan', $tahun)->where('prodi', $prodi)->sum('point_1_akhir')],
@@ -196,7 +195,9 @@ class SimulasiPenilaianController extends Controller
         ]);
         $sum_nilai_akhir = $collection->sum('na');
 
+
         $simulasi = SimulasiPenilaian::where($where)->get();
+        $approved = SimulasiPenilaian::where($where)->where('is_approved', true)->get();
         return view('tab.simulasi', [
             'simulasi' => $simulasi,
             'mahasiswa' => $pendaftar,
@@ -238,6 +239,7 @@ class SimulasiPenilaianController extends Controller
             'RI64' => $RI64,
             'NLP' => $NLP,
             'sum_nilai_akhir' => $sum_nilai_akhir,
+            'approved' => $approved,
         ]);
     }
 
@@ -259,208 +261,7 @@ class SimulasiPenilaianController extends Controller
      */
     public function store(Request $request)
     {
-        // // dd($request);
-        // $tahun = session('tahun_laporan');
-        // $request->validate([
-        //     'point_1' => 'required' ,
-        //     'point_2' => 'required' ,
-        //     'point_3' => 'required' ,
-        //     'point_4' => 'required' ,
-        //     'point_5' => 'required' ,
-        //     'point_6a' => 'required' ,
-        //     'point_6b' => 'required' ,
-        //     'point_7a' => 'required' ,
-        //     'point_7b' => 'required' ,
-        //     'point_8' => 'required' ,
-        //     // 'point_9' => 'required' ,
-        //     'point_10' => 'required' ,
-
-        //     'point_11' => 'required' ,
-        //     'point_12' => 'required' ,
-        //     'point_13' => 'required' ,
-        //     'point_14' => 'required' ,
-        //     'point_15a' => 'required' ,
-        //     'point_15b' => 'required' ,
-        //     'point_16a' => 'required' ,
-        //     'point_16b' => 'required' ,
-        //     'point_17' => 'required' ,
-        //     'point_18' => 'required' ,
-        //     'point_19' => 'required' ,
-        //     'point_20' => 'required' ,
-            
-        //     'point_21' => 'required' ,
-        //     'point_22' => 'required' ,
-        //     'point_23' => 'required' ,
-        //     'point_24' => 'required' ,
-        //     'point_25' => 'required' ,
-        //     'point_26' => 'required' ,
-        //     'point_27' => 'required' ,
-        //     'point_28' => 'required' ,
-        //     'point_29' => 'required' ,
-        //     'point_30' => 'required' ,
-
-        //     'point_31a' => 'required' ,
-        //     'point_31b' => 'required' ,
-        //     'point_32' => 'required' ,
-        //     'point_33' => 'required' ,
-        //     'point_34' => 'required' ,
-        //     'point_35' => 'required' ,
-        //     'point_36' => 'required' ,
-        //     'point_37' => 'required' ,
-        //     'point_38a' => 'required' ,
-        //     'point_38b' => 'required' ,
-        //     'point_38c' => 'required' ,
-        //     'point_39' => 'required' ,
-        //     'point_40a' => 'required' ,
-        //     'point_40b' => 'required' ,
-
-        //     'point_41a' => 'required' ,
-        //     'point_41b' => 'required' ,
-        //     'point_41c' => 'required' ,
-        //     'point_41d' => 'required' ,
-        //     'point_41e' => 'required' ,
-        //     'point_42' => 'required' ,
-        //     'point_43' => 'required' ,
-        //     'point_44a' => 'required' ,
-        //     'point_44b' => 'required' ,
-        //     'point_44c' => 'required' ,
-        //     'point_45' => 'required' ,
-        //     'point_46' => 'required' ,
-        //     'point_47a' => 'required' ,
-        //     'point_47b' => 'required' ,
-        //     'point_48' => 'required' ,
-        //     'point_49' => 'required' ,
-        //     'point_50' => 'required' ,
-
-        //     'point_51' => 'required' ,
-        //     'point_52' => 'required' ,
-        //     'point_53' => 'required' ,
-        //     'point_54' => 'required' ,
-        //     'point_55' => 'required' ,
-        //     'point_56' => 'required' ,
-        //     'point_57' => 'required' ,
-        //     'point_58' => 'required' ,
-        //     'point_59' => 'required' ,
-        //     'point_60' => 'required' ,
-
-        //     'point_61' => 'required' ,
-        //     'point_62' => 'required' ,
-        //     'point_63' => 'required' ,
-        //     'point_64' => 'required' ,
-        //     'point_65' => 'required' ,
-        //     'point_66' => 'required' ,
-        //     'point_67' => 'required' ,
-        //     'point_68' => 'required' ,
-        //     'point_69' => 'required' ,
-        // ]);
-
-        // $data = new SimulasiPenilaian();
-        // $data->point_1 = $request->input('point_1');
-        // $data->point_1_akhir = $request->point_1 * 1;
-
-        // $data->point_2 = $request->input('point_2');
-        // $data->point_2_akhir = $request->point_2 * 1;
-
-        // $data->point_3 = $request->input('point_3');
-        // $data->point_3_akhir = $request->point_3 * 1.033;
-
-        // $data->point_4 = $request->input('point_4');
-        // $data->point_4_akhir = $request->point_4 * 1.033;
-
-        // $data->point_5 = $request->input('point_5');
-        // $data->point_5_akhir = $request->point_5 * 1.033;
-
-        // $data->point_6a = $request->input('point_6a');
-        // $data->point_6b = $request->input('point_6b');
-        // $data->point_6_akhir = 
-
-        // $data->point_7a = $request->input('point_7a');
-        // $data->point_7b = $request->input('point_7b');
-        // $data->point_8 = $request->input('point_8');
-        // $data->point_9 = $request->input('point_9');
-        // $data->point_10 = $request->input('point_10');
-
-        // $data->point_11 = $request->input('point_11');
-        // $data->point_12 = $request->input('point_12');
-        // $data->point_13 = $request->input('point_13');
-        // $data->point_14 = $request->input('point_14');
-        // $data->point_15a = $request->input('point_15a');
-        // $data->point_15b = $request->input('point_15b');
-        // $data->point_16a = $request->input('point_16a');
-        // $data->point_16b = $request->input('point_16b');
-        // $data->point_17 = $request->input('point_17');
-        // $data->point_18 = $request->input('point_18');
-        // $data->point_19 = $request->input('point_19');
-        // $data->point_20 = $request->input('point_20');
-
-        // $data->point_21 = $request->input('point_21');
-        // $data->point_22 = $request->input('point_22');
-        // $data->point_23 = $request->input('point_23');
-        // $data->point_24 = $request->input('point_24');
-        // $data->point_25 = $request->input('point_25');
-        // $data->point_26 = $request->input('point_26');
-        // $data->point_27 = $request->input('point_27');
-        // $data->point_28 = $request->input('point_28');
-        // $data->point_29 = $request->input('point_29');
-        // $data->point_30 = $request->input('point_30');
-
-        // $data->point_31a = $request->input('point_31a');
-        // $data->point_31b = $request->input('point_31b');
-        // $data->point_32 = $request->input('point_32');
-        // $data->point_33 = $request->input('point_33');
-        // $data->point_34 = $request->input('point_34');
-        // $data->point_35 = $request->input('point_35');
-        // $data->point_36 = $request->input('point_36');
-        // $data->point_37 = $request->input('point_37');
-        // $data->point_38a = $request->input('point_38a');
-        // $data->point_38b = $request->input('point_38b');
-        // $data->point_38c = $request->input('point_38c');
-        // $data->point_39 = $request->input('point_39');
-        // $data->point_40a = $request->input('point_40a');
-        // $data->point_40b = $request->input('point_40b');
-
-        // $data->point_41a = $request->input('point_41a');
-        // $data->point_41b = $request->input('point_41b');
-        // $data->point_41c = $request->input('point_41c');
-        // $data->point_41d = $request->input('point_41d');
-        // $data->point_41e = $request->input('point_41e');
-        // $data->point_42 = $request->input('point_42');
-        // $data->point_43 = $request->input('point_43');
-        // $data->point_44 = $request->input('point_44');
-        // $data->point_45 = $request->input('point_45');
-        // $data->point_46 = $request->input('point_46');
-        // $data->point_47a = $request->input('point_47a');
-        // $data->point_47b = $request->input('point_47b');
-        // $data->point_48 = $request->input('point_48');
-        // $data->point_49 = $request->input('point_49');
-        // $data->point_50 = $request->input('point_50');
-
-        // $data->point_51 = $request->input('point_51');
-        // $data->point_52 = $request->input('point_52');
-        // $data->point_53 = $request->input('point_53');
-        // $data->point_54 = $request->input('point_54');
-        // $data->point_55 = $request->input('point_55');
-        // $data->point_56 = $request->input('point_56');
-        // $data->point_57 = $request->input('point_57');
-        // $data->point_58 = $request->input('point_58');
-        // $data->point_59 = $request->input('point_59');
-        // $data->point_60 = $request->input('point_60');
-
-        // $data->point_61 = $request->input('point_61');
-        // $data->point_62 = $request->input('point_62');
-        // $data->point_63 = $request->input('point_63');
-        // $data->point_64 = $request->input('point_64');
-        // $data->point_65 = $request->input('point_65');
-        // $data->point_66 = $request->input('point_66');
-        // $data->point_67 = $request->input('point_67');
-        // $data->point_68 = $request->input('point_68');
-        // $data->point_69 = $request->input('point_69');   
-
-        // $data->tahun_laporan = $tahun;
-        // $data->prodi = auth()->user()->prodi->name;
-        // $data->created_by = auth()->user()->name;
-        // $data->created_at = Carbon::now();
-        // $data->save();
+        // 
     }
 
     /**
@@ -508,6 +309,13 @@ class SimulasiPenilaianController extends Controller
     private function hitung4($input)
     {
         $data = $input * 0.7625;
+        return $data;
+    }
+    
+    private function hitung4a($input1, $input2)
+    {
+        $data = ((2 * $input1) + $input2) / 3;
+        $data = $data * 0.7625;
         return $data;
     }
     
@@ -739,15 +547,15 @@ class SimulasiPenilaianController extends Controller
     private function RDPU()
     {
         $dosenta = (new SdmDosenPembimbingTaController)->index();
-        $RDPU = $dosenta['average'];
-        if($RDPU <= 6)
-        {
-            return 4;
-        } else if ($RDPU > 6 && $RDPU <= 10) {
-            return 7 - ($RDPU / 2);
-        } else {
-            return 0;
-        }
+        // $RDPU = $dosenta['average'];
+        // if($RDPU <= 6)
+        // {
+        //     return 4;
+        // } else if ($RDPU > 6 && $RDPU <= 10) {
+        //     return 7 - ($RDPU / 2);
+        // } else {
+        //     return 0;
+        // }
     }
 // End RDPU
 
@@ -1230,8 +1038,9 @@ class SimulasiPenilaianController extends Controller
         $NL = $dayasaing['nl'];
         $NJ = $dayasaing['nj'];
         $kategori = $NL >= 300 ? 1 : 2;
-        $PRL = $NL/$NJ;
-        $Prmin = $kategori == 1 ? 0.3 : 0.5 - ($NL / (300*0.2));
+        $PJ = ($NJ/$NL);        
+
+        $Prmin = $kategori == 1 ? 0.3 : 0.5 - (($NL / 300)*0.2);
         $a = 3; $b = 12; $c = 21;
         $JL = $dayasaing['jl'];
         $JL2 = $dayasaing['jl2'];
@@ -1240,6 +1049,14 @@ class SimulasiPenilaianController extends Controller
 
         $WT = (($JL4 * $a) + ($JL3 *$b) + ($JL2 * $c)) / $JL;
 
+        if($PJ < $Prmin) {
+            return ($PJ/$Prmin) * $this->ifWT($WT);
+        } else {
+            return $this->ifWT($WT);
+        }
+    }
+
+    private function ifWT($WT){
         if($WT < 6)
         {
             return 4;
@@ -1249,7 +1066,6 @@ class SimulasiPenilaianController extends Controller
         } else {
             return 0;
         }
-        // dd($dayasaing);
     }
 // End WT
 
@@ -1257,20 +1073,36 @@ class SimulasiPenilaianController extends Controller
     private function PBS()
     {
         $kesesuaian = (new KesesuaianBidangKerjaController)->index();
+
         $rendah = $kesesuaian['rendah'];
         $sedang = $kesesuaian['sedang'];
         $tinggi = $kesesuaian['tinggi'];
         $jumlah = $kesesuaian['jumlah'];
+
+        $NL = $kesesuaian['nl'];
+        $NJ = $kesesuaian['nj'];
+        $kategori = $NL >= 300 ? 1 : 2;
+        $PJ = ($NJ/$NL);        
+        $Prmin = $kategori == 1 ? 0.3 : 0.5 - (($NL / 300)*0.2);
         $a = 0.3; $b = 0.75; $c = 1;
         $PBS = (($rendah * $a) + ($sedang * $b) + ($tinggi * $c)) / $jumlah;
 
+        if($PJ < $Prmin) {
+            return ($PJ/$Prmin) * $this->ifPBS($PBS);
+        } else {
+            return $this->ifPBS($PBS);
+        }
+
+    }
+    
+    private function ifPBS($PBS)
+    {
         if($PBS >= 0.6)
         {
             return 4;
         } else {
             return (20 * $PBS) / 3;
         }
-
     }
 // End PBS
 
@@ -1281,9 +1113,24 @@ class SimulasiPenilaianController extends Controller
         $NI = $kinerja['internasional'];
         $NN = $kinerja['nasional'];
         $NW = $kinerja['wilayah'];
-        $NL = $kinerja['jumlah'];
-        $RI = ($NI / $NL); $RN = ($NN / $NL); $RW = ($NW / $NL); $a = 0.05; $b = 0.2; $c = 0.9;
+        $NL = $kinerja['nl'];
+        $NJ = $kinerja['nj'];
+        $kategori = $NL >= 300 ? 1 : 2;
+        $PJ = ($NJ/$NL);        
+        $Prmin = $kategori == 1 ? 0.3 : 0.5 - (($NL / 300)*0.2);
+        $RI = ($NI / $NL); $RN = ($NN / $NL); $RW = ($NW / $NL); 
 
+        if($PJ < $Prmin) {
+            return ($PJ/$Prmin) * $this->ifRI62($RI, $RN, $RW);
+        } else {
+            return $this->ifRI62($RI, $RN, $RW);
+        }
+        
+    }
+
+    private function ifRI62($RI, $RN, $RW)
+    {
+        $a = 0.05; $b = 0.2; $c = 0.9;
         if ($RI >= $a)
         {
             return 4;
@@ -1292,7 +1139,7 @@ class SimulasiPenilaianController extends Controller
             return 3 + ($RI / $a);
         } else if ($RI > 0 && $RI < $a && $RN > 0 && $RN < $b )
         {
-            return 2 + (2 * ($RI/$a)) + ($RN/$b) - (($RI * $RN)/($a * $b));
+            return 2 + (2 * ($RI/$a)) + ($RN/ $b) - (($RI * $RN)/($a * $b));
         } else if ($RI == 0 && $RN == 0 && $RW >= $c) 
         {
             return 2;
@@ -1306,6 +1153,13 @@ class SimulasiPenilaianController extends Controller
     private function STK()
     {
         $KP = (new KepuasanPenggunaController)->index();
+        $kinerja = (new KinerjaLulusanController)->index();
+        $NL = $kinerja['nl'];
+        $NJ = $kinerja['nj'];
+        $kategori = $NL >= 300 ? 1 : 2;
+        $PJ = ($NJ/$NL);        
+        $Prmin = $kategori == 1 ? 0.3 : 0.5 - (($NL / 300)*0.2);
+
         $TKI1 = (4 * $KP['tkp1']['a1']) + (3 * $KP['tkp1']['b1']) + (2 * $KP['tkp1']['c1']) + $KP['tkp1']['d1'];
         $TKI2 = (4 * $KP['tkp2']['a2']) + (3 * $KP['tkp2']['b2']) + (2 * $KP['tkp2']['c2']) + $KP['tkp2']['d2'];
         $TKI3 = (4 * $KP['tkp3']['a3']) + (3 * $KP['tkp3']['b3']) + (2 * $KP['tkp3']['c3']) + $KP['tkp3']['d3'];
@@ -1313,8 +1167,12 @@ class SimulasiPenilaianController extends Controller
         $TKI5 = (4 * $KP['tkp5']['a5']) + (3 * $KP['tkp5']['b5']) + (2 * $KP['tkp5']['c5']) + $KP['tkp5']['d5'];
         $TKI6 = (4 * $KP['tkp6']['a6']) + (3 * $KP['tkp6']['b6']) + (2 * $KP['tkp6']['c6']) + $KP['tkp6']['d6'];
         $TKI7 = (4 * $KP['tkp7']['a7']) + (3 * $KP['tkp7']['b7']) + (2 * $KP['tkp7']['c7']) + $KP['tkp7']['d7'];
-        $STK = ($TKI1 + $TKI2 + $TKI3 + $TKI4 + $TKI5 + $TKI6 + $TKI7) / 7; 
-        return $STK;
+        $STK = (($TKI1 + $TKI2 + $TKI3 + $TKI4 + $TKI5 + $TKI6 + $TKI7) / 7) / 100; 
+        if($PJ < $Prmin) {
+            return ($PJ/$Prmin) * $STK;
+        } else {
+            return $STK;
+        }
     }
 // End STK
 
@@ -1683,13 +1541,26 @@ class SimulasiPenilaianController extends Controller
 
         return back()->with('success', 'Data Simulasi Penilaian berhasi dihapus.');
     }
-
+    
     public function approve($id)
     {
         $data = SimulasiPenilaian::find($id);
         $data->is_approved = true;
+        $data->comment = 'Penilaian telah disetujui.';
+        $data->alert = 'success';
         $data->update();
 
         return back()->with('success', 'Data Telah di Approve.');
+    }
+    
+    public function tolak(Request $request, $id)
+    {
+        $data = SimulasiPenilaian::find($id);
+        $data->is_approved = false;
+        $data->comment = $request->input('alasan');
+        $data->alert = 'warning';
+        $data->update();
+
+        return back()->with('success', 'Data Perlu diperbaiki.');
     }
 }

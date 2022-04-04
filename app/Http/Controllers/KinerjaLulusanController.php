@@ -47,18 +47,18 @@ class KinerjaLulusanController extends Controller
             ['tahun_laporan', '>=', $tahun-4]
         ];
         $data = KinerjaLulusan::with('tahun')->where($where)->get();
-        $jumlah = KinerjaLulusan::where($where)->sum('jumlah_lulusan');
-        $jumlah2 = KinerjaLulusan::where($where)->sum('jumlah_lulusan_terlacak');
         $wilayah = KinerjaLulusan::where($where)->sum('tempat_wilayah_tidak_berizin');
         $nasional = KinerjaLulusan::where($where)->sum('tempat_nasional_berizin');
         $internasional = KinerjaLulusan::where($where)->sum('internasional');
+        $nl = KinerjaLulusan::where($where)->sum('jumlah_lulusan');
+        $nj = KinerjaLulusan::where($where)->sum('jumlah_lulusan_terlacak');
         return [
             'data' => $data,
-            'jumlah' => $jumlah,
-            'jumlah2' => $jumlah2,
             'wilayah' => $wilayah,
             'nasional' => $nasional,
             'internasional' => $internasional,
+            'nl' => $nl,
+            'nj' => $nj,
         ];
     }
 
@@ -178,5 +178,25 @@ class KinerjaLulusanController extends Controller
             DB::connection($connection)->rollBack();
             return response(['message' => $ex->getMessage()],500);
         }
+    }
+
+    public function approve($id)
+    {
+        $data = KinerjaLulusan::find($id);
+        $data->is_approved = true;
+        $data->comment = 'Data Luaran Kinerja Lulusan telah disetujui.';
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
+    }
+
+    public function tolak(Request $req, $id)
+    {
+        $data = KinerjaLulusan::find($id);
+        $data->is_approved = false;
+        $data->comment = $req->comment;
+        $data->updated_at = Carbon::now();
+        $data->updated_by = auth()->user()->name;
+        $data->update();
     }
 }
