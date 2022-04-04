@@ -1,4 +1,4 @@
-<div id="print-table" >
+<div id="print-table" media="print">
     <table id='form-print' class="table text-center align-middle table-bordered table-condensed ">
         <thead>
             <tr>

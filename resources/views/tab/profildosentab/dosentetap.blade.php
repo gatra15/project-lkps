@@ -10,7 +10,7 @@
         @endrole
     </p> 
     
-    @can('download file')
+    @can ('download file')
     <a href="{{ url('profil-dosen/download/excel') }}" class="btn btn-success">Excel</a>
     <a href="{{ url('profil-dosen/download/csv') }}" class="btn btn-success">CSV</a>
     <input type="button" class="btn btn-primary" onclick="printDiv('print-table')" value="Print Document" />

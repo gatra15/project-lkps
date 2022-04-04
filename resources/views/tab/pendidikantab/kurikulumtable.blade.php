@@ -1,4 +1,3 @@
-@include('layouts.table')
 <style>
     
 th {
@@ -11,10 +10,8 @@ th span {
   writing-mode: tb-rl;
   white-space:pre;
 }
-
-
 </style>
-<div id="print-table3">
+<div id="print-table3" >
     <table class="table table-bordered table-condensed ">
     <thead>
     
@@ -33,6 +30,7 @@ th span {
     <th scope="col" class="align-middle text-center" rowspan="2">Opsi</th>
     @endhasrole
     </tr>
+    
     <tr>
         <th> <span class="text-center">Kuliah/ Responsi/ <br> Tutorial</span>  </th>
         <th> <span class="text-center">Seminar</span> </th>
@@ -89,3 +87,4 @@ th span {
     </table> 
 </div>
 
+@include('layouts.table')

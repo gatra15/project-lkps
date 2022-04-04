@@ -8,15 +8,19 @@
                
                 {{-- MASUK KE TABEL SDM DOSENS --}}
                 
-                <label for="pengkuan"> Nama : </label>
+                <label for="user"> Nama : </label>
                 <div class="input-group input-group-sm mb-3">
                     <input type="text" name="name" class="form-control" value="{{ $users->name }}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
-                <label for="pengkuan"> Email :</label>
+                <label for="user"> Email :</label>
                 <div class="input-group input-group-sm mb-3">
                     <input type="text" name="email" value="{{ $users->email }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
                 </div>
-                <label for="pengkuan"> Role :</label>
+                <label for="user"> Password :</label>
+                <div class="input-group input-group-sm mb-3">
+                    <input type="password" name="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                </div>
+                <label for="user"> Role :</label>
                 <div class="input-group input-group-sm mb-3">
                     <select id="role" name="role" class="form-control form-control-lg mb-3" aria-label=".form-control-lg">
                         <option>Pilih Role</option>
@@ -25,7 +29,7 @@
                        @endforeach
                     </select>
                 </div>
-                <label for="pengkuan"> Prodi :</label>
+                <label for="user"> Prodi :</label>
                 
                 <div class="input-group input-group-sm mb-3">
                     <select id="prodi" name="prodi_id" class="form-control form-control-lg mb-3" aria-label=".form-control-lg">

@@ -1,4 +1,4 @@
-<form action="/kinerja-dosen/luaran-dtps" method="post">
+<form action="/kinerja-dosen/luaran-dtps" method="post" enctype="multipart/form-data">
     @csrf
     <div class="modal-body">
         

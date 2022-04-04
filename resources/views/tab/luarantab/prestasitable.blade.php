@@ -42,10 +42,14 @@
                 </tr>
             @endforeach
     </tr>
+    <tr>
     <td colspan="4" class="text-center"><b>Jumlah</b></td>
     <td>{{ $prestasi['wilayah'] }}</td>
     <td>{{ $prestasi['nasional'] }}</td>
     <td>{{ $prestasi['internasional'] }}</td>
     <td colspan="2" style="background-color: grey"></td>
+    </tr>
+    </tbody>
     </table> 
-    </div>
+</div>
+@include('layouts.table')

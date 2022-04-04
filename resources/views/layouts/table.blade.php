@@ -80,8 +80,12 @@ body {
    zoom: 100%;
 }
 </style>
-<style>
-
+<style media="print">
+table, table * {
+ display:inline-block;
+}
+table tr {display:block;}
+table td {padding:10px;}
 </style>
 
 <script>

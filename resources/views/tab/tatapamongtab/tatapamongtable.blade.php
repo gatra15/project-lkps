@@ -153,6 +153,3 @@
     </div>
 </form>
 
-<script>
-    $('[data-toggle="popover"]').popover();  
-</script>

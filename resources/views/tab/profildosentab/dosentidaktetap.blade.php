@@ -1,3 +1,4 @@
+@include('layouts.table')
 <div class="tab-pane fade" id="dosen-ttetap" role="tabpanel" aria-labelledby="dosTTetap-tab">
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#des4" role="button" aria-expanded="false" aria-controls="des4">
@@ -89,4 +90,3 @@
         @endforeach
 
 </div>
-@include('layouts.table')

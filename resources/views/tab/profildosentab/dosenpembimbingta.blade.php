@@ -1,3 +1,4 @@
+@include('layouts.table')
 <div class="tab-pane fade" id="dosbing-ta" role="tabpanel" aria-labelledby="dosbingTA-tab">
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#des2" role="button" aria-expanded="false" aria-controls="des2">
@@ -9,7 +10,7 @@
         </button>
         @endhasrole
     </p>
-    @can('download file')
+    @can ('download file')
     <a href="/profil-dosen/dosen-pembimbing-ta/download/excel" class="btn btn-success">Excel</a>
     <a href="/profil-dosen/dosen-pembimbing-ta/download/csv" class="btn btn-success">CSV</a>
     <input type="button" class="btn btn-primary" onclick="printDiv('print-table2')" value="Print Document" />
@@ -52,14 +53,13 @@
     {{-- TABLE HERE --}}
     @include('tab.profildosentab.dosenpembimbingtatable')
         
-    @foreach ($dosenta['dosen'] as $sdm)
- 
+   @foreach ($dosenta['dosen'] as $sdm)
     <!-- Modal Edit Data TA -->
-    <div class="modal fade" id="modaldosentaedit-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentaedit" aria-hidden="true">
+    <div class="modal fade" id="modaldosentaedit-{{ $sdm['id'] }}" tabindex="-1" aria-labelledby="modaldosentaedit" aria-hidden="true">
         <div class="modal-dialog ">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosentaedit">Edit Data {{ $sdm->nama }}</h5>
+            <h5 class="modal-title" id="modaldosentaedit">Edit Data {{ $sdm['nama'] }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -70,16 +70,16 @@
         </div>
 
         <!-- Modal Delete Data Dosen TA -->
-        <div class="modal fade" id="modaldosentadelete-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentadelete" aria-hidden="true">
+        <div class="modal fade" id="modaldosentadelete-{{ $sdm['id'] }}" tabindex="-1" aria-labelledby="modaldosentadelete" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-            <h5 class="modal-title" id="modaldosentadelete">Hapus Data {{ $sdm->nama }}</h5>
+            <h5 class="modal-title" id="modaldosentadelete">Hapus Data {{ $sdm['nama'] }}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            @include('partials.profildosenmodal.dosentadelete')
+            @include('partials.profildosenmodal.dosentadelete')     
         </div>
         </div>
         </div>

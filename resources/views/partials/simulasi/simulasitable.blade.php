@@ -1,7 +1,7 @@
 <form action="/simulasi/{{ $sim->id }}" method="post">
     @method('put')
     @csrf
-    <div id="print-table" >
+    <div id="print-table" media="print">
         <table width="90%" id='form-print' class="table table-hover table-bordered table-condensed">
             <thead class="text-center" >
                 <tr >

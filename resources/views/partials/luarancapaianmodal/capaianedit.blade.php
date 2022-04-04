@@ -11,7 +11,7 @@
                 <label for="dosentetap"> Tahun Akademik :</label>
                 <label for="capaianpembelajaran"> Jumlah Lulusan :</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" name="jumlah_lulusan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
+                    <input type="text" name="jumlah_lulusan" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" value="{{ $capaian->jumlah_lulusan }}" required>
                 </div>
                 <label for="lembaga" class="fs-6 my-2"> Indeks Prestasi Kumulatif </label>
                 <div class="form-row justify-content-center">

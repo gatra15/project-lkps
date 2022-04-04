@@ -1,3 +1,4 @@
+@include('layouts.table')
 <div class="tab-pane fade show" id="integrasi" role="tabpanel">
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -9,13 +10,14 @@
         </button>
         @endhasrole
     </p>
-    @can('download file')
+    @can ('download file')
     <a href="/pendidikan/integrasi/download/excel" class="btn btn-success">Excel</a>
     <a href="/pendidikan/integrasi/download/csv" class="btn btn-success">CSV</a>
     <input type="button" class="btn btn-primary" onclick="printDiv('print-table')" value="Print Document" />
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
         Cara Download PDF
     </button>
+    
     @endcan
     <div class="collapse" id="collapseExample">
     <div class="card card-body">
@@ -85,4 +87,3 @@
 
 
 </div>
-@include('layouts.table')

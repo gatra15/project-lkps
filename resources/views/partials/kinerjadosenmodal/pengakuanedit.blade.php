@@ -1,4 +1,4 @@
-<form action="/kinerja-dosen/{{ $pengakuan->id }}" method="POST">
+<form action="/kinerja-dosen/{{ $pengakuan->id }}" method="POST" enctype="multipart/form-data">
     @method('put')
     @csrf
     <div class="modal-body">

@@ -48,6 +48,8 @@
               <td class="text-center"> <b>Jumlah</b> </td>
               <td colspan="10" class="text-left"> <b>NDTT : {{ $dosentidaktetap['ndtt'] }}</b> </td>
           </tr>
+         </tbody>
     </table>
 </div>
+
 @include('layouts.table')

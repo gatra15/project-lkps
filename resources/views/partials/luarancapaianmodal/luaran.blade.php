@@ -1,4 +1,4 @@
-<form action="/luaran-capaian-tridharma/luaran-mahasiswa/" method="post" enctype="multipart/form-data">
+<form action="/luaran-capaian-tridharma/mahasiswa/add" method="post" enctype="multipart/form-data">
     @csrf
     <div class="modal-body">
         
@@ -43,6 +43,6 @@
     </div>
     <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-    <button type="submit" class="btn btn-primary" >Tambah</button>
+    <button type="submit" class="btn btn-primary">Tambah</button>
     </div>
 </form>

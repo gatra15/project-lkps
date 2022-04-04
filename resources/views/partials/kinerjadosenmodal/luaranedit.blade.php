@@ -1,4 +1,4 @@
-<form action="/kinerja-dosen/luaran-dtps/{{ $data->id }}" method="post">
+<form action="/kinerja-dosen/luaran-dtps/{{ $data->id }}" method="post" enctype="multipart/form-data">
     @method('put')
     @csrf
     <div class="modal-body">
@@ -32,7 +32,7 @@
                 </div>
                 <label for="lembaga" class="mt-3"> Bukti  :</label>
                 <div class="input-group input-group-sm mb-3">
-                <input type="file" name="bukti" value="{{--  --}}" class="form-control" id="customFile" required>
+                <input type="file" name="bukti" class="form-control" id="customFile">
                 </div>
                 <div class="form-text" style="color: red">Ganti File, Atau Kosongkan bila tidak perlu di ganti</div>
                 

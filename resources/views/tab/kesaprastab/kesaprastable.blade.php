@@ -1,6 +1,6 @@
 @include('layouts.table')
 <form action="{{ url('/tata-pamong-tata-kelola-kerjasama') }}" method="GET">
-    <div id="print-table" >
+    <div id="print-table" media="print">
         @hasrole('perwakilan')
         <table width="80%" id='form-print' class="table text-center align-middle table-bordered table-condensed table-responsive" >
         @endhasrole

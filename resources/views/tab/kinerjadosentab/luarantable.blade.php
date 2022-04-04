@@ -26,7 +26,7 @@
                 <th rowspan="3"></th>
                 <th rowspan="3"></th>
                 @hasrole('perwakilan')
-                <th class="putih align-middle"><ul class="action-list align-middle" id="action">
+                <th rowspan="3" class="putih align-middle"><ul class="action-list align-middle" id="action">
                     <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah"><i class="fas fa-plus"></i></a></li>
                 </th>
                 @endrole
@@ -96,7 +96,7 @@
                 <th rowspan="3"></th>
                 <th rowspan="3"></th>
                 @hasrole('perwakilan')
-                <th class="putih align-middle"><ul class="action-list align-middle" id="action">
+                <th rowspan="3" class="putih align-middle"><ul class="action-list align-middle" id="action">
                     <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah2"><i class="fas fa-plus"></i></a></li></th>
                 @endhasrole
             </tr>
@@ -160,7 +160,7 @@
                 <th rowspan="3"></th>
                 <th rowspan="3"></th>
                 @hasrole('perwakilan')
-                <th class="putih align-middle"><ul class="action-list align-middle" id="action">
+                <th rowspan="3" class="putih align-middle"><ul class="action-list align-middle" id="action">
                     <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah3"><i class="fas fa-plus"></i></a></li></th>
                 @endhasrole
             </tr>
@@ -220,7 +220,7 @@
                 <th rowspan="3"></th>
                 <th rowspan="3"></th>
                 @hasrole('perwakilan')
-                <th class="putih align-middle"><ul class="action-list align-middle" id="action">
+                <th rowspan="3" class="putih align-middle"><ul class="action-list align-middle" id="action">
                     <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah4"><i class="fas fa-plus"></i></a></li></th>
                 @endhasrole
             </tr>
@@ -270,3 +270,4 @@
      
     </table> 
 </div>
+

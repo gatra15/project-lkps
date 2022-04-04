@@ -123,9 +123,7 @@
                     <td>{{ $pkms['jumlah_ts1'] }}</td>
                     <td>{{ $pkms['jumlah_ts'] }}</td>
                     <td>{{ $pkms['jumlah'] }}</td>
-                    @hasrole('perwakilan')
                     <td></td>
-                    @endhasrole
                 </tr>
             {{-- @endforeach --}}
 

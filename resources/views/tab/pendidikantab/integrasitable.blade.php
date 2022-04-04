@@ -16,7 +16,7 @@
     </thead>
     
     <tbody>
-    {{-- ISI TABEL DISINI YA BOSS --}}
+
     @foreach ($integrasi['integrasi'] as $integrasi)
         <tr>
             <td>{{ $loop->iteration }}</td>

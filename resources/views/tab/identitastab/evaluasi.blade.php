@@ -40,51 +40,74 @@ div.shadow-sm {
 
 </style>
 <div class="tab-pane fade show" id="evaluasi" role="tablist" aria-labelledby="evaluasi-tab">
-    <form id="mainform" method="post" action="#" enctype="multipart/form-data">
+    @foreach($lembar as $data)
+        @if ( $data != null )
+    
 
-    <p class="d-flex justify-content-between">
         
-        <button type="submit"  class="btn btn-success">Simpan</button>
-    </p>
-    <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-        <p>
-            <b>LAPORAN EVALUASI DIRI</b><br>
-        </p>
-        </div> 
-    </div>
-
+        <form id="mainform" method="post" action="/identitas-pengusul/lembar-evaluasi/{{$data->id}}" enctype="multipart/form-data">
         @csrf
-    <div class="modal-body">
+        @method('put')
+        <p class="d-flex justify-content-between">
+        </p>
+        
+        <div class="modal-body">
         <input type="hidden" name="id" class="form-control" value=""> 
             <div class="input-group input-group-sm mb-3">
                 
             <div class="input-group input-group-sm mb-3">
                 <label class="kanan"> File Evaluasi</label>
-                <input type="file" name="Evaluasi Diri" class="form-control lebar" id="customFile" required>
+                <input type="file" name="attachment" class="form-control lebar" id="customFile" >
             </div>
             
-        </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit"  class="btn btn-primary">Update</button>
+            </div>
+        </form>
+        
+        @else
+        <form id="mainform" method="post" action="/identitas-pengusul/lembar-evaluasi" enctype="multipart/form-data">
+        @csrf
+        <p class="d-flex justify-content-between">
+        </p>
+        
+        
+        <div class="modal-body">
+        <input type="hidden" name="id" class="form-control" value=""> 
+            <div class="input-group input-group-sm mb-3">
+                
+            <div class="input-group input-group-sm mb-3">
+                <label class="kanan"> File Evaluasi</label>
+                <input type="file" name="attachment" class="form-control lebar" id="customFile" required>
+            </div>
+            
+            </div>
             <div class="modal-footer">
                 <button type="submit"  class="btn btn-primary">Simpan</button>
             </div>
-            
-    </form>
-
+        </form>
+        @endif
+        @endforeach
+    
+    {{--
     @hasrole('dekan')
     <div class="modal-footer bg-whitet">
-    <form action="#" method="post">
+       
+    <form action="" method="post">
       @method('put')
       @csrf
     <button type="submit" class="btn btn-success btn-sm">
       Approve 
     </button>
     </form>
+    
     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modaltolakiden">
       Tolak
     </button>
     </div>
-    @endhasrole
+    @endhasrole 
+    --}}
 
     <div class="modal fade" id="modaltolak" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
         <div class="modal-dialog">
@@ -99,5 +122,7 @@ div.shadow-sm {
         </div>
         </div>
     </div> 
-
+    @foreach($lembar as $data)
+    <p>File Evaluasi Diri : <a class="btn btn-success" href="{{ asset('storage/'.$data->attachment) }}"> File <i class="fas fa-file-archive"></i></a></p>
+    @endforeach
 </div>

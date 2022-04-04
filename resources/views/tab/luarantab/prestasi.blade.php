@@ -74,3 +74,4 @@
         </div>
         @endforeach
 </div>
+@include('layouts.table')

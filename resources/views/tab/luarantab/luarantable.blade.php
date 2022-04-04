@@ -1,4 +1,4 @@
-@extends('layouts.table')
+
 <div id="print-table">
     <table id='form-print' class="table text-center table-bordered table-condensed">
         <thead>
