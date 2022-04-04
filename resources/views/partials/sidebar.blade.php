@@ -1,4 +1,4 @@
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed" id="my">
     <div class="wrapper">
     
       <!-- Preloader -->
@@ -37,20 +37,40 @@
             @endhasanyrole
 
         </ul>
-
+        
+        <style> 
+        .alert-fixed {
+    position:fixed; 
+    top: 70px; 
+    left: 950px; 
+    width: 30%;
+    z-index:9999; 
+    border-radius:0px
+    }
+    
+    .alert-fixed-tolak {
+    position:fixed; 
+    top: 70px; 
+    left: 950px; 
+    width: 30%;
+    z-index:9999; 
+    border-radius:0px
+    }
+        </style>
         
         @hasrole('perwakilan')
-        @foreach
-          @if (session('alert') == 'success')
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('comment') }}
+        @if ($title == 'Simulasi')
+        @foreach ($simulasi as $sim)
+          @if ($sim->alert == 'success')
+          <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          @elseif (session('alert') == 'warning')
-          <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            {{ session('comment') }}
+          @elseif ($sim->alert == 'warning')
+          <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -58,12 +78,11 @@
           @else
           @endif
             
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
         @endforeach
+        @endif
         @endhasrole
+            
+            
 
         
         <ul class="navbar-nav text-right  ml-auto flex-nowrap">

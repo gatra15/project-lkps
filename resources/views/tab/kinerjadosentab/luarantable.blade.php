@@ -22,9 +22,9 @@
                 <th class="putih align-middle text-left" rowspan="3"> <b>HKI</b><sup>1)</sup>: <br>
                     a) Paten, <br>
                     b) Paten Sederhana</th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th rowspan="3"></th>
+                <th rowspan="3"></th>
+                <th rowspan="3"></th>
                 @hasrole('perwakilan')
                 <th class="putih align-middle"><ul class="action-list align-middle" id="action">
                     <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah"><i class="fas fa-plus"></i></a></li>
@@ -72,7 +72,9 @@
                 <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>A</sub>= {{ $luaran['na'] }}</b></td>
                 <td class="bold text-center" rowspan="1" colspan="1"></td>
                 <td></td>
+                @hasrole('perwakilan')
                 <td></td>
+                @endhasrole
             </tr>
         </tbody>
 
@@ -90,9 +92,9 @@
                     Varietas), <br>
                     d) Desain Tata Letak Sirkuit Terpadu, <br>
                     e) dll.)</th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th rowspan="3"></th>
+                <th rowspan="3"></th>
+                <th rowspan="3"></th>
                 @hasrole('perwakilan')
                 <th class="putih align-middle"><ul class="action-list align-middle" id="action">
                     <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah2"><i class="fas fa-plus"></i></a></li></th>
@@ -138,7 +140,9 @@
                 <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>B</sub>= {{ $luaran['nb'] }}</b></td>
                 <td class="bold text-center" rowspan="1" colspan="1"></td>
                 <td></td>
+                @hasrole('perwakilan')
                 <td></td>
+                @endhasrole
             </tr>
         </tbody>
 
@@ -152,9 +156,9 @@
                     Seni, Rekayasa Sosial <br>
                     
                 </th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th rowspan="3"></th>
+                <th rowspan="3"></th>
+                <th rowspan="3"></th>
                 @hasrole('perwakilan')
                 <th class="putih align-middle"><ul class="action-list align-middle" id="action">
                     <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah3"><i class="fas fa-plus"></i></a></li></th>
@@ -199,7 +203,9 @@
                 <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>C</sub>= {{ $luaran['nc'] }}</b></td>
                 <td class="bold text-center" rowspan="1" colspan="1"></td>
                 <td></td>
+                @hasrole('perwakilan')
                 <td></td>
+                @endhasrole
             </tr>
         </tbody>
 
@@ -210,9 +216,9 @@
                 <th class="putih align-middle text-left" rowspan="3"> 
                     Buku ber-ISBN, <i>Book Chapter</i> 
                 </th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th rowspan="3"></th>
+                <th rowspan="3"></th>
+                <th rowspan="3"></th>
                 @hasrole('perwakilan')
                 <th class="putih align-middle"><ul class="action-list align-middle" id="action">
                     <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah4"><i class="fas fa-plus"></i></a></li></th>
@@ -256,7 +262,9 @@
                 <td class="bold text-left" rowspan="1" colspan="1"> <b>N<sub>D</sub>= {{ $luaran['nd'] }}</b></td>
                 <td class="bold text-center" rowspan="1" colspan="1"></td>
                 <td></td>
+                @hasrole('perwakilan')
                 <td></td>
+                @endhasrole
             </tr>
         </tbody>
      

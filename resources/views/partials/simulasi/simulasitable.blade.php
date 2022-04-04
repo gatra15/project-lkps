@@ -1,23 +1,40 @@
 <form action="/simulasi/{{ $sim->id }}" method="post">
     @method('put')
     @csrf
-    <div id="print-table" class="container-fluid col-md-12 col-sm-6">
-        <table class="table table-hover table-bordered">
+    <div id="print-table" >
+        <table width="90%" id='form-print' class="table table-hover table-bordered table-condensed">
             <thead class="text-center" >
                 <tr >
-                    <th width="1%">No</th>
-                    <th width="15%">Elemen</th>
-                    <th width="20%">Indikator</th>
-                    <th width="5%">Nilai</th>
-                    <th width="5%">Nilai Final
+                    <th scope="col" width="1%">No</th>
+                    <th scope="col" width="20%">Elemen</th>
+                    <th scope="col" width="20%">Indikator</th>
+                    <th scope="col" width="5%">Nilai</th>
+                    <th scope="col" width="5%">Nilai Final
                     </th>
                 </tr>
         
             </thead>
-        
-            <tbody class="text-dark align-middle">
             
-                {{-- POINT 1 - TANPA RUMUS  --}}
+            <style>
+                tbody.text-dark {
+                    text-align: justify;
+                    text-align: left;
+                }
+                
+                tbody.text-dark tr td {
+                    text-align: justify;
+                    text-align: left;
+                }
+                
+                tbody.text-dark tr {
+                    text-align: justify;
+                    text-align: left;
+                }
+            </style>
+        
+            <tbody class="text-dark" style="text-align: left">
+            
+                {{-- POINT 1 - TANPA RUMUS --}}
                 <tr>
                     <td>1</td>
                     <td>A. Kondisi Eksternal</td>
@@ -184,11 +201,7 @@
                         <input type="number" class="form-control" value="{{ $sim->point_6b }}" name="point_6b"  >
                     </div>
                     </td>
-                    {{-- <td>
-                        <div class="input-group input-group-sm">
-                            <input type="number"  class="form-control" name="point_6b_akhir" value="point_6b_akhir"  readonly>
-                        </div>
-                    </td> --}}
+                    <td></td>
                 </tr>
                 
                 {{-- POINT 7 - TANPA RUMUS --}}
@@ -230,6 +243,7 @@
                     <input type="number" class="form-control" name="point_7b" value="{{ $sim->point_7b }}">
                     </div>
                     </td>
+                    <td></td>
                 </tr>
 
                 {{-- POINT 8 - TANPA RUMUS --}}
@@ -311,6 +325,7 @@
                         <input type="number" class="form-control" value="{{ $sim->point_9b != null ? $sim->point_9b : $NI }}" name="$sim->point_9b" readonly>
                     </div>
                     </td>
+                    <td></td>
                 </tr>
 
                 {{-- POINT 10 - TANPA RUMUS --}}
@@ -531,11 +546,7 @@
                         <input type="number"  class="form-control" name="point_15b" value="{{ $sim->point_15b != null ? $sim->point_15b : $PMA }}" name="point_15b" readonly >
                     </div>
                     </td>
-                    {{-- <td>
-                        <div class="input-group input-group-sm">
-                            <input type="number"  class="form-control" value="{{ $sim->point_15 }}"  readonly>
-                        </div>
-                    </td> --}}
+                    <td></td>
                 </tr>
 
                 {{-- POINT 16 - TANPA RUMUS --}}
@@ -576,11 +587,7 @@
                         <input type="number"  class="form-control" name="point_16b" value="{{ $sim->point_16b }}" >
                     </div>
                     </td>
-                    {{-- <td>
-                        <div class="input-group input-group-sm">
-                            <input type="number"  class="form-control" name="point_16b_akhir" value="point_16b_akhir"  readonly>
-                        </div>
-                    </td> --}}
+                    <td></td>
                 </tr>
 
                 {{-- POINT 17 - RUMUS --}}
@@ -932,6 +939,7 @@
                         <input type="number"  class="form-control" name="point_31b" value="{{ $sim->point_31b }}"  >
                     </div>
                     </td>
+                    <td></td>
                 </tr>
 
                 {{-- POINT 32 - RUMUS --}}
@@ -1099,11 +1107,7 @@
                         <input type="number"  class="form-control" name="point_38b" value="{{ $sim->point_38b }}" >
                     </div>
                     </td>
-                    {{-- <td>
-                        <div class="input-group input-group-sm">
-                            <input type="number"  class="form-control" name="point_38b_akhir" value="point_38b_akhir"  readonly>
-                        </div>
-                    </td> --}}
+                    <td></td>
                 </tr>
                 <tr>
                     <td>C. Ketepatan struktur
@@ -1117,11 +1121,7 @@
                         <input type="number"  class="form-control" name="point_38c" value="{{ $sim->point_38c }}" >
                     </div>
                     </td>
-                    {{-- <td>
-                        <div class="input-group input-group-sm">
-                            <input type="number"  class="form-control" name="point_38c_akhir" value="point_38c_akhir"  readonly>
-                        </div>
-                    </td> --}}
+                    <td></td>
                 </tr>
 
                 {{-- POINT 39 - TANPA RUMUS --}}
@@ -1184,11 +1184,7 @@
                         <input type="number"  class="form-control" name="point_40b" value="{{ $sim->point_40b }}"  >
                     </div>
                     </td>
-                    {{-- <td>
-                        <div class="input-group input-group-sm">
-                            <input type="number"  class="form-control" name="point_40b_akhir" value="point_40b_akhir"  readonly>
-                        </div>
-                    </td> --}}
+                    <td></td>
                 </tr>
 
                 {{-- POINT 41 --}}
@@ -1223,11 +1219,7 @@
                         <input type="number"  class="form-control" name="point_41b" value="{{ $sim->point_41b }}" >
                     </div>
                     </td>
-                    {{-- <td>
-                        <div class="input-group input-group-sm">
-                            <input type="number"  class="form-control" name="point_41b_akhir" value="point_41b_akhir"  readonly>
-                        </div>
-                    </td> --}}
+                    <td></td>
                 </tr>
                 <tr>
                     <td>C. Proses pembelajaran
@@ -1261,11 +1253,7 @@
                         <input type="number"  class="form-control" name="point_41c" value="{{ $sim->point_41c }}" >
                     </div>
                     </td>
-                    {{-- <td>
-                        <div class="input-group input-group-sm">
-                            <input type="number"  class="form-control" name="point_41c_akhir" value="point_41c_akhir"  readonly>
-                        </div>
-                    </td> --}}
+                    <td></td>
                 </tr>
                 <tr>
                     <td>D. Proses pembelajaran
@@ -1298,11 +1286,7 @@
                         <input type="number"  class="form-control" name="point_41d" value="{{ $sim->point_41d }}"  >
                     </div>
                     </td>
-                    {{-- <td>
-                        <div class="input-group input-group-sm">
-                            <input type="number"  class="form-control" name="point_41d_akhir" value="point_41d_akhir"  readonly>
-                        </div>
-                    </td> --}}
+                    <td></td>
                 </tr>
                 <tr>
                     <td>E. Kesesuaian metode
@@ -1321,11 +1305,7 @@
                         <input type="number"  class="form-control" name="point_41e" value="{{ $sim->point_41e }}"  >
                     </div>
                     </td>
-                    {{-- <td>
-                        <div class="input-group input-group-sm">
-                            <input type="number"  class="form-control" name="point_41e_akhir" value="point_41e_akhir"  readonly>
-                        </div>
-                    </td> --}}
+                    <td></td>
                 </tr>
 
                 {{-- POINT 42 - RUMUS --}}
@@ -1439,11 +1419,7 @@
                     <input type="number"  class="form-control" name="point_44b" value="{{ $sim->point_44b }}">
                 </div>
                 </td>
-                {{-- <td>
-                    <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" name="point_44b_akhir" value="point_44b_akhir"  readonly>
-                    </div>
-                </td> --}}
+                <td></td>
             </tr>
             <tr>
                 <td>C. Pelaksanaan
@@ -1489,11 +1465,7 @@
                     <input type="number"  class="form-control" name="point_44c" value="{{ $sim->point_44c }}"  >
                 </div>
                 </td>
-                {{-- <td>
-                    <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" name="point_44c_akhir" value="point_44c_akhir" readonly>
-                    </div>
-                </td> --}}
+               <td></td>
             </tr>
 
                 {{-- POINT 45 - RUMUS --}}
@@ -1578,11 +1550,7 @@
                         <input type="number"  class="form-control" name="point_47b" value="{{ $sim->point_47b }}"  >
                     </div>
                     </td>
-                    {{-- <td>
-                        <div class="input-group input-group-sm">
-                            <input type="number"  class="form-control" name="point_47b_akhir" value="point_47b_akhir"  readonly>
-                        </div>
-                    </td> --}}
+                    <td></td>
                 </tr>
 
                 {{-- POINT 48 - TANPA RUMUS --}}
@@ -2025,7 +1993,7 @@
                         Tabel 8.f.1) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_63 != null ? $sim->point_63 : $RI64 }}" name="point_64"  readonly >
+                        <input type="number"  class="form-control" value="{{ $sim->point_64 != null ? $sim->point_64 : $RI64 }}" name="point_64"  readonly >
                     </div>
                     </td>
                     <td>
@@ -2048,7 +2016,7 @@
                         Tabel 8.f.4) LKPS</td>
                     <td>
                     <div class="input-group input-group-sm">
-                        <input type="number"  class="form-control" value="{{ $sim->point_63 != null ? $sim->point_63 : $NLP }}" name="point_65"  readonly >
+                        <input type="number"  class="form-control" value="{{ $sim->point_65 != null ? $sim->point_65 : $NLP }}" name="point_65"  readonly >
                     </div>
                     </td>
                     <td>
@@ -2165,19 +2133,17 @@
                 
             </tbody>
         </table>
-    
+    </div>
 
 <div class="modal-footer">
-    @hasrole('perwakilan')
 <button type="submit" class="btn btn-primary">Simpan</button> 
-    @endhasrole
 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalhitung-{{ $sim->id }}">
     Hitung Nilai
 </button>
-
-
-<button type="submit" class="btn btn-danger" href="#" data-toggle="modal" data-target="#modaldel-{{ $sim->id }}">Kosongkan Data</button>
-
+{{--
+<button type="submit" class="btn btn-danger" href="#" data-toggle="modal" data-target="#modaldel-{{ $sim->id }}">Kosongkan Data</button> --}}
 </div>
-</div>
+
 </form>
+
+

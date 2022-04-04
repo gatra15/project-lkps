@@ -38,6 +38,10 @@
             <tr>
                 <td class="align-middle text-center" colspan="4"><b>Jumlah</b></td>
                 <td>{{ $jumlah_judul }}</td>
+                <td></td>
+                @hasrole('perwakilan')
+                <td></td>
+                @endhasrole
             </tr>
     </table> 
 </div>

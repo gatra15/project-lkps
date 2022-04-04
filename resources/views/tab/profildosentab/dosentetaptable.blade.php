@@ -1,5 +1,5 @@
-<div id="print-table">
-    <table id='form-print' class="table text-center align-middle table-bordered table-condensed table-responsive">
+<div id="print-table" >
+    <table id='form-print' class="table text-center align-middle table-bordered table-condensed ">
         <thead>
             <tr>
 
@@ -59,8 +59,9 @@
                 <td><b>Jumlah</b></td>
                 <td colspan="5" class="text-left"><b>NDT : {{ $dosen['ndt'] }}</b></td>
                 <td colspan="7" class="text-left"><b>NDTPS : {{ $dosen['ndtps'] }}</b></td>
+                @hasrole('perwakilan')
                 <td></td>
-
+                @endhasrole
             </tr>
       </table>
   </div>

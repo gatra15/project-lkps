@@ -124,7 +124,9 @@
                 <td>{{ $penelitians['jumlah_ts1'] }}</td>
                 <td>{{ $penelitians['jumlah_ts'] }}</td>
                 <td>{{ $penelitians['jumlah'] }}</td>
+                @hasrole('perwakilan')
                 <td></td>
+                @endhasrole
             </tr>
             
     </table> 

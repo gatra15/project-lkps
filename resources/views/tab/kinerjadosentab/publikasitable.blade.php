@@ -50,7 +50,7 @@
         
             @foreach ($publikasi['ts_media2'] as $ts)
                 <tr>
-                <td>1</td>
+                <td>2</td>
                 <td>
                     @php echo $ts->media->media @endphp
                 </td>
@@ -79,7 +79,7 @@
         
             @foreach ($publikasi['ts_media3'] as $ts)
                 <tr>
-                <td>1</td>
+                <td>3</td>
                 <td>
                     @php echo $ts->media->media @endphp
                 </td>
@@ -108,7 +108,7 @@
         
             @foreach ($publikasi['ts_media4'] as $ts)
                 <tr>
-                <td>1</td>
+                <td>4</td>
                 <td>
                     @php echo $ts->media->media @endphp
                 </td>
@@ -137,7 +137,7 @@
         
             @foreach ($publikasi['ts_media5'] as $ts)
                 <tr>
-                <td>1</td>
+                <td>5</td>
                 <td>
                     @php echo $ts->media->media @endphp
                 </td>
@@ -166,7 +166,7 @@
         
             @foreach ($publikasi['ts_media6'] as $ts)
                 <tr>
-                <td>1</td>
+                <td>6</td>
                 <td>
                     @php echo $ts->media->media @endphp
                 </td>
@@ -195,7 +195,7 @@
         
             @foreach ($publikasi['ts_media7'] as $ts)
                 <tr>
-                <td>1</td>
+                <td>7</td>
                 <td>
                     @php echo $ts->media->media @endphp
                 </td>
@@ -224,7 +224,7 @@
         
             @foreach ($publikasi['ts_media8'] as $ts)
                 <tr>
-                <td>1</td>
+                <td>8</td>
                 <td>
                     @php echo $ts->media->media @endphp
                 </td>
@@ -253,7 +253,7 @@
         
             @foreach ($publikasi['ts_media9'] as $ts)
                 <tr>
-                <td>1</td>
+                <td>9</td>
                 <td>
                     @php echo $ts->media->media @endphp
                 </td>
@@ -282,7 +282,7 @@
         
             @foreach ($publikasi['ts_media10'] as $ts)
                 <tr>
-                <td>1</td>
+                <td>10</td>
                 <td>
                     @php echo $ts->media->media @endphp
                 </td>
@@ -316,7 +316,9 @@
             <td>{{ $publikasi['jumlah_ts1'] }}</td>
             <td>{{ $publikasi['jumlah_ts'] }}</td>
             <td>{{ $publikasi['jumlah'] }}</td>
+            @hasrole('perwakilan')
             <td></td>
+            @endhasrole
         </tr>
 
     </tbody>

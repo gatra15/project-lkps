@@ -29,7 +29,7 @@
         @foreach ($mahasiswa_asing['mahasiswa'] as $key => $mhs)
         <tr>
            <td>{{ $loop->iteration }}</td>
-           <td>{{ 'S1 '.auth()->user()->prodi->name }}</td>   
+           <td>{{ session()->has('prodi') ? 'S1 '.session('prodi') : 'S1 '.auth()->user()->prodi->name }}</td>   
            <td>{{ $mhs['mahasiswa_aktif_ts2'] }}</td> 
            <td>{{ $mhs['mahasiswa_aktif_ts1'] }}</td> 
            <td>{{ $mhs['mahasiswa_aktif_ts'] }}</td> 
@@ -59,7 +59,9 @@
          <td>{{ $mahasiswa_asing['part_ts2'] }}</td>
          <td>{{ $mahasiswa_asing['part_ts1'] }}</td>
          <td>{{ $mahasiswa_asing['part_ts'] }}</td>
+         @hasrole('perwakilan')
          <td></td>
+         @endhasrole
      </tr>
     </tbody>
     </table> 

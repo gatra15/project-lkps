@@ -39,7 +39,9 @@
             <td colspan="2"><b>Jumlah</b></td>
             <td>{{ $karyailmiah['count'] }}</td>
             <td>{{ $karyailmiah['jumlah'] }}</td>
+            @hasrole('perwakilan')
             <td></td>
+            @endhasrole
         </tr>
         </table> 
     </div>

@@ -9,7 +9,7 @@
         </button>
         @endhasrole
     </p>
-    @can('download')
+    @can('download file')
     <a href="/profil-dosen/dosen-tidak-tetap/download/excel" class="btn btn-success">Excel</a>
     <a href="/profil-dosen/dosen-tidak-tetap/download/csv" class="btn btn-success">CSV</a>
     <input type="button" class="btn btn-primary" onclick="printDiv('print-table3')" value="Print Document" />

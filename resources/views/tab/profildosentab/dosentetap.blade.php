@@ -8,8 +8,9 @@
             Tambah data
         </button>
         @endrole
-    </p>  
-    @can('perwakilan')
+    </p> 
+    
+    @can('download file')
     <a href="{{ url('profil-dosen/download/excel') }}" class="btn btn-success">Excel</a>
     <a href="{{ url('profil-dosen/download/csv') }}" class="btn btn-success">CSV</a>
     <input type="button" class="btn btn-primary" onclick="printDiv('print-table')" value="Print Document" />
@@ -17,6 +18,7 @@
         Cara Download PDF
     </button>
     @endcan
+    
 <div class="collapse" id="des1">
     <div class="card card-body">
         <p>

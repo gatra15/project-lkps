@@ -1,5 +1,5 @@
 <div id="print-table5">
-    <table id='form-print' class="table text-center table-bordered table-condensed">
+    <table id='form-print' class="table text-center table-bordered table-condensed ">
     <thead>
     <tr>
     <th class="align-middle text-center" scope="col" rowspan="2">No</th>
@@ -25,7 +25,7 @@
         <tr>
             {{-- {{ $data }} --}}
             <td>{{ $loop->iteration }}</td>
-            <td style="text-align: left">@php
+            <td>@php
                 echo  $data->kemampuan->text
             @endphp</td>
             <td>{{ $data->sangat_baik }}</td>

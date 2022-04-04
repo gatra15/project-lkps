@@ -8,7 +8,7 @@
                 {{-- coding modal insert --}}
                 <label for="lembaga"> Program Studi : </label>
                 <div class="input-group mb-3">
-                    <input type="" name="program_studi" value="{{ 'S1 '.auth()->user()->prodi->name }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required readonly>
+                    <input type="" name="program_studi" value="{{ session()->has('prodi') ? 'S1 '.session('prodi') : 'S1 '.auth()->user()->prodi->name }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required readonly>
                 </div>
                 {{-- <input type="hidden" name="id_2" value="{{ $mhs['id2'] }}">
                 <input type="hidden" name="id_1" value="{{ $mhs['id1'] }}"> --}}

@@ -11,7 +11,9 @@
                     <th  class="text-center align-middle" width="15%">Jabatan</th>
                     <th  class="text-center align-middle" width="10%">Tanggal Pengisian</th>
                     <th  class="text-center align-middle" width="24%"> TTD</th>
+                    @hasrole('perwakilan')
                     <th  class="text-center align-middle" width="10%"> Opsi</th>
+                    @endhasrole
                 </tr>
             </thead>
             <tbody>

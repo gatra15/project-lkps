@@ -74,6 +74,14 @@ tr td.bold {
 tbody tr td.bold {
   border:solid black;
 }
+body {
+   -moz-transform: scale(1, 1);
+   zoom: 1;
+   zoom: 100%;
+}
+</style>
+<style>
+
 </style>
 
 <script>
@@ -93,17 +101,23 @@ tbody tr td.bold {
   $(function() {
       $('[data-toggle="popover"]').popover();
   });
+  
+  $(document).ready(function(){
+  $('body').css('zoom','100%'); /* Webkit browsers */
+  $('body').css('zoom','1'); /* Other non-webkit browsers */
+  $('body').css('-moz-transform',scale(1, 1)); /* Moz-browsers */
+});
 </script>
 
 <div class="modal fade" id="caradownload" tabindex="-1" aria-labelledby="caradownloadlabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="caradownloadlabel">Cara Download PDF</h5>
       </div>
       <div class="modal-body">
        Klik Print Document > Pilih Destination > Save as PDF > pilih Save
-       <img src="{{ asset('dist/img/imagesdownload.png') }}" width="100%" height="100%" alt="image_download">
+       <img src="{{ asset('dist/img/imagesdownload.png') }}" width="100%" height="120%" alt="image_download">
       </div>
     </div>
   </div>

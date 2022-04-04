@@ -1,4 +1,4 @@
-@extends('layouts.table')
+@include('layouts.table')
 <style>
     
 th {
@@ -15,7 +15,7 @@ th span {
 
 </style>
 <div id="print-table3">
-    <table class="table table-bordered table-condensed">
+    <table class="table table-bordered table-condensed ">
     <thead>
     
     <tr>
@@ -25,7 +25,7 @@ th span {
     <th scope="col" class="align-middle text-center" rowspan="2">Nama <br> Mata <br> Kuliah</th>
     <th scope="col" class="align-middle text-center" rowspan="2">Mata Kuliah <br> Kompetensi <sup>1)</sup></th>
     <th scope="col" class="align-middle text-center" colspan="3">Bukti Kredit <br> (sks)</th>
-    <th scope="col" rowspan="2"><span>Konversi Kredit ke Jam <sup>2)</sup></span></th>
+    <th scope="col" class="align-middle text-center" rowspan="2">Konversi Kredit ke Jam <sup>2)</sup></th>
     <th scope="col" class="align-middle text-center" colspan="4">Bukti Kredit <br> (sks)</th>
     <th scope="col" class="align-middle text-center" rowspan="2">Dokumen <br> Rencana <br> Pembela- <br> jaran <sup>3)</sup></th>
     <th scope="col" class="align-middle text-center" rowspan="2">Unit <br> Penye- <br> lenggara</th>

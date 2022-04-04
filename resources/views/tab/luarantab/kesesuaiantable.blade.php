@@ -7,7 +7,9 @@
     <th class="align-middle text-center" scope="col" rowspan="2">Jumlah <br> Lulusan <br> yang <br> Terlacak</th>
     <th class="align-middle text-center" scope="col" colspan="3">Jumlah Lulusan Terlacak dengan <br>
         Tingkat Kesesuaian Bidang Kerja</th>
+        @hasrole('perwakilan')
         <th class="align-middle text-center" scope="col" rowspan="2">Opsi</th>
+        @endhasrole
     </tr>
     <tr>
     <th scope="col">Rendah <sup>1)</sup></th>
