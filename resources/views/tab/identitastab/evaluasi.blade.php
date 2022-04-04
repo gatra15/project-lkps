@@ -81,29 +81,46 @@ div.shadow-sm {
     </button>
     </form> --}}
     
-    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modaltolakiden">
+    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modaltolakeval">
       Tolak
+    </button>
+    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalappeval">
+      Approve
     </button>
     </div>
     
     @endhasrole
 
-    <div class="modal fade" id="modaltolak" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+    <div class="modal fade" id="modaltolakeval" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-        <h5 class="modal-title" id="modaltolak"> Kenapa Anda Menolak?  </h5>
+        <h5 class="modal-title" id="modaltolak"> Kenapa Anda Menolak??  </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            @include('partials.identitasmodal.tolak')
+            @include('partials.identitasmodal.tolakeval')
         </div>
         </div>
     </div> 
 
-    @foreach($lembar as $data)
+    <div class="modal fade" id="modalappeval" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+        <h5 class="modal-title" id="modaltolak"> Approve?  </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.identitasmodal.appeval')
+        </div>
+        </div>
+    </div> 
+
+    {{-- @foreach($lembar as $data)
     <p>File Evaluasi Diri : <a class="btn btn-success" href="{{ asset('storage/'.$data->attachment) }}"> File <i class="fas fa-file-archive"></i></a></p>
-    @endforeach
-    
+    @endforeach --}}
+
 </div>

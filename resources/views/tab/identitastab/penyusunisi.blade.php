@@ -74,4 +74,54 @@
             </div>
         </div>
         @endforeach
+
+        @hasrole('dekan')
+
+        <div class="modal-footer bg-whitet">
+          
+        {{-- <form action="" method="post">
+          @method('put')
+          @csrf
+        <button type="submit" class="btn btn-success btn-sm">
+          Approve 
+        </button>
+        </form> --}}
+        
+        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modaltolaksusun">
+          Tolak
+        </button>
+        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalappsusun">
+          Approve
+        </button>
+        </div>
+        
+        @endhasrole
+    
+        <div class="modal fade" id="modaltolaksusun" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+            <h5 class="modal-title" id="modaltolak"> Kenapa Anda Menolak? </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.identitasmodal.tolaksusun')
+            </div>
+            </div>
+        </div> 
+    
+        <div class="modal fade" id="modalappsusun" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+            <h5 class="modal-title" id="modaltolak"> Approve?  </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.identitasmodal.appsusun')
+            </div>
+            </div>
+        </div> 
 </div>
