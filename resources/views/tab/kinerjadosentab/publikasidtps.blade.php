@@ -26,7 +26,6 @@
 @include('tab.kinerjadosentab.publikasitable')
   
 @foreach ($publikasi['ts_all'] as $ts)
-   
 
         <!-- Modal Edit Data Publikasi DTPS -->
         <div class="modal fade" id="modalpublikasiedit-{{ $ts->id }}" tabindex="-1" aria-labelledby="modalpublikasiedit" aria-hidden="true">
