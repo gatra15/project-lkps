@@ -156,6 +156,11 @@ code {
   font-size: 12px;
 }
 
+#my{
+zoom: 100%;
+}
+
+
 </style>
 
 <script>

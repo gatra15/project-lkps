@@ -3,9 +3,11 @@
         <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
             Deskripsi
         </a>
+        @hasrole('perwakilan')
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaltambah">
             Tambah Data
         </button>
+        @endhasrole
     </p>
 
     <div class="modal fade" id="modaltambah" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">

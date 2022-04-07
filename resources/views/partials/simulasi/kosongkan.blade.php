@@ -1,4 +1,4 @@
-<form action="#" method="get">
+<form action="simulasi/{{ $sim->id }}" method="post">
     <div class="modal-body">
         @csrf
         {{-- @method('get') --}}

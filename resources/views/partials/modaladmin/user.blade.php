@@ -31,7 +31,7 @@
                 <label for="user"> Prodi :</label>
                 <div class="input-group input-group-sm mb-3">
                     <select id="prodi" name="prodi_id" class="form-control form-control-lg mb-3" aria-label=".form-control-lg">
-                        <option>Pilih Prodi</option>
+                        <option value="">Pilih Prodi</option>
                         
                         @foreach($prodi as $prodis)
                         

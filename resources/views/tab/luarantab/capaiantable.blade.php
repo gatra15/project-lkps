@@ -1,4 +1,4 @@
-@extends('layouts.table')
+
 <div id="print-table2">
     <table id='form-print' class="table text-center table-bordered table-condensed">
     <thead>
@@ -21,7 +21,6 @@
     <tbody class="text-dark">
     @foreach ($capaianPembelajaran['capaian'] as $key => $capaian)
         <tr>
-            {{ $capaian->jumlah_lulusan }}
             <td>{{ $key == sizeof($capaianPembelajaran['capaian'])-1 ? 'TS' : 'TS-'.(sizeof($capaianPembelajaran['capaian'])-1-$key) }}</td>
             <td>{{ $capaian->jumlah_lulusan }}</td>
             <td>{{ $capaian->ipk_min }}</td>

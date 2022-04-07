@@ -29,7 +29,7 @@
         @foreach ($mahasiswa_asing['mahasiswa'] as $key => $mhs)
         <tr>
            <td>{{ $loop->iteration }}</td>
-           <td>{{ 'S1 '.auth()->user()->prodi->name }}</td>   
+           <td>{{ session()->has('prodi') ? 'S1 '.session('prodi') : 'S1 '.auth()->user()->prodi->name }}</td>   
            <td>{{ $mhs['mahasiswa_aktif_ts2'] }}</td> 
            <td>{{ $mhs['mahasiswa_aktif_ts1'] }}</td> 
            <td>{{ $mhs['mahasiswa_aktif_ts'] }}</td> 
@@ -59,8 +59,38 @@
          <td>{{ $mahasiswa_asing['part_ts2'] }}</td>
          <td>{{ $mahasiswa_asing['part_ts1'] }}</td>
          <td>{{ $mahasiswa_asing['part_ts'] }}</td>
+         @hasrole('perwakilan')
          <td></td>
+         @endhasrole
      </tr>
     </tbody>
     </table> 
 </div>
+@hasrole('dekan')
+    <div class="modal-footer bg-whitet">
+    <form action="#" method="post">
+      @method('put')
+      @csrf
+    <button type="submit" class="btn btn-success btn-sm">
+      Approve 
+    </button>
+    </form>
+    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modaltolakasing">
+      Tolak
+    </button>
+    </div>
+    @endhasrole
+
+    <div class="modal fade" id="modaltolakasing" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+        <h5 class="modal-title" id="modaltolak"> Kenapa Anda Menolak?  </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.mahasiswamodal.tolak')
+        </div>
+        </div>
+    </div> 

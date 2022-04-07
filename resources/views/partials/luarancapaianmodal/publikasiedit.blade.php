@@ -18,15 +18,15 @@
                 <div class="form-row justify-content-center text-center">
                     <div class="form-group col-md-4 align-middle">
                     <label for="dosentetap"> TS-2 :</label>
-                      <input name="jumlah_ts2" value="{{ $ts->jumlah_ts2 }}" class="form-control form-control-sm mb-3" type="number" min="1" required>
+                      <input name="jumlah_ts2" value="{{ $ts->jumlah_ts2 }}" class="form-control form-control-sm mb-3" type="number"  >
                     </div>
                     <div class="form-group col-md-4 align-middle">
                         <label for="dosentetap"> TS-1 :</label>
-                        <input name="jumlah_ts1" value="{{ $ts->jumlah_ts1 }}"  class="form-control form-control-sm mb-3" type="number" min="1" required>
+                        <input name="jumlah_ts1" value="{{ $ts->jumlah_ts1 }}"  class="form-control form-control-sm mb-3" type="number"  >
                       </div>
                     <div class="form-group col-md-4 align-middle">
                         <label for="dosentetap"> TS :</label>
-                        <input name="jumlah_ts" value="{{ $ts->jumlah_ts2 }}" class="form-control form-control-sm mb-3" type="number" min="1" required>
+                        <input name="jumlah_ts" value="{{ $ts->jumlah_ts }}" class="form-control form-control-sm mb-3" type="number" >
                     </div>
                 </div>
                {{-- coding modal insert akhir --}}

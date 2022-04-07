@@ -90,5 +90,5 @@
 </div>
         @endforeach
 </div>
-</body>
+
 @include('layouts.table')

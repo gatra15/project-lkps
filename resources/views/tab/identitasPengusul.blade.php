@@ -69,7 +69,15 @@
 <div class="card-body">
     <div class="tab-content mt-3">
         <div class="tab-content" id="myTabContent">
+            
+            @hasanyrole('dekan|asesor')
+            @include('tab.identitastab.identitasisi')
+            @include('tab.identitastab.upps')
+            @include('tab.identitastab.penyusunisi')
+            @include('tab.identitastab.evaluasi')
+            @endhasanyrole
 
+            @hasrole('perwakilan')
             @include('tab.identitastab.identitas')
 
             @include('tab.identitastab.identitasisi')
@@ -79,9 +87,10 @@
             @include('tab.identitastab.timpenyusun')
             
             @include('tab.identitastab.penyusunisi')
-            @foreach ($lembar['data'] as $data)
-                @include('tab.identitastab.evaluasi')
-            @endforeach
+          
+            @include('tab.identitastab.evaluasi')
+            @endhasrole
+          
            
         </div>  
     </div>

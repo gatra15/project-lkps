@@ -1,26 +1,31 @@
 @include('layouts.table')
 <form action="{{ url('/tata-pamong-tata-kelola-kerjasama') }}" method="GET">
-    <div id="print-table" class="container-fluid">
-        <table width="90%" id='form-print' class="table text-center table-bordered ">
+    <div id="print-table" media="print">
+        @hasrole('perwakilan')
+        <table width="80%" id='form-print' class="table text-center align-middle table-bordered table-condensed table-responsive" >
+        @endhasrole
+        @hasanyrole('dekan|asesor')
+        <table width="80%" id='form-print' class="table text-center align-middle table-bordered table-condensed" >
+        @endhasanyrole
             <thead>
                 <tr>
-                    <th class="align-middle" scope="col" rowspan="2" width="2%">NO</th>
-                    <th class="align-middle" scope="col" rowspan="2" width="15%">Jenis Penggunaan</th>
-                    <th scope="col" colspan="4" width="39%">Unit Pengelola Program Studi (Rp.)</th>
-                    <th scope="col" colspan="4" width="39%">Program Studi (Rp.)</th>
+                    <th class="align-middle" scope="col" rowspan="2" width="1%">No</th>
+                    <th class="align-middle" scope="col" rowspan="2" width="10%">Jenis Penggunaan</th>
+                    <th scope="col" colspan="4" style="max-width:30px;">Unit Pengelola Program Studi (Rp.)</th>
+                    <th scope="col" colspan="4" style="max-width:30px;">Program Studi (Rp.)</th>
                     @hasrole('perwakilan')
-                    <th class="align-middle" scope="col" rowspan="2" width="10%">Opsi</th>
+                    <th class="align-middle" scope="col" rowspan="2" width="5%">Opsi</th>
                     @endhasrole
                 </tr>
                 <tr>
-                    <th scope="col" width="9%">TS-2</th>
-                    <th scope="col" width="9%">TS-1</th>
-                    <th scope="col" width="9%">TS</th>
-                    <th scope="col" width="9%">Rata-rata</th>
-                    <th scope="col" width="9%">TS-2</th>
-                    <th scope="col" width="9%">TS-1</th>
-                    <th scope="col" width="9%">TS</th>
-                    <th scope="col" width="9%">Rata-rata</th>
+                    <th class="align-middle" scope="col" style="max-width:5px;">TS-2</th>
+                    <th class="align-middle" scope="col" style="max-width:5px;">TS-1</th>
+                    <th class="align-middle" scope="col" style="max-width:5px;">TS</th>
+                    <th class="align-middle" scope="col" style="max-width:5px;">Rata- <br> rata</th>
+                    <th class="align-middle" scope="col" style="max-width:5px;">TS-2</th>
+                    <th class="align-middle" scope="col" style="max-width:5px;">TS-1</th>
+                    <th class="align-middle" scope="col" style="max-width:5px;">TS</th>
+                    <th class="align-middle" scope="col" style="max-width:5px;">Rata- <br> rata</th>
                 </tr>
                 
         
@@ -30,7 +35,12 @@
                 <tr>
                     <td class="text-center putih"> 1 </td>
                     <td class="text-left putih" colspan="5"> <b>Biaya Operasional Pendidikan</b>  </td>
+                    @hasanyrole('dekan|asesor')
+                    <td colspan="4" style="background-color: #e7e7e7"> </td>
+                    @endhasanyrole
+                    @hasrole('perwakilan')
                     <td colspan="5" style="background-color: #e7e7e7"> </td>
+                    @endhasrole
                 </tr>
                 @foreach ($ts as $data)
                     <tr>
@@ -223,7 +233,9 @@
                     <td>Rp. {{ $jumlah1['ps_ts1'] }}</td>
                     <td>Rp. {{ $jumlah1['ps_ts'] }}</td>
                     <td>Rp. {{ $jumlah1['ps_average'] }}</td>
+                    @hasrole('perwakilan')
                     <td></td>
+                    @endhasrole
                 </tr>
 
                 @foreach ($ts_sarana3 as $data)
@@ -308,7 +320,9 @@
                     <td>Rp. {{ $jumlah2['ps_ts1'] }}</td>
                     <td>Rp. {{ $jumlah2['ps_ts'] }}</td>
                     <td>Rp. {{ $jumlah2['ps_average'] }}</td>
+                    @hasrole('perwakilan')
                     <td></td>
+                    @endhasrole
                 </tr>
 
                 @foreach ($ts_sarana5 as $data)
@@ -430,7 +444,9 @@
                     <td>Rp. {{ $jumlah3['ps_ts1'] }}</td>
                     <td>Rp. {{ $jumlah3['ps_ts'] }}</td>
                     <td>Rp. {{ $jumlah3['ps_average'] }}</td>
+                    @hasrole('perwakilan')
                     <td></td>
+                    @endhasrole
                 </tr>
                 <tr>
                     <td colspan="2" class="text-left"><b>Total :</b> </td>
@@ -442,7 +458,9 @@
                     <td>Rp. {{ $total['ps_ts1'] }}</td>
                     <td>Rp. {{ $total['ps_ts'] }}</td>
                     <td>Rp. {{ $total['ps_average'] }}</td>
+                    @hasrole('perwakilan')
                     <td></td>
+                    @endhasrole
                 </tr>
 
             </tbody>

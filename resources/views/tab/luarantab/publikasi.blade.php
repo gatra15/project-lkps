@@ -4,7 +4,7 @@
             Deskripsi
         </a>
     </p>
-    @can ('download file')
+    @can('download file')
     <input type="button" class="btn btn-primary" onclick="printDiv('print-table9')" value="Print Document" />
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
         Cara Download PDF

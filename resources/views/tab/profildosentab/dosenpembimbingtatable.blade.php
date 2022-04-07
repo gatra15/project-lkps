@@ -29,6 +29,7 @@
 
         <tbody class="text-dark">
              {{-- Coding Tabel Disini --}}
+            
             @foreach ($dosenta['dosen'] as $key => $sdm)
             <tr>
                 <td>{{ $loop->iteration }}</td>
@@ -51,6 +52,8 @@
                 @endhasrole
             </tr>
             @endforeach
+            
+        </tbody>
     </table>
 </div>
 @include('layouts.table')

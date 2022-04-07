@@ -60,13 +60,17 @@
                 <td colspan="8" class="text-right"><b> Rata Rata DT </b></td>
                 <td>{{ $dosenewmp['average_dt_jumlah'] }}</td>
                 <td>{{ $dosenewmp['average_dt_average'] }}</td>
+                @hasrole('perwakilan')
                 <td></td>
+                @endhasrole
             </tr> 
             <tr>
                 <td colspan="8" class="text-right"><b> Rata Rata DTPS </b></td>
                 <td>{{ $dosenewmp['average_dtps_jumlah'] }}</td>
                 <td>{{ $dosenewmp['average_dtps_average'] }}</td>
+                @hasrole('perwakilan')
                 <td></td>
+                @endhasrole
             </tr> 
     </table>
 </div>

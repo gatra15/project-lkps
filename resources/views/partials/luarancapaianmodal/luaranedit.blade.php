@@ -1,4 +1,4 @@
-<form action="/luaran-capaian-tridharma/luaran-mahasiswa/{{ $data->id }}" method="post" enctype="multipart/form-data">
+<form action="/luaran-capaian-tridharma/mahasiswa/{{ $data->id }}" method="post" enctype="multipart/form-data">
     @method('put')
     @csrf
     <div class="modal-body">

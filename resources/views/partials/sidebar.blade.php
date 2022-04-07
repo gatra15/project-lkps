@@ -1,4 +1,4 @@
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed" >
     <div class="wrapper">
     
       <!-- Preloader -->
@@ -37,6 +37,303 @@
             @endhasanyrole
 
         </ul>
+        
+        <style> 
+        .alert-fixed {
+    position:fixed; 
+    top: 70px; 
+    left: 950px; 
+    width: 30%;
+    z-index:9999; 
+    border-radius:0px
+    }
+    
+    .alert-fixed-tolak {
+    position:fixed; 
+    top: 70px; 
+    left: 950px; 
+    width: 30%;
+    z-index:9999; 
+    border-radius:0px
+    }
+        </style>
+        
+        <!-- Simulasi Notification -->
+        @hasrole('perwakilan')
+        @if ($title == 'Simulasi')
+        @foreach ($simulasi as $sim)
+          @if ($sim->alert == 'success')
+          <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @elseif ($sim->alert == 'warning')
+          <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @else
+          @endif
+            
+        @endforeach
+        @endif
+        @endhasrole
+  {{--      
+        <!-- Identitas Notification -->
+        @hasrole('perwakilan')
+        @if ($title == 'Identitas Pengusul')
+        @foreach ($simulasi as $sim)
+          @if ($sim->alert == 'success')
+          <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @elseif ($sim->alert == 'warning')
+          <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @else
+          @endif
+            
+        @endforeach
+        @endif
+        @endhasrole
+        
+        <!-- Tabmong Notification -->
+        @hasrole('perwakilan')
+        @if ($title == 'Tata Pamong')
+        @foreach ($simulasi as $sim)
+          @if ($sim->alert == 'success')
+          <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @elseif ($sim->alert == 'warning')
+          <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @else
+          @endif
+            
+        @endforeach
+        @endif
+        @endhasrole
+        
+        <!-- Mahasiswa Notification -->
+        @hasrole('perwakilan')
+        @if ($title == 'Mahasiswa')
+        @foreach ($simulasi as $sim)
+          @if ($sim->alert == 'success')
+          <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @elseif ($sim->alert == 'warning')
+          <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @else
+          @endif
+            
+        @endforeach
+        @endif
+        @endhasrole
+        
+        <!-- Profil Dosen Notification -->
+        @hasrole('perwakilan')
+        @if ($title == 'Profil Dosen')
+        @foreach ($simulasi as $sim)
+          @if ($sim->alert == 'success')
+          <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @elseif ($sim->alert == 'warning')
+          <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @else
+          @endif
+            
+        @endforeach
+        @endif
+        @endhasrole
+        
+        <!-- Kinerja Dosen Notification -->
+        @hasrole('perwakilan')
+        @if ($title == 'Kinerja Dosen')
+        @foreach ($simulasi as $sim)
+          @if ($sim->alert == 'success')
+          <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @elseif ($sim->alert == 'warning')
+          <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @else
+          @endif
+            
+        @endforeach
+        @endif
+        @endhasrole
+        
+        <!-- Keuangan Sarpras Notification -->
+        @hasrole('perwakilan')
+        @if ($title == 'Keuangan Sarpras')
+        @foreach ($simulasi as $sim)
+          @if ($sim->alert == 'success')
+          <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @elseif ($sim->alert == 'warning')
+          <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @else
+          @endif
+            
+        @endforeach
+        @endif
+        @endhasrole
+        
+        <!-- Pendidikan Notification -->
+        @hasrole('perwakilan')
+        @if ($title == 'Pendidikan')
+        @foreach ($simulasi as $sim)
+          @if ($sim->alert == 'success')
+          <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @elseif ($sim->alert == 'warning')
+          <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @else
+          @endif
+            
+        @endforeach
+        @endif
+        @endhasrole
+        
+        <!-- Penelitian Notification -->
+        @hasrole('perwakilan')
+        @if ($title == 'Penelitian')
+        @foreach ($simulasi as $sim)
+          @if ($sim->alert == 'success')
+          <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @elseif ($sim->alert == 'warning')
+          <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @else
+          @endif
+            
+        @endforeach
+        @endif
+        @endhasrole
+        
+        <!-- Luaran Notification -->
+        @hasrole('perwakilan')
+        @if ($title == 'Luaran')
+        @foreach ($simulasi as $sim)
+          @if ($sim->alert == 'success')
+          <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @elseif ($sim->alert == 'warning')
+          <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @else
+          @endif
+            
+        @endforeach
+        @endif
+        @endhasrole
+        
+        <!-- Pkm Notification -->
+        @hasrole('perwakilan')
+        @if ($title == 'Pkm')
+        @foreach ($simulasi as $sim)
+          @if ($sim->alert == 'success')
+          <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @elseif ($sim->alert == 'warning')
+          <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+            {{ $sim->comment }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @else
+          @endif
+            
+        @endforeach
+        @endif
+        @endhasrole --}}
+            
+            
 
         
         <ul class="navbar-nav text-right  ml-auto flex-nowrap">

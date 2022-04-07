@@ -2178,7 +2178,9 @@
     <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#modalhitung">
         Hitung Nilai
     </button>
+    {{--
     <button type="submit" class="btn btn-danger" href="#" data-toggle="modal" data-target="#modaldel">Kosongkan Data</button>
+    --}}
 </div>
 </div>
 </form>

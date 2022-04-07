@@ -47,10 +47,13 @@
             <td class="putih">{{ $kepuasanmahasiswa['cukup'] }}</td>
             <td class="putih">{{ $kepuasanmahasiswa['kurang'] }}</td>
             <td></td>
+            @hasrole('perwakilan')
             <td></td>
-            <td></td>
+
+            @endhasrole
         </tr>
-    {{-- ISI TABEL DISINI BOSS --}}
+  
     </tbody>
     </table> 
 </div>
+@include('layouts.table')

@@ -45,3 +45,32 @@
             
     </table> 
 </div>
+
+@hasrole('dekan')
+    <div class="modal-footer bg-whitet">
+    <form action="#" method="post">
+      @method('put')
+      @csrf
+    <button type="submit" class="btn btn-success btn-sm">
+      Approve 
+    </button>
+    </form>
+    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modaltolakpenelitian">
+      Tolak
+    </button>
+    </div>
+    @endhasrole
+
+    <div class="modal fade" id="modaltolakpenelitian" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+        <h5 class="modal-title" id="modaltolak"> Kenapa Anda Menolak?  </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.penelitianmodal.tolak')
+        </div>
+        </div>
+    </div> 

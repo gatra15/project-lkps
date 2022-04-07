@@ -59,7 +59,9 @@
                 <td>{{ $countNasional }}</td>
                 <td>{{ $countInternasional }}</td>
                 <td>{{ $sumPengakuan }}</td>
+                @hasrole('perwakilan')
                 <td></td>
+                @endhasrole
             </tr>
             
     </table> 
