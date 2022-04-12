@@ -1,5 +1,5 @@
 <!-- Main content -->
-<div class="tab-pane fade show" id="identitasisi" role="tablist" aria-labelledby="identitasisi-tab">
+<div class="tab-pane fade show active" id="identitasisi" role="tablist" aria-labelledby="identitasisi-tab">
           {{-- MODAL LIHAT DATA --}}
           
           
@@ -17,6 +17,7 @@
             </thead>
             <tbody>
                 {{-- TABEL --}}
+                @hasanyrole('perwakilan|dekan')
                 @foreach ($identitas as $identity)
                 
                 <tr>
@@ -36,16 +37,44 @@
                                 <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaldelete-{{ $identity->id }}"><i class="fas fa-trash btn-del"></i></a></li>
                             
                         @endhasrole
+                        @hasrole('dekan')
+                            <li><a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappiden-{{ $identity->id }}"><i class="fas fa-check-circle"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakiden-{{ $identity->id }}"><i class="fas fa-times-circle"></i></a></li>
+                            
+                        @endhasrole
+
                     </ul>
                 </td>
                 </tr>
                 @endforeach
+                @endhasanyrole
+
+                @hasrole('asesor')
+                @foreach ($identitas_asesor as $identity)
+                
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $identity->perguruan_tinggi }}</td>
+                    <td>{{ $identity->unit_pengelola }}</td>
+                    <td>{{ $identity->jenis_program }}</td>
+                    <td>{{ $identity->prodi }}</td>
+                    <td class="project-actions text-right ms-1 ps-1">
+                        <ul class="action-list d-flex justify-content-center " id="action">
+                        <li><a class="btn btn-warning" type="button" href="#" data-toggle="modal" data-target="#modallihat-{{ $identity->id }}">
+                            <i class="fas fa-eye"></i>
+                        </a></li>
+                    </ul>
+                </td>
+                </tr>
+                @endforeach
+                @endhasrole
             </tbody>
         </table>
       </div>
       <!-- /.card-body -->
 
-     
+     @hasanyrole('perwakilan|dekan')
       @foreach ($identitas as $identity)
               
           <div class="modal fade" id="modallihat-{{ $identity->id }}" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">
@@ -89,56 +118,55 @@
             </div>
             </div>
         </div>
+        
+        <div class="modal fade" id="modaltolakiden-{{ $identity->id }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+            <h5 class="modal-title" id="modaltolak"> Kenapa Anda Menolak?  </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.identitasmodal.tolakiden')
+            </div>
+            </div>
+        </div> 
+    
+        <div class="modal fade" id="modalappiden-{{ $identity->id }}" tabindex="-1" aria-labelledby="modalappiden" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+            <h5 class="modal-title" id="modalappiden"> Approve?  </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.identitasmodal.appiden')
+            </div>
+            </div>
+        </div> 
         @endforeach
-
-        @hasrole('dekan')
-
-    <div class="modal-footer bg-whitet">
-      
-    {{-- <form action="" method="post">
-      @method('put')
-      @csrf
-    <button type="submit" class="btn btn-success btn-sm">
-      Approve 
-    </button>
-    </form> --}}
+    @endhasanyrole
     
-    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modaltolakiden">
-      Tolak
-    </button>
-    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalappiden">
-      Approve
-    </button>
+    @hasrole('asesor')
+    @foreach ($identitas_asesor as $identity)
+    <div class="modal fade" id="modallihat-{{ $identity->id }}" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+        <h5 class="modal-title" id="modallihat">Data dari </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.identitasmodal.identitas')
+        </div>
+        </div>
     </div>
-    
+    @endforeach
     @endhasrole
 
-    <div class="modal fade" id="modaltolakiden" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-        <h5 class="modal-title" id="modaltolak"> Kenapa Anda Menolak?  </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            @include('partials.identitasmodal.tolakiden')
-        </div>
-        </div>
-    </div> 
-
-    <div class="modal fade" id="modalappiden" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-        <h5 class="modal-title" id="modaltolak"> Approve?  </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            @include('partials.identitasmodal.appiden')
-        </div>
-        </div>
-    </div> 
-
+    
+    
 </div>

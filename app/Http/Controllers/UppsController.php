@@ -19,8 +19,12 @@ class UppsController extends Controller
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
         $data = Upps::where($where)->get();
+        $data_asesor = Upps::where($where)->where('is_approved', 1)->get();
 
-        return ['data' => $data];
+        return [
+            'data' => $data,
+            'data_asesor' => $data_asesor,
+        ];
     }
 
     /**

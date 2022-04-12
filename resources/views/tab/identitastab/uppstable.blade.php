@@ -39,33 +39,18 @@
                         </ul>
                     </td>
                     @endhasrole
+                @hasrole('dekan')
+                    <li>
+                        <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappiden-{{ $identity->id }}"><i class="fas fa-check-circle"></i></a></li>
+                    <li>
+                        <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakiden-{{ $identity->id }}"><i class="fas fa-times-circle"></i></a></li>
+                @endhasrole
+                    
                     
             </tr>
         @endforeach
     </tbody>
     </table> 
-
-    @hasrole('dekan')
-
-    <div class="modal-footer bg-whitet">
-      
-    {{-- <form action="" method="post">
-      @method('put')
-      @csrf
-    <button type="submit" class="btn btn-success btn-sm">
-      Approve 
-    </button>
-    </form> --}}
-    
-    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modaltolakupps">
-      Tolak
-    </button>
-    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalappupps">
-      Approve
-    </button>
-    </div>
-    
-    @endhasrole
 
     <div class="modal fade" id="modaltolakupps" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
         <div class="modal-dialog">

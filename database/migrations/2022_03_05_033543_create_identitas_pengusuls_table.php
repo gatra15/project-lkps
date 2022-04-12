@@ -37,7 +37,7 @@ class CreateIdentitasPengusulsTable extends Migration
             $table->string('nomor_sk_banpt');
             $table->boolean('is_approved')->default(false);
             $table->string('created_by')->nullable(true);
-            $table->timestamp('updated_by')->nullable(true);
+            $table->string('updated_by')->nullable(true);
             $table->timestamp('created_at')->nullable(true);
             $table->timestamp('updated_at')->nullable(true);
         });

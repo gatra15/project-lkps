@@ -73,8 +73,6 @@ Route::group(['middleware' => 'auth:web'], function() {
     Route::get('/', function() {
         if(Auth::user()->roles->pluck('name')[0] == 'admin') {
             return redirect('/user');
-        } else if(Auth::user()->roles->pluck('name')[0] == 'asesor') {
-            return redirect('/audit');
         } else {
             return redirect('/dashboard');
         }

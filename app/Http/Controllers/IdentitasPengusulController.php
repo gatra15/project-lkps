@@ -27,6 +27,7 @@ class IdentitasPengusulController extends Controller
         }
 
         $identitas = IdentitasPengusul::all();
+        $identitas_asesor = IdentitasPengusul::where('is_approved', 1)->get();
         $prodi = ProgramStudi::all();
         $upps = (new UppsController)->index();
         // tim penyusun
@@ -39,6 +40,7 @@ class IdentitasPengusulController extends Controller
             'prodi' => $prodi,
             'upps' => $upps,
             'lembar' => $lembar,
+            'identitas_asesor' => $identitas_asesor,
         ]);
     }
 
@@ -216,15 +218,17 @@ class IdentitasPengusulController extends Controller
         $data->updated_at = Carbon::now();
         $data->updated_by = auth()->user()->name;
         $data->update();
+        return back()->with('success', 'Data Identitas Pengusul berhasil disetujui.');
     }
 
     public function tolak(Request $req, $id)
     {
         $data = IdentitasPengusul::find($id);
         $data->is_approved = false;
-        $data->comment = $req->comment;
+        $data->comment = $req->alasan;
         $data->updated_at = Carbon::now();
         $data->updated_by = auth()->user()->name;
         $data->update();
+        return back()->with('success', 'Data Identitas Pengusul berhasil ditolak.');
     }
 }
