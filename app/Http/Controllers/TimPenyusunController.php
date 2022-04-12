@@ -22,8 +22,10 @@ class TimPenyusunController extends Controller
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
 
         $timPenyusun = TimPenyusun::where($where)->get();
+        $timPenyusun_asesor = TimPenyusun::where($where)->where('is_approved', 1)->get();
         return [
             'tim' => $timPenyusun,
+            'tim_asesor' => $timPenyusun_asesor,
         ];
     }
 
@@ -190,6 +192,7 @@ class TimPenyusunController extends Controller
         $data->updated_at = Carbon::now();
         $data->updated_by = auth()->user()->name;
         $data->update();
+        return back()->with('success', 'Data Tim Penyusun berhasil disetujui.');
     }
 
     public function tolak(Request $req, $id)
@@ -200,5 +203,6 @@ class TimPenyusunController extends Controller
         $data->updated_at = Carbon::now();
         $data->updated_by = auth()->user()->name;
         $data->update();
+        return back()->with('success', 'Data Identitas Pengusul berhasil ditolak.');
     }
 }

@@ -57,7 +57,7 @@ class MahasiswaAsingController extends Controller
         
         $mahasiswa  = DB::select(DB::raw("
         
-        SELECT A.id as id, A.mahasiswa_aktif_ts, B.mahasiswa_aktif_ts AS mahasiswa_aktif_ts1, C.mahasiswa_aktif_ts AS mahasiswa_aktif_ts2,
+        SELECT A.id as id, A.is_approved as is_approved, A.mahasiswa_aktif_ts, B.mahasiswa_aktif_ts AS mahasiswa_aktif_ts1, C.mahasiswa_aktif_ts AS mahasiswa_aktif_ts2,
         A.mahasiswa_asing_pt_ts, B.mahasiswa_asing_pt_ts AS mahasiswa_asing_pt_ts1, C.mahasiswa_asing_pt_ts AS mahasiswa_asing_pt_ts2,
         A.mahasiswa_asing_ft_ts, B.mahasiswa_asing_ft_ts AS mahasiswa_asing_ft_ts1, C.mahasiswa_asing_ft_ts AS mahasiswa_asing_ft_ts2
          FROM (

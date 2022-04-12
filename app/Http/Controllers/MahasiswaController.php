@@ -32,6 +32,7 @@ class MahasiswaController extends Controller
         ];
 
         $mahasiswa = Mahasiswa::where($where)->get();
+        $mahasiswa_asesor = Mahasiswa::where($where)->where('is_approved', 1)->get();
                     
         $pendaftar = Mahasiswa::where($where)->sum('c_pendaftar');
         $lulus_seleksi = Mahasiswa::where($where)->sum('c_lulus_seleksi');
@@ -56,6 +57,7 @@ class MahasiswaController extends Controller
         $data['chart_data'] = json_encode($data); 
         return [
             'mahasiswa' => $mahasiswa,
+            'mahasiswa_asesor' => $mahasiswa_asesor,
             'pendaftar' => $pendaftar,
             'lulus_seleksi' => $lulus_seleksi,
             'reguler' => $reguler,
