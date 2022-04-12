@@ -45,7 +45,7 @@
         @endforeach
         <tr>
             <td class="align-middle text-center" colspan="1"><b>Jumlah</b></td>
-            <td>{{ $kinerjaLulusan['nl'] }}</td>
+            {{-- <td>{{ $kinerjaLulusan['nl'] }}</td> --}}
             <td>{{ $kinerjaLulusan['nj'] }}</td>
             <td>{{ $kinerjaLulusan['wilayah'] }}</td>
             <td>{{ $kinerjaLulusan['nasional'] }}</td>
