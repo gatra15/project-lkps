@@ -43,13 +43,13 @@
                     @endhasrole
                     @hasrole('dekan')
                     <li>
-                        <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappupps{{ $identity->id }}"><i class="fas fa-check-circle"></i></a>
+                        <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappupps-{{ $upps->id }}"><i class="fas fa-check-circle"></i></a>
                     </li>
                     <li>
-                        <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakupps{{ $identity->id }}"><i class="fas fa-times-circle"></i></a>
+                        <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakupps-{{ $upps->id }}"><i class="fas fa-times-circle"></i></a>
                     </li>
                     @endhasrole
-                </ul>
+                    </ul>
                 </td>
                 @endhasanyrole
                     
@@ -57,33 +57,5 @@
         @endforeach
     </tbody>
     </table> 
-
-    <div class="modal fade" id="modaltolakupps" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-        <h5 class="modal-title" id="modaltolak"> Kenapa Anda Menolak? </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            @include('partials.identitasmodal.tolakupps')
-        </div>
-        </div>
-    </div> 
-
-    <div class="modal fade" id="modalappupps" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-        <h5 class="modal-title" id="modaltolak"> Approve?  </h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            @include('partials.identitasmodal.appupps')
-        </div>
-        </div>
-    </div> 
 
 </div>

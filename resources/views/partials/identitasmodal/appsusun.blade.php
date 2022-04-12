@@ -1,4 +1,4 @@
-<form action="#" method="get">
+<form action="/identitas-pengusul/upps/approve/{{ $tim->id }}" method="get">
     <div class="modal-body">
         @csrf
         <h5 class="text-center">Approve ?</h5>

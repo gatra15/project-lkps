@@ -1,4 +1,4 @@
-<form action="#" method="get">
+<form action="/identitas-pengusul/lembar-evaluasi/approve/{id}" method="get">
     <div class="modal-body">
         @csrf
         <h5 class="text-center">Approve ?</h5>

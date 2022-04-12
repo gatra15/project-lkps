@@ -38,10 +38,10 @@
                     @endhasrole
                     @hasrole('dekan')
                       <li>
-                          <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappsusun-{{ $identity->id }}"><i class="fas fa-check-circle"></i></a>
+                          <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappsusun-{{ $tim->id  }}"><i class="fas fa-check-circle"></i></a>
                       </li>
                       <li>
-                          <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolaksusun-{{ $identity->id }}"><i class="fas fa-times-circle"></i></a>
+                          <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolaksusun-{{ $tim->id  }}"><i class="fas fa-times-circle"></i></a>
                       </li>
                     @endhasrole
                     </ul>
@@ -83,11 +83,8 @@
             </div>
             </div>
         </div>
-        @endforeach
 
-        
-    
-        <div class="modal fade" id="modaltolaksusun" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+        <div class="modal fade" id="modaltolaksusun-{{ $tim->id }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -101,7 +98,7 @@
             </div>
         </div> 
     
-        <div class="modal fade" id="modalappsusun" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+        <div class="modal fade" id="modalappsusun-{{ $tim->id }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -114,4 +111,9 @@
             </div>
             </div>
         </div> 
+        @endforeach
+
+        
+    
+        
 </div>
