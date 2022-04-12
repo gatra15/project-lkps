@@ -7,9 +7,9 @@
             <th class="align-middle" scope="col" rowspan="2" width="10%">Nama <br> Program Studi</th>
             <th class="align-middle" scope="col" colspan="3" width="10%">Akreditasi Program Studi</th>
             <th class="align-middle" scope="col" rowspan="2" width="3%">Jumlah <br> Mahasiswa <br> saat TS <sup>4)</sup> </th> 
-            @hasrole('perwakilan')
+            @hasanyrole('perwakilan|dekan')
             <th class="align-middle" scope="col" rowspan="2" width="3%"> Opsi </th> 
-            @endhasrole
+            @endhasanyrole
         </tr>
         <tr>
             <th scope="col">Status/ <br> Peringkat </th>
@@ -30,22 +30,28 @@
                 <td>{{ $upps->no_sk }}</td>
                 <td>{{ $upps->tanggal_kadaluarsa }}</td>
                 <td>{{ $upps->jumlah_mahasiswa }}</td>
-                @hasrole('perwakilan')
+                @hasanyrole('perwakilan|dekan')
                 <td class="project-actions text-right ms-1 ps-1">
                     <ul class="action-list d-flex justify-content-center " id="action">
+                @hasrole('perwakilan')
+               
+                    
                         <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaleditupps-{{ $upps->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
                             <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaldeleteupps-{{ $upps->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                        </ul>
-                    </td>
+                        
                     @endhasrole
-                @hasrole('dekan')
+                    @hasrole('dekan')
                     <li>
-                        <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappiden-{{ $identity->id }}"><i class="fas fa-check-circle"></i></a></li>
+                        <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappupps{{ $identity->id }}"><i class="fas fa-check-circle"></i></a>
+                    </li>
                     <li>
-                        <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakiden-{{ $identity->id }}"><i class="fas fa-times-circle"></i></a></li>
-                @endhasrole
-                    
+                        <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakupps{{ $identity->id }}"><i class="fas fa-times-circle"></i></a>
+                    </li>
+                    @endhasrole
+                </ul>
+                </td>
+                @endhasanyrole
                     
             </tr>
         @endforeach

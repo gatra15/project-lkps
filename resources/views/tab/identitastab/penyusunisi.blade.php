@@ -11,9 +11,9 @@
                     <th  class="text-center align-middle" width="15%">Jabatan</th>
                     <th  class="text-center align-middle" width="10%">Tanggal Pengisian</th>
                     <th  class="text-center align-middle" width="24%"> TTD</th>
-                    @hasrole('perwakilan')
+                    @hasanyrole('perwakilan|dekan')
                     <th  class="text-center align-middle" width="10%"> Opsi</th>
-                    @endhasrole
+                    @endhasanyrole
                 </tr>
             </thead>
             <tbody>
@@ -27,16 +27,26 @@
                     <td>{{ $tim->jabatan }}</td>
                     <td>{{ $tim->tanggal_pengisian }}</td>
                     <td><img width="100" height="115" src="{{ asset('storage/'.$tim->ttd) }}" alt="ttd"></td>
-                    @hasrole('perwakilan')
+                    @hasanyrole('perwakilan|dekan')
                     <td class="project-actions text-right ms-1 ps-1">
-                      <ul class="action-list d-flex justify-content-center " id="action">
-                      
+                    <ul class="action-list d-flex justify-content-center " id="action">
+                    @hasrole('perwakilan')
+                    
                           <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaleditpengisi-{{ $tim->id }}"><i class="fas fa-edit"></i></a></li>
                           <li>
                               <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaldeletepengisi-{{ $tim->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                      @endhasrole
-                      
-
+                    @endhasrole
+                    @hasrole('dekan')
+                      <li>
+                          <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappsusun-{{ $identity->id }}"><i class="fas fa-check-circle"></i></a>
+                      </li>
+                      <li>
+                          <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolaksusun-{{ $identity->id }}"><i class="fas fa-times-circle"></i></a>
+                      </li>
+                    @endhasrole
+                    </ul>
+                    </td>
+                    @endhasanyrole
                 </tr>
                                   
                 @endforeach
@@ -75,27 +85,7 @@
         </div>
         @endforeach
 
-        @hasrole('dekan')
-
-        <div class="modal-footer bg-whitet">
-          
-        {{-- <form action="" method="post">
-          @method('put')
-          @csrf
-        <button type="submit" class="btn btn-success btn-sm">
-          Approve 
-        </button>
-        </form> --}}
         
-        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modaltolaksusun">
-          Tolak
-        </button>
-        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalappsusun">
-          Approve
-        </button>
-        </div>
-        
-        @endhasrole
     
         <div class="modal fade" id="modaltolaksusun" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
             <div class="modal-dialog">

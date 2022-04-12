@@ -17,7 +17,7 @@
             </thead>
             <tbody>
                 {{-- TABEL --}}
-                @hasanyrole('perwakilan|dekan')
+                
                 @foreach ($identitas as $identity)
                 
                 <tr>
@@ -38,37 +38,19 @@
                             
                         @endhasrole
                         @hasrole('dekan')
-                            <li><a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappiden-{{ $identity->id }}"><i class="fas fa-check-circle"></i></a></li>
                             <li>
-                                <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakiden-{{ $identity->id }}"><i class="fas fa-times-circle"></i></a></li>
-                            
+                                <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappiden-{{ $identity->id }}"><i class="fas fa-check-circle"></i></a>
+                            </li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakiden-{{ $identity->id }}"><i class="fas fa-times-circle"></i></a>
+                            </li>
                         @endhasrole
 
-                    </ul>
+                        </ul>
                 </td>
                 </tr>
                 @endforeach
-                @endhasanyrole
-
-                @hasrole('asesor')
-                @foreach ($identitas_asesor as $identity)
-                
-                <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $identity->perguruan_tinggi }}</td>
-                    <td>{{ $identity->unit_pengelola }}</td>
-                    <td>{{ $identity->jenis_program }}</td>
-                    <td>{{ $identity->prodi }}</td>
-                    <td class="project-actions text-right ms-1 ps-1">
-                        <ul class="action-list d-flex justify-content-center " id="action">
-                        <li><a class="btn btn-warning" type="button" href="#" data-toggle="modal" data-target="#modallihat-{{ $identity->id }}">
-                            <i class="fas fa-eye"></i>
-                        </a></li>
-                    </ul>
-                </td>
-                </tr>
-                @endforeach
-                @endhasrole
+            
             </tbody>
         </table>
       </div>
