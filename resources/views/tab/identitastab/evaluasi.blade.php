@@ -40,7 +40,7 @@ div.shadow-sm {
 
 </style>
 <div class="tab-pane fade show" id="evaluasi" role="tablist" aria-labelledby="evaluasi-tab">
-    <form id="mainform" method="post" action="/identitas-pengusul/lembar-evaluasi" enctype="multipart/form-data">
+    
 
     <p class="d-flex justify-content-between">
     </p>
@@ -52,7 +52,10 @@ div.shadow-sm {
         </div> 
     </div>
 
-        @csrf
+    @hasrole('perwakilan')
+    <form id="mainform" method="post" action="/identitas-pengusul/lembar-evaluasi" enctype="multipart/form-data">
+
+    @csrf
     <div class="modal-body">
         <input type="hidden" name="id" class="form-control" value=""> 
             <div class="input-group input-group-sm mb-3">
@@ -66,32 +69,28 @@ div.shadow-sm {
             <div class="modal-footer">
                 <button type="submit"  class="btn btn-primary">Simpan</button>
             </div>
-            
-    </form>
+    
+        </form>
+    @endhasrole        
+    
     
     @hasrole('dekan')
+    @foreach($lembar as $data)
 
     <div class="modal-footer bg-whitet">
-      
-    {{-- <form action="" method="post">
-      @method('put')
-      @csrf
-    <button type="submit" class="btn btn-success btn-sm">
-      Approve 
-    </button>
-    </form> --}}
-    
-    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modaltolakeval">
+
+    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modaltolakeval-{{ $data->id }}">
       Tolak
     </button>
-    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalappeval">
+    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalappeval-{{ $data->id }}">
       Approve
     </button>
+
     </div>
     
-    @endhasrole
+    
 
-    <div class="modal fade" id="modaltolakeval" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+    <div class="modal fade" id="modaltolakeval-{{ $data->id }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -105,7 +104,7 @@ div.shadow-sm {
         </div>
     </div> 
 
-    <div class="modal fade" id="modalappeval" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+    <div class="modal fade" id="modalappeval-{{ $data->id }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -119,8 +118,15 @@ div.shadow-sm {
         </div>
     </div> 
 
-    {{-- @foreach($lembar as $data)
+    
+    
+    @endforeach
+    @endhasrole
+
+    @hasanyrole('dekan|asesor')
+    @foreach($lembar as $data)
     <p>File Evaluasi Diri : <a class="btn btn-success" href="{{ asset('storage/'.$data->attachment) }}"> File <i class="fas fa-file-archive"></i></a></p>
-    @endforeach --}}
+    @endforeach
+    @endhasanyrole
 
 </div>
