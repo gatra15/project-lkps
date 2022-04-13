@@ -1,4 +1,5 @@
-<form action="/identitas-pengusul/lembar-evaluasi/approve/{id}" method="get">
+<form action="/identitas-pengusul/lembar-evaluasi/approve/{{ $eval->id }}" method="post">
+    @method('put')
     <div class="modal-body">
         @csrf
         <h5 class="text-center">Approve ?</h5>

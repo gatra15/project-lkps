@@ -16,8 +16,10 @@ class LembarEvaluasiDiriController extends Controller
     public function index()
     {
         $data = LembarEvaluasiDiri::all();
+        $data_asesor = LembarEvaluasiDiri::where('is_approved', 1)->get();
         return [
             'data' => $data,
+            'data_asesor' => $data_asesor,
         ];
     }
 
