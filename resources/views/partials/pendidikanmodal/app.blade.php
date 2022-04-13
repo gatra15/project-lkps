@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-<form action="/identitas-pengusul/lembar-evaluasi/approve/" method="post">
-    @method('put')
-=======
-<form action="/identitas-pengusul/lembar-evaluasi/approve/{{ $data->id }}" method="post">
->>>>>>> 3ae431fb1dfc7eadbbaffe9148cfaed17f7ff163
+<form action="#" method="get">
     <div class="modal-body">
-        @method('put')
         @csrf
         <h5 class="text-center">Approve ?</h5>
     </div>

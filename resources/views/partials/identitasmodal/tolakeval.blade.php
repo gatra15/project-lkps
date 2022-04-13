@@ -1,4 +1,4 @@
-<form action="/identitas-pengusul/lembar-evaluasi/tolak/" method="post">
+<form action="/identitas-pengusul/tolak/{{ $data->id }}" method="post">
     @method('put')
     @csrf
     <div class="modal-body">     
