@@ -24,9 +24,11 @@ class SdmDosenTidakTetapController extends Controller
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
 
         $dosenttetap = SdmDosenTidakTetap::where($where)->get();
+        $dosenttetap_asesor = SdmDosenTidakTetap::where($where)->where('is_approved',1)->get();
         $ndtt = SdmDosenTidakTetap::where($where)->count('nama');
         return [
             'dosen' => $dosenttetap,
+            'dosen_asesor' => $dosenttetap_asesor,
             'ndtt' => $ndtt,
         ];
     }

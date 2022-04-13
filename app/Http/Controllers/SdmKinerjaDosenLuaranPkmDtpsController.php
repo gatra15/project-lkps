@@ -23,6 +23,7 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
 
         $data = SdmKinerjaDosenLuaranPkmDtps::with('jenis')->where($where)->get();
+        $data_asesor = SdmKinerjaDosenLuaranPkmDtps::with('jenis')->where($where)->where('is_approved', 1)->get();
         $where1 = ['tahun_laporan' => $tahun, 'type_luaran' => 'I', 'prodi' => $prodi];
         $where2 = ['tahun_laporan' => $tahun, 'type_luaran' => 'II', 'prodi' => $prodi];
         $where3 = ['tahun_laporan' => $tahun, 'type_luaran' => 'III', 'prodi' => $prodi];
@@ -34,6 +35,7 @@ class SdmKinerjaDosenLuaranPkmDtpsController extends Controller
         $nd = SdmKinerjaDosenLuaranPkmDtps::where($where4)->count('tahun');
         return [
             'data' => $data,
+            'data_asesor' => $data_asesor,
             'na' => $na,
             'nb' => $nb,
             'nc' => $nc,

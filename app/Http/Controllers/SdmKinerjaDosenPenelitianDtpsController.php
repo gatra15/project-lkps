@@ -105,19 +105,29 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
         }
 
         $ts_all = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where)->get();
+        $ts_all_asesor = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where)->where('is_approved',1)->get();
         $ts = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where)->where('sumber_id', 1)->get();
+        $ts_asesor = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where)->where('sumber_id', 1)->where('is_approved',1)->get();
         $ts1 = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where1)->where('sumber_id', 1)->get();
+        $ts1_asesor = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where1)->where('sumber_id', 1)->where('is_approved',1)->get();
         $ts2 = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where2)->where('sumber_id', 1)->get();
+        $ts2_asesor = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where2)->where('sumber_id', 1)->where('is_approved',1)->get();
         
         // sumber 2
         $ts_sumber2 = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where)->where('sumber_id', 2)->get();
+        $ts_sumber2_asesor = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where)->where('sumber_id', 2)->where('is_approved',1)->get();
         $ts1_sumber2 = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where1)->where('sumber_id', 2)->get();
+        $ts1_sumber2_asesor = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where1)->where('sumber_id', 2)->where('is_approved',1)->get();
         $ts2_sumber2 = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where2)->where('sumber_id', 2)->get();
+        $ts2_sumber2_asesor = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where2)->where('sumber_id', 2)->where('is_approved',1)->get();
 
         // sumber 3
         $ts_sumber3 = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where)->where('sumber_id', 3)->get();
+        $ts_sumber3_asesor = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where)->where('sumber_id', 3)->where('is_approved',1)->get();
         $ts1_sumber3 = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where1)->where('sumber_id', 3)->get();
+        $ts1_sumber3_asesor = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where1)->where('sumber_id', 3)->where('is_approved',1)->get();
         $ts2_sumber3 = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where2)->where('sumber_id', 3)->get();
+        $ts2_sumber3_asesor = SdmKinerjaDosenPenelitianDtps::with('sumber')->where($where2)->where('sumber_id', 3)->where('is_approved',1)->get();
 
         $NI = SdmKinerjaDosenPenelitianDtps::where($where)->where('sumber_id', 3)->sum('jumlah');
         $NN = SdmKinerjaDosenPenelitianDtps::where($where)->where('sumber_id', 2)->sum('jumlah');
@@ -129,15 +139,25 @@ class SdmKinerjaDosenPenelitianDtpsController extends Controller
         $jumlah = SdmKinerjaDosenPenelitianDtps::where($where)->sum('jumlah');
         return [
             'ts_all' => $ts_all,
+            'ts_all_asesor' => $ts_all_asesor,
             'ts' => $ts,
+            'ts_asesor' => $ts_asesor,
             'ts1' => $ts1,
+            'ts1_asesor' => $ts1_asesor,
             'ts2' => $ts2,
+            'ts2_asesor' => $ts2_asesor,
             'ts_sumber2' => $ts_sumber2,
+            'ts_sumber2_asesor' => $ts_sumber2_asesor,
             'ts1_sumber2' => $ts1_sumber2,
+            'ts1_sumber2_asesor' => $ts1_sumber2_asesor,
             'ts2_sumber2' => $ts2_sumber2,
+            'ts2_sumber2_asesor' => $ts2_sumber2_asesor,
             'ts_sumber3' => $ts_sumber3,
+            'ts_sumber3_asesor' => $ts_sumber3_asesor,
             'ts1_sumber3' => $ts1_sumber3,
+            'ts1_sumber3_asesor' => $ts1_sumber3_asesor,
             'ts2_sumber3' => $ts2_sumber3,
+            'ts2_sumber3_asesor' => $ts2_sumber3_asesor,
             'jumlah_ts2' => $jumlah_ts2,
             'jumlah_ts1' => $jumlah_ts1,
             'jumlah_ts' => $jumlah_ts,

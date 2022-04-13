@@ -104,23 +104,33 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
         }
 
         $ts_all = SdmKinerjaDosenPkmDtps::with('sumber')->where($where)->get();
+        $ts_all_asesor = SdmKinerjaDosenPkmDtps::with('sumber')->where($where)->where('is_approved',1)->get();
         $ts = SdmKinerjaDosenPkmDtps::with('sumber')->where($where)->where('sumber_id', 1)->get();
+        $ts_asesor = SdmKinerjaDosenPkmDtps::with('sumber')->where($where)->where('sumber_id', 1)->where('is_approved',1)->get();
         $ts1 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where1)->where('sumber_id', 1)->get();
+        $ts1_asesor = SdmKinerjaDosenPkmDtps::with('sumber')->where($where1)->where('sumber_id', 1)->where('is_approved',1)->get();
         $ts2 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where2)->where('sumber_id', 1)->get();
+        $ts2_asesor = SdmKinerjaDosenPkmDtps::with('sumber')->where($where2)->where('sumber_id', 1)->where('is_approved',1)->get();
+        
+        // sumber 2
+        $ts_sumber2 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where)->where('sumber_id', 2)->get();
+        $ts_sumber2_asesor = SdmKinerjaDosenPkmDtps::with('sumber')->where($where)->where('sumber_id', 2)->where('is_approved',1)->get();
+        $ts1_sumber2 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where1)->where('sumber_id', 2)->get();
+        $ts1_sumber2_asesor = SdmKinerjaDosenPkmDtps::with('sumber')->where($where1)->where('sumber_id', 2)->where('is_approved',1)->get();
+        $ts2_sumber2 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where2)->where('sumber_id', 2)->get();
+        $ts2_sumber2_asesor = SdmKinerjaDosenPkmDtps::with('sumber')->where($where2)->where('sumber_id', 2)->where('is_approved',1)->get();
+
+        // sumber 3
+        $ts_sumber3 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where)->where('sumber_id', 3)->get();
+        $ts_sumber3_asesor = SdmKinerjaDosenPkmDtps::with('sumber')->where($where)->where('sumber_id', 3)->where('is_approved',1)->get();
+        $ts1_sumber3 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where1)->where('sumber_id', 3)->get();
+        $ts1_sumber3_asesor = SdmKinerjaDosenPkmDtps::with('sumber')->where($where1)->where('sumber_id', 3)->where('is_approved',1)->get();
+        $ts2_sumber3 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where2)->where('sumber_id', 3)->get();
+        $ts2_sumber3_asesor = SdmKinerjaDosenPkmDtps::with('sumber')->where($where2)->where('sumber_id', 3)->where('is_approved',1)->get();
 
         $NI = SdmKinerjaDosenPkmDtps::where($where)->where('sumber_id', 3)->sum('jumlah');
         $NN = SdmKinerjaDosenPkmDtps::where($where)->where('sumber_id', 2)->sum('jumlah');
         $NL = SdmKinerjaDosenPkmDtps::where($where)->where('sumber_id', 1)->sum('jumlah');
-        
-        // sumber 2
-        $ts_sumber2 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where)->where('sumber_id', 2)->get();
-        $ts1_sumber2 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where1)->where('sumber_id', 2)->get();
-        $ts2_sumber2 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where2)->where('sumber_id', 2)->get();
-
-        // sumber 3
-        $ts_sumber3 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where)->where('sumber_id', 3)->get();
-        $ts1_sumber3 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where1)->where('sumber_id', 3)->get();
-        $ts2_sumber3 = SdmKinerjaDosenPkmDtps::with('sumber')->where($where2)->where('sumber_id', 3)->get();
 
         $jumlah_ts2 = SdmKinerjaDosenPkmDtps::where($where2)->sum('jumlah_ts');
         $jumlah_ts1 = SdmKinerjaDosenPkmDtps::where($where1)->sum('jumlah_ts');
@@ -128,15 +138,25 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
         $jumlah = SdmKinerjaDosenPkmDtps::where($where)->sum('jumlah');
         return [
             'ts_all' => $ts_all,
+            'ts_all_asesor' => $ts_all_asesor,
             'ts' => $ts,
+            'ts_asesor' => $ts_asesor,
             'ts1' => $ts1,
+            'ts1_asesor' => $ts1_asesor,
             'ts2' => $ts2,
+            'ts2_asesor' => $ts2_asesor,
             'ts_sumber2' => $ts_sumber2,
+            'ts_sumber2_asesor' => $ts_sumber2_asesor,
             'ts1_sumber2' => $ts1_sumber2,
+            'ts1_sumber2_asesor' => $ts1_sumber2_asesor,
             'ts2_sumber2' => $ts2_sumber2,
+            'ts2_sumber2_asesor' => $ts2_sumber2_asesor,
             'ts_sumber3' => $ts_sumber3,
+            'ts_sumber3_asesor' => $ts_sumber3_asesor,
             'ts1_sumber3' => $ts1_sumber3,
+            'ts1_sumber3_asesor' => $ts1_sumber3_asesor,
             'ts2_sumber3' => $ts2_sumber3,
+            'ts2_sumber3_asesor' => $ts2_sumber3_asesor,
             'jumlah_ts2' => $jumlah_ts2,
             'jumlah_ts1' => $jumlah_ts1,
             'jumlah_ts' => $jumlah_ts,

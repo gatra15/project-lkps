@@ -29,6 +29,7 @@ class KinerjaDosenController extends Controller
         $where2 = ['tahun_laporan' => $tahun-2, 'prodi' => $prodi];
 
         $pengakuan = SdmKinerjaDosenPengakuanDtps::where($where)->get();
+        $pengakuan_asesor = SdmKinerjaDosenPengakuanDtps::where($where)->where('is_approved', 1)->get();
         $nrd = SdmKinerjaDosenPkmDtps::select('nama')->where($where)->orWhere($where1)->orWhere($where2)->count();
         $luaran = (new SdmKinerjaDosenLuaranPkmDtpsController)->index();
         $sumberdaya = Sumberdaya::where($where);
@@ -56,6 +57,7 @@ class KinerjaDosenController extends Controller
         return view('tab.kinerjadosentab.kinerjaDosen', [
             'title' => 'Kinerja Dosen',
             'pengakuans' => $pengakuan,
+            'pengakuans_asesor' => $pengakuan_asesor,
             'karyailmiah' => $karyailmiah,
             'penelitians' => $penelitian,
             'pkms' => $pkms,

@@ -23,6 +23,7 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
 
         $dosen = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where)->get();
+        $dosen_asesor = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where)->where('is_approved', 1)->get();
 
         $where1 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'dtps' => 0];
         $where2 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'dtps' => 1];
@@ -41,6 +42,7 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
         $average_dtps_average = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where2)->avg('average_per_sks');
         return [
             'dosen' => $dosen,
+            'dosen_asesor' => $dosen_asesor,
             'dt' => $dt,
             'average_dt_jumlah' => $average_dt_jumlah,
             'average_dt_average' => $average_dt_average,

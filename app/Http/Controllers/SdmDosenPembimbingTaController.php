@@ -89,6 +89,7 @@ class SdmDosenPembimbingTaController extends Controller
                         'a.jumlah_ps_lain_average',
                         'a.average',
                         'a.tahun_laporan',
+                        'a.is_approved',
                     )
                     ->get();
                     $dosenta = json_decode(json_encode($dosenta), true);
