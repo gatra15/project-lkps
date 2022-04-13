@@ -1,6 +1,6 @@
-<form action="/identitas-pengusul/lembar-evaluasi/approve/{{ $eval->id }}" method="post">
-    @method('put')
+<form action="/identitas-pengusul/lembar-evaluasi/approve/{{ $data->id }}" method="post">
     <div class="modal-body">
+        @method('put')
         @csrf
         <h5 class="text-center">Approve ?</h5>
     </div>
