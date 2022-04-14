@@ -8,9 +8,9 @@
                 <th scope="col" colspan="6" >Ekuivalen Waktu Mengajar <br> Penuh(EWMP) pada saat <br> TS dalam satuan <br> kredit semester (sks)</th>
                 <th class="align-middle" scope="col" rowspan="3">Jumlah <br> (SKS)</th>  
                 <th class="align-middle" scope="col" rowspan="3">Rata-tara <br> per semester <br> (SKS)</th>
-                @hasrole('perwakilan')
+                @hasanyrole('perwakilan|dekan')
                 <th class="align-middle" scope="col" rowspan="3" >Opsi</th> 
-                @endhasrole  
+                @endhasanyrole  
             </tr>
             <tr>
                 <th class="align-middle" scope="col" colspan="3">pada PS <br> yang Diakreditasi</th>
@@ -43,13 +43,31 @@
                 <td>{{ $ewmp->penunjang }}</td>
                 <td>{{ $ewmp->sks }}</td>
                 <td>{{ $ewmp->average_per_sks }}</td>
-                @hasrole('perwakilan')
-                <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenewmpedit-{{ $ewmp->id }}"><i class="fas fa-edit"></i></a></li>
-                    <li>
-                        <a type="button" class="btn btn-danger" href="/profil-dosen/dosen-ewmp/{{ $ewmp->id }}" data-toggle="modal" data-target="#modaldosenewmpdelete-{{ $ewmp->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                </ul></td>
-                @endhasrole
+                @hasanyrole('perwakilan|dekan')
+                <td class="align-middle">
+                <ul class="action-list d-flex justify-content-center mr-1" id="action">
+                    
+                    @hasrole('perwakilan')
+                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenewmpedit-{{ $ewmp->id }}"><i class="fas fa-edit"></i></a></li>
+                        <li>
+                            <a type="button" class="btn btn-danger" href="/profil-dosen/dosen-ewmp/{{ $ewmp->id }}" data-toggle="modal" data-target="#modaldosenewmpdelete-{{ $ewmp->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                    </ul></td>
+                    @endhasrole
+
+                    @hasrole('dekan')
+                        <li>
+                            <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappewmp-{{ $ewmp->id }}"><i class="fas fa-check-circle"></i></a>
+                        </li>
+                        <li>
+                            <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakewmp-{{ $ewmp->id }}"><i class="fas fa-times-circle"></i></a>
+                        </li>
+                    @endhasrole
+
+                </ul>
+                </td>
+                @endhasanyrole
+                
             </tr>
           
           

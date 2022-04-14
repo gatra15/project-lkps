@@ -45,35 +45,65 @@
 @include('tab.mahasiswatab.asingtable')
 {{-- End --}}
 
-@foreach ($mahasiswa_asing['mahasiswa'] as $key => $mhs)
+    @foreach ($mahasiswa_asing['mahasiswa'] as $key => $mhs)
 
-<div class="modal fade" id="modalmahasiswaasingedit-{{ $mhs['id'] }}" tabindex="-1" aria-labelledby="modalmahasiswaasingedit" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="modalmahasiswaasingedit">Edit Data</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+    <div class="modal fade" id="modalmahasiswaasingedit-{{ $mhs['id'] }}" tabindex="-1" aria-labelledby="modalmahasiswaasingedit" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modalmahasiswaasingedit">Edit Data</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.mahasiswamodal.asingedit')
         </div>
-        @include('partials.mahasiswamodal.asingedit')
-    </div>
-    </div>
-</div>
-<div class="modal fade" id="modalmahasiswaasingdelete-{{ $mhs['id'] }}" tabindex="-1" aria-labelledby="modalmahasiswaasingdelete" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="modalmahasiswaasingdelete">Hapus Data</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
         </div>
-        @include('partials.mahasiswamodal.asingdelete')
     </div>
+
+    <div class="modal fade" id="modalmahasiswaasingdelete-{{ $mhs['id'] }}" tabindex="-1" aria-labelledby="modalmahasiswaasingdelete" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="modalmahasiswaasingdelete">Hapus Data</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.mahasiswamodal.asingdelete')
+        </div>
+        </div>
+    </div>  
+    
+    <div class="modal fade" id="modaltolakasg-{{ $mhs['id'] }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+        <h5 class="modal-title" id="modaltolak"> Kenapa Anda Menolak??  </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.mahasiswamodal.tolak2')
+        </div>
+        </div>
+    </div> 
+    
+    <div class="modal fade" id="modalappasg-{{ $mhs['id'] }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+        <h5 class="modal-title" id="modaltolak"> Approve?  </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.mahasiswamodal.app2')
+        </div>
+        </div>
     </div>
-</div>    
-@endforeach
+
+    @endforeach
 
 </div>
 @include('layouts.table')

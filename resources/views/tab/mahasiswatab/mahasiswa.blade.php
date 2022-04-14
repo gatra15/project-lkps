@@ -41,7 +41,7 @@
 @include('tab.mahasiswatab.mahasiswatable')
 {{-- End Table --}}
 
-@foreach ($mahasiswa['mahasiswa'] as $key => $mhs)
+    @foreach ($mahasiswa['mahasiswa'] as $key => $mhs)
     <!-- Modal Edit -->
     <div class="modal fade" id="modalmahasiswaedit-{{ $mhs->id }}" tabindex="-1" aria-labelledby="modalmahasiswaedit" aria-hidden="true">
         <div class="modal-dialog">
@@ -70,6 +70,35 @@
         </div>
         </div>
     </div>
+
+    <div class="modal fade" id="modaltolakmhs-{{ $mhs->id }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+        <h5 class="modal-title" id="modaltolak"> Kenapa Anda Menolak??  </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.mahasiswamodal.tolak')
+        </div>
+        </div>
+    </div> 
+    
+    <div class="modal fade" id="modalappmhs-{{ $mhs->id }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+        <h5 class="modal-title" id="modaltolak"> Approve?  </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            @include('partials.mahasiswamodal.app')
+        </div>
+        </div>
+    </div> 
+
     @endforeach
 
 

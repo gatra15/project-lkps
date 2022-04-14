@@ -1,4 +1,4 @@
-<form action="/tata-pamong-tata-kelola-kerjasama/tolak/{{ $indikator->id }}" method="post">
+<form action="/profil-dosen/pembimbing-ta/tolak/{{ $sdm['tahun_laporan'] }}" method="post">
     @method('put')
     @csrf
     <div class="modal-body">     

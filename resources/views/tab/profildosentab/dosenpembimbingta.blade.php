@@ -53,18 +53,18 @@
     {{-- TABLE HERE --}}
     @include('tab.profildosentab.dosenpembimbingtatable')
         
-   @foreach ($dosenta['dosen'] as $sdm)
+        @foreach ($dosenta['dosen'] as $sdm)
     <!-- Modal Edit Data TA -->
-    <div class="modal fade" id="modaldosentaedit-{{ $sdm['id'] }}" tabindex="-1" aria-labelledby="modaldosentaedit" aria-hidden="true">
-        <div class="modal-dialog ">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="modaldosentaedit">Edit Data {{ $sdm['nama'] }}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            @include('partials.profildosenmodal.dosentaedit')
+        <div class="modal fade" id="modaldosentaedit-{{ $sdm['id'] }}" tabindex="-1" aria-labelledby="modaldosentaedit" aria-hidden="true">
+            <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modaldosentaedit">Edit Data {{ $sdm['nama'] }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.profildosenmodal.dosentaedit')
         </div>
         </div>
         </div>
@@ -83,6 +83,35 @@
         </div>
         </div>
         </div>
+
+        <div class="modal fade" id="modaltolakta-{{ $sdm['id'] }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+            <h5 class="modal-title" id="modaltolak"> Kenapa Anda Menolak??  </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.profildosenmodal.tolak2')
+            </div>
+            </div>
+        </div> 
+        
+        <div class="modal fade" id="modalappta-{{ $sdm['id'] }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+            <h5 class="modal-title" id="modaltolak"> Approve?  </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.profildosenmodal.app2')
+            </div>
+            </div>
+        </div> 
+
         @endforeach
 </div>
 @include('layouts.table')

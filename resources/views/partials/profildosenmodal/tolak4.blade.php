@@ -1,4 +1,4 @@
-<form action="/tata-pamong-tata-kelola-kerjasama/tolak/{{ $indikator->id }}" method="post">
+<form action="/profil-dosen/dosen-tidak-tetap/tolak/{{ $sdm->id }}" method="post">
     @method('put')
     @csrf
     <div class="modal-body">     

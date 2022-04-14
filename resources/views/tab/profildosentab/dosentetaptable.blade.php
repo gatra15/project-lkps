@@ -15,9 +15,9 @@
                 <th class="align-middle" scope="col" rowspan="2" >Mata Kuliah yang Diampu pada PS yang Diakreditasi <sup>6)</sup></th>  
                 <th class="align-middle" scope="col" rowspan="2" >Kesesuaian Bidang Keahlian dengan Mata Kuliah yang Diampu <sup>7)</sup></th>  
                 <th class="align-middle" scope="col" rowspan="2" >Mata Kuliah yang Diampu pada PS Lain <sup>8)</sup></th>  
-                @hasrole('perwakilan')
+                @hasanyrole('perwakilan|dekan')
                 <th class="align-middle" scope="col" rowspan="2" >Opsi</th>  
-                @endhasrole
+                @endhasanyrole
             </tr>
             <tr>
                 <th scope="col">Magister /Magister Terapan/ Spesialis</th>
@@ -43,13 +43,30 @@
                 <td>{{ $sdm->mata_kuliah_akreditasi_diampu }}</td>
                 <td>{{ $sdm->kesesuaian_mata_kuliah_diampu == 1 ? 'V' : '' }}</td>
                 <td>{{ $sdm->mata_kuliah_diampu_ps_lain }}</td>
-                @hasrole('perwakilan')
-                <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosentetapedit-{{ $sdm->id }}"><i class="fas fa-edit"></i></a></li>
-                    <li>
-                        <a type="button" class="btn btn-danger" href="/profil-dosen/{{ $sdm->id }}" data-toggle="modal" data-target="#modaldosentetapdelete-{{ $sdm->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                </ul></td>
-                @endhasrole
+                @hasanyrole('perwakilan|dekan')
+                <td class="align-middle">
+                <ul class="action-list d-flex justify-content-center mr-1" id="action">
+                    
+                    @hasrole('perwakilan')
+                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosentetapedit-{{ $sdm->id }}"><i class="fas fa-edit"></i></a></li>
+                        <li>
+                            <a type="button" class="btn btn-danger" href="/profil-dosen/{{ $sdm->id }}" data-toggle="modal" data-target="#modaldosentetapdelete-{{ $sdm->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                    </ul></td>
+                    @endhasrole
+
+                    @hasrole('dekan')
+                        <li>
+                            <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappttp-{{ $sdm->id }}"><i class="fas fa-check-circle"></i></a>
+                        </li>
+                        <li>
+                            <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakttp-{{ $sdm->id }}"><i class="fas fa-times-circle"></i></a>
+                        </li>
+                    @endhasrole
+                </ul>
+                </td>
+                @endhasanyrole
+                
             </tr>
           
           

@@ -76,6 +76,7 @@
                         @endhasrole
                     </ul>
                     </td>
+                    @endhasanyrole
                 </tr>
                 @endif
                 @endforeach
@@ -107,14 +108,31 @@
                         <td class="align-middle">
                             <a class="btn btn-success" href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}"> File <i class="fas fa-file-archive"></i></a>
                         </td>
-                        </td>
+                        @hasanyrole('perwakilan|dekan')
+                    <td class="align-middle">
+                    <ul class="action-list d-flex justify-content-center mr-1" id="action">
                         @hasrole('perwakilan')
-                        <td class="align-middle"><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
+                        
                             <li>
-                                <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                        </ul></td>
+                                <a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a>
+                            </li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a>
+                            </li>
+                        
                         @endhasrole
+
+                        @hasrole('dekan')
+                            <li>
+                                <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalapp-{{ $indikator->id }}"><i class="fas fa-check-circle"></i></a>
+                            </li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolak-{{ $indikator->id }}"><i class="fas fa-times-circle"></i></a>
+                            </li>
+                        @endhasrole
+                    </ul>
+                    </td>
+                    @endhasanyrole
                     </tr>
                     @endif
                     @endforeach
@@ -145,13 +163,32 @@
                         <td class="align-middle">
                             <a class="btn btn-success" href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}"> File <i class="fas fa-file-archive"></i></a>
                         </td>
-                        @hasrole('perwakilan')
-                        <td class="align-middle"><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a></li>
-                            <li>
-                                <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                        </ul></td>
-                        @endhasrole
+                    
+                        @hasanyrole('perwakilan|dekan')
+                        <td class="align-middle">
+                        <ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            @hasrole('perwakilan')
+                            
+                                <li>
+                                    <a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpendidikanedit-{{ $indikator->id }}"><i class="fas fa-edit"></i></a>
+                                </li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="/tata-pamong-tata-kelola-kerjasama/{{ $indikator->id }}" data-toggle="modal" data-target="#modalpendidikandelete-{{ $indikator->id }}"><i class="fas fa-trash btn-del"></i></a>
+                                </li>
+                            
+                            @endhasrole
+    
+                            @hasrole('dekan')
+                                <li>
+                                    <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalapp-{{ $indikator->id }}"><i class="fas fa-check-circle"></i></a>
+                                </li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolak-{{ $indikator->id }}"><i class="fas fa-times-circle"></i></a>
+                                </li>
+                            @endhasrole
+                        </ul>
+                        </td>
+                        @endhasanyrole
                     </tr>
                     @endif
                     @endforeach

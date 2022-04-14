@@ -1,4 +1,4 @@
-<form action="#" method="post">
+<form action="/mahasiswa/tolak/{{ $mhs->id }}" method="post">
     @method('put')
     @csrf
     <div class="modal-body">     
