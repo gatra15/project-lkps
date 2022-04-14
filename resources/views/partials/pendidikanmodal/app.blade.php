@@ -1,5 +1,6 @@
-<form action="#" method="get">
+<form action="/pendidikan/approve/{{ $kur->id }}" method="post">
     <div class="modal-body">
+        @method('put')
         @csrf
         <h5 class="text-center">Approve ?</h5>
     </div>

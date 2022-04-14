@@ -6,9 +6,9 @@
                 <th class="align-middle text-center" scope="col" rowspan="3">Nama Dosen<sup>2)</sup></th>
                 <th class="align-middle text-center" scope="col" colspan="8" >Jumlah Mahasiswa Yang Dibimbing</th>
                 <th class="align-middle text-center" scope="col" rowspan="3">Rata-rata Jumlah <br> Bimbingan di Semua <br> Program/Semester<sup>5)</sup>  </th> 
-                @hasrole('perwakilan')
+                @hasanyrole('perwakilan|dekan')
                 <th class="align-middle text-center" scope="col" rowspan="3">Opsi</th> 
-                @endhasrole
+                @endhasanyrole
             </tr>
             <tr>
                 <th class="align-middle text-center" scope="col" colspan="4">pada PS yang Diakreditasi<sup>3)</sup></th>
@@ -43,13 +43,31 @@
                 <td>{{ $sdm['jumlah_ps_lain_ts'] }}</td>
                 <td>{{ $sdm['jumlah_ps_lain_average'] }}</td>
                 <td>{{ $sdm['average'] }}</td>
-                @hasrole('perwakilan')
-                <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosentaedit-{{ $sdm['id'] }}"><i class="fas fa-edit"></i></a></li>
-                    <li>
-                        <a type="button" class="btn btn-danger" href="/profil-dosen/pembimbing-ta/{{ $sdm['id'] }}" data-toggle="modal" data-target="#modaldosentadelete-{{ $sdm['id'] }}"><i class="fas fa-trash btn-del"></i></a></li>
-                </ul></td>
-                @endhasrole
+                @hasanyrole('perwakilan|dekan')
+                <td class="align-middle">
+                <ul class="action-list d-flex justify-content-center mr-1" id="action">
+                    
+                    @hasrole('perwakilan')
+                    <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosentaedit-{{ $sdm['id'] }}"><i class="fas fa-edit"></i></a></li>
+                        <li>
+                            <a type="button" class="btn btn-danger" href="/profil-dosen/pembimbing-ta/{{ $sdm['id'] }}" data-toggle="modal" data-target="#modaldosentadelete-{{ $sdm['id'] }}"><i class="fas fa-trash btn-del"></i></a></li>
+                    </ul></td>
+                    @endhasrole
+
+                    @hasrole('dekan')
+                        <li>
+                            <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappta-{{ $sdm['id'] }}"><i class="fas fa-check-circle"></i></a>
+                        </li>
+                        <li>
+                            <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakta-{{ $sdm['id'] }}"><i class="fas fa-times-circle"></i></a>
+                        </li>
+                    @endhasrole
+                </ul>
+                </td>
+                @endhasanyrole
+
+                
             </tr>
             @endforeach
             

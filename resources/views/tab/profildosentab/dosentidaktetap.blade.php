@@ -57,9 +57,10 @@
     {{-- TABLE HERE --}}
     @include('tab.profildosentab.dosentidaktetaptable')
         
-    @foreach ($dosentidaktetap['dosen'] as $sdm)
-    <!-- Modal Edit Data TA -->
-    <div class="modal fade" id="modaldosentidaktetapedit-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentidaktetapedit" aria-hidden="true">
+        @foreach ($dosentidaktetap['dosen'] as $sdm)
+
+        <!-- Modal Edit Data TA -->
+        <div class="modal fade" id="modaldosentidaktetapedit-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaldosentidaktetapedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -87,6 +88,34 @@
         </div>
         </div>
         </div>
+
+        <div class="modal fade" id="modaltolaktt-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+            <h5 class="modal-title" id="modaltolak"> Kenapa Anda Menolak??  </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.profildosenmodal.tolak4')
+            </div>
+            </div>
+        </div> 
+        
+        <div class="modal fade" id="modalapptt-{{ $sdm->id }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+            <h5 class="modal-title" id="modaltolak"> Approve?  </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.profildosenmodal.app4')
+            </div>
+            </div>
+        </div> 
         @endforeach
 
 </div>

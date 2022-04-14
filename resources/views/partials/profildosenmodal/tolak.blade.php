@@ -1,4 +1,4 @@
-<form action="#" method="post">
+<form action="/profil-dosen/tolak/{{ $sdm->id }}" method="post">
     @method('put')
     @csrf
     <div class="modal-body">     
