@@ -1,4 +1,4 @@
-<form action="/pendidikan/tolak/{{ $kur->id }}" method="post">
+<form action="/kinerja-dosen/luaran-dtps/tolak/{{ $data->id }}" method="post">
     @method('put')
     @csrf
     <div class="modal-body">     

@@ -1,4 +1,4 @@
-<form action="/pendidikan/approve/{{ $kur->id }}" method="post">
+<form action="/keuangan-sarana-prasarana/approve/{{ $data->tahun_laporan }}/{{ $data->sarana_id }}/{{ $data->code }}" method="post">
     <div class="modal-body">
         @method('put')
         @csrf

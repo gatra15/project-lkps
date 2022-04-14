@@ -1,4 +1,4 @@
-<form action="/pendidikan/tolak/{{ $kur->id }}" method="post">
+<form action="/kinerja-dosen/pkm-dtps/tolak/{{ $ts->tahun_laporan }}/{{ $ts->sumber_id }}" method="post">
     @method('put')
     @csrf
     <div class="modal-body">     
