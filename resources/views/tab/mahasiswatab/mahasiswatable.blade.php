@@ -21,7 +21,7 @@
     </tr>
     
     </thead>
-    
+@hasanyrole('perwakilan|dekan')
     <tbody class="text-dark">
     
     @foreach ($mahasiswa['mahasiswa'] as $key => $mhs)
@@ -77,12 +77,52 @@
             <td class="align-middle text-center"><b>N<sub>B</sub> = </b>{{ $mahasiswa['lulus_seleksi'] }}</td>
             <td class="align-middle text-center"><b>N<sub>C</sub> = </b>{{ $mahasiswa['reguler'] }}</td>
             <td class="align-middle text-center"><b>N<sub>D</sub> = </b>{{ $mahasiswa['transfer'] }}</td>
-            <td class="align-middle text-center" colspan="2"><b>N<sub>M</sub> = </b>{{ $mahasiswa['total'] }}</td>
+            <td class="align-middle text-center" colspan="2"><b>N<sub>M</sub> = </b>{{ $mahasiswa['total_ts'] }}</td>
             @hasrole('perwakilan')
             <td></td>
             @endhasrole
         </tr>
     
     </tbody>
+
+@endhasanyrole
+@hasanyrole('perwakilan|dekan')
+    <tbody class="text-dark">
+    
+    @foreach ($mahasiswa['mahasiswa_asesor'] as $key => $mhs)
+        <tr>
+           <td>{{ $key == sizeof($mahasiswa['mahasiswa_asesor'])-1 ? 'TS' : 'TS-'.(sizeof($mahasiswa['mahasiswa_asesor'])-1-$key) }}</td>
+           <td>{{ $mhs->daya_tampung }}</td> 
+           <td>{{ $mhs->c_pendaftar }}</td> 
+           <td>{{ $mhs->c_lulus_seleksi }}</td> 
+           <td>{{ $mhs->mahasiswa_reguler }}</td> 
+           <td>{{ $mhs->mahasiswa_transfer }}</td> 
+           @if ($key == sizeof($mahasiswa['mahasiswa_asesor'])-1)
+           <td class="text-left"> <b>N <sub>RTS =</sub> {{ $mhs->mahasiswa_aktif_reguler }}</b>   </td> 
+           @else
+           <td>{{ $mhs->mahasiswa_aktif_reguler }}</td>
+           @endif
+
+           @if ($key == sizeof($mahasiswa['mahasiswa_asesor'])-1)
+           <td class="text-left"> <b>N <sub>TTS =</sub></b>  {{ $mhs->mahasiswa_aktif_transfer }} </td> 
+           @else
+           <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
+           @endif
+            
+        </tr>
+    @endforeach
+        
+        <tr>
+            <td class="align-middle text-center" colspan="2"><b>Jumlah</b></td>
+            <td class="align-middle text-center"><b>N<sub>A</sub> = </b>{{ $mahasiswa['pendaftar_asesor'] }}</td>
+            <td class="align-middle text-center"><b>N<sub>B</sub> = </b>{{ $mahasiswa['lulus_seleksi_asesor'] }}</td>
+            <td class="align-middle text-center"><b>N<sub>C</sub> = </b>{{ $mahasiswa['reguler_asesor'] }}</td>
+            <td class="align-middle text-center"><b>N<sub>D</sub> = </b>{{ $mahasiswa['transfer_asesor'] }}</td>
+            <td class="align-middle text-center" colspan="2"><b>N<sub>M</sub> = </b>{{ $mahasiswa['total_ts_asesor'] }}</td>
+        </tr>
+    
+    </tbody>
+
+@endhasanyrole
     </table> 
 </div>

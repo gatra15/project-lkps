@@ -54,7 +54,7 @@ div.shadow-sm {
 
     @hasrole('perwakilan')
     <form id="mainform" method="post" action="/identitas-pengusul/lembar-evaluasi" enctype="multipart/form-data">
-
+        @method('put')
     @csrf
     <div class="modal-body">
         <input type="hidden" name="id" class="form-control" value=""> 
@@ -73,9 +73,19 @@ div.shadow-sm {
         </form>
     @endhasrole        
     
+    @hasanyrole('dekan|perwakilan')
+    @foreach($lembar['data'] as $data)
+    <p>File Evaluasi Diri : <a class="btn btn-success" href="{{ asset('storage/'.$data->attachment) }}"> File <i class="fas fa-file-archive"></i></a></p>
+    @endforeach
+    @endhasanyrole
+    @hasrole('asesor')
+    @foreach($lembar['data_asesor'] as $data)
+    <p>File Evaluasi Diri : <a class="btn btn-success" href="{{ asset('storage/'.$data->attachment) }}"> File <i class="fas fa-file-archive"></i></a></p>
+    @endforeach
+    @endhasrole
     
     @hasrole('dekan')
-    @foreach($lembar as $data)
+    @foreach($lembar['data'] as $data)
 
     <div class="modal-footer bg-whitet">
 
@@ -123,10 +133,6 @@ div.shadow-sm {
     @endforeach
     @endhasrole
 
-    @hasanyrole('dekan|asesor')
-    @foreach($lembar as $data)
-    <p>File Evaluasi Diri : <a class="btn btn-success" href="{{ asset('storage/'.$data->attachment) }}"> File <i class="fas fa-file-archive"></i></a></p>
-    @endforeach
-    @endhasanyrole
+    
 
 </div>

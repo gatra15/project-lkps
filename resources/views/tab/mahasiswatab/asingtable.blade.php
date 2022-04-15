@@ -24,7 +24,7 @@
         </tr>
     
     </thead>
-    
+@hasanyrole('dekan|perwakilan')
     <tbody class="text-dark">
         @foreach ($mahasiswa_asing['mahasiswa'] as $key => $mhs)
         <tr>
@@ -81,8 +81,42 @@
          @endhasrole
      </tr>
     </tbody>
+@endhasanyrole
+
+@hasrole('asesor')
+    <tbody class="text-dark">
+        @foreach ($mahasiswa_asing['mahasiswa_asesor'] as $key => $mhs)
+        <tr>
+           <td>{{ $loop->iteration }}</td>
+           <td>{{ session()->has('prodi') ? 'S1 '.session('prodi') : 'S1 '.auth()->user()->prodi->name }}</td>   
+           <td>{{ $mhs['mahasiswa_aktif_ts2'] }}</td> 
+           <td>{{ $mhs['mahasiswa_aktif_ts1'] }}</td> 
+           <td>{{ $mhs['mahasiswa_aktif_ts'] }}</td> 
+           <td>{{ $mhs['mahasiswa_asing_ft_ts2'] }}</td> 
+           <td>{{ $mhs['mahasiswa_asing_ft_ts1'] }}</td> 
+           <td>{{ $mhs['mahasiswa_asing_ft_ts'] }}</td>
+           <td>{{ $mhs['mahasiswa_asing_pt_ts2'] }}</td>
+           <td>{{ $mhs['mahasiswa_asing_pt_ts1'] }}</td>
+           <td>{{ $mhs['mahasiswa_asing_pt_ts'] }}</td>
+        </tr>
+    @endforeach
+     <tr>
+         <td class="align-middle text-center" colspan="2"><b>Jumlah</b></td>
+         <td>{{ $mahasiswa_asing['aktif_ts2_asesor'] }}</td>
+         <td>{{ $mahasiswa_asing['aktif_ts1_asesor'] }}</td>
+         <td>{{ $mahasiswa_asing['aktif_ts_asesor'] }}</td>
+         <td>{{ $mahasiswa_asing['full_ts2_asesor'] }}</td>
+         <td>{{ $mahasiswa_asing['full_ts1_asesor'] }}</td>
+         <td>{{ $mahasiswa_asing['full_ts_asesor'] }}</td>
+         <td>{{ $mahasiswa_asing['part_ts2_asesor'] }}</td>
+         <td>{{ $mahasiswa_asing['part_ts1_asesor'] }}</td>
+         <td>{{ $mahasiswa_asing['part_ts_asesor'] }}</td>
+     </tr>
+    </tbody>
+@endhasrole
     </table> 
 </div>
+
 @hasrole('dekan')
     <div class="modal-footer bg-whitet">
     <form action="#" method="post">

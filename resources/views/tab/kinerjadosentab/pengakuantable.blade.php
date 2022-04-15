@@ -20,7 +20,7 @@
             </tr>
     
         </thead>
-
+    @hasanyrole('perwakilan|dekan')
         <tbody class="text-dark">
             @foreach ($pengakuans as $pengakuan)
                 <tr>
@@ -63,6 +63,43 @@
                 <td></td>
                 @endhasrole
             </tr>
-            
+        </tbody>
+    @endhasanyrole
+
+    @hasrole('asesor')
+        <tbody class="text-dark">
+            @foreach ($pengakuans_asesor as $pengakuan)
+                <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $pengakuan->nama }}</td> 
+                <td>{{ $pengakuan->bidang_keahlian }}</td> 
+                <td>
+                @if ($pengakuan->bukti_pendukung == 'Tidak ada file yang ditambahkan' )
+                <a class="btn btn-warning" href="{{ asset('storage/'.$pengakuan->bukti_pendukung) }}"> 
+                    File <br> Tidak <br> Terbaca <br> <i class="fas fa-exclamation-triangle"></i>
+                </a>     
+                @else
+                <a class="btn btn-success" href="{{ asset('storage/'.$pengakuan->bukti_pendukung) }}"> 
+                    File <i class="fas fa-file-archive"></i>
+                </a>
+                @endif
+                
+              
+                </td></td> 
+                <td>{{ $pengakuan->tingkat == 'Wilayah' ? 'V' : '' }}</td> 
+                <td>{{ $pengakuan->tingkat == 'Nasional' ? 'V' : '' }}</td> 
+                <td>{{ $pengakuan->tingkat == 'Internasional' ? 'V' : '' }}</td> 
+                <td>{{ $pengakuan->tahun }}</td> 
+                </tr>
+                @endforeach 
+            <tr>
+                <td colspan="4" class="text-center"><b>Jumlah</b></td>
+                <td>{{ $countWilayah }}</td>
+                <td>{{ $countNasional }}</td>
+                <td>{{ $countInternasional }}</td>
+                <td>{{ $sumPengakuan }}</td>
+            </tr>
+        </tbody>
+    @endhasrole
     </table> 
 </div>

@@ -26,9 +26,10 @@
                 </tr>
         
             </thead>
-        
+    {{-- Perwakilan Dekan --}}
+            @hasanyrole('perwakilan|dekan')
+            
             <tbody class="text-dark align-middle">
-                
                 @foreach ($kerjasama as $indikator)
                 @if ($indikator->tridharma == 'Pendidikan')
                 <tr>
@@ -197,8 +198,109 @@
                     <td colspan="10" class="text-left"><b>Jumlah Pengabdian Kepada Masyarakat : {{ $jmlpkm }}</b></td>
                 </tr>
             </tbody>
+        @endhasanyrole
         </table> 
+    {{-- End Perwakilan Dekan --}}
     
+    {{-- Perwakilan Dekan --}}
+            @hasrole('asesor')
+                    
+            <tbody class="text-dark align-middle">
+                @foreach ($kerjasama_asesor as $indikator)
+                @if ($indikator->tridharma == 'Pendidikan')
+                <tr>
+                    <td class="align-middle">Pendidikan</td>
+                    <td class="align-middle">{{ $indikator->lembaga_mitra }}</td>
+                    <td class="align-middle">{{ $indikator->tingkat == 'Internasional' ? 'V' : '' }}</td>
+                    <td class="align-middle">{{ $indikator->tingkat == 'Nasional' ? 'V' : '' }}</td>
+                    <td class="align-middle">{{ $indikator->tingkat == 'Lokal' ? 'V' : '' }}</td>
+
+                    <td class="align-middle">{{ $indikator->judul_kegiatan }}</td>
+                    <td class="align-middle">{{ $indikator->manfaat }}</td>
+                    <td class="align-middle">{{ $indikator->waktu_durasi }}</td>
+                    <td class="align-middle">
+                        @if ($indikator->bukti_kerjasama == 'Tidak ada file yang ditambahkan' )
+                        <a class="btn btn-warning" href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}"> 
+                            Belum ada File <i class="fas fa-exclamation-triangle"></i>
+                        </a>     
+                        @else
+                        <a class="btn btn-success" href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}"> 
+                            File <i class="fas fa-file-archive"></i>
+                        </a>
+                        @endif
+                    </td>
+                </tr>
+                @endif
+                @endforeach
+                <tr>
+                    <td colspan="10" class="text-left"><b>Jumlah Pendidikan : {{ $jmlpendidikan_asesor }}</b> </td>
+                </tr>
+            </tbody>
+
+            <thead>
+                <tr>
+                    <th class="text-center align-middle putih" colspan="2">Penelitian</th>
+                    <th class="text-left align-middle" colspan="8"></th>
+                </tr>
+            </thead>
+            <tbody class="text-dark">
+                <tr>
+                    @foreach ($kerjasama_asesor as $indikator)
+                    @if ($indikator->tridharma == 'Penelitian')
+                    <tr>
+                        <td class="align-middle">Penelitian</td>
+                        <td class="align-middle">{{ $indikator->lembaga_mitra }}</td>
+                        <td class="align-middle">{{ $indikator->tingkat == 'Internasional' ? 'V' : '' }}</td>
+                        <td class="align-middle">{{ $indikator->tingkat == 'Nasional' ? 'V' : '' }}</td>
+                        <td class="align-middle">{{ $indikator->tingkat == 'Lokal' ? 'V' : '' }}</td>
+
+                        <td class="align-middle">{{ $indikator->judul_kegiatan }}</td>
+                        <td class="align-middle">{{ $indikator->manfaat }}</td>
+                        <td class="align-middle">{{ $indikator->waktu_durasi }}</td>
+                        <td class="align-middle">
+                            <a class="btn btn-success" href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}"> File <i class="fas fa-file-archive"></i></a>
+                        </td>
+                    </tr>
+                    @endif
+                    @endforeach
+                <tr>
+                    <td colspan="10" class="text-left"><b>Jumlah Penelitian : {{ $jmlpenelitian_asesor }}</b></td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr>
+                    <th class="text-center align-middle putih" colspan="4">Pengabdian Kepala Masyarakat</th>
+                    <th class="text-left align-middle" colspan="6"></th>
+                </tr>
+            </thead>
+            <tbody class="text-dark align-middle">
+                <tr>
+                    @foreach ($kerjasama_asesor as $indikator)
+                    @if ($indikator->tridharma == 'Pengabdian Kepada Masyarakat')
+                    <tr class="align-middle">
+                        <td class="align-middle">Pengabdian Kepada Masyarakat</td>
+                        <td class="align-middle">{{ $indikator->lembaga_mitra }}</td>
+                        <td class="align-middle">{{ $indikator->tingkat == 'Internasional' ? 'V' : '' }}</td>
+                        <td class="align-middle">{{ $indikator->tingkat == 'Nasional' ? 'V' : '' }}</td>
+                        <td class="align-middle">{{ $indikator->tingkat == 'Lokal' ? 'V' : '' }}</td>
+            
+                        <td class="align-middle">{{ $indikator->judul_kegiatan }}</td>
+                        <td class="align-middle">{{ $indikator->manfaat }}</td>
+                        <td class="align-middle">{{ $indikator->waktu_durasi }}</td>
+                        <td class="align-middle">
+                            <a class="btn btn-success" href="{{ asset('storage/'.$indikator->bukti_kerjasama) }}"> File <i class="fas fa-file-archive"></i></a>
+                        </td>
+                    </tr>
+                    @endif
+                    @endforeach
+                </tr>
+                <tr>
+                    <td colspan="10" class="text-left"><b>Jumlah Pengabdian Kepada Masyarakat : {{ $jmlpkm_asesor }}</b></td>
+                </tr>
+            </tbody>
+        @endhasrole
+        </table> 
+    {{-- End Perwakilan Dekan --}}
     </div>
 </form>
 

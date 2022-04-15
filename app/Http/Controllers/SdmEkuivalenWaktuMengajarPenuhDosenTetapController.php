@@ -30,25 +30,33 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
         // dt
         $dt = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->count();
         $average_dt_jumlah = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->avg('sks');
+        $average_dt_jumlah_asesor = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->where('is_approved',1)->avg('sks');
         $count = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->count('sks');
         $sum = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->sum('sks');
         $average_dt_average = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->avg('average_per_sks');
+        $average_dt_average_asesor = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->where('is_approved',1)->avg('average_per_sks');
         $count2 = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->count('average_per_sks');
         $sum2 = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->sum('average_per_sks');
 
         // dtps
         $dtps = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where2)->count();
         $average_dtps_jumlah = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where2)->avg('sks');
+        $average_dtps_jumlah_asesor = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where2)->where('is_approved',1)->avg('sks');
         $average_dtps_average = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where2)->avg('average_per_sks');
+        $average_dtps_average_asesor = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where2)->where('is_approved',1)->avg('average_per_sks');
         return [
             'dosen' => $dosen,
             'dosen_asesor' => $dosen_asesor,
             'dt' => $dt,
             'average_dt_jumlah' => $average_dt_jumlah,
+            'average_dt_jumlah_asesor' => $average_dt_jumlah_asesor,
             'average_dt_average' => $average_dt_average,
+            'average_dt_average_asesor' => $average_dt_average_asesor,
             'dtps' => $dtps,
             'average_dtps_jumlah' => $average_dtps_jumlah,
+            'average_dtps_jumlah_asesor' => $average_dtps_jumlah_asesor,
             'average_dtps_average' => $average_dtps_average,
+            'average_dtps_average_asesor' => $average_dtps_average_asesor,
             'count' => $count,
             'count2' => $count2,
             'sum' => $sum,

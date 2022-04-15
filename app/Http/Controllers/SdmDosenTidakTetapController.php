@@ -26,10 +26,12 @@ class SdmDosenTidakTetapController extends Controller
         $dosenttetap = SdmDosenTidakTetap::where($where)->get();
         $dosenttetap_asesor = SdmDosenTidakTetap::where($where)->where('is_approved',1)->get();
         $ndtt = SdmDosenTidakTetap::where($where)->count('nama');
+        $ndtt_asesor = SdmDosenTidakTetap::where($where)->where('is_approved',1)->count('nama');
         return [
             'dosen' => $dosenttetap,
             'dosen_asesor' => $dosenttetap_asesor,
             'ndtt' => $ndtt,
+            'ndtt_asesor' => $ndtt_asesor,
         ];
     }
 

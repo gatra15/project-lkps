@@ -26,7 +26,7 @@
             </tr>
     
         </thead>
-
+    @hasanyrole('perwakilan|dekan')
         <tbody class="text-dark">
              {{-- Coding Tabel Disini --}}
              <tr>
@@ -90,6 +90,41 @@
                 <td></td>
                 @endhasrole
             </tr> 
+        </tbody>
+    @endhasanyrole
+
+    @hasrole('asesor')
+        <tbody class="text-dark">
+            {{-- Coding Tabel Disini --}}
+            <tr>
+            @foreach ($dosenewmp['dosen_asesor'] as $ewmp)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $ewmp->nama }}</td>
+                <td>{{ $ewmp->dtps == '1' ? 'V' : '' }}</td>
+                <td>{{ $ewmp->ps_akreditasi }}</td>
+                <td>{{ $ewmp->ps_lain_dalam_pt }}</td>
+                <td>{{ $ewmp->ps_lain_luar_pt }}</td>
+                <td>{{ $ewmp->penelitian }}</td>
+                <td>{{ $ewmp->pkm }}</td>
+                <td>{{ $ewmp->penunjang }}</td>
+                <td>{{ $ewmp->sks }}</td>
+                <td>{{ $ewmp->average_per_sks }}</td>           
+            </tr>
+            @endforeach
+            <tr>
+                <td rowspan="2" class="align-middle"><b>Jumlah</b></td>
+                <td colspan="8" class="text-right"><b> Rata Rata DT </b></td>
+                <td>{{ $dosenewmp['average_dt_jumlah_asesor'] }}</td>
+                <td>{{ $dosenewmp['average_dt_average_asesor'] }}</td>
+            </tr> 
+            <tr>
+                <td colspan="8" class="text-right"><b> Rata Rata DTPS </b></td>
+                <td>{{ $dosenewmp['average_dtps_jumlah_asesor'] }}</td>
+                <td>{{ $dosenewmp['average_dtps_average_asesor'] }}</td>
+            </tr> 
+        </tbody>
+    @endhasrole
     </table>
 </div>
 @include('layouts.table')

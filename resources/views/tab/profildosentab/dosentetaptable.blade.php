@@ -25,7 +25,7 @@
             </tr>
     
         </thead>
-
+    @hasanyrole('dekan|perwakilan')
         <tbody class="text-dark text-center align-middle">
              {{-- Coding Tabel Disini --}}
             @foreach ($dosen['dosen'] as $sdm)
@@ -80,6 +80,39 @@
                 <td></td>
                 @endhasrole
             </tr>
+        </tbody>
+    @endhasanyrole
+    
+    @hasrole('asesor')
+        <tbody class="text-dark text-center align-middle">
+             {{-- Coding Tabel Disini --}}
+            @foreach ($dosen['dosen_asesor'] as $sdm)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $sdm->nama_dosen }}</td>
+                <td>{{ $sdm->nidn_nidk }}</td>
+                <td>{{ $sdm->pendidikan_pasca_sarjana_magister }}</td>
+                <td>{{ $sdm->pendidikan_pasca_sarjana_doktor }}</td>
+                <td>{{ $sdm->bidang_keahlian }}</td>
+                <td>{{ $sdm->kesesuaian_ps == 1 ? 'V' : '' }}</td>
+                <td>{{ $sdm->jabatan_akademik }}</td>
+                <td>{{ $sdm->sertifikat_pendidik_profesi }}</td>
+                <td>{{ $sdm->sertifikat_kompetensi }}</td>
+                <td>{{ $sdm->mata_kuliah_akreditasi_diampu }}</td>
+                <td>{{ $sdm->kesesuaian_mata_kuliah_diampu == 1 ? 'V' : '' }}</td>
+                <td>{{ $sdm->mata_kuliah_diampu_ps_lain }}</td>               
+            </tr>
+          
+          
+
+          @endforeach
+            <tr>
+                <td><b>Jumlah</b></td>
+                <td colspan="5" class="text-left"><b>NDT : {{ $dosen['ndt_asesor'] }}</b></td>
+                <td colspan="7" class="text-left"><b>NDTPS : {{ $dosen['ndtps_asesor'] }}</b></td>
+            </tr>
+        </tbody>
+    @endhasrole
       </table>
   </div>
 @include('layouts.table')

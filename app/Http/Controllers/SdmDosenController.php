@@ -24,14 +24,18 @@ class SdmDosenController extends Controller
         $dosen = SdmDosen::where($where)->get();
         $dosen_asesor = SdmDosen::where($where)->where('is_approved', 1)->get();
         $ndt = SdmDosen::where($where1)->orWhere('kesesuaian_ps', 1)->count();
+        $ndt_asesor = SdmDosen::where($where1)->orWhere('kesesuaian_ps', 1)->where('is_approved',1)->count();
         $ndtps = SdmDosen::where($where2)->count();
+        $ndtps_asesor = SdmDosen::where($where2)->where('is_approved',1)->count();
         $nds3 = SdmDosen::where($where)->count('pendidikan_pasca_sarjana_doktor');
 
         return [
             'dosen' => $dosen,
             'dosen_asesor' => $dosen_asesor,
             'ndt' => $ndt,
+            'ndt_asesor' => $ndt_asesor,
             'ndtps' => $ndtps,
+            'ndtps_asesor' => $ndtps_asesor,
             'nds3' => $nds3,
         ];
     }

@@ -29,16 +29,22 @@ class TataPamongController extends Controller
         $nasional = IndikatorTataKerjasama::where($where)->where('tingkat', 'Nasional')->count();
         $lokal = IndikatorTataKerjasama::where($where)->where('tingkat', 'Wilayah/Lokal')->count();
         $jmlpendidikan = IndikatorTataKerjasama::where($where1)->count();
+        $jmlpendidikan_asesor = IndikatorTataKerjasama::where($where1)->where('is_approved',1)->count();
         $jmlpenelitian = IndikatorTataKerjasama::where($where2)->count();
+        $jmlpenelitian_asesor = IndikatorTataKerjasama::where($where2)->where('is_approved',1)->count();
         $jmlpkm = IndikatorTataKerjasama::where($where3)->count();
+        $jmlpkm_asesor = IndikatorTataKerjasama::where($where3)->where('is_approved',1)->count();
 
         return view('tab.tataPamong',[
             'title' => 'Tata Pamong',
             'kerjasama' => $kerjasama,
             'kerjasama_asesor' => $kerjasama_asesor,
             'jmlpendidikan' => $jmlpendidikan,
+            'jmlpendidikan_asesor' => $jmlpendidikan_asesor,
             'jmlpenelitian' => $jmlpenelitian,
+            'jmlpenelitian_asesor' => $jmlpenelitian_asesor,
             'jmlpkm' => $jmlpkm,
+            'jmlpkm_asesor' => $jmlpkm_asesor,
             'internasional' => $internasional,
             'nasional' => $nasional,
             'lokal' => $lokal,

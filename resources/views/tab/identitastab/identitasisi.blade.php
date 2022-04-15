@@ -1,5 +1,5 @@
 <!-- Main content -->
-<div class="tab-pane fade show active" id="identitasisi" role="tablist" aria-labelledby="identitasisi-tab">
+<div class="tab-pane fade show {{ auth()->user()->roles->pluck('name')[0] == 'perwakilan' ? '' : 'active' }}" id="identitasisi" role="tablist" aria-labelledby="identitasisi-tab">
           {{-- MODAL LIHAT DATA --}}
           
           

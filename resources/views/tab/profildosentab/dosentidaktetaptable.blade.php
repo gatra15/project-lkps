@@ -17,7 +17,7 @@
                 @endhasanyrole
             </tr>
         </thead>
-
+    @hasanyrole('perwakilan|dekan')
         <tbody class="text-dark text-center align-middle">
              {{-- Coding Tabel Disini --}}
              <tr>
@@ -67,6 +67,32 @@
               <td colspan="10" class="text-left"> <b>NDTT : {{ $dosentidaktetap['ndtt'] }}</b> </td>
           </tr>
          </tbody>
+    @endhasanyrole
+
+    @hasrole('perwakilan|dekan')
+        <tbody class="text-dark text-center align-middle">
+             {{-- Coding Tabel Disini --}}
+             <tr>
+        @foreach ($dosentidaktetap['dosen_asesor'] as $sdm)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $sdm->nama }}</td>
+                <td>{{ $sdm->no_id }}</td>
+                <td>{{ $sdm->pendidikan_pasca_sarjana }}</td>
+                <td>{{ $sdm->bidang_keahlian }}</td>
+                <td>{{ $sdm->jabatan_akademik }}</td>
+                <td>{{ $sdm->sertifikat_pendidikan_profesi }}</td>
+                <td>{{ $sdm->sertifikat_profesi }}</td>
+                <td>{{ $sdm->mata_kuliah_diampu_ps_akreditasi }}</td>
+                <td>{{ $sdm->kesesuaian_mata_kuliah_diampu == '1' ? 'V' : '' }}</td>                
+            </tr>         
+            @endforeach
+          <tr>
+              <td class="text-center"> <b>Jumlah</b> </td>
+              <td colspan="10" class="text-left"> <b>NDTT : {{ $dosentidaktetap['ndtt'] }}</b> </td>
+          </tr>
+         </tbody>
+    @endhasrole
     </table>
 </div>
 

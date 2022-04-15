@@ -64,6 +64,7 @@ class MahasiswaAsingController extends Controller
         
         SELECT
         sum(ma.id) AS id,
+        sum(ma.is_approved) AS is_approved,
         sum(ma.program_studi) AS program_studi,
         sum(ma.mahasiswa_aktif_ts) AS mahasiswa_aktif_ts,
         sum(ma.mahasiswa_asing_ft_ts) AS mahasiswa_asing_ft_ts,
@@ -75,6 +76,7 @@ class MahasiswaAsingController extends Controller
         
         SELECT 
         sum(ma_1.id) AS id,
+        sum(ma_1.is_approved) AS is_approved,
         sum(ma_1.program_studi) AS program_studi,
         sum(ma_1.mahasiswa_aktif_ts) AS mahasiswa_aktif_ts,
         sum(ma_1.mahasiswa_asing_ft_ts) AS mahasiswa_asing_ft_ts,
@@ -86,6 +88,7 @@ class MahasiswaAsingController extends Controller
         
         SELECT 
         sum(ma_2.id) AS id,
+        sum(ma_2.is_approved) AS is_approved,
         sum(ma_2.program_studi) AS program_studi,
         sum(ma_2.mahasiswa_aktif_ts) AS mahasiswa_aktif_ts,
         sum(ma_2.mahasiswa_asing_ft_ts) AS mahasiswa_asing_ft_ts,
@@ -95,36 +98,101 @@ class MahasiswaAsingController extends Controller
         GROUP BY 
         ma_2.program_studi) AS C ON A.program_studi = C.program_studi;
         
-        "));;
+        "));
+
+        $mahasiswa_asesor  = DB::select(DB::raw("
+        
+        SELECT A.id as id, A.is_approved as is_approved, A.mahasiswa_aktif_ts, B.mahasiswa_aktif_ts AS mahasiswa_aktif_ts1, C.mahasiswa_aktif_ts AS mahasiswa_aktif_ts2,
+        A.mahasiswa_asing_pt_ts, B.mahasiswa_asing_pt_ts AS mahasiswa_asing_pt_ts1, C.mahasiswa_asing_pt_ts AS mahasiswa_asing_pt_ts2,
+        A.mahasiswa_asing_ft_ts, B.mahasiswa_asing_ft_ts AS mahasiswa_asing_ft_ts1, C.mahasiswa_asing_ft_ts AS mahasiswa_asing_ft_ts2
+         FROM (
+        
+        SELECT
+        sum(ma.id) AS id,
+        sum(ma.is_approved) AS is_approved,
+        sum(ma.program_studi) AS program_studi,
+        sum(ma.mahasiswa_aktif_ts) AS mahasiswa_aktif_ts,
+        sum(ma.mahasiswa_asing_ft_ts) AS mahasiswa_asing_ft_ts,
+        sum(ma.mahasiswa_asing_pt_ts) AS mahasiswa_asing_pt_ts
+         FROM mahasiswa_asings ma WHERE tahun_laporan = $a AND is_approved = 1
+         
+        GROUP BY 
+        ma.program_studi) AS A LEFT JOIN (
+        
+        SELECT 
+        sum(ma_1.id) AS id,
+        sum(ma_1.is_approved) AS is_approved,
+        sum(ma_1.program_studi) AS program_studi,
+        sum(ma_1.mahasiswa_aktif_ts) AS mahasiswa_aktif_ts,
+        sum(ma_1.mahasiswa_asing_ft_ts) AS mahasiswa_asing_ft_ts,
+        sum(ma_1.mahasiswa_asing_pt_ts) AS mahasiswa_asing_pt_ts
+        FROM mahasiswa_asings ma_1 WHERE tahun_laporan = $b AND is_approved = 1
+         
+        GROUP BY 
+        ma_1.program_studi) AS B ON A.program_studi = B.program_studi LEFT JOIN (
+        
+        SELECT 
+        sum(ma_2.id) AS id,
+        sum(ma_2.is_approved) AS is_approved,
+        sum(ma_2.program_studi) AS program_studi,
+        sum(ma_2.mahasiswa_aktif_ts) AS mahasiswa_aktif_ts,
+        sum(ma_2.mahasiswa_asing_ft_ts) AS mahasiswa_asing_ft_ts,
+        sum(ma_2.mahasiswa_asing_pt_ts) AS mahasiswa_asing_pt_ts
+        FROM mahasiswa_asings ma_2 WHERE tahun_laporan = $c AND is_approved = 1
+         
+        GROUP BY 
+        ma_2.program_studi) AS C ON A.program_studi = C.program_studi;
+        
+        "));
         // dd($mahasiswa);
 
         $mahasiswa = json_decode(json_encode($mahasiswa),true); 
+        $mahasiswa_asesor = json_decode(json_encode($mahasiswa_asesor),true); 
         // dd($mahasiswa);
 
         // dd($mahasiswa);
         $aktif_ts2 = MahasiswaAsing::where($where2)->sum('mahasiswa_aktif_ts');
+        $aktif_ts2_asesor = MahasiswaAsing::where($where2)->where('is_approved',1)->sum('mahasiswa_aktif_ts');
         $aktif_ts1 = MahasiswaAsing::where($where1)->sum('mahasiswa_aktif_ts');
+        $aktif_ts1_asesor = MahasiswaAsing::where($where1)->where('is_approved',1)->sum('mahasiswa_aktif_ts');
         $aktif_ts = MahasiswaAsing::where($where)->sum('mahasiswa_aktif_ts');
+        $aktif_ts_asesor = MahasiswaAsing::where($where)->where('is_approved',1)->sum('mahasiswa_aktif_ts');
         $full_ts2 = MahasiswaAsing::where($where2)->sum('mahasiswa_asing_ft_ts');
+        $full_ts2_asesor = MahasiswaAsing::where($where2)->where('is_approved',1)->sum('mahasiswa_asing_ft_ts');
         $full_ts1 = MahasiswaAsing::where($where1)->sum('mahasiswa_asing_ft_ts');
+        $full_ts1_asesor = MahasiswaAsing::where($where1)->where('is_approved',1)->sum('mahasiswa_asing_ft_ts');
         $full_ts = MahasiswaAsing::where($where)->sum('mahasiswa_asing_ft_ts');
+        $full_ts_asesor = MahasiswaAsing::where($where)->where('is_approved',1)->sum('mahasiswa_asing_ft_ts');
         $part_ts2 = MahasiswaAsing::where($where2)->sum('mahasiswa_asing_pt_ts');
+        $part_ts2_asesor = MahasiswaAsing::where($where2)->where('is_approved',1)->sum('mahasiswa_asing_pt_ts');
         $part_ts1 = MahasiswaAsing::where($where1)->sum('mahasiswa_asing_pt_ts');
+        $part_ts1_asesor = MahasiswaAsing::where($where1)->where('is_approved',1)->sum('mahasiswa_asing_pt_ts');
         $part_ts = MahasiswaAsing::where($where)->sum('mahasiswa_asing_pt_ts');
+        $part_ts_asesor = MahasiswaAsing::where($where)->where('is_approved',1)->sum('mahasiswa_asing_pt_ts');
         $jumlah = $full_ts + $full_ts1 + $full_ts2 + $part_ts + $part_ts1 + $part_ts2;
         $jumlahMhs = $aktif_ts + $aktif_ts1 + $aktif_ts2;
 
         return [
             'mahasiswa' => $mahasiswa,
+            'mahasiswa_asesor' => $mahasiswa_asesor,
             'aktif_ts2' => $aktif_ts2,
+            'aktif_ts2_asesor' => $aktif_ts2_asesor,
             'aktif_ts1' => $aktif_ts1,
+            'aktif_ts1_asesor' => $aktif_ts1_asesor,
             'aktif_ts' => $aktif_ts,
+            'aktif_ts_asesor' => $aktif_ts_asesor,
             'full_ts2' => $full_ts2,
+            'full_ts2_asesor' => $full_ts2_asesor,
             'full_ts1' => $full_ts1,
+            'full_ts1_asesor' => $full_ts1_asesor,
             'full_ts' => $full_ts,
+            'full_ts_asesor' => $full_ts_asesor,
             'part_ts2' => $part_ts2,
+            'part_ts2_asesor' => $part_ts2_asesor,
             'part_ts1' => $part_ts1,
+            'part_ts1_asesor' => $part_ts1_asesor,
             'part_ts' => $part_ts,
+            'part_ts_asesor' => $part_ts_asesor,
             'jumlah' => $jumlah,
             'jumlahMhs' => $jumlahMhs,
         ];
