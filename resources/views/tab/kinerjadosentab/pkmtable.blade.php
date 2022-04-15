@@ -7,9 +7,9 @@
                 <th class="align-middle" scope="col" rowspan="2">Sumber Pembiayaan</th>
                 <th scope="col" colspan="3">Jumlah Judul</th>
                 <th class="align-middle" scope="col" rowspan="2" >Jumlah</th>   
-                @hasrole('perwakilan')                 
+                @hasanyrole('perwakilan|dekan')                 
                 <th class="align-middle" scope="col" rowspan="2" >Opsi</th>  
-                @endhasrole                  
+                @endhasanyrole                  
             </tr>
             <tr>
                 <th scope="col">TS-2</th>
@@ -39,13 +39,28 @@
                 @foreach ($pkms['ts'] as $ts)
                 <td>{{ $ts->jumlah_ts }}</td> 
                 <td>{{ $ts->jumlah }}</td> 
-                @hasrole('perwakilan')
-                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpkmedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
-                    <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpkmdelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                </ul></td>
-                @endhasrole
+                
+                @hasanyrole('perwakilan|dekan')
+                    <td class="project-actions text-right ms-1 ps-1">
+                    <ul class="action-list d-flex justify-content-center " id="action">
+                        @hasrole('perwakilan')
+                        <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpkmedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpkmdelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                        @endhasrole
+                        @hasrole('dekan')
+                            <li>
+                                <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalapppkm-{{ $ts->id }}"><i class="fas fa-check-circle"></i></a>
+                            </li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakpkm-{{ $ts->id }}"><i class="fas fa-times-circle"></i></a>
+                            </li>
+                        @endhasrole
+                </ul>
+                </td>
+                @endhasanyrole
                 </tr>
                 @endforeach 
 
@@ -69,13 +84,27 @@
             @foreach ($pkms['ts_sumber2'] as $ts)
                 <td>{{ $ts->jumlah_ts }}</td> 
                 <td>{{ $ts->jumlah }}</td> 
-                @hasrole('perwakilan')
-                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpkmedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
-                    <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpkmdelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                </ul></td>
-            @endhasrole
+                @hasanyrole('perwakilan|dekan')
+                    <td class="project-actions text-right ms-1 ps-1">
+                    <ul class="action-list d-flex justify-content-center " id="action">
+                        @hasrole('perwakilan')
+                        <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpkmedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpkmdelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                        @endhasrole
+                        @hasrole('dekan')
+                            <li>
+                                <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalapppkm-{{ $ts->id }}"><i class="fas fa-check-circle"></i></a>
+                            </li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakpkm-{{ $ts->id }}"><i class="fas fa-times-circle"></i></a>
+                            </li>
+                        @endhasrole
+                </ul>
+                </td>
+                @endhasanyrole
                 </tr>
             @endforeach 
 
@@ -99,13 +128,27 @@
                 @foreach ($pkms['ts_sumber3'] as $ts)
                     <td>{{ $ts->jumlah_ts }}</td> 
                     <td>{{ $ts->jumlah }}</td> 
-                    @hasrole('perwakilan')
-                    <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
-                        <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpkmedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
-                        <li>
-                            <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpkmdelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
-                @endhasrole
+                    @hasanyrole('perwakilan|dekan')
+                    <td class="project-actions text-right ms-1 ps-1">
+                    <ul class="action-list d-flex justify-content-center " id="action">
+                        @hasrole('perwakilan')
+                        <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpkmedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpkmdelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                        @endhasrole
+                        @hasrole('dekan')
+                            <li>
+                                <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalapppkm-{{ $ts->id }}"><i class="fas fa-check-circle"></i></a>
+                            </li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakpkm-{{ $ts->id }}"><i class="fas fa-times-circle"></i></a>
+                            </li>
+                        @endhasrole
+                </ul>
+                </td>
+                @endhasanyrole
                     </tr>
             @endforeach 
             

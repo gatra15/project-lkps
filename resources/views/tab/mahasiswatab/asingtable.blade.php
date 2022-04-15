@@ -24,7 +24,7 @@
         </tr>
     
     </thead>
-@hasanyrole('dekan|perwakilan')
+    @hasanyrole('dekan|perwakilan')
     <tbody class="text-dark">
         @foreach ($mahasiswa_asing['mahasiswa'] as $key => $mhs)
         <tr>
