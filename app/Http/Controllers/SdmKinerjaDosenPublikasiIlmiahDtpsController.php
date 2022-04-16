@@ -608,6 +608,7 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
         $data->updated_at = Carbon::now();
         $data->updated_by = auth()->user()->name;
         $data->update();
+        return back()->with('success', 'Data Kinerja Dosen Publikasi Ilmiah Dtps berhasil disetujui.');
     }
 
     public function tolak(Request $req, $id)
@@ -618,5 +619,6 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
         $data->updated_at = Carbon::now();
         $data->updated_by = auth()->user()->name;
         $data->update();
+        return back()->with('success', 'Data Kinerja Dosen Publikasi Ilmiah Dtps berhasil ditolak.');
     }
 }

@@ -243,6 +243,7 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
         $data->updated_at = Carbon::now();
         $data->updated_by = auth()->user()->name;
         $data->update();
+        return back()->with('success', 'Data EWMP Dosen Tetap berhasil disetujui.');
     }
 
     public function tolak(Request $req, $id)
@@ -253,5 +254,6 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
         $data->updated_at = Carbon::now();
         $data->updated_by = auth()->user()->name;
         $data->update();
+        return back()->with('success', 'Data EWMP Dosen Tetap berhasil ditolak.');
     }
 }

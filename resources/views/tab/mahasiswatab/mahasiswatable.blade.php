@@ -43,13 +43,13 @@
            @else
            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
            @endif
-            
+           <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
             @hasrole('perwakilan')
-            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+            
                 <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalmahasiswaedit-{{ $mhs->id }}"><i class="fas fa-edit"></i></a></li>
                 <li>
                     <a type="button" class="btn btn-danger" href="/mahasiswa/delete/{{ $mhs->id }}" data-toggle="modal" data-target="#modalmahasiswadelete-{{ $mhs->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-            </ul></td>
+           
             @endhasrole
 
                @hasrole('dekan')
@@ -57,10 +57,10 @@
                        <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappmhs-{{ $mhs->id }}"><i class="fas fa-check-circle"></i></a>
                    </li>
                    <li>
-                       <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakmhs-{{ $mhs->id }}"><i class="fas fa-times-circle"></i></a>
+                       <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakm-{{ $mhs->id }}"><i class="fas fa-times-circle"></i></a>
                    </li>
                @endhasrole
-            
+            </ul></td>
         </tr>
     @endforeach
         
@@ -79,12 +79,8 @@
     </tbody>
 
 @endhasanyrole
-<<<<<<< HEAD
-@hasanyrole('asesor')
-=======
 
 @hasrole('asesor')
->>>>>>> afed880c3142c560624470fbb5f7b2a119b9b4c6
     <tbody class="text-dark">
     
     @foreach ($mahasiswa['mahasiswa_asesor'] as $key => $mhs)

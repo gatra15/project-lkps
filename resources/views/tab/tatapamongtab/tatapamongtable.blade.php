@@ -199,7 +199,6 @@
                 </tr>
             </tbody>
         @endhasanyrole
-        </table> 
     {{-- End Perwakilan Dekan --}}
     
     {{-- Perwakilan Dekan --}}

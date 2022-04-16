@@ -170,6 +170,7 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
         $data->updated_at = Carbon::now();
         $data->updated_by = auth()->user()->name;
         $data->update();
+        return back()->with('success', 'Data Pendidikan Integrasi Kegiatan Penelitian berhasil disetujui.');
     }
 
     public function tolak(Request $req, $id)
@@ -180,5 +181,6 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
         $data->updated_at = Carbon::now();
         $data->updated_by = auth()->user()->name;
         $data->update();
+        return back()->with('success', 'Data Pendidikan Integrasi Kegiatan Penelitian berhasil ditolak.');
     }
 }

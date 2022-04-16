@@ -177,6 +177,7 @@ class KinerjaDosenController extends Controller
         $data->updated_at = Carbon::now();
         $data->updated_by = auth()->user()->name;
         $data->update();
+        return back()->with('success', 'Data Kinerja Dosen Pengakuan Dtps berhasil disetujui.');
     }
 
     public function tolak(Request $req, $id)
@@ -187,5 +188,6 @@ class KinerjaDosenController extends Controller
         $data->updated_at = Carbon::now();
         $data->updated_by = auth()->user()->name;
         $data->update();
+        return back()->with('success', 'Data Kinerja Dosen Pengakuan Dtps berhasil ditolak.');
     }
 }

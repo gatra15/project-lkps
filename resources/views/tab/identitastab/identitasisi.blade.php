@@ -15,6 +15,7 @@
                     <th style="width: 20%"> Lihat Data </th>
                 </tr>
             </thead>
+        @hasanyrole('perwakilan|dekan')
             <tbody>
                 {{-- TABEL --}}
                 
@@ -52,6 +53,32 @@
                 @endforeach
             
             </tbody>
+        @endhasanyrole
+
+        @hasrole('asesor')
+            <tbody>
+                {{-- TABEL --}}
+                
+                @foreach ($identitas_asesor as $identity)
+                
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $identity->perguruan_tinggi }}</td>
+                    <td>{{ $identity->unit_pengelola }}</td>
+                    <td>{{ $identity->jenis_program }}</td>
+                    <td>{{ $identity->prodi }}</td>
+                    <td class="project-actions text-right ms-1 ps-1">
+                        <ul class="action-list d-flex justify-content-center " id="action">
+                        <li><a class="btn btn-warning" type="button" href="#" data-toggle="modal" data-target="#modallihat-{{ $identity->id }}">
+                            <i class="fas fa-eye"></i>
+                        </a></li>
+                        </ul>
+                </td>
+                </tr>
+                @endforeach
+            
+            </tbody>
+        @endhasrole
         </table>
       </div>
       <!-- /.card-body -->
@@ -132,8 +159,9 @@
     @endhasanyrole
     
     @hasrole('asesor')
-    @foreach ($identitas_asesor as $identity)
-    <div class="modal fade" id="modallihat-{{ $identity->id }}" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">
+    @foreach ($identitas_asesor as $identitas)
+    {{ $identitas }}
+    <div class="modal fade" id="modallihat-{{ $identitas->id }}" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
