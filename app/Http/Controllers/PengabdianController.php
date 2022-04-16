@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PkmExport;
 use Carbon\Carbon;
 use App\Models\PkmDtps;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PengabdianController extends Controller
 {
@@ -107,6 +109,15 @@ class PengabdianController extends Controller
     {
         PkmDtps::find($id)->delete();
         return back()->with('error', 'Data PkM yang Melibatkan Mahasiswa DTPS deleted.');
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new PkmExport, 'pengabdian-dtps.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new PkmExport, 'pengabdian-dtps.csv');
     }
 
     public function approve($id)

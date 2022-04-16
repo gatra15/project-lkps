@@ -284,75 +284,75 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
         
     // media 2
         $ts_media2 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 2)->get();
-        $ts_media2 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 2)->where('is_approved', 1)->get();
+        $ts_media2_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 2)->where('is_approved', 1)->get();
         $ts1_media2 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 2)->get();
-        $ts1_media2 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 2)->where('is_approved', 1)->get();
+        $ts1_media2_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 2)->where('is_approved', 1)->get();
         $ts2_media2 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 2)->get();
-        $ts2_media2 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 2)->where('is_approved', 1)->get();
+        $ts2_media2_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 2)->where('is_approved', 1)->get();
 
     // media 3
         $ts_media3 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 3)->get();
-        $ts_media3 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 3)->where('is_approved', 1)->get();
+        $ts_media3_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 3)->where('is_approved', 1)->get();
         $ts1_media3 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 3)->get();
-        $ts1_media3 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 3)->where('is_approved', 1)->get();
+        $ts1_media3_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 3)->where('is_approved', 1)->get();
         $ts2_media3 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 3)->get();
-        $ts2_media3 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 3)->where('is_approved', 1)->get();
+        $ts2_media3_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 3)->where('is_approved', 1)->get();
         
     // media 4
         $ts_media4 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 4)->get();
-        $ts_media4 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 4)->where('is_approved', 1)->get();
+        $ts_media4_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 4)->where('is_approved', 1)->get();
         $ts1_media4 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 4)->get();
-        $ts1_media4 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 4)->where('is_approved', 1)->get();
+        $ts1_media4_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 4)->where('is_approved', 1)->get();
         $ts2_media4 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 4)->get();
-        $ts2_media4 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 4)->where('is_approved', 1)->get();
+        $ts2_media4_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 4)->where('is_approved', 1)->get();
 
     // media 5
         $ts_media5 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 5)->get();
-        $ts_media5 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 5)->where('is_approved', 1)->get();
+        $ts_media5_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 5)->where('is_approved', 1)->get();
         $ts1_media5 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 5)->get();
-        $ts1_media5 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 5)->where('is_approved', 1)->get();
+        $ts1_media5_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 5)->where('is_approved', 1)->get();
         $ts2_media5 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 5)->get();
-        $ts2_media5 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 5)->where('is_approved', 1)->get();
+        $ts2_media5_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 5)->where('is_approved', 1)->get();
 
     // media 6
         $ts_media6 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 6)->get();
-        $ts_media6 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 6)->where('is_approved', 1)->get();
+        $ts_media6_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 6)->where('is_approved', 1)->get();
         $ts1_media6 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 6)->get();
-        $ts1_media6 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 6)->where('is_approved', 1)->get();
+        $ts1_media6_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 6)->where('is_approved', 1)->get();
         $ts2_media6 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 6)->get();
-        $ts2_media6 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 6)->where('is_approved', 1)->get();
+        $ts2_media6_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 6)->where('is_approved', 1)->get();
 
     // media 7
         $ts_media7 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 7)->get();
-        $ts_media7 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 7)->where('is_approved', 1)->get();
+        $ts_media7_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 7)->where('is_approved', 1)->get();
         $ts1_media7 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 7)->get();
-        $ts1_media7 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 7)->where('is_approved', 1)->get();
+        $ts1_media7_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 7)->where('is_approved', 1)->get();
         $ts2_media7 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 7)->get();
-        $ts2_media7 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 7)->where('is_approved', 1)->get();
+        $ts2_media7_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 7)->where('is_approved', 1)->get();
 
     // media 8
         $ts_media8 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 8)->get();
-        $ts_media8 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 8)->where('is_approved', 1)->get();
+        $ts_media8_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 8)->where('is_approved', 1)->get();
         $ts1_media8 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 8)->get();
-        $ts1_media8 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 8)->where('is_approved', 1)->get();
+        $ts1_media8_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 8)->where('is_approved', 1)->get();
         $ts2_media8 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 8)->get();
-        $ts2_media8 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 8)->where('is_approved', 1)->get();
+        $ts2_media8_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 8)->where('is_approved', 1)->get();
 
     // media 9
         $ts_media9 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 9)->get();
-        $ts_media9 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 9)->where('is_approved', 1)->get();
+        $ts_media9_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 9)->where('is_approved', 1)->get();
         $ts1_media9 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 9)->get();
-        $ts1_media9 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 9)->where('is_approved', 1)->get();
+        $ts1_media9_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 9)->where('is_approved', 1)->get();
         $ts2_media9 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 9)->get();
-        $ts2_media9 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 9)->where('is_approved', 1)->get();
+        $ts2_media9_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 9)->where('is_approved', 1)->get();
 
     // media 10
         $ts_media10 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 10)->get();
-        $ts_media10 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 10)->where('is_approved', 1)->get();
+        $ts_media10_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where)->where('media_id', 10)->where('is_approved', 1)->get();
         $ts1_media10 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 10)->get();
-        $ts1_media10 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 10)->where('is_approved', 1)->get();
+        $ts1_media10_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where1)->where('media_id', 10)->where('is_approved', 1)->get();
         $ts2_media10 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 10)->get();
-        $ts2_media10 = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 10)->where('is_approved', 1)->get();
+        $ts2_media10_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::with('media')->where($where2)->where('media_id', 10)->where('is_approved', 1)->get();
     // End media
 
         $jumlah_ts2 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where2)->sum('jumlah_ts');

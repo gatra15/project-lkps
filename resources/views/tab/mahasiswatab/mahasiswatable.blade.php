@@ -43,10 +43,6 @@
            @else
            <td>{{ $mhs->mahasiswa_aktif_transfer }}</td>
            @endif
-
-           @hasanyrole('perwakilan|dekan')
-           <td class="align-middle">
-           <ul class="action-list d-flex justify-content-center mr-1" id="action">
             
             @hasrole('perwakilan')
             <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
@@ -64,9 +60,6 @@
                        <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakmhs-{{ $mhs->id }}"><i class="fas fa-times-circle"></i></a>
                    </li>
                @endhasrole
-           </ul>
-           </td>
-           @endhasanyrole
             
         </tr>
     @endforeach
@@ -86,7 +79,7 @@
     </tbody>
 
 @endhasanyrole
-@hasanyrole('perwakilan|dekan')
+@hasanyrole('asesor')
     <tbody class="text-dark">
     
     @foreach ($mahasiswa['mahasiswa_asesor'] as $key => $mhs)
