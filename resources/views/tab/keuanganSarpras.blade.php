@@ -100,6 +100,34 @@
             </div>
             </div>
         </div>
+
+        <div class="modal fade" id="modaltolaksaran-{{ $data->id }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+            <h5 class="modal-title" id="modaltolak"> Kenapa Anda Menolak??  </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.keuangansaprasmodal.tolak')
+            </div>
+            </div>
+        </div> 
+        
+        <div class="modal fade" id="modalappsaran-{{ $data->id }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+            <h5 class="modal-title" id="modaltolak"> Approve?  </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.keuangansaprasmodal.app')
+            </div>
+            </div>
+        </div> 
         
 @endforeach
     </div>

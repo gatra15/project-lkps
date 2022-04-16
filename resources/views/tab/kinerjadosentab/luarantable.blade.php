@@ -9,9 +9,9 @@
         <th class="align-middle" scope="col" rowspan="1">Tahun</th>
         <th class="align-middle" scope="col" rowspan="1">Keterangan</th>
         <th class="align-middle" scope="col" rowspan="1">Bukti</th>
-        @hasrole('perwakilan')
+        @hasanyrole('perwakilan|dekan')
         <th class="align-middle" scope="col" rowspan="1"> Opsi </th>           
-        @endhasrole                                    
+        @endhasanyrole                                    
         </tr>
         </thead>
 
@@ -29,7 +29,8 @@
                 <th rowspan="3" class="putih align-middle"><ul class="action-list align-middle" id="action">
                     <li><a type="button" href="" class="btn btn-warning align-middle" data-toggle="modal" data-target="#modalluarantambah"><i class="fas fa-plus"></i></a></li>
                 </th>
-                @endrole
+                @endhasrole
+                
             </tr>
         </thead>
 
@@ -54,13 +55,28 @@
                     </a>
                     @endif
                 </td>
-                @hasrole('perwakilan')
-                <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                    <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/luaran-dtps/{{ $data->id }}" data-toggle="modal" data-target="#modaldosenluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                </ul></td>
-                @endhasrole
+                
+                @hasanyrole('perwakilan|dekan')
+                    <td class="project-actions text-right ms-1 ps-1">
+                    <ul class="action-list d-flex justify-content-center " id="action">
+                        @hasrole('perwakilan')
+                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/kinerja-dosen/luaran-dtps/{{ $data->id }}" data-toggle="modal" data-target="#modaldosenluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                        @endhasrole
+                        @hasrole('dekan')
+                            <li>
+                                <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappluar-{{ $data->id }}"><i class="fas fa-check-circle"></i></a>
+                            </li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakluar-{{ $data->id }}"><i class="fas fa-times-circle"></i></a>
+                            </li>
+                        @endhasrole
+                </ul>
+                </td>
+                @endhasanyrole
             </tr>
             @endif
             @endforeach
@@ -124,13 +140,27 @@
                     </a>
                     @endif
                 </td>
-                @hasrole('perwakilan')
-                <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                    <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/luaran-dtps/{{ $data->id }}" data-toggle="modal" data-target="#modaldosenluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                </ul></td>
-                @endhasrole
+                @hasanyrole('perwakilan|dekan')
+                    <td class="project-actions text-right ms-1 ps-1">
+                    <ul class="action-list d-flex justify-content-center " id="action">
+                        @hasrole('perwakilan')
+                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/kinerja-dosen/luaran-dtps/{{ $data->id }}" data-toggle="modal" data-target="#modaldosenluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                        @endhasrole
+                        @hasrole('dekan')
+                            <li>
+                                <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappluar-{{ $data->id }}"><i class="fas fa-check-circle"></i></a>
+                            </li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakluar-{{ $data->id }}"><i class="fas fa-times-circle"></i></a>
+                            </li>
+                        @endhasrole
+                </ul>
+                </td>
+                @endhasanyrole
             </tr>
             @endif
             @endforeach
@@ -187,13 +217,27 @@
                     </a>
                     @endif
                 </td>
-                @hasrole('perwakilan')
-                <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                    <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/luaran-dtps/{{ $data->id }}" data-toggle="modal" data-target="#modaldosenluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                </ul></td>
-                @endhasrole
+                @hasanyrole('perwakilan|dekan')
+                    <td class="project-actions text-right ms-1 ps-1">
+                    <ul class="action-list d-flex justify-content-center " id="action">
+                        @hasrole('perwakilan')
+                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/kinerja-dosen/luaran-dtps/{{ $data->id }}" data-toggle="modal" data-target="#modaldosenluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                        @endhasrole
+                        @hasrole('dekan')
+                            <li>
+                                <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappluar-{{ $data->id }}"><i class="fas fa-check-circle"></i></a>
+                            </li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakluar-{{ $data->id }}"><i class="fas fa-times-circle"></i></a>
+                            </li>
+                        @endhasrole
+                </ul>
+                </td>
+                @endhasanyrole
             </tr>
             @endif
             @endforeach
@@ -246,13 +290,27 @@
                     </a>
                     @endif
                 </td>
-                @hasrole('perwakilan')
-                <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                    <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                    <li>
-                        <a type="button" class="btn btn-danger" href="/kinerja-dosen/luaran-dtps/{{ $data->id }}" data-toggle="modal" data-target="#modaldosenluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                </ul></td>
-                @endhasrole
+                @hasanyrole('perwakilan|dekan')
+                    <td class="project-actions text-right ms-1 ps-1">
+                    <ul class="action-list d-flex justify-content-center " id="action">
+                        @hasrole('perwakilan')
+                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenluaranedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="/kinerja-dosen/luaran-dtps/{{ $data->id }}" data-toggle="modal" data-target="#modaldosenluarandelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                        </ul></td>
+                        @endhasrole
+                        @hasrole('dekan')
+                            <li>
+                                <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappluar-{{ $data->id }}"><i class="fas fa-check-circle"></i></a>
+                            </li>
+                            <li>
+                                <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolakluar-{{ $data->id }}"><i class="fas fa-times-circle"></i></a>
+                            </li>
+                        @endhasrole
+                </ul>
+                </td>
+                @endhasanyrole
             </tr>
             @endif
             @endforeach

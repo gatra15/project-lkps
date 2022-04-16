@@ -13,9 +13,9 @@
                     <th class="align-middle" scope="col" rowspan="2" width="10%">Jenis Penggunaan</th>
                     <th scope="col" colspan="4" style="max-width:30px;">Unit Pengelola Program Studi (Rp.)</th>
                     <th scope="col" colspan="4" style="max-width:30px;">Program Studi (Rp.)</th>
-                    @hasrole('perwakilan')
+                    @hasanyrole('perwakilan|dekan')
                     <th class="align-middle" scope="col" rowspan="2" width="5%">Opsi</th>
-                    @endhasrole
+                    @endhasanyrole
                 </tr>
                 <tr>
                     <th class="align-middle" scope="col" style="max-width:5px;">TS-2</th>
@@ -67,13 +67,28 @@
                         <td>Rp.{{ $data->ps_ts }}</td>
                         <td>Rp.{{ $data->ps_average }}</td>
                     
-                        @hasrole('perwakilan')
-                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                            <li>
-                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                        </ul></td>
-                        @endhasrole
+                        @hasanyrole('perwakilan|dekan')
+                        <td class="project-actions text-right ms-1 ps-1">
+                        <ul class="action-list d-flex justify-content-center " id="action">
+                            @hasrole('perwakilan')
+                            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                            </ul></td>
+                            @endhasrole
+                            @hasrole('dekan')
+                                <li>
+                                    <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappsaran-{{ $data->id }}"><i class="fas fa-check-circle"></i></a>
+                                </li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolaksaran-{{ $data->id }}"><i class="fas fa-times-circle"></i></a>
+                                </li>
+                            @endhasrole
+                    </ul>
+                    </td>
+                    @endhasanyrole
+                        
                     </tr>
                     
                 @endforeach
@@ -103,13 +118,27 @@
                         <td>Rp.{{ $data->ps_ts }}</td>
                         <td>Rp.{{ $data->ps_average }}</td>
                     
-                        @hasrole('perwakilan')
-                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                            <li>
-                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                        </ul></td>
-                        @endhasrole
+                        @hasanyrole('perwakilan|dekan')
+                        <td class="project-actions text-right ms-1 ps-1">
+                        <ul class="action-list d-flex justify-content-center " id="action">
+                            @hasrole('perwakilan')
+                            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                            </ul></td>
+                            @endhasrole
+                            @hasrole('dekan')
+                                <li>
+                                    <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappsaran-{{ $data->id }}"><i class="fas fa-check-circle"></i></a>
+                                </li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolaksaran-{{ $data->id }}"><i class="fas fa-times-circle"></i></a>
+                                </li>
+                            @endhasrole
+                    </ul>
+                    </td>
+                    @endhasanyrole
                     </tr>
                     
                 @endforeach
@@ -139,13 +168,27 @@
                         <td>Rp.{{ $data->ps_ts }}</td>
                         <td>Rp.{{ $data->ps_average }}</td>
                     
-                        @hasrole('perwakilan')
-                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                            <li>
-                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                        </ul></td>
-                        @endhasrole
+                        @hasanyrole('perwakilan|dekan')
+                        <td class="project-actions text-right ms-1 ps-1">
+                        <ul class="action-list d-flex justify-content-center " id="action">
+                            @hasrole('perwakilan')
+                            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                            </ul></td>
+                            @endhasrole
+                            @hasrole('dekan')
+                                <li>
+                                    <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappsaran-{{ $data->id }}"><i class="fas fa-check-circle"></i></a>
+                                </li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolaksaran-{{ $data->id }}"><i class="fas fa-times-circle"></i></a>
+                                </li>
+                            @endhasrole
+                    </ul>
+                    </td>
+                    @endhasanyrole
                     </tr>
                     
                 @endforeach
@@ -175,13 +218,27 @@
                         <td>Rp.{{ $data->ps_ts }}</td>
                         <td>Rp.{{ $data->ps_average }}</td>
                     
-                        @hasrole('perwakilan')
-                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                            <li>
-                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                        </ul></td>
-                        @endhasrole
+                        @hasanyrole('perwakilan|dekan')
+                        <td class="project-actions text-right ms-1 ps-1">
+                        <ul class="action-list d-flex justify-content-center " id="action">
+                            @hasrole('perwakilan')
+                            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                            </ul></td>
+                            @endhasrole
+                            @hasrole('dekan')
+                                <li>
+                                    <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappsaran-{{ $data->id }}"><i class="fas fa-check-circle"></i></a>
+                                </li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolaksaran-{{ $data->id }}"><i class="fas fa-times-circle"></i></a>
+                                </li>
+                            @endhasrole
+                    </ul>
+                    </td>
+                    @endhasanyrole
                     </tr>
                     
                 @endforeach
@@ -212,13 +269,27 @@
                         <td>Rp.{{ $data->ps_ts }}</td>
                         <td>Rp.{{ $data->ps_average }}</td>
                     
-                        @hasrole('perwakilan')
-                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                            <li>
-                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                        </ul></td>
-                        @endhasrole
+                        @hasanyrole('perwakilan|dekan')
+                        <td class="project-actions text-right ms-1 ps-1">
+                        <ul class="action-list d-flex justify-content-center " id="action">
+                            @hasrole('perwakilan')
+                            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                            </ul></td>
+                            @endhasrole
+                            @hasrole('dekan')
+                                <li>
+                                    <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappsaran-{{ $data->id }}"><i class="fas fa-check-circle"></i></a>
+                                </li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolaksaran-{{ $data->id }}"><i class="fas fa-times-circle"></i></a>
+                                </li>
+                            @endhasrole
+                    </ul>
+                    </td>
+                    @endhasanyrole
                     </tr>
                     
                 @endforeach
@@ -263,13 +334,27 @@
                         <td>Rp.{{ $data->ps_ts }}</td>
                         <td>Rp.{{ $data->ps_average }}</td>
                     
-                        @hasrole('perwakilan')
-                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                            <li>
-                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                        </ul></td>
-                        @endhasrole
+                        @hasanyrole('perwakilan|dekan')
+                        <td class="project-actions text-right ms-1 ps-1">
+                        <ul class="action-list d-flex justify-content-center " id="action">
+                            @hasrole('perwakilan')
+                            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                            </ul></td>
+                            @endhasrole
+                            @hasrole('dekan')
+                                <li>
+                                    <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappsaran-{{ $data->id }}"><i class="fas fa-check-circle"></i></a>
+                                </li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolaksaran-{{ $data->id }}"><i class="fas fa-times-circle"></i></a>
+                                </li>
+                            @endhasrole
+                    </ul>
+                    </td>
+                    @endhasanyrole
                     </tr>
                     
                 @endforeach
@@ -299,13 +384,27 @@
                         <td>Rp.{{ $data->ps_ts }}</td>
                         <td>Rp.{{ $data->ps_average }}</td>
                     
-                        @hasrole('perwakilan')
-                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                            <li>
-                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                        </ul></td>
-                        @endhasrole
+                        @hasanyrole('perwakilan|dekan')
+                        <td class="project-actions text-right ms-1 ps-1">
+                        <ul class="action-list d-flex justify-content-center " id="action">
+                            @hasrole('perwakilan')
+                            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                            </ul></td>
+                            @endhasrole
+                            @hasrole('dekan')
+                                <li>
+                                    <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappsaran-{{ $data->id }}"><i class="fas fa-check-circle"></i></a>
+                                </li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolaksaran-{{ $data->id }}"><i class="fas fa-times-circle"></i></a>
+                                </li>
+                            @endhasrole
+                    </ul>
+                    </td>
+                    @endhasanyrole
                     </tr>
                     
                 @endforeach
@@ -350,13 +449,27 @@
                         <td>Rp.{{ $data->ps_ts }}</td>
                         <td>Rp.{{ $data->ps_average }}</td>
                     
-                        @hasrole('perwakilan')
-                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                            <li>
-                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                        </ul></td>
-                        @endhasrole
+                        @hasanyrole('perwakilan|dekan')
+                        <td class="project-actions text-right ms-1 ps-1">
+                        <ul class="action-list d-flex justify-content-center " id="action">
+                            @hasrole('perwakilan')
+                            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                            </ul></td>
+                            @endhasrole
+                            @hasrole('dekan')
+                                <li>
+                                    <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappsaran-{{ $data->id }}"><i class="fas fa-check-circle"></i></a>
+                                </li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolaksaran-{{ $data->id }}"><i class="fas fa-times-circle"></i></a>
+                                </li>
+                            @endhasrole
+                    </ul>
+                    </td>
+                    @endhasanyrole
                     </tr>
                     
                 @endforeach
@@ -386,13 +499,27 @@
                         <td>Rp.{{ $data->ps_ts }}</td>
                         <td>Rp.{{ $data->ps_average }}</td>
                     
-                        @hasrole('perwakilan')
-                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                            <li>
-                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                        </ul></td>
-                        @endhasrole
+                        @hasanyrole('perwakilan|dekan')
+                        <td class="project-actions text-right ms-1 ps-1">
+                        <ul class="action-list d-flex justify-content-center " id="action">
+                            @hasrole('perwakilan')
+                            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                            </ul></td>
+                            @endhasrole
+                            @hasrole('dekan')
+                                <li>
+                                    <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappsaran-{{ $data->id }}"><i class="fas fa-check-circle"></i></a>
+                                </li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolaksaran-{{ $data->id }}"><i class="fas fa-times-circle"></i></a>
+                                </li>
+                            @endhasrole
+                    </ul>
+                    </td>
+                    @endhasanyrole
                     </tr>
                     
                 @endforeach
@@ -422,13 +549,27 @@
                         <td>Rp.{{ $data->ps_ts }}</td>
                         <td>Rp.{{ $data->ps_average }}</td>
                     
-                        @hasrole('perwakilan')
-                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                            <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
-                            <li>
-                                <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                        </ul></td>
-                        @endhasrole
+                        @hasanyrole('perwakilan|dekan')
+                        <td class="project-actions text-right ms-1 ps-1">
+                        <ul class="action-list d-flex justify-content-center " id="action">
+                            @hasrole('perwakilan')
+                            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                                <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalsaranaedit-{{ $data->id }}"><i class="fas fa-edit"></i></a></li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="/keuangan-sarana-prasarana/{{ $data->id }}" data-toggle="modal" data-target="#modalsaranadelete-{{ $data->id }}"><i class="fas fa-trash btn-del"></i></a></li>
+                            </ul></td>
+                            @endhasrole
+                            @hasrole('dekan')
+                                <li>
+                                    <a type="button" href="" class="btn btn-success" data-toggle="modal" data-target="#modalappsaran-{{ $data->id }}"><i class="fas fa-check-circle"></i></a>
+                                </li>
+                                <li>
+                                    <a type="button" class="btn btn-danger" href="" data-toggle="modal" data-target="#modaltolaksaran-{{ $data->id }}"><i class="fas fa-times-circle"></i></a>
+                                </li>
+                            @endhasrole
+                    </ul>
+                    </td>
+                    @endhasanyrole
                     </tr>
                     
                 @endforeach

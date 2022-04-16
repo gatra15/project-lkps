@@ -1,4 +1,4 @@
-<form action="#" method="post">
+<form action="/penelitian/tolak/{{ $penelitian->id }}" method="post">
     @method('put')
     @csrf
     <div class="modal-body">     

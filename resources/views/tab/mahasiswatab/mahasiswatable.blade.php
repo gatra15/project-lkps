@@ -79,7 +79,12 @@
     </tbody>
 
 @endhasanyrole
+<<<<<<< HEAD
 @hasanyrole('asesor')
+=======
+
+@hasrole('asesor')
+>>>>>>> afed880c3142c560624470fbb5f7b2a119b9b4c6
     <tbody class="text-dark">
     
     @foreach ($mahasiswa['mahasiswa_asesor'] as $key => $mhs)
@@ -116,6 +121,6 @@
     
     </tbody>
 
-@endhasanyrole
+@endhasrole
     </table> 
 </div>

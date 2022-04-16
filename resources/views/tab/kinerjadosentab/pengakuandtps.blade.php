@@ -90,6 +90,35 @@
         </div>
         </div>
         </div>
+
+        <div class="modal fade" id="modaltolakpengakuan-{{ $pengakuan->id }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+            <h5 class="modal-title" id="modaltolak"> Kenapa Anda Menolak??  </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.kinerjadosenmodal.tolak')
+            </div>
+            </div>
+        </div> 
+        
+        <div class="modal fade" id="modalapppengakuan-{{ $pengakuan->id }}" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+            <h5 class="modal-title" id="modaltolak"> Approve?  </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                @include('partials.kinerjadosenmodal.app')
+            </div>
+            </div>
+        </div> 
+
         @endforeach 
 </div>
 @include('layouts.table')
