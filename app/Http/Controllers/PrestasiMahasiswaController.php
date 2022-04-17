@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PrestasiMahasiswaExport;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\PrestasiMahasiswa;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PrestasiMahasiswaController extends Controller
 {
@@ -186,6 +188,15 @@ class PrestasiMahasiswaController extends Controller
         DB::connection($connection)->rollBack();
         return response(['message' => $ex->getMessage()],500);
     }    
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new PrestasiMahasiswaExport, 'prestasi-mahasiswa.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new PrestasiMahasiswaExport, 'prestasi-mahasiswa.csv');
     }
 
     public function approve($id)

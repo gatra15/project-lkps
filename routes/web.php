@@ -56,6 +56,7 @@ use App\Http\Controllers\EfektifitasProduktifitasPendidikanController;
 use App\Http\Controllers\SdmKinerjaDosenPublikasiIlmiahDtpsController;
 use App\Http\Controllers\PendidikanIntegrasiKegiatanPenelitianController;
 use App\Http\Controllers\SdmEkuivalenWaktuMengajarPenuhDosenTetapController;
+use App\Models\LuaranPkmMahasiswa;
 
 /*
 |--------------------------------------------------------------------------
@@ -437,37 +438,51 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('/luaran-capaian-tridharma', [LuaranController::class, 'index']);
         Route::put('/luaran-capaian-tridharma/capaian/approve/{id}', [CapaianPembelajaranController::class, 'approve']);
         Route::put('/luaran-capaian-tridharma/capaian/tolak/{id}', [CapaianPembelajaranController::class, 'tolak']);
+        Route::get('luaran/capaian/download/excel', [CapaianPembelajaranController::class, 'exportToExcel']);
+        Route::get('luaran/capaian/download/csv', [CapaianPembelajaranController::class, 'exportToCSV']);
 
         Route::get('/luaran-capaian-tridharma/prestasi-mahasiswa', [PrestasiMahasiswaController::class, 'index']);
         Route::put('/luaran-capaian-tridharma/prestasi-mahasiswa/approve/{id}', [PrestasiMahasiswaController::class, 'approve']);
         Route::put('/luaran-capaian-tridharma/prestasi-mahasiswa/tolak/{id}', [PrestasiMahasiswaController::class, 'tolak']);
+        Route::get('luaran/prestasi-mahasiswa/download/excel', [PrestasiMahasiswaController::class, 'exportToExcel']);
+        Route::get('luaran/prestasi-mahasiswa/download/csv', [PrestasiMahasiswaController::class, 'exportToCSV']);
 
         Route::get('/luaran-capaian-tridharma/efektifitas', [EfektifitasProduktifitasPendidikanController::class, 'index']);
         Route::put('/luaran-capaian-tridharma/efektifitas/approve/{id}', [EfektifitasProduktifitasPendidikanController::class, 'approve']);
         Route::put('/luaran-capaian-tridharma/efektifitas/tolak/{id}', [EfektifitasProduktifitasPendidikanController::class, 'tolak']);
+        Route::get('luaran/efektifitas/download/excel', [EfektifitasProduktifitasPendidikanController::class, 'exportToExcel']);
+        Route::get('luaran/efektifitas/download/csv', [EfektifitasProduktifitasPendidikanController::class, 'exportToCSV']);
 
         Route::get('/luaran-capaian-tridharma/luaran-mahasiswa', [LuaranPkmMahasiswaController::class, 'index']);
         Route::put('/luaran-capaian-tridharma/daya-saing/approve/{id}', [WaktuTungguLulusanController::class, 'approve']);
         Route::put('/luaran-capaian-tridharma/daya-saing/tolak/{id}', [WaktuTungguLulusanController::class, 'tolak']);
+        Route::get('luaran/daya-saing/download/excel', [WaktuTungguLulusanController::class, 'exportToExcel']);
+        Route::get('luaran/daya-saing/download/csv', [WaktuTungguLulusanController::class, 'exportToCSV']);
 
         Route::put('/luaran-capaian-tridharma/kinerja-lulusan/approve/{id}', [KinerjaLulusanController::class, 'approve']);
         Route::put('/luaran-capaian-tridharma/kinerja-lulusan/tolak/{id}', [KinerjaLulusanController::class, 'tolak']);
+        Route::get('luaran/kinerja-lulusan/download/excel', [KinerjaLulusanController::class, 'exportToExcel']);
+        Route::get('luaran/kinerja-lulusan/download/csv', [KinerjaLulusanController::class, 'exportToCSV']);
 
         Route::put('/luaran-capaian-tridharma/kesesuain-bidang/approve/{id}', [KesesuaianBidangKerjaController::class, 'approve']);
         Route::put('/luaran-capaian-tridharma/kesesuain-bidang/tolak/{id}', [KesesuaianBidangKerjaController::class, 'tolak']);
+        Route::get('luaran/kesesuaian-bidang/download/excel', [KesesuaianBidangKerjaController::class, 'exportToExcel']);
+        Route::get('luaran/kesesuaian-bidang/download/csv', [KesesuaianBidangKerjaController::class, 'exportToCSV']);
 
         Route::put('/luaran-capaian-tridharma/kepuasan-pengguna/approve/{id}', [KepuasanPenggunaController::class, 'approve']);
         Route::put('/luaran-capaian-tridharma/kepuasan-pengguna/tolak/{id}', [KepuasanPenggunaController::class, 'tolak']);
+        Route::get('luaran/kepuasan-pengguna/download/excel', [KepuasanPenggunaController::class, 'exportToExcel']);
+        Route::get('luaran/kepuasan-pengguna/download/csv', [KepuasanPenggunaController::class, 'exportToCSV']);
 
         Route::put('/luaran-capaian-tridharma/publikasi-ilmiah/approve/{year}/{media}', [PublikasiIlmiahMahasiswaController::class, 'approve']);
         Route::put('/luaran-capaian-tridharma/publikasi-ilmiah/tolak/{year}/{media}', [PublikasiIlmiahMahasiswaController::class, 'tolak']);
+        Route::get('luaran/publikasi-ilmiah/download/excel', [PublikasiIlmiahMahasiswaController::class, 'exportToExcel']);
+        Route::get('luaran/publikasi-ilmiah/download/csv', [PublikasiIlmiahMahasiswaController::class, 'exportToCSV']);
 
         Route::put('/luaran-capaian-tridharma/luaran-mahasiswa/approve/{id}', [LuaranPkmMahasiswaController::class, 'approve']);
         Route::put('/luaran-capaian-tridharma/luaran-mahasiswa/tolak/{id}', [LuaranPkmMahasiswaController::class, 'tolak']);
-
-        Route::get('luaran/download/excel', [LuaranController::class, 'exportToExcel']);
-        Route::get('luaran/download/csv', [LuaranController::class, 'exportToCSV']);
-        Route::get('luaran/download/pdf', [LuaranController::class, 'generate']);
+        Route::get('luaran/luaran-mahasiswa/download/excel', [LuaranPkmMahasiswaController::class, 'exportToExcel']);
+        Route::get('luaran/luaran-mahasiswa/download/csv', [LuaranPkmMahasiswaController::class, 'exportToCSV']);
         // End Route
 
         // Simulasi

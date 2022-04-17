@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\CapaianExport;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\CapaianPembelajaran;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CapaianPembelajaranController extends Controller
 {
@@ -167,6 +169,15 @@ class CapaianPembelajaranController extends Controller
         DB::connection($connection)->rollBack();
         return response(['message' => $ex->getMessage()],500);
     }
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new CapaianExport, 'capaian-pembelajaran.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new CapaianExport, 'capaian-pembelajaran.csv');
     }
 
     public function approve($id)

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\KesesuaianBidangKerjaExport;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\KesesuaianBidangKerja;
 
 class KesesuaianBidangKerjaController extends Controller
@@ -184,6 +186,15 @@ class KesesuaianBidangKerjaController extends Controller
             DB::connection($connection)->rollBack();
             return response(['message' => $ex->getMessage()],500);
         }
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new KesesuaianBidangKerjaExport, 'kesesuaian-bidang-kerja.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new KesesuaianBidangKerjaExport, 'kesesuaian-bidang-kerja.csv');
     }
 
     public function approve($id)

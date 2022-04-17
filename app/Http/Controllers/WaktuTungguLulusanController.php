@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\WaktuTungguLulusanExport;
+use Svg\Tag\Rect;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\WaktuTungguLulusan;
 use Illuminate\Support\Facades\DB;
-use Svg\Tag\Rect;
+use Maatwebsite\Excel\Facades\Excel;
 
 class WaktuTungguLulusanController extends Controller
 {
@@ -182,6 +184,15 @@ class WaktuTungguLulusanController extends Controller
             DB::connection($connection)->rollBack();
             return response(['message' => $ex->getMessage()],500);
         }
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new WaktuTungguLulusanExport, 'waktu-tunggu-lulusan.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new WaktuTungguLulusanExport, 'waktu-tunggu-lulusan.csv');
     }
 
     public function approve($id)

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\LuaranPkmMahasiswaExport;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\LuaranPkmMahasiswa;
+use Maatwebsite\Excel\Facades\Excel;
 
 class LuaranPkmMahasiswaController extends Controller
 {
@@ -156,6 +158,15 @@ class LuaranPkmMahasiswaController extends Controller
     {
         LuaranPkmMahasiswa::find($id)->delete();
         return back()->with('error', 'Data Luaran Pkm Mahasiswa berhasil dihapus.');
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new LuaranPkmMahasiswaExport, 'luaran-pkm-mahasiswa.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new LuaranPkmMahasiswaExport, 'luaran-pkm-mahasiswa.csv');
     }
 
     public function approve($id)

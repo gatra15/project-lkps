@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\KinerjaLulusanExport;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\KinerjaLulusan;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KinerjaLulusanController extends Controller
 {
@@ -178,6 +180,15 @@ class KinerjaLulusanController extends Controller
             DB::connection($connection)->rollBack();
             return response(['message' => $ex->getMessage()],500);
         }
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new KinerjaLulusanExport, 'kinerja-lulusan.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new KinerjaLulusanExport, 'kinerja-lulusan.csv');
     }
 
     public function approve($id)

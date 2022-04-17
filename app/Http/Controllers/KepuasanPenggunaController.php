@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\KepuasanPenggunaExport;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\KepuasanPengguna;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class KepuasanPenggunaController extends Controller
 {
@@ -243,6 +245,15 @@ class KepuasanPenggunaController extends Controller
             DB::connection($connection)->rollBack();
             return response(['message' => $ex->getMessage()],500);
         }
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new KepuasanPenggunaExport, 'kepuasan-pengguna.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new KepuasanPenggunaExport, 'kepuasan-pengguna.csv');
     }
 
     public function approve($id)

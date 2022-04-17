@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\EfektifitasProduktifitasPendidikanExport;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\EfektifitasProduktifitasPendidikan;
-use Carbon\Carbon;
 
 class EfektifitasProduktifitasPendidikanController extends Controller
 {
@@ -234,6 +236,15 @@ class EfektifitasProduktifitasPendidikanController extends Controller
             DB::connection($connection)->rollBack();
             return response(['message' => $ex->getMessage()],500);
         }
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new EfektifitasProduktifitasPendidikanExport, 'efektifitas-produktifitas-pendidikan.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new EfektifitasProduktifitasPendidikanExport, 'efektifitas-produktifitas-pendidikan.csv');
     }
 
     public function approve($id)

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PublikasiIlmiahExport;
+use Svg\Tag\Rect;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\PublikasiIlmiahMahasiswa;
 use Laravel\Sail\Console\PublishCommand;
-use Svg\Tag\Rect;
 
 class PublikasiIlmiahMahasiswaController extends Controller
 {
@@ -538,6 +540,15 @@ class PublikasiIlmiahMahasiswaController extends Controller
                 'created_at' => Carbon::now(),
             ]);
         return back()->with('error', 'Data Publikasi Mahasiswa berhasil dihapus.');
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new PublikasiIlmiahExport, 'publikasi-ilmiah-mahasiswa.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new PublikasiIlmiahExport, 'publikasi-ilmiah-mahasiswa.csv');
     }
 
     public function approve($id)
