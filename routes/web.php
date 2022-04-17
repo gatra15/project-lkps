@@ -426,6 +426,8 @@ Route::group(['middleware' => 'auth:web'], function() {
 
         // Pkm
         Route::get('/pkm', [PengabdianController::class, 'index']);
+        Route::get('pkm/download/excel', [PengabdianController::class, 'exportToExcel']);
+        Route::get('pkm/download/csv', [PengabdianController::class, 'exportToCSV']);
         Route::put('/pkm/approve/{id}', [PengabdianController::class, 'approve']);
         Route::put('/pkm/tolak/{id}', [PengabdianController::class, 'tolak']);
 
