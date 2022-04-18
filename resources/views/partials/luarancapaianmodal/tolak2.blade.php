@@ -1,4 +1,4 @@
-<form action="/luaran-capaian-tridharma/prestasi-mahasiswa/tolak/{{ $capaian->id }}" method="post">
+<form action="/luaran-capaian-tridharma/prestasi-mahasiswa/tolak/{{ $prest->id }}" method="post">
     @method('put')
     @csrf
     <div class="modal-body">     

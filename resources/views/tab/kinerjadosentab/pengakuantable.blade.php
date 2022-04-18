@@ -1,5 +1,7 @@
 <div id="print-table4">
     <table id='form-print' class="table text-center table-bordered table-condensed">
+
+        @hasanyrole('perwakilan|dekan')
         <thead>
             <tr>
 
@@ -8,10 +10,8 @@
                 <th class="align-middle" scope="col" rowspan="2">Bidang Keahlian</th>
                 <th class="align-middle" scope="col" rowspan="2" >Rekognisi <br> dan Bukti <br> Pendukung <sup>1)</sup></th>
                 <th scope="col" colspan="3">Tingkat <sup>2)</sup></th>
-                <th class="align-middle" scope="col" rowspan="2" >Tahun</th>  
-                @hasanyrole('perwakilan|dekan')                  
+                <th class="align-middle" scope="col" rowspan="2" >Tahun</th>                  
                 <th class="align-middle" scope="col" rowspan="2" >Opsi</th>  
-                @endhasanyrole                  
             </tr>
             <tr>
                 <th scope="col">Wilayah</th>
@@ -20,7 +20,7 @@
             </tr>
     
         </thead>
-    @hasanyrole('perwakilan|dekan')
+    
         <tbody class="text-dark">
             @foreach ($pengakuans as $pengakuan)
                 <tr>
@@ -44,15 +44,12 @@
                 <td>{{ $pengakuan->tingkat == 'Nasional' ? 'V' : '' }}</td> 
                 <td>{{ $pengakuan->tingkat == 'Internasional' ? 'V' : '' }}</td> 
                 <td>{{ $pengakuan->tahun }}</td> 
-                @hasanyrole('perwakilan|dekan')
                     <td class="project-actions text-right ms-1 ps-1">
                     <ul class="action-list d-flex justify-content-center " id="action">
                         @hasrole('perwakilan')
-                        <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
                             <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpengakuanedit-{{ $pengakuan->id }}"><i class="fas fa-edit"></i></a></li>
                             <li>
                                 <a type="button" class="btn btn-danger" href="/kinerja-dosen/{{ $pengakuan->id }}" data-toggle="modal" data-target="#modalpengakuandelete-{{ $pengakuan->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                        </ul></td>
                         @endhasrole
                         @hasrole('dekan')
                             <li>
@@ -64,7 +61,6 @@
                         @endhasrole
                 </ul>
                 </td>
-                @endhasanyrole
                 
                 </tr>
                 @endforeach 
@@ -80,6 +76,23 @@
     @endhasanyrole
 
     @hasrole('asesor')
+        <thead>
+            <tr>
+
+                <th class="align-middle" scope="col" rowspan="2">No</th>
+                <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
+                <th class="align-middle" scope="col" rowspan="2">Bidang Keahlian</th>
+                <th class="align-middle" scope="col" rowspan="2" >Rekognisi <br> dan Bukti <br> Pendukung <sup>1)</sup></th>
+                <th scope="col" colspan="3">Tingkat <sup>2)</sup></th>
+                <th class="align-middle" scope="col" rowspan="2" >Tahun</th>                  
+            </tr>
+            <tr>
+                <th scope="col">Wilayah</th>
+                <th scope="col">Nasional</th>
+                <th scope="col">Internasional</th>
+            </tr>
+
+        </thead>
         <tbody class="text-dark">
             @foreach ($pengakuans_asesor as $pengakuan)
                 <tr>
