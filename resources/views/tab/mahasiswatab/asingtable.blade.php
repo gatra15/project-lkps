@@ -76,9 +76,7 @@
          <td>{{ $mahasiswa_asing['part_ts2'] }}</td>
          <td>{{ $mahasiswa_asing['part_ts1'] }}</td>
          <td>{{ $mahasiswa_asing['part_ts'] }}</td>
-         @hasrole('perwakilan')
          <td></td>
-         @endhasrole
      </tr>
     </tbody>
 @endhasanyrole
@@ -117,20 +115,6 @@
     </table> 
 </div>
 
-@hasrole('dekan')
-    <div class="modal-footer bg-whitet">
-    <form action="#" method="post">
-      @method('put')
-      @csrf
-    <button type="submit" class="btn btn-success btn-sm">
-      Approve 
-    </button>
-    </form>
-    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modaltolakasing">
-      Tolak
-    </button>
-    </div>
-    @endhasrole
 
     <div class="modal fade" id="modaltolakasing" tabindex="-1" aria-labelledby="modaltolak" aria-hidden="true">
         <div class="modal-dialog">

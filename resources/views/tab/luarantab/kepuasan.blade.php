@@ -5,6 +5,8 @@
         </a>
     </p>
     @can ('download file')
+    <a href="/luaran/kepuasan-pengguna/download/excel" class="btn btn-success">Excel</a>
+    <a href="/luaran/kepuasan-pengguna/download/csv" class="btn btn-success">CSV</a>
     <input type="button" class="btn btn-primary" onclick="printDiv('print-table5')" value="Print Document" />
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
         Cara Download PDF

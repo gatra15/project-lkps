@@ -487,7 +487,8 @@ Route::group(['middleware' => 'auth:web'], function() {
 
         // Simulasi
         Route::get('/simulasi', [SimulasiPenilaianController::class, 'index']);
-
+        Route::get('simulasi/download/excel', [SimulasiPenilaianController::class, 'exportToExcel']);
+        Route::get('simulasi/download/csv', [SimulasiPenilaianController::class, 'exportToCSV']);
         // End Simulasi
     });
 });

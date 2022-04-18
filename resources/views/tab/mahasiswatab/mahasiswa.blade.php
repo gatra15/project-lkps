@@ -80,8 +80,7 @@
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            {{ $mhs->id }}
-            @include('partials.mahasiswamodal.tolak')
+            @include('partials.mahasiswamodal.tolakmhs')
         </div>
         </div>
     </div> 

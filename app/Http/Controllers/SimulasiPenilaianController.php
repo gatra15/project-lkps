@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\SimulasiExport;
 use Carbon\Carbon;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use App\Models\SimulasiPenilaian;
+use Illuminate\Support\Collection;
 use App\Models\CapaianPembelajaran;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\IndikatorTataKerjasama;
 use App\Http\Controllers\MahasiswaController;
 use App\Models\SdmKinerjaDosenPenelitianDtps;
 use App\Http\Controllers\PenelitianController;
 use App\Http\Controllers\SdmKinerjaDosenPenelitianDtpsController;
-use Illuminate\Support\Collection;
 
 class SimulasiPenilaianController extends Controller
 {
@@ -1540,6 +1542,15 @@ class SimulasiPenilaianController extends Controller
         SimulasiPenilaian::find($id)->delete();
 
         return back()->with('success', 'Data Simulasi Penilaian berhasi dihapus.');
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new SimulasiExport, 'simulasi-penilaian.xlsx');
+    }
+    public function exportToCSV()
+    {
+        return Excel::download(new SimulasiExport, 'simulasi-penilaian.csv');
     }
     
     public function approve($id)
