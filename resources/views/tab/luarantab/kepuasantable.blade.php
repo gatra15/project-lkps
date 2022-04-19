@@ -1,6 +1,5 @@
 <div id="print-table5">
     <table id='form-print' class="table text-center table-bordered table-condensed ">
-
     @hasanyrole('perwakilan|dekan')
         <thead>
         
@@ -20,7 +19,7 @@
             </tr>
     
         </thead>
-        
+ 
         <tbody>
             @foreach ($kepuasanPengguna['kepuasan'] as $data)
             <tr>
@@ -65,11 +64,12 @@
             </tr>
 
         </tbody>
-        @endhasanyrole
+    @endhasanyrole
     
-        @hasrole('asesor')
+    @hasrole('asesor')     
         <thead>
-        <tr>
+            
+            <tr>
                 <th class="align-middle text-center" scope="col" rowspan="2">No</th>
                 <th class="align-middle text-center" scope="col" rowspan="2">Jenis Kemampuan</th>
                 <th class="align-middle text-center" scope="col" colspan="4">Tingkat Kepuasan Pengguna (%)</th>
@@ -82,11 +82,10 @@
                 <th class="align-middle text-center" scope="col">Cukup</th>
                 <th class="align-middle text-center" scope="col">Kurang</th>
             </tr>
-    
-        </thead>
-        
+
+        </thead>   
         <tbody>
-            @foreach ($kepuasanPengguna['kepuasan'] as $data)
+            @foreach ($kepuasanPengguna['kepuasan_asesor'] as $data)
             <tr>
                 {{-- {{ $data }} --}}
                 <td>{{ $loop->iteration }}</td>
@@ -102,14 +101,14 @@
 
             <tr>
                 <td class="align-middle text-center" colspan="2"><b>Jumlah</b></td>
-                <td>{{ $kepuasanPengguna['sangat_baik'] }}</td>
-                <td>{{ $kepuasanPengguna['baik'] }}</td>
-                <td>{{ $kepuasanPengguna['cukup'] }}</td>
-                <td>{{ $kepuasanPengguna['kurang'] }}</td>
+                <td>{{ $kepuasanPengguna['sangat_baik_asesor'] }}</td>
+                <td>{{ $kepuasanPengguna['baik_asesor'] }}</td>
+                <td>{{ $kepuasanPengguna['cukup_asesor'] }}</td>
+                <td>{{ $kepuasanPengguna['kurang_asesor'] }}</td>
                 <td colspan="1" style="background-color: grey"></td>
             </tr>
             
         </tbody>
-        @endhasrole
+    @endhasrole
     </table> 
     </div>

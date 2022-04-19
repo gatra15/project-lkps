@@ -40,9 +40,13 @@ class KinerjaDosenController extends Controller
         $internasional = ['tahun_laporan' => $tahun, 'tingkat' => 'Internasional', 'prodi' => $prodi];
         // Agregation
         $countWilayah = SdmKinerjaDosenPengakuanDtps::where($wilayah)->count();
+        $countWilayah_asesor = SdmKinerjaDosenPengakuanDtps::where($wilayah)->where('is_approved', 1)->count();
         $countNasional = SdmKinerjaDosenPengakuanDtps::where($nasional)->count();
+        $countNasional_asesor = SdmKinerjaDosenPengakuanDtps::where($nasional)->where('is_approved', 1)->count();
         $countInternasional = SdmKinerjaDosenPengakuanDtps::where($internasional)->count();
+        $countInternasional_asesor = SdmKinerjaDosenPengakuanDtps::where($internasional)->where('is_approved', 1)->count();
         $sumPengakuan = $countWilayah + $countNasional + $countInternasional;
+        $sumPengakuan_asesor = $countWilayah_asesor + $countNasional_asesor + $countInternasional_asesor;
 
         // penelitian
         $penelitian = (new SdmKinerjaDosenPenelitianDtpsController)->index();
@@ -67,9 +71,13 @@ class KinerjaDosenController extends Controller
             'mediapublikasi' => $mediapublikasi,
 
             'countWilayah' => $countWilayah,
+            'countWilayah_asesor' => $countWilayah_asesor,
             'countNasional' => $countNasional,
+            'countNasional_asesor' => $countNasional_asesor,
             'countInternasional' => $countInternasional,
+            'countInternasional_asesor' => $countInternasional_asesor,
             'sumPengakuan' => $sumPengakuan,
+            'sumPengakuan_asesor' => $sumPengakuan_asesor,
             'nrd' => $nrd,
         ]);
     }

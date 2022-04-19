@@ -52,6 +52,7 @@ class KesesuaianBidangKerjaController extends Controller
 
 
         $bidang = KesesuaianBidangKerja::where($where)->get();
+        $bidang_asesor = KesesuaianBidangKerja::where($where)->where('is_approved',1)->get();
         $rendah = KesesuaianBidangKerja::where($where)->sum('kesesuaian_rendah');
         $sedang = KesesuaianBidangKerja::where($where)->sum('kesesuaian_sedang');
         $tinggi = KesesuaianBidangKerja::where($where)->sum('kesesuaian_tinggi');
@@ -60,6 +61,7 @@ class KesesuaianBidangKerjaController extends Controller
         $nj = KesesuaianBidangKerja::where($where)->sum('jumlah_lulusan_terlacak');
         return [
             'bidang' => $bidang,
+            'bidang_asesor' => $bidang_asesor,
             'rendah' => $rendah,
             'sedang' => $sedang,
             'tinggi' => $tinggi,

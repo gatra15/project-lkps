@@ -46,7 +46,7 @@
                     <option>Pilih Prodi</option> 
                         @foreach($prodi as $prodis) 
                      
-                    <option {{ session('prodi') == $prodis ? 'selected' : '' }}value="{{ $prodis->name }}">{{ $prodis->name }}</option>
+                    <option {{ session('prodi') == $prodis->name ? 'selected' : '' }} value="{{ $prodis->name }}">{{ $prodis->name }}</option>
                        @endforeach
                 </div>
 

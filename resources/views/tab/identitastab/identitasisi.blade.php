@@ -160,7 +160,6 @@
     
     @hasrole('asesor')
     @foreach ($identitas_asesor as $identitas)
-    {{ $identitas }}
     <div class="modal fade" id="modallihat-{{ $identitas->id }}" tabindex="-1" aria-labelledby="modallihat" aria-hidden="true">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">

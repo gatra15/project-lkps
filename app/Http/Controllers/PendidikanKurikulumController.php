@@ -24,6 +24,12 @@ class PendidikanKurikulumController extends Controller
         $bobot_seminar = PendidikanKurikulum::where($where)->sum('bobot_seminar');
         $bobot_praktikum = PendidikanKurikulum::where($where)->sum('bobot_praktikum'); 
         $konversi_kredit_jam = PendidikanKurikulum::where($where)->sum('konversi_kredit_jam');
+        $kurikulum_asesor = PendidikanKurikulum::where($where)->where('is_approved',1)->get();
+        $makul_asesor = PendidikanKurikulum::select('mata_kuliah_kompetensial')->where($where)->where('is_approved',1)->count();
+        $bobot_kuliah_asesor = PendidikanKurikulum::where($where)->where('is_approved',1)->sum('bobot_kuliah');
+        $bobot_seminar_asesor = PendidikanKurikulum::where($where)->where('is_approved',1)->sum('bobot_seminar');
+        $bobot_praktikum_asesor = PendidikanKurikulum::where($where)->where('is_approved',1)->sum('bobot_praktikum'); 
+        $konversi_kredit_jam_asesor = PendidikanKurikulum::where($where)->where('is_approved',1)->sum('konversi_kredit_jam');
         $unit = PendidikanKurikulum::select('unit_penyelenggara')->where($where)->count();
 
         return [
@@ -33,6 +39,12 @@ class PendidikanKurikulumController extends Controller
             'bobot_seminar' => $bobot_seminar,
             'bobot_praktikum' => $bobot_praktikum,
             'konversi_kredit_jam' => $konversi_kredit_jam,
+            'kurikulum_asesor' => $kurikulum_asesor,
+            'makul_asesor' => $makul_asesor,
+            'bobot_kuliah_asesor' => $bobot_kuliah_asesor,
+            'bobot_seminar_asesor' => $bobot_seminar_asesor,
+            'bobot_praktikum_asesor' => $bobot_praktikum_asesor,
+            'konversi_kredit_jam_asesor' => $konversi_kredit_jam_asesor,
             'unit' => $unit,
         ];
     }

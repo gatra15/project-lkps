@@ -31,6 +31,10 @@ class PrestasiMahasiswaController extends Controller
         $wilayah = PrestasiMahasiswa::where($w)->where($where1)->count();
         $nasional = PrestasiMahasiswa::where($w)->where($where2)->count();
         $internasional = PrestasiMahasiswa::where($w)->where($where3)->count();
+        $prestasi_asesor = PrestasiMahasiswa::where($w)->where('is_approved',1)->get();
+        $wilayah_asesor = PrestasiMahasiswa::where($w)->where($where1)->where('is_approved',1)->count();
+        $nasional_asesor = PrestasiMahasiswa::where($w)->where($where2)->where('is_approved',1)->count();
+        $internasional_asesor = PrestasiMahasiswa::where($w)->where($where3)->where('is_approved',1)->count();
 
         $akademik = [
             'wilayah' => PrestasiMahasiswa::where($w)->where($where1)->where('jenis_prestasi', 'Akademik')->count(),
@@ -48,6 +52,10 @@ class PrestasiMahasiswaController extends Controller
             'wilayah' => $wilayah,
             'nasional' => $nasional,
             'internasional' => $internasional,
+            'prestasi_asesor' => $prestasi_asesor,
+            'wilayah_asesor' => $wilayah_asesor,
+            'nasional_asesor' => $nasional_asesor,
+            'internasional_asesor' => $internasional_asesor,
             'akademik' => $akademik,
             'nonakademik' => $nonakademik,
         ];

@@ -136,6 +136,10 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
         $jumlah_ts1 = SdmKinerjaDosenPkmDtps::where($where1)->sum('jumlah_ts');
         $jumlah_ts = SdmKinerjaDosenPkmDtps::where($where)->sum('jumlah_ts');
         $jumlah = SdmKinerjaDosenPkmDtps::where($where)->sum('jumlah');
+        $jumlah_ts2_asesor = SdmKinerjaDosenPkmDtps::where($where2)->where('is_approved',1)->sum('jumlah_ts');
+        $jumlah_ts1_asesor = SdmKinerjaDosenPkmDtps::where($where1)->where('is_approved',1)->sum('jumlah_ts');
+        $jumlah_ts_asesor = SdmKinerjaDosenPkmDtps::where($where)->where('is_approved',1)->sum('jumlah_ts');
+        $jumlah_asesor = SdmKinerjaDosenPkmDtps::where($where)->where('is_approved',1)->sum('jumlah');
         return [
             'ts_all' => $ts_all,
             'ts_all_asesor' => $ts_all_asesor,
@@ -161,6 +165,10 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
             'jumlah_ts1' => $jumlah_ts1,
             'jumlah_ts' => $jumlah_ts,
             'jumlah' => $jumlah,
+            'jumlah_ts2_asesor' => $jumlah_ts2_asesor,
+            'jumlah_ts1_asesor' => $jumlah_ts1_asesor,
+            'jumlah_ts_asesor' => $jumlah_ts_asesor,
+            'jumlah_asesor' => $jumlah_asesor,
             'NI' => $NI,
             'NN' => $NN,
             'NL' => $NL,

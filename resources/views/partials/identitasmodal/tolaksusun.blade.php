@@ -1,4 +1,4 @@
-<form action="/identitas-pengusul/upps/tolak/{{ $tim->id }}" method="post">
+<form action="/identitas-pengusul/tim-penyusun/tolak/{{ $tim->id }}" method="post">
     @method('put')
     @csrf
     <div class="modal-body">     

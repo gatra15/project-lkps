@@ -20,13 +20,17 @@ class PengabdianController extends Controller
         $where2 = ['tahun_laporan' => $tahun-2, 'prodi' => $prodi];
 
         $pengabdian = PkmDtps::where($where)->get();
+        $pengabdian_asesor = PkmDtps::where($where)->where('is_approved',1)->get();
         // dd($pengabdian);
         $jumlah_judul = PkmDtps::select('judul_kegiatan')->where($where)->count();
+        $jumlah_judul_asesor = PkmDtps::select('judul_kegiatan')->where($where)->where('is_approved',1)->count();
         $NPkm = PkmDtps::where($where)->orWhere($where1)->orWhere($where2)->count('judul_kegiatan');
         return view('tab.pkm', [
             'title' => 'Pkm',
             'pengabdian' => $pengabdian,
+            'pengabdian_asesor' => $pengabdian_asesor,
             'jumlah_judul' => $jumlah_judul,
+            'jumlah_judul_asesor' => $jumlah_judul_asesor,
             'npkm' => $NPkm,
         ]);
     }

@@ -1,15 +1,16 @@
 <div id="print-table3">
     <table id='form-print' class="table text-center table-bordered table-condensed">
 
-    @hasanyrole('perwakilan|dekan')
     <thead>
         <tr>
 
             <th class="align-middle" scope="col" rowspan="2">No</th>
             <th class="align-middle" scope="col" rowspan="2">Sumber Pembiayaan</th>
             <th scope="col" colspan="3">Jumlah Judul</th>
-            <th class="align-middle" scope="col" rowspan="2" >Jumlah</th>       
-            <th class="align-middle" scope="col" rowspan="2" >Opsi</th>       
+            <th class="align-middle" scope="col" rowspan="2" >Jumlah</th>  
+            @hasanyrole('dekan|perwakilan')     
+            <th class="align-middle" scope="col" rowspan="2" >Opsi</th>    
+            @endhasanyrole   
         </tr>
         <tr>
             <th scope="col">TS-2</th>
@@ -18,6 +19,8 @@
         </tr>
 
     </thead>
+
+@hasanyrole('perwakilan|dekan')
     <tbody class="text-dark">
          {{-- Sumberdaya 1 --}}
           
@@ -158,33 +161,16 @@
             <td></td>
         </tr>
         </tbody>
-        @endhasanyrole  
+@endhasanyrole
 
-        @hasrole('dekan')
-        <thead>
-            <tr>
-    
-                <th class="align-middle" scope="col" rowspan="2">No</th>
-                <th class="align-middle" scope="col" rowspan="2">Sumber Pembiayaan</th>
-                <th scope="col" colspan="3">Jumlah Judul</th>
-                <th class="align-middle" scope="col" rowspan="2" >Jumlah</th>             
-               
-            
-            
-            </tr>
-            <tr>
-                <th scope="col">TS-2</th>
-                <th scope="col">TS-1</th>
-                <th scope="col">TS</th>
-            </tr>
-    
-        </thead>
+    @hasrole('asesor')
+        
         <tbody class="text-dark">
     
              {{-- Sumberdaya 1 --}}
               
                    
-             @foreach ($penelitians['ts'] as $ts)
+             @foreach ($penelitians['ts_asesor'] as $ts)
              <tr>
              <td>1</td>
              <td>
@@ -192,15 +178,15 @@
              </td>
              @endforeach 
     
-             @foreach ($penelitians['ts2'] as $ts2)
+             @foreach ($penelitians['ts2_asesor'] as $ts2)
              <td>{{ $ts2->jumlah_ts }}</td> 
              @endforeach
     
-             @foreach ($penelitians['ts1'] as $ts1)
+             @foreach ($penelitians['ts1_asesor'] as $ts1)
              <td>{{ $ts1->jumlah_ts }}</td> 
              @endforeach
     
-             @foreach ($penelitians['ts'] as $ts)
+             @foreach ($penelitians['ts_asesor'] as $ts)
              <td>{{ $ts->jumlah_ts }}</td> 
              <td>{{ $ts->jumlah }}</td> 
              
@@ -208,7 +194,7 @@
              @endforeach 
     
          {{-- Sumberdaya 2 --}}
-         @foreach ($penelitians['ts_sumber2'] as $ts)
+         @foreach ($penelitians['ts_sumber2_asesor'] as $ts)
              <tr>
              <td>2</td>
              <td>
@@ -216,22 +202,22 @@
              </td>
              @endforeach 
     
-             @foreach ($penelitians['ts2_sumber2'] as $ts2)
+             @foreach ($penelitians['ts2_sumber2_asesor'] as $ts2)
              <td>{{ $ts2->jumlah_ts }}</td> 
              @endforeach
     
-             @foreach ($penelitians['ts1_sumber2'] as $ts1)
+             @foreach ($penelitians['ts1_sumber2_asesor'] as $ts1)
              <td>{{ $ts1->jumlah_ts }}</td> 
              @endforeach
     
-             @foreach ($penelitians['ts_sumber2'] as $ts)
+             @foreach ($penelitians['ts_sumber2_asesor'] as $ts)
              <td>{{ $ts->jumlah_ts }}</td> 
              <td>{{ $ts->jumlah }}</td> 
              </tr>
          @endforeach 
     
          {{-- Sumberdaya 3 --}}
-         @foreach ($penelitians['ts_sumber3'] as $ts)
+         @foreach ($penelitians['ts_sumber3_asesor'] as $ts)
              <tr>
              <td>3</td>
              <td>
@@ -239,15 +225,15 @@
              </td>
              @endforeach 
     
-             @foreach ($penelitians['ts2_sumber3'] as $ts2)
+             @foreach ($penelitians['ts2_sumber3_asesor'] as $ts2)
              <td>{{ $ts2->jumlah_ts }}</td> 
              @endforeach
     
-             @foreach ($penelitians['ts1_sumber3'] as $ts1)
+             @foreach ($penelitians['ts1_sumber3_asesor'] as $ts1)
              <td>{{ $ts1->jumlah_ts }}</td> 
              @endforeach
     
-             @foreach ($penelitians['ts_sumber3'] as $ts)
+             @foreach ($penelitians['ts_sumber3_asesor'] as $ts)
              <td>{{ $ts->jumlah_ts }}</td> 
              <td>{{ $ts->jumlah }}</td> 
              </tr>
@@ -255,13 +241,12 @@
     
             <tr>
                 <td colspan="2" class="text-center"><b>Jumlah</b></td>
-                <td>{{ $penelitians['jumlah_ts2'] }}</td>
-                <td>{{ $penelitians['jumlah_ts1'] }}</td>
-                <td>{{ $penelitians['jumlah_ts'] }}</td>
-                <td>{{ $penelitians['jumlah'] }}</td>
+                <td>{{ $penelitians['jumlah_ts2_asesor'] }}</td>
+                <td>{{ $penelitians['jumlah_ts1_asesor'] }}</td>
+                <td>{{ $penelitians['jumlah_ts_asesor'] }}</td>
+                <td>{{ $penelitians['jumlah_asesor'] }}</td>
             </tr>
         </tbody>
-        @endhasrole
-
+    @endhasrole
     </table> 
 </div>

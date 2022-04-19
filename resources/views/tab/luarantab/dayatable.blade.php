@@ -19,7 +19,7 @@
             </tr>
     
         </thead>
-        
+    
         <tbody>
             @foreach($dayasaing['waktu'] as $key => $data)
                 <tr>
@@ -52,31 +52,30 @@
                 </tr>
             @endforeach  
         </tbody>
-        @endhasanyrole
+    @endhasanyrole
     
-        @hasrole('asesor')
-        <thead>
-        
-            <tr>
-                <th class="align-middle text-center" scope="col" rowspan="2">Tahun <br> Lulus</th>
-                <th class="align-middle text-center" scope="col" rowspan="2">Jumlah <br> Lulusan</th>
-                <th class="align-middle text-center" scope="col" rowspan="2">Jumlah <br> Lulusan <br> yang <br> Terlacak </th>
-                <th class="align-middle text-center" scope="col" colspan="3">Jumlah Lulusan Terlacak <br> dengan Waktu Tunggu <br> Mendapatkan Pekerjaan </th>
-            </tr>
+        @hasrole('asesor')     
+            <thead>
+            
+                <tr>
+                    <th class="align-middle text-center" scope="col" rowspan="2">Tahun <br> Lulus</th>
+                    <th class="align-middle text-center" scope="col" rowspan="2">Jumlah <br> Lulusan</th>
+                    <th class="align-middle text-center" scope="col" rowspan="2">Jumlah <br> Lulusan <br> yang <br> Terlacak </th>
+                    <th class="align-middle text-center" scope="col" colspan="3">Jumlah Lulusan Terlacak <br> dengan Waktu Tunggu <br> Mendapatkan Pekerjaan </th>
+                </tr>
 
-            <tr>
-                <th class="align-middle text-center" scope="col">WT < 6 <br> bulan </th>
-                <th class="align-middle text-center" scope="col">6  ≤ WT  ≤ <br> 18 bulan </th>
-                <th class="align-middle text-center" scope="col">WT > 18 <br> bulan </th>
-            </tr>
-            
-            </thead>
-            
+                <tr>
+                    <th class="align-middle text-center" scope="col">WT < 6 <br> bulan </th>
+                    <th class="align-middle text-center" scope="col">6  ≤ WT  ≤ <br> 18 bulan </th>
+                    <th class="align-middle text-center" scope="col">WT > 18 <br> bulan </th>
+                </tr>
+        
+            </thead>       
             <tbody>
         
-            @foreach($dayasaing['waktu'] as $key => $data)
+            @foreach($dayasaing['waktu_asesor'] as $key => $data)
             <tr>
-                <td>{{ $key == sizeof($dayasaing['waktu'])-1 ? 'TS-2' : 'TS-'.(sizeof($dayasaing['waktu'])+1-$key) }}</td>
+                <td>{{ $key == sizeof($dayasaing['waktu_asesor'])-1 ? 'TS-2' : 'TS-'.(sizeof($dayasaing['waktu_asesor'])+1-$key) }}</td>
                 <td>{{ $data->jumlah_lulusan }}</td>
                 <td>{{ $data->jumlah_lulusan_terlacak }}</td>
                 <td>{{ $data->waktu_tunggu_6}}</td>

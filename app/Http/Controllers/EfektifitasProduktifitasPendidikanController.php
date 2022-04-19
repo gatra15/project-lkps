@@ -73,6 +73,7 @@ class EfektifitasProduktifitasPendidikanController extends Controller
     ];
 
         $ts_all = EfektifitasProduktifitasPendidikan::where($where)->get();
+        $ts_all_asesor = EfektifitasProduktifitasPendidikan::where($where)->where('is_approved',1)->get();
         $ts3 = EfektifitasProduktifitasPendidikan::where($where3)->get();
         $average6 = EfektifitasProduktifitasPendidikan::where($where6)->sum('average');
         $jumlah6 = EfektifitasProduktifitasPendidikan::where($where6)->sum('jumlah');
@@ -95,6 +96,7 @@ class EfektifitasProduktifitasPendidikanController extends Controller
         // $ts6 = EfektifitasProduktifitasPendidikan::with('tahun')->where($where6)->get();
         return [
             'data' => $ts_all,
+            'data_asesor' => $ts_all_asesor,
             'ts3' => $ts3,
             'average6' => $average6,
             'jumlah6' => $jumlah6,

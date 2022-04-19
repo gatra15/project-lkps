@@ -13,7 +13,6 @@ th span {
 </style>
 <div id="print-table3" >
     <table class="table table-bordered table-condensed ">
-    @hasanyrole('perwakilan|dekan')
     <thead>
     
         <tr>
@@ -27,7 +26,9 @@ th span {
             <th scope="col" class="align-middle text-center" colspan="4">Bukti Kredit <br> (sks)</th>
             <th scope="col" class="align-middle text-center" rowspan="2">Dokumen <br> Rencana <br> Pembela- <br> jaran <sup>3)</sup></th>
             <th scope="col" class="align-middle text-center" rowspan="2">Unit <br> Penye- <br> lenggara</th>
+        @hasanyrole('perwakilan|dekan')            
             <th scope="col" class="align-middle text-center" rowspan="2">Opsi</th>
+        @endhasanyrole 
         </tr>
             
         <tr>
@@ -41,7 +42,7 @@ th span {
         </tr>
 
     </thead>
-    
+@hasanyrole('perwakilan|dekan')
     <tbody>
         @foreach ($kurikulum['kurikulum'] as $kur)
             <tr>
@@ -95,38 +96,12 @@ th span {
         </tr>
   
     </tbody>
-    @endhasanyrole
+@endhasanyrole
 
-    @hasrole('asesor')
-    <thead>
-    
-        <tr>
-            <th scope="col" class="align-middle text-center" rowspan="2">No</th>
-            <th scope="col" class="align-middle text-center" rowspan="2"> <span> Semester</span></th>
-            <th scope="col" class="align-middle text-center" rowspan="2">Kode <br> Mata <br> Kuliah</th>
-            <th scope="col" class="align-middle text-center" rowspan="2">Nama <br> Mata <br> Kuliah</th>
-            <th scope="col" class="align-middle text-center" rowspan="2">Mata Kuliah <br> Kompetensi <sup>1)</sup></th>
-            <th scope="col" class="align-middle text-center" colspan="3">Bukti Kredit <br> (sks)</th>
-            <th scope="col" class="align-middle text-center" rowspan="2">Konversi Kredit ke Jam <sup>2)</sup></th>
-            <th scope="col" class="align-middle text-center" colspan="4">Bukti Kredit <br> (sks)</th>
-            <th scope="col" class="align-middle text-center" rowspan="2">Dokumen <br> Rencana <br> Pembela- <br> jaran <sup>3)</sup></th>
-            <th scope="col" class="align-middle text-center" rowspan="2">Unit <br> Penye- <br> lenggara</th>
-        </tr>
-        <tr>
-            <th> <span class="text-center">Kuliah/ Responsi/ <br> Tutorial</span>  </th>
-            <th> <span class="text-center">Seminar</span> </th>
-            <th> <span class="text-center">Praktikum/ Praktik/ <br> Praktik Lapangan</span> </th>
-            <th> <span class="text-center">Sikap</span>  </th>
-            <th> <span class="text-center">Pengetahuan</span> </th>
-            <th> <span class="text-center">Keterampilan <br> Umum</span> </th>
-            <th> <span class="text-center">Keterampilan <br> Khusus</span> </th>
-        </tr>
-        
-        </thead>
-        
+    @hasrole('asesor')       
         <tbody>
     
-        @foreach ($kurikulum['kurikulum'] as $kur)
+        @foreach ($kurikulum['kurikulum_asesor'] as $kur)
         <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $kur->semester }}</td>
@@ -149,11 +124,11 @@ th span {
 
         <tr>
             <td class="putih align-middle text-center" colspan="4"><b>Jumlah </b></td>
-            <td class="putih align-middle text-center">{{ $kurikulum['makul'] }}</td>
-            <td class="putih align-middle text-center">{{ $kurikulum['bobot_kuliah'] }}</td>
-            <td class="putih align-middle text-center">{{ $kurikulum['bobot_seminar'] }}</td>
-            <td class="putih align-middle text-center">{{ $kurikulum['bobot_praktikum'] }}</td>
-            <td class="putih align-middle text-center">{{ $kurikulum['konversi_kredit_jam'] }} <b>Jam</b> </td>
+            <td class="putih align-middle text-center">{{ $kurikulum['makul_asesor'] }}</td>
+            <td class="putih align-middle text-center">{{ $kurikulum['bobot_kuliah_asesor'] }}</td>
+            <td class="putih align-middle text-center">{{ $kurikulum['bobot_seminar_asesor'] }}</td>
+            <td class="putih align-middle text-center">{{ $kurikulum['bobot_praktikum_asesor'] }}</td>
+            <td class="putih align-middle text-center">{{ $kurikulum['konversi_kredit_jam_asesor'] }} <b>Jam</b> </td>
             <td colspan="6"></td>
         </tr>
         </tbody>

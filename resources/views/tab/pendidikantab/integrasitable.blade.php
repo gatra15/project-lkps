@@ -1,8 +1,6 @@
 <div id="print-table">
     <table class="table table-bordered table-condensed">
         
-        
-    @hasanyrole('perwakilan|dekan')
     <thead>
     
     <tr>
@@ -11,12 +9,13 @@
     <th scope="col">Nama Dosen</th>
     <th scope="col">Mata Kuliah</th>
     <th scope="col">Bentuk Integrasi <sup>2)</sup></th>
+    @hasanyrole('perwakilan|dekan')            
     <th scope="col">Opsi</th>
-    
+    @endhasanyrole 
     </tr>
     
     </thead>
-    
+@hasanyrole('perwakilan|dekan')
     <tbody>
 
     @foreach ($integrasi['integrasi'] as $integrasi)
@@ -50,24 +49,12 @@
         </tr>
     @endforeach
     </tbody>
-    @endhasanyrole
+@endhasanyrole
 
-    @hasrole('asesor')
-    <thead>
-    
-        <tr>
-        <th scope="col">No</th>
-        <th scope="col">Judul Penelitian/PkM <sup>1)</sup>  </th>
-        <th scope="col">Nama Dosen</th>
-        <th scope="col">Mata Kuliah</th>
-        <th scope="col">Bentuk Integrasi <sup>2)</sup></th>
-        </tr>
-        
-        </thead>
-        
+    @hasrole('asesor')       
         <tbody>
     
-        @foreach ($integrasi['integrasi'] as $integrasi)
+        @foreach ($integrasi['integrasi_asesor'] as $integrasi)
             <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $integrasi->judul }}</td>

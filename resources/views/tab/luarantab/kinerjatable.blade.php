@@ -1,7 +1,7 @@
 <div id="print-table7">
     <table id='form-print' class="table text-center table-bordered table-condensed">
 
-    @hasanyrole('perwakilan|dekan')
+@hasanyrole('perwakilan|dekan')
     <thead>
     
         <tr>
@@ -24,7 +24,7 @@
         </tr>
 
     </thead>
-    
+
     <tbody>
         @foreach ($kinerjaLulusan['data'] as $key => $data)
         <tr>
@@ -69,11 +69,11 @@
         </tr>
 
     </tbody>
-    @endhasanyrole
+@endhasanyrole
 
-    @hasrole('asesor')
+@hasrole('asesor')   
     <thead>
-    
+        
         <tr>
             <th class="align-middle" scope="col" rowspan="2">Tahun Lulus</th>
             <th class="align-middle" scope="col" rowspan="2">Jumlah Lulusan</th>
@@ -93,12 +93,11 @@
         </tr>
 
     </thead>
-    
     <tbody>
-        @foreach ($kinerjaLulusan['data'] as $key => $data)
+        @foreach ($kinerjaLulusan['data_asesor'] as $key => $data)
         <tr>
            
-            <td>{{ $key == sizeof($kinerjaLulusan['data'])-1 ? 'TS-2' : 'TS-'.(sizeof($kinerjaLulusan['data'])+1-$key) }}</td>
+            <td>{{ $key == sizeof($kinerjaLulusan['data_asesor'])-1 ? 'TS-2' : 'TS-'.(sizeof($kinerjaLulusan['data_asesor'])+1-$key) }}</td>
             <td>{{ $data->jumlah_lulusan }}</td>
             <td>{{ $data->jumlah_lulusan_terlacak }}</td>
             <td>{{ $data->tempat_wilayah_tidak_berizin}}</td>
@@ -111,13 +110,13 @@
         <tr>
             <td class="align-middle text-center" colspan="1"><b>Jumlah</b></td>
             {{-- <td>{{ $kinerjaLulusan['nl'] }}</td> --}}
-            <td>{{ $kinerjaLulusan['nj'] }}</td>
-            <td>{{ $kinerjaLulusan['wilayah'] }}</td>
-            <td>{{ $kinerjaLulusan['nasional'] }}</td>
-            <td>{{ $kinerjaLulusan['internasional'] }}</td>
+            <td>{{ $kinerjaLulusan['nj_asesor'] }}</td>
+            <td>{{ $kinerjaLulusan['wilayah_asesor'] }}</td>
+            <td>{{ $kinerjaLulusan['nasional_asesor'] }}</td>
+            <td>{{ $kinerjaLulusan['internasional_asesor'] }}</td>
         </tr>
 
     </tbody>
-    @endhasrole
+@endhasrole
 </table> 
 </div>

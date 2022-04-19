@@ -66,6 +66,11 @@ class KepuasanPenggunaController extends Controller
         $baik = KepuasanPengguna::where('tahun_laporan', $tahun)->sum('baik');
         $cukup = KepuasanPengguna::where('tahun_laporan', $tahun)->sum('cukup');
         $kurang = KepuasanPengguna::where('tahun_laporan', $tahun)->sum('kurang');
+        $kepuasan_asesor = KepuasanPengguna::with('kemampuan')->where('tahun_laporan', $tahun)->where('is_approved', 1)->get();
+        $sangat_baik_asesor = KepuasanPengguna::where('tahun_laporan', $tahun)->where('is_approved', 1)->sum('sangat_baik');
+        $baik_asesor = KepuasanPengguna::where('tahun_laporan', $tahun)->where('is_approved', 1)->sum('baik');
+        $cukup_asesor = KepuasanPengguna::where('tahun_laporan', $tahun)->where('is_approved', 1)->sum('cukup');
+        $kurang_asesor = KepuasanPengguna::where('tahun_laporan', $tahun)->where('is_approved', 1)->sum('kurang');
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
 
         $tkp1 = [
@@ -116,6 +121,11 @@ class KepuasanPenggunaController extends Controller
             'baik' => $baik,
             'cukup' => $cukup,
             'kurang' => $kurang,
+            'kepuasan_asesor' => $kepuasan_asesor,
+            'sangat_baik_asesor' => $sangat_baik_asesor,
+            'baik_asesor' => $baik_asesor,
+            'cukup_asesor' => $cukup_asesor,
+            'kurang_asesor' => $kurang_asesor,
             'tkp1' => $tkp1,
             'tkp2' => $tkp2,
             'tkp3' => $tkp3,

@@ -3,7 +3,6 @@
     <table id='form-print' class="table text-center table-bordered table-condensed">
 
     
-        @hasanyrole('perwakilan|dekan')
         <thead>
         
             <tr>
@@ -12,11 +11,13 @@
                 <th class="align-middle" scope="col" rowspan="1">Tahun</th>
                 <th class="align-middle" scope="col" rowspan="1">Keterangan</th>
                 <th class="align-middle" scope="col" rowspan="1">Bukti</th>
-                <th class="align-middle" scope="col" rowspan="1"> Opsi </th>    
+                @hasanyrole('perwakilan|dekan')            
+                <th class="align-middle" scope="col" rowspan="1"> Opsi </th> 
+                @endhasanyrole 
             </tr>
     
         </thead>
-
+    @hasanyrole('perwakilan|dekan')
         {{-- HK 1 --}}
         <thead>
             <tr>
@@ -36,7 +37,7 @@
                 @endhasrole
             </tr>
         </thead>
-        
+
         <tbody>
             @foreach($luaran['data'] as $data)
             @if( $data->type_luaran == 'I')
@@ -313,22 +314,9 @@
             </tr>
         </tbody>
 
-        @endhasanyrole
+    @endhasanyrole
     
-        @hasrole('asesor')
-        <thead>
-        
-            <tr>
-                <th class="align-middle" scope="col" rowspan="1">No</th>
-                <th class="align-middle" scope="col" rowspan="1">Judul Luaran Penelitian/PkM</th>
-                <th class="align-middle" scope="col" rowspan="1">Tahun</th>
-                <th class="align-middle" scope="col" rowspan="1">Keterangan</th>
-                <th class="align-middle" scope="col" rowspan="1">Bukti</th>
-  
-            </tr>
-    
-        </thead>
-
+    @hasrole('asesor')
         {{-- HK 1 --}}
         <thead>
             <tr>
@@ -345,7 +333,7 @@
         </thead>
         
         <tbody>
-            @foreach($luaran['data'] as $data)
+            @foreach($luaran['data_asesor'] as $data)
             @if( $data->type_luaran == 'I')
             <tr>
                 <td>{{ $loop->iteration }}</td>
@@ -400,7 +388,7 @@
         </thead>
         
         <tbody>
-            @foreach($luaran['data'] as $data)
+            @foreach($luaran['data_asesor'] as $data)
             @if( $data->type_luaran == 'II')
             <tr>
                 <td>{{ $loop->iteration }}</td>
@@ -453,7 +441,7 @@
 
         <tbody class="text-dark">
                 {{-- TABLE CONTENT --}}
-                @foreach($luaran['data'] as $data)
+                @foreach($luaran['data_asesor'] as $data)
             @if( $data->type_luaran == 'III')
             <tr>
                 <td>{{ $loop->iteration }}</td>
@@ -503,7 +491,7 @@
 
         <tbody class="text-dark">
                 {{-- TABLE CONTENT --}}
-            @foreach($luaran['data'] as $data)
+            @foreach($luaran['data_asesor'] as $data)
             @if( $data->type_luaran == 'IV')
             <tr>
                 <td>{{ $loop->iteration }}</td>
@@ -535,6 +523,6 @@
                 <td></td>
             </tr>
         </tbody>
-        @endhasrole
+    @endhasrole
     </table> 
 </div>

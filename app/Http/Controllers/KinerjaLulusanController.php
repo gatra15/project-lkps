@@ -54,6 +54,12 @@ class KinerjaLulusanController extends Controller
         $internasional = KinerjaLulusan::where($where)->sum('internasional');
         $nl = KinerjaLulusan::where($where)->sum('jumlah_lulusan');
         $nj = KinerjaLulusan::where($where)->sum('jumlah_lulusan_terlacak');
+        $data_asesor = KinerjaLulusan::with('tahun')->where($where)->where('is_approved',1)->get();
+        $wilayah_asesor = KinerjaLulusan::where($where)->where('is_approved',1)->sum('tempat_wilayah_tidak_berizin');
+        $nasional_asesor = KinerjaLulusan::where($where)->where('is_approved',1)->sum('tempat_nasional_berizin');
+        $internasional_asesor = KinerjaLulusan::where($where)->where('is_approved',1)->sum('internasional');
+        $nl_asesor = KinerjaLulusan::where($where)->where('is_approved',1)->sum('jumlah_lulusan');
+        $nj_asesor = KinerjaLulusan::where($where)->where('is_approved',1)->sum('jumlah_lulusan_terlacak');
         return [
             'data' => $data,
             'wilayah' => $wilayah,
@@ -61,6 +67,12 @@ class KinerjaLulusanController extends Controller
             'internasional' => $internasional,
             'nl' => $nl,
             'nj' => $nj,
+            'data_asesor' => $data_asesor,
+            'wilayah_asesor' => $wilayah_asesor,
+            'nasional_asesor' => $nasional_asesor,
+            'internasional_asesor' => $internasional_asesor,
+            'nl_asesor' => $nl_asesor,
+            'nj_asesor' => $nj_asesor,
         ];
     }
 

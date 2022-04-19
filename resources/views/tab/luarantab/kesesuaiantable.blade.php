@@ -1,7 +1,7 @@
 <div id="print-table6">
     <table id='form-print' class="table text-center table-bordered table-condensed">
 
-    @hasanyrole('perwakilan|dekan')
+@hasanyrole('perwakilan|dekan')
     <thead>
     
         <tr>
@@ -20,7 +20,7 @@
         </tr>
 
     </thead>
-    
+
     <tbody>
         @foreach($kesesuaianBidang['bidang'] as $key => $kesesuaian)
         <tr>
@@ -54,11 +54,11 @@
         @endforeach  
 
     </tbody>
-    @endhasanyrole
+@endhasanyrole
 
-    @hasrole('asesor')
+@hasrole('asesor')   
     <thead>
-    
+        
         <tr>
             <th class="align-middle text-center" scope="col" rowspan="2">Tahun Lulus</th>
             <th class="align-middle text-center" scope="col" rowspan="2">Jumlah <br> Lulusan </th>
@@ -74,11 +74,10 @@
         </tr>
 
     </thead>
-    
     <tbody>
-        @foreach($kesesuaianBidang['bidang'] as $key => $kesesuaian)
+        @foreach($kesesuaianBidang['bidang_asesor'] as $key => $kesesuaian)
         <tr>
-            <td>{{ $key == sizeof($kesesuaianBidang['bidang'])-1 ? 'TS-2' : 'TS-'.(sizeof($kesesuaianBidang['bidang'])+1-$key) }}</td>
+            <td>{{ $key == sizeof($kesesuaianBidang['bidang_asesor'])-1 ? 'TS-2' : 'TS-'.(sizeof($kesesuaianBidang['bidang_asesor'])+1-$key) }}</td>
             <td>{{ $kesesuaian->jumlah_lulusan }}</td>
             <td>{{ $kesesuaian->jumlah_lulusan_terlacak }}</td>
             <td>{{ $kesesuaian->kesesuaian_rendah}}</td>
@@ -89,6 +88,6 @@
         @endforeach  
 
     </tbody>
-    @endhasrole
+@endhasrole
 </table> 
 </div>

@@ -1,15 +1,17 @@
 <div id="print-table">
     <table id='form-print' class="table text-center table-bordered table-condensed">
-        @hasanyrole('perwakilan|dekan')
         <thead>
             <tr>
                 <th class="align-middle" scope="col" rowspan="2">No</th>
                 <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
                 <th class="align-middle" scope="col" rowspan="2">Judul Artikel yang Disitasi (Jurnal/Buku,Volume, Tahun, Nomor,Halaman)</th>
-                <th class="align-middle" scope="col" rowspan="2" >Jumlah Sitasi</th>                  
-                <th class="align-middle" scope="col" rowspan="2" >Opsi</th>               
+                <th class="align-middle" scope="col" rowspan="2" >Jumlah Sitasi</th>   
+                @hasanyrole('perwakilan|dekan')            
+                <th class="align-middle" scope="col" rowspan="2" >Opsi</th>    
+                @endhasanyrole            
             </tr>
         </thead>
+    @hasanyrole('perwakilan|dekan')
 
         <tbody class="text-dark">
             @foreach ($karyailmiah['karyailmiah'] as $karil)
@@ -50,20 +52,11 @@
             <td></td>
         </tr>
         </tbody>
-        @endhasanyrole  
+    @endhasanyrole  
 
-        @hasrole('dekan')
-        <thead>
-            <tr>
-                <th class="align-middle" scope="col" rowspan="2">No</th>
-                <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
-                <th class="align-middle" scope="col" rowspan="2">Judul Artikel yang Disitasi (Jurnal/Buku,Volume, Tahun, Nomor,Halaman)</th>
-                <th class="align-middle" scope="col" rowspan="2" >Jumlah Sitasi</th>                           
-            </tr>
-        </thead>
-
+    @hasrole('dekan')
         <tbody class="text-dark">
-            @foreach ($karyailmiah['karyailmiah'] as $karil)
+            @foreach ($karyailmiah['karyailmiah_asesor'] as $karil)
             <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $karil->nama_dosen }}</td> 
@@ -78,10 +71,10 @@
 
         <tr>
             <td colspan="2"><b>Jumlah</b></td>
-            <td>{{ $karyailmiah['count'] }}</td>
-            <td>{{ $karyailmiah['jumlah'] }}</td>
+            <td>{{ $karyailmiah['count_asesor'] }}</td>
+            <td>{{ $karyailmiah['jumlah_asesor'] }}</td>
         </tr>
         </tbody>
-        @endhasrole
+    @endhasrole
         </table> 
     </div>

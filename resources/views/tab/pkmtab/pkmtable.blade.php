@@ -1,8 +1,6 @@
 <div id="print-table">
     <table id='form-print' class="table text-center table-bordered table-condensed">
-        
-
-            @hasanyrole('perwakilan|dekan')
+        @hasanyrole('perwakilan|dekan')
             <thead>
             
                 <tr>
@@ -12,11 +10,13 @@
                     <th class="align-middle" scope="col" rowspan="2">Nama Mahasiswa</th>
                     <th class="align-middle" scope="col" rowspan="2">Judul Kegiatan <sup>1)</sup></th>
                     <th class="align-middle" scope="col" rowspan="2">Tahun</th>
+                    @hasanyrole('perwakilan|dekan')            
                     <th class="align-middle" scope="col" rowspan="2">Opsi</th>
+                    @endhasanyrole 
                 </tr>
         
             </thead>
-            
+        
             <tbody>
                 @foreach ($pengabdian as $pkm)
                     <tr>
@@ -58,25 +58,12 @@
                 </tr>
           
             </tbody>
-            @endhasanyrole
+        @endhasanyrole
         
             @hasrole('asesor')
-            <thead>
-            
-                <tr>
-                    <th class="align-middle" scope="col" rowspan="2">No</th>
-                    <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
-                    <th class="align-middle" scope="col" rowspan="2">Tema PkM Sesuai Roadmap</th>
-                    <th class="align-middle" scope="col" rowspan="2">Nama Mahasiswa</th>
-                    <th class="align-middle" scope="col" rowspan="2">Judul Kegiatan <sup>1)</sup></th>
-                    <th class="align-middle" scope="col" rowspan="2">Tahun</th>
-                </tr>
-                
-                </thead>
-                
                 <tbody>
             
-                @foreach ($penelitian as $penelitian)
+                @foreach ($pengabdian_asesor as $pkm)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $pkm->nama_dosen }}</td>
@@ -90,7 +77,7 @@
         
                 <tr>
                     <td class="align-middle text-center" colspan="4"><b>Jumlah</b></td>
-                    <td>{{ $jumlah_judul }}</td>
+                    <td>{{ $jumlah_judul_asesor }}</td>
                     <td></td>
                 </tr>
                 </tbody>

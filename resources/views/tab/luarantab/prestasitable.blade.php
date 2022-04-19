@@ -1,7 +1,7 @@
 <div id="print-table8">
     <table id='form-print' class="table text-center table-bordered table-condensed">
 
-    @hasanyrole('perwakilan|dekan')
+@hasanyrole('perwakilan|dekan')
     <thead>
     
         <tr>
@@ -20,7 +20,7 @@
         </tr>
 
     </thead>
-    
+
     <tbody>
         <tr>
             @foreach ($prestasi['prestasi'] as $prest)
@@ -66,11 +66,11 @@
         </tr>
 
     </tbody>
-    @endhasanyrole
+@endhasanyrole
 
-    @hasrole('asesor')
+@hasrole('asesor')  
     <thead>
-    
+        
         <tr>
             <th class="align-middle" scope="col" rowspan="2">No</th>
             <th class="align-middle" scope="col" rowspan="2">Jenis Prestasi</th>
@@ -85,11 +85,10 @@
             <th  scope="col">Internasional</th>
         </tr>
 
-    </thead>
-    
+    </thead>  
     <tbody>
         <tr>
-            @foreach ($prestasi['prestasi'] as $prest)
+            @foreach ($prestasi['prestasi_asesor'] as $prest)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $prest->jenis_prestasi }}</td>
@@ -106,14 +105,14 @@
 
         <tr>
             <td colspan="4" class="text-center"><b>Jumlah</b></td>
-            <td>{{ $prestasi['wilayah'] }}</td>
-            <td>{{ $prestasi['nasional'] }}</td>
-            <td>{{ $prestasi['internasional'] }}</td>
+            <td>{{ $prestasi['wilayah_asesor'] }}</td>
+            <td>{{ $prestasi['nasional_asesor'] }}</td>
+            <td>{{ $prestasi['internasional_asesor'] }}</td>
             <td colspan="1" style="background-color: grey"></td>
         </tr>
 
     </tbody>
-    @endhasrole
+@endhasrole
     </table> 
 </div>
 @include('layouts.table')

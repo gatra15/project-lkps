@@ -16,6 +16,7 @@
                     @endhasanyrole
                 </tr>
             </thead>
+        @hasanyrole('dekan|perwakilan')
             <tbody>
                 {{-- TABEL --}}
                 @foreach ($timpenyusun['tim'] as $tim)
@@ -51,6 +52,25 @@
                                   
                 @endforeach
             </tbody>
+        @endhasanyrole
+
+        @hasrole('asesor')
+            <tbody>
+                {{-- TABEL --}}
+                @foreach ($timpenyusun['tim_asesor'] as $tim)
+
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $tim->nama }}</td>
+                    <td>{{ $tim->nidn }}</td>
+                    <td>{{ $tim->jabatan }}</td>
+                    <td>{{ $tim->tanggal_pengisian }}</td>
+                    <td><img width="100" height="115" src="{{ asset('storage/'.$tim->ttd) }}" alt="ttd"></td>
+                </tr>
+                                  
+                @endforeach
+            </tbody>
+        @endhasrole
         </table>
       </div>
       <!-- /.card-body -->

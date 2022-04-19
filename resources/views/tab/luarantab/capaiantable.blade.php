@@ -1,8 +1,7 @@
 
 <div id="print-table2">
     <table id='form-print' class="table text-center table-bordered table-condensed">
-
-    @hasanyrole('perwakilan|dekan')
+        @hasanyrole('perwakilan|dekan')
             <thead>
             
                 <tr>
@@ -19,7 +18,7 @@
                 </tr>
         
             </thead>
-            
+
             <tbody>
                 @foreach ($capaianPembelajaran['capaian'] as $key => $capaian)
                     <tr>
@@ -51,9 +50,9 @@
                     </tr>
                 @endforeach  
             </tbody>
-            @endhasanyrole
+        @endhasanyrole
         
-            @hasrole('asesor')
+        @hasrole('asesor')   
             <thead>
             
                 <tr>
@@ -67,22 +66,21 @@
                     <th scope="col">Rata-rata</th>
                     <th scope="col">Maks.</th>
                 </tr>
-                
-                </thead>
-                
-                <tbody>
-            
-                @foreach ($capaianPembelajaran['capaian'] as $key => $capaian)
-                <tr>
-                    <td>{{ $key == sizeof($capaianPembelajaran['capaian'])-1 ? 'TS' : 'TS-'.(sizeof($capaianPembelajaran['capaian'])-1-$key) }}</td>
-                    <td>{{ $capaian->jumlah_lulusan }}</td>
-                    <td>{{ $capaian->ipk_min }}</td>
-                    <td>{{ $capaian->ipk_avg }}</td>
-                    <td>{{ $capaian->ipk_max }}</td>
-                        
-                </tr>
-                @endforeach
-                </tbody>
-            @endhasrole
+        
+            </thead>             
+            <tbody>
+        
+            @foreach ($capaianPembelajaran['capaian_asesor'] as $key => $capaian)
+            <tr>
+                <td>{{ $key == sizeof($capaianPembelajaran['capaian'])-1 ? 'TS' : 'TS-'.(sizeof($capaianPembelajaran['capaian'])-1-$key) }}</td>
+                <td>{{ $capaian->jumlah_lulusan }}</td>
+                <td>{{ $capaian->ipk_min }}</td>
+                <td>{{ $capaian->ipk_avg }}</td>
+                <td>{{ $capaian->ipk_max }}</td>
+                    
+            </tr>
+            @endforeach
+            </tbody>
+        @endhasrole
     </table> 
     </div>

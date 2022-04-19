@@ -20,11 +20,13 @@ class PenelitianController extends Controller
         $where2 = ['tahun_laporan' => $tahun-2, 'prodi' => $prodi];
 
         $penelitian = PenelitianDtpsMelibatkanMahasiswa::where($where)->get();
+        $penelitian_asesor = PenelitianDtpsMelibatkanMahasiswa::where($where)->where('is_approved',1)->get();
         $jumlah_judul = PenelitianDtpsMelibatkanMahasiswa::select('judul')->where($where)->count();
         $NPM = PenelitianDtpsMelibatkanMahasiswa::where($where)->orWhere($where1)->orWhere($where2)->count('judul');
         return view('tab.penelitian', [
             'title' => 'Penelitian',
             'penelitian' => $penelitian,
+            'penelitian_asesor' => $penelitian_asesor,
             'jumlah_judul' => $jumlah_judul,
             'npm' =>  $NPM,
         ]);

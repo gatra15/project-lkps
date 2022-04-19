@@ -318,50 +318,80 @@ class KeuanganSaranaPrasaranaController extends Controller
         $ts = SaranaDana::with('sarana', 'biaya')->where($w)->where('sarana_id', 1)->where('biaya_id', 1)->get();
         $ts1 = SaranaDana::with('sarana', 'biaya')->where($w1)->where('sarana_id', 1)->where('biaya_id', 1)->get();
         $ts2 = SaranaDana::with('sarana', 'biaya')->where($w2)->where('sarana_id', 1)->where('biaya_id', 1)->get();
+        $ts_asesor = SaranaDana::with('sarana', 'biaya')->where($w)->where('sarana_id', 1)->where('biaya_id', 1)->where('is_approved', 1)->get();
+        $ts1_asesor = SaranaDana::with('sarana', 'biaya')->where($w1)->where('sarana_id', 1)->where('biaya_id', 1)->where('is_approved', 1)->get();
+        $ts2_asesor = SaranaDana::with('sarana', 'biaya')->where($w2)->where('sarana_id', 1)->where('biaya_id', 1)->where('is_approved', 1)->get();
         
     // sarana 12
         $ts_sarana12 = SaranaDana::with('sarana', 'biaya')->where($w)->where('sarana_id', 1)->where('biaya_id', 2)->get();
         $ts1_sarana12 = SaranaDana::with('sarana', 'biaya')->where($w1)->where('sarana_id', 1)->where('biaya_id', 2)->get();
         $ts2_sarana12 = SaranaDana::with('sarana', 'biaya')->where($w2)->where('sarana_id', 1)->where('biaya_id', 2)->get();
+        $ts_sarana12_asesor = SaranaDana::with('sarana', 'biaya')->where($w)->where('sarana_id', 1)->where('biaya_id', 2)->where('is_approved', 1)->get();
+        $ts1_sarana12_asesor = SaranaDana::with('sarana', 'biaya')->where($w1)->where('sarana_id', 1)->where('biaya_id', 2)->where('is_approved', 1)->get();
+        $ts2_sarana12_asesor = SaranaDana::with('sarana', 'biaya')->where($w2)->where('sarana_id', 1)->where('biaya_id', 2)->where('is_approved', 1)->get();
         
     // sarana 13
         $ts_sarana13 = SaranaDana::with('sarana', 'biaya')->where($w)->where('sarana_id', 1)->where('biaya_id', 3)->get();
         $ts1_sarana13 = SaranaDana::with('sarana', 'biaya')->where($w1)->where('sarana_id', 1)->where('biaya_id', 3)->get();
         $ts2_sarana13 = SaranaDana::with('sarana', 'biaya')->where($w2)->where('sarana_id', 1)->where('biaya_id', 3)->get();
+        $ts_sarana13_asesor = SaranaDana::with('sarana', 'biaya')->where($w)->where('sarana_id', 1)->where('biaya_id', 3)->where('is_approved', 1)->get();
+        $ts1_sarana13_asesor = SaranaDana::with('sarana', 'biaya')->where($w1)->where('sarana_id', 1)->where('biaya_id', 3)->where('is_approved', 1)->get();
+        $ts2_sarana13_asesor = SaranaDana::with('sarana', 'biaya')->where($w2)->where('sarana_id', 1)->where('biaya_id', 3)->where('is_approved', 1)->get();
         
     // sarana 14
         $ts_sarana14 = SaranaDana::with('sarana', 'biaya')->where($w)->where('sarana_id', 1)->where('biaya_id', 4)->get();
         $ts1_sarana14 = SaranaDana::with('sarana', 'biaya')->where($w1)->where('sarana_id', 1)->where('biaya_id', 4)->get();
         $ts2_sarana14 = SaranaDana::with('sarana', 'biaya')->where($w2)->where('sarana_id', 1)->where('biaya_id', 4)->get();
+        $ts_sarana14_asesor = SaranaDana::with('sarana', 'biaya')->where($w)->where('sarana_id', 1)->where('biaya_id', 4)->where('is_approved', 1)->get();
+        $ts1_sarana14_asesor = SaranaDana::with('sarana', 'biaya')->where($w1)->where('sarana_id', 1)->where('biaya_id', 4)->where('is_approved', 1)->get();
+        $ts2_sarana14_asesor = SaranaDana::with('sarana', 'biaya')->where($w2)->where('sarana_id', 1)->where('biaya_id', 4)->where('is_approved', 1)->get();
 
     // sarana 2
         $ts_sarana2 = SaranaDana::with('sarana')->where($w)->where('sarana_id', 2)->get();
         $ts1_sarana2 = SaranaDana::with('sarana')->where($w1)->where('sarana_id', 2)->get();
         $ts2_sarana2 = SaranaDana::with('sarana')->where($w2)->where('sarana_id', 2)->get();
+        $ts_sarana2_asesor = SaranaDana::with('sarana')->where($w)->where('sarana_id', 2)->where('is_approved', 1)->get();
+        $ts1_sarana2_asesor = SaranaDana::with('sarana')->where($w1)->where('sarana_id', 2)->where('is_approved', 1)->get();
+        $ts2_sarana2_asesor = SaranaDana::with('sarana')->where($w2)->where('sarana_id', 2)->where('is_approved', 1)->get();
 
     // sarana 3
         $ts_sarana3 = SaranaDana::with('sarana')->where($w)->where('sarana_id', 3)->get();
         $ts1_sarana3 = SaranaDana::with('sarana')->where($w1)->where('sarana_id', 3)->get();
         $ts2_sarana3 = SaranaDana::with('sarana')->where($w2)->where('sarana_id', 3)->get();
+        $ts_sarana3_asesor = SaranaDana::with('sarana')->where($w)->where('sarana_id', 3)->where('is_approved', 1)->get();
+        $ts1_sarana3_asesor = SaranaDana::with('sarana')->where($w1)->where('sarana_id', 3)->where('is_approved', 1)->get();
+        $ts2_sarana3_asesor = SaranaDana::with('sarana')->where($w2)->where('sarana_id', 3)->where('is_approved', 1)->get();
         
     // sarana 4
         $ts_sarana4 = SaranaDana::with('sarana')->where($w)->where('sarana_id', 4)->get();
         $ts1_sarana4 = SaranaDana::with('sarana')->where($w1)->where('sarana_id', 4)->get();
         $ts2_sarana4 = SaranaDana::with('sarana')->where($w2)->where('sarana_id', 4)->get();
+        $ts_sarana4_asesor = SaranaDana::with('sarana')->where($w)->where('sarana_id', 4)->where('is_approved', 1)->get();
+        $ts1_sarana4_asesor = SaranaDana::with('sarana')->where($w1)->where('sarana_id', 4)->where('is_approved', 1)->get();
+        $ts2_sarana4_asesor = SaranaDana::with('sarana')->where($w2)->where('sarana_id', 4)->where('is_approved', 1)->get();
 
     // sarana 5
         $ts_sarana5 = SaranaDana::with('sarana')->where($w)->where('sarana_id', 5)->get();
         $ts1_sarana5 = SaranaDana::with('sarana')->where($w1)->where('sarana_id', 5)->get();
         $ts2_sarana5 = SaranaDana::with('sarana')->where($w2)->where('sarana_id', 5)->get();
+        $ts_sarana5_asesor = SaranaDana::with('sarana')->where($w)->where('sarana_id', 5)->where('is_approved', 1)->get();
+        $ts1_sarana5_asesor = SaranaDana::with('sarana')->where($w1)->where('sarana_id', 5)->where('is_approved', 1)->get();
+        $ts2_sarana5_asesor = SaranaDana::with('sarana')->where($w2)->where('sarana_id', 5)->where('is_approved', 1)->get();
 
     // sarana 6
         $ts_sarana6 = SaranaDana::with('sarana')->where($w)->where('sarana_id', 6)->get();
         $ts1_sarana6 = SaranaDana::with('sarana')->where($w1)->where('sarana_id', 6)->get();
         $ts2_sarana6 = SaranaDana::with('sarana')->where($w2)->where('sarana_id', 6)->get();
+        $ts_sarana6_asesor = SaranaDana::with('sarana')->where($w)->where('sarana_id', 6)->where('is_approved', 1)->get();
+        $ts1_sarana6_asesor = SaranaDana::with('sarana')->where($w1)->where('sarana_id', 6)->where('is_approved', 1)->get();
+        $ts2_sarana6_asesor = SaranaDana::with('sarana')->where($w2)->where('sarana_id', 6)->where('is_approved', 1)->get();
     // sarana 7
         $ts_sarana7 = SaranaDana::with('sarana')->where($w)->where('sarana_id', 7)->get();
         $ts1_sarana7 = SaranaDana::with('sarana')->where($w1)->where('sarana_id', 7)->get();
         $ts2_sarana7 = SaranaDana::with('sarana')->where($w2)->where('sarana_id', 7)->get();
+        $ts_sarana7_asesor = SaranaDana::with('sarana')->where($w)->where('sarana_id', 7)->where('is_approved', 1)->get();
+        $ts1_sarana7_asesor = SaranaDana::with('sarana')->where($w1)->where('sarana_id', 7)->where('is_approved', 1)->get();
+        $ts2_sarana7_asesor = SaranaDana::with('sarana')->where($w2)->where('sarana_id', 7)->where('is_approved', 1)->get();
     // End sarana
 
         // $keuangan = SaranaDana::with('sarana', 'biaya')->get();
@@ -383,6 +413,22 @@ class KeuanganSaranaPrasaranaController extends Controller
                              SaranaDana::where('sarana_id', 2)->where($w)->sum('ps_ts'),  
             'ps_average'  => SaranaDana::where('sarana_id', 1)->where($w)->sum('ps_average') + 
                              SaranaDana::where('sarana_id', 2)->where($w)->sum('ps_average'),  
+            'ts2_asesor'         => SaranaDana::where('sarana_id', 1)->where($w2)->where('is_approved', 1)->sum('unit_pengelola_ts') + 
+                                    SaranaDana::where('sarana_id', 2)->where($w2)->where('is_approved', 1)->sum('unit_pengelola_ts'),
+            'ts1_asesor'         => SaranaDana::where('sarana_id', 1)->where($w1)->where('is_approved', 1)->sum('unit_pengelola_ts') + 
+                                    SaranaDana::where('sarana_id', 2)->where($w1)->where('is_approved', 1)->sum('unit_pengelola_ts'), 
+            'ts_asesor'          => SaranaDana::where('sarana_id', 1)->where($w)->where('is_approved', 1)->sum('unit_pengelola_ts') + 
+                                    SaranaDana::where('sarana_id', 2)->where($w)->where('is_approved', 1)->sum('unit_pengelola_ts'), 
+            'average_asesor'     => SaranaDana::where('sarana_id', 1)->where($w)->where('is_approved', 1)->sum('unit_pengelola_average') + 
+                                    SaranaDana::where('sarana_id', 2)->where($w)->where('is_approved', 1)->sum('unit_pengelola_average'), 
+            'ps_ts2_asesor'      => SaranaDana::where('sarana_id', 1)->where($w2)->where('is_approved', 1)->sum('ps_ts') + 
+                                    SaranaDana::where('sarana_id', 2)->where($w2)->where('is_approved', 1)->sum('ps_ts'),  
+            'ps_ts1_asesor'      => SaranaDana::where('sarana_id', 1)->where($w1)->where('is_approved', 1)->sum('ps_ts') + 
+                                    SaranaDana::where('sarana_id', 2)->where($w1)->where('is_approved', 1)->sum('ps_ts'),  
+            'ps_ts_asesor'       => SaranaDana::where('sarana_id', 1)->where($w)->where('is_approved', 1)->sum('ps_ts') + 
+                                    SaranaDana::where('sarana_id', 2)->where($w)->where('is_approved', 1)->sum('ps_ts'),  
+            'ps_average_asesor'  => SaranaDana::where('sarana_id', 1)->where($w)->where('is_approved', 1)->sum('ps_average') + 
+                                    SaranaDana::where('sarana_id', 2)->where($w)->where('is_approved', 1)->sum('ps_average'),  
         ];
         
         $jumlah2 = [
@@ -402,6 +448,22 @@ class KeuanganSaranaPrasaranaController extends Controller
                              SaranaDana::where('sarana_id', 4)->where($w)->sum('ps_ts'),  
             'ps_average'  => SaranaDana::where('sarana_id', 3)->where($w)->sum('ps_average') + 
                              SaranaDana::where('sarana_id', 4)->where($w)->sum('ps_average'),  
+            'ts2_asesor'         => SaranaDana::where('sarana_id', 3)->where($w2)->where('is_approved', 1)->sum('unit_pengelola_ts') + 
+                                    SaranaDana::where('sarana_id', 4)->where($w2)->where('is_approved', 1)->sum('unit_pengelola_ts'),
+            'ts1_asesor'         => SaranaDana::where('sarana_id', 3)->where($w1)->where('is_approved', 1)->sum('unit_pengelola_ts') + 
+                                    SaranaDana::where('sarana_id', 4)->where($w1)->where('is_approved', 1)->sum('unit_pengelola_ts'), 
+            'ts_asesor'          => SaranaDana::where('sarana_id', 3)->where($w)->where('is_approved', 1)->sum('unit_pengelola_ts') + 
+                                    SaranaDana::where('sarana_id', 4)->where($w)->where('is_approved', 1)->sum('unit_pengelola_ts'), 
+            'average_asesor'     => SaranaDana::where('sarana_id', 3)->where($w)->where('is_approved', 1)->sum('unit_pengelola_average') + 
+                                    SaranaDana::where('sarana_id', 4)->where($w)->where('is_approved', 1)->sum('unit_pengelola_average'), 
+            'ps_ts2_asesor'      => SaranaDana::where('sarana_id', 3)->where($w2)->where('is_approved', 1)->sum('ps_ts') + 
+                                    SaranaDana::where('sarana_id', 4)->where($w2)->where('is_approved', 1)->sum('ps_ts'),  
+            'ps_ts1_asesor'      => SaranaDana::where('sarana_id', 3)->where($w1)->where('is_approved', 1)->sum('ps_ts') + 
+                                    SaranaDana::where('sarana_id', 4)->where($w1)->where('is_approved', 1)->sum('ps_ts'),  
+            'ps_ts_asesor'       => SaranaDana::where('sarana_id', 3)->where($w)->where('is_approved', 1)->sum('ps_ts') + 
+                                    SaranaDana::where('sarana_id', 4)->where($w)->where('is_approved', 1)->sum('ps_ts'),  
+            'ps_average_asesor'  => SaranaDana::where('sarana_id', 3)->where($w)->where('is_approved', 1)->sum('ps_average') + 
+                                    SaranaDana::where('sarana_id', 4)->where($w)->where('is_approved', 1)->sum('ps_average'),  
         ];
         $jumlah3 = [
             'ts2'         => SaranaDana::where('sarana_id', 5)->where($w2)->sum('unit_pengelola_ts') + 
@@ -420,6 +482,22 @@ class KeuanganSaranaPrasaranaController extends Controller
                              SaranaDana::where('sarana_id', 6)->where($w)->sum('ps_ts'),  
             'ps_average'  => SaranaDana::where('sarana_id', 5)->where($w)->sum('ps_average') + 
                              SaranaDana::where('sarana_id', 6)->where($w)->sum('ps_average'), 
+            'ts2_asesor'         => SaranaDana::where('sarana_id', 5)->where($w2)->where('is_approved', 1)->sum('unit_pengelola_ts') + 
+                                    SaranaDana::where('sarana_id', 6)->where($w2)->where('is_approved', 1)->sum('unit_pengelola_ts'),
+            'ts1_asesor'         => SaranaDana::where('sarana_id', 5)->where($w1)->where('is_approved', 1)->sum('unit_pengelola_ts') + 
+                                    SaranaDana::where('sarana_id', 6)->where($w1)->where('is_approved', 1)->sum('unit_pengelola_ts'), 
+            'ts_asesor'          => SaranaDana::where('sarana_id', 5)->where($w)->where('is_approved', 1)->sum('unit_pengelola_ts') + 
+                                    SaranaDana::where('sarana_id', 6)->where($w)->where('is_approved', 1)->sum('unit_pengelola_ts'), 
+            'average_asesor'     => SaranaDana::where('sarana_id', 5)->where($w)->where('is_approved', 1)->sum('unit_pengelola_average') + 
+                                    SaranaDana::where('sarana_id', 6)->where($w)->where('is_approved', 1)->sum('unit_pengelola_average'), 
+            'ps_ts2_asesor'      => SaranaDana::where('sarana_id', 5)->where($w2)->where('is_approved', 1)->sum('ps_ts') + 
+                                    SaranaDana::where('sarana_id', 6)->where($w2)->where('is_approved', 1)->sum('ps_ts'),  
+            'ps_ts1_asesor'      => SaranaDana::where('sarana_id', 5)->where($w1)->where('is_approved', 1)->sum('ps_ts') + 
+                                    SaranaDana::where('sarana_id', 6)->where($w1)->where('is_approved', 1)->sum('ps_ts'),  
+            'ps_ts_asesor'       => SaranaDana::where('sarana_id', 5)->where($w)->where('is_approved', 1)->sum('ps_ts') + 
+                                    SaranaDana::where('sarana_id', 6)->where($w)->where('is_approved', 1)->sum('ps_ts'),  
+            'ps_average_asesor'  => SaranaDana::where('sarana_id', 5)->where($w)->where('is_approved', 1)->sum('ps_average') + 
+                                    SaranaDana::where('sarana_id', 6)->where($w)->where('is_approved', 1)->sum('ps_average'), 
         ];
         $total = [
             'ts2'         => $jumlah1['ts2'] +  $jumlah2['ts2'] +  $jumlah3['ts2'],
@@ -430,6 +508,14 @@ class KeuanganSaranaPrasaranaController extends Controller
             'ps_ts1'      => $jumlah1['ps_ts1'] +  $jumlah2['ps_ts1'] +  $jumlah3['ps_ts1'],
             'ps_ts'       => $jumlah1['ps_ts'] +  $jumlah2['ps_ts'] +  $jumlah3['ps_ts'],
             'ps_average'  => $jumlah1['ps_average'] +  $jumlah2['ps_average'] +  $jumlah3['ps_average'],
+            'ts2_asesor'         => $jumlah1['ts2_asesor'] +  $jumlah2['ts2_asesor'] +  $jumlah3['ts2_asesor'],
+            'ts1_asesor'         => $jumlah1['ts1_asesor'] +  $jumlah2['ts1_asesor'] +  $jumlah3['ts1_asesor'],
+            'ts_asesor'          => $jumlah1['ts_asesor'] +  $jumlah2['ts_asesor'] +  $jumlah3['ts_asesor'],
+            'average_asesor'     => $jumlah1['average_asesor'] +  $jumlah2['average_asesor'] +  $jumlah3['average_asesor'],
+            'ps_ts2_asesor'      => $jumlah1['ps_ts2_asesor'] +  $jumlah2['ps_ts2_asesor'] +  $jumlah3['ps_ts2_asesor'],
+            'ps_ts1_asesor'      => $jumlah1['ps_ts1_asesor'] +  $jumlah2['ps_ts1_asesor'] +  $jumlah3['ps_ts1_asesor'],
+            'ps_ts_asesor'       => $jumlah1['ps_ts_asesor'] +  $jumlah2['ps_ts_asesor'] +  $jumlah3['ps_ts_asesor'],
+            'ps_average_asesor'  => $jumlah1['ps_average_asesor'] +  $jumlah2['ps_average_asesor'] +  $jumlah3['ps_average_asesor'],
         ];
         $dop = $jumlah1['average'] + $jumlah1['ps_average'];
         $dpd = SaranaDana::where($w)->where('sarana_id', 3)->sum('unit_pengelola_average', 'ps_average');
@@ -443,42 +529,72 @@ class KeuanganSaranaPrasaranaController extends Controller
             'ts' => $ts,
             'ts1' => $ts1,
             'ts2' => $ts2,
+            'ts_asesor' => $ts_asesor,
+            'ts1_asesor' => $ts1_asesor,
+            'ts2_asesor' => $ts2_asesor,
 
             'ts_sarana12' => $ts_sarana12,
             'ts1_sarana12' => $ts1_sarana12,
             'ts2_sarana12' => $ts2_sarana12,
+            'ts_sarana12_asesor' => $ts_sarana12_asesor,
+            'ts1_sarana12_asesor' => $ts1_sarana12_asesor,
+            'ts2_sarana12_asesor' => $ts2_sarana12_asesor,
 
             'ts_sarana13' => $ts_sarana13,
             'ts1_sarana13' => $ts1_sarana13,
             'ts2_sarana13' => $ts2_sarana13,
+            'ts_sarana13_asesor' => $ts_sarana13_asesor,
+            'ts1_sarana13_asesor' => $ts1_sarana13_asesor,
+            'ts2_sarana13_asesor' => $ts2_sarana13_asesor,
 
             'ts_sarana14' => $ts_sarana14,
             'ts1_sarana14' => $ts1_sarana14,
             'ts2_sarana14' => $ts2_sarana14,
+            'ts_sarana14_asesor' => $ts_sarana14_asesor,
+            'ts1_sarana14_asesor' => $ts1_sarana14_asesor,
+            'ts2_sarana14_asesor' => $ts2_sarana14_asesor,
             
             'ts_sarana2' => $ts_sarana2,
             'ts1_sarana2' => $ts1_sarana2,
             'ts2_sarana2' => $ts2_sarana2,
+            'ts_sarana2_asesor' => $ts_sarana2_asesor,
+            'ts1_sarana2_asesor' => $ts1_sarana2_asesor,
+            'ts2_sarana2_asesor' => $ts2_sarana2_asesor,
 
             'ts_sarana3' => $ts_sarana3,
             'ts1_sarana3' => $ts1_sarana3,
             'ts2_sarana3' => $ts2_sarana3,
+            'ts_sarana3_asesor' => $ts_sarana3_asesor,
+            'ts1_sarana3_asesor' => $ts1_sarana3_asesor,
+            'ts2_sarana3_asesor' => $ts2_sarana3_asesor,
 
             'ts_sarana4' => $ts_sarana4,
             'ts1_sarana4' => $ts1_sarana4,
             'ts2_sarana4' => $ts2_sarana4,
+            'ts_sarana4_asesor' => $ts_sarana4_asesor,
+            'ts1_sarana4_asesor' => $ts1_sarana4_asesor,
+            'ts2_sarana4_asesor' => $ts2_sarana4_asesor,
 
             'ts_sarana5' => $ts_sarana5,
             'ts1_sarana5' => $ts1_sarana5,
             'ts2_sarana5' => $ts2_sarana5,
+            'ts_sarana5_asesor' => $ts_sarana5_asesor,
+            'ts1_sarana5_asesor' => $ts1_sarana5_asesor,
+            'ts2_sarana5_asesor' => $ts2_sarana5_asesor,
 
             'ts_sarana6' => $ts_sarana6,
             'ts1_sarana6' => $ts1_sarana6,
             'ts2_sarana6' => $ts2_sarana6,
+            'ts_sarana6_asesor' => $ts_sarana6_asesor,
+            'ts1_sarana6_asesor' => $ts1_sarana6_asesor,
+            'ts2_sarana6_asesor' => $ts2_sarana6_asesor,
 
             'ts_sarana7' => $ts_sarana7,
             'ts1_sarana7' => $ts1_sarana7,
             'ts2_sarana7' => $ts2_sarana7,
+            'ts_sarana7_asesor' => $ts_sarana7_asesor,
+            'ts1_sarana7_asesor' => $ts1_sarana7_asesor,
+            'ts2_sarana7_asesor' => $ts2_sarana7_asesor,
         // End TS
             'jumlah1' => $jumlah1,
             'jumlah2' => $jumlah2,
@@ -493,7 +609,6 @@ class KeuanganSaranaPrasaranaController extends Controller
     public function update(Request $req, $year, $sarana, $code)
     {
 
-        dd($req);
         $unit_average = ($req->unit_pengelola_ts2 + $req->unit_pengelola_ts1 + $req->unit_pengelola_ts)/3;
         $ps_average = ($req->ps_ts2 + $req->ps_ts1 + $req->ps_ts)/3;
         $tahun = session('tahun_laporan');

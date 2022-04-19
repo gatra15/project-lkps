@@ -2,7 +2,7 @@
     <table id='form-print' class="table text-center table-bordered table-condensed">
         
 
-            @hasanyrole('perwakilan|dekan')
+
             <thead>
             
                 <tr>
@@ -12,11 +12,13 @@
                     <th class="align-middle" scope="col" rowspan="2">Nama Mahasiswa</th>
                     <th class="align-middle" scope="col" rowspan="2">Judul Kegiatan <sup>1)</sup></th>
                     <th class="align-middle" scope="col" rowspan="2">Tahun</th>
+                    @hasanyrole('perwakilan|dekan')            
                     <th class="align-middle" scope="col" rowspan="2">Opsi</th>
+                    @endhasanyrole 
                 </tr>
         
             </thead>
-            
+        @hasanyrole('perwakilan|dekan')
             <tbody>
                 @foreach ($penelitian as $penelitian)
                     <tr>
@@ -57,25 +59,12 @@
                 </tr>
           
             </tbody>
-            @endhasanyrole
+        @endhasanyrole
         
-            @hasrole('asesor')
-            <thead>
-            
-                <tr>
-                    <th class="align-middle" scope="col" rowspan="2">No</th>
-                    <th class="align-middle" scope="col" rowspan="2">Nama Dosen</th>
-                    <th class="align-middle" scope="col" rowspan="2">Tema Penelitian Sesuai Roadmap</th>
-                    <th class="align-middle" scope="col" rowspan="2">Nama Mahasiswa</th>
-                    <th class="align-middle" scope="col" rowspan="2">Judul Kegiatan <sup>1)</sup></th>
-                    <th class="align-middle" scope="col" rowspan="2">Tahun</th>
-                </tr>
-                
-                </thead>
-                
+            @hasrole('asesor')                
                 <tbody>
             
-                @foreach ($penelitian as $penelitian)
+                @foreach ($penelitian_asesor as $penelitian)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $penelitian->nama_dosen }}</td>

@@ -49,9 +49,11 @@ class CapaianPembelajaranController extends Controller
         ];
 
         $capaian = CapaianPembelajaran::where($where)->get();
+        $capaian_asesor = CapaianPembelajaran::where($where)->where('is_approved',1)->get();
         $ripk = CapaianPembelajaran::where($where)->sum('ipk_avg');
         return [
             'capaian' => $capaian,
+            'capaian_asesor' => $capaian_asesor,
             'ripk' => $ripk,
         ];
     }

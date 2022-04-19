@@ -120,10 +120,10 @@
                 @endforeach 
             <tr>
                 <td colspan="4" class="text-center"><b>Jumlah</b></td>
-                <td>{{ $countWilayah }}</td>
-                <td>{{ $countNasional }}</td>
-                <td>{{ $countInternasional }}</td>
-                <td>{{ $sumPengakuan }}</td>
+                <td>{{ $countWilayah_asesor }}</td>
+                <td>{{ $countNasional_asesor }}</td>
+                <td>{{ $countInternasional_asesor }}</td>
+                <td>{{ $sumPengakuan_asesor }}</td>
             </tr>
         </tbody>
     @endhasrole

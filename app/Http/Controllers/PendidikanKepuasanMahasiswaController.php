@@ -58,36 +58,61 @@ class PendidikanKepuasanMahasiswaController extends Controller
         $baik = PendidikanKepuasanMahasiswa::where($where)->sum('baik');
         $cukup = PendidikanKepuasanMahasiswa::where($where)->sum('cukup');
         $kurang = PendidikanKepuasanMahasiswa::where($where)->sum('kurang');
+        $kepuasan_asesor = PendidikanKepuasanMahasiswa::with('aspek')->where($where)->where('is_approved',1)->get();
+        $sangat_baik_asesor = PendidikanKepuasanMahasiswa::where($where)->where('is_approved',1)->sum('sangat_baik');
+        $baik_asesor = PendidikanKepuasanMahasiswa::where($where)->where('is_approved',1)->sum('baik');
+        $cukup_asesor = PendidikanKepuasanMahasiswa::where($where)->where('is_approved',1)->sum('cukup');
+        $kurang_asesor = PendidikanKepuasanMahasiswa::where($where)->where('is_approved',1)->sum('kurang');
 
         $tkm1 = [
             'a1' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 1)->sum('sangat_baik'),
             'b1' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 1)->sum('baik'),
             'c1' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 1)->sum('cukup'),
-            'd1' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 1)->sum('kurang')
+            'd1' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 1)->sum('kurang'),
+            'a1_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 1)->where('is_approved',1)->sum('sangat_baik'),
+            'b1_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 1)->where('is_approved',1)->sum('baik'),
+            'c1_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 1)->where('is_approved',1)->sum('cukup'),
+            'd1_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 1)->where('is_approved',1)->sum('kurang')
         ];
         $tkm2 = [
             'a2' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 2)->sum('sangat_baik'),
             'b2' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 2)->sum('baik'),
             'c2' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 2)->sum('cukup'),
-            'd2' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 2)->sum('kurang')
+            'd2' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 2)->sum('kurang'),
+            'a2_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 2)->where('is_approved',1)->sum('sangat_baik'),
+            'b2_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 2)->where('is_approved',1)->sum('baik'),
+            'c2_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 2)->where('is_approved',1)->sum('cukup'),
+            'd2_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 2)->where('is_approved',1)->sum('kurang')
         ];
         $tkm3 = [
             'a3' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 3)->sum('sangat_baik'),
             'b3' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 3)->sum('baik'),
             'c3' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 3)->sum('cukup'),
-            'd3' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 3)->sum('kurang')
+            'd3' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 3)->sum('kurang'),
+            'a3_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 3)->where('is_approved',1)->sum('sangat_baik'),
+            'b3_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 3)->where('is_approved',1)->sum('baik'),
+            'c3_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 3)->where('is_approved',1)->sum('cukup'),
+            'd3_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 3)->where('is_approved',1)->sum('kurang'),
         ];
         $tkm4 = [
             'a4' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 4)->sum('sangat_baik'),
             'b4' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 4)->sum('baik'),
             'c4' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 4)->sum('cukup'),
-            'd4' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 4)->sum('kurang')
+            'd4' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 4)->sum('kurang'),
+            'a4_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 4)->where('is_approved',1)->sum('sangat_baik'),
+            'b4_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 4)->where('is_approved',1)->sum('baik'),
+            'c4_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 4)->where('is_approved',1)->sum('cukup'),
+            'd4_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 4)->where('is_approved',1)->sum('kurang'),
         ];
         $tkm5 = [
             'a5' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 5)->sum('sangat_baik'),
             'b5' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 5)->sum('baik'),
             'c5' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 5)->sum('cukup'),
-            'd5' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 5)->sum('kurang')
+            'd5' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 5)->sum('kurang'),
+            'a5_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 5)->where('is_approved',1)->sum('sangat_baik'),
+            'b5_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 5)->where('is_approved',1)->sum('baik'),
+            'c5_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 5)->where('is_approved',1)->sum('cukup'),
+            'd5_asesor' => PendidikanKepuasanMahasiswa::where($where)->where('aspek_id', 5)->where('is_approved',1)->sum('kurang'),
         ];
         
 
@@ -97,6 +122,11 @@ class PendidikanKepuasanMahasiswaController extends Controller
             'baik' => $baik,
             'cukup' => $cukup,
             'kurang' => $kurang,
+            'kepuasan_asesor' => $kepuasan_asesor,
+            'sangat_baik_asesor' => $sangat_baik_asesor,
+            'baik_asesor' => $baik_asesor,
+            'cukup_asesor' => $cukup_asesor,
+            'kurang_asesor' => $kurang_asesor,
             'tkm1' => $tkm1,
             'tkm2' => $tkm2,
             'tkm3' => $tkm3,

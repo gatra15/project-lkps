@@ -1,8 +1,6 @@
 <div id="print-table2">
     <table class="table table-bordered table-condensed">
     
-
-    @hasanyrole('perwakilan|dekan')
     <thead>
     
     <tr>
@@ -10,8 +8,9 @@
         <th class="text-center align-middle" scope="col" rowspan="2">Aspek yang Diukur</th>
         <th class="text-center align-middle" scope="col" colspan="4">Tingkat Kepuasan Mahasiswa (%)</th>
         <th class="text-center align-middle" scope="col" rowspan="2">Rencana Tindak Lanjut oleh UPPS/PS</th>
+        @hasanyrole('perwakilan|dekan')            
         <th class="text-center align-middle" scope="col" rowspan="2">Opsi</th>
-
+        @endhasanyrole 
     </tr>
     
     <tr>
@@ -21,7 +20,7 @@
         <th class="text-center align-middle" scope="col">Kurang</th>
     </tr>
     </thead>
-    
+@hasanyrole('perwakilan|dekan')
     <tbody>
         @foreach ($kepuasanmahasiswa['kepuasan'] as $kepuasan)
             <tr>
@@ -70,29 +69,12 @@
         </tr>
   
     </tbody>
-    @endhasanyrole
+@endhasanyrole
 
-    @hasrole('asesor')
-    <thead>
-    
-        <tr>
-        <th class="text-center align-middle" scope="col" rowspan="2">No</th>
-        <th class="text-center align-middle" scope="col" rowspan="2">Aspek yang Diukur</th>
-        <th class="text-center align-middle" scope="col" colspan="4">Tingkat Kepuasan Mahasiswa (%)</th>
-        <th class="text-center align-middle" scope="col" rowspan="2">Rencana Tindak Lanjut oleh UPPS/PS</th>
-        </tr>
-        <tr>
-            <th class="text-center align-middle" scope="col">Sangat Baik</th>
-            <th class="text-center align-middle" scope="col">Baik</th>
-            <th class="text-center align-middle" scope="col">Cukup</th>
-            <th class="text-center align-middle" scope="col">Kurang</th>
-        </tr>
-        
-        </thead>
-        
+    @hasrole('asesor')       
         <tbody>
     
-        @foreach ($kepuasanmahasiswa['kepuasan'] as $kepuasan)
+        @foreach ($kepuasanmahasiswa['kepuasan_asesor'] as $kepuasan)
         <tr>
             <td>{{ $loop->iteration }}</td>
             <td>@php echo $kepuasan->aspek->aspek @endphp</td>
@@ -108,10 +90,10 @@
         <tr>
             <td class="align-middle text-center"><b>Jumlah</b></td>
             <td></td>
-            <td class="putih">{{ $kepuasanmahasiswa['sangat_baik'] }}</td>
-            <td class="putih">{{ $kepuasanmahasiswa['baik'] }}</td>
-            <td class="putih">{{ $kepuasanmahasiswa['cukup'] }}</td>
-            <td class="putih">{{ $kepuasanmahasiswa['kurang'] }}</td>
+            <td class="putih">{{ $kepuasanmahasiswa['sangat_baik_asesor'] }}</td>
+            <td class="putih">{{ $kepuasanmahasiswa['baik_asesor'] }}</td>
+            <td class="putih">{{ $kepuasanmahasiswa['cukup_asesor'] }}</td>
+            <td class="putih">{{ $kepuasanmahasiswa['kurang_asesor'] }}</td>
             <td></td>
 
 

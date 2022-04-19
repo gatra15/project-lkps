@@ -22,9 +22,11 @@ class PendidikanIntegrasiKegiatanPenelitianController extends Controller
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
         $integrasi = PendidikanIntegrasiKegiatanPenelitian::where($where)->get();
+        $integrasi_asesor = PendidikanIntegrasiKegiatanPenelitian::where($where)->where('is_approved',1)->get();
         $nmki = PendidikanIntegrasiKegiatanPenelitian::where($where)->count('mata_kuliah');
         return [
             'integrasi' => $integrasi,
+            'integrasi_asesor' => $integrasi_asesor,
             'nmki' => $nmki,
         ];
     }
