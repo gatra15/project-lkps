@@ -1,6 +1,7 @@
 <div id="print-table4">
     <table id='form-print' class="table text-center table-bordered table-condensed">
 
+
         @hasanyrole('perwakilan|dekan')
         <thead>
             <tr>

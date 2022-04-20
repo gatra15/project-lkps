@@ -1,5 +1,35 @@
 @include('layouts.table')
 <div class="tab-pane fade" id="dosbing-ta" role="tabpanel" aria-labelledby="dosbingTA-tab">
+
+    @include('layouts.alert')        
+    @hasrole('perwakilan')
+    @foreach ($dosenta['dosen'] as $key => $sdm)
+      @if ($sdm->alert == 'success')
+      <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+        element tabel ke - {{ $loop->iteration }} {{ $sdm->comment }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      @elseif ($sdm->alert == 'warning')
+      <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+        {{ $sdm->comment }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      @else
+      <div class="alert alert-secondary alert-fixed alert-dismissible fade show center-block"  role="alert">
+        element tabel ke - {{ $loop->iteration }} belum ada respon dari dekan.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endif
+        
+    @endforeach
+    @endhasrole
+
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#des2" role="button" aria-expanded="false" aria-controls="des2">
             Deskripsi

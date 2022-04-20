@@ -1,4 +1,34 @@
 <div class="tab-pane active" id="pkm" role="tabpanel">
+
+    @include('layouts.alert')        
+    @hasrole('perwakilan')
+    @foreach ($pengabdian as $pkm)
+      @if ($pkm->alert == 'success')
+      <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+        element tabel ke - {{ $loop->iteration }} {{ $pkm->comment }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      @elseif ($pkm->alert == 'warning')
+      <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+        {{ $pkm->comment }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      @else
+      <div class="alert alert-secondary alert-fixed alert-dismissible fade show center-block"  role="alert">
+        element tabel ke - {{ $loop->iteration }} belum ada respon dari dekan.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endif
+        
+    @endforeach
+    @endhasrole
+
                 <p class="d-flex justify-content-between">
                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Deskripsi

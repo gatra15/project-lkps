@@ -23,22 +23,30 @@
 @hasanyrole('perwakilan|dekan')
     <tbody class="text-dark">
          {{-- Sumberdaya 1 --}}
-          
-               
          @foreach ($penelitians['ts'] as $ts)
          <tr>
-         <td>1</td>
-         <td>
-             @php echo $ts->sumber->sumberdaya @endphp
-         </td>
-         @endforeach 
+        <td>1</td>   
+         
+        @foreach ($penelitians['ts'] as $index => $ts)
+        @if($index == 0)
+        <td>
+        @php echo $ts->sumber->sumberdaya @endphp
+        </td>
+        @endif
+        @endforeach
 
-         @foreach ($penelitians['ts2'] as $ts2)
+        
+
+         @foreach ($penelitians['ts2'] as $index => $ts2)
+         @if($index == 0)
          <td>{{ $ts2->jumlah_ts }}</td> 
+         @endif
          @endforeach
 
-         @foreach ($penelitians['ts1'] as $ts1)
+         @foreach ($penelitians['ts1'] as $index => $ts1)
+         @if($index == 0)
          <td>{{ $ts1->jumlah_ts }}</td> 
+         @endif
          @endforeach
 
          @foreach ($penelitians['ts'] as $ts)
@@ -47,11 +55,11 @@
              <td class="project-actions text-right ms-1 ps-1">
              <ul class="action-list d-flex justify-content-center " id="action">
                  @hasrole('perwakilan')
-                 <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
+
                      <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                      <li>
                          <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                 </ul></td>
+
                  @endhasrole
                  @hasrole('dekan')
                      <li>
@@ -64,8 +72,10 @@
          </ul>
          </td>
          
-         </tr>
+         
          @endforeach 
+         @endforeach
+            </tr>
 
      {{-- Sumberdaya 2 --}}
      @foreach ($penelitians['ts_sumber2'] as $ts)
@@ -90,11 +100,9 @@
              <td class="project-actions text-right ms-1 ps-1">
              <ul class="action-list d-flex justify-content-center " id="action">
                  @hasrole('perwakilan')
-                 <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
                      <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                      <li>
                          <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                 </ul></td>
                  @endhasrole
                  @hasrole('dekan')
                      <li>
@@ -133,11 +141,9 @@
              <td class="project-actions text-right ms-1 ps-1">
              <ul class="action-list d-flex justify-content-center " id="action">
                  @hasrole('perwakilan')
-                 <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
                      <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modaldosenpenelitianedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                      <li>
                          <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpenelitiandelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                 </ul></td>
                  @endhasrole
                  @hasrole('dekan')
                      <li>

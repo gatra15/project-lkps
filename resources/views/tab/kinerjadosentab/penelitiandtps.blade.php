@@ -1,7 +1,33 @@
-{{-- 
-    MANUSIA TS - INI MAKHLUK TS ! INI ALIEN TS !! NOMER E MASUK NING DATA TABEL NGGARAI NGELU TOK 
---}}
-    <div class="tab-pane fade" id="penelitian" role="tabpanel" aria-labelledby="penelitian-tab">
+  <div class="tab-pane fade" id="penelitian" role="tabpanel" aria-labelledby="penelitian-tab">
+
+    @include('layouts.alert')        
+    @hasrole('perwakilan')
+    @foreach ($penelitians['ts'] as $ts)
+      @if ($ts->alert == 'success')
+      <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+        element tabel ke - {{ $loop->iteration }} {{ $ts->comment }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      @elseif ($ts->alert == 'warning')
+      <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+        {{ $ts->comment }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      @else
+      <div class="alert alert-secondary alert-fixed alert-dismissible fade show center-block"  role="alert">
+        element tabel ke - {{ $loop->iteration }} belum ada respon dari dekan.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endif
+        
+    @endforeach
+    @endhasrole
         <p class="d-flex justify-content-between">
             <a class="btn btn-primary" data-toggle="collapse" href="#des2" role="button" aria-expanded="false" aria-controls="des2">
                 Deskripsi

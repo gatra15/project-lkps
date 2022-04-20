@@ -1,4 +1,31 @@
 <div class="tab-pane fade show" id="prestasi" role="tabpanel" aria-labelledby="prestasi-tab">
+
+    @include('layouts.alert')        
+    @hasrole('perwakilan')
+    @foreach ($prestasi['prestasi'] as $prest)
+      @if ($prest->alert == 'success')
+      <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+        element tabel ke - {{ $loop->iteration }} {{ $prest->comment }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      @elseif ($prest->alert == 'warning')
+      <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+        {{ $prest->comment }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      @else
+      <div class="alert alert-secondary alert-fixed alert-dismissible fade show center-block"  role="alert">
+        element tabel ke - {{ $loop->iteration }} belum ada respon dari dekan.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endif
+      
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#des2" role="button" aria-expanded="false" aria-controls="des2">
             Deskripsi

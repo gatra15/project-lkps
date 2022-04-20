@@ -1,8 +1,35 @@
 <!-- Main content -->
 <div class="tab-pane fade show {{ auth()->user()->roles->pluck('name')[0] == 'perwakilan' ? '' : 'active' }}" id="identitasisi" role="tablist" aria-labelledby="identitasisi-tab">
           {{-- MODAL LIHAT DATA --}}
-          
-          
+@include('layouts.alert')        
+          @hasrole('perwakilan')
+          @foreach ($identitas as $identity)
+            @if ($identity->alert == 'success')
+            <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+              {{ $identity->comment }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            @elseif ($identity->alert == 'warning')
+            <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+              {{ $identity->comment }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            @else
+            <div class="alert alert-secondary alert-fixed alert-dismissible fade show center-block"  role="alert">
+                belum ada respon dari dekan.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            @endif
+              
+          @endforeach
+          @endhasrole 
+
       <div class="card-body p-0">
         <table class="table table-bordered text-center align-middle table-condensed">
             <thead>
