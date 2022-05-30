@@ -134,6 +134,7 @@ class LembarEvaluasiDiriController extends Controller
         $data = LembarEvaluasiDiri::find($id);
         $data->is_approved = true;
         $data->comment = 'Data Lembar Evaluasi Diri telah disetujui.';
+        $data->alert = 'success';
         $data->updated_at = Carbon::now();
         $data->updated_by = auth()->user()->name;
         $data->update();
@@ -144,7 +145,8 @@ class LembarEvaluasiDiriController extends Controller
     {
         $data = LembarEvaluasiDiri::find($id);
         $data->is_approved = false;
-        $data->comment = $req->comment;
+        $data->comment = $req->alasan;
+        $data->alert = 'warning';
         $data->updated_at = Carbon::now();
         $data->updated_by = auth()->user()->name;
         $data->update();

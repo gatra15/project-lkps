@@ -715,25 +715,70 @@ class KeuanganSaranaPrasaranaController extends Controller
         return Excel::download(new SaranaDanaExport, 'sarana-dana.csv');
     }
 
-    public function approve($id)
+    public function approve($year, $sarana, $code)
     {
-        $data = SaranaDana::find($id);
-        $data->is_approved = true;
-        $data->comment = 'Data Keuangan Sarana Prasarana telah disetujui.';
-        $data->updated_at = Carbon::now();
-        $data->updated_by = auth()->user()->name;
-        $data->update();
+         // TS-2
+         SaranaDana::where('tahun_laporan', $year - 2)->where('sarana_id', $sarana)->where('code', $code)
+         ->update([
+             'is_approved' => true,
+             'comment' => 'Keuangan Sarana Prasarana telah disetujui.',
+             'alert' => 'success',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
+ 
+         // TS-1
+         SaranaDana::where('tahun_laporan', $year -1)->where('sarana_id', $sarana)->where('code', $code)
+         ->update([
+             'is_approved' => true,
+             'comment' => 'Keuangan Sarana Prasarana telah disetujui.',
+             'alert' => 'success',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
+ 
+         // TS-1
+         SaranaDana::where('tahun_laporan', $year)->where('sarana_id', $sarana)->where('code', $code)
+         ->update([
+             'is_approved' => true,
+             'comment' => 'Keuangan Sarana Prasarana telah disetujui.',
+             'alert' => 'success',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
         return back()->with('success', 'Data Keuangan Sarana Prasarana berhasil disetujui.');
     }
 
-    public function tolak(Request $req, $id)
+    public function tolak(Request $req, $year, $sarana, $code)
     {
-        $data = SaranaDana::find($id);
-        $data->is_approved = false;
-        $data->comment = $req->comment;
-        $data->updated_at = Carbon::now();
-        $data->updated_by = auth()->user()->name;
-        $data->update();
+        SaranaDana::where('tahun_laporan', $year - 2)->where('sarana_id', $sarana)->where('code', $code)
+         ->update([
+             'is_approved' => false,
+             'comment' => $req->alasan,
+             'alert' => 'warning',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
+ 
+         // TS-1
+         SaranaDana::where('tahun_laporan', $year -1)->where('sarana_id', $sarana)->where('code', $code)
+         ->update([
+             'is_approved' => false,
+             'comment' => $req->alasan,
+             'alert' => 'warning',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
+ 
+         // TS-1
+         SaranaDana::where('tahun_laporan', $year)->where('sarana_id', $sarana)->where('code', $code)
+         ->update([
+             'is_approved' => false,
+             'comment' => $req->alasan,
+             'alert' => 'warning',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
         return back()->with('success', 'Data Keuangan Sarana Prasarana berhasil ditolak.');
     }
 }

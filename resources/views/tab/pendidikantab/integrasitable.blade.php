@@ -17,8 +17,8 @@
     </thead>
 @hasanyrole('perwakilan|dekan')
     <tbody>
-
-    @foreach ($integrasi['integrasi'] as $integrasi)
+        @foreach ($integrasis['integrasi'] as $integrasi)
+            
         <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $integrasi->judul }}</td>
@@ -28,12 +28,11 @@
             
                     <td class="project-actions text-right ms-1 ps-1">
                     <ul class="action-list d-flex justify-content-center " id="action">
-                            @hasrole('perwakilan')
-                            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
-                                <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalintegrasiedit-{{ $integrasi->id }}"><i class="fas fa-edit"></i></a></li>
+                            @hasrole('perwakilan')   
+                                <li>
+                                    <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalintegrasiedit-{{ $integrasi->id }}"><i class="fas fa-edit"></i></a></li>                  
                                 <li>
                                     <a type="button" class="btn btn-danger" href="/pendidikan/integrasi/{{ $integrasi->id }}" data-toggle="modal" data-target="#modalintegrasidelete-{{ $integrasi->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                            </ul></td>
                             @endhasrole
                             @hasrole('dekan')
                                 <li>
@@ -45,22 +44,22 @@
                             @endhasrole
                     </ul>
                     </td>
-            
+        
         </tr>
-    @endforeach
+        @endforeach
     </tbody>
 @endhasanyrole
 
     @hasrole('asesor')       
         <tbody>
     
-        @foreach ($integrasi['integrasi_asesor'] as $integrasi)
+        @foreach ($integrasis['integrasi_asesor'] as $integrasis)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $integrasi->judul }}</td>
-                <td>{{ $integrasi->nama_dosen }}</td>
-                <td>{{ $integrasi->mata_kuliah }}</td>
-                <td>{{ $integrasi->bentuk_integrasi }}</td>
+                <td>{{ $integrasis->judul }}</td>
+                <td>{{ $integrasis->nama_dosen }}</td>
+                <td>{{ $integrasis->mata_kuliah }}</td>
+                <td>{{ $integrasis->bentuk_integrasi }}</td>
                 
             </tr>
         @endforeach

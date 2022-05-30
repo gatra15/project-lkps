@@ -25,18 +25,18 @@ class SdmEkuivalenWaktuMengajarPenuhDosenTetapController extends Controller
         $dosen = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where)->get();
         $dosen_asesor = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where)->where('is_approved', 1)->get();
 
-        $where1 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'dtps' => 0];
+        $where1 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'dtps' => 0 || 1];
         $where2 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'dtps' => 1];
         // dt
-        $dt = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->count();
-        $average_dt_jumlah = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->avg('sks');
-        $average_dt_jumlah_asesor = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->where('is_approved',1)->avg('sks');
-        $count = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->count('sks');
-        $sum = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->sum('sks');
-        $average_dt_average = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->avg('average_per_sks');
-        $average_dt_average_asesor = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->where('is_approved',1)->avg('average_per_sks');
-        $count2 = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->count('average_per_sks');
-        $sum2 = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->orWhere('dtps', 1)->sum('average_per_sks');
+        $dt = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->count();
+        $average_dt_jumlah = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->avg('sks');
+        $average_dt_jumlah_asesor = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->where('is_approved',1)->avg('sks');
+        $count = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->count('sks');
+        $sum = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->sum('sks');
+        $average_dt_average = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->avg('average_per_sks');
+        $average_dt_average_asesor = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->where('is_approved',1)->avg('average_per_sks');
+        $count2 = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->count('average_per_sks');
+        $sum2 = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where1)->sum('average_per_sks');
 
         // dtps
         $dtps = SdmEkuivalenWaktuMengajarPenuhDosenTetap::where($where2)->count();

@@ -1235,6 +1235,7 @@ class SimulasiPenilaianController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request);
+        $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
         $tahun = session('tahun_laporan');
         $request->validate([
             'point_1' => 'required' ,
@@ -1523,7 +1524,7 @@ class SimulasiPenilaianController extends Controller
    
 
         $data->tahun_laporan = $tahun;
-        $data->prodi = auth()->user()->prodi->name;
+        $data->prodi = $prodi;
         $data->updated_by = auth()->user()->name;
         $data->updated_at = Carbon::now();
         $data->update();

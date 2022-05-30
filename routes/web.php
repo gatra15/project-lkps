@@ -15,7 +15,7 @@ use App\Models\PublikasiIlmiahMahasiswa;
 use App\Models\SdmDosenIndustriPraktisi;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LuaranController;
-use App\Http\Controllers\ApprovalController;
+use App\Http\Controllers\approveController;
 use App\Http\Controllers\SimulasiController;
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\PenelitianController;
@@ -247,9 +247,7 @@ Route::group(['middleware' => 'auth:web'], function() {
         // End Luaran
 
         // Simulasi
-        Route::post('/simulasi', [SimulasiPenilaianController::class, 'store']);
-        Route::put('/simulasi/{id}', [SimulasiPenilaianController::class, 'update']);
-        Route::delete('/simulasi/{id}', [SimulasiPenilaianController::class, 'destroy']);
+
         // End Simulasi
 
     });
@@ -351,25 +349,22 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::put('/kinerja-dosen/karya-ilmiah/approve/{id}', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'approve']);
         Route::put('/kinerja-dosen/karya-ilmiah/tolak/{id}', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'tolak']);
         
-        Route::get('/kinerja-dosen/penelitian-dtps', [SdmKinerjaDosenPenelitianDtpsController::class, 'index']);
-        Route::put('/kinerja-dosen/penelitian-dtps/approve/{id}', [SdmKinerjaDosenPenelitianDtpsController::class, 'approve']);
-        Route::put('/kinerja-dosen/penelitian-dtps/tolak/{id}', [SdmKinerjaDosenPenelitianDtpsController::class, 'tolak']);
-        
-        Route::get('/kinerja-dosen/pkm-dtps', [SdmKinerjaDosenPkmDtpsController::class, 'index']);
-        Route::put('/kinerja-dosen/penelitian-dtps/approval/{year}/{sumber}', [SdmKinerjaDosenPenelitianDtpsController::class, 'approval']);
+        Route::get('/kinerja-dosen/penelitian-dtps', [SdmKinerjaDosenPenelitianDtpsController::class, 'index']);        
+        Route::put('/kinerja-dosen/penelitian-dtps/approve/{year}/{sumber}', [SdmKinerjaDosenPenelitianDtpsController::class, 'approve']);
         Route::put('/kinerja-dosen/penelitian-dtps/tolak/{year}/{sumber}', [SdmKinerjaDosenPenelitianDtpsController::class, 'tolak']);
         Route::get('kinerja-dosen/penelitian-dtps/download/excel', [SdmKinerjaDosenPenelitianDtpsController::class, 'exportToExcel']);
         Route::get('kinerja-dosen/penelitian-dtps/download/csv', [SdmKinerjaDosenPenelitianDtpsController::class, 'exportToCSV']);
         Route::get('kinerja-dosen/penelitian-dtps/download/pdf', [SdmKinerjaDosenPenelitianDtpsController::class, 'generate']);
         
         Route::get('/kinerja-dosen/publikasi-dtps', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'index']);
-        Route::put('/kinerja-dosen/publikasi-dtps/approval/{year}/{media}', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'approval']);
+        Route::put('/kinerja-dosen/publikasi-dtps/approve/{year}/{media}', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'approve']);
         Route::put('/kinerja-dosen/publikasi-dtps/tolak/{year}/{media}', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'tolak']);
         Route::get('kinerja-dosen/publikasi-ilmiah/download/excel', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'exportToExcel']);
         Route::get('kinerja-dosen/publikasi-ilmiah/download/csv', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'exportToCSV']);
         Route::get('kinerja-dosen/publikasi-ilmiah/download/pdf', [SdmKinerjaDosenPublikasiIlmiahDtpsController::class, 'generate']);
 
-        Route::put('/kinerja-dosen/pkm-dtps/approval/{year}/{sumber}', [SdmKinerjaDosenPkmDtpsController::class, 'approval']);
+        Route::get('/kinerja-dosen/pkm-dtps', [SdmKinerjaDosenPkmDtpsController::class, 'index']);
+        Route::put('/kinerja-dosen/pkm-dtps/approve/{year}/{sumber}', [SdmKinerjaDosenPkmDtpsController::class, 'approve']);
         Route::put('/kinerja-dosen/pkm-dtps/tolak/{year}/{sumber}', [SdmKinerjaDosenPkmDtpsController::class, 'tolak']);
         Route::get('kinerja-dosen/pkm-dtps/download/excel', [SdmKinerjaDosenPkmDtpsController::class, 'exportToExcel']);
         Route::get('kinerja-dosen/pkm-dtps/download/csv', [SdmKinerjaDosenPkmDtpsController::class, 'exportToCSV']);
@@ -379,7 +374,7 @@ Route::group(['middleware' => 'auth:web'], function() {
         Route::get('kinerja-dosen/karya-ilmiah/download/csv', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'exportToCSV']);
         Route::get('kinerja-dosen/karya-ilmiah/download/pdf', [SdmKinerjaDosenKaryaIlmiahDtpsController::class, 'generate']);
 
-        Route::put('/kinerja-dosen/luaran-dtps/approval/{id}', [SdmKinerjaDosenLuaranPkmDtpsController::class, 'approval']);
+        Route::put('/kinerja-dosen/luaran-dtps/approve/{id}', [SdmKinerjaDosenLuaranPkmDtpsController::class, 'approve']);
         Route::put('/kinerja-dosen/luaran-dtps/tolak/{id}', [SdmKinerjaDosenLuaranPkmDtpsController::class, 'tolak']);
         Route::get('kinerja-dosen/luaran/download/excel', [SdmKinerjaDosenLuaranPkmDtpsController::class, 'exportToExcel']);
         Route::get('kinerja-dosen/luaran/download/csv', [SdmKinerjaDosenLuaranPkmDtpsController::class, 'exportToCSV']);
@@ -490,6 +485,9 @@ Route::group(['middleware' => 'auth:web'], function() {
 
         // Simulasi
         Route::get('/simulasi', [SimulasiPenilaianController::class, 'index']);
+        Route::post('/simulasi', [SimulasiPenilaianController::class, 'store']);
+        Route::put('/simulasi/{id}', [SimulasiPenilaianController::class, 'update']);
+        Route::delete('/simulasi/{id}', [SimulasiPenilaianController::class, 'destroy']);
         Route::get('simulasi/download/excel', [SimulasiPenilaianController::class, 'exportToExcel']);
         Route::get('simulasi/download/csv', [SimulasiPenilaianController::class, 'exportToCSV']);
         // End Simulasi

@@ -57,13 +57,15 @@ class MahasiswaAsingController extends Controller
         
         $mahasiswa  = DB::select(DB::raw("
         
-        SELECT A.id as id, A.is_approved as is_approved, A.mahasiswa_aktif_ts, B.mahasiswa_aktif_ts AS mahasiswa_aktif_ts1, C.mahasiswa_aktif_ts AS mahasiswa_aktif_ts2,
+        SELECT A.id as id, A.alert as alert, A.comment as comment, A.is_approved as is_approved, A.mahasiswa_aktif_ts, B.mahasiswa_aktif_ts AS mahasiswa_aktif_ts1, C.mahasiswa_aktif_ts AS mahasiswa_aktif_ts2,
         A.mahasiswa_asing_pt_ts, B.mahasiswa_asing_pt_ts AS mahasiswa_asing_pt_ts1, C.mahasiswa_asing_pt_ts AS mahasiswa_asing_pt_ts2,
         A.mahasiswa_asing_ft_ts, B.mahasiswa_asing_ft_ts AS mahasiswa_asing_ft_ts1, C.mahasiswa_asing_ft_ts AS mahasiswa_asing_ft_ts2
          FROM (
         
         SELECT
         sum(ma.id) AS id,
+        ma.alert AS alert,
+        ma.comment AS comment,
         sum(ma.is_approved) AS is_approved,
         sum(ma.program_studi) AS program_studi,
         sum(ma.mahasiswa_aktif_ts) AS mahasiswa_aktif_ts,
@@ -72,10 +74,12 @@ class MahasiswaAsingController extends Controller
          FROM mahasiswa_asings ma WHERE tahun_laporan = $a
          
         GROUP BY 
-        ma.program_studi) AS A LEFT JOIN (
+        ma.program_studi, ma.alert, ma.comment) AS A LEFT JOIN (
         
         SELECT 
         sum(ma_1.id) AS id,
+        sum(ma_1.alert) AS alert,
+        sum(ma_1.comment) AS comment,
         sum(ma_1.is_approved) AS is_approved,
         sum(ma_1.program_studi) AS program_studi,
         sum(ma_1.mahasiswa_aktif_ts) AS mahasiswa_aktif_ts,
@@ -88,6 +92,8 @@ class MahasiswaAsingController extends Controller
         
         SELECT 
         sum(ma_2.id) AS id,
+        sum(ma_2.alert) AS alert,
+        sum(ma_2.comment) AS comment,
         sum(ma_2.is_approved) AS is_approved,
         sum(ma_2.program_studi) AS program_studi,
         sum(ma_2.mahasiswa_aktif_ts) AS mahasiswa_aktif_ts,
@@ -96,7 +102,7 @@ class MahasiswaAsingController extends Controller
         FROM mahasiswa_asings ma_2 WHERE tahun_laporan = $c
          
         GROUP BY 
-        ma_2.program_studi) AS C ON A.program_studi = C.program_studi;
+        ma_2.program_studi) AS C ON A.program_studi = C.program_studi
         
         "));
 

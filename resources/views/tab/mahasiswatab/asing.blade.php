@@ -4,16 +4,16 @@
     @hasrole('perwakilan')
     @foreach ($mahasiswa_asing['mahasiswa'] as $key => $mhs)
 
-      @if ($mhs->alert == 'success')
+      @if ($mhs['alert'] == 'success')
       <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
-        element tabel ke - {{ $loop->iteration }} {{ $mhs->comment }}
+        element tabel ke - {{ $loop->iteration }} {{ $mhs['comment'] }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      @elseif ($mhs->alert == 'warning')
+      @elseif ($mhs['alert'] == 'warning')
       <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
-        {{ $mhs->comment }}
+        {{ $mhs['comment'] }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

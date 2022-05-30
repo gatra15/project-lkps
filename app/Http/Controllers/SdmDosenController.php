@@ -19,12 +19,12 @@ class SdmDosenController extends Controller
         $prodi = session()->has('prodi') ? session('prodi') : auth()->user()->prodi->name;
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
         
-        $where1 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'kesesuaian_ps' => 0];
+        $where1 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'kesesuaian_ps' => 0 || 1];
         $where2 = ['tahun_laporan' => $tahun, 'prodi' => $prodi, 'kesesuaian_ps' => 1];
         $dosen = SdmDosen::where($where)->get();
         $dosen_asesor = SdmDosen::where($where)->where('is_approved', 1)->get();
-        $ndt = SdmDosen::where($where1)->orWhere('kesesuaian_ps', 1)->count();
-        $ndt_asesor = SdmDosen::where($where1)->orWhere('kesesuaian_ps', 1)->where('is_approved',1)->count();
+        $ndt = SdmDosen::where($where1)->count();
+        $ndt_asesor = SdmDosen::where($where1)->where('is_approved',1)->count();
         $ndtps = SdmDosen::where($where2)->count();
         $ndtps_asesor = SdmDosen::where($where2)->where('is_approved',1)->count();
         $nds3 = SdmDosen::where($where)->count('pendidikan_pasca_sarjana_doktor');

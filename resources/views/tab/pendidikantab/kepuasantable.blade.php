@@ -36,11 +36,11 @@
                     <td class="project-actions text-right ms-1 ps-1">
                     <ul class="action-list d-flex justify-content-center " id="action">
                             @hasrole('perwakilan')
-                            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                         
                                 <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalkepuasanedit-{{ $kepuasan->id }}"><i class="fas fa-edit"></i></a></li>
                                 <li>
                                     <a type="button" class="btn btn-danger" href="/pendidikan/kepuasan-mahasiswa/{{ $kepuasan->id }}" data-toggle="modal" data-target="#modalkepuasandelete-{{ $kepuasan->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                            </ul></td>
+
                             @endhasrole
                             @hasrole('dekan')
                                 <li>

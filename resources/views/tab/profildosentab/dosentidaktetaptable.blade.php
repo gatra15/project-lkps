@@ -67,7 +67,7 @@
          </tbody>
     @endhasanyrole
 
-    @hasrole('perwakilan|dekan')
+    @hasrole('asesor')
         <tbody class="text-dark text-center align-middle">
              {{-- Coding Tabel Disini --}}
              <tr>

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\SdmKinerjaDosenPkmDtps;
 use App\Exports\KinerjaDosenPkmDtpsExport;
+use App\Models\SdmKinerjaDosenLuaranPkmDtps;
 
 class SdmKinerjaDosenPkmDtpsController extends Controller
 {
@@ -354,25 +355,70 @@ class SdmKinerjaDosenPkmDtpsController extends Controller
         return Excel::download(new KinerjaDosenPkmDtpsExport, 'kinerja-dosen-pkm-dtps.csv');
     }
 
-    public function approve($id)
+    public function approve($year, $sumber)
     {
-        $data = SdmKinerjaDosenPkmDtps::find($id);
-        $data->is_approved = true;
-        $data->comment = 'Data Kinerja Dosen PKM Dtps telah disetujui.';
-        $data->updated_at = Carbon::now();
-        $data->updated_by = auth()->user()->name;
-        $data->update();
+        // TS-2
+        SdmKinerjaDosenPkmDtps::where('tahun_laporan', $year-2)->where('sumber_id', $sumber)
+        ->update([
+            'is_approved' => true,
+            'comment' => 'Data Kinerja Dosen Publikasi Ilmiah Dtps telah disetujui.',
+            'alert' => 'success',
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
+        ]);
+
+        // TS-1
+        SdmKinerjaDosenPkmDtps::where('tahun_laporan', $year-1)->where('sumber_id', $sumber)
+        ->update([
+            'is_approved' => true,
+            'comment' => 'Data Kinerja Dosen Publikasi Ilmiah Dtps telah disetujui.',
+            'alert' => 'success',
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
+        ]);
+
+        // TS-1
+        SdmKinerjaDosenPkmDtps::where('tahun_laporan', $year)->where('sumber_id', $sumber)
+        ->update([
+            'is_approved' => true,
+            'comment' => 'Data Kinerja Dosen Publikasi Ilmiah Dtps telah disetujui.',
+            'alert' => 'success',
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
+        ]);
         return back()->with('success', 'Data Kinerja Dosen PKM Dtps berhasil disetujui.');
     }
 
-    public function tolak(Request $req, $id)
+    public function tolak(Request $req, $year, $sumber)
     {
-        $data = SdmKinerjaDosenPkmDtps::find($id);
-        $data->is_approved = false;
-        $data->comment = $req->comment;
-        $data->updated_at = Carbon::now();
-        $data->updated_by = auth()->user()->name;
-        $data->update();
+        SdmKinerjaDosenLuaranPkmDtps::where('tahun_laporan', $year-2)->where('sumber_id', $sumber)
+         ->update([
+             'is_approved' => false,
+             'comment' => $req->alasan,
+             'alert' => 'warning',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
+ 
+         // TS-1
+         SdmKinerjaDosenLuaranPkmDtps::where('tahun_laporan', $year-1)->where('sumber_id', $sumber)
+         ->update([
+             'is_approved' => false,
+             'comment' => $req->alasan,
+             'alert' => 'warning',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
+ 
+         // TS-1
+         SdmKinerjaDosenLuaranPkmDtps::where('tahun_laporan', $year)->where('sumber_id', $sumber)
+         ->update([
+             'is_approved' => false,
+             'comment' => $req->alasan,
+             'alert' => 'warning',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
         return back()->with('success', 'Data Kinerja Dosen PKM Dtps berhasil ditolak.');
     }
 }

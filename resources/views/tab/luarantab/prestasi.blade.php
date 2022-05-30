@@ -25,6 +25,8 @@
           </button>
         </div>
       @endif
+      @endforeach
+      @endhasrole
       
     <p class="d-flex justify-content-between">
         <a class="btn btn-primary" data-toggle="collapse" href="#des2" role="button" aria-expanded="false" aria-controls="des2">

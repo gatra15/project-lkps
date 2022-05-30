@@ -311,25 +311,70 @@ class SdmDosenPembimbingTaController extends Controller
         return Excel::download(new DosenPembimbingTAExport, 'dosen-pembimbing-ta.csv');
     }
 
-    public function approve($id)
+    public function approve($year)
     {
-        $data = SdmDosenPembimbingTa::find($id);
-        $data->is_approved = true;
-        $data->comment = 'Data Dosen Pembimbing Utama TA telah disetujui.';
-        $data->updated_at = Carbon::now();
-        $data->updated_by = auth()->user()->name;
-        $data->update();
+        // TS-2
+        SdmDosenPembimbingTa::where('tahun_laporan', $year-2)
+        ->update([
+            'is_approved' => true,
+            'comment' => 'Data Sdm Dosen Pembimbing TA telah disetujui.',
+            'alert' => 'success',
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
+        ]);
+
+        // TS-1
+        SdmDosenPembimbingTa::where('tahun_laporan', $year-1)
+        ->update([
+            'is_approved' => true,
+            'comment' => 'Data Sdm Dosen Pembimbing TA telah disetujui.',
+            'alert' => 'success',
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
+        ]);
+
+        // TS-1
+        SdmDosenPembimbingTa::where('tahun_laporan', $year)
+        ->update([
+            'is_approved' => true,
+            'comment' => 'Data Sdm Dosen Pembimbing TA telah disetujui.',
+            'alert' => 'success',
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
+        ]);
         return back()->with('success', 'Data Sdm Dosen Pembimbing TA berhasil disetujui.');
     }
 
-    public function tolak(Request $req, $id)
+    public function tolak(Request $req, $year)
     {
-        $data = SdmDosenPembimbingTa::find($id);
-        $data->is_approved = false;
-        $data->comment = $req->comment;
-        $data->updated_at = Carbon::now();
-        $data->updated_by = auth()->user()->name;
-        $data->update();
+        SdmDosenPembimbingTa::where('tahun_laporan', $year-2)
+         ->update([
+             'is_approved' => false,
+             'comment' => $req->alasan,
+             'alert' => 'warning',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
+ 
+         // TS-1
+         SdmDosenPembimbingTa::where('tahun_laporan', $year-1)
+         ->update([
+             'is_approved' => false,
+             'comment' => $req->alasan,
+             'alert' => 'warning',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
+ 
+         // TS-1
+         SdmDosenPembimbingTa::where('tahun_laporan', $year)
+         ->update([
+             'is_approved' => false,
+             'comment' => $req->alasan,
+             'alert' => 'warning',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
         return back()->with('success', 'Data Sdm Dosen Pembimbing TA berhasil ditolak.');
     }
 }

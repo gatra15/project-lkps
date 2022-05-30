@@ -3,7 +3,7 @@
 
     @include('layouts.alert')        
     @hasrole('perwakilan')
-    @foreach ($integrasi['integrasi'] as $integrasi)
+    @foreach ($integrasis['integrasi'] as $integrasi)
 
       @if ($integrasi->alert == 'success')
       <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
@@ -83,7 +83,7 @@
             @include('tab.pendidikantab.integrasitable')
             {{-- TABLE AKHIR --}}
 
-            @foreach($integrasi['integrasi'] as $integrasi)
+            @foreach($integrasis['integrasi'] as $integrasi)
           <!-- Modal Tambah Edit Integritas -->
           <div class="modal fade" id="modalintegrasiedit-{{ $integrasi->id }}" tabindex="-1" aria-labelledby="modalintegrasiedit" aria-hidden="true">
             <div class="modal-dialog modal-lg">

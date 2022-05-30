@@ -2,7 +2,7 @@
 
     @include('layouts.alert')        
     @hasrole('perwakilan')
-    @foreach ($penelitian as $penelitian)
+    @foreach ($penelitians as $penelitian)
       @if ($penelitian->alert == 'success')
       <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
         element tabel ke - {{ $loop->iteration }} {{ $penelitian->comment }}
@@ -80,7 +80,7 @@
         @include('tab.penelitiantab.penelitiantable')
         {{-- End Table --}}
 
-        @foreach($penelitian as $penelitian)
+        @foreach($penelitians as $penelitian)
       <!-- Modal Tambah Edit Penelitian -->
       <div class="modal fade" id="modalpenelitiandtpsedit-{{ $penelitian->id }}" tabindex="-1" aria-labelledby="modalpenelitiandtpsedit" aria-hidden="true">
         <div class="modal-dialog modal-lg">

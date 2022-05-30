@@ -7,7 +7,7 @@
 
 <label > Alasan </label>
 <div class="form">
-    <textarea class="form-control" placeholder="" id="floatingTextarea2" name="alasan" style="height: 700px" >  </textarea>
+    <textarea class="form-control" name="alasan" style="height: 700px" ></textarea>
 </div>
 
 <div class="modal-footer">

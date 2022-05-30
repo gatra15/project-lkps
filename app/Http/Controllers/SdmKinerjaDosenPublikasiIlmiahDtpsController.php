@@ -359,6 +359,10 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
         $jumlah_ts1 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where1)->sum('jumlah_ts');
         $jumlah_ts = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->sum('jumlah_ts');
         $jumlah = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->sum('jumlah');
+        $jumlah_ts2_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::where($where2)->where('is_approved', 1)->sum('jumlah_ts');
+        $jumlah_ts1_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::where($where1)->where('is_approved', 1)->sum('jumlah_ts');
+        $jumlah_ts_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->where('is_approved', 1)->sum('jumlah_ts');
+        $jumlah_asesor = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->where('is_approved', 1)->sum('jumlah');
 
         $na1 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->where('media_id', 1)->sum('jumlah');
         $na2 = SdmKinerjaDosenPublikasiIlmiahDtps::where($where)->where('media_id', 2)->sum('jumlah');
@@ -377,46 +381,80 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
             'ts' => $ts,
             'ts1' => $ts1,
             'ts2' => $ts2,
+            'ts_asesor' => $ts_asesor,
+            'ts1_asesor' => $ts1_asesor,
+            'ts2_asesor' => $ts2_asesor,
             'ts_media2' => $ts_media2,
             'ts1_media2' => $ts1_media2,
             'ts2_media2' => $ts2_media2,
+            'ts_media2_asesor' => $ts_media2_asesor,
+            'ts1_media2_asesor' => $ts1_media2_asesor,
+            'ts2_media2_asesor' => $ts2_media2_asesor,
 
             'ts_media3' => $ts_media3,
             'ts1_media3' => $ts1_media3,
             'ts2_media3' => $ts2_media3,
+            'ts_media3_asesor' => $ts_media3_asesor,
+            'ts1_media3_asesor' => $ts1_media3_asesor,
+            'ts2_media3_asesor' => $ts2_media3_asesor,
 
             'ts_media4' => $ts_media4,
             'ts1_media4' => $ts1_media4,
             'ts2_media4' => $ts2_media4,
+            'ts_media4_asesor' => $ts_media4_asesor,
+            'ts1_media4_asesor' => $ts1_media4_asesor,
+            'ts2_media4_asesor' => $ts2_media4_asesor,
 
             'ts_media5' => $ts_media5,
             'ts1_media5' => $ts1_media5,
             'ts2_media5' => $ts2_media5,
+            'ts_media5_asesor' => $ts_media5_asesor,
+            'ts1_media5_asesor' => $ts1_media5_asesor,
+            'ts2_media5_asesor' => $ts2_media5_asesor,
 
             'ts_media6' => $ts_media6,
             'ts1_media6' => $ts1_media6,
             'ts2_media6' => $ts2_media6,
+            'ts_media6_asesor' => $ts_media6_asesor,
+            'ts1_media6_asesor' => $ts1_media6_asesor,
+            'ts2_media6_asesor' => $ts2_media6_asesor,
 
             'ts_media7' => $ts_media7,
             'ts1_media7' => $ts1_media7,
             'ts2_media7' => $ts2_media7,
+            'ts_media7_asesor' => $ts_media7_asesor,
+            'ts1_media7_asesor' => $ts1_media7_asesor,
+            'ts2_media7_asesor' => $ts2_media7_asesor,
 
             'ts_media8' => $ts_media8,
             'ts1_media8' => $ts1_media8,
             'ts2_media8' => $ts2_media8,
+            'ts_media8_asesor' => $ts_media8_asesor,
+            'ts1_media8_asesor' => $ts1_media8_asesor,
+            'ts2_media8_asesor' => $ts2_media8_asesor,
 
             'ts_media9' => $ts_media9,
             'ts1_media9' => $ts1_media9,
             'ts2_media9' => $ts2_media9,
+            'ts_media9_asesor' => $ts_media9_asesor,
+            'ts1_media9_asesor' => $ts1_media9_asesor,
+            'ts2_media9_asesor' => $ts2_media9_asesor,
 
             'ts_media10' => $ts_media10,
             'ts1_media10' => $ts1_media10,
             'ts2_media10' => $ts2_media10,
+            'ts_media10_asesor' => $ts_media10_asesor,
+            'ts1_media10_asesor' => $ts1_media10_asesor,
+            'ts2_media10_asesor' => $ts2_media10_asesor,
         // End TS
             'jumlah_ts2' => $jumlah_ts2,
             'jumlah_ts1' => $jumlah_ts1,
             'jumlah_ts' => $jumlah_ts,
             'jumlah' => $jumlah,
+            'jumlah_ts2_asesor' => $jumlah_ts2_asesor,
+            'jumlah_ts1_asesor' => $jumlah_ts1_asesor,
+            'jumlah_ts_asesor' => $jumlah_ts_asesor,
+            'jumlah_asesor' => $jumlah_asesor,
             'na1' => $na1,
             'na2' => $na2,
             'na3' => $na3,
@@ -600,25 +638,70 @@ class SdmKinerjaDosenPublikasiIlmiahDtpsController extends Controller
         return Excel::download(new KinerjaDosenPublikasiExport, 'kinerja-dosen-publikasi-ilmiah-dtps.csv');
     }
 
-    public function approve($id)
+    public function approve($year, $sumber)
     {
-        $data = SdmKinerjaDosenPublikasiIlmiahDtps::find($id);
-        $data->is_approved = true;
-        $data->comment = 'Data Kinerja Dosen Publikasi Ilmiah Dtps telah disetujui.';
-        $data->updated_at = Carbon::now();
-        $data->updated_by = auth()->user()->name;
-        $data->update();
+        // TS-2
+        SdmKinerjaDosenPublikasiIlmiahDtps::where('tahun_laporan', $year-2)->where('sumber_id', $sumber)
+        ->update([
+            'is_approved' => true,
+            'comment' => 'Data Kinerja Dosen Publikasi Ilmiah Dtps telah disetujui.',
+            'alert' => 'success',
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
+        ]);
+
+        // TS-1
+        SdmKinerjaDosenPublikasiIlmiahDtps::where('tahun_laporan', $year-1)->where('sumber_id', $sumber)
+        ->update([
+            'is_approved' => true,
+            'comment' => 'Data Kinerja Dosen Publikasi Ilmiah Dtps telah disetujui.',
+            'alert' => 'success',
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
+        ]);
+
+        // TS-1
+        SdmKinerjaDosenPublikasiIlmiahDtps::where('tahun_laporan', $year)->where('sumber_id', $sumber)
+        ->update([
+            'is_approved' => true,
+            'comment' => 'Data Kinerja Dosen Publikasi Ilmiah Dtps telah disetujui.',
+            'alert' => 'success',
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
+        ]);
         return back()->with('success', 'Data Kinerja Dosen Publikasi Ilmiah Dtps berhasil disetujui.');
     }
 
-    public function tolak(Request $req, $id)
+    public function tolak(Request $req, $year, $sumber)
     {
-        $data = SdmKinerjaDosenPublikasiIlmiahDtps::find($id);
-        $data->is_approved = false;
-        $data->comment = $req->comment;
-        $data->updated_at = Carbon::now();
-        $data->updated_by = auth()->user()->name;
-        $data->update();
+        SdmKinerjaDosenPublikasiIlmiahDtps::where('tahun_laporan', $year-2)->where('sumber_id', $sumber)
+         ->update([
+             'is_approved' => false,
+             'comment' => $req->alasan,
+             'alert' => 'warning',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
+ 
+         // TS-1
+         SdmKinerjaDosenPublikasiIlmiahDtps::where('tahun_laporan', $year-1)->where('sumber_id', $sumber)
+         ->update([
+             'is_approved' => false,
+             'comment' => $req->alasan,
+             'alert' => 'warning',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
+ 
+         // TS-1
+         SdmKinerjaDosenPublikasiIlmiahDtps::where('tahun_laporan', $year)->where('sumber_id', $sumber)
+         ->update([
+             'is_approved' => false,
+             'comment' => $req->alasan,
+             'alert' => 'warning',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
         return back()->with('success', 'Data Kinerja Dosen Publikasi Ilmiah Dtps berhasil ditolak.');
     }
 }

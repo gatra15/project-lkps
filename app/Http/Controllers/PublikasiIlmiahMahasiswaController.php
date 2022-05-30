@@ -619,25 +619,69 @@ class PublikasiIlmiahMahasiswaController extends Controller
         return Excel::download(new PublikasiIlmiahExport, 'publikasi-ilmiah-mahasiswa.csv');
     }
 
-    public function approve($id)
+    public function approve($year, $media)
     {
-        $data = PublikasiIlmiahMahasiswa::find($id);
-        $data->is_approved = true;
-        $data->comment = 'Data Luaran Publikasi Ilmiah Mahasiswa telah disetujui.';
-        $data->updated_at = Carbon::now();
-        $data->updated_by = auth()->user()->name;
-        $data->update();
+        PublikasiIlmiahMahasiswa::where('tahun_laporan', $year-2)->where('media_id', $media)
+        ->update([
+            'is_approved' => true,
+            'comment' => 'Data Luaran Publikasi Ilmiah Mahasiswa telah disetujui.',
+            'alert' => 'success',
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
+        ]);
+
+        // TS-1
+        PublikasiIlmiahMahasiswa::where('tahun_laporan', $year-1)->where('media_id', $media)
+        ->update([
+            'is_approved' => true,
+            'comment' => 'Data Luaran Publikasi Ilmiah Mahasiswa telah disetujui.',
+            'alert' => 'success',
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
+        ]);
+
+        // TS-1
+        PublikasiIlmiahMahasiswa::where('tahun_laporan', $year)->where('media_id', $media)
+        ->update([
+            'is_approved' => true,
+            'comment' => 'Data Luaran Publikasi Ilmiah Mahasiswa telah disetujui.',
+            'alert' => 'success',
+            'updated_by' => auth()->user()->name,
+            'updated_at' => Carbon::now(),
+        ]);
         return back()->with('success', 'Data Luaran Publikasi Ilmiah Mahasiswa berhasil disetujui.');
     }
 
-    public function tolak(Request $req, $id)
+    public function tolak(Request $req, $year, $media)
     {
-        $data = PublikasiIlmiahMahasiswa::find($id);
-        $data->is_approved = false;
-        $data->comment = $req->comment;
-        $data->updated_at = Carbon::now();
-        $data->updated_by = auth()->user()->name;
-        $data->update();
+        PublikasiIlmiahMahasiswa::where('tahun_laporan', $year-2)->where('media_id', $media)
+         ->update([
+             'is_approved' => false,
+             'comment' => $req->alasan,
+             'alert' => 'warning',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
+ 
+         // TS-1
+         PublikasiIlmiahMahasiswa::where('tahun_laporan', $year-1)->where('media_id', $media)
+         ->update([
+             'is_approved' => false,
+             'comment' => $req->alasan,
+             'alert' => 'warning',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
+ 
+         // TS-1
+         PublikasiIlmiahMahasiswa::where('tahun_laporan', $year)->where('media_id', $media)
+         ->update([
+             'is_approved' => false,
+             'comment' => $req->alasan,
+             'alert' => 'warning',
+             'updated_by' => auth()->user()->name,
+             'updated_at' => Carbon::now(),
+         ]);
         return back()->with('success', 'Data Luaran Publikasi Ilmiah Mahasiswa berhasil ditolak.');
     }
 }

@@ -25,12 +25,18 @@ class SdmKinerjaDosenKaryaIlmiahDtpsController extends Controller
         $where = ['tahun_laporan' => $tahun, 'prodi' => $prodi];
 
         $karyailmiah = SdmKinerjaDosenKaryaIlmiahDtps::where($where)->get();
+        $karyailmiah_asesor = SdmKinerjaDosenKaryaIlmiahDtps::where($where)->where('is_approved',1)->get();
         $jumlah = SdmKinerjaDosenKaryaIlmiahDtps::where($where)->sum('jumlah_sitasi');
         $count = SdmKinerjaDosenKaryaIlmiahDtps::where($where)->count('judul');
+        $jumlah_asesor = SdmKinerjaDosenKaryaIlmiahDtps::where($where)->where('is_approved',1)->sum('jumlah_sitasi');
+        $count_asesor = SdmKinerjaDosenKaryaIlmiahDtps::where($where)->where('is_approved',1)->count('judul');
         return [
             'karyailmiah' => $karyailmiah,
+            'karyailmiah_asesor' => $karyailmiah_asesor,
             'jumlah' => $jumlah,
             'count' => $count,
+            'jumlah_asesor' => $jumlah_asesor,
+            'count_asesor' => $count_asesor,
         ];
     }
 

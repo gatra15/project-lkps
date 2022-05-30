@@ -40,6 +40,8 @@
                             
                         </p>
                         @can('download file')
+                            <a href="/simulasi/download/excel" class="btn btn-success">Excel</a>
+                            <a href="/simulasi/download/csv" class="btn btn-success">CSV</a>
                             <input type="button" class="btn btn-primary" onclick="printDiv('print-table')" value="Print Document" />
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#caradownload">
                                 Cara Download PDF

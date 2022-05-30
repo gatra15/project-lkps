@@ -44,11 +44,9 @@
             <td class="project-actions text-right ms-1 ps-1">
             <ul class="action-list d-flex justify-content-center " id="action">
                 @hasrole('perwakilan')
-                <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
                     <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpublikasiedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                     <li>
                         <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpublikasidelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                </ul></td>
                 @endhasrole
                 @hasrole('dekan')
                     <li>
@@ -85,11 +83,9 @@
             <td class="project-actions text-right ms-1 ps-1">
                 <ul class="action-list d-flex justify-content-center " id="action">
                     @hasrole('perwakilan')
-                    <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
                         <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpublikasiedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
                             <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpublikasidelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
                     @endhasrole
                     @hasrole('dekan')
                         <li>
@@ -126,11 +122,9 @@
             <td class="project-actions text-right ms-1 ps-1">
                 <ul class="action-list d-flex justify-content-center " id="action">
                     @hasrole('perwakilan')
-                    <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
                         <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpublikasiedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
                             <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpublikasidelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
                     @endhasrole
                     @hasrole('dekan')
                         <li>
@@ -167,11 +161,9 @@
             <td class="project-actions text-right ms-1 ps-1">
                 <ul class="action-list d-flex justify-content-center " id="action">
                     @hasrole('perwakilan')
-                    <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
                         <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpublikasiedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
                             <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpublikasidelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
                     @endhasrole
                     @hasrole('dekan')
                         <li>
@@ -208,11 +200,9 @@
             <td class="project-actions text-right ms-1 ps-1">
                 <ul class="action-list d-flex justify-content-center " id="action">
                     @hasrole('perwakilan')
-                    <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
                         <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpublikasiedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
                             <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpublikasidelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
                     @endhasrole
                     @hasrole('dekan')
                         <li>
@@ -249,11 +239,9 @@
             <td class="project-actions text-right ms-1 ps-1">
                 <ul class="action-list d-flex justify-content-center " id="action">
                     @hasrole('perwakilan')
-                    <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
                         <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpublikasiedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
                             <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpublikasidelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
                     @endhasrole
                     @hasrole('dekan')
                         <li>
@@ -290,11 +278,9 @@
             <td class="project-actions text-right ms-1 ps-1">
                 <ul class="action-list d-flex justify-content-center " id="action">
                     @hasrole('perwakilan')
-                    <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
                         <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpublikasiedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
                             <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpublikasidelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
                     @endhasrole
                     @hasrole('dekan')
                         <li>
@@ -331,11 +317,9 @@
             <td class="project-actions text-right ms-1 ps-1">
                 <ul class="action-list d-flex justify-content-center " id="action">
                     @hasrole('perwakilan')
-                    <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
                         <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpublikasiedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
                             <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpublikasidelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
                     @endhasrole
                     @hasrole('dekan')
                         <li>
@@ -372,11 +356,9 @@
             <td class="project-actions text-right ms-1 ps-1">
                 <ul class="action-list d-flex justify-content-center " id="action">
                     @hasrole('perwakilan')
-                    <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
                         <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpublikasiedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
                             <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpublikasidelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
                     @endhasrole
                     @hasrole('dekan')
                         <li>
@@ -413,11 +395,9 @@
             <td class="project-actions text-right ms-1 ps-1">
                 <ul class="action-list d-flex justify-content-center " id="action">
                     @hasrole('perwakilan')
-                    <td style="align-middle text-center"><ul class="action-list d-flex justify-content-center mr-1 align-middle" id="action">
                         <li><a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#modalpublikasiedit-{{ $ts->id }}"><i class="fas fa-edit"></i></a></li>
                         <li>
                             <a type="button" class="btn btn-danger" href="/kinerja-dosen/penelitian-dtps/{{ $ts->id }}" data-toggle="modal" data-target="#modalpublikasidelete-{{ $ts->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                    </ul></td>
                     @endhasrole
                     @hasrole('dekan')
                         <li>
@@ -445,7 +425,7 @@
     </tbody>
 @endhasanyrole  
 
-    @hasrole('dekan')
+    @hasrole('asesor')
         
         <tbody>
             @foreach ($publikasi['ts_asesor'] as $ts)

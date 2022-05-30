@@ -52,7 +52,7 @@ div.shadow-sm {
         </button>
       </div>
       @elseif ($data->alert == 'warning')
-      <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+      <div class="alert alert-danger alert-fixed alert-dismissible fade show center-block"  role="alert">
         {{ $data->comment }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>

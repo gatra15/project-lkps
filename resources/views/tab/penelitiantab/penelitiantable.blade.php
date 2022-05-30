@@ -20,7 +20,7 @@
             </thead>
         @hasanyrole('perwakilan|dekan')
             <tbody>
-                @foreach ($penelitian as $penelitian)
+                @foreach ($penelitians as $penelitian)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $penelitian->nama_dosen }}</td>
@@ -33,11 +33,11 @@
                         <td class="project-actions text-right ms-1 ps-1">
                         <ul class="action-list d-flex justify-content-center " id="action">
                             @hasrole ('perwakilan')
-                            <td><ul class="action-list d-flex justify-content-center mr-1" id="action">
+                           
                                 <li><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalpenelitiandtpsedit-{{ $penelitian->id }}"><i class="fas fa-edit"></i></a></li>
                                 <li>
                                     <a type="button" class="btn btn-danger" href="/penelitian/{{ $penelitian->id }}" data-toggle="modal" data-target="#modalpenelitiandtpsdelete-{{ $penelitian->id }}"><i class="fas fa-trash btn-del"></i></a></li>
-                            </ul></td>
+                           
                             @endhasrole
                             @hasrole('dekan')
                                 <li>

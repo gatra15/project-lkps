@@ -4,28 +4,28 @@
     @include('layouts.alert')        
     @hasrole('perwakilan')
     @foreach ($timpenyusun['tim'] as $tim)
-      @if ($tim->alert == 'success')
-      <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
+        @if ($tim->alert == 'success')
+        <div class="alert alert-success alert-fixed alert-dismissible fade show center-block"  role="alert">
         {{ $tim->comment }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      @elseif ($tim->alert == 'warning')
-      <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
-        {{ $tim->comment }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      @else
-      <div class="alert alert-secondary alert-fixed alert-dismissible fade show center-block"  role="alert">
-          belum ada respon dari dekan.
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-          </button>
+        </button>
         </div>
-      @endif
+        @elseif ($tim->alert == 'warning')
+        <div class="alert alert-danger alert-fixed-tolak alert-dismissible fade show center-block"  role="alert">
+        {{ $tim->comment }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        @else
+        <div class="alert alert-secondary alert-fixed alert-dismissible fade show center-block"  role="alert">
+            belum ada respon dari dekan.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
         
     @endforeach
     @endhasrole 

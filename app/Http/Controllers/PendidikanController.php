@@ -22,13 +22,13 @@ class PendidikanController extends Controller
 
         $kurikulum = (new PendidikanKurikulumController)->index();
         // ddd($kurikulum);
-        $integrasi = (new PendidikanIntegrasiKegiatanPenelitianController)->index();
+        $integrasis = (new PendidikanIntegrasiKegiatanPenelitianController)->index();
         $kepuasanmahasiswa = (new PendidikanKepuasanMahasiswaController)->index();
         $aspek = Aspek::all();
         return view('tab.pendidikan', [
             'title' => 'Pendidikan',
             'kurikulum' => $kurikulum,
-            'integrasi' => $integrasi,
+            'integrasis' => $integrasis,
             'kepuasanmahasiswa' => $kepuasanmahasiswa,
             'aspek' => $aspek,
         ]);
